@@ -3,13 +3,13 @@
   "id": "SBO-PZ",
   "n": "Savez Bošnjačkih Opština Zapadnog Podriña",
   "com": "Bosniak",
-  "host": "PZ-28"
+  "host": "PZ-29"
  },
  {
   "id": "SBO-RS",
   "n": "Savez Bošnjačkih Opština Raške-Sanxaka",
   "com": "Bosniak",
-  "host": "RS-30"
+  "host": "RS-31"
  },
  {
   "id": "SSO-DA",
@@ -27,13 +27,13 @@
   "id": "SSO-SL",
   "n": "Savez Srpskih Opština Slavonije",
   "com": "Serb",
-  "host": "SL-32"
+  "host": "SL-33"
  },
  {
   "id": "SSO-ZA",
   "n": "Savez Srpskih Opština Zagorja",
   "com": "Serb",
-  "host": "ZA-43"
+  "host": "ZA-46"
  },
  {
   "id": "SSO-CG",
@@ -57,7 +57,7 @@
   "id": "TBB-RO",
   "n": "Rodopi Türk Belediyeler Birliği",
   "com": "Turkish",
-  "host": "RO-29"
+  "host": "RO-30"
  },
  {
   "id": "TBB-CM",
@@ -81,19 +81,19 @@
   "id": "TBB-VZ",
   "n": "Batı Vardar Türk Belediyeler Birliği",
   "com": "Turkish",
-  "host": "VZ-42"
+  "host": "VZ-45"
  },
  {
   "id": "UKSVL",
   "n": "Unioni i Komunave Shqiptare të Vardarit Lindor",
   "com": "Albanian",
-  "host": "VI-41"
+  "host": "VI-44"
  },
  {
   "id": "BKSVP",
   "n": "Bashkimi i Komunave Shqiptare të Vardarit Perëndimor",
   "com": "Albanian",
-  "host": "VZ-42"
+  "host": "VZ-45"
  },
  {
   "id": "SO-CG",
@@ -105,7 +105,7 @@
   "id": "PiB",
   "n": "Preševo i Bujanovac",
   "com": "Albanian",
-  "host": "TL-39"
+  "host": "TL-41"
  },
  {
   "id": "MK-BC",
@@ -129,7 +129,7 @@
   "id": "BAO",
   "n": "Bãlgarski Avtonomni Opštini",
   "com": "Bulgarian",
-  "host": "TL-39"
+  "host": "TL-41"
  },
  {
   "id": "SO-BA",
@@ -141,12 +141,12 @@
   "id": "SO-PZ",
   "n": "Samostalna Opština Srebrenica",
   "com": "Special",
-  "host": "PZ-28"
+  "host": "PZ-29"
  },
  {
   "id": "SO-PR",
   "n": "Samostalna Opština Gorna Xumaja",
   "com": "Special",
-  "host": "PR-27"
+  "host": "PR-28"
  }
 ]

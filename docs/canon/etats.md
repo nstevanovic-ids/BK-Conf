@@ -21,8 +21,8 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | DJ-10 | Južna Dobruxa | Bulgarians | Dobrič |
 | DR-11 | Dubrovačka Republika | Croats | Dubrovnik |
 | GV-12 | Vzhodna Goriška | Slovenes | Nova Gorica |
-| HZ-13 | Zapadna Hercegovina | Croats | Široki Brijeg |
-| HI-14 | Istočna Hercegovina | Serbs | Trebiñe |
+| HI-13 | Istočna Hercegovina | Serbs | Trebiñe |
+| HZ-14 | Zapadna Hercegovina | Croats | Široki Brijeg |
 | IS-15 | Istra | Croats | Pula |
 | KJ-16 | Južna Koroška | Slovenes | Slovenj Gradec |
 | KM-17 | Kosovo i Metohija | Serbs | Priština |
@@ -30,34 +30,31 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | KV-19 | Kvarner | Croats | Rijeka |
 | LG-20 | Ludogorje | Bulgarians | Razgrad |
 | LK-21 | Lika | Croats | Gospić |
-| MI-22 | Istočna Mizija | Bulgarians | Ruse |
-| MZ-23 | Zapadna Mizija | Bulgarians | Pleven |
-| PI-24 | Istočno Podriñe | Serbs | Višegrad |
-| PM-25 | Prekmurje | Slovenes | Murska Sobota |
-| PO-26 | Podunavļe | Serbs | Smederevo |
-| PR-27 | Pirin | Bulgarians | Blagoevgrad |
-| PZ-28 | Zapadno Podriñe | Serbs | Bijeljina |
-| RO-29 | Rodopi | Bulgarians | Plovdiv |
-| RS-30 | Raška Sanxak | Serbs | Novi Pazar |
-| SI-31 | Istočni Srěm | Serbs | Srěmska Mitrovica |
-| SL-32 | Slavonija | Croats | Osijek |
-| SP-33 | Šopluk | Bulgarians | Pernik |
-| ST-34 | Štajerska | Slovenes | Maribor |
-| SU-35 | Šumadija | Serbs | Kragujevac |
-| SX-36 | Stranxa | Bulgarians | Sliven |
-| SZ-37 | Zapadni Srěm | Croats | Vukovar |
-| TK-38 | Timok | Serbs | Zaječar |
-| TL-39 | Torlak | Serbs | Pirot |
-| TR-40 | Sěverna Trakija | Bulgarians | Stara Zagora |
-| VI-41 | Istočen Vardar | Macedonians | Štip |
-| VZ-42 | Zapaden Vardar | Macedonians | Tetovo |
-| ZA-43 | Zagorje | Croats | Krapina |
-| LV | Lašva | Bosniaks | Vitez |
-| SO | Soli | Bosniaks | Tuzla |
-| VB | Vrhbosna | Bosniaks | Ilijaš |
-
-> LV / SO / VB : codes provisoires (ajout 2026-06-28). Numérotation alphabétique
-> définitive et insertion à leur rang restent à appliquer (ADR dédié).
+| LV-22 | Lašva | Bosniaks | Vitez |
+| MI-23 | Istočna Mizija | Bulgarians | Ruse |
+| MZ-24 | Zapadna Mizija | Bulgarians | Pleven |
+| PI-25 | Istočno Podriñe | Serbs | Višegrad |
+| PM-26 | Prekmurje | Slovenes | Murska Sobota |
+| PO-27 | Podunavļe | Serbs | Smederevo |
+| PR-28 | Pirin | Bulgarians | Blagoevgrad |
+| PZ-29 | Zapadno Podriñe | Serbs | Bijeljina |
+| RO-30 | Rodopi | Bulgarians | Plovdiv |
+| RS-31 | Raška Sanxak | Serbs | Novi Pazar |
+| SI-32 | Istočni Srěm | Serbs | Srěmska Mitrovica |
+| SL-33 | Slavonija | Croats | Osijek |
+| SO-34 | Soli | Bosniaks | Tuzla |
+| SP-35 | Šopluk | Bulgarians | Pernik |
+| ST-36 | Štajerska | Slovenes | Maribor |
+| SU-37 | Šumadija | Serbs | Kragujevac |
+| SX-38 | Stranxa | Bulgarians | Sliven |
+| SZ-39 | Zapadni Srěm | Croats | Vukovar |
+| TK-40 | Timok | Serbs | Zaječar |
+| TL-41 | Torlak | Serbs | Pirot |
+| TR-42 | Sěverna Trakija | Bulgarians | Stara Zagora |
+| VB-43 | Vrhbosna | Bosniaks | Ilijaš |
+| VI-44 | Istočen Vardar | Macedonians | Štip |
+| VZ-45 | Zapaden Vardar | Macedonians | Tetovo |
+| ZA-46 | Zagorje | Croats | Krapina |
 
 ## Villes-États fédérales (4)
 
@@ -86,5 +83,10 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 - Mizija scindée : `MI-22` Istočna Mizija + `MZ-23` Zapadna Mizija
 - Nouveau : `SX-36` Stranxa
 
+- Renumérotation alphabétique stricte appliquée le 2026-06-28 : insertion de
+  LV-22 Lašva, SO-34 Soli, VB-43 Vrhbosna ; HI/HZ remis dans l'ordre
+  (HI-13 avant HZ-14) ; cascade des codes ≥ L. Cf. ADR
+  docs/decisions/2026-06-28-renumerotation-alphabetique.md.
+
 > L'Article 1 bis de la Constitution référence encore « 45 États » — à amender
-> en « 47 États » lors du passage en v3.
+> en « 50 États » lors du passage en v3.

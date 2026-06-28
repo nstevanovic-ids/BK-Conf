@@ -19,8 +19,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 
 ## Composition (source : docs/canon/etats.md)
 - **50 États** : 46 territoriaux + 4 villes-États + 2 municipalités fédérales
-  (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes provisoires
-  LV/SO/VB en attente de renumérotation alphabétique)
+  (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
+  alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošnjaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofia (défense + sciences)
@@ -45,7 +45,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
-- Cartes GADM → scripts/gen_map.py
+- Cartes GADM → scripts/gen_geo.py (contours d'États + fond de carte → geo.json)
 
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)
@@ -71,7 +71,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Proportionnalité démographique : ratio État/peuple surveillé (HHI ≈ 0.034)
 
 ## Ne pas faire
-- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-13)
+- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-14)
 - Ne pas confondre identité « Balkan » et identité linguistique « sud-slave »
 - Ne pas proposer d'étoile rouge à 5 branches
 - Ne pas appliquer l'écriture inclusive
