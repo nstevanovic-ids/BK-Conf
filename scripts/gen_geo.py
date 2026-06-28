@@ -148,29 +148,44 @@ def main():
     et = json.loads((DATA / "etats.json").read_text())
     by_k = {s["k"]: s for s in et}
 
+    def dissolve(fp):
+        fc = json.loads(fp.read_text())
+        geoms = [shape(f["geometry"]).buffer(0)
+                 for f in fc["features"] if f.get("geometry")]
+        return unary_union(geoms).simplify(0.008, preserve_topology=True)
+
+    # Occupied territories: hatched overlays tied to their parent state.
+    OCCUPIED = {
+        "KJ-16_Occupied-territories.geojson": "KJ-16",
+        "KM-17_Occupied-territories.geojson": "KM-17",
+        "Occupied_Beneska-Slovenija_GO-12.geojson": "GV-12",
+    }
+
     states = []
     for fp in sorted(DATA.glob("*.geojson")):
         m = re.match(r"^([A-Z]{2})-\d+\.geojson$", fp.name)
         if not m or m.group(1) not in by_k:
             continue  # skip autonomous / occupied / special-zone files
         st = by_k[m.group(1)]
-        fc = json.loads(fp.read_text())
-        geoms = [shape(f["geometry"]).buffer(0)
-                 for f in fc["features"] if f.get("geometry")]
-        merged = unary_union(geoms).simplify(0.008, preserve_topology=True)
         states.append({"c": st["c"], "k": st["k"], "p": st["p"],
-                       "d": geom_path(merged)})
+                       "d": geom_path(dissolve(fp))})
+
+    occupied = []
+    for fname, parent in OCCUPIED.items():
+        fp = DATA / fname
+        if fp.exists():
+            occupied.append({"parent": parent, "d": geom_path(dissolve(fp))})
 
     pts = {c: [round(proj(lon, lat)[0], 1), round(proj(lon, lat)[1], 1)]
            for c, (lon, lat) in SEATS.items()}
 
-    out = {"w": round(W, 1), "h": round(H, 1),
-           "land": context_land(), "states": states, "pts": pts}
+    out = {"w": round(W, 1), "h": round(H, 1), "land": context_land(),
+           "states": states, "occupied": occupied, "pts": pts}
     (DATA / "geo.json").write_text(
         json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     kb = (DATA / "geo.json").stat().st_size / 1024
-    print(f"geo.json: {len(states)} states, {len(out['land'])} context "
-          f"countries, {kb:.1f} kB")
+    print(f"geo.json: {len(states)} states, {len(occupied)} occupied, "
+          f"{len(out['land'])} context countries, {kb:.1f} kB")
 
 
 if __name__ == "__main__":

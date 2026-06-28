@@ -495,6 +495,9 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 [data-theme="dark"] .sreg{stroke:#0b0f17;stroke-width:.4}
 .tile:hover .sreg,.tile:focus .sreg{fill-opacity:1;stroke:var(--ink);stroke-width:1.1}
 .fedmk .mk{fill:#3a4663}
+.occ{fill:url(#occhatch);stroke:var(--red);stroke-width:.7;stroke-dasharray:2 2;
+  pointer-events:none}
+.occln{stroke:var(--red);stroke-width:1.5;opacity:.75}
 .tile .mk{stroke:#fff;stroke-width:1.5}
 [data-theme="dark"] .tile .mk{stroke:#0b0f17}
 .tile .mk.dash{stroke-dasharray:3 2.2}
@@ -1087,6 +1090,7 @@ function vMap(){
     <div class="legend" style="margin-top:16px">
       ${Object.values(PEUPLES).map(p=>`<span><i style="background:${p.hex}"></i>${p.en}</span>`).join('')}
       <span><i style="background:#3a4663"></i>Federal territories</span>
+      <span><i style="background:repeating-linear-gradient(45deg,var(--red) 0 1.5px,transparent 1.5px 4px)"></i>Occupied territories</span>
       <span style="color:var(--ink-3)">· Square&nbsp;= federal city · Dashed ring&nbsp;= autonomous municipality</span>
     </div>
   </section>`;
@@ -1664,9 +1668,16 @@ function mapGeo(){
       `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">${shape}`+
       `<text class="mlbl" x="${p[0]}" y="${p[1]-8}" text-anchor="middle">${s.k}</text></g>`;
   }).join('');
+  const occ=(GEO.occupied||[]).map(o=>{
+    const st=byCode(o.parent)||{};
+    return `<path class="occ" d="${o.d}"><title>Occupied territory · ${esc(st.n||o.parent)}</title></path>`;
+  }).join('');
+  const defs=`<defs><pattern id="occhatch" width="7" height="7" patternUnits="userSpaceOnUse" `+
+    `patternTransform="rotate(45)"><line class="occln" x1="0" y1="0" x2="0" y2="7"/></pattern></defs>`;
   return `<svg id="mapSvg" viewBox="0 0 ${GEO.w} ${GEO.h}" width="${GEO.w}" height="${GEO.h}" `+
-    `xmlns="http://www.w3.org/2000/svg"><g class="lands">${land}</g>`+
-    `<g class="regions">${polys}</g><g class="marks">${fedmk}</g></svg>`;
+    `xmlns="http://www.w3.org/2000/svg">${defs}<g class="lands">${land}</g>`+
+    `<g class="regions">${polys}</g><g class="occupied">${occ}</g>`+
+    `<g class="marks">${fedmk}</g></svg>`;
 }
 function miniGeo(code){
   const land=(GEO.land||[]).map(l=>`<path class="land" d="${l.d}"/>`).join('');
