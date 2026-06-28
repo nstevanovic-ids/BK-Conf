@@ -18,7 +18,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Le projet est sud-slave **+ balkanique**, explicitement PAS pan-slave
 
 ## Composition (source : docs/canon/etats.md)
-- **47 États** : 43 territoriaux + 4 villes-États + 2 municipalités fédérales
+- **50 États** : 46 territoriaux + 4 villes-États + 2 municipalités fédérales
+  (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes provisoires
+  LV/SO/VB en attente de renumérotation alphabétique)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošnjaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofia (défense + sciences)

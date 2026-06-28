@@ -1,9 +1,11 @@
 # Liste canonique des États — Balkanska Konfederacija
 
-**43 États territoriaux + 4 villes-États fédérales + 2 municipalités fédérales autonomes.**
+**46 États territoriaux + 4 villes-États fédérales + 2 municipalités fédérales autonomes.**
 Numérotation strictement alphabétique par code. Source de vérité du projet.
+Trois États ajoutés le 2026-06-28 (Lašva, Soli, Vrhbosna) en codes provisoires
+LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
-## États territoriaux (43)
+## États territoriaux (46)
 
 | Code | Nom | Peuple | Chef-lieu |
 |------|-----|--------|-----------|
@@ -12,7 +14,7 @@ Numérotation strictement alphabétique par code. Source de vérité du projet.
 | BN-03 | Banat | Serbs | Zreñanin |
 | BR-04 | Baraña | Croats | Beli Manastir |
 | BS-05 | Sredña Bosna | Bosniaks | Travnik |
-| BZ-06 | Zapadna Bosna | Bosniaks | Bihać |
+| BZ-06 | Zapadna Bosna | Serbs | Bihać |
 | CG-07 | Crna Gora | Montenegrins | Podgorica |
 | CM-08 | Černomorska | Bulgarians | Varna |
 | DA-09 | Dalmacija | Croats | Split |
@@ -36,7 +38,7 @@ Numérotation strictement alphabétique par code. Source de vérité du projet.
 | PR-27 | Pirin | Bulgarians | Blagoevgrad |
 | PZ-28 | Zapadno Podriñe | Serbs | Bijeljina |
 | RO-29 | Rodopi | Bulgarians | Plovdiv |
-| RS-30 | Raška Sanxak | Bosniaks | Novi Pazar |
+| RS-30 | Raška Sanxak | Serbs | Novi Pazar |
 | SI-31 | Istočni Srěm | Serbs | Srěmska Mitrovica |
 | SL-32 | Slavonija | Croats | Osijek |
 | SP-33 | Šopluk | Bulgarians | Pernik |
@@ -50,6 +52,12 @@ Numérotation strictement alphabétique par code. Source de vérité du projet.
 | VI-41 | Istočen Vardar | Macedonians | Štip |
 | VZ-42 | Zapaden Vardar | Macedonians | Tetovo |
 | ZA-43 | Zagorje | Croats | Krapina |
+| LV | Lašva | Croats | Vitez |
+| SO | Soli | Bosniaks | Tuzla |
+| VB | Vrhbosna | Bosniaks | Ilijaš |
+
+> LV / SO / VB : codes provisoires (ajout 2026-06-28). Numérotation alphabétique
+> définitive et insertion à leur rang restent à appliquer (ADR dédié).
 
 ## Villes-États fédérales (4)
 

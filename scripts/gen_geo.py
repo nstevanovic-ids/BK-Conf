@@ -161,12 +161,17 @@ def main():
         "Occupied_Beneska-Slovenija_GO-12.geojson": "GV-12",
     }
 
+    # States with a non-numeric provisional code carry their own file name.
+    EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO",
+             "VB-VRHBOSNA.geojson": "VB"}
+
     states = []
     for fp in sorted(DATA.glob("*.geojson")):
         m = re.match(r"^([A-Z]{2})-\d+\.geojson$", fp.name)
-        if not m or m.group(1) not in by_k:
+        k = m.group(1) if m else EXTRA.get(fp.name)
+        if not k or k not in by_k:
             continue  # skip autonomous / occupied / special-zone files
-        st = by_k[m.group(1)]
+        st = by_k[k]
         states.append({"c": st["c"], "k": st["k"], "p": st["p"],
                        "d": geom_path(dissolve(fp))})
 
