@@ -490,6 +490,11 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .mapstage.grabbing svg{transition:none}
 .land{fill:var(--map-land);stroke:var(--map-line);stroke-width:.7;stroke-linejoin:round}
 .land.core{fill:var(--map-core)}
+.sreg{stroke:#fff;stroke-width:.5;fill-opacity:.9;stroke-linejoin:round;
+  transition:fill-opacity .15s ease,stroke-width .12s ease}
+[data-theme="dark"] .sreg{stroke:#0b0f17;stroke-width:.4}
+.tile:hover .sreg,.tile:focus .sreg{fill-opacity:1;stroke:var(--ink);stroke-width:1.1}
+.fedmk .mk{fill:#3a4663}
 .tile .mk{stroke:#fff;stroke-width:1.5}
 [data-theme="dark"] .tile .mk{stroke:#0b0f17}
 .tile .mk.dash{stroke-dasharray:3 2.2}
@@ -1640,36 +1645,42 @@ function setupReveal(){
    INTERACTIVE MAP, zoom / pan / hover tooltip / people filter
    ============================================================ */
 function mapGeo(){
-  const land=GEO.land.map(l=>`<path class="land${l.core?' core':''}" d="${l.d}"/>`).join('');
-  let mk='';
-  STATES.forEach(s=>{
-    const p=GEO.pts[s.c];if(!p)return;
-    const fed=s.p==='fed';
-    const col=fed?'#3a4663':PEUPLES[s.p].hex;
-    let shape;
-    if(s.t==='F') shape=`<rect class="mk" x="${p[0]-6}" y="${p[1]-6}" width="12" height="12" rx="2" fill="${col}"/>`;
-    else if(s.t==='M') shape=`<circle class="mk dash" cx="${p[0]}" cy="${p[1]}" r="6" fill="${col}"/>`;
-    else shape=`<circle class="mk" cx="${p[0]}" cy="${p[1]}" r="5.4" fill="${col}"/>`;
-    mk+=`<g class="tile" data-c="${s.c}" data-p="${s.p}" data-n="${esc(s.n)}" `+
-       `tabindex="0" role="button" aria-label="${esc(s.n)} (${s.c})" `+
-       `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">${shape}`+
-       `<text class="mlbl" x="${p[0]}" y="${p[1]-9}" text-anchor="middle">${s.k}</text></g>`;
-  });
+  const land=(GEO.land||[]).map(l=>`<path class="land" d="${l.d}"/>`).join('');
+  const polys=(GEO.states||[]).map(s=>{
+    const col=PEUPLES[s.p]?PEUPLES[s.p].hex:'#3a4663';
+    const st=byCode(s.c)||{};
+    return `<g class="tile" data-c="${s.c}" data-p="${s.p}" data-n="${esc(st.n||s.c)}" `+
+      `tabindex="0" role="button" aria-label="${esc(st.n||s.c)} (${s.c})" `+
+      `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">`+
+      `<path class="sreg" d="${s.d}" fill="${col}"/></g>`;
+  }).join('');
+  const fedmk=STATES.filter(s=>s.t!=='T').map(s=>{
+    const p=GEO.pts[s.c];if(!p)return '';
+    const shape=s.t==='F'
+      ?`<rect class="mk" x="${p[0]-5.5}" y="${p[1]-5.5}" width="11" height="11" rx="1.5"/>`
+      :`<circle class="mk dash" cx="${p[0]}" cy="${p[1]}" r="5.5"/>`;
+    return `<g class="tile fedmk" data-c="${s.c}" data-p="fed" data-n="${esc(s.n)}" `+
+      `tabindex="0" role="button" aria-label="${esc(s.n)} (${s.c})" `+
+      `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">${shape}`+
+      `<text class="mlbl" x="${p[0]}" y="${p[1]-8}" text-anchor="middle">${s.k}</text></g>`;
+  }).join('');
   return `<svg id="mapSvg" viewBox="0 0 ${GEO.w} ${GEO.h}" width="${GEO.w}" height="${GEO.h}" `+
-    `xmlns="http://www.w3.org/2000/svg"><g class="lands">${land}</g><g class="marks">${mk}</g></svg>`;
+    `xmlns="http://www.w3.org/2000/svg"><g class="lands">${land}</g>`+
+    `<g class="regions">${polys}</g><g class="marks">${fedmk}</g></svg>`;
 }
 function miniGeo(code){
-  const land=GEO.land.map(l=>`<path class="land${l.core?' core':''}" d="${l.d}"/>`).join('');
-  let mk='';
-  STATES.forEach(s=>{
-    const p=GEO.pts[s.c];if(!p)return;
+  const land=(GEO.land||[]).map(l=>`<path class="land" d="${l.d}"/>`).join('');
+  const isState=(GEO.states||[]).some(s=>s.c===code);
+  const polys=(GEO.states||[]).map(s=>{
     const hit=s.c===code;
-    const col=s.p==='fed'?'#3a4663':PEUPLES[s.p].hex;
-    if(hit) mk+=`<circle cx="${p[0]}" cy="${p[1]}" r="11" fill="${col}" stroke="#fff" stroke-width="2.4"/>`;
-    else mk+=`<circle class="mk-dim" cx="${p[0]}" cy="${p[1]}" r="3" fill="#8b95ab" opacity=".55"/>`;
-  });
+    const col=hit?(PEUPLES[s.p]?PEUPLES[s.p].hex:'#3a4663'):'#aab4c9';
+    return `<path d="${s.d}" fill="${col}" ${hit?'stroke="#fff" stroke-width="1.2"':'fill-opacity=".5"'}/>`;
+  }).join('');
+  let mk='';
+  if(!isState){const p=GEO.pts[code];
+    if(p)mk=`<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="#3a4663" stroke="#fff" stroke-width="2.4"/>`;}
   return `<svg viewBox="0 0 ${GEO.w} ${GEO.h}" xmlns="http://www.w3.org/2000/svg" `+
-    `class="minimap" role="img"><g class="lands">${land}</g>${mk}</svg>`;
+    `class="minimap" role="img"><g class="lands">${land}</g>${polys}${mk}</svg>`;
 }
 function initMap(){
   const stage=document.getElementById('mapStage');
