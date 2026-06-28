@@ -1,0 +1,152 @@
+[
+ {
+  "id": "SBO-PZ",
+  "n": "Savez Bošnjačkih Opština Zapadnog Podriña",
+  "com": "Bosniak",
+  "host": "PZ-28"
+ },
+ {
+  "id": "SBO-RS",
+  "n": "Savez Bošnjačkih Opština Raške-Sanxaka",
+  "com": "Bosniak",
+  "host": "RS-30"
+ },
+ {
+  "id": "SSO-DA",
+  "n": "Savez Srpskih Opština Dalmacije",
+  "com": "Serb",
+  "host": "DA-09"
+ },
+ {
+  "id": "SSO-LK",
+  "n": "Savez Srpskih Opština Like",
+  "com": "Serb",
+  "host": "LK-21"
+ },
+ {
+  "id": "SSO-SL",
+  "n": "Savez Srpskih Opština Slavonije",
+  "com": "Serb",
+  "host": "SL-32"
+ },
+ {
+  "id": "SSO-ZA",
+  "n": "Savez Srpskih Opština Zagorja",
+  "com": "Serb",
+  "host": "ZA-43"
+ },
+ {
+  "id": "SSO-CG",
+  "n": "Savez Srpskih Opština Boke",
+  "com": "Serb",
+  "host": "CG-07"
+ },
+ {
+  "id": "SHO-BS",
+  "n": "Savez Hrvatskih Opština Sredñe Bosne",
+  "com": "Croat",
+  "host": "BS-05"
+ },
+ {
+  "id": "SHO-BZ",
+  "n": "Savez Hrvatskih Opština Zapadne Bosne",
+  "com": "Croat",
+  "host": "BZ-06"
+ },
+ {
+  "id": "TBB-RO",
+  "n": "Rodopi Türk Belediyeler Birliği",
+  "com": "Turkish",
+  "host": "RO-29"
+ },
+ {
+  "id": "TBB-CM",
+  "n": "Karadeniz Türk Belediyeler Birliği",
+  "com": "Turkish",
+  "host": "CM-08"
+ },
+ {
+  "id": "TBB-DJ",
+  "n": "Dobruca Türk Belediyeler Birliği",
+  "com": "Turkish",
+  "host": "DJ-10"
+ },
+ {
+  "id": "TBB-LG",
+  "n": "Deliorman Türk Belediyeler Birliği",
+  "com": "Turkish",
+  "host": "LG-20"
+ },
+ {
+  "id": "TBB-VZ",
+  "n": "Batı Vardar Türk Belediyeler Birliği",
+  "com": "Turkish",
+  "host": "VZ-42"
+ },
+ {
+  "id": "UKSVL",
+  "n": "Unioni i Komunave Shqiptare të Vardarit Lindor",
+  "com": "Albanian",
+  "host": "VI-41"
+ },
+ {
+  "id": "BKSVP",
+  "n": "Bashkimi i Komunave Shqiptare të Vardarit Perëndimor",
+  "com": "Albanian",
+  "host": "VZ-42"
+ },
+ {
+  "id": "SO-CG",
+  "n": "Samostalna Opština Ulciñ",
+  "com": "Albanian",
+  "host": "CG-07"
+ },
+ {
+  "id": "PiB",
+  "n": "Preševo i Bujanovac",
+  "com": "Albanian",
+  "host": "TL-39"
+ },
+ {
+  "id": "MK-BC",
+  "n": "Magyar Közösség",
+  "com": "Hungarian",
+  "host": "BC-02"
+ },
+ {
+  "id": "SOZ-BC",
+  "n": "Samostalna Opština Zavoda Bački Petrovac",
+  "com": "Slovak",
+  "host": "BC-02"
+ },
+ {
+  "id": "SOZ-BN",
+  "n": "Samostalna Opština Zavoda Kovačica",
+  "com": "Slovak",
+  "host": "BN-03"
+ },
+ {
+  "id": "BAO",
+  "n": "Bãlgarski Avtonomni Opštini",
+  "com": "Bulgarian",
+  "host": "TL-39"
+ },
+ {
+  "id": "SO-BA",
+  "n": "Samostalna Opština Bosanski Petrovac",
+  "com": "Special",
+  "host": "BA-01"
+ },
+ {
+  "id": "SO-PZ",
+  "n": "Samostalna Opština Srebrenica",
+  "com": "Special",
+  "host": "PZ-28"
+ },
+ {
+  "id": "SO-PR",
+  "n": "Samostalna Opština Gorna Xumaja",
+  "com": "Special",
+  "host": "PR-27"
+ }
+]

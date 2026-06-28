@@ -1,0 +1,590 @@
+[
+ {
+  "c": "BA-01",
+  "k": "BA",
+  "n": "Bosanska Krajina",
+  "p": "bos",
+  "t": "T",
+  "ch": "Baña Luka",
+  "g": [
+   3,
+   4
+  ]
+ },
+ {
+  "c": "BC-02",
+  "k": "BC",
+  "n": "Bačka",
+  "p": "srb",
+  "t": "T",
+  "ch": "Novi Sad",
+  "g": [
+   7,
+   2
+  ]
+ },
+ {
+  "c": "BN-03",
+  "k": "BN",
+  "n": "Banat",
+  "p": "srb",
+  "t": "T",
+  "ch": "Zreñanin",
+  "g": [
+   8,
+   2
+  ]
+ },
+ {
+  "c": "BR-04",
+  "k": "BR",
+  "n": "Baraña",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Beli Manastir",
+  "g": [
+   6,
+   2
+  ]
+ },
+ {
+  "c": "BS-05",
+  "k": "BS",
+  "n": "Sredña Bosna",
+  "p": "bos",
+  "t": "T",
+  "ch": "Travnik",
+  "g": [
+   4,
+   5
+  ]
+ },
+ {
+  "c": "BZ-06",
+  "k": "BZ",
+  "n": "Zapadna Bosna",
+  "p": "bos",
+  "t": "T",
+  "ch": "Bihać",
+  "g": [
+   3,
+   5
+  ]
+ },
+ {
+  "c": "CG-07",
+  "k": "CG",
+  "n": "Crna Gora",
+  "p": "cng",
+  "t": "T",
+  "ch": "Podgorica",
+  "g": [
+   5,
+   8
+  ]
+ },
+ {
+  "c": "CM-08",
+  "k": "CM",
+  "n": "Černomorska",
+  "p": "bul",
+  "t": "T",
+  "ch": "Varna",
+  "g": [
+   13,
+   4
+  ]
+ },
+ {
+  "c": "DA-09",
+  "k": "DA",
+  "n": "Dalmacija",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Split",
+  "g": [
+   2,
+   6
+  ]
+ },
+ {
+  "c": "DJ-10",
+  "k": "DJ",
+  "n": "Južna Dobruxa",
+  "p": "bul",
+  "t": "T",
+  "ch": "Dobrič",
+  "g": [
+   13,
+   2
+  ]
+ },
+ {
+  "c": "DR-11",
+  "k": "DR",
+  "n": "Dubrovačka Republika",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Dubrovnik",
+  "g": [
+   3,
+   8
+  ]
+ },
+ {
+  "c": "GV-12",
+  "k": "GV",
+  "n": "Vzhodna Goriška",
+  "p": "slo",
+  "t": "T",
+  "ch": "Nova Gorica",
+  "g": [
+   1,
+   2
+  ]
+ },
+ {
+  "c": "HZ-13",
+  "k": "HZ",
+  "n": "Zapadna Hercegovina",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Široki Brijeg",
+  "g": [
+   3,
+   6
+  ]
+ },
+ {
+  "c": "HI-14",
+  "k": "HI",
+  "n": "Istočna Hercegovina",
+  "p": "srb",
+  "t": "T",
+  "ch": "Trebiñe",
+  "g": [
+   4,
+   7
+  ]
+ },
+ {
+  "c": "IS-15",
+  "k": "IS",
+  "n": "Istra",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Pula",
+  "g": [
+   0,
+   3
+  ]
+ },
+ {
+  "c": "KJ-16",
+  "k": "KJ",
+  "n": "Južna Koroška",
+  "p": "slo",
+  "t": "T",
+  "ch": "Slovenj Gradec",
+  "g": [
+   2,
+   1
+  ]
+ },
+ {
+  "c": "KM-17",
+  "k": "KM",
+  "n": "Kosovo i Metohija",
+  "p": "srb",
+  "t": "T",
+  "ch": "Priština",
+  "g": [
+   7,
+   7
+  ]
+ },
+ {
+  "c": "KR-18",
+  "k": "KR",
+  "n": "Krañska",
+  "p": "slo",
+  "t": "T",
+  "ch": "Ļubļana",
+  "g": [
+   2,
+   2
+  ]
+ },
+ {
+  "c": "KV-19",
+  "k": "KV",
+  "n": "Kvarner",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Rijeka",
+  "g": [
+   1,
+   4
+  ]
+ },
+ {
+  "c": "LG-20",
+  "k": "LG",
+  "n": "Ludogorje",
+  "p": "bul",
+  "t": "T",
+  "ch": "Razgrad",
+  "g": [
+   12,
+   3
+  ]
+ },
+ {
+  "c": "LK-21",
+  "k": "LK",
+  "n": "Lika",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Gospić",
+  "g": [
+   2,
+   4
+  ]
+ },
+ {
+  "c": "MI-22",
+  "k": "MI",
+  "n": "Istočna Mizija",
+  "p": "bul",
+  "t": "T",
+  "ch": "Ruse",
+  "g": [
+   11,
+   3
+  ]
+ },
+ {
+  "c": "MZ-23",
+  "k": "MZ",
+  "n": "Zapadna Mizija",
+  "p": "bul",
+  "t": "T",
+  "ch": "Pleven",
+  "g": [
+   10,
+   3
+  ]
+ },
+ {
+  "c": "PI-24",
+  "k": "PI",
+  "n": "Istočno Podriñe",
+  "p": "srb",
+  "t": "T",
+  "ch": "Višegrad",
+  "g": [
+   5,
+   6
+  ]
+ },
+ {
+  "c": "PM-25",
+  "k": "PM",
+  "n": "Prekmurje",
+  "p": "slo",
+  "t": "T",
+  "ch": "Murska Sobota",
+  "g": [
+   5,
+   1
+  ]
+ },
+ {
+  "c": "PO-26",
+  "k": "PO",
+  "n": "Podunavļe",
+  "p": "srb",
+  "t": "T",
+  "ch": "Smederevo",
+  "g": [
+   8,
+   4
+  ]
+ },
+ {
+  "c": "PR-27",
+  "k": "PR",
+  "n": "Pirin",
+  "p": "bul",
+  "t": "T",
+  "ch": "Blagoevgrad",
+  "g": [
+   10,
+   7
+  ]
+ },
+ {
+  "c": "PZ-28",
+  "k": "PZ",
+  "n": "Zapadno Podriñe",
+  "p": "srb",
+  "t": "T",
+  "ch": "Bijeljina",
+  "g": [
+   5,
+   5
+  ]
+ },
+ {
+  "c": "RO-29",
+  "k": "RO",
+  "n": "Rodopi",
+  "p": "bul",
+  "t": "T",
+  "ch": "Plovdiv",
+  "g": [
+   11,
+   8
+  ]
+ },
+ {
+  "c": "RS-30",
+  "k": "RS",
+  "n": "Raška Sanxak",
+  "p": "bos",
+  "t": "T",
+  "ch": "Novi Pazar",
+  "g": [
+   6,
+   6
+  ]
+ },
+ {
+  "c": "SI-31",
+  "k": "SI",
+  "n": "Istočni Srěm",
+  "p": "srb",
+  "t": "T",
+  "ch": "Srěmska Mitrovica",
+  "g": [
+   7,
+   3
+  ]
+ },
+ {
+  "c": "SL-32",
+  "k": "SL",
+  "n": "Slavonija",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Osijek",
+  "g": [
+   5,
+   3
+  ]
+ },
+ {
+  "c": "SP-33",
+  "k": "SP",
+  "n": "Šopluk",
+  "p": "bul",
+  "t": "T",
+  "ch": "Pernik",
+  "g": [
+   10,
+   5
+  ]
+ },
+ {
+  "c": "ST-34",
+  "k": "ST",
+  "n": "Štajerska",
+  "p": "slo",
+  "t": "T",
+  "ch": "Maribor",
+  "g": [
+   3,
+   2
+  ]
+ },
+ {
+  "c": "SU-35",
+  "k": "SU",
+  "n": "Šumadija",
+  "p": "srb",
+  "t": "T",
+  "ch": "Kragujevac",
+  "g": [
+   7,
+   5
+  ]
+ },
+ {
+  "c": "SX-36",
+  "k": "SX",
+  "n": "Stranxa",
+  "p": "bul",
+  "t": "T",
+  "ch": "Sliven",
+  "g": [
+   13,
+   8
+  ]
+ },
+ {
+  "c": "SZ-37",
+  "k": "SZ",
+  "n": "Zapadni Srěm",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Vukovar",
+  "g": [
+   6,
+   3
+  ]
+ },
+ {
+  "c": "TK-38",
+  "k": "TK",
+  "n": "Timok",
+  "p": "srb",
+  "t": "T",
+  "ch": "Zaječar",
+  "g": [
+   9,
+   5
+  ]
+ },
+ {
+  "c": "TL-39",
+  "k": "TL",
+  "n": "Torlak",
+  "p": "srb",
+  "t": "T",
+  "ch": "Pirot",
+  "g": [
+   8,
+   6
+  ]
+ },
+ {
+  "c": "TR-40",
+  "k": "TR",
+  "n": "Sěverna Trakija",
+  "p": "bul",
+  "t": "T",
+  "ch": "Stara Zagora",
+  "g": [
+   11,
+   7
+  ]
+ },
+ {
+  "c": "VI-41",
+  "k": "VI",
+  "n": "Istočen Vardar",
+  "p": "mkd",
+  "t": "T",
+  "ch": "Štip",
+  "g": [
+   8,
+   9
+  ]
+ },
+ {
+  "c": "VZ-42",
+  "k": "VZ",
+  "n": "Zapaden Vardar",
+  "p": "mkd",
+  "t": "T",
+  "ch": "Tetovo",
+  "g": [
+   7,
+   9
+  ]
+ },
+ {
+  "c": "ZA-43",
+  "k": "ZA",
+  "n": "Zagorje",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Krapina",
+  "g": [
+   4,
+   2
+  ]
+ },
+ {
+  "c": "BG-91",
+  "k": "BG",
+  "n": "Beograd",
+  "p": "fed",
+  "t": "F",
+  "ch": "Economic capital",
+  "g": [
+   7,
+   4
+  ]
+ },
+ {
+  "c": "SA-92",
+  "k": "SA",
+  "n": "Sarajevo",
+  "p": "fed",
+  "t": "F",
+  "ch": "Political capital",
+  "g": [
+   4,
+   6
+  ]
+ },
+ {
+  "c": "SF-93",
+  "k": "SF",
+  "n": "Sofia",
+  "p": "fed",
+  "t": "F",
+  "ch": "Defence &amp; sciences capital",
+  "g": [
+   10,
+   6
+  ]
+ },
+ {
+  "c": "ZG-94",
+  "k": "ZG",
+  "n": "Zagreb",
+  "p": "fed",
+  "t": "F",
+  "ch": "Judicial capital",
+  "g": [
+   3,
+   3
+  ]
+ },
+ {
+  "c": "BK-95",
+  "k": "BK",
+  "n": "Brčko",
+  "p": "fed",
+  "t": "M",
+  "ch": "Direct federal jurisdiction",
+  "g": [
+   5,
+   4
+  ]
+ },
+ {
+  "c": "MO-96",
+  "k": "MO",
+  "n": "Mostar",
+  "p": "fed",
+  "t": "M",
+  "ch": "Direct federal jurisdiction",
+  "g": [
+   3,
+   7
+  ]
+ }
+]

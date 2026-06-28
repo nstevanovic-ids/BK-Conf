@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balkan Confederation — Official Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spectral:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BALKANSKA KONFEDERACIJA — OFFICIAL PORTAL
+   Design system: institutional / Swiss-cold / documentary
+   Stage 1 — portal shell
+   ============================================================ */
+:root{
+  --white:#ffffff;
+  --bg:#fbfbfa;
+  --surface:#ffffff;
+  --surface-2:#f3f4f2;
+  --surface-3:#eeefec;
+  --ink:#1b2030;
+  --ink-2:#545b6c;
+  --ink-3:#878d9b;
+  --indigo:#1f2742;
+  --indigo-2:#2b3556;
+  --indigo-ink:#e9eaf0;
+  --navy:#0e347f;
+  --gold:#b88a14;
+  --gold-2:#d6a829;
+  --gold-bright:#f8c300;
+  --gold-soft:#f1deac;
+  --line:#e4e5e8;
+  --line-2:#d0d2d8;
+  --line-3:#bcbfc7;
+  --red:#9a2f23;
+  --good:#3c6b46;
+  /* people identity hues — used only as small markers */
+  --slo:#5b7a99; --hrv:#a8403a; --srb:#7b3f6e; --bos:#2f6f6a;
+  --cng:#8a6d3b; --mkd:#bb8326; --bul:#4d7c4a; --fed:#3a4663;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Archivo',-apple-system,Segoe UI,sans-serif;
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased; line-height:1.6;
+  font-size:15px;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.serif{font-family:'Spectral',Georgia,serif}
+h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
+
+/* ---------- top hairline ---------- */
+.topline{height:3px;background:#c90505;width:100%}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--indigo-ink)}
+.utility{border-bottom:1px solid rgba(255,255,255,.08)}
+.utility .wrap{max-width:1240px;margin:0 auto;display:flex;align-items:center;
+  justify-content:flex-end;gap:18px;padding:6px 28px;font-size:.74rem}
+.utility .crumbtag{margin-right:auto;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-soft);font-weight:600;font-size:.68rem}
+.langsel{display:flex;align-items:center;gap:2px}
+.langsel button{background:none;border:none;color:rgba(233,234,240,.6);
+  font-size:.72rem;font-weight:600;padding:3px 7px;border-radius:2px;letter-spacing:.04em}
+.langsel button:hover{color:#fff}
+.langsel button.on{color:var(--indigo);background:var(--gold-soft)}
+.utility .sep{width:1px;height:13px;background:rgba(255,255,255,.16)}
+.utility a.ut{color:rgba(233,234,240,.7);font-weight:600;letter-spacing:.03em}
+.utility a.ut:hover{color:#fff}
+
+.masthead{max-width:1240px;margin:0 auto;display:flex;align-items:center;
+  gap:16px;padding:16px 28px 14px}
+.emblem{width:44px;height:44px;flex:none}
+.brand{display:flex;flex-direction:column;line-height:1.12}
+.brand b{font-family:'Spectral',serif;font-size:1.3rem;font-weight:700;
+  letter-spacing:.005em;color:#fff}
+.brand span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-soft);margin-top:3px;font-weight:600}
+.searchbtn{margin-left:auto;display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  color:rgba(233,234,240,.8);font-size:.78rem;font-weight:500;
+  padding:8px 13px;border-radius:3px;min-width:190px}
+.searchbtn:hover{border-color:var(--gold);color:#fff}
+.searchbtn svg{flex:none}
+
+nav.primary{background:var(--indigo-2);border-top:1px solid rgba(255,255,255,.07)}
+nav.primary .wrap{max-width:1240px;margin:0 auto;display:flex;
+  gap:0;padding:0 22px;flex-wrap:wrap}
+nav.primary a{padding:12px 16px;font-size:.83rem;font-weight:600;
+  color:rgba(233,234,240,.72);letter-spacing:.012em;border-bottom:3px solid transparent;
+  transition:.13s}
+nav.primary a:hover{color:#fff;background:rgba(255,255,255,.04)}
+nav.primary a.active{color:#fff;border-bottom-color:var(--gold)}
+
+/* ---------- layout ---------- */
+main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
+.breadcrumb{font-size:.76rem;color:var(--ink-3);padding:18px 0 0;font-weight:500}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb b{color:var(--ink-2);font-weight:600}
+.eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;color:var(--gold);margin-bottom:9px}
+.section{padding:34px 0}
+.section + .section{border-top:1px solid var(--line)}
+.lead{font-size:1.08rem;color:var(--ink-2);max-width:66ch;line-height:1.62}
+.note{font-size:.8rem;color:var(--ink-3);line-height:1.55}
+.pagehead h1{font-size:2.15rem;margin:4px 0 10px}
+.divider{height:1px;background:var(--line);margin:6px 0}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(9px);animation:rv .5s ease forwards}
+@keyframes rv{to{opacity:1;transform:none}}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.35fr .85fr;gap:46px;
+  padding:50px 0 40px;align-items:center}
+.hero h1{font-size:2.95rem;line-height:1.08;margin:6px 0 16px}
+.hero .motto{font-family:'Spectral',serif;font-style:italic;font-size:1.06rem;
+  color:var(--ink-2);border-left:2px solid var(--gold);padding-left:15px;margin:20px 0 24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;
+  padding:11px 20px;border-radius:3px;border:1px solid transparent;transition:.14s;
+  letter-spacing:.012em}
+.btn-primary{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.btn-primary:hover{background:var(--indigo-2)}
+.btn-ghost{background:var(--white);color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--indigo)}
+.btn svg{flex:none}
+.hero-aside{display:flex;justify-content:center;align-items:center}
+.hero-aside .crest{width:230px;height:230px;
+  filter:drop-shadow(0 10px 22px rgba(184,138,20,.22))}
+
+/* ---------- key figures ---------- */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--white)}
+.fig{padding:22px 22px;border-right:1px solid var(--line)}
+.fig:last-child{border-right:none}
+.fig b{font-family:'Spectral',serif;font-size:2.5rem;font-weight:700;
+  color:var(--indigo);display:block;line-height:1}
+.fig span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-top:8px;display:block}
+
+/* ---------- portal cards ---------- */
+.h2row{display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:18px;gap:16px;flex-wrap:wrap}
+.h2row h2{font-size:1.45rem}
+.seeall{font-size:.8rem;font-weight:600;color:var(--gold)}
+.seeall:hover{color:var(--indigo)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.pcard{background:var(--white);padding:24px 22px;display:flex;
+  flex-direction:column;gap:7px;transition:.14s;min-height:158px}
+.pcard:hover{background:var(--surface-2)}
+.pcard .pc-eye{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700}
+.pcard h3{font-size:1.12rem}
+.pcard p{font-size:.86rem;color:var(--ink-2);line-height:1.5}
+.pcard .arrow{margin-top:auto;font-size:.8rem;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;gap:6px}
+
+/* ---------- generic panel ---------- */
+.panel{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  padding:26px 28px}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.split-32{display:grid;grid-template-columns:1.4fr 1fr;gap:34px}
+
+/* ---------- data table ---------- */
+.dtable{width:100%;border-collapse:collapse}
+.dtable td{padding:11px 6px;border-bottom:1px solid var(--line);
+  font-size:.88rem;vertical-align:top}
+.dtable tr:last-child td{border-bottom:none}
+.dtable td:first-child{color:var(--ink-3);width:46%;font-size:.74rem;
+  letter-spacing:.04em;text-transform:uppercase;font-weight:700;padding-top:13px}
+.dtable .pending{color:var(--ink-3)}
+.dtable .pending::after{content:" ·";color:var(--line-3)}
+
+/* people dot + badges */
+.pdot{display:inline-block;width:9px;height:9px;border-radius:50%;
+  vertical-align:0;margin-right:6px}
+.tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;border-radius:3px;
+  border:1px solid var(--line-2);color:var(--ink-2)}
+.tag.indigo{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.tag.gold{background:var(--gold-soft);color:#5e4715;border-color:var(--gold-soft)}
+
+/* ---------- pending / empty state ---------- */
+.pending-box{border:1px dashed var(--line-3);border-radius:4px;
+  background:var(--surface-2);padding:30px 26px;text-align:center}
+.pending-box .pb-emb{width:46px;height:46px;opacity:.4;margin:0 auto 12px}
+.pending-box h4{font-size:.95rem;color:var(--ink-2)}
+.pending-box p{font-size:.8rem;color:var(--ink-3);margin-top:5px;
+  max-width:46ch;margin-left:auto;margin-right:auto}
+.pending-pill{display:inline-block;font-size:.64rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+  border:1px solid var(--gold-soft);background:#fff;border-radius:20px;
+  padding:3px 10px;margin-bottom:12px}
+
+/* ---------- states grid ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px}
+.toolbar input{flex:1;min-width:230px;padding:10px 13px;border:1px solid var(--line-2);
+  border-radius:3px;background:var(--white);font-family:inherit;font-size:.88rem;color:var(--ink)}
+.toolbar input:focus{outline:none;border-color:var(--gold)}
+.chip{padding:7px 12px;font-size:.76rem;font-weight:600;border-radius:3px;
+  border:1px solid var(--line-2);background:var(--white);color:var(--ink-2);transition:.12s}
+.chip:hover{border-color:var(--gold)}
+.chip.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
+.scard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  overflow:hidden;transition:.14s;display:flex;flex-direction:column}
+.scard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.scard .flagwrap{aspect-ratio:3/2;background:var(--surface-2);
+  border-bottom:1px solid var(--line)}
+.scard .flagwrap svg{width:100%;height:100%;display:block}
+.scard .smeta{padding:11px 13px 13px}
+.scard .smeta .scode{font-size:.66rem;letter-spacing:.09em;color:var(--ink-3);
+  font-weight:700;font-family:'IBM Plex Mono',monospace}
+.scard .smeta h3{font-size:1rem;margin:2px 0 3px}
+.scard .smeta .speu{font-size:.74rem;color:var(--ink-2)}
+.scard.muni{border-style:dashed}
+
+/* ---------- state detail ---------- */
+.detail{display:grid;grid-template-columns:360px 1fr;gap:34px;align-items:start}
+.flagcard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  padding:18px}
+.flagcard .fbig{aspect-ratio:3/2;border:1px solid var(--line);border-radius:2px;
+  overflow:hidden;background:var(--surface-2)}
+.flagcard .fbig svg{width:100%;height:100%;display:block}
+.flagcard .fcap{font-size:.76rem;color:var(--ink-2);margin-top:11px;line-height:1.5}
+.subhead{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:0 0 9px}
+.plate svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:3px}
+.aut-list{list-style:none}
+.aut-list li{padding:11px 13px;border:1px solid var(--line);border-radius:3px;
+  margin-bottom:8px;border-left:3px solid var(--gold)}
+.aut-list li b{font-size:.88rem}
+.aut-list li span{font-size:.74rem;color:var(--ink-3);display:block;margin-top:2px}
+.minicarto svg{width:100%;height:auto;display:block}
+
+/* ---------- institutions ---------- */
+.org{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.orgcard{background:var(--white);padding:24px 26px}
+.orgcard .org-k{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700}
+.orgcard h3{font-size:1.18rem;margin:3px 0 4px}
+.orgcard .org-sub{font-size:.8rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.orgcard ul{margin:0 0 0 17px;font-size:.85rem;color:var(--ink-2)}
+.orgcard ul li{margin-bottom:5px}
+.orgcard{border-top:3px solid var(--indigo)}
+
+/* ---------- cartogram ---------- */
+.cartowrap{background:var(--white);border:1px solid var(--line-2);
+  border-radius:4px;padding:22px;overflow:auto}
+.cartowrap svg{display:block;margin:0 auto;min-width:640px}
+.tile{cursor:pointer}
+.tile rect,.tile circle{transition:.12s}
+.tile:hover rect,.tile:hover circle{stroke:var(--indigo);stroke-width:2.4}
+.tile text{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  pointer-events:none}
+.tile.dim{opacity:.34}
+.legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:16px;
+  font-size:.78rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;
+  margin-right:6px;vertical-align:-1px}
+
+/* ---------- alphabet ---------- */
+.alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:7px}
+.glyph{background:var(--white);border:1px solid var(--line-2);border-radius:3px;
+  text-align:center;padding:11px 4px}
+.glyph .g{font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;color:var(--indigo)}
+.glyph .ipa{font-size:.66rem;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;
+  margin-top:3px}
+.glyph.vow{background:var(--surface-2)}
+.glyph.new{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+
+/* ---------- peoples ---------- */
+.peoples{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.pp{background:var(--white);padding:15px 12px;text-align:center}
+.pp .pp-bar{height:4px;width:30px;margin:0 auto 9px;border-radius:2px}
+.pp b{font-family:'Spectral',serif;font-size:.97rem;display:block;color:var(--ink)}
+.pp span{font-size:.7rem;color:var(--ink-3)}
+
+/* ---------- dashboard ---------- */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kpi{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  padding:22px;border-top:3px solid var(--gold)}
+.kpi .kn{font-family:'Spectral',serif;font-size:2.3rem;color:var(--indigo);
+  font-weight:700;line-height:1}
+.kpi .kl{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-top:7px}
+.barrow{display:flex;align-items:center;gap:12px;padding:9px 0;
+  border-bottom:1px solid var(--line);font-size:.84rem}
+.barrow:last-child{border-bottom:none}
+.barrow .bl{width:130px;font-weight:600;color:var(--ink-2)}
+.barrow .bt{flex:1;height:9px;background:var(--surface-3);border-radius:2px;overflow:hidden}
+.barrow .bf{height:100%;background:var(--line-3)}
+.barrow .bv{width:46px;text-align:right;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+
+/* ---------- registration steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.step{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  padding:20px;position:relative}
+.step .sn{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--gold);border:1px solid var(--gold-soft);border-radius:50%;
+  width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+.step h4{font-size:1rem;margin:11px 0 5px}
+.step p{font-size:.83rem;color:var(--ink-2)}
+.cert{background:var(--indigo);color:#fff;border-radius:4px;padding:22px 24px;
+  display:flex;align-items:center;gap:20px}
+.cert .cemb{width:54px;height:54px;flex:none}
+.cert .cl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-soft);font-weight:700}
+.cert .cid{font-family:'IBM Plex Mono',monospace;font-size:1.5rem;font-weight:600;
+  letter-spacing:.04em;margin-top:3px}
+.cert p{font-size:.8rem;color:rgba(233,234,240,.7);margin-top:4px}
+
+/* ---------- journal list ---------- */
+.jlist{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.jrow{display:flex;gap:18px;padding:15px 20px;background:var(--white);
+  border-bottom:1px solid var(--line);align-items:baseline}
+.jrow:last-child{border-bottom:none}
+.jrow:hover{background:var(--surface-2)}
+.jrow .jd{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink-3);
+  width:108px;flex:none}
+.jrow .jt{font-weight:600;font-size:.9rem;flex:1}
+.jrow .jt span{display:block;font-weight:400;font-size:.78rem;color:var(--ink-2);margin-top:2px}
+.jrow .jcat{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:700;color:var(--gold)}
+
+/* ---------- notice ---------- */
+.notice{background:#fff;border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
+  border-radius:3px;padding:13px 16px;font-size:.83rem;color:var(--ink-2);margin-top:14px}
+
+
+/* ---------- symbols page ---------- */
+.symcard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;overflow:hidden}
+.symcard + .symcard{margin-top:14px}
+.symhead{padding:13px 18px;border-bottom:1px solid var(--line);
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--ink-2);display:flex;align-items:center;justify-content:space-between}
+.symtag{font-size:.62rem;font-weight:700;letter-spacing:.1em;background:var(--indigo);
+  color:#fff;padding:3px 8px;border-radius:2px}
+.symtag.tag-soft{background:var(--gold-soft);color:#5e4715}
+.symbody{padding:0;background:var(--surface-2);display:flex;align-items:center;justify-content:center}
+.symbody img{display:block;width:100%;height:auto}
+.symbody.coa{padding:34px 20px;background:var(--white)}
+.symbody.coa img{width:auto;max-width:80%;max-height:280px;
+  filter:drop-shadow(0 8px 18px rgba(184,138,20,.18))}
+.symcap{padding:18px 20px;border-top:1px solid var(--line)}
+.symcap p{font-size:.86rem;color:var(--ink-2);line-height:1.55}
+.symcap b{color:var(--ink)}
+.palrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.swatch{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
+  padding:16px 18px}
+.swatch .sw{width:100%;height:48px;border-radius:3px;margin-bottom:11px}
+.swatch b{display:block;font-size:.95rem}
+.swatch span{display:block;font-size:.72rem;color:var(--ink-3);margin-top:1px}
+.swatch em{display:block;font-size:.74rem;color:var(--ink-2);font-style:normal;margin-top:6px}
+@media(max-width:860px){.palrow{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- footer ---------- */
+footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
+.fmain{max-width:1240px;margin:0 auto;padding:42px 28px 30px;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.fmain h5{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-soft);font-weight:700;margin-bottom:13px}
+.fmain a{display:block;font-size:.83rem;padding:3px 0;color:rgba(233,234,240,.62)}
+.fmain a:hover{color:#fff}
+.fbrand b{font-family:'Spectral',serif;color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
+.fbrand p{font-size:.82rem;line-height:1.55}
+.fbottom{border-top:1px solid rgba(255,255,255,.1)}
+.fbottom .wrap{max-width:1240px;margin:0 auto;padding:15px 28px;display:flex;
+  justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.74rem;
+  color:rgba(233,234,240,.45)}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .hero-aside{order:-1;justify-content:flex-start}
+  .figs{grid-template-columns:repeat(2,1fr)}
+  .fig:nth-child(2){border-right:none}
+  .cards,.org{grid-template-columns:1fr}
+  .split2,.split-32{grid-template-columns:1fr}
+  .detail{grid-template-columns:1fr}
+  .peoples{grid-template-columns:repeat(2,1fr)}
+  .kpis,.steps{grid-template-columns:1fr}
+  .fmain{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topline"></div>
+
+<header>
+  <div class="utility">
+    <div class="wrap">
+      <span class="crumbtag">Official portal of the Balkan Confederation</span>
+      <div class="langsel" id="langsel">
+        <button class="on" data-l="en">EN</button>
+        <button data-l="zap">ZAP</button>
+        <button data-l="sre">SRE</button>
+        <button data-l="ist">IST</button>
+      </div>
+      <span class="sep"></span>
+      <a class="ut" href="#/participation">Register</a>
+    </div>
+  </div>
+  <div class="masthead">
+    <svg class="emblem" id="hdEmblem" viewBox="0 0 100 100"></svg>
+    <div class="brand">
+      <b>Balkanska Konfederacija</b>
+      <span>Balkan Confederation</span>
+    </div>
+    <button class="searchbtn" onclick="alert('Portal-wide search — to be enabled with the documentary corpus.')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      Search the portal
+    </button>
+  </div>
+  <nav class="primary"><div class="wrap" id="nav">
+    <a href="#/home">Home</a>
+    <a href="#/states">States</a>
+    <a href="#/map">Map</a>
+    <a href="#/institutions">Institutions</a>
+    <a href="#/constitution">Constitution</a>
+    <a href="#/identity">Identity</a>
+    <a href="#/participation">Participation</a>
+  </div></nav>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="fmain">
+    <div class="fbrand">
+      <b>Balkanska Konfederacija</b>
+      <p>The official digital portal of the Balkan Confederation — a federation of
+      47 states and seven constituent peoples. Documentary reference and
+      participatory infrastructure.</p>
+    </div>
+    <div>
+      <h5>The Confederation</h5>
+      <a href="#/states">States &amp; territories</a>
+      <a href="#/map">Interactive map</a>
+      <a href="#/institutions">Institutions</a>
+      <a href="#/autonomy">Autonomous communities</a>
+    </div>
+    <div>
+      <h5>Law &amp; identity</h5>
+      <a href="#/constitution">Constitution</a>
+      <a href="#/journal">Official Journal</a>
+      <a href="#/alphabet">Unified alphabet</a>
+      <a href="#/symbols">Symbols &amp; heraldry</a>
+    </div>
+    <div>
+      <h5>Participate</h5>
+      <a href="#/participation">Become a citizen</a>
+      <a href="#/dashboard">Membership dashboard</a>
+    </div>
+  </div>
+  <div class="fbottom"><div class="wrap">
+    <span>Balkanska Konfederacija — digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
+    <span>Portal shell — Stage 1</span>
+  </div></div>
+</footer>
+
+<script>
+const COA_DATA="data:image/png;base64,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";
+const CIVIL_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYBAMAAADI6zXoAAAAGFBMVEX///+Gmb8PNH4ONH/LDg7JBQXMBANPIVIW1QAAAAADl0lEQVR42u3VAQmAMBCG0ZsswGWwk3WNYgVtMDsIG5y8r8DB/2BrR0wvz8jQrDYTIBRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEKoPxCmoefVF9wY4zZ0bcK47OwvFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUF/rK47sdi5O2FoauvpD+hjaXyiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCiFCIRRCIUQohEIohAiFUAiFEKHK9gKr1wrqlsM+XwAAAABJRU5ErkJggg==";
+const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAMAAAANG9jpAAAAYFBMVEX///////7+///9/f7z9fnn6vHq3HXh0nn0ziH0zCH0yyHywyCwus7BlWNsg7PQUyM9W5wbPocPNYAZNHkONJcONH8ONH4NNIvRFQzJBgXbBRPJBQXMBAXHAQR3GToGK3oWgbinAAAuE0lEQVR42u2di5aquNaFbYUxFBiAdOMPehy+/1v+WbmHi2Vd9u7d+M3TZ5dQU9RUfZWVtZKwu21C/xv/7i89Qv9F7YAQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgI+WkiIARChIAQISAEQoSAECEgBEKEgBAhIARChIAQISAEQoSAECEgBEKEgBAhIARChIAQISAEQoSAECEgBEKEgBAhIARChIAQISAEQoSAECEgBEKEgBAhIARChIAQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIQIASEQIgSECAEhECIEhAgBIRAiBIQIASEQIgSECAEhECIEhAgBIRAiBIQIASEQIgSECAEhECIEhAgBIRAiBIQIASEQIgSECAEhECIEhAgBIRAiBIQIASEQIgSECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISAEQgSEQIgQEAIhAkIgRAgIgRABIRAiBIRAiIAQCBECQiBEQAiECAEhECIgBEKEgBAIERACIUJACIQICIEQISBECAiBECEgRAgIgRAhIEQICIEQISBECAiBECEgRAgIgRAhIEQICIEQISBECAiBECEgRAgIgRAh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";
+
+/*__STATE_FLAGS__*/
+/* ============================================================
+   DATA
+   ============================================================ */
+/*__PEUPLES__*/
+/*__STD__*/
+
+/* type: T=territorial state, F=federal city, M=autonomous federal municipality */
+/*__STATES__*/
+/*__AUT__*/
+/*__ALPHA__*/
+
+const JOURNAL=[
+ {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet — v3.0',
+  s:'Thirty-two letters; restoration of the jat’ (ě); areal Balkan diacritics.'},
+ {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution — v2',
+  s:'Titles I bis, IV, V and VI — institutions, languages, financial equalisation.'},
+ {d:'2026-04-30',cat:'Finance',t:'Confederal financial equalisation formula',
+  s:'Article 132 — objective indicators, 85% floor of fiscal capacity per capita.'},
+ {d:'2026-04-08',cat:'Institutions',t:'Designation of the four federal capitals',
+  s:'Article 1 ter — Sarajevo, Beograd, Zagreb and Sofija.'}
+];
+
+/* ============================================================
+   SVG — emblem, star geometry, flags, plates
+   ============================================================ */
+function star(cx,cy,ro,ri,pts,rot){
+  rot=rot||-Math.PI/2; let d='';
+  for(let i=0;i<pts*2;i++){
+    const r=i%2?ri:ro, a=rot+i*Math.PI/pts;
+    d+=(i?'L':'M')+(cx+r*Math.cos(a)).toFixed(2)+' '+(cy+r*Math.sin(a)).toFixed(2);
+  }
+  return d+'Z';
+}
+function emblemSVG(){
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">`+
+    `<image href="${COA_DATA}" x="3" y="4" width="94" height="92" preserveAspectRatio="xMidYMid meet"/></svg>`;
+}
+const TRI={
+ slo:['#ffffff','#3a5fa0','#c8312b'],hrv:['#c8312b','#ffffff','#3a5fa0'],
+ srb:['#c8312b','#27407d','#ffffff'],bul:['#ffffff','#2e7d4f','#c8312b']
+};
+function roundel(code){
+  return `<circle cx="45" cy="30" r="14.5" fill="#ffffff" stroke="#1f2742" stroke-width="1.4"/>`+
+   `<text x="45" y="35.6" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `font-size="13" font-weight="600" fill="#1f2742">${code}</text>`;
+}
+function flagSVG(s){
+  const v='viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg"';
+  if(STATE_FLAGS[s.c]) return `<svg ${v}><image href="${STATE_FLAGS[s.c]}" `+
+    `x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/></svg>`;
+  if(s.k==='SP') return `<svg ${v}><rect width="90" height="20" fill="#ffffff"/>`+
+    `<rect y="20" width="90" height="20" fill="#1f7a48"/><rect y="40" width="90" height="20" fill="#c8312b"/>`+
+    `<g fill="#23304a"><path d="M30 41h30v3H30z"/><path d="M32 22h5v19h-5zM41 18h7v23h-7zM52 24h5v17h-5z"/>`+
+    `<path d="M30 22l3-4 3 4zM40 14l4-5 4 5zM51 24l3-4 3 4z"/><rect x="43" y="26" width="3" height="5" fill="#c8312b"/></g></svg>`;
+  if(s.k==='TL'){let fr='';for(let i=0;i<9;i++){const x=i*10+2;
+     fr+=`<path d="M${x} 4l4 4-4 4-4-4z" fill="${i%2?'#284a8c':'#bf8a2e'}"/>`;
+     fr+=`<path d="M${x} 52l4 4-4 4-4-4z" fill="${i%2?'#bf8a2e':'#284a8c'}"/>`;}
+   return `<svg ${v}><rect width="90" height="60" fill="#9c2f24"/>${fr}`+
+    `<path d="${star(45,30,16,16,8,0)}" fill="#ece3cc"/>`+
+    `<path d="${star(45,30,12,4.6,8)}" fill="#284a8c"/><circle cx="45" cy="30" r="3.4" fill="#bf8a2e"/></svg>`;}
+  if(s.k==='PO') return `<svg ${v}><rect width="90" height="30" fill="#c8312b"/>`+
+    `<rect y="30" width="90" height="15" fill="#27407d"/><rect y="45" width="90" height="15" fill="#ffffff"/>`+
+    `<g fill="#caa14e" stroke="#8a6a26" stroke-width=".5"><rect x="33" y="10" width="24" height="12"/>`+
+    `<rect x="33" y="6" width="4" height="6"/><rect x="43" y="4" width="4" height="8"/><rect x="53" y="6" width="4" height="6"/></g></svg>`;
+  if(s.k==='RO') return `<svg ${v}><rect width="90" height="20" fill="#1c1c20"/>`+
+    `<rect y="20" width="90" height="20" fill="#f3eee0"/><rect y="40" width="90" height="20" fill="#5a86b8"/>`+
+    `<g stroke="#3c6b3a" stroke-width="2.4" fill="none"><path d="M45 48V18"/></g>`+
+    `<g fill="#4f7d3f"><ellipse cx="45" cy="16" rx="4" ry="6"/><ellipse cx="37" cy="24" rx="6.5" ry="3.6"/>`+
+    `<ellipse cx="53" cy="24" rx="6.5" ry="3.6"/><ellipse cx="35" cy="33" rx="6" ry="3.4"/>`+
+    `<ellipse cx="55" cy="33" rx="6" ry="3.4"/></g></svg>`;
+  if(s.k==='PI') return `<svg ${v}><rect width="90" height="60" fill="#0f7a5a"/>`+
+    `<g fill="none" stroke="#f3eee0" stroke-width="3"><path d="M14 44a8 8 0 0 1 16 0"/>`+
+    `<path d="M30 44a8 8 0 0 1 16 0"/><path d="M46 44a8 8 0 0 1 16 0"/><path d="M62 44a8 8 0 0 1 16 0"/></g>`+
+    `<rect x="12" y="44" width="68" height="3.4" fill="#f3eee0"/>`+
+    `<path d="M40 8h10v8c0 5-5 8-5 8s-5-3-5-8z" fill="#c8312b" stroke="#f3eee0" stroke-width="1"/>`+
+    `<path d="M43 12l2 2 2-2M43 16l2 2 2-2" stroke="#fff" stroke-width="1" fill="none"/></svg>`;
+  if(s.t==='F') return `<svg ${v}><image href="${STATE_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
+    `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
+    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
+  if(s.t==='M') return `<svg ${v}><image href="${CIVIL_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
+    `<rect x="2" y="2" width="86" height="56" fill="none" stroke="#b88a14" stroke-width="1.6" stroke-dasharray="5 3"/>`+
+    `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
+    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
+  const pu=PEUPLES[s.p];
+  if(TRI[s.p]){const t=TRI[s.p];
+   return `<svg ${v}><rect width="90" height="20" fill="${t[0]}"/><rect y="20" width="90" height="20" fill="${t[1]}"/>`+
+    `<rect y="40" width="90" height="20" fill="${t[2]}"/>${roundel(s.k)}</svg>`;}
+  if(s.p==='bos') return `<svg ${v}><rect width="90" height="60" fill="#1c3f7a"/>`+
+    `<rect y="40" width="90" height="20" fill="#caa14e"/>${roundel(s.k)}</svg>`;
+  if(s.p==='cng') return `<svg ${v}><rect width="90" height="60" fill="#9e2230"/>`+
+    `<rect x="4" y="4" width="82" height="52" fill="none" stroke="#caa14e" stroke-width="3"/>${roundel(s.k)}</svg>`;
+  if(s.p==='mkd'){let ray='';for(let i=0;i<8;i++){const a=i*Math.PI/4;
+     ray+=`<path d="M45 30L${45+44*Math.cos(a)} ${30+44*Math.sin(a)}" stroke="#e7d4a4" stroke-width="4"/>`;}
+   return `<svg ${v}><rect width="90" height="60" fill="#c8312b"/>${ray}${roundel(s.k)}</svg>`;}
+  return `<svg ${v}><rect width="90" height="60" fill="${pu.hex}"/>${roundel(s.k)}</svg>`;
+}
+/*__FLAGNOTE__*/
+function plateSVG(s){
+  return `<svg viewBox="0 0 240 50" xmlns="http://www.w3.org/2000/svg">`+
+   `<rect width="240" height="50" rx="5" fill="#ffffff" stroke="#d0d2d8" stroke-width="1"/>`+
+   `<rect width="34" height="50" rx="5" fill="#0e347f"/><rect x="29" width="6" height="50" fill="#0e347f"/>`+
+   `<image href="${COA_DATA}" x="2" y="3" width="30" height="22" preserveAspectRatio="xMidYMid meet"/>`+
+   `<text x="17" y="42" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `font-size="10" font-weight="700" fill="#f8c300">BK</text>`+
+   `<text x="58" y="35" font-family="IBM Plex Mono,monospace" font-size="26" `+
+   `font-weight="600" fill="#1b2030" letter-spacing="2">${s.k} · 000 · A</text></svg>`;
+}
+
+/* ============================================================
+   CARTOGRAM (schematic — superseded by the GADM layer)
+   ============================================================ */
+function cartogram(highlight){
+  const TS=44,GAP=7,cell=TS+GAP;
+  let mc=0,mr=0; STATES.forEach(s=>{mc=Math.max(mc,s.g[0]);mr=Math.max(mr,s.g[1]);});
+  const W=(mc+1)*cell+GAP,H=(mr+1)*cell+GAP;
+  let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img">`;
+  STATES.forEach(st=>{
+    const x=st.g[0]*cell+GAP,y=st.g[1]*cell+GAP;
+    const dim=highlight&&highlight!==st.c?' dim':'';
+    const hit=highlight===st.c;
+    const isC=st.t!=='T';
+    const acc=st.p==='fed'?'#3a4663':PEUPLES[st.p].hex;
+    const fill=hit?'#eef0f5':'#ffffff';
+    const dash=st.t==='M'?' stroke-dasharray="5 3"':'';
+    s+=`<g class="tile${dim}" onclick="go('#/state/${st.c}')"><title>${st.n} (${st.c})</title>`;
+    s+=`<rect x="${x}" y="${y}" width="${TS}" height="${TS}" rx="${isC?TS/2:3}" `+
+       `fill="${fill}" stroke="${hit?'#1f2742':'#d0d2d8'}" stroke-width="${hit?2.6:1.3}"${dash}/>`;
+    if(!isC) s+=`<rect x="${x}" y="${y}" width="${TS}" height="3.2" fill="${acc}"/>`;
+    s+=`<text x="${x+TS/2}" y="${y+TS/2+4.5}" text-anchor="middle" `+
+       `fill="${hit?'#1f2742':'#545b6c'}">${st.k}</text></g>`;
+  });
+  return s+'</svg>';
+}
+
+/* ============================================================
+   VIEWS
+   ============================================================ */
+function crumb(parts){
+  return `<div class="breadcrumb">`+parts.map((p,i)=>i<parts.length-1
+    ? `<a href="${p[1]}">${p[0]}</a> &nbsp;›&nbsp; `
+    : `<b>${p[0]}</b>`).join('')+`</div>`;
+}
+
+function vHome(){
+  return `
+  <section class="hero reveal">
+    <div>
+      <div class="eyebrow">Official portal</div>
+      <h1>The Balkan Confederation</h1>
+      <p class="lead">A federation of forty-seven states and seven constituent peoples,
+      bringing together the South Slavic nations and the autonomous Albanian, Hungarian,
+      Turkish and Slovak communities within a Balkan union founded on the equality of
+      states and on direct democracy.</p>
+      <div class="motto">“Različiti narodi, jedan dom” — Diverse peoples, one home.</div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#/states">Explore the states
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-ghost" href="#/participation">Become a citizen</a>
+      </div>
+    </div>
+    <div class="hero-aside"><svg class="crest" viewBox="0 0 100 100" id="homeCrest"></svg></div>
+  </section>
+
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="figs">
+      <div class="fig"><b>47</b><span>Confederated states</span></div>
+      <div class="fig"><b>7</b><span>Constituent peoples</span></div>
+      <div class="fig"><b>4</b><span>Federal capitals</span></div>
+      <div class="fig"><b>25</b><span>Autonomous communities</span></div>
+    </div>
+  </section>
+
+  <section class="section reveal" style="animation-delay:.1s">
+    <div class="h2row"><h2>Explore the portal</h2></div>
+    <div class="cards">
+      ${[
+       ['Territory','States &amp; territories','The 45 states, federal cities and autonomous federal municipalities.','#/states'],
+       ['Geography','Interactive map','Municipal boundaries, demographic and economic indicators by state.','#/map'],
+       ['Government','Institutions','The Kongres, Narodni Sabor, Savezno Veće and Ustavni Sud.','#/institutions'],
+       ['Law','Constitution','The consolidated text of the Confederal Constitution and its titles.','#/constitution'],
+       ['Language','Identity &amp; alphabet','The unified Latin alphabet, the symbols and heraldry of the union.','#/identity'],
+       ['Civic life','Participation','Confederal digital citizenship and the participatory platform.','#/participation']
+      ].map(c=>`<a class="pcard" href="${c[3]}">
+        <div class="pc-eye">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p>
+        <div class="arrow">Open
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>`).join('')}
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="split-32">
+      <div>
+        <div class="h2row"><h2>Official Journal</h2><a class="seeall" href="#/journal">All records →</a></div>
+        <div class="jlist">
+          ${JOURNAL.map(j=>`<a class="jrow" href="#/journal">
+            <span class="jd">${j.d}</span>
+            <span class="jt">${j.t}<span>${j.s}</span></span>
+            <span class="jcat">${j.cat}</span></a>`).join('')}
+        </div>
+      </div>
+      <div>
+        <div class="h2row"><h2>Membership</h2></div>
+        <div class="panel">
+          <div class="eyebrow">Confederal digital citizenship</div>
+          <p class="note" style="margin-bottom:14px">Registered citizens form the
+          electoral body of the Narodni Sabor. The live counter activates with the
+          participation module.</p>
+          <div style="font-family:'Spectral',serif;font-size:2.6rem;font-weight:700;
+            color:var(--indigo);line-height:1">—</div>
+          <div class="note">Registered citizens</div>
+          <a class="btn btn-ghost" style="margin-top:16px" href="#/dashboard">Membership dashboard</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function vStates(){
+  return crumb([['Home','#/home'],['States']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Directory</div>
+    <h1>States &amp; territories</h1>
+    <p class="lead">Forty-three territorial states, four federal cities and two autonomous
+    federal municipalities. Filter by constituent people or search by name, code or seat.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="toolbar">
+      <input id="q" placeholder="Search a state, a code, a seat…" oninput="renderGrid()">
+      <button class="chip on" data-p="all" onclick="setF(this)">All</button>
+      ${Object.entries(PEUPLES).map(([k,p])=>
+        `<button class="chip" data-p="${k}" onclick="setF(this)">${p.en}</button>`).join('')}
+      <button class="chip" data-p="fed" onclick="setF(this)">Federal</button>
+    </div>
+    <div class="sgrid" id="grid"></div>
+    <div class="notice">Autonomous communities within the states are listed on the
+      <a href="#/autonomy" style="font-weight:600;color:var(--gold)">Autonomous communities</a> page.</div>
+  </section>`;
+}
+let curF='all';
+function setF(b){curF=b.dataset.p;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));renderGrid();}
+function renderGrid(){
+  const q=(document.getElementById('q')?.value||'').toLowerCase();
+  const list=STATES.filter(s=>{
+    const fok=curF==='all'||s.p===curF;
+    const qok=!q||(s.n+s.c+s.ch+s.k).toLowerCase().includes(q);
+    return fok&&qok;});
+  const g=document.getElementById('grid'); if(!g)return;
+  if(!list.length){g.innerHTML='<p class="note">No result.</p>';return;}
+  g.innerHTML=list.map(s=>{
+    const pu=s.p==='fed'?{en:s.t==='F'?'Federal city':'Federal municipality'}:PEUPLES[s.p];
+    return `<a class="scard ${s.t==='M'?'muni':''}" href="#/state/${s.c}">
+      <div class="flagwrap">${flagSVG(s)}</div>
+      <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3>
+      <div class="speu">${pu.en}</div></div></a>`;}).join('');
+}
+
+function vState(code){
+  const s=byCode(code);
+  if(!s)return crumb([['Home','#/home'],['States','#/states'],['Not found']])+
+    '<section class="section"><p class="lead">State not found.</p></section>';
+  const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p], auts=autOf(code);
+  const typeLabel={T:'Territorial state',F:'Federal city',M:'Autonomous federal municipality'}[s.t];
+  const note=FLAGNOTE[s.k]||(fed
+    ?(s.t==='F'?'Confederal state flag — flown by federal institutions seated in this city. A badge bears the city code.'
+      :'Civil flag of the Confederation under direct federal jurisdiction — dashed border marks the autonomous municipal status.')
+    :'Provisional systemic flag — pan-colours of the constituent people, pending the dedicated heraldic design.');
+  let rows=`<tr><td>Official code</td><td class="mono">${s.c}</td></tr>
+    <tr><td>Status</td><td>${typeLabel}</td></tr>`;
+  if(!fed){
+    rows+=`<tr><td>Constituent people</td><td><span class="pdot" style="background:${pu.hex}"></span>${pu.en} · ${pu.name}</td></tr>`;
+    rows+=`<tr><td>Regional standard</td><td>${STD[pu.std]}</td></tr>`;
+    rows+=`<tr><td>Seat</td><td>${s.ch}</td></tr>`;
+  }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
+  rows+=`<tr><td>Municipalities</td><td><span class="pending">—</span></td></tr>
+    <tr><td>Population</td><td><span class="pending">—</span></td></tr>
+    <tr><td>Area</td><td><span class="pending">—</span></td></tr>
+    <tr><td>Population density</td><td><span class="pending">—</span></td></tr>
+    <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">—</span></td></tr>
+    <tr><td>Autonomous communities</td><td>${auts.length||'None'}</td></tr>`;
+  return crumb([['Home','#/home'],['States','#/states'],[s.n]])+`
+  <section class="section reveal">
+    <div class="detail">
+      <div>
+        <div class="flagcard">
+          <div class="fbig">${flagSVG(s)}</div>
+          <div class="fcap">${note}</div>
+        </div>
+        <div class="flagcard" style="margin-top:14px">
+          <div class="subhead">Licence plate</div>
+          <div class="plate">${plateSVG(s)}</div>
+          <div class="fcap">Confederal format — country band <b>BK</b> followed by the state code.</div>
+        </div>
+        <div class="flagcard minicarto" style="margin-top:14px">
+          <div class="subhead">Location</div>
+          ${cartogram(code)}
+          <div class="fcap">Schematic placement — pending the cartographic layer.</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">${typeLabel}</div>
+        <h1 style="font-size:2.1rem;margin-bottom:6px">${s.n}</h1>
+        <div style="margin-bottom:18px">
+          <span class="tag indigo">${s.c}</span>
+          ${!fed?`<span class="tag" style="margin-left:6px"><span class="pdot" style="background:${pu.hex}"></span>${pu.en}</span>`:''}
+        </div>
+        <div class="subhead">Key data</div>
+        <table class="dtable"><tbody>${rows}</tbody></table>
+        <div class="notice">Demographic, territorial and economic data are integrated
+        through the territorial data layer — real municipal figures aggregated from
+        GADM boundaries — currently in preparation.</div>
+        ${auts.length?`
+        <div class="subhead" style="margin-top:26px">Autonomous communities</div>
+        <p class="note" style="margin-bottom:10px">Communities holding their own powers
+        in education, culture and municipal affairs (Art. 1 quater).</p>
+        <ul class="aut-list">${auts.map(a=>`<li><b>${a.n}</b>
+          <span class="mono">${a.id}</span> · ${a.com.toLowerCase()} community</li>`).join('')}</ul>`:''}
+      </div>
+    </div>
+  </section>`;
+}
+
+function vMap(){
+  return crumb([['Home','#/home'],['Map']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Geography</div>
+    <h1>Interactive map</h1>
+    <p class="lead">The map renders the real municipal boundaries of every state, with
+    demographic, territorial and economic indicators. The cartographic layer is built
+    from GADM administrative data.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="pending-box">
+      <svg class="pb-emb" viewBox="0 0 100 100">${emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}</svg>
+      <div class="pending-pill">Cartographic layer in preparation</div>
+      <h4>Municipal boundary map — GADM</h4>
+      <p>The vector map and its statistical overlays are produced in the dedicated
+      cartographic workstream. Until then, the schematic overview below provides
+      orientation and navigation.</p>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Schematic overview</h2></div>
+    <p class="note" style="margin-bottom:14px">Each cell is a state, coloured along its
+    top edge by constituent people. Federal cities are rounded; autonomous federal
+    municipalities are dashed. Select a cell to open its page.</p>
+    <div class="cartowrap">
+      ${cartogram(null)}
+      <div class="legend">
+        ${Object.values(PEUPLES).map(p=>`<span><i style="background:${p.hex}"></i>${p.en}</span>`).join('')}
+        <span><i style="background:#3a4663"></i>Federal territories</span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function vInstitutions(){
+  const org=[
+   ['leg','Legislative organ','Kongres',[
+     'Delegates elected by universal direct suffrage, proportional ballot.',
+     'Each state is one constituency; 2 to 20 delegates by population.',
+     'Votes laws and the budget, ratifies treaties, grants pardon.',
+     'Elects the judges of the Ustavni Sud and confirms the Savezno Veće.']],
+   ['rep','Assembly of Nations','Narodni Sabor',[
+     'Seven national delegations of ten members — 70 members in all.',
+     'Elected by citizens enrolled in each national register.',
+     'Mandatory consent: languages, alphabet, borders, symbols, equalisation.',
+     'Alarm right and review of petitions from autonomous communities.']],
+   ['exe','Confederal Council — executive','Savezno Veće',[
+     'College of seven councillors, one per constituent people.',
+     'Decisions by consensus; failing that, simple majority.',
+     'Annual rotating presidency (Slovene → … → Bulgarian).',
+     'Seven departments across Sarajevo, Beograd, Sofija and Zagreb.']],
+   ['jud','Judicial organ','Ustavni Sud',[
+     'Constitutional Court sitting in Zagreb.',
+     'Fourteen judges, two per constituent people; 12-year term.',
+     'Constitutional review, conflicts of competence.',
+     'Individual remedies and disputes of the autonomous communities.']]
+  ];
+  return crumb([['Home','#/home'],['Institutions']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Confederal architecture</div>
+    <h1>Institutions of the Confederation</h1>
+    <p class="lead">The legislative, executive and judicial functions are separated
+    (Art. 101). No person may sit in more than one confederal organ.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="org">
+      ${org.map(o=>`<div class="orgcard">
+        <div class="org-k">${o[1]}</div><h3>${o[2]}</h3>
+        <ul>${o[3].map(li=>`<li>${li}</li>`).join('')}</ul></div>`).join('')}
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Direct democracy</h2></div>
+    <div class="split2">
+      <div class="panel"><div class="eyebrow">Popular initiative</div>
+        <p class="note">300,000 citizens may propose a constitutional revision, adopted
+        by the double majority of the people and of the states.</p></div>
+      <div class="panel"><div class="eyebrow">Optional referendum</div>
+        <p class="note">150,000 citizens or 12 states may submit any confederal law to a
+        popular vote within 100 days of its publication.</p></div>
+    </div>
+  </section>`;
+}
+
+function vConstitution(){
+  const titles=[
+   ['Title I bis','Confederated states and their components','Composition, federal capitals, autonomous communities, federal municipalities.'],
+   ['Title IV','Institutions of the Confederation','Organs, separation of powers, constituent peoples, Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud, direct democracy.'],
+   ['Title V','Languages and the alphabet','National language, three regional standards, official alphabet, linguistic freedom.'],
+   ['Title VI','Confederal finances and equalisation','Equalisation principle and formula, financial transparency, geographic proportionality of investment.']
+  ];
+  return crumb([['Home','#/home'],['Constitution']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Fundamental law</div>
+    <h1>Constitution of the Confederation</h1>
+    <p class="lead">The consolidated text of the Confederal Constitution. Official acts
+    are published in the unified South Slavic Latin alphabet and in the three regional
+    standards.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="h2row"><h2>Titles</h2><a class="seeall" href="#/journal">Official Journal →</a></div>
+    <div class="jlist">
+      ${titles.map(t=>`<div class="jrow">
+        <span class="jd">${t[0]}</span>
+        <span class="jt">${t[1]}<span>${t[2]}</span></span>
+        <span class="jcat">Read</span></div>`).join('')}
+    </div>
+    <div class="notice">The full article-by-article reader is integrated at a later
+    stage. Drafting currently covers the consolidated v2 text.</div>
+  </section>`;
+}
+
+function vJournal(){
+  return crumb([['Home','#/home'],['Official Journal']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Records</div>
+    <h1>Official Journal</h1>
+    <p class="lead">The chronological record of confederal acts — constitutional drafts,
+    laws, regulations and institutional decisions.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="jlist">
+      ${JOURNAL.map(j=>`<div class="jrow">
+        <span class="jd">${j.d}</span>
+        <span class="jt">${j.t}<span>${j.s}</span></span>
+        <span class="jcat">${j.cat}</span></div>`).join('')}
+    </div>
+  </section>`;
+}
+
+function vIdentity(){
+  return crumb([['Home','#/home'],['Identity']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Identity of the union</div>
+    <h1>Language, alphabet &amp; symbols</h1>
+    <p class="lead">The Confederation is anchored in the Balkan linguistic area. Its
+    written identity rests on a unified Latin alphabet; its institutional identity on a
+    shared system of symbols and heraldry.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="cards">
+      <a class="pcard" href="#/alphabet"><div class="pc-eye">Writing</div>
+        <h3>Unified alphabet</h3>
+        <p>The South Slavic Latin alphabet — 32 letters, version 3.</p>
+        <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
+      <a class="pcard" href="#/symbols"><div class="pc-eye">Heraldry</div>
+        <h3>Symbols &amp; heraldry</h3>
+        <p>The coat of arms, the state flag and the civil flag of the Confederation.</p>
+        <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
+      <a class="pcard" href="#/autonomy"><div class="pc-eye">Communities</div>
+        <h3>Autonomous communities</h3>
+        <p>Twenty-five communities with cultural and municipal powers.</p>
+        <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Seven constituent peoples</h2></div>
+    <div class="peoples">
+      ${Object.values(PEUPLES).map(p=>`<div class="pp">
+        <div class="pp-bar" style="background:${p.hex}"></div>
+        <b>${p.name}</b><span>${p.en}</span></div>`).join('')}
+    </div>
+  </section>`;
+}
+
+function vAlphabet(){
+  return crumb([['Home','#/home'],['Identity','#/identity'],['Alphabet']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Linguistic identity</div>
+    <h1>South Slavic Latin alphabet — v3</h1>
+    <p class="lead">Thirty-two letters — 7 vowels and 25 consonants — based on the
+    gajica and on areal Balkan features (schwa <b>ã</b>, tilde <b>ñ</b>, cedilla
+    <b>ļ</b>, jat’ <b>ě</b>). The letter <b>ç</b> is reserved for proper names
+    (Albanian, Turkish) and is not counted among the thirty-two.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="alpha">
+      ${ALPHA.map(([g,ipa,t])=>`<div class="glyph ${t===0||t===2?'vow':''} ${t>=2?'new':''}">
+        <div class="g">${g}&nbsp;${g.toLowerCase()}</div><div class="ipa">${ipa}</div></div>`).join('')}
+    </div>
+    <div class="legend" style="margin-top:16px">
+      <span><i style="background:var(--surface-2);border:1px solid var(--line-2)"></i>Vowel</span>
+      <span><i style="background:#fff;box-shadow:inset 0 0 0 1.5px var(--gold)"></i>New in v3 (ě, ñ, ļ)</span>
+    </div>
+  </section>
+  <section class="section reveal"><div class="panel">
+    <h3 style="font-size:1.15rem;margin-bottom:8px">Three regional standards, one language</h3>
+    <p class="note">The national language is the <b>južnoslovenski jezik</b>, expressed
+    through three standards of equal standing: western (Slovene speech), central
+    (Štokavian speech) and eastern (Bulgaro-Macedonian speech). The jat’ <b>ě</b> is
+    realised freely (e / je / ije / i / ja) according to the reader’s standard. The
+    Cyrillic alphabet remains in free use.</p>
+  </div></section>`;
+}
+
+function vSymbols(){
+  return crumb([['Home','#/home'],['Identity','#/identity'],['Symbols']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Heraldry</div>
+    <h1>Symbols &amp; heraldry of the Confederation</h1>
+    <p class="lead">The Confederation bears three official symbols: the coat of arms,
+    the state flag and the civil flag. Each state in turn adopts its own flag, arms
+    and anthem (Art. 126).</p>
+  </section>
+
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="split-32">
+      <div class="symcard">
+        <div class="symhead">Coat of Arms</div>
+        <div class="symbody coa">
+          <img src="${COA_DATA}" alt="Coat of arms of the Balkan Confederation" />
+        </div>
+        <div class="symcap">
+          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion — heir to the
+          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground —
+          stands for the union of the constituent peoples. It appears in gold, with no
+          shield, on official seals, state correspondence and the state flag.</p>
+        </div>
+      </div>
+      <div>
+        <div class="symcard">
+          <div class="symhead">State Flag <span class="symtag">Official use</span></div>
+          <div class="symbody"><img src="${STATE_FLAG_DATA}" alt="State flag of the Balkan Confederation" /></div>
+          <div class="symcap">
+            <p>The state flag is flown by all federal institutions, military formations,
+            embassies and seats of state. Vertical red hoist bearing the radiant sun
+            charged with the lion gules; horizontal field of azure, argent and azure,
+            the central white band bordered by friezes inspired by Balkan textile
+            traditions.</p>
+          </div>
+        </div>
+        <div class="symcard" style="margin-top:14px">
+          <div class="symhead">Civil Flag <span class="symtag tag-soft">Everyday use</span></div>
+          <div class="symbody"><img src="${CIVIL_FLAG_DATA}" alt="Civil flag of the Balkan Confederation" /></div>
+          <div class="symcap">
+            <p>The civil flag is the flag of the people of the Confederation. It is
+            flown by citizens, civil associations and on public buildings under
+            municipal authority. Vertical red hoist; horizontal field of azure, argent
+            and azure — the unadorned base of the state flag.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="h2row"><h2>The confederal palette</h2></div>
+    <div class="palrow">
+      <div class="swatch"><div class="sw" style="background:#c90505"></div>
+        <b>Red</b><span class="mono">#C90505</span><em>Hoist · sovereignty</em></div>
+      <div class="swatch"><div class="sw" style="background:#0e347f"></div>
+        <b>Navy</b><span class="mono">#0E347F</span><em>Field · concord</em></div>
+      <div class="swatch"><div class="sw" style="background:#ffffff;border:1px solid var(--line-2)"></div>
+        <b>White</b><span class="mono">#FFFFFF</span><em>Peace · unity</em></div>
+      <div class="swatch"><div class="sw" style="background:#f8c300"></div>
+        <b>Gold</b><span class="mono">#F8C300</span><em>The lion · honour</em></div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="h2row"><h2>State flags</h2><a class="seeall" href="#/states">All states &rarr;</a></div>
+    <div class="sgrid">
+      ${STATES.filter(s=>s.t==='T').slice(0,12).map(s=>`<a class="scard" href="#/state/${s.c}">
+        <div class="flagwrap">${flagSVG(s)}</div>
+        <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3></div></a>`).join('')}
+    </div>
+    <div class="notice">Forty-two dedicated state flags are now designed.
+    The single remaining territorial state (Zagorje) carry a provisional systemic flag based on
+    the pan-colours of their constituent people, pending the dedicated heraldic
+    design.</div>
+  </section>`;
+}
+
+function vAutonomy(){
+  const groups=[...new Set(AUT.map(a=>a.com))];
+  return crumb([['Home','#/home'],['Autonomous communities']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Communities</div>
+    <h1>Autonomous communities</h1>
+    <p class="lead">Twenty-five autonomous communities guarantee the cultural,
+    educational and municipal rights of minority communities (Art. 1 quater to
+    1 sexies). They hold no legislative power of their own, but a right of consultation
+    and of petition.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    ${groups.map(gr=>`
+      <div class="subhead" style="margin-top:20px">${gr} communities</div>
+      <ul class="aut-list">
+        ${AUT.filter(a=>a.com===gr).map(a=>{const h=byCode(a.host);
+          return `<li><b>${a.n}</b>
+          <span><span class="mono">${a.id}</span> · within
+          <a href="#/state/${a.host}" style="color:var(--gold);font-weight:600">${h.n}</a></span></li>`;}).join('')}
+      </ul>`).join('')}
+  </section>
+  <section class="section reveal"><div class="panel">
+    <div class="subhead">Autonomous federal municipalities</div>
+    <p class="note" style="margin-bottom:14px">Brčko and Mostar fall directly under
+    confederal jurisdiction and belong to no state. Their municipal council is elected
+    by direct suffrage and guarantees the fair representation of all resident
+    communities.</p>
+    <div class="sgrid">
+      ${STATES.filter(s=>s.t==='M').map(s=>`<a class="scard muni" href="#/state/${s.c}">
+        <div class="flagwrap">${flagSVG(s)}</div>
+        <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3>
+        <div class="speu">Autonomous federal municipality</div></div></a>`).join('')}
+    </div>
+  </div></section>`;
+}
+
+function vParticipation(){
+  return crumb([['Home','#/home'],['Participation']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Civic life</div>
+    <h1>Confederal digital citizenship</h1>
+    <p class="lead">The Balkan Confederation is, first of all, a community that one
+    chooses to join. Confederal citizenship is declarative: it is acquired online,
+    materialises immediately, and opens the right to take part in confederal
+    consultations and votes.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="h2row"><h2>Registration in three steps</h2></div>
+    <div class="steps">
+      <div class="step"><div class="sn">1</div>
+        <h4>State of attachment</h4>
+        <p>Chosen by municipality of origin — including from the diaspora — or by free
+        attachment. Determines the constituency for the Kongres.</p></div>
+      <div class="step"><div class="sn">2</div>
+        <h4>Constituent nation</h4>
+        <p>A personal, voluntary and revocable choice among the seven peoples, or
+        “unaffiliated”. Determines the register for the Narodni Sabor.</p></div>
+      <div class="step"><div class="sn">3</div>
+        <h4>Linguistic standard</h4>
+        <p>Preferred regional standard — western, central or eastern — for the language
+        of the interface and of official documents.</p></div>
+    </div>
+    <div class="cert" style="margin-top:16px">
+      <svg class="cemb" viewBox="0 0 100 100" id="certEmblem"></svg>
+      <div>
+        <div class="cl">Confederal citizenship certificate</div>
+        <div class="cid">JK-000000</div>
+        <p>Each registration yields a signed digital certificate and a badge for social
+        networks. The three choices are independent and may be amended at any time.</p>
+      </div>
+    </div>
+    <div style="margin-top:18px">
+      <button class="btn btn-primary" onclick="alert('The registration flow opens with the participation module.')">Begin registration</button>
+      <a class="btn btn-ghost" href="#/dashboard" style="margin-left:8px">Membership dashboard</a>
+    </div>
+    <div class="notice">The participatory platform — consultations, debates, citizen
+    proposals and votes — is built on an open-source participation infrastructure of
+    the Decidim type. The registration flow and the live dashboard are activated in the
+    next development stage.</div>
+  </section>`;
+}
+
+function vDashboard(){
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Dashboard']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Transparency</div>
+    <h1>Membership dashboard</h1>
+    <p class="lead">A public, real-time view of confederal digital citizenship —
+    registered citizens by people and by state, with historical series.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="kpis">
+      <div class="kpi"><div class="kn">—</div><div class="kl">Registered citizens</div></div>
+      <div class="kpi"><div class="kn">—</div><div class="kl">Registrations · last 30 days</div></div>
+      <div class="kpi"><div class="kn">—</div><div class="kl">States represented</div></div>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Breakdown by constituent people</h2></div>
+    <div class="panel">
+      ${Object.values(PEUPLES).map(p=>`<div class="barrow">
+        <span class="bl"><span class="pdot" style="background:${p.hex}"></span>${p.en}</span>
+        <span class="bt"><span class="bf" style="width:0%"></span></span>
+        <span class="bv">—</span></div>`).join('')}
+      <div class="barrow"><span class="bl">Unaffiliated</span>
+        <span class="bt"><span class="bf" style="width:0%"></span></span>
+        <span class="bv">—</span></div>
+    </div>
+    <div class="notice">The dashboard activates with the registration system. Figures
+    will be published per state and per people, updated in real time.</div>
+  </section>`;
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function go(h){location.hash=h;}
+const ROUTES={
+ 'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
+ 'institutions':[vInstitutions,'#/institutions'],'constitution':[vConstitution,'#/constitution'],
+ 'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
+ 'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
+ 'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
+ 'dashboard':[vDashboard,'#/participation']
+};
+function render(){
+  const h=location.hash||'#/home';
+  const app=document.getElementById('app');
+  let html,key;
+  if(h.startsWith('#/state/')){html=vState(h.slice(8));key='#/states';}
+  else{
+    const seg=h.replace(/^#\//,'').split('/')[0]||'home';
+    const r=ROUTES[seg]||ROUTES['home'];
+    html=r[0]();key=r[1];
+  }
+  app.innerHTML=html;
+  document.querySelectorAll('#nav a').forEach(a=>
+    a.classList.toggle('active',a.getAttribute('href')===key));
+  ['homeCrest','symEmblem','certEmblem'].forEach(id=>{
+    const e=document.getElementById(id);
+    if(e)e.innerHTML=emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
+  });
+  if(h.startsWith('#/states'))renderGrid();
+  window.scrollTo(0,0);
+}
+document.getElementById('hdEmblem').innerHTML=
+  emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
+document.getElementById('langsel').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  if(b.dataset.l!=='en'){
+    alert('This interface language will be available with the multilingual corpus. English is active.');
+    return;
+  }
+});
+window.addEventListener('hashchange',render);
+
+/* ============ BOOTSTRAP : chargement des données ============ */
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={};
+const byCode=c=>STATES.find(s=>s.c===c);
+const autOf=code=>AUT.filter(a=>a.host===code);
+async function loadData(){
+  const base='data/';
+  const [pe,st,au,al,fl,fn]=await Promise.all([
+    fetch(base+'peuples.json').then(r=>r.json()),
+    fetch(base+'etats.json').then(r=>r.json()),
+    fetch(base+'entites-autonomes.json').then(r=>r.json()),
+    fetch(base+'alfabet.json').then(r=>r.json()),
+    fetch(base+'state_flags.json').then(r=>r.json()),
+    fetch(base+'flagnotes.json').then(r=>r.json()),
+  ]);
+  PEUPLES=pe; STATES=st;
+  al=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); AUT=au; ALPHA=al; STATE_FLAGS=fl; FLAGNOTE=fn;
+  STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
+}
+loadData().then(()=>{ render(); }).catch(e=>{
+  document.getElementById('app').innerHTML='<p style="padding:40px">Erreur de chargement des données : '+e+'</p>';
+});
+
+</script>
+</body>
+</html>

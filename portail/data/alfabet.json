@@ -1,0 +1,162 @@
+[
+ {
+  "glyph": "A",
+  "ipa": "/a/",
+  "type": 0
+ },
+ {
+  "glyph": "Ã",
+  "ipa": "/ə ~ ɤ/",
+  "type": 0
+ },
+ {
+  "glyph": "B",
+  "ipa": "/b/",
+  "type": 1
+ },
+ {
+  "glyph": "C",
+  "ipa": "/ts/",
+  "type": 1
+ },
+ {
+  "glyph": "Č",
+  "ipa": "/tʃ/",
+  "type": 1
+ },
+ {
+  "glyph": "Ć",
+  "ipa": "/tɕ/",
+  "type": 1
+ },
+ {
+  "glyph": "D",
+  "ipa": "/d/",
+  "type": 1
+ },
+ {
+  "glyph": "Đ",
+  "ipa": "/dʑ/",
+  "type": 1
+ },
+ {
+  "glyph": "E",
+  "ipa": "/ɛ/",
+  "type": 0
+ },
+ {
+  "glyph": "Ě",
+  "ipa": "jat’",
+  "type": 2
+ },
+ {
+  "glyph": "F",
+  "ipa": "/f/",
+  "type": 1
+ },
+ {
+  "glyph": "G",
+  "ipa": "/ɡ/",
+  "type": 1
+ },
+ {
+  "glyph": "H",
+  "ipa": "/x/",
+  "type": 1
+ },
+ {
+  "glyph": "I",
+  "ipa": "/i/",
+  "type": 0
+ },
+ {
+  "glyph": "J",
+  "ipa": "/j/",
+  "type": 1
+ },
+ {
+  "glyph": "K",
+  "ipa": "/k/",
+  "type": 1
+ },
+ {
+  "glyph": "L",
+  "ipa": "/l/",
+  "type": 1
+ },
+ {
+  "glyph": "Ļ",
+  "ipa": "/ʎ/",
+  "type": 3
+ },
+ {
+  "glyph": "M",
+  "ipa": "/m/",
+  "type": 1
+ },
+ {
+  "glyph": "N",
+  "ipa": "/n/",
+  "type": 1
+ },
+ {
+  "glyph": "Ñ",
+  "ipa": "/ɲ/",
+  "type": 3
+ },
+ {
+  "glyph": "O",
+  "ipa": "/ɔ/",
+  "type": 0
+ },
+ {
+  "glyph": "P",
+  "ipa": "/p/",
+  "type": 1
+ },
+ {
+  "glyph": "R",
+  "ipa": "/r/",
+  "type": 1
+ },
+ {
+  "glyph": "S",
+  "ipa": "/s/",
+  "type": 1
+ },
+ {
+  "glyph": "Š",
+  "ipa": "/ʃ/",
+  "type": 1
+ },
+ {
+  "glyph": "T",
+  "ipa": "/t/",
+  "type": 1
+ },
+ {
+  "glyph": "U",
+  "ipa": "/u/",
+  "type": 0
+ },
+ {
+  "glyph": "V",
+  "ipa": "/v/",
+  "type": 1
+ },
+ {
+  "glyph": "X",
+  "ipa": "/dʒ/",
+  "type": 1
+ },
+ {
+  "glyph": "Z",
+  "ipa": "/z/",
+  "type": 1
+ },
+ {
+  "glyph": "Ž",
+  "ipa": "/ʒ/",
+  "type": 1
+ }
+]

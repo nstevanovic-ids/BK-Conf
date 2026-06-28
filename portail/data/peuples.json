@@ -1,0 +1,44 @@
+{
+ "slo": {
+  "name": "Slovenci",
+  "en": "Slovenes",
+  "hex": "#5b7a99",
+  "std": "western"
+ },
+ "hrv": {
+  "name": "Hrvati",
+  "en": "Croats",
+  "hex": "#a8403a",
+  "std": "central"
+ },
+ "srb": {
+  "name": "Srbi",
+  "en": "Serbs",
+  "hex": "#7b3f6e",
+  "std": "central"
+ },
+ "bos": {
+  "name": "Bošnjaci",
+  "en": "Bosniaks",
+  "hex": "#2f6f6a",
+  "std": "central"
+ },
+ "cng": {
+  "name": "Crnogorci",
+  "en": "Montenegrins",
+  "hex": "#8a6d3b",
+  "std": "central"
+ },
+ "mkd": {
+  "name": "Makedonci",
+  "en": "Macedonians",
+  "hex": "#bb8326",
+  "std": "eastern"
+ },
+ "bul": {
+  "name": "Bãlgari",
+  "en": "Bulgarians",
+  "hex": "#4d7c4a",
+  "std": "eastern"
+ }
+}
