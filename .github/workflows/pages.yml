@@ -39,6 +39,8 @@ jobs:
           python scripts/build_portail.py --inline
           mkdir -p _site
           cp balkanska_konfederacija.html _site/index.html
+          # Ship the licensed Zurich font files if present (referenced by @font-face)
+          if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

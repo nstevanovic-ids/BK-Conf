@@ -34,6 +34,7 @@ def build_inline() -> int:
     alpha = json.loads((DATA / "alfabet.json").read_text())
     flags = json.loads((DATA / "state_flags.json").read_text())
     flagnotes = json.loads((DATA / "flagnotes.json").read_text())
+    geo = json.loads((DATA / "geo.json").read_text())
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -43,6 +44,7 @@ def build_inline() -> int:
         f"ALPHA={json.dumps([[a['glyph'], a['ipa'], a['type']] for a in alpha], ensure_ascii=False)};\n"
         f"STATE_FLAGS={json.dumps(flags, ensure_ascii=False)};\n"
         f"FLAGNOTE={json.dumps(flagnotes, ensure_ascii=False)};\n"
+        f"GEO={json.dumps(geo, ensure_ascii=False)};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )
@@ -64,7 +66,7 @@ def build_linked() -> int:
     # Le template est déjà prêt ; rien à assembler. On vérifie juste la présence des data.
     missing = [
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
-                    "alfabet.json", "state_flags.json", "flagnotes.json")
+                    "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json")
         if not (DATA / f).exists()
     ]
     if missing:

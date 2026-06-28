@@ -3,15 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Balkan Confederation — Official Portal</title>
+<title>Balkan Confederation · Official Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spectral:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Provisional fallback grotesque (Inter) until the licensed Zurich files are supplied.
+     Drop portail/fonts/zurich-regular.woff2 and zurich-bold.woff2 to switch to Zurich. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Licensed typeface, files provided by the project owner, embedded by the build. */
+@font-face{font-family:'Zurich';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/zurich-regular.woff2') format('woff2')}
+@font-face{font-family:'Zurich';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/zurich-medium.woff2') format('woff2')}
+@font-face{font-family:'Zurich';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/zurich-bold.woff2') format('woff2')}
 /* ============================================================
-   BALKANSKA KONFEDERACIJA — OFFICIAL PORTAL
+   BALKANSKA KONFEDERACIJA, OFFICIAL PORTAL
    Design system: institutional / Swiss-cold / documentary
-   Stage 1 — portal shell
+   Stage 1, portal shell
    ============================================================ */
 :root{
   --white:#ffffff;
@@ -35,12 +44,14 @@
   --line-3:#bcbfc7;
   --red:#9a2f23;
   --good:#3c6b46;
-  /* people identity hues — used only as small markers */
+  /* people identity hues, used only as small markers */
   --slo:#5b7a99; --hrv:#a8403a; --srb:#7b3f6e; --bos:#2f6f6a;
   --cng:#8a6d3b; --mkd:#bb8326; --bul:#4d7c4a; --fed:#3a4663;
   --shadow:0 1px 2px rgba(20,24,40,.04);
   --shadow-lg:0 18px 44px rgba(20,24,40,.12);
   --tile:#ffffff; --tile-line:#d0d2d8;
+  --font:'Zurich','Inter',system-ui,sans-serif;
+  --map-land:#e9edf3; --map-core:#d3dcea; --map-line:#a9b4c9; --map-water:#dde6f1;
   color-scheme:light;
 }
 [data-theme="dark"]{
@@ -68,16 +79,23 @@
   --shadow:0 1px 2px rgba(0,0,0,.3);
   --shadow-lg:0 18px 44px rgba(0,0,0,.5);
   --tile:#1d2230; --tile-line:#3a4258;
+  --map-land:#1a2030; --map-core:#27314c; --map-line:#3a4258; --map-water:#0b0f17;
   color-scheme:dark;
 }
 [data-theme="dark"] .tag.gold,
 [data-theme="dark"] .symtag.tag-soft{color:#f0deac}
 [data-theme="dark"] .langsel button.on{background:var(--gold-2);color:#1a1205}
 [data-theme="dark"] .topline{background:#b21d1d}
+/* display text that used the dark indigo ink would vanish on a dark surface */
+[data-theme="dark"] .glyph .g,
+[data-theme="dark"] .kpi .kn,
+[data-theme="dark"] .membercount{color:var(--ink)}
+[data-theme="dark"] .seeall:hover,
+[data-theme="dark"] .btn-ghost:hover{color:var(--gold-2)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Archivo',-apple-system,Segoe UI,sans-serif;
+  font-family:var(--font);
   background:var(--bg); color:var(--ink);
   -webkit-font-smoothing:antialiased; line-height:1.6;
   font-size:15px;
@@ -90,8 +108,9 @@ body{
     box-shadow .18s ease,transform .14s ease}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
-.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
-.serif{font-family:'Spectral',Georgia,serif}
+.mono{font-family:var(--font);font-feature-settings:"tnum" 1;letter-spacing:.01em}
+.serif{font-family:var(--font)}
+text{font-family:var(--font)}
 h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
 
 /* ---------- top hairline ---------- */
@@ -117,7 +136,7 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
   gap:16px;padding:16px 28px 14px}
 .emblem{width:44px;height:44px;flex:none}
 .brand{display:flex;flex-direction:column;line-height:1.12}
-.brand b{font-family:'Spectral',serif;font-size:1.3rem;font-weight:700;
+.brand b{font-family:var(--font);font-size:1.3rem;font-weight:700;
   letter-spacing:.005em;color:#fff}
 .brand span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold-soft);margin-top:3px;font-weight:600}
@@ -159,7 +178,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .hero{display:grid;grid-template-columns:1.35fr .85fr;gap:46px;
   padding:50px 0 40px;align-items:center}
 .hero h1{font-size:2.95rem;line-height:1.08;margin:6px 0 16px}
-.hero .motto{font-family:'Spectral',serif;font-style:italic;font-size:1.06rem;
+.hero .motto{font-family:var(--font);font-style:italic;font-size:1.06rem;
   color:var(--ink-2);border-left:2px solid var(--gold);padding-left:15px;margin:20px 0 24px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;
@@ -179,7 +198,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--white)}
 .fig{padding:22px 22px;border-right:1px solid var(--line)}
 .fig:last-child{border-right:none}
-.fig b{font-family:'Spectral',serif;font-size:2.5rem;font-weight:700;
+.fig b{font-family:var(--font);font-size:2.5rem;font-weight:700;
   color:var(--indigo);display:block;line-height:1}
 .fig span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:8px;display:block}
@@ -216,7 +235,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .dtable td:first-child{color:var(--ink-3);width:46%;font-size:.74rem;
   letter-spacing:.04em;text-transform:uppercase;font-weight:700;padding-top:13px}
 .dtable .pending{color:var(--ink-3)}
-.dtable .pending::after{content:" ·";color:var(--line-3)}
+.dtable .pending{color:var(--line-3)}
 
 /* people dot + badges */
 .pdot{display:inline-block;width:9px;height:9px;border-radius:50%;
@@ -257,7 +276,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .scard .flagwrap svg{width:100%;height:100%;display:block}
 .scard .smeta{padding:11px 13px 13px}
 .scard .smeta .scode{font-size:.66rem;letter-spacing:.09em;color:var(--ink-3);
-  font-weight:700;font-family:'IBM Plex Mono',monospace}
+  font-weight:700;font-family:var(--font)}
 .scard .smeta h3{font-size:1rem;margin:2px 0 3px}
 .scard .smeta .speu{font-size:.74rem;color:var(--ink-2)}
 .scard.muni{border-style:dashed}
@@ -299,7 +318,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .tile{cursor:pointer}
 .tile rect,.tile circle{transition:.12s}
 .tile:hover rect,.tile:hover circle{stroke:var(--indigo);stroke-width:2.4}
-.tile text{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+.tile text{font-family:var(--font);font-size:12px;font-weight:600;
   pointer-events:none}
 .tile.dim{opacity:.34}
 .legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:16px;
@@ -311,8 +330,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:7px}
 .glyph{background:var(--white);border:1px solid var(--line-2);border-radius:3px;
   text-align:center;padding:11px 4px}
-.glyph .g{font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;color:var(--indigo)}
-.glyph .ipa{font-size:.66rem;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;
+.glyph .g{font-family:var(--font);font-size:1.5rem;font-weight:600;color:var(--indigo)}
+.glyph .ipa{font-size:.66rem;color:var(--ink-3);font-family:var(--font);
   margin-top:3px}
 .glyph.vow{background:var(--surface-2)}
 .glyph.new{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
@@ -322,14 +341,14 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .pp{background:var(--white);padding:15px 12px;text-align:center}
 .pp .pp-bar{height:4px;width:30px;margin:0 auto 9px;border-radius:2px}
-.pp b{font-family:'Spectral',serif;font-size:.97rem;display:block;color:var(--ink)}
+.pp b{font-family:var(--font);font-size:.97rem;display:block;color:var(--ink)}
 .pp span{font-size:.7rem;color:var(--ink-3)}
 
 /* ---------- dashboard ---------- */
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .kpi{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:22px;border-top:3px solid var(--gold)}
-.kpi .kn{font-family:'Spectral',serif;font-size:2.3rem;color:var(--indigo);
+.kpi .kn{font-family:var(--font);font-size:2.3rem;color:var(--indigo);
   font-weight:700;line-height:1}
 .kpi .kl{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:7px}
@@ -339,13 +358,13 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .barrow .bl{width:130px;font-weight:600;color:var(--ink-2)}
 .barrow .bt{flex:1;height:9px;background:var(--surface-3);border-radius:2px;overflow:hidden}
 .barrow .bf{height:100%;background:var(--line-3)}
-.barrow .bv{width:46px;text-align:right;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+.barrow .bv{width:46px;text-align:right;color:var(--ink-3);font-family:var(--font);font-size:.78rem}
 
 /* ---------- registration steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
 .step{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:20px;position:relative}
-.step .sn{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+.step .sn{font-family:var(--font);font-size:.78rem;font-weight:600;
   color:var(--gold);border:1px solid var(--gold-soft);border-radius:50%;
   width:26px;height:26px;display:flex;align-items:center;justify-content:center}
 .step h4{font-size:1rem;margin:11px 0 5px}
@@ -355,7 +374,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .cert .cemb{width:54px;height:54px;flex:none}
 .cert .cl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--gold-soft);font-weight:700}
-.cert .cid{font-family:'IBM Plex Mono',monospace;font-size:1.5rem;font-weight:600;
+.cert .cid{font-family:var(--font);font-size:1.5rem;font-weight:600;
   letter-spacing:.04em;margin-top:3px}
 .cert p{font-size:.8rem;color:rgba(233,234,240,.7);margin-top:4px}
 
@@ -365,7 +384,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   border-bottom:1px solid var(--line);align-items:baseline}
 .jrow:last-child{border-bottom:none}
 .jrow:hover{background:var(--surface-2)}
-.jrow .jd{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink-3);
+.jrow .jd{font-family:var(--font);font-size:.76rem;color:var(--ink-3);
   width:108px;flex:none}
 .jrow .jt{font-weight:600;font-size:.9rem;flex:1}
 .jrow .jt span{display:block;font-weight:400;font-size:.78rem;color:var(--ink-2);margin-top:2px}
@@ -464,22 +483,46 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .mapbar .mb-zoom button:hover,.maptoggle:hover{border-color:var(--gold);color:var(--ink)}
 .maptoggle{width:auto;padding:0 12px;font-size:.76rem;font-weight:600;gap:7px}
 .maptoggle.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
-.mapstage{position:relative;height:min(64vh,560px);overflow:hidden;cursor:grab;
-  background:
-    linear-gradient(var(--line) 1px,transparent 1px) 0 0/26px 26px,
-    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/26px 26px,
-    var(--surface-2)}
+.mapstage{position:relative;height:min(66vh,600px);overflow:hidden;cursor:grab;
+  background:var(--map-water)}
 .mapstage.grabbing{cursor:grabbing}
 .mapstage svg{position:absolute;top:0;left:0;transform-origin:0 0;
   transition:transform .12s ease;will-change:transform}
 .mapstage.grabbing svg{transition:none}
+.land{fill:var(--map-land);stroke:var(--map-line);stroke-width:.7;stroke-linejoin:round}
+.land.core{fill:var(--map-core)}
+.tile .mk{stroke:#fff;stroke-width:1.5}
+[data-theme="dark"] .tile .mk{stroke:#0b0f17}
+.tile .mk.dash{stroke-dasharray:3 2.2}
+.tile:hover .mk,.tile:focus .mk{stroke:var(--ink);stroke-width:2.2}
+.tile:focus{outline:none}
+.tile .mlbl{font-size:8px;font-weight:700;fill:var(--ink);paint-order:stroke;
+  stroke:var(--map-water);stroke-width:2.4px;opacity:0;pointer-events:none;
+  transition:opacity .12s ease}
+.tile:hover .mlbl,.tile:focus .mlbl{opacity:1}
+.tile.dim{opacity:.22}
+.minimap{width:100%;height:auto;display:block;border:1px solid var(--line);
+  border-radius:3px;background:var(--map-water)}
+
+/* ---------- waving flags ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .flagwrap svg,.flagcard .fbig svg,.sb-ic svg{
+    animation:flagwave 5.5s ease-in-out infinite;transform-origin:left center}
+  .scard:hover .flagwrap svg{animation-duration:2.8s}
+}
+@keyframes flagwave{
+  0%,100%{transform:perspective(380px) rotateY(0deg) skewY(0deg)}
+  25%{transform:perspective(380px) rotateY(-3.5deg) skewY(.7deg)}
+  50%{transform:perspective(380px) rotateY(0deg) skewY(-.5deg)}
+  75%{transform:perspective(380px) rotateY(3.5deg) skewY(.5deg)}
+}
 .mtip{position:absolute;z-index:5;pointer-events:none;opacity:0;
   background:var(--ink);color:var(--bg);font-size:.74rem;font-weight:600;
   padding:6px 10px;border-radius:5px;white-space:nowrap;transform:translate(-50%,-130%);
   transition:opacity .12s ease;box-shadow:var(--shadow-lg)}
 .mtip.show{opacity:1}
 .mtip span{display:block;font-weight:500;opacity:.72;font-size:.68rem;
-  font-family:'IBM Plex Mono',monospace}
+  font-family:var(--font)}
 .tile rect,.tile circle{transition:fill .15s ease,stroke .12s ease}
 
 /* ---------- search overlay ---------- */
@@ -511,13 +554,30 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sb-item .sb-tx b{font-size:.9rem;font-weight:600;color:var(--ink);display:block;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sb-item .sb-tx span{font-size:.74rem;color:var(--ink-3)}
-.sb-item .sb-code{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-3);flex:none}
+.sb-item .sb-code{font-family:var(--font);font-size:.7rem;color:var(--ink-3);flex:none}
 .sb-empty{padding:26px 18px;text-align:center;color:var(--ink-3);font-size:.86rem}
 .sb-foot{border-top:1px solid var(--line);padding:9px 18px;display:flex;gap:16px;
   font-size:.7rem;color:var(--ink-3)}
-.sb-foot kbd{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:var(--surface-2);
+.sb-foot kbd{font-family:var(--font);font-size:.66rem;background:var(--surface-2);
   border:1px solid var(--line-2);border-radius:3px;padding:1px 5px;margin-right:4px}
 @media(max-width:560px){.searchbox .sb-foot{display:none}}
+
+/* ---------- institutional restyle (gov.fr / Swiss Confederation) ---------- */
+/* Sharp, squared edges and restrained surfaces instead of soft rounded cards. */
+.panel,.pcard,.scard,.kpi,.step,.orgcard,.symcard,.symbody,.flagcard,.cartowrap,
+.mapwrap,.notice,.searchbox,.btn,.chip,.tag,.maptoggle,.toolbar input,.searchbtn,
+.glyph,.swatch,.pending-box,.mapstage,.fbig,.plate svg{border-radius:2px}
+.figs,.cards,.org,.peoples{border-radius:0;gap:1px}
+/* A calmer hero: drop the AI-style glow to a faint institutional wash. */
+.hero::before{background:
+  radial-gradient(640px 300px at 88% 6%,rgba(184,138,20,.06),transparent 64%)}
+[data-theme="dark"] .hero::before{background:
+  radial-gradient(640px 300px at 88% 6%,rgba(216,171,44,.08),transparent 64%)}
+.fig b{-webkit-text-fill-color:initial;background:none;color:var(--indigo)}
+[data-theme="dark"] .fig b{color:var(--ink)}
+.pcard:hover{transform:none;box-shadow:none;background:var(--surface-2);
+  box-shadow:inset 3px 0 0 var(--gold)}
+.eyebrow,.subhead,.pc-eye{font-weight:700}
 
 /* ---------- footer ---------- */
 footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
@@ -527,7 +587,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   color:var(--gold-soft);font-weight:700;margin-bottom:13px}
 .fmain a{display:block;font-size:.83rem;padding:3px 0;color:rgba(233,234,240,.62)}
 .fmain a:hover{color:#fff}
-.fbrand b{font-family:'Spectral',serif;color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
+.fbrand b{font-family:var(--font);color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
 .fbrand p{font-size:.82rem;line-height:1.55}
 .fbottom{border-top:1px solid rgba(255,255,255,.1)}
 .fbottom .wrap{max-width:1240px;margin:0 auto;padding:15px 28px;display:flex;
@@ -631,7 +691,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="fmain">
     <div class="fbrand">
       <b>Balkanska Konfederacija</b>
-      <p>The official digital portal of the Balkan Confederation — a federation of
+      <p>The official digital portal of the Balkan Confederation, a federation of
       47 states and seven constituent peoples. Documentary reference and
       participatory infrastructure.</p>
     </div>
@@ -656,8 +716,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </div>
   </div>
   <div class="fbottom"><div class="wrap">
-    <span>Balkanska Konfederacija — digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
-    <span>Portal shell — Stage 1</span>
+    <span>Balkanska Konfederacija · digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
+    <span>Portal shell · Stage 1</span>
   </div></div>
 </footer>
 
@@ -679,18 +739,18 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
- {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet — v3.0',
+ {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet, v3.0',
   s:'Thirty-two letters; restoration of the jat’ (ě); areal Balkan diacritics.'},
- {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution — v2',
-  s:'Titles I bis, IV, V and VI — institutions, languages, financial equalisation.'},
+ {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution, v2',
+  s:'Titles I bis, IV, V and VI, institutions, languages, financial equalisation.'},
  {d:'2026-04-30',cat:'Finance',t:'Confederal financial equalisation formula',
-  s:'Article 132 — objective indicators, 85% floor of fiscal capacity per capita.'},
+  s:'Article 132, objective indicators, 85% floor of fiscal capacity per capita.'},
  {d:'2026-04-08',cat:'Institutions',t:'Designation of the four federal capitals',
-  s:'Article 1 ter — Sarajevo, Beograd, Zagreb and Sofija.'}
+  s:'Article 1 ter, Sarajevo, Beograd, Zagreb and Sofija.'}
 ];
 
 /* ============================================================
-   SVG — emblem, star geometry, flags, plates
+   SVG, emblem, star geometry, flags, plates
    ============================================================ */
 function star(cx,cy,ro,ri,pts,rot){
   rot=rot||-Math.PI/2; let d='';
@@ -710,7 +770,7 @@ const TRI={
 };
 function roundel(code){
   return `<circle cx="45" cy="30" r="14.5" fill="#ffffff" stroke="#1f2742" stroke-width="1.4"/>`+
-   `<text x="45" y="35.6" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `<text x="45" y="35.6" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
    `font-size="13" font-weight="600" fill="#1f2742">${code}</text>`;
 }
 function flagSVG(s){
@@ -745,12 +805,12 @@ function flagSVG(s){
     `<path d="M43 12l2 2 2-2M43 16l2 2 2-2" stroke="#fff" stroke-width="1" fill="none"/></svg>`;
   if(s.t==='F') return `<svg ${v}><image href="${STATE_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
   if(s.t==='M') return `<svg ${v}><image href="${CIVIL_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<rect x="2" y="2" width="86" height="56" fill="none" stroke="#b88a14" stroke-width="1.6" stroke-dasharray="5 3"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
   const pu=PEUPLES[s.p];
   if(TRI[s.p]){const t=TRI[s.p];
@@ -771,14 +831,14 @@ function plateSVG(s){
    `<rect width="240" height="50" rx="5" fill="#ffffff" stroke="#d0d2d8" stroke-width="1"/>`+
    `<rect width="34" height="50" rx="5" fill="#0e347f"/><rect x="29" width="6" height="50" fill="#0e347f"/>`+
    `<image href="${COA_DATA}" x="2" y="3" width="30" height="22" preserveAspectRatio="xMidYMid meet"/>`+
-   `<text x="17" y="42" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `<text x="17" y="42" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
    `font-size="10" font-weight="700" fill="#f8c300">BK</text>`+
-   `<text x="58" y="35" font-family="IBM Plex Mono,monospace" font-size="26" `+
+   `<text x="58" y="35" font-family="Zurich,Inter,sans-serif" font-size="26" `+
    `font-weight="600" fill="#1b2030" letter-spacing="2">${s.k} · 000 · A</text></svg>`;
 }
 
 /* ============================================================
-   CARTOGRAM (schematic — superseded by the GADM layer)
+   CARTOGRAM (schematic, superseded by the GADM layer)
    ============================================================ */
 function cartogram(highlight){
   const TS=44,GAP=7,cell=TS+GAP;
@@ -818,11 +878,10 @@ function vHome(){
     <div>
       <div class="eyebrow">Official portal</div>
       <h1>The Balkan Confederation</h1>
-      <p class="lead">A federation of forty-seven states and seven constituent peoples,
-      bringing together the South Slavic nations and the autonomous Albanian, Hungarian,
-      Turkish and Slovak communities within a Balkan union founded on the equality of
-      states and on direct democracy.</p>
-      <div class="motto">“Različiti narodi, jedan dom” — Diverse peoples, one home.</div>
+      <p class="lead">A federation of forty-seven states and seven constituent South Slavic
+      peoples, united in a Balkan union founded on the equality of states and on direct
+      democracy.</p>
+      <div class="motto">“Različiti narodi, jedan dom” · Diverse peoples, one home.</div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#/states">Explore the states
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -845,7 +904,7 @@ function vHome(){
     <div class="h2row"><h2>Explore the portal</h2></div>
     <div class="cards">
       ${[
-       ['Territory','States &amp; territories','The 45 states, federal cities and autonomous federal municipalities.','#/states'],
+       ['Territory','States &amp; territories','The 47 states, federal cities and autonomous federal municipalities.','#/states'],
        ['Geography','Interactive map','Municipal boundaries, demographic and economic indicators by state.','#/map'],
        ['Government','Institutions','The Kongres, Narodni Sabor, Savezno Veće and Ustavni Sud.','#/institutions'],
        ['Law','Constitution','The consolidated text of the Confederal Constitution and its titles.','#/constitution'],
@@ -877,8 +936,8 @@ function vHome(){
           <p class="note" style="margin-bottom:14px">Registered citizens form the
           electoral body of the Narodni Sabor. The live counter activates with the
           participation module.</p>
-          <div style="font-family:'Spectral',serif;font-size:2.6rem;font-weight:700;
-            color:var(--indigo);line-height:1">—</div>
+          <div class="membercount" style="font-size:2.6rem;font-weight:700;
+            color:var(--indigo);line-height:1">0</div>
           <div class="note">Registered citizens</div>
           <a class="btn btn-ghost" style="margin-top:16px" href="#/dashboard">Membership dashboard</a>
         </div>
@@ -934,9 +993,9 @@ function vState(code){
   const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p], auts=autOf(code);
   const typeLabel={T:'Territorial state',F:'Federal city',M:'Autonomous federal municipality'}[s.t];
   const note=FLAGNOTE[s.k]||(fed
-    ?(s.t==='F'?'Confederal state flag — flown by federal institutions seated in this city. A badge bears the city code.'
-      :'Civil flag of the Confederation under direct federal jurisdiction — dashed border marks the autonomous municipal status.')
-    :'Provisional systemic flag — pan-colours of the constituent people, pending the dedicated heraldic design.');
+    ?(s.t==='F'?'Confederal state flag, flown by federal institutions seated in this city. A badge bears the city code.'
+      :'Civil flag of the Confederation under direct federal jurisdiction, dashed border marks the autonomous municipal status.')
+    :'Provisional systemic flag, pan-colours of the constituent people, pending the dedicated heraldic design.');
   let rows=`<tr><td>Official code</td><td class="mono">${s.c}</td></tr>
     <tr><td>Status</td><td>${typeLabel}</td></tr>`;
   if(!fed){
@@ -944,11 +1003,11 @@ function vState(code){
     rows+=`<tr><td>Regional standard</td><td>${STD[pu.std]}</td></tr>`;
     rows+=`<tr><td>Seat</td><td>${s.ch}</td></tr>`;
   }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
-  rows+=`<tr><td>Municipalities</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Population</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Area</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Population density</td><td><span class="pending">—</span></td></tr>
-    <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">—</span></td></tr>
+  rows+=`<tr><td>Municipalities</td><td><span class="pending">·</span></td></tr>
+    <tr><td>Population</td><td><span class="pending">·</span></td></tr>
+    <tr><td>Area</td><td><span class="pending">·</span></td></tr>
+    <tr><td>Population density</td><td><span class="pending">·</span></td></tr>
+    <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">·</span></td></tr>
     <tr><td>Autonomous communities</td><td>${auts.length||'None'}</td></tr>`;
   return crumb([['Home','#/home'],['States','#/states'],[s.n]])+`
   <section class="section reveal">
@@ -961,12 +1020,12 @@ function vState(code){
         <div class="flagcard" style="margin-top:14px">
           <div class="subhead">Licence plate</div>
           <div class="plate">${plateSVG(s)}</div>
-          <div class="fcap">Confederal format — country band <b>BK</b> followed by the state code.</div>
+          <div class="fcap">Confederal format, country band <b>BK</b> followed by the state code.</div>
         </div>
         <div class="flagcard minicarto" style="margin-top:14px">
           <div class="subhead">Location</div>
-          ${cartogram(code)}
-          <div class="fcap">Schematic placement — pending the cartographic layer.</div>
+          ${miniGeo(code)}
+          <div class="fcap">Geographic position of the seat on the Balkan peninsula.</div>
         </div>
       </div>
       <div>
@@ -979,8 +1038,8 @@ function vState(code){
         <div class="subhead">Key data</div>
         <table class="dtable"><tbody>${rows}</tbody></table>
         <div class="notice">Demographic, territorial and economic data are integrated
-        through the territorial data layer — real municipal figures aggregated from
-        GADM boundaries — currently in preparation.</div>
+        through the territorial data layer, real municipal figures aggregated from
+        GADM boundaries, currently in preparation.</div>
         ${auts.length?`
         <div class="subhead" style="margin-top:26px">Autonomous communities</div>
         <p class="note" style="margin-bottom:10px">Communities holding their own powers
@@ -997,10 +1056,10 @@ function vMap(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Geography</div>
     <h1>Interactive map</h1>
-    <p class="lead">A navigable schematic of the forty-seven states, coloured by
-    constituent people. Drag to pan, scroll or use the controls to zoom, hover for
-    details, and select a state to open its page. The georeferenced GADM boundary
-    layer, with demographic and economic overlays, will replace this schematic.</p>
+    <p class="lead">A geographic map of the Confederation, drawn on the real coastlines
+    and borders of the Balkan peninsula. Each state sits at the true location of its
+    seat, coloured by constituent people. Drag to pan, scroll or use the controls to
+    zoom, hover for the name, and select a state to open its page.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="mapwrap">
@@ -1010,21 +1069,21 @@ function vMap(){
           `<button class="maptoggle" onclick="mapFilter('${k}',this)">${p.en}</button>`).join('')}
         <button class="maptoggle" onclick="mapFilter('fed',this)">Federal</button>
         <div class="mb-zoom">
-          <button id="mZout" aria-label="Zoom out" title="Zoom out">−</button>
+          <button id="mZout" aria-label="Zoom out" title="Zoom out">&minus;</button>
           <button id="mReset" aria-label="Fit to view" title="Fit to view"
             style="width:auto;padding:0 11px;font-size:.72rem;font-weight:600">Fit</button>
           <button id="mZin" aria-label="Zoom in" title="Zoom in">+</button>
         </div>
       </div>
       <div class="mapstage" id="mapStage">
-        ${mapTiles()}
+        ${mapGeo()}
         <div class="mtip" id="mapTip"></div>
       </div>
     </div>
     <div class="legend" style="margin-top:16px">
       ${Object.values(PEUPLES).map(p=>`<span><i style="background:${p.hex}"></i>${p.en}</span>`).join('')}
       <span><i style="background:#3a4663"></i>Federal territories</span>
-      <span style="color:var(--ink-3)">· Rounded = federal city · Dashed = autonomous municipality</span>
+      <span style="color:var(--ink-3)">· Square&nbsp;= federal city · Dashed ring&nbsp;= autonomous municipality</span>
     </div>
   </section>`;
 }
@@ -1037,11 +1096,11 @@ function vInstitutions(){
      'Votes laws and the budget, ratifies treaties, grants pardon.',
      'Elects the judges of the Ustavni Sud and confirms the Savezno Veće.']],
    ['rep','Assembly of Nations','Narodni Sabor',[
-     'Seven national delegations of ten members — 70 members in all.',
+     'Seven national delegations of ten members, 70 members in all.',
      'Elected by citizens enrolled in each national register.',
      'Mandatory consent: languages, alphabet, borders, symbols, equalisation.',
      'Alarm right and review of petitions from autonomous communities.']],
-   ['exe','Confederal Council — executive','Savezno Veće',[
+   ['exe','Confederal Council, executive','Savezno Veće',[
      'College of seven councillors, one per constituent people.',
      'Decisions by consensus; failing that, simple majority.',
      'Annual rotating presidency (Slovene → … → Bulgarian).',
@@ -1112,7 +1171,7 @@ function vJournal(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Records</div>
     <h1>Official Journal</h1>
-    <p class="lead">The chronological record of confederal acts — constitutional drafts,
+    <p class="lead">The chronological record of confederal acts, constitutional drafts,
     laws, regulations and institutional decisions.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
@@ -1138,7 +1197,7 @@ function vIdentity(){
     <div class="cards">
       <a class="pcard" href="#/alphabet"><div class="pc-eye">Writing</div>
         <h3>Unified alphabet</h3>
-        <p>The South Slavic Latin alphabet — 32 letters, version 3.</p>
+        <p>The South Slavic Latin alphabet, 32 letters, version 3.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/symbols"><div class="pc-eye">Heraldry</div>
         <h3>Symbols &amp; heraldry</h3>
@@ -1164,8 +1223,8 @@ function vAlphabet(){
   return crumb([['Home','#/home'],['Identity','#/identity'],['Alphabet']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Linguistic identity</div>
-    <h1>South Slavic Latin alphabet — v3</h1>
-    <p class="lead">Thirty-two letters — 7 vowels and 25 consonants — based on the
+    <h1>South Slavic Latin alphabet, v3</h1>
+    <p class="lead">Thirty-two letters, 7 vowels and 25 consonants, based on the
     gajica and on areal Balkan features (schwa <b>ã</b>, tilde <b>ñ</b>, cedilla
     <b>ļ</b>, jat’ <b>ě</b>). The letter <b>ç</b> is reserved for proper names
     (Albanian, Turkish) and is not counted among the thirty-two.</p>
@@ -1208,9 +1267,8 @@ function vSymbols(){
           <img src="${COA_DATA}" alt="Coat of arms of the Balkan Confederation" />
         </div>
         <div class="symcap">
-          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion — heir to the
-          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground —
-          stands for the union of the constituent peoples. It appears in gold, with no
+          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion, heir to the
+          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground, stands for the union of the constituent peoples. It appears in gold, with no
           shield, on official seals, state correspondence and the state flag.</p>
         </div>
       </div>
@@ -1233,7 +1291,7 @@ function vSymbols(){
             <p>The civil flag is the flag of the people of the Confederation. It is
             flown by citizens, civil associations and on public buildings under
             municipal authority. Vertical red hoist; horizontal field of azure, argent
-            and azure — the unadorned base of the state flag.</p>
+            and azure, the unadorned base of the state flag.</p>
           </div>
         </div>
       </div>
@@ -1319,7 +1377,7 @@ function vParticipation(){
     <div class="steps">
       <div class="step"><div class="sn">1</div>
         <h4>State of attachment</h4>
-        <p>Chosen by municipality of origin — including from the diaspora — or by free
+        <p>Chosen by municipality of origin, including from the diaspora, or by free
         attachment. Determines the constituency for the Kongres.</p></div>
       <div class="step"><div class="sn">2</div>
         <h4>Constituent nation</h4>
@@ -1327,7 +1385,7 @@ function vParticipation(){
         “unaffiliated”. Determines the register for the Narodni Sabor.</p></div>
       <div class="step"><div class="sn">3</div>
         <h4>Linguistic standard</h4>
-        <p>Preferred regional standard — western, central or eastern — for the language
+        <p>Preferred regional standard, western, central or eastern, for the language
         of the interface and of official documents.</p></div>
     </div>
     <div class="cert" style="margin-top:16px">
@@ -1343,8 +1401,8 @@ function vParticipation(){
       <button class="btn btn-primary" onclick="alert('The registration flow opens with the participation module.')">Begin registration</button>
       <a class="btn btn-ghost" href="#/dashboard" style="margin-left:8px">Membership dashboard</a>
     </div>
-    <div class="notice">The participatory platform — consultations, debates, citizen
-    proposals and votes — is built on an open-source participation infrastructure of
+    <div class="notice">The participatory platform, consultations, debates, citizen
+    proposals and votes, is built on an open-source participation infrastructure of
     the Decidim type. The registration flow and the live dashboard are activated in the
     next development stage.</div>
   </section>`;
@@ -1355,14 +1413,13 @@ function vDashboard(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Transparency</div>
     <h1>Membership dashboard</h1>
-    <p class="lead">A public, real-time view of confederal digital citizenship —
-    registered citizens by people and by state, with historical series.</p>
+    <p class="lead">A public, real-time view of confederal digital citizenship, registered citizens by people and by state, with historical series.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="kpis">
-      <div class="kpi"><div class="kn">—</div><div class="kl">Registered citizens</div></div>
-      <div class="kpi"><div class="kn">—</div><div class="kl">Registrations · last 30 days</div></div>
-      <div class="kpi"><div class="kn">—</div><div class="kl">States represented</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">Registered citizens</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">Registrations · last 30 days</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">States represented</div></div>
     </div>
   </section>
   <section class="section reveal">
@@ -1371,10 +1428,10 @@ function vDashboard(){
       ${Object.values(PEUPLES).map(p=>`<div class="barrow">
         <span class="bl"><span class="pdot" style="background:${p.hex}"></span>${p.en}</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">—</span></div>`).join('')}
+        <span class="bv">·</span></div>`).join('')}
       <div class="barrow"><span class="bl">Unaffiliated</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">—</span></div>
+        <span class="bv">·</span></div>
     </div>
     <div class="notice">The dashboard activates with the registration system. Figures
     will be published per state and per people, updated in real time.</div>
@@ -1448,7 +1505,7 @@ document.getElementById('langsel').addEventListener('click',e=>{
 window.addEventListener('hashchange',render);
 
 /* ============================================================
-   PORTAL SEARCH — client-side index over states, autonomous
+   PORTAL SEARCH, client-side index over states, autonomous
    communities, peoples, alphabet letters and pages.
    ============================================================ */
 let SIDX=null, sbResults=[], sbSel=0;
@@ -1557,7 +1614,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ============================================================
-   THEME — light / dark with persistence
+   THEME, light / dark with persistence
    ============================================================ */
 function toggleTheme(){
   const cur=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
@@ -1567,7 +1624,7 @@ function toggleTheme(){
 }
 
 /* ============================================================
-   SCROLL REVEAL — sections fade up as they enter the viewport
+   SCROLL REVEAL, sections fade up as they enter the viewport
    ============================================================ */
 let _io=null;
 function setupReveal(){
@@ -1581,28 +1638,39 @@ function setupReveal(){
 }
 
 /* ============================================================
-   INTERACTIVE MAP — zoom / pan / hover tooltip / people filter
+   INTERACTIVE MAP, zoom / pan / hover tooltip / people filter
    ============================================================ */
-function mapTiles(){
-  const TS=44,GAP=8,cell=TS+GAP;
-  let mc=0,mr=0;STATES.forEach(s=>{mc=Math.max(mc,s.g[0]);mr=Math.max(mr,s.g[1]);});
-  const W=(mc+1)*cell+GAP,H=(mr+1)*cell+GAP;
-  let s=`<svg id="mapSvg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `+
-    `xmlns="http://www.w3.org/2000/svg">`;
-  STATES.forEach(st=>{
-    const x=st.g[0]*cell+GAP,y=st.g[1]*cell+GAP;
-    const isC=st.t!=='T';
-    const acc=st.p==='fed'?'#3a4663':PEUPLES[st.p].hex;
-    const dash=st.t==='M'?' stroke-dasharray="5 3"':'';
-    s+=`<g class="tile" data-c="${st.c}" data-p="${st.p}" data-n="${esc(st.n)}" `+
-       `tabindex="0" role="button" aria-label="${esc(st.n)} (${st.c})" `+
-       `onkeydown="if(event.key==='Enter')go('#/state/${st.c}')">`;
-    s+=`<rect x="${x}" y="${y}" width="${TS}" height="${TS}" rx="${isC?TS/2:5}" `+
-       `fill="${acc}" fill-opacity="${isC?.94:.88}"${dash}/>`;
-    s+=`<text x="${x+TS/2}" y="${y+TS/2+4.5}" text-anchor="middle" fill="#fff" `+
-       `style="paint-order:stroke" stroke="rgba(0,0,0,.22)" stroke-width=".7">${st.k}</text></g>`;
+function mapGeo(){
+  const land=GEO.land.map(l=>`<path class="land${l.core?' core':''}" d="${l.d}"/>`).join('');
+  let mk='';
+  STATES.forEach(s=>{
+    const p=GEO.pts[s.c];if(!p)return;
+    const fed=s.p==='fed';
+    const col=fed?'#3a4663':PEUPLES[s.p].hex;
+    let shape;
+    if(s.t==='F') shape=`<rect class="mk" x="${p[0]-6}" y="${p[1]-6}" width="12" height="12" rx="2" fill="${col}"/>`;
+    else if(s.t==='M') shape=`<circle class="mk dash" cx="${p[0]}" cy="${p[1]}" r="6" fill="${col}"/>`;
+    else shape=`<circle class="mk" cx="${p[0]}" cy="${p[1]}" r="5.4" fill="${col}"/>`;
+    mk+=`<g class="tile" data-c="${s.c}" data-p="${s.p}" data-n="${esc(s.n)}" `+
+       `tabindex="0" role="button" aria-label="${esc(s.n)} (${s.c})" `+
+       `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">${shape}`+
+       `<text class="mlbl" x="${p[0]}" y="${p[1]-9}" text-anchor="middle">${s.k}</text></g>`;
   });
-  return s+'</svg>';
+  return `<svg id="mapSvg" viewBox="0 0 ${GEO.w} ${GEO.h}" width="${GEO.w}" height="${GEO.h}" `+
+    `xmlns="http://www.w3.org/2000/svg"><g class="lands">${land}</g><g class="marks">${mk}</g></svg>`;
+}
+function miniGeo(code){
+  const land=GEO.land.map(l=>`<path class="land${l.core?' core':''}" d="${l.d}"/>`).join('');
+  let mk='';
+  STATES.forEach(s=>{
+    const p=GEO.pts[s.c];if(!p)return;
+    const hit=s.c===code;
+    const col=s.p==='fed'?'#3a4663':PEUPLES[s.p].hex;
+    if(hit) mk+=`<circle cx="${p[0]}" cy="${p[1]}" r="11" fill="${col}" stroke="#fff" stroke-width="2.4"/>`;
+    else mk+=`<circle class="mk-dim" cx="${p[0]}" cy="${p[1]}" r="3" fill="#8b95ab" opacity=".55"/>`;
+  });
+  return `<svg viewBox="0 0 ${GEO.w} ${GEO.h}" xmlns="http://www.w3.org/2000/svg" `+
+    `class="minimap" role="img"><g class="lands">${land}</g>${mk}</svg>`;
 }
 function initMap(){
   const stage=document.getElementById('mapStage');
@@ -1651,20 +1719,21 @@ function mapFilter(p,btn){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
     fetch(base+'alfabet.json').then(r=>r.json()),
     fetch(base+'state_flags.json').then(r=>r.json()),
     fetch(base+'flagnotes.json').then(r=>r.json()),
+    fetch(base+'geo.json').then(r=>r.json()),
   ]);
-  PEUPLES=pe; STATES=st;
+  PEUPLES=pe; STATES=st; GEO=ge;
   al=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); AUT=au; ALPHA=al; STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }
