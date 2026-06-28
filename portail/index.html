@@ -362,6 +362,43 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .swatch em{display:block;font-size:.74rem;color:var(--ink-2);font-style:normal;margin-top:6px}
 @media(max-width:860px){.palrow{grid-template-columns:repeat(2,1fr)}}
 
+/* ---------- search overlay ---------- */
+.scrim{position:fixed;inset:0;z-index:200;background:rgba(15,18,30,.46);
+  backdrop-filter:blur(2px);display:none;align-items:flex-start;justify-content:center;
+  padding:11vh 20px 20px}
+.scrim.open{display:flex}
+.searchbox{width:100%;max-width:640px;background:var(--white);border:1px solid var(--line-2);
+  border-radius:6px;box-shadow:0 24px 60px rgba(15,18,30,.34);overflow:hidden;
+  display:flex;flex-direction:column;max-height:78vh}
+.searchbox .sb-in{display:flex;align-items:center;gap:11px;padding:15px 18px;
+  border-bottom:1px solid var(--line)}
+.searchbox .sb-in svg{flex:none;color:var(--ink-3)}
+.searchbox input{flex:1;border:none;outline:none;font-family:inherit;font-size:1.02rem;
+  color:var(--ink);background:none}
+.searchbox .sb-esc{font-size:.62rem;font-weight:700;letter-spacing:.06em;color:var(--ink-3);
+  border:1px solid var(--line-2);border-radius:3px;padding:3px 7px;flex:none}
+.sb-results{overflow-y:auto;padding:7px 0}
+.sb-group{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--ink-3);padding:11px 18px 5px}
+.sb-item{display:flex;align-items:center;gap:12px;padding:9px 18px;cursor:pointer;
+  border-left:3px solid transparent}
+.sb-item.sel{background:var(--surface-2);border-left-color:var(--gold)}
+.sb-item .sb-ic{width:30px;height:20px;flex:none;border-radius:2px;overflow:hidden;
+  border:1px solid var(--line);background:var(--surface-2);display:flex;
+  align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--ink-3)}
+.sb-item .sb-ic svg{width:100%;height:100%;display:block}
+.sb-item .sb-tx{flex:1;min-width:0}
+.sb-item .sb-tx b{font-size:.9rem;font-weight:600;color:var(--ink);display:block;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-item .sb-tx span{font-size:.74rem;color:var(--ink-3)}
+.sb-item .sb-code{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-3);flex:none}
+.sb-empty{padding:26px 18px;text-align:center;color:var(--ink-3);font-size:.86rem}
+.sb-foot{border-top:1px solid var(--line);padding:9px 18px;display:flex;gap:16px;
+  font-size:.7rem;color:var(--ink-3)}
+.sb-foot kbd{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:var(--surface-2);
+  border:1px solid var(--line-2);border-radius:3px;padding:1px 5px;margin-right:4px}
+@media(max-width:560px){.searchbox .sb-foot{display:none}}
+
 /* ---------- footer ---------- */
 footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .fmain{max-width:1240px;margin:0 auto;padding:42px 28px 30px;
@@ -416,10 +453,11 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <b>Balkanska Konfederacija</b>
       <span>Balkan Confederation</span>
     </div>
-    <button class="searchbtn" onclick="alert('Portal-wide search — to be enabled with the documentary corpus.')">
+    <button class="searchbtn" id="searchBtn" onclick="openSearch()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       Search the portal
+      <span class="mono" style="margin-left:auto;font-size:.66rem;opacity:.7">⌘K</span>
     </button>
   </div>
   <nav class="primary"><div class="wrap" id="nav">
@@ -434,6 +472,24 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 </header>
 
 <main id="app"></main>
+
+<div class="scrim" id="searchScrim" onclick="if(event.target===this)closeSearch()">
+  <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search the portal">
+    <div class="sb-in">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
+        placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query">
+      <span class="sb-esc">ESC</span>
+    </div>
+    <div class="sb-results" id="searchResults"></div>
+    <div class="sb-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd>navigate</span>
+      <span><kbd>↵</kbd>open</span>
+      <span><kbd>esc</kbd>close</span>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="fmain">
@@ -1228,6 +1284,115 @@ document.getElementById('langsel').addEventListener('click',e=>{
   }
 });
 window.addEventListener('hashchange',render);
+
+/* ============================================================
+   PORTAL SEARCH — client-side index over states, autonomous
+   communities, peoples, alphabet letters and pages.
+   ============================================================ */
+let SIDX=null, sbResults=[], sbSel=0;
+const SB_PAGES=[
+ ['Home','Overview of the Confederation','#/home'],
+ ['States & territories','Directory of the 47 states','#/states'],
+ ['Autonomous communities','25 recognised minority communities','#/autonomy'],
+ ['Interactive map','Territorial cartogram','#/map'],
+ ['Institutions','The four federal institutions','#/institutions'],
+ ['Constitution','Constitutional corpus','#/constitution'],
+ ['Official journal','Latest confederal decisions','#/journal'],
+ ['Identity','Language, alphabet and symbols','#/identity'],
+ ['Alphabet','Unified South Slavic Latin alphabet','#/alphabet'],
+ ['Symbols','Emblem, flag and palette','#/symbols'],
+ ['Participation','Register and take part','#/participation'],
+ ['Dashboard','Confederal indicators','#/dashboard'],
+];
+function esc(s){return String(s).replace(/[&<>"]/g,c=>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function buildIndex(){
+  const idx=[];
+  STATES.forEach(s=>{
+    const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p];
+    const sub=fed?({F:'Federal city',M:'Autonomous federal municipality'}[s.t])
+                 :((pu?pu.en:'')+' state · seat '+s.ch);
+    idx.push({type:'States',label:s.n,sub,code:s.c,hash:'#/state/'+s.c,
+      hay:(s.n+' '+s.c+' '+s.k+' '+s.ch+' '+(pu?pu.en:'')).toLowerCase(),icon:flagSVG(s)});
+  });
+  AUT.forEach(a=>{const h=byCode(a.host);
+    idx.push({type:'Autonomous communities',label:a.n,
+      sub:a.com+' community · '+(h?h.n:a.host),code:a.id,hash:'#/autonomy',
+      hay:(a.n+' '+a.id+' '+a.com+' '+(h?h.n:'')).toLowerCase(),iconText:'◇'});});
+  Object.entries(PEUPLES).forEach(([k,p])=>{
+    idx.push({type:'Constituent peoples',label:p.en,sub:p.name+' · '+(STD[p.std]||''),
+      hash:'#/identity',hay:(p.en+' '+p.name+' '+k).toLowerCase(),iconDot:p.hex});});
+  ALPHA.forEach(a=>{
+    idx.push({type:'Alphabet',label:a[0],sub:'IPA '+a[1],hash:'#/alphabet',
+      hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0]});});
+  SB_PAGES.forEach(p=>{
+    idx.push({type:'Pages',label:p[0],sub:p[1],hash:p[2],
+      hay:(p[0]+' '+p[1]).toLowerCase(),iconText:'§'});});
+  return idx;
+}
+function searchQuery(raw){
+  const q=raw.trim().toLowerCase();
+  if(!SIDX)SIDX=buildIndex();
+  if(!q)return SIDX.filter(i=>i.type==='Pages').slice(0,8);
+  const terms=q.split(/\s+/), scored=[];
+  SIDX.forEach(i=>{
+    if(!terms.every(t=>i.hay.includes(t)))return;
+    let sc=0;
+    if(i.code&&i.code.toLowerCase()===q)sc+=100;
+    if(i.label.toLowerCase()===q)sc+=80;
+    if(i.label.toLowerCase().startsWith(q))sc+=40;
+    if(i.hay.startsWith(q))sc+=10;
+    scored.push([sc,i]);
+  });
+  scored.sort((a,b)=>b[0]-a[0]);
+  return scored.slice(0,40).map(x=>x[1]);
+}
+function sbIcon(i){
+  if(i.icon)return i.icon;
+  if(i.iconDot)return `<span style="width:11px;height:11px;border-radius:50%;`+
+    `background:${i.iconDot};display:inline-block"></span>`;
+  return `<span>${esc(i.iconText||'')}</span>`;
+}
+function renderResults(){
+  const box=document.getElementById('searchResults');
+  if(!sbResults.length){box.innerHTML='<div class="sb-empty">No match.</div>';return;}
+  let html='',lastType='';
+  sbResults.forEach((i,n)=>{
+    if(i.type!==lastType){html+=`<div class="sb-group">${i.type}</div>`;lastType=i.type;}
+    html+=`<div class="sb-item${n===sbSel?' sel':''}" data-n="${n}" `+
+      `onmousemove="sbHover(${n})" onclick="sbGo(${n})">`+
+      `<span class="sb-ic">${sbIcon(i)}</span>`+
+      `<span class="sb-tx"><b>${esc(i.label)}</b><span>${esc(i.sub||'')}</span></span>`+
+      `${i.code?`<span class="sb-code">${esc(i.code)}</span>`:''}</div>`;
+  });
+  box.innerHTML=html;
+  const sel=box.querySelector('.sb-item.sel');
+  if(sel)sel.scrollIntoView({block:'nearest'});
+}
+function openSearch(){
+  const sc=document.getElementById('searchScrim');
+  sc.classList.add('open');
+  const inp=document.getElementById('searchInput');
+  inp.value='';sbSel=0;sbResults=searchQuery('');renderResults();
+  setTimeout(()=>inp.focus(),0);
+}
+function closeSearch(){document.getElementById('searchScrim').classList.remove('open');}
+function sbHover(n){sbSel=n;
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.toggle('sel',+e.dataset.n===n));}
+function sbGo(n){const i=sbResults[n];if(!i)return;closeSearch();go(i.hash);}
+document.getElementById('searchInput').addEventListener('input',e=>{
+  sbResults=searchQuery(e.target.value);sbSel=0;renderResults();});
+document.getElementById('searchScrim').addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'){e.preventDefault();sbSel=Math.min(sbSel+1,sbResults.length-1);renderResults();}
+  else if(e.key==='ArrowUp'){e.preventDefault();sbSel=Math.max(sbSel-1,0);renderResults();}
+  else if(e.key==='Enter'){e.preventDefault();sbGo(sbSel);}
+  else if(e.key==='Escape'){e.preventDefault();closeSearch();}
+});
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch();}
+  else if(e.key==='/'&&!/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault();openSearch();}
+});
 
 /* ============ BOOTSTRAP : chargement des données ============ */
 let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={};
