@@ -52,7 +52,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | VI-41 | Istočen Vardar | Macedonians | Štip |
 | VZ-42 | Zapaden Vardar | Macedonians | Tetovo |
 | ZA-43 | Zagorje | Croats | Krapina |
-| LV | Lašva | Croats | Vitez |
+| LV | Lašva | Bosniaks | Vitez |
 | SO | Soli | Bosniaks | Tuzla |
 | VB | Vrhbosna | Bosniaks | Ilijaš |
 

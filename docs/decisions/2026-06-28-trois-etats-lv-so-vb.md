@@ -19,7 +19,7 @@ Elle a aussi révélé deux erreurs de peuple constitutif dans `etats.json`.
 
    | Code prov. | Nom | Peuple | Chef-lieu |
    |------------|-----|--------|-----------|
-   | LV | Lašva | Hrvati (Croates) | Vitez |
+   | LV | Lašva | Bošnjaci (Bosniaques) | Vitez |
    | SO | Soli | Bošnjaci (Bosniaques) | Tuzla |
    | VB | Vrhbosna | Bošnjaci (Bosniaques) | Ilijaš |
 
