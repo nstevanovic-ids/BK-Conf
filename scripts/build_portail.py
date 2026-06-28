@@ -56,6 +56,19 @@ def build_inline() -> int:
         src,
         count=1,
     )
+    # Embed the licensed Zurich font files as base64 so the single file is
+    # fully self-contained (font url(fonts/...) -> data URI).
+    import base64
+    fonts_dir = PORTAIL / "fonts"
+    for woff in ("zurich-regular.woff2", "zurich-bold.woff2"):
+        fp = fonts_dir / woff
+        if fp.exists():
+            b64 = base64.b64encode(fp.read_bytes()).decode("ascii")
+            src = src.replace(
+                f"url('fonts/{woff}') format('woff2')",
+                f"url(data:font/woff2;base64,{b64}) format('woff2')",
+            )
+
     OUT_INLINE.write_text(src, encoding="utf-8")
     kb = len(src) // 1024
     print(f"Build inline → {OUT_INLINE.relative_to(ROOT)} ({kb} kB)")
