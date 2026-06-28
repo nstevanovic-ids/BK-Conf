@@ -1,0 +1,6 @@
+# Artefact de build généré par scripts/build_portail.py --inline
+/balkanska_konfederacija.html
+
+# Python
+__pycache__/
+*.pyc
