@@ -1,11 +1,11 @@
 # Liste canonique des États — Balkanska Konfederacija
 
-**46 États territoriaux + 4 villes-États fédérales + 2 municipalités fédérales autonomes.**
+**45 États territoriaux + 4 villes-États fédérales + 2 municipalités fédérales autonomes.**
 Numérotation strictement alphabétique par code. Source de vérité du projet.
 Trois États ajoutés le 2026-06-28 (Lašva, Soli, Vrhbosna) en codes provisoires
 LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
-## États territoriaux (46)
+## États territoriaux (45)
 
 | Code | Nom | Peuple | Chef-lieu |
 |------|-----|--------|-----------|
@@ -13,48 +13,47 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | BC-02 | Bačka | Serbs | Novi Sad |
 | BN-03 | Banat | Serbs | Zreñanin |
 | BR-04 | Baraña | Croats | Beli Manastir |
-| BS-05 | Sredña Bosna | Bosniaks | Travnik |
-| BZ-06 | Zapadna Bosna | Serbs | Bihać |
-| CG-07 | Crna Gora | Montenegrins | Podgorica |
-| CM-08 | Černomorska | Bulgarians | Varna |
-| DA-09 | Dalmacija | Croats | Split |
-| DJ-10 | Južna Dobruxa | Bulgarians | Dobrič |
-| DR-11 | Dubrovačka Republika | Croats | Dubrovnik |
-| GV-12 | Vzhodna Goriška | Slovenes | Nova Gorica |
-| HI-13 | Istočna Hercegovina | Serbs | Trebiñe |
-| HZ-14 | Zapadna Hercegovina | Croats | Široki Brijeg |
-| IS-15 | Istra | Croats | Pula |
-| KJ-16 | Južna Koroška | Slovenes | Slovenj Gradec |
-| KM-17 | Kosovo i Metohija | Serbs | Priština |
-| KR-18 | Krañska | Slovenes | Ļubļana |
-| KV-19 | Kvarner | Croats | Rijeka |
-| LG-20 | Ludogorje | Bulgarians | Razgrad |
-| LK-21 | Lika | Croats | Gospić |
-| LV-22 | Lašva | Bosniaks | Vitez |
-| MI-23 | Istočna Mizija | Bulgarians | Ruse |
-| MZ-24 | Zapadna Mizija | Bulgarians | Pleven |
-| PI-25 | Istočno Podriñe | Serbs | Višegrad |
-| PM-26 | Prekmurje | Slovenes | Murska Sobota |
-| PO-27 | Podunavļe | Serbs | Smederevo |
-| PR-28 | Pirin | Bulgarians | Blagoevgrad |
-| PZ-29 | Zapadno Podriñe | Serbs | Bijeljina |
-| RO-30 | Rodopi | Bulgarians | Plovdiv |
-| RS-31 | Raška Sanxak | Serbs | Novi Pazar |
-| SI-32 | Istočni Srěm | Serbs | Srěmska Mitrovica |
-| SL-33 | Slavonija | Croats | Osijek |
-| SO-34 | Soli | Bosniaks | Tuzla |
-| SP-35 | Šopluk | Bulgarians | Pernik |
-| ST-36 | Štajerska | Slovenes | Maribor |
-| SU-37 | Šumadija | Serbs | Kragujevac |
-| SX-38 | Stranxa | Bulgarians | Sliven |
-| SZ-39 | Zapadni Srěm | Croats | Vukovar |
-| TK-40 | Timok | Serbs | Zaječar |
-| TL-41 | Torlak | Serbs | Pirot |
-| TR-42 | Sěverna Trakija | Bulgarians | Stara Zagora |
-| VB-43 | Vrhbosna | Bosniaks | Ilijaš |
-| VI-44 | Istočen Vardar | Macedonians | Štip |
-| VZ-45 | Zapaden Vardar | Macedonians | Tetovo |
-| ZA-46 | Zagorje | Croats | Krapina |
+| BZ-05 | Zapadna Bosna | Serbs | Bihać |
+| CG-06 | Crna Gora | Montenegrins | Podgorica |
+| CM-07 | Černomorska | Bulgarians | Varna |
+| DA-08 | Dalmacija | Croats | Split |
+| DJ-09 | Južna Dobruxa | Bulgarians | Dobrič |
+| DR-10 | Dubrovačka Republika | Croats | Dubrovnik |
+| GV-11 | Vzhodna Goriška | Slovenes | Nova Gorica |
+| HI-12 | Istočna Hercegovina | Serbs | Trebiñe |
+| HZ-13 | Zapadna Hercegovina | Croats | Široki Brijeg |
+| IS-14 | Istra | Croats | Pula |
+| KJ-15 | Južna Koroška | Slovenes | Slovenj Gradec |
+| KM-16 | Kosovo i Metohija | Serbs | Priština |
+| KR-17 | Krañska | Slovenes | Ļubļana |
+| KV-18 | Kvarner | Croats | Rijeka |
+| LG-19 | Ludogorje | Bulgarians | Razgrad |
+| LK-20 | Lika | Croats | Gospić |
+| LV-21 | Lašva | Bosniaks | Vitez |
+| MI-22 | Istočna Mizija | Bulgarians | Ruse |
+| MZ-23 | Zapadna Mizija | Bulgarians | Pleven |
+| PI-24 | Istočno Podriñe | Serbs | Višegrad |
+| PM-25 | Prekmurje | Slovenes | Murska Sobota |
+| PO-26 | Podunavļe | Serbs | Smederevo |
+| PR-27 | Pirin | Bulgarians | Blagoevgrad |
+| PZ-28 | Zapadno Podriñe | Serbs | Bijeljina |
+| RO-29 | Rodopi | Bulgarians | Plovdiv |
+| RS-30 | Raška Sanxak | Serbs | Novi Pazar |
+| SI-31 | Istočni Srěm | Serbs | Srěmska Mitrovica |
+| SL-32 | Slavonija | Croats | Osijek |
+| SO-33 | Soli | Bosniaks | Tuzla |
+| SP-34 | Šopluk | Bulgarians | Pernik |
+| ST-35 | Štajerska | Slovenes | Maribor |
+| SU-36 | Šumadija | Serbs | Kragujevac |
+| SX-37 | Stranxa | Bulgarians | Sliven |
+| SZ-38 | Zapadni Srěm | Croats | Vukovar |
+| TK-39 | Timok | Serbs | Zaječar |
+| TL-40 | Torlak | Serbs | Pirot |
+| TR-41 | Sěverna Trakija | Bulgarians | Stara Zagora |
+| VB-42 | Vrhbosna | Bosniaks | Ilijaš |
+| VI-43 | Istočen Vardar | Macedonians | Štip |
+| VZ-44 | Zapaden Vardar | Macedonians | Tetovo |
+| ZA-45 | Zagorje | Croats | Krapina |
 
 ## Villes-États fédérales (4)
 
@@ -88,5 +87,9 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
   (HI-13 avant HZ-14) ; cascade des codes ≥ L. Cf. ADR
   docs/decisions/2026-06-28-renumerotation-alphabetique.md.
 
+- 2026-06-28 : suppression de l'État Sredña Bosna (BS-05) ; renumérotation
+  contiguë (cascade -1 à partir de BZ). Cf. ADR
+  docs/decisions/2026-06-28-suppression-srednja-bosna.md.
+
 > L'Article 1 bis de la Constitution référence encore « 45 États » — à amender
-> en « 50 États » lors du passage en v3.
+> en « 49 États » lors du passage en v3.
