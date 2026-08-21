@@ -237,8 +237,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .dtable .pending{color:var(--line-3)}
 
 /* people dot + badges */
-.pdot{display:inline-block;width:9px;height:9px;border-radius:50%;
-  vertical-align:0;margin-right:6px}
 .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;padding:3px 8px;border-radius:3px;
   border:1px solid var(--line-2);color:var(--ink-2)}
@@ -646,10 +644,11 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .feat.rev .feat-img{order:2}
 .feat-img{border-radius:2px;overflow:hidden;box-shadow:var(--shadow-lg)}
 .feat h2{font-size:1.9rem;margin-bottom:12px}
-.ppl-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.ppl-chip{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;
-  padding:6px 12px;border:1px solid var(--line-2);border-radius:20px;background:var(--surface)}
-.ppl-chip i{width:9px;height:9px;border-radius:50%}
+.ppl-strip{margin-top:22px}
+.ppl-bar{display:flex;height:10px;border-radius:2px;overflow:hidden}
+.ppl-bar span{flex:1}
+.ppl-names{margin-top:11px;font-size:.92rem;font-weight:600;color:var(--ink-2);
+  line-height:1.7}
 
 /* scroll reveal + stagger */
 .io>*{opacity:0;transform:translateY(14px)}
@@ -964,8 +963,8 @@ function crumb(parts){
 }
 
 function vHome(){
-  const peoplesRow=Object.entries(PEUPLES).map(([k,p])=>
-    `<span class="ppl-chip"><i style="background:${p.hex}"></i>${p.en}</span>`).join('');
+  const pplBar=Object.values(PEUPLES).map(p=>`<span style="background:${p.hex}"></span>`).join('');
+  const pplNames=Object.values(PEUPLES).map(p=>p.en).join(' · ');
   return `
   <section class="hero-full">
     <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}</div>
@@ -1019,7 +1018,8 @@ function vHome(){
         <p class="lead">Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and
         Bulgarians share a unified South Slavic language and alphabet, alongside recognised
         Albanian, Hungarian, Turkish and Slovak communities.</p>
-        <div class="ppl-row">${peoplesRow}</div>
+        <div class="ppl-strip"><div class="ppl-bar">${pplBar}</div>
+          <div class="ppl-names">${pplNames}</div></div>
         <a class="btn btn-ghost" style="margin-top:20px" href="#/identity">Language &amp; identity →</a>
       </div>
     </div>
@@ -1161,7 +1161,7 @@ function vState(code){
   let rows=`<tr><td>Official code</td><td class="mono">${s.c}</td></tr>
     <tr><td>Status</td><td>${typeLabel}</td></tr>`;
   if(!fed){
-    rows+=`<tr><td>Constituent people</td><td><span class="pdot" style="background:${pu.hex}"></span>${pu.en} · ${pu.name}</td></tr>`;
+    rows+=`<tr><td>Constituent people</td><td>${pu.en} · ${pu.name}</td></tr>`;
     rows+=`<tr><td>Regional standard</td><td>${STD[pu.std]}</td></tr>`;
     rows+=`<tr><td>Seat</td><td>${s.ch}</td></tr>`;
   }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
@@ -1195,7 +1195,7 @@ function vState(code){
         <h1 style="font-size:2.1rem;margin-bottom:6px">${s.n}</h1>
         <div style="margin-bottom:18px">
           <span class="tag indigo">${s.c}</span>
-          ${!fed?`<span class="tag" style="margin-left:6px"><span class="pdot" style="background:${pu.hex}"></span>${pu.en}</span>`:''}
+          ${!fed?`<span style="margin-left:12px;color:var(--ink-2);font-weight:600;font-size:.92rem">${pu.en}</span>`:''}
         </div>
         <div class="subhead">Key data</div>
         <table class="dtable"><tbody>${rows}</tbody></table>
@@ -1607,8 +1607,8 @@ function vDashboard(){
     <div class="h2row"><h2>Breakdown by constituent people</h2></div>
     <div class="panel">
       ${Object.values(PEUPLES).map(p=>`<div class="barrow">
-        <span class="bl"><span class="pdot" style="background:${p.hex}"></span>${p.en}</span>
-        <span class="bt"><span class="bf" style="width:0%"></span></span>
+        <span class="bl">${p.en}</span>
+        <span class="bt"><span class="bf" style="width:0%;background:${p.hex}"></span></span>
         <span class="bv">·</span></div>`).join('')}
       <div class="barrow"><span class="bl">Unaffiliated</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
@@ -1750,7 +1750,7 @@ function searchQuery(raw){
 }
 function sbIcon(i){
   if(i.icon)return i.icon;
-  if(i.iconDot)return `<span style="width:11px;height:11px;border-radius:50%;`+
+  if(i.iconDot)return `<span style="width:14px;height:10px;border-radius:2px;`+
     `background:${i.iconDot};display:inline-block"></span>`;
   return `<span>${esc(i.iconText||'')}</span>`;
 }
