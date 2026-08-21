@@ -93,6 +93,7 @@
 [data-theme="dark"] .btn-ghost:hover{color:var(--gold-2)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
+html{overflow-x:clip}
 body{
   font-family:var(--font);
   background:var(--bg); color:var(--ink);
@@ -609,8 +610,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .slotdim{font-size:.7rem;color:var(--ink-3);letter-spacing:.02em}
 
 /* full-bleed sections break out of the centred main column */
-.hero-full,.band{position:relative;width:100vw;margin-left:calc(50% - 50vw);
-  overflow:hidden}
+.hero-full,.band{position:relative;width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:0;overflow:hidden}
 .hero-full{min-height:94vh;display:flex;align-items:center}
 .hero-full .hero-bg,.band .band-bg{position:absolute;inset:-12% 0;z-index:0;will-change:transform}
 .hero-full .hero-scrim{position:absolute;inset:0;z-index:1;background:
@@ -629,7 +630,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   backdrop-filter:blur(3px)}
 .btn-onlight:hover{background:#fff;color:var(--indigo);border-color:#fff}
 
-.band{min-height:62vh;display:flex;align-items:center;margin:70px 0}
+.band{min-height:62vh;display:flex;align-items:center;margin-top:70px;margin-bottom:70px}
 .band .band-scrim{position:absolute;inset:0;z-index:1;
   background:linear-gradient(90deg,rgba(11,14,24,.72),rgba(11,14,24,.42))}
 .band .band-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
@@ -696,6 +697,55 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   .kpis,.steps{grid-template-columns:1fr}
   .fmain{grid-template-columns:1fr 1fr}
   .hero h1{font-size:2.2rem}
+}
+
+/* ---------- phones / small tablets ---------- */
+@media(max-width:680px){
+  main{padding:0 16px 70px}
+  /* utility bar: drop the long crumb, let the row breathe */
+  .utility .wrap{padding:6px 16px;gap:10px;justify-content:space-between}
+  .utility .crumbtag{display:none}
+  .langsel button{padding:3px 5px}
+  /* masthead reflows; search becomes a full-width second row */
+  .masthead{flex-wrap:wrap;padding:12px 16px 12px;gap:10px 14px}
+  .searchbtn{order:5;min-width:0;width:100%;margin-left:0}
+  nav.primary .wrap{padding:0 8px}
+  nav.primary a{padding:11px 12px;font-size:.82rem}
+  /* one-column figure/stat grids */
+  .figs{grid-template-columns:repeat(2,1fr)}
+  .fig{border-right:none;border-bottom:1px solid var(--line)}
+  .fig:last-child{border-bottom:none}
+  .peoples{grid-template-columns:1fr}
+  .fmain{grid-template-columns:1fr;gap:22px}
+  /* immersive sections: gentler heights + spacing on phones */
+  .hero-full{min-height:82vh}
+  .band{min-height:46vh;margin-top:44px;margin-bottom:44px}
+  .band-inner,.hero-full .hero-inner{padding:0 16px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{justify-content:center}
+  /* keep placeholder labels from covering hero/band copy */
+  .imgslot.fill .slotlab{padding:14px}
+  .imgslot.fill.miss .slotlab .slotsub,
+  .imgslot.fill.miss .slotlab .slotdim{display:none}
+  /* tables & detail */
+  .dtable td:first-child{width:42%}
+  /* let grid/flex children shrink instead of forcing overflow */
+  .split2>*,.split-32>*,.detail>*,.org>*,.feat>*{min-width:0}
+  .jrow{flex-wrap:wrap;gap:4px 12px}
+  .jrow .jd{width:100%;flex:none}
+  .jrow .jt{min-width:0}
+  .detail{gap:22px}
+  .toolbar input{min-width:0;width:100%}
+  .cartowrap svg,.mapstage svg{min-width:0}
+  /* license plate / wide svg never force scroll */
+  .plate svg,.minicarto svg{width:100%;height:auto}
+}
+@media(max-width:430px){
+  .figs{grid-template-columns:1fr}
+  .fig{border-right:none}
+  .pagehead h1{font-size:1.7rem}
+  .hero-full h1{font-size:2.1rem}
+  .feat{gap:26px}
 }
 </style>
 <script>
@@ -1281,7 +1331,7 @@ function vInstitutions(){
     <p class="lead">The legislative, executive and judicial functions are separated
     (Art. 101). No person may sit in more than one confederal organ.</p>
   </section>
-  <section class="band" style="min-height:40vh;margin:20px 0 40px">
+  <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('institutions-hall','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
@@ -1362,7 +1412,7 @@ function vIdentity(){
     written identity rests on a unified Latin alphabet; its institutional identity on a
     shared system of symbols and heraldry.</p>
   </section>
-  <section class="band" style="min-height:40vh;margin:20px 0 40px">
+  <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('identity-people','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
@@ -1547,7 +1597,7 @@ function vParticipation(){
     materialises immediately, and opens the right to take part in confederal
     consultations and votes.</p>
   </section>
-  <section class="band" style="min-height:42vh;margin:20px 0 40px">
+  <section class="band" style="min-height:42vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('participation-crowd','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
