@@ -41,6 +41,8 @@ jobs:
           cp balkanska_konfederacija.html _site/index.html
           # Ship the licensed Zurich font files if present (referenced by @font-face)
           if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
+          # Ship owner-supplied images (referenced as images/<id>.jpg)
+          if [ -d portail/images ]; then cp -r portail/images _site/images; fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

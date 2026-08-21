@@ -586,6 +586,90 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   box-shadow:inset 3px 0 0 var(--gold)}
 .eyebrow,.subhead,.pc-eye{font-weight:700}
 
+/* ============================================================
+   ONE-PAGE / IMMERSIVE HOME — full-bleed hero, parallax bands,
+   image slots, scroll animation
+   ============================================================ */
+/* image slots (placeholders until the owner supplies the files) */
+.imgslot{position:relative;margin:0;overflow:hidden;background:var(--surface-2);
+  width:100%;aspect-ratio:16/10}
+.imgslot img{display:block;width:100%;height:100%;object-fit:cover}
+.imgslot.fill{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.imgslot .slotlab{position:absolute;inset:0;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;text-align:center;padding:22px;
+  border:1.5px dashed var(--line-3);
+  background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(120,130,150,.05) 11px 22px),var(--surface-2)}
+.imgslot.miss{aspect-ratio:16/10}
+.imgslot.miss .slotlab{display:flex}
+.imgslot.fill.miss .slotlab{aspect-ratio:auto}
+.slotcat{font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:#fff;background:var(--ink-3);padding:3px 10px;border-radius:20px}
+.cat-paysage .slotcat{background:#3c6b46}
+.cat-politique .slotcat{background:var(--indigo)}
+.cat-humain .slotcat{background:#9a5a2f}
+.slotsub{font-size:.92rem;font-weight:600;color:var(--ink-2);max-width:26ch;line-height:1.35}
+.slotdim{font-size:.7rem;color:var(--ink-3);letter-spacing:.02em}
+
+/* full-bleed sections break out of the centred main column */
+.hero-full,.band{position:relative;width:100vw;margin-left:calc(50% - 50vw);
+  overflow:hidden}
+.hero-full{min-height:94vh;display:flex;align-items:center}
+.hero-full .hero-bg,.band .band-bg{position:absolute;inset:-12% 0;z-index:0;will-change:transform}
+.hero-full .hero-scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(11,14,24,.86),rgba(11,14,24,.55) 52%,rgba(11,14,24,.2))}
+.hero-full .hero-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
+  padding:0 28px;width:100%;color:#fff}
+.hero-full .eyebrow{color:var(--gold-soft)}
+.hero-full h1{color:#fff;font-size:clamp(2.5rem,6.2vw,4.6rem);line-height:1.02;
+  letter-spacing:-.022em;margin:8px 0 18px;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero-full .lead{color:rgba(255,255,255,.84);font-size:1.12rem;max-width:56ch}
+.hero-full .motto{color:#fff;border-left:2px solid var(--gold);margin:22px 0 26px}
+.hero-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;
+  color:rgba(255,255,255,.8);font-size:1.4rem;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+.btn-onlight{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.5);
+  backdrop-filter:blur(3px)}
+.btn-onlight:hover{background:#fff;color:var(--indigo);border-color:#fff}
+
+.band{min-height:62vh;display:flex;align-items:center;margin:70px 0}
+.band .band-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(11,14,24,.72),rgba(11,14,24,.42))}
+.band .band-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
+  padding:0 28px;width:100%;color:#fff}
+.band .eyebrow{color:var(--gold-soft)}
+.band-q{font-size:clamp(1.4rem,3.6vw,2.5rem);font-weight:600;line-height:1.18;
+  max-width:22ch;margin-top:10px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.band-sub{color:rgba(255,255,255,.82);margin-top:14px;max-width:52ch}
+
+/* editorial split: image + text */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.feat.rev .feat-img{order:2}
+.feat-img{border-radius:2px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.feat h2{font-size:1.9rem;margin-bottom:12px}
+.ppl-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.ppl-chip{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;
+  padding:6px 12px;border:1px solid var(--line-2);border-radius:20px;background:var(--surface)}
+.ppl-chip i{width:9px;height:9px;border-radius:50%}
+
+/* scroll reveal + stagger */
+.io>*{opacity:0;transform:translateY(14px)}
+.io.in>*{opacity:1;transform:none;
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.io.in>*:nth-child(2){transition-delay:.06s}
+.io.in>*:nth-child(3){transition-delay:.12s}
+.io.in>*:nth-child(4){transition-delay:.18s}
+.hero-full.io>*,.band.io>*{opacity:1;transform:none} /* bg handles itself */
+@media(prefers-reduced-motion:reduce){
+  .io>*,.io.in>*{opacity:1;transform:none;transition:none}
+  .hero-cue{animation:none}
+  .hero-full .hero-bg,.band .band-bg{transform:none!important}
+}
+@media(max-width:820px){
+  .feat,.feat.rev .feat-img{grid-template-columns:1fr;order:0}
+  .hero-full{min-height:88vh}
+  .band{min-height:52vh}
+}
+
 /* ---------- footer ---------- */
 footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .fmain{max-width:1240px;margin:0 auto;padding:42px 28px 30px;
@@ -880,11 +964,15 @@ function crumb(parts){
 }
 
 function vHome(){
+  const peoplesRow=Object.entries(PEUPLES).map(([k,p])=>
+    `<span class="ppl-chip"><i style="background:${p.hex}"></i>${p.en}</span>`).join('');
   return `
-  <section class="hero reveal">
-    <div>
+  <section class="hero-full">
+    <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}</div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
       <div class="eyebrow">Official portal</div>
-      <h1>The Balkan Confederation</h1>
+      <h1>The Balkan<br>Confederation</h1>
       <p class="lead">A federation of forty-nine states and seven constituent South Slavic
       peoples, united in a Balkan union founded on the equality of states and on direct
       democracy.</p>
@@ -892,14 +980,20 @@ function vHome(){
       <div class="hero-actions">
         <a class="btn btn-primary" href="#/states">Explore the states
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a class="btn btn-ghost" href="#/participation">Become a citizen</a>
+        <a class="btn btn-onlight" href="#/participation">Become a citizen</a>
       </div>
     </div>
-    <div class="hero-aside"><svg class="crest" viewBox="0 0 100 100" id="homeCrest"></svg></div>
+    <a class="hero-cue" href="#/home" aria-label="Scroll down"
+       onclick="event.preventDefault();window.scrollBy({top:window.innerHeight*0.82,behavior:'smooth'})">▾</a>
   </section>
 
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="figs">
+  <section class="section io" style="padding-top:56px">
+    <div class="eyebrow">The union</div>
+    <h2 style="font-size:2rem;max-width:20ch">A confederation of states, a home for peoples.</h2>
+    <p class="lead" style="margin-top:12px">Balkan by territory, South Slavic by language and
+    kinship: forty-nine states govern themselves within a single confederal order founded
+    on equality and direct democracy.</p>
+    <div class="figs" style="margin-top:28px">
       <div class="fig"><b>49</b><span>Confederated states</span></div>
       <div class="fig"><b>7</b><span>Constituent peoples</span></div>
       <div class="fig"><b>4</b><span>Federal capitals</span></div>
@@ -907,7 +1001,57 @@ function vHome(){
     </div>
   </section>
 
-  <section class="section reveal" style="animation-delay:.1s">
+  <section class="band">
+    <div class="band-bg" data-parallax="0.20">${imgSlot('home-adriatic','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner">
+      <div class="eyebrow">The land</div>
+      <div class="band-q">From the Adriatic shore to the Black Sea, one confederal space.</div>
+    </div>
+  </section>
+
+  <section class="section io">
+    <div class="feat">
+      <div class="feat-img">${imgSlot('home-peoples')}</div>
+      <div>
+        <div class="eyebrow">The peoples</div>
+        <h2>Seven peoples, one home</h2>
+        <p class="lead">Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and
+        Bulgarians share a unified South Slavic language and alphabet, alongside recognised
+        Albanian, Hungarian, Turkish and Slovak communities.</p>
+        <div class="ppl-row">${peoplesRow}</div>
+        <a class="btn btn-ghost" style="margin-top:20px" href="#/identity">Language &amp; identity →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section io">
+    <div class="feat rev">
+      <div class="feat-img">${imgSlot('home-assembly')}</div>
+      <div>
+        <div class="eyebrow">The institutions</div>
+        <h2>Four federal institutions</h2>
+        <p class="lead">The Kongres legislates, the Narodni Sabor guards the equality of
+        nations, the Savezno Veće governs by consensus and the Ustavni Sud upholds the
+        Constitution, seated across the four federal capitals.</p>
+        <a class="btn btn-ghost" style="margin-top:20px" href="#/institutions">The institutions →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-bg" data-parallax="0.18">${imgSlot('home-citizen','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner">
+      <div class="eyebrow">Citizenship</div>
+      <div class="band-q">Every citizen is an elector of the Narodni Sabor.</div>
+      <p class="band-sub">Confederal digital citizenship opens the participatory platform:
+      consultations, debates, proposals and votes.</p>
+      <a class="btn btn-primary" style="margin-top:20px" href="#/participation">Become a citizen</a>
+    </div>
+  </section>
+
+  <section class="section io">
     <div class="h2row"><h2>Explore the portal</h2></div>
     <div class="cards">
       ${[
@@ -949,6 +1093,17 @@ function vHome(){
           <a class="btn btn-ghost" style="margin-top:16px" href="#/dashboard">Membership dashboard</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="band" style="margin-bottom:0">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('home-closing','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner" style="text-align:center">
+      <svg class="crest" viewBox="0 0 100 100" id="homeCrest"
+        style="width:76px;height:76px;margin:0 auto 12px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.4))"></svg>
+      <div class="band-q" style="margin:0 auto;max-width:26ch">Različiti narodi, jedan dom.</div>
+      <p class="band-sub" style="margin:14px auto 0">Diverse peoples, one home.</p>
     </div>
   </section>`;
 }
@@ -1126,6 +1281,12 @@ function vInstitutions(){
     <p class="lead">The legislative, executive and judicial functions are separated
     (Art. 101). No person may sit in more than one confederal organ.</p>
   </section>
+  <section class="band" style="min-height:40vh;margin:20px 0 40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('institutions-hall','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      Seated across Sarajevo, Beograd, Zagreb and Sofija.</div></div>
+  </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="org">
       ${org.map(o=>`<div class="orgcard">
@@ -1200,6 +1361,12 @@ function vIdentity(){
     <p class="lead">The Confederation is anchored in the Balkan linguistic area. Its
     written identity rests on a unified Latin alphabet; its institutional identity on a
     shared system of symbols and heraldry.</p>
+  </section>
+  <section class="band" style="min-height:40vh;margin:20px 0 40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('identity-people','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      One language, seven peoples, a living tongue.</div></div>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="cards">
@@ -1380,6 +1547,12 @@ function vParticipation(){
     materialises immediately, and opens the right to take part in confederal
     consultations and votes.</p>
   </section>
+  <section class="band" style="min-height:42vh;margin:20px 0 40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('participation-crowd','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      The electoral body of the Narodni Sabor.</div></div>
+  </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="h2row"><h2>Registration in three steps</h2></div>
     <div class="steps">
@@ -1485,6 +1658,7 @@ function renderNow(){
   window.scrollTo(0,0);
   requestAnimationFrame(()=>{
     setupReveal();
+    setupParallax();
     animateFigs();
     if(h.startsWith('#/map'))initMap();
   });
@@ -1638,12 +1812,60 @@ let _io=null;
 function setupReveal(){
   if(_io)_io.disconnect();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const els=document.querySelectorAll('#app .section, #app .hero');
+  const els=document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band');
   _io=new IntersectionObserver(ents=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
-  },{rootMargin:'0px 0px -7% 0px',threshold:.03});
+  },{rootMargin:'0px 0px -7% 0px',threshold:.02});
   els.forEach(el=>{el.classList.remove('reveal');el.classList.add('io');_io.observe(el);});
 }
+
+/* ============================================================
+   IMAGE SLOTS — labelled placeholders until the owner supplies
+   the files (drop portail/images/<id>.jpg, then push).
+   ============================================================ */
+const SLOTS={
+ 'home-hero':{cat:'Paysage',subj:'Panorama balkanique / côte adriatique',w:2400,h:1400},
+ 'home-adriatic':{cat:'Paysage',subj:'Mer et montagnes (bande parallax)',w:2400,h:1100},
+ 'home-peoples':{cat:'Humain',subj:'Visages des sept peuples',w:1800,h:1200},
+ 'home-assembly':{cat:'Politique',subj:'Assemblée / institution / cérémonie',w:1800,h:1200},
+ 'home-citizen':{cat:'Humain',subj:'Citoyen · vie quotidienne',w:2400,h:1100},
+ 'home-closing':{cat:'Paysage',subj:'Ville historique au crépuscule',w:2400,h:1100},
+ 'identity-people':{cat:'Humain',subj:'La langue vivante · portraits',w:1800,h:1000},
+ 'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais fédéral',w:1800,h:1000},
+ 'participation-crowd':{cat:'Humain',subj:'Citoyens · place publique',w:2400,h:1000},
+};
+function imgSlot(id,cls){
+  const s=SLOTS[id]||{cat:'Image',subj:id,w:1600,h:900};
+  return `<figure class="imgslot cat-${s.cat.toLowerCase()} ${cls||''}">`+
+    `<img src="images/${id}.jpg" alt="${esc(s.subj)}" loading="lazy" onerror="imgFail(this)">`+
+    `<figcaption class="slotlab"><span class="slotcat">${s.cat}</span>`+
+    `<span class="slotsub">${esc(s.subj)}</span>`+
+    `<span class="slotdim mono">${s.w}×${s.h} · images/${id}.jpg</span></figcaption></figure>`;
+}
+function imgFail(el){const f=el.closest('.imgslot');if(f){f.classList.add('miss');el.remove();}}
+
+/* ============================================================
+   PARALLAX — gentle depth on [data-parallax] backgrounds
+   ============================================================ */
+let _plx=[], _plxTick=false;
+function setupParallax(){
+  _plx=[...document.querySelectorAll('#app [data-parallax]')];
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){_plx=[];return;}
+  onParallax();
+}
+function onParallax(){
+  const vh=window.innerHeight;
+  for(const el of _plx){
+    const r=el.getBoundingClientRect();
+    const off=((r.top+r.height/2)-vh/2)/vh;
+    const f=parseFloat(el.dataset.parallax)||0.15;
+    el.style.transform=`translate3d(0,${(-off*f*100).toFixed(1)}px,0)`;
+  }
+}
+window.addEventListener('scroll',()=>{
+  if(_plxTick||!_plx.length)return;_plxTick=true;
+  requestAnimationFrame(()=>{onParallax();_plxTick=false;});
+},{passive:true});
 
 /* ============================================================
    INTERACTIVE MAP, zoom / pan / hover tooltip / people filter
