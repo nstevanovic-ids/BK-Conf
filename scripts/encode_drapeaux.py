@@ -61,6 +61,7 @@ MAPPING = {
     "VI-41": "VI.png", "VZ-42": "VZ.png", "ZA-43": "ZA.png",
     "VB-42": "Vrhbosna-Flag.png",
     "BG-91": "Beograd-Flag.png",
+    "SA-92": "Sarajevo-Flag.png",
 }
 
 
