@@ -34,11 +34,11 @@ intégrés au portail déployé (route `#/state/LK-20`).
   d'un futur re-rendu de l'écu. (Alternatives écartées : *Straža na Velebitu*,
   *Tvrd kao Velebit*.)
 - **Éclair de Tesla** : **définitivement écarté** (déjà retiré des deux rendus).
-- **Šahovnica** : recommandation = **échiquier nu** (premier carreau au choix,
-  sans la couronne des cinq blasons de la République de Croatie), pour un État
-  distinct du canon et non rattaché à la Croatie réelle. Les rendus actuels
-  portent encore la version couronnée ; **à corriger lors d'un futur re-rendu**.
-  On conserve les images actuelles en attendant (décision de ne pas vectoriser).
+- **Šahovnica** : les rendus portent l'**échiquier nu** (écusson en damier
+  rouge-et-blanc, première case blanche, SANS la couronne des cinq blasons de la
+  République de Croatie). C'est la forme voulue pour un État de la Confédération
+  distinct de la Croatie réelle : **rien à changer**. (Une note antérieure
+  évoquait par erreur une « version couronnée » à corriger ; il n'y en a pas.)
 
 ## Cohérence de code
 - Code **confirmé = LK-20** (post-renumérotation alphabétique du 2026-06-28).
