@@ -50,7 +50,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | TK-39 | Timok | Serbs | Zaječar |
 | TL-40 | Torlak | Serbs | Pirot |
 | TR-41 | Sěverna Trakija | Bulgarians | Stara Zagora |
-| VB-42 | Vrhbosna | Bosniaks | Ilijaš |
+| VB-42 | Vrhbosna | Bosniaks | Zenica |
 | VI-43 | Istočen Vardar | Macedonians | Štip |
 | VZ-44 | Zapaden Vardar | Macedonians | Tetovo |
 | ZA-45 | Zagorje | Croats | Krapina |
