@@ -56,6 +56,7 @@ MAPPING = {
     "PM-25": "PM.png", "PO-26": "PO.png", "PR-27": "PR.png", "PZ-28": "PZ.png",
     "RO-29": "RO.png", "RS-30": "RS.png", "SI-31": "SI.png", "SL-32": "SL.png",
     "SP-33": "SP.png", "ST-34": "ST.png", "SU-35": "SU.png", "SX-36": "SX.png",
+    "SO-33": "Soli-Flag.png",
     "SZ-37": "SZ.png", "TK-38": "TK.png", "TL-39": "TL.png", "TR-40": "TR.png",
     "VI-41": "VI.png", "VZ-42": "VZ.png", "ZA-43": "ZA.png",
 }
