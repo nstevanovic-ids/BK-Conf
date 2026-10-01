@@ -29,7 +29,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | KV-18 | Kvarner | Croats | Rijeka |
 | LG-19 | Ludogorje | Bulgarians | Razgrad |
 | LK-20 | Lika | Croats | Gospić |
-| LV-21 | Lašva | Bosniaks | Vitez |
+| LV-21 | Lašva | Bosniaks | Travnik |
 | MI-22 | Istočna Mizija | Bulgarians | Ruse |
 | MZ-23 | Zapadna Mizija | Bulgarians | Pleven |
 | PI-24 | Istočno Podriñe | Serbs | Višegrad |
