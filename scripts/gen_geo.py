@@ -186,13 +186,50 @@ def main():
     pts = {c: [round(proj(lon, lat)[0], 1), round(proj(lon, lat)[1], 1)]
            for c, (lon, lat) in SEATS.items()}
 
+    # Federal cities / municipalities: real polygons from Natural Earth admin-1.
+    # (Mostar has no admin-1 unit and no boundary in the supplied data: it keeps
+    #  its seat marker as a fallback.)
+    NE1_FED = {
+        ("Republic of Serbia", "Grad Beograd"): "BG-91",
+        ("Croatia", "Grad Zagreb"): "ZG-94",
+        ("Bulgaria", "Grad Sofiya"): "SF-93",
+        ("Bosnia and Herzegovina", "Brčko Distrikt"): "BK-95",
+        ("Bosnia and Herzegovina", "Sarajevo"): "SA-92",
+    }
+    fed = []
+    ne1_path = os.environ.get("NE_ADMIN1")
+    if not (ne1_path and Path(ne1_path).exists()):
+        cache = Path(os.environ.get("TMPDIR", "/tmp")) / "ne_10m_admin_1.geojson"
+        if not cache.exists():
+            url = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
+                   "master/geojson/ne_10m_admin_1_states_provinces.geojson")
+            try:
+                with urllib.request.urlopen(url, timeout=120) as r:
+                    data = r.read()
+                if data.lstrip().startswith(b"{"):
+                    cache.write_bytes(data)
+            except Exception as e:  # noqa: BLE001
+                print(f"  (admin-1 download failed: {e}; federal polygons skipped)")
+        ne1_path = str(cache) if cache.exists() else None
+    if ne1_path and Path(ne1_path).exists():
+        ne1 = json.loads(Path(ne1_path).read_text())
+        for f in ne1["features"]:
+            p = f["properties"]
+            key = (p.get("admin"), p.get("name") or p.get("name_en"))
+            code = NE1_FED.get(key)
+            if code:
+                g = shape(f["geometry"]).buffer(0).simplify(0.004,
+                                                            preserve_topology=True)
+                fed.append({"c": code, "d": geom_path(g)})
+
     out = {"w": round(W, 1), "h": round(H, 1), "land": context_land(),
-           "states": states, "occupied": occupied, "pts": pts}
+           "states": states, "fed": fed, "occupied": occupied, "pts": pts}
     (DATA / "geo.json").write_text(
         json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     kb = (DATA / "geo.json").stat().st_size / 1024
-    print(f"geo.json: {len(states)} states, {len(occupied)} occupied, "
-          f"{len(out['land'])} context countries, {kb:.1f} kB")
+    print(f"geo.json: {len(states)} states, {len(fed)} federal polygons, "
+          f"{len(occupied)} occupied, {len(out['land'])} context countries, "
+          f"{kb:.1f} kB")
 
 
 if __name__ == "__main__":
