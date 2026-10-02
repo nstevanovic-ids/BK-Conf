@@ -26,7 +26,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofia (défense + sciences)
 - 4 institutions fédérales : Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud
-- 25 entités autonomes (docs/canon/entites-autonomes.md)
+- 24 entités autonomes (docs/canon/entites-autonomes.md)
 
 ## Symboles (docs/canon/couleurs-symboles.md)
 - Emblème confédéral unique : **lion ailé d'or** (héraldiquement neutre entre les 7 peuples)

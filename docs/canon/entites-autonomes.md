@@ -1,4 +1,4 @@
-# Entités autonomes — 25 reconnues
+# Entités autonomes — 24 reconnues
 
 Droits culturels, éducatifs et municipaux des communautés minoritaires
 (art. 1 quater à 1 sexies). Pas de pouvoir législatif propre.
@@ -28,5 +28,4 @@ Droits culturels, éducatifs et municipaux des communautés minoritaires
 | SOZ-BN | Samostalna Opština Zavoda Kovačica | Slovak | Banat (BN-03) |
 | BAO | Bãlgarski Avtonomni Opštini | Bulgarian | Torlak (TL-40) |
 | SO-BA | Samostalna Opština Bosanski Petrovac | Special | Bosanska Krajina (BA-01) |
-| SO-PZ | Samostalna Opština Srebrenica | Special | Zapadno Podriñe (PZ-28) |
 | SO-PR | Samostalna Opština Gorna Xumaja | Special | Pirin (PR-27) |

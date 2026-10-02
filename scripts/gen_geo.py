@@ -174,6 +174,8 @@ def main():
         if not k or k not in by_k:
             continue  # skip autonomous / occupied / special-zone files
         st = by_k[k]
+        if st["t"] != "T":
+            continue  # federal cities / municipalities are handled as `fed`
         states.append({"c": st["c"], "k": st["k"], "p": st["p"],
                        "d": geom_path(dissolve(fp))})
 
@@ -196,7 +198,7 @@ def main():
         ("Bosnia and Herzegovina", "Brčko Distrikt"): "BK-95",
         ("Bosnia and Herzegovina", "Sarajevo"): "SA-92",
     }
-    fed = []
+    fed_map = {}
     ne1_path = os.environ.get("NE_ADMIN1")
     if not (ne1_path and Path(ne1_path).exists()):
         cache = Path(os.environ.get("TMPDIR", "/tmp")) / "ne_10m_admin_1.geojson"
@@ -215,12 +217,18 @@ def main():
         ne1 = json.loads(Path(ne1_path).read_text())
         for f in ne1["features"]:
             p = f["properties"]
-            key = (p.get("admin"), p.get("name") or p.get("name_en"))
-            code = NE1_FED.get(key)
+            code = NE1_FED.get((p.get("admin"), p.get("name") or p.get("name_en")))
             if code:
                 g = shape(f["geometry"]).buffer(0).simplify(0.004,
                                                             preserve_topology=True)
-                fed.append({"c": code, "d": geom_path(g)})
+                fed_map[code] = geom_path(g)
+    # Local federal polygon files (e.g. MO-96.geojson) override / complete NE1.
+    for s in et:
+        if s["t"] != "T":
+            lf = DATA / f"{s['c']}.geojson"
+            if lf.exists():
+                fed_map[s["c"]] = geom_path(dissolve(lf))
+    fed = [{"c": c, "d": d} for c, d in fed_map.items()]
 
     out = {"w": round(W, 1), "h": round(H, 1), "land": context_land(),
            "states": states, "fed": fed, "occupied": occupied, "pts": pts}
