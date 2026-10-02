@@ -1941,12 +1941,12 @@ function mapGeo(){
   const fedmk=STATES.filter(s=>s.t!=='T').map(s=>{
     const p=GEO.pts[s.c];if(!p)return '';
     const shape=s.t==='F'
-      ?`<rect class="mk" x="${p[0]-5.5}" y="${p[1]-5.5}" width="11" height="11" rx="1.5"/>`
-      :`<circle class="mk dash" cx="${p[0]}" cy="${p[1]}" r="5.5"/>`;
+      ?`<circle class="mk" cx="${p[0]}" cy="${p[1]}" r="8"/>`
+      :`<circle class="mk dash" cx="${p[0]}" cy="${p[1]}" r="8"/>`;
     return `<g class="tile fedmk" data-c="${s.c}" data-p="fed" data-n="${esc(s.n)}" `+
       `tabindex="0" role="button" aria-label="${esc(s.n)} (${s.c})" `+
       `onkeydown="if(event.key==='Enter')go('#/state/${s.c}')">${shape}`+
-      `<text class="mlbl" x="${p[0]}" y="${p[1]-8}" text-anchor="middle">${s.k}</text></g>`;
+      `<text class="mlbl" x="${p[0]}" y="${p[1]-11}" text-anchor="middle">${s.k}</text></g>`;
   }).join('');
   const occ=(GEO.occupied||[]).map(o=>{
     const st=byCode(o.parent)||{};
@@ -1990,22 +1990,32 @@ function initMap(){
     tx=cx-(cx-tx)*(ns/scale);ty=cy-(cy-ty)*(ns/scale);scale=ns;apply();};
   stage.onwheel=e=>{e.preventDefault();const r=stage.getBoundingClientRect();
     zoom(e.deltaY<0?1.12:1/1.12,e.clientX-r.left,e.clientY-r.top);};
-  let drag=false,sx=0,sy=0,moved=false;
-  stage.onpointerdown=e=>{drag=true;moved=false;sx=e.clientX;sy=e.clientY;
+  let drag=false,sx=0,sy=0,sx0=0,sy0=0,moved=false;
+  stage.onpointerdown=e=>{drag=true;moved=false;sx=sx0=e.clientX;sy=sy0=e.clientY;
     stage.classList.add('grabbing');stage.setPointerCapture(e.pointerId);};
   stage.onpointermove=e=>{
     const r=stage.getBoundingClientRect();
-    if(drag){moved=true;tx+=e.clientX-sx;ty+=e.clientY-sy;sx=e.clientX;sy=e.clientY;apply();
-      tip.classList.remove('show');return;}
+    if(drag){
+      if(Math.hypot(e.clientX-sx0,e.clientY-sy0)>4)moved=true;
+      if(moved){tx+=e.clientX-sx;ty+=e.clientY-sy;apply();tip.classList.remove('show');}
+      sx=e.clientX;sy=e.clientY;return;
+    }
     const t=e.target.closest&&e.target.closest('.tile');
     if(t){tip.innerHTML=`${t.dataset.n}<span>${t.dataset.c}</span>`;
       tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';
       tip.classList.add('show');}
     else tip.classList.remove('show');
   };
-  stage.onpointerup=e=>{drag=false;stage.classList.remove('grabbing');
-    if(!moved){const t=e.target.closest&&e.target.closest('.tile');
-      if(t)go('#/state/'+t.dataset.c);}};
+  stage.onpointerup=e=>{
+    drag=false;stage.classList.remove('grabbing');
+    try{stage.releasePointerCapture(e.pointerId);}catch(_){}
+    if(!moved){
+      // pointer capture retargets events to the stage, so find the real element
+      const el=document.elementFromPoint(e.clientX,e.clientY);
+      const t=el&&el.closest&&el.closest('.tile');
+      if(t)go('#/state/'+t.dataset.c);
+    }
+  };
   stage.onpointerleave=()=>{drag=false;stage.classList.remove('grabbing');
     tip.classList.remove('show');};
   document.getElementById('mZin').onclick=()=>zoom(1.3);

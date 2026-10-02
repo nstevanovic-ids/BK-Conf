@@ -37,10 +37,12 @@ SX = W / ((LON1 - LON0) * COSM)
 H = (LAT1 - LAT0) * SX
 
 # Neighbouring countries kept as light context behind the states.
+# Neighbouring (non-member) countries drawn as light context behind the states.
+# Member countries are NOT listed here: their territory is covered by the state
+# polygons, so including their outlines would double the borders.
 CONTEXT = {
-    "Slovenia", "Croatia", "Bosnia and Herzegovina", "Serbia", "Montenegro",
-    "Kosovo", "North Macedonia", "Albania", "Bulgaria", "Italy", "Austria",
-    "Hungary", "Romania", "Greece", "Turkey", "Slovakia", "Moldova", "Ukraine",
+    "Albania", "Italy", "Austria", "Hungary", "Romania", "Greece", "Turkey",
+    "Slovakia", "Moldova", "Ukraine",
 }
 
 # Real seat coordinates (lon, lat) for every state, including the federal
