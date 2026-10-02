@@ -132,18 +132,6 @@
   ]
  },
  {
-  "c": "HZ-13",
-  "k": "HZ",
-  "n": "Zapadna Hercegovina",
-  "p": "hrv",
-  "t": "T",
-  "ch": "Široki Brijeg",
-  "g": [
-   3,
-   6
-  ]
- },
- {
   "c": "HI-12",
   "k": "HI",
   "n": "Istočna Hercegovina",
@@ -153,6 +141,18 @@
   "g": [
    4,
    7
+  ]
+ },
+ {
+  "c": "HZ-13",
+  "k": "HZ",
+  "n": "Zapadna Hercegovina",
+  "p": "hrv",
+  "t": "T",
+  "ch": "Široki Brijeg",
+  "g": [
+   3,
+   6
   ]
  },
  {
@@ -237,6 +237,18 @@
   "g": [
    2,
    4
+  ]
+ },
+ {
+  "c": "LV-21",
+  "k": "LV",
+  "n": "Lašva",
+  "p": "bos",
+  "t": "T",
+  "ch": "Travnik",
+  "g": [
+   0,
+   0
   ]
  },
  {
@@ -372,6 +384,18 @@
   ]
  },
  {
+  "c": "SO-33",
+  "k": "SO",
+  "n": "Soli",
+  "p": "bos",
+  "t": "T",
+  "ch": "Tuzla",
+  "g": [
+   0,
+   0
+  ]
+ },
+ {
   "c": "SP-34",
   "k": "SP",
   "n": "Šopluk",
@@ -468,6 +492,18 @@
   ]
  },
  {
+  "c": "VB-42",
+  "k": "VB",
+  "n": "Vrhbosna",
+  "p": "bos",
+  "t": "T",
+  "ch": "Zenica",
+  "g": [
+   0,
+   0
+  ]
+ },
+ {
   "c": "VI-43",
   "k": "VI",
   "n": "Istočen Vardar",
@@ -501,42 +537,6 @@
   "g": [
    4,
    2
-  ]
- },
- {
-  "c": "LV-21",
-  "k": "LV",
-  "n": "Lašva",
-  "p": "bos",
-  "t": "T",
-  "ch": "Travnik",
-  "g": [
-   0,
-   0
-  ]
- },
- {
-  "c": "SO-33",
-  "k": "SO",
-  "n": "Soli",
-  "p": "bos",
-  "t": "T",
-  "ch": "Tuzla",
-  "g": [
-   0,
-   0
-  ]
- },
- {
-  "c": "VB-42",
-  "k": "VB",
-  "n": "Vrhbosna",
-  "p": "bos",
-  "t": "T",
-  "ch": "Zenica",
-  "g": [
-   0,
-   0
   ]
  },
  {
