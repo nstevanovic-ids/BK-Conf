@@ -280,6 +280,27 @@ def main() -> int:
                 resolved[(code, i)] = [best]
                 matched_names["SRB"].add(best)
 
+    # Villes-États dotées d'un contour communal propre (ex. ZG-94 avec le
+    # Turopolje) : leurs communes sont appariées au recensement comme pour un État.
+    fed_members = {}
+    for s in etats:
+        lf = DATA / f"{s['c']}.geojson"
+        if s["t"] == "T" or not lf.exists():
+            continue
+        members, ok = [], True
+        for ft in json.loads(lf.read_text(encoding="utf-8"))["features"]:
+            p = ft["properties"]
+            iso, nm = p.get("GID_0"), p.get("NAME_" + level(p)) or ""
+            cands = tables[iso]["index"].get(norm(nm), []) if iso in tables else []
+            if len(cands) != 1:
+                ok = False
+                break
+            members.append((iso, cands[0][1]))
+        if ok and members:
+            fed_members[s["c"]] = members
+            for iso, k in members:
+                matched_names.setdefault(iso, set()).add(k)
+
     # Communes du recensement sans unité GADM : localisation géométrique.
     state_geom = {code: unary_union([g for _, g in lst]) for code, lst in units.items()}
     located = {}   # code d'État -> [(iso, clé)]
@@ -347,6 +368,11 @@ def main() -> int:
             }
             if missing:
                 unmatched[code] = missing
+        elif code in fed_members:
+            mem = fed_members[code]
+            stats[code] = {"municipalities": len(mem), "area": None,
+                           "population": sum(tables[i]["pop"][k] for i, k in mem),
+                           "source": " · ".join(sorted({tables[i]["label"] for i, _ in mem}))}
         else:
             stats[code] = {"municipalities": None, "area": None,
                            "population": int(fed_pop[code]["population"]) if code in fed_pop else None,
@@ -380,11 +406,12 @@ def main() -> int:
 
     # 5. Contrôles de couverture par pays.
     print("Couverture des recensements :")
-    fed_by_iso = {iso: int(fed_pop[c]["population"]) for iso, c in FED_OF.items() if c in fed_pop}
+    fed_by_iso = {iso: stats[c]["population"] or 0 for iso, c in FED_OF.items()}
+    fed_keys = {(i, k) for mem in fed_members.values() for i, k in mem}
     for iso, t in tables.items():
         used = matched_names.get(iso, set())
         sub = {x for parts in SUBUNITS.values() for x in parts}
-        assigned = sum(t["pop"][n] for n in used if n not in sub)
+        assigned = sum(t["pop"][n] for n in used if n not in sub and (iso, n) not in fed_keys)
         free = sorted(n for n in t["pop"]
                       if n not in used and not any(n in v for v in ALIASES.get(iso, {}).values()))
         line = f"  {iso} : {len(used)} unités appariées, {assigned:,} hab. dans les États"

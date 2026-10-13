@@ -1,7 +1,7 @@
-# Population des villes-États et municipalités confédérales (unités sans découpage communal dans le portail).
+# Population des villes-États et municipalités confédérales sans contour communal propre.
+# ZG-94 (Zagreb + Turopolje + Stupnik) est calculée depuis portail/data/ZG-94.geojson et HRV_2021.csv.
 # Sarajevo (SA-92) et Sofija (SF-93) : en attente des tableaux BHAS 2013 et NSI 2021.
 code,name,population,source
 BG-91,Grad Beograd,1685563,Census 2022 (first results)
-ZG-94,Grad Zagreb,767131,Census 2021
 BK-95,Brčko distrikt,83516,Census 2013
 MO-96,Grad Mostar,105797,Census 2013

@@ -23,7 +23,7 @@ Les chiffres sont calculés par `scripts/build_stats.py` → `portail/data/stats
 | Serbie | Recensement 2022, premiers résultats (RZS) | 6 690 887 = États + Beograd, au chiffre près |
 | Monténégro | Recensement 2023 (MONSTAT) | 623 633, au chiffre près |
 | Macédoine du Nord | Recensement 2021 (SSO) | 1 836 713, au chiffre près |
-| Croatie | Recensement 2021 (DZS, fichier fourni par l'utilisateur) | 3 871 833 = États + Zagreb + 5 communes hors États, au chiffre près |
+| Croatie | Recensement 2021 (DZS, fichier fourni par l'utilisateur) | 3 871 833 = États + Zagreb, au chiffre près |
 | Kosovo (KM-16) | Recensement 2011 (ASK) | le nord a boycotté 2011 et 2024 ; 2024 y compte 434 habitants à Zvečan |
 | Slovénie, Bulgarie, Bosnie | **en attente** | tableaux officiels par commune à déposer dans `docs/data/population/` |
 
@@ -45,10 +45,8 @@ Les fragments GADM (îlots de Mali Lošinj, Premantura, Njivice, Blaca, unités
 « Unknown ») comptent en superficie, pas comme communes.
 
 ## Points ouverts
-- **Turopolje et banlieue de Zagreb hors de tout État** : Velika Gorica, Kravarsko,
-  Orle, Stupnik et Bistra (74 994 hab.) ne figurent dans aucun fichier d'État ni
-  dans le contour de Zagreb. La décision de juin 2026 rattachait le Turopolje à la
-  ville-État de Zagreb : à appliquer (contour + population de ZG-94).
+- ~~Turopolje et banlieue de Zagreb hors de tout État~~ : résolu par l'ADR
+  2026-10-13-zagreb-turopolje (Turopolje et Stupnik à ZG-94, Bistra à ZA-45).
 - Istočni Stari Grad (fichier PZ-28) tombe dans le contour geoBoundaries du canton
   de Sarajevo (SA-92) : désaccord entre sources de contours à vérifier.
 - PIB par habitant : toujours en attente.

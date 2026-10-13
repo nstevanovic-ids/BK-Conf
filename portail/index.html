@@ -1289,7 +1289,7 @@ function vState(code){
   }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
   const st=STATS[s.c]||{}, pend='<span class="pending">·</span>';
   const hasPop=st.population!=null;
-  rows+=`<tr><td>Municipalities</td><td>${fed?'—':(st.municipalities!=null?fmtN(st.municipalities):pend)}</td></tr>
+  rows+=`<tr><td>Municipalities</td><td>${st.municipalities!=null?fmtN(st.municipalities):(fed?'—':pend)}</td></tr>
     <tr><td>Population</td><td>${hasPop?`${fmtN(st.population)}<span class="dsrc">${esc(st.source)}</span>`
       :`${pend}<span class="dsrc">Pending census data</span>`}</td></tr>
     <tr><td>Area</td><td>${st.area?fmtN(st.area)+' km²':pend}</td></tr>
