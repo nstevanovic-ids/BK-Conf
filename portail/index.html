@@ -237,6 +237,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   letter-spacing:.04em;text-transform:uppercase;font-weight:700;padding-top:13px}
 .dtable .pending{color:var(--ink-3)}
 .dtable .pending{color:var(--line-3)}
+.dtable .dsrc{display:block;font-size:.7rem;color:var(--ink-3);margin-top:2px}
 
 /* people dot + badges */
 .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
@@ -278,6 +279,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   font-weight:700;font-family:var(--font)}
 .scard .smeta h3{font-size:1rem;margin:2px 0 3px}
 .scard .smeta .speu{font-size:.74rem;color:var(--ink-2)}
+.scard .smeta .spop{font-size:.72rem;color:var(--ink-3);margin-top:2px;font-variant-numeric:tabular-nums}
 .scard.muni{border-style:dashed}
 
 /* ---------- state detail ---------- */
@@ -1264,7 +1266,8 @@ function renderGrid(){
     return `<a class="scard ${s.t==='M'?'muni':''}" href="#/state/${s.c}">
       <div class="flagwrap">${flagSVG(s)}</div>
       <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3>
-      <div class="speu">${pu.en}</div></div></a>`;}).join('');
+      <div class="speu">${pu.en}</div>${(STATS[s.c]||{}).population!=null
+        ?`<div class="spop">${fmtN(STATS[s.c].population)} inhabitants</div>`:''}</div></a>`;}).join('');
 }
 
 function vState(code){
@@ -1284,10 +1287,13 @@ function vState(code){
     rows+=`<tr><td>Regional standard</td><td>${STD[pu.std]}</td></tr>`;
     rows+=`<tr><td>Seat</td><td>${s.ch}</td></tr>`;
   }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
-  rows+=`<tr><td>Municipalities</td><td><span class="pending">·</span></td></tr>
-    <tr><td>Population</td><td><span class="pending">·</span></td></tr>
-    <tr><td>Area</td><td><span class="pending">·</span></td></tr>
-    <tr><td>Population density</td><td><span class="pending">·</span></td></tr>
+  const st=STATS[s.c]||{}, pend='<span class="pending">·</span>';
+  const hasPop=st.population!=null;
+  rows+=`<tr><td>Municipalities</td><td>${st.municipalities!=null?fmtN(st.municipalities):(fed?'—':pend)}</td></tr>
+    <tr><td>Population</td><td>${hasPop?`${fmtN(st.population)}<span class="dsrc">${esc(st.source)}</span>`
+      :`${pend}<span class="dsrc">Pending census data</span>`}</td></tr>
+    <tr><td>Area</td><td>${st.area?fmtN(st.area)+' km²':pend}</td></tr>
+    <tr><td>Population density</td><td>${hasPop&&st.area?fmtN(Math.round(st.population/st.area))+' inhabitants / km²':pend}</td></tr>
     <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">·</span></td></tr>
     <tr><td>Autonomous communities</td><td>${auts.length||'None'}</td></tr>`;
   return crumb([['Home','#/home'],['States','#/states'],[s.n]])+`
@@ -1919,6 +1925,7 @@ const SB_PAGES=[
  ['Participation','Register and take part','#/participation'],
  ['Dashboard','Confederal indicators','#/dashboard'],
 ];
+function fmtN(n){return Number(n).toLocaleString('en-GB');}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function buildIndex(){
@@ -2228,12 +2235,12 @@ function mapFilter(p,btn){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -2242,8 +2249,9 @@ async function loadData(){
     fetch(base+'flagnotes.json').then(r=>r.json()),
     fetch(base+'geo.json').then(r=>r.json()),
     fetch(base+'constitution.json').then(r=>r.json()),
+    fetch(base+'stats.json').then(r=>r.json()),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss;
   al=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); AUT=au; ALPHA=al; STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }

@@ -58,6 +58,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
   entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
   généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
+- `stats.json` (communes, population, superficie) est généré par
+  `scripts/build_stats.py` depuis les GeoJSON d'États et les recensements de
+  `docs/data/population/` (cf. ADR 2026-10-13-chiffres-cles-etats.md)
 - `scripts/build_portail.py` = injecte data + drapeaux dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 

@@ -140,6 +140,16 @@ def context_land():
     return land
 
 
+def fill_slivers(geom, max_deg2=1.2e-5):
+    """Supprime les trous minuscules (< ~0,1 km²) laissés par la fusion de
+    contours de sources différentes ; les vraies enclaves sont bien plus grandes."""
+    from shapely.geometry import Polygon, MultiPolygon
+    polys = list(geom.geoms) if geom.geom_type == "MultiPolygon" else [geom]
+    out = [Polygon(p.exterior, [r for r in p.interiors if Polygon(r).area >= max_deg2])
+           for p in polys]
+    return out[0] if len(out) == 1 else MultiPolygon(out)
+
+
 def main():
     try:
         from shapely.geometry import shape
@@ -154,7 +164,7 @@ def main():
         fc = json.loads(fp.read_text())
         geoms = [shape(f["geometry"]).buffer(0)
                  for f in fc["features"] if f.get("geometry")]
-        return unary_union(geoms).simplify(0.008, preserve_topology=True)
+        return fill_slivers(unary_union(geoms)).simplify(0.008, preserve_topology=True)
 
     # Occupied territories: hatched overlays tied to their parent state.
     OCCUPIED = {

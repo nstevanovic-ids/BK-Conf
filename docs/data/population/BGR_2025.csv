@@ -1,0 +1,296 @@
+# Bulgarie — population au 31 décembre 2025 (NSI, « Population by districts, municipalities, place of residence and sex »), par obshtina.
+# Fichier source fourni par l'utilisateur le 2026-10-13. kind : D = district (oblast, sous-total), M = commune.
+district,kind,name,population
+Blagoevgrad,D,Blagoevgrad,285644
+Blagoevgrad,M,Bansko,13668
+Blagoevgrad,M,Belitsa,8807
+Blagoevgrad,M,Blagoevgrad,70708
+Blagoevgrad,M,Gotse Delchev,28686
+Blagoevgrad,M,Garmen,14683
+Blagoevgrad,M,Kresna,4201
+Blagoevgrad,M,Petrich,45755
+Blagoevgrad,M,Razlog,18306
+Blagoevgrad,M,Sandanski,34243
+Blagoevgrad,M,Satovcha,12549
+Blagoevgrad,M,Simitli,12457
+Blagoevgrad,M,Strumyani,4378
+Blagoevgrad,M,Hadzhidimovo,8203
+Blagoevgrad,M,Yakoruda,9000
+Burgas,D,Burgas,391500
+Burgas,M,Aytos,24781
+Burgas,M,Burgas,195912
+Burgas,M,Kameno,9236
+Burgas,M,Karnobat,19638
+Burgas,M,Malko Tarnovo,2479
+Burgas,M,Nesebar,36656
+Burgas,M,Pomorie,27092
+Burgas,M,Primorsko,6269
+Burgas,M,Ruen,25521
+Burgas,M,Sozopol,12679
+Burgas,M,Sredets,12711
+Burgas,M,Sungurlare,10130
+Burgas,M,Tsarevo,8396
+Varna,D,Varna,440532
+Varna,M,Avren,8154
+Varna,M,Aksakovo,19152
+Varna,M,Beloslav,9318
+Varna,M,Byala,3510
+Varna,M,Varna,331260
+Varna,M,Vetrino,4611
+Varna,M,Valchi Dol,7195
+Varna,M,Devnya,7019
+Varna,M,Dolni Chiflik,15335
+Varna,M,Dalgopol,11382
+Varna,M,Provadia,17337
+Varna,M,Suvorovo,6259
+Veliko Tarnovo,D,Veliko Tarnovo,198803
+Veliko Tarnovo,M,Veliko Tarnovo,77067
+Veliko Tarnovo,M,Gorna Oryahovitsa,35866
+Veliko Tarnovo,M,Elena,7290
+Veliko Tarnovo,M,Zlataritsa,3311
+Veliko Tarnovo,M,Lyaskovets,10609
+Veliko Tarnovo,M,Pavlikeni,17399
+Veliko Tarnovo,M,Polski Trambesh,10491
+Veliko Tarnovo,M,Svishtov,25291
+Veliko Tarnovo,M,Strazhitsa,9596
+Veliko Tarnovo,M,Suhindol,1883
+Vidin,D,Vidin,69465
+Vidin,M,Belogradchik,4653
+Vidin,M,Boynitsa,694
+Vidin,M,Bregovo,3411
+Vidin,M,Vidin,44089
+Vidin,M,Gramada,1217
+Vidin,M,Dimovo,4571
+Vidin,M,Kula,2902
+Vidin,M,Makresh,1075
+Vidin,M,Novo Selo,2270
+Vidin,M,Ruzhintsi,3015
+Vidin,M,Chuprene,1568
+Vratsa,D,Vratsa,144502
+Vratsa,M,Borovan,4606
+Vratsa,M,Byala Slatina,18850
+Vratsa,M,Vratsa,58721
+Vratsa,M,Kozloduy,17368
+Vratsa,M,Krivodol,7249
+Vratsa,M,Mezdra,16260
+Vratsa,M,Mizia,5342
+Vratsa,M,Oryahovo,7916
+Vratsa,M,Roman,4632
+Vratsa,M,Hayredin,3558
+Gabrovo,D,Gabrovo,92722
+Gabrovo,M,Gabrovo,48879
+Gabrovo,M,Dryanovo,7200
+Gabrovo,M,Sevlievo,28104
+Gabrovo,M,Tryavna,8539
+Dobrich,D,Dobrich,143858
+Dobrich,M,Balchik,16452
+Dobrich,M,General Toshevo,10471
+Dobrich,M,Dobrich - selska,17039
+Dobrich,M,Dobrich,68573
+Dobrich,M,Kavarna,12627
+Dobrich,M,Krushari,3088
+Dobrich,M,Tervel,11892
+Dobrich,M,Shabla,3716
+Kardzhali,D,Kardzhali,152028
+Kardzhali,M,Ardino,12201
+Kardzhali,M,Dzhebel,9290
+Kardzhali,M,Kirkovo,21769
+Kardzhali,M,Krumovgrad,18280
+Kardzhali,M,Kardzhali,67238
+Kardzhali,M,Momchilgrad,15660
+Kardzhali,M,Chernoochene,7590
+Kyustendil,D,Kyustendil,104740
+Kyustendil,M,Bobovdol,6208
+Kyustendil,M,Boboshevo,2145
+Kyustendil,M,Dupnitsa,35547
+Kyustendil,M,Kocherinovo,3832
+Kyustendil,M,Kyustendil,46391
+Kyustendil,M,Nevestino,1636
+Kyustendil,M,Rila,2248
+Kyustendil,M,Sapareva Banya,6238
+Kyustendil,M,Treklyano,495
+Lovech,D,Lovech,109446
+Lovech,M,Apriltsi,2561
+Lovech,M,Letnitsa,3454
+Lovech,M,Lovech,35792
+Lovech,M,Lukovit,15128
+Lovech,M,Teteven,16945
+Lovech,M,Troyan,25205
+Lovech,M,Ugarchin,4942
+Lovech,M,Yablanitsa,5419
+Montana,D,Montana,110970
+Montana,M,Berkovitsa,13468
+Montana,M,Boychinovtsi,7274
+Montana,M,Brusartsi,3824
+Montana,M,Valchedram,7116
+Montana,M,Varshets,6350
+Montana,M,Georgi Damyanovo,1864
+Montana,M,Lom,19350
+Montana,M,Medkovets,2936
+Montana,M,Montana,42776
+Montana,M,Chiprovtsi,2618
+Montana,M,Yakimovo,3394
+Pazardzhik,D,Pazardzhik,221176
+Pazardzhik,M,Batak,4564
+Pazardzhik,M,Belovo,6710
+Pazardzhik,M,Bratsigovo,6985
+Pazardzhik,M,Velingrad,31928
+Pazardzhik,M,Lesichovo,4625
+Pazardzhik,M,Pazardzhik,87766
+Pazardzhik,M,Panagyurishte,20690
+Pazardzhik,M,Peshtera,14163
+Pazardzhik,M,Rakitovo,14238
+Pazardzhik,M,Septemvri,20684
+Pazardzhik,M,Strelcha,4131
+Pazardzhik,M,Sarnitsa,4692
+Pernik,D,Pernik,108871
+Pernik,M,Breznik,5426
+Pernik,M,Zemen,1965
+Pernik,M,Kovachevtsi,1231
+Pernik,M,Pernik,80576
+Pernik,M,Radomir,16416
+Pernik,M,Tran,3257
+Pleven,D,Pleven,212890
+Pleven,M,Belene,6927
+Pleven,M,Gulyantsi,8535
+Pleven,M,Dolna Mitropolia,15595
+Pleven,M,Dolni Dabnik,9415
+Pleven,M,Iskar,5313
+Pleven,M,Knezha,12091
+Pleven,M,Levski,14246
+Pleven,M,Nikopol,6322
+Pleven,M,Pleven,108440
+Pleven,M,Pordim,4527
+Pleven,M,Cherven Bryag,21479
+Plovdiv,D,Plovdiv,638290
+Plovdiv,M,Asenovgrad,56647
+Plovdiv,M,Brezovo,5779
+Plovdiv,M,Kaloyanovo,10102
+Plovdiv,M,Karlovo,44470
+Plovdiv,M,Krichim,7094
+Plovdiv,M,Kuklen,6092
+Plovdiv,M,Laki,1990
+Plovdiv,M,Maritsa,31043
+Plovdiv,M,Perushtitsa,4136
+Plovdiv,M,Plovdiv,333994
+Plovdiv,M,Parvomay,20494
+Plovdiv,M,Rakovski,25280
+Plovdiv,M,Rodopi,32446
+Plovdiv,M,Sadovo,14487
+Plovdiv,M,Sopot,8086
+Plovdiv,M,Stamboliyski,17536
+Plovdiv,M,Saedinenie,8772
+Plovdiv,M,Hisarya,9842
+Razgrad,D,Razgrad,98083
+Razgrad,M,Zavet,7600
+Razgrad,M,Isperih,18410
+Razgrad,M,Kubrat,13235
+Razgrad,M,Loznitsa,7408
+Razgrad,M,Razgrad,41510
+Razgrad,M,Samuil,5735
+Razgrad,M,Tsar Kaloyan,4185
+Ruse,D,Ruse,184251
+Ruse,M,Borovo,3752
+Ruse,M,Byala,9802
+Ruse,M,Vetovo,9483
+Ruse,M,Dve Mogili,6452
+Ruse,M,Ivanovo,6875
+Ruse,M,Ruse,136112
+Ruse,M,Slivo Pole,7917
+Ruse,M,Tsenovo,3858
+Silistra,D,Silistra,92365
+Silistra,M,Alfatar,2149
+Silistra,M,Glavinitsa,8417
+Silistra,M,Dulovo,23435
+Silistra,M,Kaynardzha,3842
+Silistra,M,Silistra,38980
+Silistra,M,Sitovo,4283
+Silistra,M,Tutrakan,11259
+Sliven,D,Sliven,168267
+Sliven,M,Kotel,15704
+Sliven,M,Nova Zagora,29525
+Sliven,M,Sliven,109879
+Sliven,M,Tvarditsa,13159
+Smolyan,D,Smolyan,88816
+Smolyan,M,Banite,2843
+Smolyan,M,Borino,2312
+Smolyan,M,Devin,8874
+Smolyan,M,Dospat,6784
+Smolyan,M,Zlatograd,9037
+Smolyan,M,Madan,9348
+Smolyan,M,Nedelino,4515
+Smolyan,M,Rudozem,8122
+Smolyan,M,Smolyan,31514
+Smolyan,M,Chepelare,5467
+Sofia (stolitsa),D,Sofia (stolitsa),1303813
+Sofia (stolitsa),M,Stolichna,1303813
+Sofia,D,Sofia,222946
+Sofia,M,Anton,1385
+Sofia,M,Bozhurishte,9318
+Sofia,M,Botevgrad,30040
+Sofia,M,Godech,4646
+Sofia,M,Gorna Malina,6213
+Sofia,M,Dolna Banya,4238
+Sofia,M,Dragoman,4394
+Sofia,M,Elin Pelin,22867
+Sofia,M,Etropole,10268
+Sofia,M,Zlatitsa,4598
+Sofia,M,Ihtiman,16808
+Sofia,M,Koprivshtitsa,1852
+Sofia,M,Kostenets,10396
+Sofia,M,Kostinbrod,17391
+Sofia,M,Mirkovo,2156
+Sofia,M,Pirdop,6789
+Sofia,M,Pravets,6968
+Sofia,M,Samokov,33375
+Sofia,M,Svoge,18184
+Sofia,M,Slivnitsa,8478
+Sofia,M,Chavdar,1129
+Sofia,M,Chelopech,1453
+Stara Zagora,D,Stara Zagora,286722
+Stara Zagora,M,Bratya Daskalovi,6880
+Stara Zagora,M,Gurkovo,4351
+Stara Zagora,M,Galabovo,9941
+Stara Zagora,M,Kazanlak,62923
+Stara Zagora,M,Maglizh,9515
+Stara Zagora,M,Nikolaevo,4254
+Stara Zagora,M,Opan,2163
+Stara Zagora,M,Pavel Banya,12070
+Stara Zagora,M,Radnevo,15579
+Stara Zagora,M,Stara Zagora,141748
+Stara Zagora,M,Chirpan,17298
+Targovishte,D,Targovishte,93633
+Targovishte,M,Antonovo,4356
+Targovishte,M,Omurtag,15443
+Targovishte,M,Opaka,5073
+Targovishte,M,Popovo,21265
+Targovishte,M,Targovishte,47496
+Haskovo,D,Haskovo,205702
+Haskovo,M,Dimitrovgrad,41858
+Haskovo,M,Ivaylovgrad,4811
+Haskovo,M,Lyubimets,8499
+Haskovo,M,Madzharovo,1765
+Haskovo,M,Mineralni Bani,5555
+Haskovo,M,Svilengrad,19993
+Haskovo,M,Simeonovgrad,7359
+Haskovo,M,Stambolovo,6651
+Haskovo,M,Topolovgrad,8260
+Haskovo,M,Harmanli,22716
+Haskovo,M,Haskovo,78235
+Shumen,D,Shumen,148601
+Shumen,M,Veliki Preslav,9833
+Shumen,M,Venets,6233
+Shumen,M,Varbitsa,7651
+Shumen,M,Kaolinovo,10768
+Shumen,M,Kaspichan,6139
+Shumen,M,Nikola Kozlevo,5333
+Shumen,M,Novi Pazar,14171
+Shumen,M,Smyadovo,5185
+Shumen,M,Hitrino,6193
+Shumen,M,Shumen,77095
+Yambol,D,Yambol,104571
+Yambol,M,Bolyarovo,2930
+Yambol,M,Elhovo,12450
+Yambol,M,Straldzha,9998
+Yambol,M,Tundzha,20196
+Yambol,M,Yambol,58997
