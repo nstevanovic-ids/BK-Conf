@@ -605,7 +605,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .pgal .pgal-it{position:absolute;inset:0;opacity:0}
 .pgal .pgal-it:first-child{opacity:1}
 .pgal .pgal-it img{object-position:center 30%}
-.pgal-cap{position:absolute;left:14px;bottom:12px;color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.04em;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .imgslot.heroalt{opacity:0;animation:heroFade 28s infinite}
 @keyframes heroFade{0%{opacity:0}4%,25%{opacity:1}29%,100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.imgslot.heroalt{display:none}}
@@ -660,11 +659,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .feat.rev .feat-img{order:2}
 .feat-img{border-radius:2px;overflow:hidden;box-shadow:var(--shadow-lg)}
 .feat h2{font-size:1.9rem;margin-bottom:12px}
-.ppl-strip{margin-top:22px}
-.ppl-bar{display:flex;height:10px;border-radius:2px;overflow:hidden}
-.ppl-bar span{flex:1}
-.ppl-names{margin-top:11px;font-size:.92rem;font-weight:600;color:var(--ink-2);
-  line-height:1.7}
 
 /* scroll reveal + stagger */
 .io>*{opacity:0;transform:translateY(14px)}
@@ -1028,8 +1022,6 @@ function crumb(parts){
 }
 
 function vHome(){
-  const pplBar=Object.values(PEUPLES).map(p=>`<span style="background:${p.hex}"></span>`).join('');
-  const pplNames=Object.values(PEUPLES).map(p=>p.en).join(' · ');
   return `
   <section class="hero-full">
     <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}${['home-hero-2','home-hero-3','home-hero-4'].map((id,i)=>`<figure class="imgslot fill heroalt" style="animation-delay:${(i+1)*7}s"><img src="images/${id}.jpg" alt="" loading="lazy" onerror="this.parentNode.remove()"></figure>`).join('')}</div>
@@ -1083,8 +1075,6 @@ function vHome(){
         <p class="lead">Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and
         Bulgarians share a unified South Slavic language and alphabet, alongside recognised
         Albanian, Hungarian, Turkish and Slovak communities.</p>
-        <div class="ppl-strip"><div class="ppl-bar">${pplBar}</div>
-          <div class="ppl-names">${pplNames}</div></div>
         <a class="btn btn-ghost" style="margin-top:20px" href="#/identity">Language &amp; identity →</a>
       </div>
     </div>
@@ -1922,8 +1912,7 @@ function peopleGallery(){
   const kf=`<style>@keyframes pgFade{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
   return kf+`<figure class="imgslot pgal" style="aspect-ratio:3/2">`+list.map(([k,i],j)=>
     `<div class="pgal-it" style="${list.length>1?`animation:pgFade ${D}s ${j*T}s infinite;`:'opacity:1'}">`+
-    `<img src="images/peoples/${k}-${i}.jpg" alt="${esc(PEUPLES[k].en)}" loading="lazy">`+
-    `<span class="pgal-cap">${esc(PEUPLES[k].name)}</span></div>`).join('')+`</figure>`;
+    `<img src="images/peoples/${k}-${i}.jpg" alt="${esc(PEUPLES[k].en)}" loading="lazy">`+`</div>`).join('')+`</figure>`;
 }
 function imgFail(el){const f=el.closest('.imgslot');if(f){f.classList.add('miss');el.remove();}}
 
