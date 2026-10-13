@@ -603,11 +603,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .imgslot img{display:block;width:100%;height:100%;object-fit:cover}
 .imgslot img[src*="participation-crowd"]{object-position:center 88%}
 .imgslot.fill{position:absolute;inset:0;aspect-ratio:auto;height:100%}
-.pgal .pgal-it{position:absolute;inset:0;opacity:0}
-.pgal .pgal-it:first-child{opacity:1}
-.pgal .pgal-it img{object-position:center 30%}
-.imgslot.heroalt{opacity:0}
-@media (prefers-reduced-motion:reduce){.imgslot.heroalt{display:none}}
+.imgslot img.rot{position:absolute;inset:0;opacity:0}
+@media (prefers-reduced-motion:reduce){.imgslot img.rot{display:none}}
 .imgslot .slotlab{position:absolute;inset:0;display:none;flex-direction:column;
   align-items:center;justify-content:center;gap:8px;text-align:center;padding:22px;
   border:1.5px dashed var(--line-3);
@@ -1024,7 +1021,7 @@ function crumb(parts){
 function vHome(){
   return `
   <section class="hero-full">
-    <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}${heroAlts()}</div>
+    <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}</div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <div class="eyebrow">Official portal</div>
@@ -1894,34 +1891,40 @@ const SLOTS={
  'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais fédéral',w:1800,h:1000},
  'participation-crowd':{cat:'Humain',subj:'Citoyens · place publique',w:2400,h:1000},
 };
+/* Slot rotation: <id>.jpg, then <id>-2.jpg ... <id>-N.jpg cross-fade in place.
+   Add a photo: drop the file and raise the count here. */
+const SLOT_N={'home-hero':16};
+const SLOT_T=7;
+function rotKeyframes(n,name){
+  const v=100/n, f=v/6;
+  return `<style>@keyframes ${name}{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
+}
 function imgSlot(id,cls){
   const s=SLOTS[id]||{cat:'Image',subj:id,w:1600,h:900};
+  const n=SLOT_N[id]||1, kf='rot-'+id;
+  let extra='';
+  if(n>1){
+    extra=rotKeyframes(n,kf);
+    for(let i=2;i<=n;i++)extra+=`<img class="rot" src="images/${id}-${i}.jpg" alt="" loading="lazy" `+
+      `style="animation:${kf} ${n*SLOT_T}s ${(i-1)*SLOT_T}s infinite" onerror="this.remove()">`;
+  }
   return `<figure class="imgslot cat-${s.cat.toLowerCase()} ${cls||''}">`+
-    `<img src="images/${id}.jpg" alt="${esc(s.subj)}" loading="lazy" onerror="imgFail(this)">`+
+    `<img src="images/${id}.jpg" alt="${esc(s.subj)}" loading="lazy" onerror="imgFail(this)">`+extra+
     `<figcaption class="slotlab"><span class="slotcat">${s.cat}</span>`+
     `<span class="slotsub">${esc(s.subj)}</span>`+
     `<span class="slotdim mono">${s.w}×${s.h} · images/${id}.jpg</span></figcaption></figure>`;
 }
-/* Hero: home-hero.jpg stays underneath; the others cross-fade over it. */
-const HERO_N=16, HERO_T=7;
-function heroAlts(){
-  const D=HERO_N*HERO_T, v=100/HERO_N, f=v/6;
-  const kf=`<style>@keyframes heroFade{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
-  let h='';for(let i=2;i<=HERO_N;i++)h+=`<figure class="imgslot fill heroalt" style="animation:heroFade ${D}s ${(i-1)*HERO_T}s infinite"><img src="images/home-hero-${i}.jpg" alt="" loading="lazy" onerror="this.parentNode.remove()"></figure>`;
-  return kf+h;
-}
-/* People galleries: images/peoples/<key>-<n>.jpg, cross-faded on the home page. */
+/* People gallery: images/peoples/<key>-<n>.jpg, shuffled on every load. */
 const PEOPLE_IMGS={slo:5,hrv:5,srb:5,misc:5};
 function peopleGallery(){
-  const list=[];Object.entries(PEOPLE_IMGS).forEach(([k,n])=>{for(let i=1;i<=n;i++)list.push([k,i]);});
+  const list=[];Object.entries(PEOPLE_IMGS).forEach(([k,n])=>{for(let i=1;i<=n;i++)list.push(`images/peoples/${k}-${i}.jpg`);});
   if(!list.length)return imgSlot('home-peoples');
   for(let i=list.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[list[i],list[j]]=[list[j],list[i]];}
-  const T=5,D=list.length*T;
-  const v=100/list.length, f=Math.min(3,v/4);
-  const kf=`<style>@keyframes pgFade{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
-  return kf+`<figure class="imgslot pgal" style="aspect-ratio:3/2">`+list.map(([k,i],j)=>
-    `<div class="pgal-it" style="${list.length>1?`animation:pgFade ${D}s ${j*T}s infinite;`:'opacity:1'}">`+
-    `<img src="images/peoples/${k}-${i}.jpg" alt="${esc(PEUPLES[k]?PEUPLES[k].en:'Everyday life')}" loading="lazy">`+`</div>`).join('')+`</figure>`;
+  const n=list.length,T=5;
+  return rotKeyframes(n,'rot-peoples')+`<figure class="imgslot" style="aspect-ratio:3/2">`+
+    `<img src="${list[0]}" alt="" loading="lazy" style="object-position:center 30%">`+
+    list.slice(1).map((u,i)=>`<img class="rot" src="${u}" alt="" loading="lazy" style="object-position:center 30%;animation:rot-peoples ${n*T}s ${(i+1)*T}s infinite" onerror="this.remove()">`).join('')+
+    `</figure>`;
 }
 function imgFail(el){const f=el.closest('.imgslot');if(f){f.classList.add('miss');el.remove();}}
 
