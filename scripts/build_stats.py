@@ -51,12 +51,15 @@ TABLES = {
     "SRB": ("SRB_2022.csv", "population", "Census 2022 (first results)"),
     "MNE": ("MNE_2023.csv", "population", "Census 2023"),
     "MKD": ("MKD_2021.csv", "population", "Census 2021"),
+    "HRV": ("HRV_2021.csv", "population", "Census 2021"),
     # Kosovo : le nord a boycotté 2011 et 2024 ; 2024 y est très sous-dénombré.
     "XKO": ("XKO.csv", "population_2011", "Census 2011"),
-    # En attente : HRV (DZS 2021), SVN (SiStat), BGR (NSI 2021), BIH (BHAS 2013).
+    # En attente : SVN (SiStat), BGR (NSI 2021), BIH (BHAS 2013).
 }
 # Totaux nationaux de contrôle (même source que les tables).
-NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713}
+NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833}
+# Ville-État comptée hors États dans le total national.
+FED_OF = {"SRB": "BG-91", "HRV": "ZG-94"}
 
 # Nom GADM normalisé -> noms du recensement à additionner.
 ALIASES = {
@@ -82,7 +85,23 @@ ALIASES = {
     "XKO": {
         "leposavic": ["Leposaviq"], "zvecan": ["Zveçan"], "strpce": ["Shtërpca"],
     },
+    "HRV": {
+        "murter": ["Murter-Kornati"], "povljane": ["Povljana"],
+        "opatija veprinac": ["Opatija"], "lopar supetarska draga": ["Rab"],
+        "vinodolska": ["Vinodolska općina"], "sveta marija na muri": ["Sveta Marija"],
+    },
 }
+# Unités GADM qui ne sont que des fragments d'une commune déjà comptée (îlots,
+# hameaux, polygones « Unknown ») : superficie comptée, population nulle.
+SUBPARTS = {
+    "HRV": {"premantura", "ilovik", "male srakane", "vele srakane", "susak", "unije",
+            "njivice", "blaca", "unknown_1", "unknown_2", "osjecko baranjska"},
+}
+# Communes du recensement absentes de GADM (créées après son découpage) :
+# localisées via geoBoundaries (découpage actuel) puis rattachées à l'État qui
+# contient leur point intérieur. POINTS : repli pour celles absentes de geoBoundaries.
+LOCATE = {"HRV": ("HRV", "ADM2", r"^(opcina|grad|otok) ")}
+POINTS = {"HRV": {"Tribunj": (43.753, 15.746)}}
 # « Grad » à subdivisions : composantes couvertes dès que le Grad est apparié.
 SUBUNITS = {
     "Grad Užice": ["Užice", "Sevojno"],
@@ -159,14 +178,18 @@ def level(p: dict) -> str:
 def load_tables() -> dict:
     out = {}
     for iso, (fname, col, label) in TABLES.items():
-        rows = read_csv(POP / fname)
-        pop = {}
+        rows = [r for r in read_csv(POP / fname) if r.get("kind") != "D"]
+        counts = {}
         for r in rows:
-            if r.get("kind") == "D":
-                continue
-            pop[r["name"]] = int(r[col])
-        out[iso] = {"pop": pop, "norm": {norm(k): k for k in pop}, "label": label,
-                    "rows": rows}
+            counts[norm(r["name"])] = counts.get(norm(r["name"]), 0) + 1
+        pop, index = {}, {}
+        for r in rows:
+            # Homonymes (ex. Otok, Privlaka en Croatie) : clé « nom (comitat) ».
+            key = r["name"] if counts[norm(r["name"])] == 1 else f"{r['name']} ({r['district']})"
+            pop[key] = int(r[col])
+            for form in {r["name"], r["name"].split(" – ")[0]}:
+                index.setdefault(norm(form), []).append((norm(r.get("district") or ""), key))
+        out[iso] = {"pop": pop, "index": index, "label": label, "rows": rows}
     return out
 
 
@@ -216,15 +239,21 @@ def main() -> int:
         for i, (p, g) in enumerate(lst):
             iso = p.get("GID_0")
             nm = p.get("NAME_" + level(p)) or ""
-            if norm(nm) in NON_MUNICIPAL or iso not in tables:
+            if (norm(nm) in NON_MUNICIPAL or iso not in tables
+                    or norm(nm) in SUBPARTS.get(iso, set())):
                 continue
             if iso == "SRB" and level(p) == "1":
                 pending_district.append((code, i, p, g))
                 continue
             t = tables[iso]
             names = ALIASES.get(iso, {}).get(norm(nm))
-            if not names and norm(nm) in t["norm"]:
-                names = [t["norm"][norm(nm)]]
+            cands = t["index"].get(norm(nm), [])
+            if not names and len(cands) == 1:
+                names = [cands[0][1]]
+            elif not names and len(cands) > 1:
+                region = norm(p.get("NAME_1") or "")
+                hit = [k for d, k in cands if d == region]
+                names = hit[:1] or None
             if names:
                 resolved[(code, i)] = names
                 matched_names.setdefault(iso, set()).update(names)
@@ -251,6 +280,36 @@ def main() -> int:
                 resolved[(code, i)] = [best]
                 matched_names["SRB"].add(best)
 
+    # Communes du recensement sans unité GADM : localisation géométrique.
+    state_geom = {code: unary_union([g for _, g in lst]) for code, lst in units.items()}
+    located = {}   # code d'État -> [(iso, clé)]
+    for iso, (giso, adm, prefix) in LOCATE.items():
+        if iso not in tables:
+            continue
+        t = tables[iso]
+        sub = {x for parts in SUBUNITS.values() for x in parts}
+        used = matched_names.get(iso, set())
+        left = [k for k in t["pop"] if k not in used and k not in sub]
+        gbidx = {}
+        for f in geoboundaries(giso, adm)["features"]:
+            gbidx.setdefault(re.sub(prefix, "", norm(f["properties"]["shapeName"])), []).append(f)
+        for k in left:
+            base = norm(k.split(" (")[0].split(" – ")[0])
+            pt = None
+            if k in POINTS.get(iso, {}):
+                lat, lon = POINTS[iso][k]
+                from shapely.geometry import Point
+                pt = Point(lon, lat)
+            elif len(gbidx.get(base, [])) == 1:
+                pt = shape(gbidx[base][0]["geometry"]).buffer(0).representative_point()
+            if pt is None:
+                continue
+            for code, g in state_geom.items():
+                if g.contains(pt):
+                    located.setdefault(code, []).append((iso, k))
+                    used.add(k)
+                    break
+
     # 3. Agrégation par État.
     fed_pop = {r["code"]: r for r in read_csv(POP / "VILLES-ETATS.csv")}
     stats, unmatched = {}, {}
@@ -259,20 +318,27 @@ def main() -> int:
         if s["t"] == "T":
             lst = units.get(code, [])
             geom = unary_union([g for _, g in lst])
-            n_mun = sum(1 for p, _ in lst
-                        if norm(p.get("NAME_" + level(p)) or "") not in NON_MUNICIPAL)
-            total, srcs, missing = 0, set(), []
+            total, srcs, missing, keys, n_gadm = 0, set(), [], set(), 0
             for i, (p, g) in enumerate(lst):
                 nm = p.get("NAME_" + level(p)) or ""
-                if norm(nm) in NON_MUNICIPAL:
-                    continue
                 iso = p.get("GID_0")
+                if norm(nm) in NON_MUNICIPAL or norm(nm) in SUBPARTS.get(iso, set()):
+                    continue
+                n_gadm += 1
                 names = resolved.get((code, i))
                 if not names:
                     missing.append(f"{iso}:{nm}")
                     continue
-                total += sum(tables[iso]["pop"][n] for n in names)
+                for n in names:
+                    if (iso, n) not in keys:
+                        keys.add((iso, n))
+                        total += tables[iso]["pop"][n]
                 srcs.add(tables[iso]["label"])
+            for iso, k in located.get(code, []):
+                if (iso, k) not in keys:
+                    keys.add((iso, k))
+                    total += tables[iso]["pop"][k]
+            n_mun = n_gadm if missing else len(keys)
             stats[code] = {
                 "municipalities": n_mun,
                 "area": round(area_km2(geom)),
@@ -314,7 +380,7 @@ def main() -> int:
 
     # 5. Contrôles de couverture par pays.
     print("Couverture des recensements :")
-    fed_by_iso = {"SRB": int(fed_pop["BG-91"]["population"]) if "BG-91" in fed_pop else 0}
+    fed_by_iso = {iso: int(fed_pop[c]["population"]) for iso, c in FED_OF.items() if c in fed_pop}
     for iso, t in tables.items():
         used = matched_names.get(iso, set())
         sub = {x for parts in SUBUNITS.values() for x in parts}

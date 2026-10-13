@@ -1,0 +1,559 @@
+# Croatie — recensement 2021 (DZS), « Popis 2021. – Stanovništvo po gradovima/općinama », tableau 3, colonne Ukupno.
+# Fichier source fourni par l'utilisateur le 2026-10-13 (data.gov.hr). Grad Zagreb = total de la ville (gradske četvrti non détaillées).
+district,kind,name,population
+Zagrebačka,G,Dugo Selo,17676
+Zagrebačka,G,Ivanić-Grad,12982
+Zagrebačka,G,Jastrebarsko,14562
+Zagrebačka,G,Samobor,37435
+Zagrebačka,G,Sveta Nedelja,18221
+Zagrebačka,G,Sveti Ivan Zelina,14602
+Zagrebačka,G,Velika Gorica,61075
+Zagrebačka,G,Vrbovec,12981
+Zagrebačka,G,Zaprešić,24133
+Zagrebačka,O,Bedenica,1266
+Zagrebačka,O,Bistra,6444
+Zagrebačka,O,Brckovljani,5876
+Zagrebačka,O,Brdovec,10737
+Zagrebačka,O,Dubrava,4520
+Zagrebačka,O,Dubravica,1192
+Zagrebačka,O,Farkaševac,1562
+Zagrebačka,O,Gradec,3189
+Zagrebačka,O,Jakovlje,3797
+Zagrebačka,O,Klinča Sela,5044
+Zagrebačka,O,Kloštar Ivanić,5523
+Zagrebačka,O,Krašić,2250
+Zagrebačka,O,Kravarsko,1824
+Zagrebačka,O,Križ,6098
+Zagrebačka,O,Luka,1265
+Zagrebačka,O,Marija Gorica,2094
+Zagrebačka,O,Orle,1765
+Zagrebačka,O,Pisarovina,3484
+Zagrebačka,O,Pokupsko,1926
+Zagrebačka,O,Preseka,1129
+Zagrebačka,O,Pušća,2564
+Zagrebačka,O,Rakovec,1141
+Zagrebačka,O,Rugvica,7133
+Zagrebačka,O,Stupnik,3886
+Zagrebačka,O,Žumberak,609
+Krapinsko-zagorska,G,Donja Stubica,5326
+Krapinsko-zagorska,G,Klanjec,2548
+Krapinsko-zagorska,G,Krapina,11530
+Krapinsko-zagorska,G,Oroslavje,5834
+Krapinsko-zagorska,G,Pregrada,5927
+Krapinsko-zagorska,G,Zabok,8656
+Krapinsko-zagorska,G,Zlatar,5574
+Krapinsko-zagorska,O,Bedekovčina,7340
+Krapinsko-zagorska,O,Budinščina,2182
+Krapinsko-zagorska,O,Desinić,2530
+Krapinsko-zagorska,O,Đurmanec,3781
+Krapinsko-zagorska,O,Gornja Stubica,4622
+Krapinsko-zagorska,O,Hrašćina,1388
+Krapinsko-zagorska,O,Hum na Sutli,4592
+Krapinsko-zagorska,O,Jesenje,1371
+Krapinsko-zagorska,O,Konjščina,3308
+Krapinsko-zagorska,O,Kraljevec na Sutli,1591
+Krapinsko-zagorska,O,Krapinske Toplice,4827
+Krapinsko-zagorska,O,Kumrovec,1412
+Krapinsko-zagorska,O,Lobor,2703
+Krapinsko-zagorska,O,Mače,2258
+Krapinsko-zagorska,O,Marija Bistrica,5553
+Krapinsko-zagorska,O,Mihovljan,1677
+Krapinsko-zagorska,O,Novi Golubovec,824
+Krapinsko-zagorska,O,Petrovsko,2270
+Krapinsko-zagorska,O,Radoboj,2981
+Krapinsko-zagorska,O,Stubičke Toplice,2740
+Krapinsko-zagorska,O,Sveti Križ Začretje,5659
+Krapinsko-zagorska,O,Tuhelj,2043
+Krapinsko-zagorska,O,Veliko Trgovišće,4448
+Krapinsko-zagorska,O,Zagorska Sela,899
+Krapinsko-zagorska,O,Zlatar Bistrica,2308
+Sisačko-moslavačka,G,Glina,7116
+Sisačko-moslavačka,G,Hrvatska Kostajnica,1879
+Sisačko-moslavačka,G,Kutina,19601
+Sisačko-moslavačka,G,Novska,11137
+Sisačko-moslavačka,G,Petrinja,19950
+Sisačko-moslavačka,G,Popovača,10255
+Sisačko-moslavačka,G,Sisak,40121
+Sisačko-moslavačka,O,Donji Kukuruzari,1080
+Sisačko-moslavačka,O,Dvor,2996
+Sisačko-moslavačka,O,Gvozd,2047
+Sisačko-moslavačka,O,Hrvatska Dubica,1462
+Sisačko-moslavačka,O,Jasenovac,1559
+Sisačko-moslavačka,O,Lekenik,5343
+Sisačko-moslavačka,O,Lipovljani,2807
+Sisačko-moslavačka,O,Majur,760
+Sisačko-moslavačka,O,Martinska Ves,2861
+Sisačko-moslavačka,O,Sunja,4124
+Sisačko-moslavačka,O,Topusko,2222
+Sisačko-moslavačka,O,Velika Ludina,2283
+Karlovačka,G,Duga Resa,10212
+Karlovačka,G,Karlovac,49377
+Karlovačka,G,Ogulin,12246
+Karlovačka,G,Ozalj,5837
+Karlovačka,G,Slunj,4224
+Karlovačka,O,Barilović,2673
+Karlovačka,O,Bosiljevo,1040
+Karlovačka,O,Cetingrad,1491
+Karlovačka,O,Draganić,2541
+Karlovačka,O,Generalski Stol,2171
+Karlovačka,O,Josipdol,3419
+Karlovačka,O,Kamanje,827
+Karlovačka,O,Krnjak,1332
+Karlovačka,O,Lasinja,1322
+Karlovačka,O,Netretić,2439
+Karlovačka,O,Plaški,1650
+Karlovačka,O,Rakovica,2230
+Karlovačka,O,Ribnik,362
+Karlovačka,O,Saborsko,466
+Karlovačka,O,Tounj,1002
+Karlovačka,O,Vojnić,3602
+Karlovačka,O,Žakanje,1732
+Varaždinska,G,Ivanec,12723
+Varaždinska,G,Lepoglava,6945
+Varaždinska,G,Ludbreg,8477
+Varaždinska,G,Novi Marof,11795
+Varaždinska,G,Varaždin,43782
+Varaždinska,G,Varaždinske Toplice,5537
+Varaždinska,O,Bednja,3389
+Varaždinska,O,Beretinec,2049
+Varaždinska,O,Breznica,1970
+Varaždinska,O,Breznički Hum,1132
+Varaždinska,O,Cestica,5425
+Varaždinska,O,Donja Voća,2030
+Varaždinska,O,Gornji Kneginec,4900
+Varaždinska,O,Jalžabet,3183
+Varaždinska,O,Klenovnik,1793
+Varaždinska,O,Ljubešćica,1689
+Varaždinska,O,Mali Bukovec,1809
+Varaždinska,O,Martijanec,2638
+Varaždinska,O,Maruševec,5682
+Varaždinska,O,Petrijanec,4553
+Varaždinska,O,Sračinec,4678
+Varaždinska,O,Sveti Đurđ,3326
+Varaždinska,O,Sveti Ilija,3242
+Varaždinska,O,Trnovec Bartolovečki,6145
+Varaždinska,O,Veliki Bukovec,1325
+Varaždinska,O,Vidovec,4915
+Varaždinska,O,Vinica,3020
+Varaždinska,O,Visoko,1335
+Koprivničko-križevačka,G,Đurđevac,7378
+Koprivničko-križevačka,G,Koprivnica,28580
+Koprivničko-križevačka,G,Križevci,18949
+Koprivničko-križevačka,O,Drnje,1533
+Koprivničko-križevačka,O,Đelekovec,1281
+Koprivničko-križevačka,O,Ferdinandovac,1415
+Koprivničko-križevačka,O,Gola,2078
+Koprivničko-križevačka,O,Gornja Rijeka,1559
+Koprivničko-križevačka,O,Hlebine,1180
+Koprivničko-križevačka,O,Kalinovac,1297
+Koprivničko-križevačka,O,Kalnik,1154
+Koprivničko-križevačka,O,Kloštar Podravski,2749
+Koprivničko-križevačka,O,Koprivnički Bregi,1968
+Koprivničko-križevačka,O,Koprivnički Ivanec,1798
+Koprivničko-križevačka,O,Legrad,1916
+Koprivničko-križevačka,O,Molve,1767
+Koprivničko-križevačka,O,Novigrad Podravski,2300
+Koprivničko-križevačka,O,Novo Virje,1026
+Koprivničko-križevačka,O,Peteranec,2300
+Koprivničko-križevačka,O,Podravske Sesvete,1446
+Koprivničko-križevačka,O,Rasinja,2631
+Koprivničko-križevačka,O,Sokolovac,2789
+Koprivničko-križevačka,O,Sveti Ivan Žabno,4343
+Koprivničko-križevačka,O,Sveti Petar Orehovec,3942
+Koprivničko-križevačka,O,Virje,3842
+Bjelovarsko-bilogorska,G,Bjelovar,36316
+Bjelovarsko-bilogorska,G,Čazma,6930
+Bjelovarsko-bilogorska,G,Daruvar,10105
+Bjelovarsko-bilogorska,G,Garešnica,8624
+Bjelovarsko-bilogorska,G,Grubišno Polje,5367
+Bjelovarsko-bilogorska,O,Berek,1106
+Bjelovarsko-bilogorska,O,Dežanovac,1978
+Bjelovarsko-bilogorska,O,Đulovac,2772
+Bjelovarsko-bilogorska,O,Hercegovac,1910
+Bjelovarsko-bilogorska,O,Ivanska,2256
+Bjelovarsko-bilogorska,O,Kapela,2367
+Bjelovarsko-bilogorska,O,Končanica,1805
+Bjelovarsko-bilogorska,O,Nova Rača,2756
+Bjelovarsko-bilogorska,O,Rovišće,4144
+Bjelovarsko-bilogorska,O,Severin,702
+Bjelovarsko-bilogorska,O,Sirač,1796
+Bjelovarsko-bilogorska,O,Šandrovac,1411
+Bjelovarsko-bilogorska,O,Štefanje,1688
+Bjelovarsko-bilogorska,O,Velika Pisanica,1313
+Bjelovarsko-bilogorska,O,Velika Trnovitica,1091
+Bjelovarsko-bilogorska,O,Veliki Grđevac,2316
+Bjelovarsko-bilogorska,O,Veliko Trojstvo,2379
+Bjelovarsko-bilogorska,O,Zrinski Topolovac,747
+Primorsko-goranska,G,Bakar,7573
+Primorsko-goranska,G,Cres,2716
+Primorsko-goranska,G,Crikvenica,9980
+Primorsko-goranska,G,Čabar,3226
+Primorsko-goranska,G,Delnice,5135
+Primorsko-goranska,G,Kastav,10202
+Primorsko-goranska,G,Kraljevica,4066
+Primorsko-goranska,G,Krk,6816
+Primorsko-goranska,G,Mali Lošinj,7537
+Primorsko-goranska,G,Novi Vinodolski,4328
+Primorsko-goranska,G,Opatija,10619
+Primorsko-goranska,G,Rab,7161
+Primorsko-goranska,G,Rijeka,107964
+Primorsko-goranska,G,Vrbovsko,3876
+Primorsko-goranska,O,Baška,1656
+Primorsko-goranska,O,Brod Moravice,663
+Primorsko-goranska,O,Čavle,7059
+Primorsko-goranska,O,Dobrinj,2150
+Primorsko-goranska,O,Fužine,1394
+Primorsko-goranska,O,Jelenje,5096
+Primorsko-goranska,O,Klana,1845
+Primorsko-goranska,O,Kostrena,4398
+Primorsko-goranska,O,Lokve,850
+Primorsko-goranska,O,Lopar,1107
+Primorsko-goranska,O,Lovran,3527
+Primorsko-goranska,O,Malinska-Dubašnica,3212
+Primorsko-goranska,O,Matulji,10773
+Primorsko-goranska,O,Mošćenička Draga,1288
+Primorsko-goranska,O,Mrkopalj,924
+Primorsko-goranska,O,Omišalj,2992
+Primorsko-goranska,O,Punat,1900
+Primorsko-goranska,O,Ravna Gora,2028
+Primorsko-goranska,O,Skrad,858
+Primorsko-goranska,O,Vinodolska općina,3226
+Primorsko-goranska,O,Viškovo,16084
+Primorsko-goranska,O,Vrbnik,1190
+Ličko-senjska,G,Gospić,11502
+Ličko-senjska,G,Novalja,3680
+Ličko-senjska,G,Otočac,8332
+Ličko-senjska,G,Senj,5973
+Ličko-senjska,O,Brinje,2563
+Ličko-senjska,O,Donji Lapac,1366
+Ličko-senjska,O,Karlobag,780
+Ličko-senjska,O,Lovinac,943
+Ličko-senjska,O,Perušić,1973
+Ličko-senjska,O,Plitvička Jezera,3649
+Ličko-senjska,O,Udbina,1334
+Ličko-senjska,O,Vrhovine,653
+Virovitičko-podravska,G,Orahovica,4537
+Virovitičko-podravska,G,Slatina,11503
+Virovitičko-podravska,G,Virovitica,19302
+Virovitičko-podravska,O,Crnac,1116
+Virovitičko-podravska,O,Čačinci,2162
+Virovitičko-podravska,O,Čađavica,1555
+Virovitičko-podravska,O,Gradina,2874
+Virovitičko-podravska,O,Lukač,2759
+Virovitičko-podravska,O,Mikleuš,1067
+Virovitičko-podravska,O,Nova Bukovica,1275
+Virovitičko-podravska,O,Pitomača,8402
+Virovitičko-podravska,O,Sopje,1897
+Virovitičko-podravska,O,Suhopolje,5267
+Virovitičko-podravska,O,Špišić Bukovica,3303
+Virovitičko-podravska,O,Voćin,1896
+Virovitičko-podravska,O,Zdenci,1453
+Požeško-slavonska,G,Kutjevo,4870
+Požeško-slavonska,G,Lipik,5127
+Požeško-slavonska,G,Pakrac,7086
+Požeško-slavonska,G,Pleternica,9138
+Požeško-slavonska,G,Požega,22294
+Požeško-slavonska,O,Brestovac,2980
+Požeško-slavonska,O,Čaglin,2111
+Požeško-slavonska,O,Jakšić,3371
+Požeško-slavonska,O,Kaptol,2605
+Požeško-slavonska,O,Velika,4502
+Brodsko-posavska,G,Nova Gradiška,11690
+Brodsko-posavska,G,Slavonski Brod,49891
+Brodsko-posavska,O,Bebrina,2817
+Brodsko-posavska,O,Brodski Stupnik,2357
+Brodsko-posavska,O,Bukovlje,2727
+Brodsko-posavska,O,Cernik,2964
+Brodsko-posavska,O,Davor,2529
+Brodsko-posavska,O,Donji Andrijevci,3059
+Brodsko-posavska,O,Dragalić,1058
+Brodsko-posavska,O,Garčin,3951
+Brodsko-posavska,O,Gornja Vrba,2168
+Brodsko-posavska,O,Gornji Bogićevci,1428
+Brodsko-posavska,O,Gundinci,1610
+Brodsko-posavska,O,Klakar,2020
+Brodsko-posavska,O,Nova Kapela,3393
+Brodsko-posavska,O,Okučani,2323
+Brodsko-posavska,O,Oprisavci,1968
+Brodsko-posavska,O,Oriovac,4770
+Brodsko-posavska,O,Podcrkavlje,2207
+Brodsko-posavska,O,Rešetari,3852
+Brodsko-posavska,O,Sibinj,5730
+Brodsko-posavska,O,Sikirevci,2028
+Brodsko-posavska,O,Slavonski Šamac,1576
+Brodsko-posavska,O,Stara Gradiška,911
+Brodsko-posavska,O,Staro Petrovo Selo,4110
+Brodsko-posavska,O,Velika Kopanica,2621
+Brodsko-posavska,O,Vrbje,1691
+Brodsko-posavska,O,Vrpolje,2818
+Zadarska,G,Benkovac,9680
+Zadarska,G,Biograd na Moru,5601
+Zadarska,G,Nin,2705
+Zadarska,G,Obrovac,3453
+Zadarska,G,Pag,3175
+Zadarska,G,Zadar,70779
+Zadarska,O,Bibinje,3962
+Zadarska,O,Galovac,1258
+Zadarska,O,Gračac,3136
+Zadarska,O,Jasenice,1348
+Zadarska,O,Kali,1585
+Zadarska,O,Kolan,815
+Zadarska,O,Kukljica,628
+Zadarska,O,Lišane Ostrovičke,593
+Zadarska,O,Novigrad,2160
+Zadarska,O,Pakoštane,4100
+Zadarska,O,Pašman,2136
+Zadarska,O,Polača,1389
+Zadarska,O,Poličnik,4676
+Zadarska,O,Posedarje,3430
+Zadarska,O,Povljana,669
+Zadarska,O,Preko,3556
+Zadarska,O,Privlaka,2128
+Zadarska,O,Ražanac,2746
+Zadarska,O,Sali,1746
+Zadarska,O,Stankovci,1831
+Zadarska,O,Starigrad,1697
+Zadarska,O,Sukošan,4665
+Zadarska,O,Sveti Filip i Jakov,4461
+Zadarska,O,Škabrnja,1661
+Zadarska,O,Tkon,748
+Zadarska,O,Vir,3045
+Zadarska,O,Vrsi,2045
+Zadarska,O,Zemunik Donji,2159
+Osječko-baranjska,G,Beli Manastir,7973
+Osječko-baranjska,G,Belišće,8884
+Osječko-baranjska,G,Donji Miholjac,8031
+Osječko-baranjska,G,Đakovo,23577
+Osječko-baranjska,G,Našice,14291
+Osječko-baranjska,G,Osijek,96313
+Osječko-baranjska,G,Valpovo,9784
+Osječko-baranjska,O,Antunovac,3411
+Osječko-baranjska,O,Bilje,4772
+Osječko-baranjska,O,Bizovac,3733
+Osječko-baranjska,O,Čeminac,2484
+Osječko-baranjska,O,Čepin,9665
+Osječko-baranjska,O,Darda,5427
+Osječko-baranjska,O,Donja Motičina,1334
+Osječko-baranjska,O,Draž,1949
+Osječko-baranjska,O,Drenje,2126
+Osječko-baranjska,O,Đurđenovac,5332
+Osječko-baranjska,O,Erdut,5436
+Osječko-baranjska,O,Ernestinovo,1948
+Osječko-baranjska,O,Feričanci,1725
+Osječko-baranjska,O,Gorjani,1246
+Osječko-baranjska,O,Jagodnjak,1500
+Osječko-baranjska,O,Kneževi Vinogradi,3357
+Osječko-baranjska,O,Koška,3169
+Osječko-baranjska,O,Levanjska Varoš,767
+Osječko-baranjska,O,Magadenovac,1579
+Osječko-baranjska,O,Marijanci,1951
+Osječko-baranjska,O,Petlovac,1874
+Osječko-baranjska,O,Petrijevci,2485
+Osječko-baranjska,O,Podgorač,2455
+Osječko-baranjska,O,Podravska Moslavina,954
+Osječko-baranjska,O,Popovac,1446
+Osječko-baranjska,O,Punitovci,1562
+Osječko-baranjska,O,Satnica Đakovačka,1775
+Osječko-baranjska,O,Semeljci,3558
+Osječko-baranjska,O,Strizivojna,2027
+Osječko-baranjska,O,Šodolovci,1217
+Osječko-baranjska,O,Trnava,1251
+Osječko-baranjska,O,Viljevo,1626
+Osječko-baranjska,O,Viškovci,1496
+Osječko-baranjska,O,Vladislavci,1552
+Osječko-baranjska,O,Vuka,984
+Šibensko-kninska,G,Drniš,6276
+Šibensko-kninska,G,Knin,11633
+Šibensko-kninska,G,Skradin,3349
+Šibensko-kninska,G,Šibenik,42599
+Šibensko-kninska,G,Vodice,8649
+Šibensko-kninska,O,Bilice,2546
+Šibensko-kninska,O,Biskupija,1177
+Šibensko-kninska,O,Civljane,171
+Šibensko-kninska,O,Ervenik,789
+Šibensko-kninska,O,Kijevo,272
+Šibensko-kninska,O,Kistanje,2650
+Šibensko-kninska,O,Murter-Kornati,1934
+Šibensko-kninska,O,Pirovac,1606
+Šibensko-kninska,O,Primošten,2627
+Šibensko-kninska,O,Promina,943
+Šibensko-kninska,O,Rogoznica,2106
+Šibensko-kninska,O,Ružić,1283
+Šibensko-kninska,O,Tisno,2908
+Šibensko-kninska,O,Tribunj,1594
+Šibensko-kninska,O,Unešić,1269
+Vukovarsko-srijemska,G,Ilok,5045
+Vukovarsko-srijemska,G,Otok,4899
+Vukovarsko-srijemska,G,Vinkovci,30842
+Vukovarsko-srijemska,G,Vukovar,23175
+Vukovarsko-srijemska,G,Županja,9153
+Vukovarsko-srijemska,O,Andrijaševci,3441
+Vukovarsko-srijemska,O,Babina Greda,2762
+Vukovarsko-srijemska,O,Bogdanovci,1545
+Vukovarsko-srijemska,O,Borovo,3555
+Vukovarsko-srijemska,O,Bošnjaci,2868
+Vukovarsko-srijemska,O,Cerna,3712
+Vukovarsko-srijemska,O,Drenovci,3662
+Vukovarsko-srijemska,O,Gradište,2227
+Vukovarsko-srijemska,O,Gunja,2600
+Vukovarsko-srijemska,O,Ivankovo,6543
+Vukovarsko-srijemska,O,Jarmina,2016
+Vukovarsko-srijemska,O,Lovas,980
+Vukovarsko-srijemska,O,Markušica,1773
+Vukovarsko-srijemska,O,Negoslavci,983
+Vukovarsko-srijemska,O,Nijemci,3526
+Vukovarsko-srijemska,O,Nuštar,4861
+Vukovarsko-srijemska,O,Privlaka,2192
+Vukovarsko-srijemska,O,Stari Jankovci,3271
+Vukovarsko-srijemska,O,Stari Mikanovci,2419
+Vukovarsko-srijemska,O,Štitar,1552
+Vukovarsko-srijemska,O,Tompojevci,1116
+Vukovarsko-srijemska,O,Tordinci,1657
+Vukovarsko-srijemska,O,Tovarnik,2067
+Vukovarsko-srijemska,O,Trpinja,4167
+Vukovarsko-srijemska,O,Vođinci,1634
+Vukovarsko-srijemska,O,Vrbanja,2870
+Splitsko-dalmatinska,G,Hvar,3979
+Splitsko-dalmatinska,G,Imotski,9153
+Splitsko-dalmatinska,G,Kaštela,37794
+Splitsko-dalmatinska,G,Komiža,1394
+Splitsko-dalmatinska,G,Makarska,13301
+Splitsko-dalmatinska,G,Omiš,14139
+Splitsko-dalmatinska,G,Sinj,23452
+Splitsko-dalmatinska,G,Solin,24862
+Splitsko-dalmatinska,G,Split,160577
+Splitsko-dalmatinska,G,Stari Grad,2772
+Splitsko-dalmatinska,G,Supetar,4325
+Splitsko-dalmatinska,G,Trilj,8182
+Splitsko-dalmatinska,G,Trogir,12393
+Splitsko-dalmatinska,G,Vis,1918
+Splitsko-dalmatinska,G,Vrgorac,5698
+Splitsko-dalmatinska,G,Vrlika,1728
+Splitsko-dalmatinska,O,Baška Voda,2590
+Splitsko-dalmatinska,O,Bol,1678
+Splitsko-dalmatinska,O,Brela,1626
+Splitsko-dalmatinska,O,Cista Provo,1799
+Splitsko-dalmatinska,O,Dicmo,2805
+Splitsko-dalmatinska,O,Dugi Rat,6876
+Splitsko-dalmatinska,O,Dugopolje,3742
+Splitsko-dalmatinska,O,Gradac,2401
+Splitsko-dalmatinska,O,Hrvace,3144
+Splitsko-dalmatinska,O,Jelsa,3501
+Splitsko-dalmatinska,O,Klis,5226
+Splitsko-dalmatinska,O,Lećevica,495
+Splitsko-dalmatinska,O,Lokvičići,667
+Splitsko-dalmatinska,O,Lovreć,1402
+Splitsko-dalmatinska,O,Marina,4273
+Splitsko-dalmatinska,O,Milna,931
+Splitsko-dalmatinska,O,Muć,3465
+Splitsko-dalmatinska,O,Nerežišća,878
+Splitsko-dalmatinska,O,Okrug,2995
+Splitsko-dalmatinska,O,Otok,4998
+Splitsko-dalmatinska,O,Podbablje,4035
+Splitsko-dalmatinska,O,Podgora,2233
+Splitsko-dalmatinska,O,Podstrana,10403
+Splitsko-dalmatinska,O,Postira,1538
+Splitsko-dalmatinska,O,Prgomet,498
+Splitsko-dalmatinska,O,Primorski Dolac,686
+Splitsko-dalmatinska,O,Proložac,3112
+Splitsko-dalmatinska,O,Pučišća,1926
+Splitsko-dalmatinska,O,Runovići,1968
+Splitsko-dalmatinska,O,Seget,4511
+Splitsko-dalmatinska,O,Selca,1613
+Splitsko-dalmatinska,O,Sućuraj,426
+Splitsko-dalmatinska,O,Sutivan,936
+Splitsko-dalmatinska,O,Šestanovac,1669
+Splitsko-dalmatinska,O,Šolta,1975
+Splitsko-dalmatinska,O,Tučepi,1819
+Splitsko-dalmatinska,O,Zadvarje,289
+Splitsko-dalmatinska,O,Zagvozd,957
+Splitsko-dalmatinska,O,Zmijavci,1654
+Istarska,G,Buje – Buie,4441
+Istarska,G,Buzet,5999
+Istarska,G,Labin,10424
+Istarska,G,Novigrad – Cittanova,3889
+Istarska,G,Pazin,8279
+Istarska,G,Poreč – Parenzo,16607
+Istarska,G,Pula – Pola,52220
+Istarska,G,Rovinj – Rovigno,12968
+Istarska,G,Umag – Umago,12699
+Istarska,G,Vodnjan – Dignano,5838
+Istarska,O,Bale – Valle,1170
+Istarska,O,Barban,2491
+Istarska,O,Brtonigla – Verteneglio,1523
+Istarska,O,Cerovlje,1453
+Istarska,O,Fažana – Fasana,3463
+Istarska,O,Funtana – Fontane,911
+Istarska,O,Gračišće,1312
+Istarska,O,Grožnjan – Grisignana,656
+Istarska,O,Kanfanar,1498
+Istarska,O,Karojba,1404
+Istarska,O,Kaštelir-Labinci – Castelliere-S. Domenica,1493
+Istarska,O,Kršan,2829
+Istarska,O,Lanišće,268
+Istarska,O,Ližnjan – Lisignano,4087
+Istarska,O,Lupoglav,836
+Istarska,O,Marčana,4250
+Istarska,O,Medulin,6552
+Istarska,O,Motovun – Montona,912
+Istarska,O,Oprtalj – Portole,748
+Istarska,O,Pićan,1722
+Istarska,O,Raša,2809
+Istarska,O,Sveta Nedelja,2898
+Istarska,O,Sveti Lovreč,960
+Istarska,O,Sveti Petar u Šumi,1051
+Istarska,O,Svetvinčenat,2179
+Istarska,O,Tar-Vabriga – Torre-Abrega,2148
+Istarska,O,Tinjan,1729
+Istarska,O,Višnjan – Visignano,2096
+Istarska,O,Vižinada – Visinada,1142
+Istarska,O,Vrsar – Orsera,1923
+Istarska,O,Žminj,3360
+Dubrovačko-neretvanska,G,Dubrovnik,41562
+Dubrovačko-neretvanska,G,Korčula,5415
+Dubrovačko-neretvanska,G,Metković,15235
+Dubrovačko-neretvanska,G,Opuzen,2838
+Dubrovačko-neretvanska,G,Ploče,8220
+Dubrovačko-neretvanska,O,Blato,3330
+Dubrovačko-neretvanska,O,Dubrovačko primorje,1636
+Dubrovačko-neretvanska,O,Janjina,522
+Dubrovačko-neretvanska,O,Konavle,8607
+Dubrovačko-neretvanska,O,Kula Norinska,1414
+Dubrovačko-neretvanska,O,Lastovo,748
+Dubrovačko-neretvanska,O,Lumbarda,1209
+Dubrovačko-neretvanska,O,Mljet,1062
+Dubrovačko-neretvanska,O,Orebić,3705
+Dubrovačko-neretvanska,O,Pojezerje,943
+Dubrovačko-neretvanska,O,Slivno,2046
+Dubrovačko-neretvanska,O,Smokvica,868
+Dubrovačko-neretvanska,O,Ston,2491
+Dubrovačko-neretvanska,O,Trpanj,683
+Dubrovačko-neretvanska,O,Vela Luka,3772
+Dubrovačko-neretvanska,O,Zažablje,553
+Dubrovačko-neretvanska,O,Župa dubrovačka,8705
+Međimurska,G,Čakovec,27122
+Međimurska,G,Mursko Središće,5855
+Međimurska,G,Prelog,7027
+Međimurska,O,Belica,2822
+Međimurska,O,Dekanovec,739
+Međimurska,O,Domašinec,1923
+Međimurska,O,Donja Dubrava,1658
+Međimurska,O,Donji Kraljevec,4043
+Međimurska,O,Donji Vidovec,1197
+Međimurska,O,Goričan,2343
+Međimurska,O,Gornji Mihaljevec,1740
+Međimurska,O,Kotoriba,2938
+Međimurska,O,Mala Subotica,4344
+Međimurska,O,Nedelišće,11017
+Međimurska,O,Orehovica,2720
+Međimurska,O,Podturen,3517
+Međimurska,O,Pribislavec,2963
+Međimurska,O,Selnica,2636
+Međimurska,O,Strahoninec,2598
+Međimurska,O,Sveta Marija,1990
+Međimurska,O,Sveti Juraj na Bregu,4929
+Međimurska,O,Sveti Martin na Muri,2391
+Međimurska,O,Šenkovec,2708
+Međimurska,O,Štrigova,2357
+Međimurska,O,Vratišinec,1673
+Grad Zagreb,G,Grad Zagreb,767131
