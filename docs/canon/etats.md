@@ -91,5 +91,6 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
   contiguë (cascade -1 à partir de BZ). Cf. ADR
   docs/decisions/2026-06-28-suppression-srednja-bosna.md.
 
-> L'Article 1 bis de la Constitution référence encore « 45 États » — à amender
-> en « 49 États » lors du passage en v3.
+> L'Article 1 bis de la Constitution v4 (docs/constitution/v4.md) est aligné
+> sur cette liste : 49 États (45 territoriaux + 4 villes-États), plus les
+> 2 municipalités confédérales autonomes.

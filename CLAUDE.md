@@ -25,7 +25,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošnjaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofia (défense + sciences)
-- 4 institutions fédérales : Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud
+- 4 institutions confédérales : Kongres, Narodni Sabor, Konfederalno Veće, Ustavni Sud
+  (*Savezno Veće* abandonné : *savezni* = échelon fédéral yougoslave ;
+  cf. ADR docs/decisions/2026-10-13-constitution-v4.md)
 - 24 entités autonomes (docs/canon/entites-autonomes.md)
 
 ## Symboles (docs/canon/couleurs-symboles.md)
@@ -42,7 +44,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Règle toponymique v3 : њ→ñ, љ→ļ, sinon latin inchangé. Beograd = exception déclarée.
 
 ## Workstreams (jamais mélanger dans une même session)
-- Constitution → docs/constitution/
+- Constitution → docs/constitution/ (texte en vigueur : **v4.md** ; v1 et v2 archivées)
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
