@@ -92,7 +92,8 @@
 [data-theme="dark"] .seeall:hover,
 [data-theme="dark"] .btn-ghost:hover{color:var(--gold-2)}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html{height:100%}
+body{min-height:100%} /* min-height, not height: a fixed body height released the sticky header after one screen */
 html{overflow-x:clip}
 body{
   font-family:var(--font);
@@ -395,6 +396,70 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 /* ---------- notice ---------- */
 .notice{background:var(--surface);border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
   border-radius:3px;padding:13px 16px;font-size:.83rem;color:var(--ink-2);margin-top:14px}
+
+/* ---------- constitution reader ---------- */
+.cpre{max-width:68ch;font-size:1.06rem;line-height:1.75;color:var(--ink)}
+.cpre p{margin:0 0 14px}
+.cpre p:first-child{font-weight:600}
+.cpre p.cfin{font-weight:700;margin-top:22px}
+.cpre .cmotto{font-style:italic;color:var(--gold);font-size:1.12rem;margin-top:18px}
+.creader{display:grid;grid-template-columns:250px minmax(0,1fr);gap:52px;align-items:start}
+.ctoc{position:sticky;top:var(--hdr,150px);max-height:calc(100vh - var(--hdr,150px) - 24px);
+  overflow:auto;font-size:.79rem;padding:4px 6px 12px 0;overscroll-behavior:contain}
+.ctoc-h{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--gold);margin-bottom:8px}
+.ctoc .cch{font-weight:700;color:var(--ink);margin:14px 0 4px;font-size:.76rem}
+.ctoc .cch span{display:block;font-weight:500;color:var(--ink-3);font-size:.72rem}
+.ctoc a{display:block;padding:4px 0 4px 10px;border-left:2px solid var(--line);
+  color:var(--ink-2);line-height:1.35}
+.ctoc a b{display:block;font-size:.68rem;color:var(--ink-3);font-weight:600}
+.ctoc a:hover{color:var(--ink);border-left-color:var(--gold)}
+.ctoc-t{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.ctoc .ctoc-t a{border:1px solid var(--line-2);border-radius:3px;padding:3px 8px;font-size:.7rem;font-weight:600}
+.ctoc .ctoc-t a.on{background:var(--indigo);color:var(--indigo-ink);border-color:var(--indigo)}
+.cbody{min-width:0}
+.cchap{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:700;margin:30px 0 0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.cbody .cchap:first-child{margin-top:0}
+.cart{padding:24px 0 26px;border-bottom:1px solid var(--line)}
+.cart .cnum{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.cart h3{font-size:1.18rem;margin:4px 0 12px;line-height:1.3}
+.cart p,.cart li{font-size:.96rem;line-height:1.68;max-width:74ch}
+.cart p{margin:0 0 10px}
+.cart .csub{font-weight:700;font-size:.86rem;margin:16px 0 6px;color:var(--ink)}
+.cart ol,.cart ul{margin:0 0 12px;padding:0;list-style:none}
+.cart .cul li{position:relative;padding-left:18px;margin-bottom:4px}
+.cart .cul li::before{content:'';position:absolute;left:4px;top:.72em;width:5px;height:5px;
+  border-radius:50%;background:var(--gold)}
+.cart .cll li,.cart .col li{display:flex;gap:10px;margin-bottom:6px}
+.cart .cmk{flex:none;min-width:1.6em;color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
+.cart .col.ccols{columns:2;column-gap:36px}
+.cart .col.ccols li{break-inside:avoid;margin-bottom:3px;font-size:.9rem}
+.cart a.cref{color:var(--navy);border-bottom:1px solid var(--line-3)}
+.cart a.cref:hover{color:var(--gold);border-bottom-color:var(--gold)}
+[data-theme="dark"] .cart a.cref{color:var(--gold-2);border-bottom-color:rgba(228,186,72,.4)}
+[data-theme="dark"] .cpre .cmotto{color:var(--gold-2)}
+.cpager{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.cpager a{border:1px solid var(--line);border-radius:4px;padding:14px 16px;background:var(--white);
+  font-weight:600;font-size:.88rem}
+.cpager a small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:4px}
+.cpager a.nx,.cpager span+a{text-align:right}
+.cpager a:hover{border-color:var(--gold)}
+@media(max-width:900px){
+  .creader{grid-template-columns:1fr;gap:18px}
+  .ctoc{position:static;max-height:none;overflow:visible;padding:0;
+    border:1px solid var(--line);border-radius:4px;background:var(--white);padding:14px 16px}
+  .ctoc a{display:inline-block;border-left:none;padding:3px 10px 3px 0}
+  .ctoc a b{display:inline;margin-right:4px}
+  .ctoc .cch{margin-top:10px}
+}
+@media(max-width:680px){
+  .cart .col.ccols{columns:1}
+  .cpager{grid-template-columns:1fr}
+  .cpager a.nx,.cpager span+a{text-align:left}
+  .cpre{font-size:1rem}
+}
 
 
 /* ---------- symbols page ---------- */
@@ -885,6 +950,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-13',cat:'Law',t:'Consolidated Constitution of the Balkan Confederation, v4',
+  s:'Preamble and Titles I bis, IV, V, VI and VII, 53 articles, published in full.'},
  {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet, v3.0',
   s:'Thirty-two letters; restoration of the jat’ (ě); areal Balkan diacritics.'},
  {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution, v2',
@@ -1084,7 +1151,7 @@ function vHome(){
         <div class="eyebrow">The institutions</div>
         <h2>Four federal institutions</h2>
         <p class="lead">The Kongres legislates, the Narodni Sabor guards the equality of
-        nations, the Savezno Veće governs by consensus and the Ustavni Sud upholds the
+        nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the
         Constitution, seated across the four federal capitals.</p>
         <a class="btn btn-ghost" style="margin-top:20px" href="#/institutions">The institutions →</a>
       </div>
@@ -1109,7 +1176,7 @@ function vHome(){
       ${[
        ['Territory','States &amp; territories','The 49 states, federal cities and autonomous federal municipalities.','#/states'],
        ['Geography','Interactive map','Municipal boundaries, demographic and economic indicators by state.','#/map'],
-       ['Government','Institutions','The Kongres, Narodni Sabor, Savezno Veće and Ustavni Sud.','#/institutions'],
+       ['Government','Institutions','The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.','#/institutions'],
        ['Law','Constitution','The consolidated text of the Confederal Constitution and its titles.','#/constitution'],
        ['Language','Identity &amp; alphabet','The unified Latin alphabet, the symbols and heraldry of the union.','#/identity'],
        ['Civic life','Participation','Confederal digital citizenship and the participatory platform.','#/participation']
@@ -1314,13 +1381,13 @@ function vInstitutions(){
      'Delegates elected by universal direct suffrage, proportional ballot.',
      'Each state is one constituency; 2 to 20 delegates by population.',
      'Votes laws and the budget, ratifies treaties, grants pardon.',
-     'Elects the judges of the Ustavni Sud and confirms the Savezno Veće.']],
+     'Elects the judges of the Ustavni Sud and confirms the Konfederalno Veće.']],
    ['rep','Assembly of Nations','Narodni Sabor',[
      'Seven national delegations of ten members, 70 members in all.',
      'Elected by citizens enrolled in each national register.',
      'Mandatory consent: languages, alphabet, borders, symbols, equalisation.',
      'Alarm right and review of petitions from autonomous communities.']],
-   ['exe','Confederal Council, executive','Savezno Veće',[
+   ['exe','Confederal Council, executive','Konfederalno Veće',[
      'College of seven councillors, one per constituent people.',
      'Decisions by consensus; failing that, simple majority.',
      'Annual rotating presidency (Slovene → … → Bulgarian).',
@@ -1364,31 +1431,117 @@ function vInstitutions(){
   </section>`;
 }
 
+/* ============================================================
+   CONSTITUTION READER, data: portail/data/constitution.json
+   (generated from docs/constitution/v4.en.md by scripts/build_constitution.py)
+   ============================================================ */
+const C_ROMAN={'1bis':'I bis','4':'IV','5':'V','6':'VI','7':'VII'};
+function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
+function cIndex(){
+  if(cIndex.m)return cIndex.m;
+  const m={};
+  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{m[a.id]=t.id;}));
+  return cIndex.m=m;
+}
+function cRange(t){const a=cArticles(t);
+  return a.length===1?a[0].num:a[0].num+' – '+a[a.length-1].num.replace('Article ','');}
+function cInline(x,links){
+  let h=esc(x).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+              .replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  if(!links)return h;
+  const idx=cIndex();
+  h=h.replace(/\b(Articles?) (\d+(?: bis)?)/g,(m,w,n)=>{
+    const id='art-'+n.replace(' ',''), t=idx[id];
+    return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
+  h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
+    `(<a class="cref" href="#/state/${c}">${c}</a>)`:m);
+  return h;
+}
+function cBlock(b){
+  if(b.t==='p')return `<p>${cInline(b.x,true)}</p>`;
+  if(b.t==='h')return `<div class="csub">${cInline(b.x)}</div>`;
+  if(b.t==='ul')return `<ul class="cul">${b.items.map(i=>`<li>${cInline(i,true)}</li>`).join('')}</ul>`;
+  if(b.t==='ll')return `<ol class="cll">${b.items.map(i=>
+    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
+  if(b.t==='ol')return `<ol class="col${b.items.length>12?' ccols':''}">${b.items.map(i=>
+    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
+  return '';
+}
+function cJump(id){
+  const el=document.getElementById(id); if(!el)return false;
+  const hdr=document.querySelector('header'), off=(hdr?hdr.offsetHeight:0)+16;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});
+  const t=cIndex()[id];
+  if(t)history.replaceState(null,'','#/constitution/'+t+'/'+id);
+  return false;
+}
 function vConstitution(){
-  const titles=[
-   ['Title I bis','Confederated states and their components','Composition, federal capitals, autonomous communities, federal municipalities.'],
-   ['Title IV','Institutions of the Confederation','Organs, separation of powers, constituent peoples, Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud, direct democracy.'],
-   ['Title V','Languages and the alphabet','National language, three regional standards, official alphabet, linguistic freedom.'],
-   ['Title VI','Confederal finances and equalisation','Equalisation principle and formula, financial transparency, geographic proportionality of investment.']
-  ];
-  return crumb([['Home','#/home'],['Constitution']])+`
+  const C=CONSTITUTION, T=C.titles||[];
+  const parts=(location.hash||'').replace(/^#\//,'').split('/');
+  const cur=T.find(t=>t.id===parts[1]);
+  const nArt=T.reduce((n,t)=>n+cArticles(t).length,0);
+  if(!cur){
+    return crumb([['Home','#/home'],['Constitution']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Fundamental law</div>
-    <h1>Constitution of the Confederation</h1>
-    <p class="lead">The consolidated text of the Confederal Constitution. Official acts
+    <h1>Constitution of the Balkan Confederation</h1>
+    <p class="lead">Consolidated text, version ${esc(C.version.replace('v',''))} of
+    ${esc(C.date)}: a preamble and ${nArt} articles in ${T.length} titles. Official acts
     are published in the unified South Slavic Latin alphabet and in the three regional
-    standards.</p>
+    standards; this is the English text.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="h2row"><h2>Titles</h2><a class="seeall" href="#/journal">Official Journal →</a></div>
     <div class="jlist">
-      ${titles.map(t=>`<div class="jrow">
-        <span class="jd">${t[0]}</span>
-        <span class="jt">${t[1]}<span>${t[2]}</span></span>
-        <span class="jcat">Read</span></div>`).join('')}
+      ${T.map(t=>`<a class="jrow" href="#/constitution/${t.id}">
+        <span class="jd">${esc(t.num)}</span>
+        <span class="jt">${esc(t.name)}<span>${esc(cRange(t))} · ${cArticles(t).length} articles</span></span>
+        <span class="jcat">Read →</span></a>`).join('')}
     </div>
-    <div class="notice">The full article-by-article reader is integrated at a later
-    stage. Drafting currently covers the consolidated v2 text.</div>
+  </section>
+  <section class="section reveal" style="animation-delay:.1s">
+    <div class="eyebrow">Preamble</div>
+    <div class="cpre">
+      ${C.preamble.paras.map((p,i)=>`<p${i===C.preamble.paras.length-1?' class="cfin"':''}>${cInline(p)}</p>`).join('')}
+      <p class="cmotto">${cInline(C.preamble.motto)}</p>
+    </div>
+    <div class="cpager"><span></span>
+      <a href="#/constitution/${T[0].id}"><small>Begin reading</small>${esc(T[0].num)} · ${esc(T[0].name)} →</a></div>
+  </section>`;
+  }
+  const i=T.indexOf(cur), prev=T[i-1], next=T[i+1];
+  const toc=cur.chapters.map(ch=>`
+      ${ch.num?`<div class="cch">${esc(ch.num)}<span>${esc(ch.name)}</span></div>`:''}
+      ${ch.articles.map(a=>`<a href="#/constitution/${cur.id}/${a.id}"
+        onclick="return cJump('${a.id}')"><b>${esc(a.num.replace('Article ','Art. '))}</b>${esc(a.name)}</a>`).join('')}`).join('');
+  const body=cur.chapters.map(ch=>`
+      ${ch.num?`<h2 class="cchap">${esc(ch.num)} · ${esc(ch.name)}</h2>`:''}
+      ${ch.articles.map(a=>`<article class="cart" id="${a.id}">
+        <div class="cnum">${esc(a.num)}</div>
+        <h3>${esc(a.name)}</h3>
+        ${a.body.map(cBlock).join('')}
+      </article>`).join('')}`).join('');
+  return crumb([['Home','#/home'],['Constitution','#/constitution'],[cur.num]])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Constitution · ${esc(cur.num)}</div>
+    <h1>${esc(cur.name)}</h1>
+    <p class="lead">${esc(cRange(cur))} · ${cArticles(cur).length} articles.
+    Consolidated text, version ${esc(C.version.replace('v',''))} of ${esc(C.date)}.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="creader">
+      <nav class="ctoc" aria-label="Articles of ${esc(cur.num)}">
+        <div class="ctoc-h">${esc(cur.num)}</div>${toc}
+        <div class="ctoc-t">${T.map(t=>`<a class="${t===cur?'on':''}" href="#/constitution/${t.id}">${esc(t.num)}</a>`).join('')}</div>
+      </nav>
+      <div class="cbody">${body}
+        <div class="cpager">
+          ${prev?`<a href="#/constitution/${prev.id}"><small>← Previous</small>${esc(prev.num)} · ${esc(prev.name)}</a>`
+                :`<a href="#/constitution"><small>← Back</small>Preamble and table of titles</a>`}
+          ${next?`<a class="nx" href="#/constitution/${next.id}"><small>Next →</small>${esc(next.num)} · ${esc(next.name)}</a>`:'<span></span>'}
+        </div>
+      </div>
+    </div>
   </section>`;
 }
 
@@ -1713,11 +1866,15 @@ function renderNow(){
   });
   if(h.startsWith('#/states'))renderGrid();
   window.scrollTo(0,0);
+  const hd=document.querySelector('header');
+  if(hd)document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
   requestAnimationFrame(()=>{
     setupReveal();
     setupParallax();
     animateFigs();
     if(h.startsWith('#/map'))initMap();
+    const cp=h.split('/');
+    if(cp[1]==='constitution'&&cp[3])cJump(cp[3]);
   });
 }
 function animateFigs(){
@@ -1783,6 +1940,11 @@ function buildIndex(){
   ALPHA.forEach(a=>{
     idx.push({type:'Alphabet',label:a[0],sub:'IPA '+a[1],hash:'#/alphabet',
       hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0]});});
+  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{
+    const txt=a.body.map(b=>b.x||(b.items||[]).map(i=>Array.isArray(i)?i[1]:i).join(' ')).join(' ');
+    idx.push({type:'Constitution',label:a.num+' · '+a.name,sub:t.num+' · '+t.name,
+      hash:'#/constitution/'+t.id+'/'+a.id,
+      hay:(a.num+' '+a.name+' '+t.name+' '+txt).toLowerCase(),iconText:'§'});}));
   SB_PAGES.forEach(p=>{
     idx.push({type:'Pages',label:p[0],sub:p[1],hash:p[2],
       hay:(p[0]+' '+p[1]).toLowerCase(),iconText:'§'});});
@@ -2066,12 +2228,12 @@ function mapFilter(p,btn){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -2079,8 +2241,9 @@ async function loadData(){
     fetch(base+'state_flags.json').then(r=>r.json()),
     fetch(base+'flagnotes.json').then(r=>r.json()),
     fetch(base+'geo.json').then(r=>r.json()),
+    fetch(base+'constitution.json').then(r=>r.json()),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co;
   al=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); AUT=au; ALPHA=al; STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }
