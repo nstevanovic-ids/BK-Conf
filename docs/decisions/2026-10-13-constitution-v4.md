@@ -29,9 +29,20 @@ devient la Constitution en vigueur. Elle est alignée sur le canon du dépôt
 - Corrections de consolidation : Ç retirée de l'art. 129 ; codes SO-BA / SO-PR
   rétablis (la v3 territoriale les avait passés en SP-, en collision avec Šopluk).
 
+## Publication sur le portail
+- Texte publié en anglais (`docs/constitution/v4.en.md`, règle « livrables publics
+  en anglais »), sans l'annexe de transition, qui reste interne.
+- `scripts/build_constitution.py` le convertit en `portail/data/constitution.json`.
+- `#/constitution` : préambule + table des titres ; `#/constitution/title-N` :
+  lecture article par article avec sommaire, renvois cliquables entre articles
+  et liens vers les fiches d'États ; lien direct `#/constitution/title-N/art-X`.
+  Les 53 articles sont indexés dans la recherche du portail.
+- `portail/index.html` : *Savezno Veće* → *Konfederalno Veće* (fait) ; correction
+  de `html,body{height:100%}` qui libérait l'en-tête collant après un écran.
+
 ## Propagation restant à faire (workstream portail)
-- `portail/index.html` : 5 occurrences de *Savezno Veće* → *Konfederalno Veće* ;
-  libellés « fédéraux / fédérales » → « confédéraux / confédérales ».
+- `portail/index.html` : libellés « federal city / federal municipality /
+  federal institutions » → « confederal ».
 - `portail/data/etats.json` : `SF-93` « Sofia » → « Sofija » (forme retenue le
   2026-05-24 ; déjà affichée en pied de page).
 - `portail/data/entites-autonomes.json` et `docs/canon/` : « Bošnjačkih » /

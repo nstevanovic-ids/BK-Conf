@@ -44,7 +44,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Règle toponymique v3 : њ→ñ, љ→ļ, sinon latin inchangé. Beograd = exception déclarée.
 
 ## Workstreams (jamais mélanger dans une même session)
-- Constitution → docs/constitution/ (texte en vigueur : **v4.md** ; v1 et v2 archivées)
+- Constitution → docs/constitution/ (texte de travail en vigueur : **v4.md**, français ;
+  texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
+  fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
+  régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
@@ -53,7 +56,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
-  entites-autonomes, alfabet, flagnotes, state_flags)
+  entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
+  généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
 - `scripts/build_portail.py` = injecte data + drapeaux dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
