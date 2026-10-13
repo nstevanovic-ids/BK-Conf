@@ -1,8 +1,7 @@
 # ADR 2026-10-13 — Chiffres clés des États (population, superficie, communes)
 
 ## Statut
-Accepté (demande utilisateur du 2026-10-13). Population partielle, en attente des
-tableaux bulgares et bosniaques.
+Accepté (demande utilisateur du 2026-10-13). Population complète : 51 entités sur 51.
 
 ## Décision
 Les fiches d'État affichent : nombre de communes, population, superficie, densité.
@@ -25,8 +24,9 @@ Les chiffres sont calculés par `scripts/build_stats.py` → `portail/data/stats
 | Macédoine du Nord | Recensement 2021 (SSO) | 1 836 713, au chiffre près |
 | Croatie | Recensement 2021 (DZS, fichier fourni par l'utilisateur) | 3 871 833 = États + Zagreb, au chiffre près |
 | Slovénie | Registre de population au 1er janvier 2026 (SURS, SiStat 05C4003S, fichier fourni par l'utilisateur) ; la Slovénie n'organise plus de recensement classique | 2 135 107, au chiffre près |
+| Bulgarie | Population au 31 décembre 2025 (NSI, fichier fourni par l'utilisateur) | 6 423 207 = États + Sofija, au chiffre près |
+| Bosnie-Herzégovine | Recensement 2013, résultats définitifs (BHAS, tableau 2.3, PDF fourni par l'utilisateur) | 3 531 159 = États + Sarajevo + Brčko + Mostar, au chiffre près |
 | Kosovo (KM-16) | Recensement 2011 (ASK) | le nord a boycotté 2011 et 2024 ; 2024 y compte 434 habitants à Zvečan |
-| Bulgarie, Bosnie | **en attente** | tableaux officiels par commune à déposer dans `docs/data/population/` |
 
 ## Chevauchements résolus (communes présentes dans deux fichiers d'État)
 - Baranja (8 communes + Liberland) : **BR-04**, retirées de SL-32. La fusion de
@@ -49,9 +49,12 @@ mesto, Šmartno pri Litiji ← Litija, Ankaran ← Koper).
 Les fragments GADM (îlots de Mali Lošinj, Premantura, Njivice, Blaca, unités
 « Unknown ») comptent en superficie, pas comme communes.
 
+Total de la Confédération : 25 147 358 habitants sur 357 015 km² (sommes de
+sources d'années différentes, 2011 à 2026 ; le Kosovo n'y compte que KM-16).
+
 ## Points ouverts
 - ~~Turopolje et banlieue de Zagreb hors de tout État~~ : résolu par l'ADR
   2026-10-13-zagreb-turopolje (Turopolje et Stupnik à ZG-94, Bistra à ZA-45).
-- Istočni Stari Grad (fichier PZ-28) tombe dans le contour geoBoundaries du canton
-  de Sarajevo (SA-92) : désaccord entre sources de contours à vérifier.
+- ~~Istočni Stari Grad dans le contour de SA-92~~ : résolu par l'ADR 2026-10-13-sarajevo-est
+  (qui rattache aussi Istočna Ilidža et Istočno Novo Sarajevo à PZ-28).
 - PIB par habitant : toujours en attente.

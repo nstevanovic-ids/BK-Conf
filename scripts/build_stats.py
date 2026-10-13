@@ -53,14 +53,25 @@ TABLES = {
     "MKD": ("MKD_2021.csv", "population", "Census 2021"),
     "HRV": ("HRV_2021.csv", "population", "Census 2021"),
     "SVN": ("SVN_2026.csv", "population", "Population register, 1 Jan 2026"),
+    "BGR": ("BGR_2025.csv", "population", "NSI estimate, 31 Dec 2025"),
+    "BIH": ("BIH_2013.csv", "population", "Census 2013"),
     # Kosovo : le nord a boycotté 2011 et 2024 ; 2024 y est très sous-dénombré.
     "XKO": ("XKO.csv", "population_2011", "Census 2011"),
-    # En attente : BGR (NSI 2021), BIH (BHAS 2013).
 }
 # Totaux nationaux de contrôle (même source que les tables).
-NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833, "SVN": 2135107}
-# Ville-État comptée hors États dans le total national.
-FED_OF = {"SRB": "BG-91", "HRV": "ZG-94"}
+NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833, "SVN": 2135107,
+            "BGR": 6423207, "BIH": 3531159}
+# Villes-États et municipalités confédérales comptées hors États dans le total national.
+FED_OF = {"SRB": ["BG-91"], "HRV": ["ZG-94"], "BGR": ["SF-93"],
+          "BIH": ["SA-92", "BK-95", "MO-96"]}
+# Composition communale des entités confédérales sans contour communal propre.
+FED_NAMES = {
+    "SF-93": ("BGR", ["Stolichna"]),
+    "SA-92": ("BIH", ["Centar Sarajevo", "Hadžići", "Ilidža", "Ilijaš", "Novi Grad Sarajevo",
+                      "Novo Sarajevo", "Stari Grad Sarajevo", "Trnovo (FBiH)", "Vogošća"]),
+    "BK-95": ("BIH", ["Brčko"]),
+    "MO-96": ("BIH", ["Grad Mostar"]),
+}
 
 # Nom GADM normalisé -> noms du recensement à additionner.
 ALIASES = {
@@ -91,6 +102,26 @@ ALIASES = {
         "opatija veprinac": ["Opatija"], "lopar supetarska draga": ["Rab"],
         "vinodolska": ["Vinodolska općina"], "sveta marija na muri": ["Sveta Marija"],
     },
+    "BGR": {  # translittérations GADM
+        "aitos": ["Aytos"], "provadiya": ["Provadia"], "kainardzha": ["Kaynardzha"],
+        "rousse": ["Ruse"], "gara hitrino": ["Hitrino"], "preslav": ["Veliki Preslav"],
+        "loukovit": ["Lukovit"], "dolna mitropoliya": ["Dolna Mitropolia"],
+        "boichinovtsi": ["Boychinovtsi"], "georgy damyanovo": ["Georgi Damyanovo"],
+        "boinitsa": ["Boynitsa"], "ruzh": ["Ruzhintsi"], "hairedin": ["Hayredin"],
+        "miziya": ["Mizia"], "lesichevo": ["Lesichovo"], "hisar": ["Hisarya"],
+    },
+    "BIH": {  # anciens noms GADM ; homonymes départagés par l'entité (NAME_1)
+        "bosanska gradiska": ["Gradiška"], "bosanska kostajnica": ["Kostajnica"],
+        "dubica": ["Kozarska Dubica"], "skender vakuf knezevo": ["Kneževo"],
+        "bosanski brod": ["Brod"], "prozor rama": ["Prozor"],
+        "doboj east": ["Doboj-Istok"], "doboj south": ["Doboj-Jug"],
+        "tesan usora": ["Tešanj", "Usora"],
+        "foca ustikolina": ["Foča (FBiH)"], "pale praca": ["Pale (FBiH)"],
+        "foca|repuplika srpska": ["Foča (RS)"], "pale|repuplika srpska": ["Pale (RS)"],
+        "trnovo|repuplika srpska": ["Trnovo (RS)"],
+        "kupres|repuplika srpska": ["Kupres (RS)"],
+        "kupres|federacija bosna i hercegovina": ["Kupres (FBiH)"],
+    },
     "SVN": {  # noms GADM tronqués ou antérieurs
         "sveti andraz v slovenskih gorica": ["Sveti Andraž v Slov. goricah"],
         "sveti jurij": ["Sveti Jurij ob Ščavnici"],
@@ -100,6 +131,7 @@ ALIASES = {
 # Unités GADM qui ne sont que des fragments d'une commune déjà comptée (îlots,
 # hameaux, polygones « Unknown ») : superficie comptée, population nulle.
 SUBPARTS = {
+    "BGR": {"skalna glava"},
     "HRV": {"premantura", "ilovik", "male srakane", "vele srakane", "susak", "unije",
             "njivice", "blaca", "unknown_1", "unknown_2", "osjecko baranjska"},
 }
@@ -107,7 +139,8 @@ SUBPARTS = {
 # localisées via geoBoundaries (découpage actuel) puis rattachées à l'État qui
 # contient leur point intérieur. POINTS : repli pour celles absentes de geoBoundaries.
 LOCATE = {"HRV": ("HRV", "ADM2", r"^(opcina|grad|otok) "),
-          "SVN": ("SVN", "ADM2", r"^$")}
+          "SVN": ("SVN", "ADM2", r"^$"),
+          "BGR": ("BGR", "ADM2", r"^$")}
 # Repli : coordonnées (lat, lon) du chef-lieu, ou nom GADM de la commune d'origine
 # (communes slovènes détachées en 2006, absentes ou mal encodées dans geoBoundaries).
 POINTS = {
@@ -115,6 +148,7 @@ POINTS = {
     "SVN": {"Središče ob Dravi": "Ormož", "Sveti Tomaž": "Ormož",
             "Straža": "Novo Mesto", "Šmarješke Toplice": "Novo Mesto",
             "Šmartno pri Litiji": "Litija", "Ankaran/Ancarano": "Koper"},
+    "BGR": {"Kuklen": "Rodopi", "Sarnitsa": "Velingrad", "Sopot": "Karlovo"},
 }
 
 
@@ -205,7 +239,7 @@ def load_tables() -> dict:
         pop, index = {}, {}
         for r in rows:
             # Homonymes (ex. Otok, Privlaka en Croatie) : clé « nom (comitat) ».
-            key = r["name"] if counts[norm(r["name"])] == 1 else f"{r['name']} ({r['district']})"
+            key = r["name"] if counts[norm(r["name"])] == 1 else f"{r['name']} ({r.get('district', '')})"
             pop[key] = int(r[col])
             for form in {r["name"], r["name"].split(" – ")[0], r["name"].split("/")[0]}:
                 index.setdefault(norm(form), []).append((norm(r.get("district") or ""), key))
@@ -233,8 +267,13 @@ def main() -> int:
         k = m.group(1) if m else EXTRA.get(fp.name)
         if not k or k not in by_k or by_k[k]["t"] != "T":
             continue
-        for ft in json.loads(fp.read_text(encoding="utf-8"))["features"]:
+        feats = json.loads(fp.read_text(encoding="utf-8"))["features"]
+        isos = [f["properties"].get("GID_0") for f in feats if f["properties"].get("GID_0")]
+        main_iso = max(set(isos), key=isos.count) if isos else None
+        for ft in feats:
             p = ft["properties"]
+            if not p.get("GID_0"):
+                p = {**p, "GID_0": main_iso}   # unité ajoutée hors GADM (ex. Srebrenica)
             gid = p.get("GID_" + level(p))
             owner = ASSIGN.get(gid, k)
             if owner != k:
@@ -266,7 +305,8 @@ def main() -> int:
                 pending_district.append((code, i, p, g))
                 continue
             t = tables[iso]
-            names = ALIASES.get(iso, {}).get(norm(nm))
+            al = ALIASES.get(iso, {})
+            names = al.get(f"{norm(nm)}|{norm(p.get('NAME_1') or '')}") or al.get(norm(nm))
             cands = t["index"].get(norm(nm), [])
             if not names and len(cands) == 1:
                 names = [cands[0][1]]
@@ -320,6 +360,15 @@ def main() -> int:
             fed_members[s["c"]] = members
             for iso, k in members:
                 matched_names.setdefault(iso, set()).add(k)
+
+    for code, (iso, names) in FED_NAMES.items():
+        if code in fed_members or iso not in tables:
+            continue
+        missing_fed = [n for n in names if n not in tables[iso]["pop"]]
+        if missing_fed:
+            sys.exit(f"{code} : communes inconnues dans {iso} : {missing_fed}")
+        fed_members[code] = [(iso, n) for n in names]
+        matched_names.setdefault(iso, set()).update(names)
 
     # Communes du recensement sans unité GADM : localisation géométrique.
     state_geom = {code: unary_union([g for _, g in lst]) for code, lst in units.items()}
@@ -433,7 +482,7 @@ def main() -> int:
 
     # 5. Contrôles de couverture par pays.
     print("Couverture des recensements :")
-    fed_by_iso = {iso: stats[c]["population"] or 0 for iso, c in FED_OF.items()}
+    fed_by_iso = {iso: sum(stats[c]["population"] or 0 for c in cs) for iso, cs in FED_OF.items()}
     fed_keys = {(i, k) for mem in fed_members.values() for i, k in mem}
     for iso, t in tables.items():
         used = matched_names.get(iso, set())
