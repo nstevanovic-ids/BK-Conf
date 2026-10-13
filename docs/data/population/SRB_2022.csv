@@ -1,0 +1,200 @@
+# Serbie (hors Kosovo-Metohija) — recensement 2022, premiers résultats (RZS, publication G20221350). Relevé via publikacije.stat.gov.rs/G2022/HtmlE/G20221350.html le 2026-10-13.
+# kind : D = oblast (sous-total), G = « Grad » regroupant des gradske opštine (sous-total), M = opština / grad sans subdivision ou gradska opština.
+district,kind,name,population
+Grad Beograd,D,Grad Beograd,1685563
+Grad Beograd,M,Barajevo,26604
+Grad Beograd,M,Voždovac,175075
+Grad Beograd,M,Vračar,55768
+Grad Beograd,M,Grocka,83435
+Grad Beograd,M,Zvezdara,171923
+Grad Beograd,M,Zemun,179368
+Grad Beograd,M,Lazarevac,55513
+Grad Beograd,M,Mladenovac,49020
+Grad Beograd,M,Novi Beograd,209812
+Grad Beograd,M,Obrenovac,69376
+Grad Beograd,M,Palilula,182672
+Grad Beograd,M,Rakovica,104921
+Grad Beograd,M,Savski venac,36431
+Grad Beograd,M,Sopot,19246
+Grad Beograd,M,Stari grad,44712
+Grad Beograd,M,Surčin,45595
+Grad Beograd,M,Čukarica,176092
+Zapadnobačka,D,Zapadnobačka oblast,156003
+Zapadnobačka,M,Sombor,71521
+Zapadnobačka,M,Apatin,23383
+Zapadnobačka,M,Kula,35940
+Zapadnobačka,M,Odžaci,25159
+Južnobanatska,D,Južnobanatska oblast,261864
+Južnobanatska,M,Pančevo,115910
+Južnobanatska,M,Alibunar,17280
+Južnobanatska,M,Bela Crkva,14445
+Južnobanatska,M,Vršac,45972
+Južnobanatska,M,Kovačica,21496
+Južnobanatska,M,Kovin,28284
+Južnobanatska,M,Opovo,9476
+Južnobanatska,M,Plandište,9001
+Južnobačka,D,Južnobačka oblast,607454
+Južnobačka,M,Novi Sad,367121
+Južnobačka,M,Bač,11619
+Južnobačka,M,Bačka Palanka,48667
+Južnobačka,M,Bački Petrovac,11631
+Južnobačka,M,Beočin,14009
+Južnobačka,M,Bečej,30968
+Južnobačka,M,Vrbas,36957
+Južnobačka,M,Žabalj,24036
+Južnobačka,M,Srbobran,14478
+Južnobačka,M,Sremski Karlovci,7925
+Južnobačka,M,Temerin,25932
+Južnobačka,M,Titel,14111
+Severnobanatska,D,Severnobanatska oblast,119147
+Severnobanatska,M,Kikinda,49691
+Severnobanatska,M,Ada,13450
+Severnobanatska,M,Kanjiža,20520
+Severnobanatska,M,Novi Kneževac,8759
+Severnobanatska,M,Senta,18113
+Severnobanatska,M,Čoka,8614
+Severnobačka,D,Severnobačka oblast,161422
+Severnobačka,M,Subotica,124679
+Severnobačka,M,Bačka Topola,26620
+Severnobačka,M,Mali Iđoš,10123
+Srednjobanatska,D,Srednjobanatska oblast,159030
+Srednjobanatska,M,Zrenjanin,106562
+Srednjobanatska,M,Žitište,13544
+Srednjobanatska,M,Nova Crnja,8227
+Srednjobanatska,M,Novi Bečej,20075
+Srednjobanatska,M,Sečanj,10622
+Sremska,D,Sremska oblast,284436
+Sremska,M,Sremska Mitrovica,73053
+Sremska,M,Inđija,43755
+Sremska,M,Irig,9376
+Sremska,M,Pećinci,18439
+Sremska,M,Ruma,48966
+Sremska,M,Stara Pazova,62645
+Sremska,M,Šid,28202
+Zlatiborska,D,Zlatiborska oblast,257025
+Zlatiborska,G,Grad Užice,70172
+Zlatiborska,M,Užice,63702
+Zlatiborska,M,Sevojno,6470
+Zlatiborska,M,Arilje,17153
+Zlatiborska,M,Bajina Bašta,23684
+Zlatiborska,M,Kosjerić,10270
+Zlatiborska,M,Nova Varoš,13573
+Zlatiborska,M,Požega,26060
+Zlatiborska,M,Priboj,23789
+Zlatiborska,M,Prijepolje,32698
+Zlatiborska,M,Sjenica,24951
+Zlatiborska,M,Čajetina,14675
+Kolubarska,D,Kolubarska oblast,155113
+Kolubarska,M,Valjevo,82541
+Kolubarska,M,Lajkovac,13871
+Kolubarska,M,Ljig,10736
+Kolubarska,M,Mionica,12065
+Kolubarska,M,Osečina,10011
+Kolubarska,M,Ub,25889
+Mačvanska,D,Mačvanska oblast,268096
+Mačvanska,M,Šabac,106066
+Mačvanska,M,Bogatić,24788
+Mačvanska,M,Vladimirci,14509
+Mačvanska,M,Koceljeva,11249
+Mačvanska,M,Krupanj,14569
+Mačvanska,M,Loznica,73083
+Mačvanska,M,Ljubovija,12272
+Mačvanska,M,Mali Zvornik,11560
+Moravička,D,Moravička oblast,190554
+Moravička,M,Čačak,106453
+Moravička,M,Gornji Milanovac,39244
+Moravička,M,Ivanjica,27767
+Moravička,M,Lučani,17090
+Pomoravska,D,Pomoravska oblast,184552
+Pomoravska,M,Jagodina,65180
+Pomoravska,M,Despotovac,18824
+Pomoravska,M,Paraćin,46103
+Pomoravska,M,Rekovac,8214
+Pomoravska,M,Svilajnac,20568
+Pomoravska,M,Ćuprija,25663
+Rasinska,D,Rasinska oblast,208756
+Rasinska,M,Kruševac,114331
+Rasinska,M,Aleksandrovac,22339
+Rasinska,M,Brus,13673
+Rasinska,M,Varvarin,14382
+Rasinska,M,Trstenik,36138
+Rasinska,M,Ćićevac,7893
+Raška,D,Raška oblast,299664
+Raška,M,Kraljevo,111491
+Raška,M,Vrnjačka Banja,25181
+Raška,M,Novi Pazar,107859
+Raška,M,Raška,21659
+Raška,M,Tutin,33474
+Šumadijska,D,Šumadijska oblast,271031
+Šumadijska,M,Kragujevac,171628
+Šumadijska,M,Aranđelovac,41693
+Šumadijska,M,Batočina,10273
+Šumadijska,M,Knić,11838
+Šumadijska,M,Lapovo,6618
+Šumadijska,M,Rača,9760
+Šumadijska,M,Topola,19221
+Borska,D,Borska oblast,103007
+Borska,M,Bor,41280
+Borska,M,Kladovo,18002
+Borska,M,Majdanpek,14663
+Borska,M,Negotin,29062
+Braničevska,D,Braničevska oblast,159443
+Braničevska,G,Grad Požarevac,69252
+Braničevska,M,Požarevac,57132
+Braničevska,M,Kostolac,12120
+Braničevska,M,Veliko Gradište,15947
+Braničevska,M,Golubac,6716
+Braničevska,M,Žabari,9928
+Braničevska,M,Žagubica,9855
+Braničevska,M,Kučevo,12126
+Braničevska,M,Malo Crniće,9433
+Braničevska,M,Petrovac na Mlavi,26186
+Zaječarska,D,Zaječarska oblast,97778
+Zaječarska,M,Zaječar,48621
+Zaječarska,M,Boljevac,10373
+Zaječarska,M,Knjaževac,25459
+Zaječarska,M,Sokobanja,13325
+Jablanička,D,Jablanička oblast,185952
+Jablanička,M,Leskovac,124889
+Jablanička,M,Bojnik,9442
+Jablanička,M,Vlasotince,25849
+Jablanička,M,Lebane,18268
+Jablanička,M,Medveđa,6438
+Jablanička,M,Crna Trava,1066
+Nišavska,D,Nišavska oblast,345276
+Nišavska,G,Grad Niš,249816
+Nišavska,M,Medijana,82360
+Nišavska,M,Niška Banja,13091
+Nišavska,M,Palilula (Niš),70081
+Nišavska,M,Pantelej,54462
+Nišavska,M,Crveni Krst,29822
+Nišavska,M,Aleksinac,43543
+Nišavska,M,Gadžin Han,5934
+Nišavska,M,Doljevac,15968
+Nišavska,M,Merošina,12050
+Nišavska,M,Ražanj,7074
+Nišavska,M,Svrljig,10891
+Pirotska,D,Pirotska oblast,77121
+Pirotska,M,Pirot,49894
+Pirotska,M,Babušnica,9182
+Pirotska,M,Bela Palanka,9970
+Pirotska,M,Dimitrovgrad,8075
+Podunavska,D,Podunavska oblast,176935
+Podunavska,M,Smederevo,98677
+Podunavska,M,Velika Plana,35766
+Podunavska,M,Smederevska Palanka,42492
+Pčinjska,D,Pčinjska oblast,197765
+Pčinjska,G,Grad Vranje,74876
+Pčinjska,M,Vranje,67250
+Pčinjska,M,Vranjska Banja,7626
+Pčinjska,M,Bosilegrad,6171
+Pčinjska,M,Bujanovac,42634
+Pčinjska,M,Vladičin Han,17597
+Pčinjska,M,Preševo,35097
+Pčinjska,M,Surdulica,16995
+Pčinjska,M,Trgovište,4395
+Toplička,D,Toplička oblast,77900
+Toplička,M,Prokuplje,38291
+Toplička,M,Blace,9763
+Toplička,M,Žitorađa,13941
+Toplička,M,Kuršumlija,15905
