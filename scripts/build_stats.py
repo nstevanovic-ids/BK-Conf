@@ -52,12 +52,13 @@ TABLES = {
     "MNE": ("MNE_2023.csv", "population", "Census 2023"),
     "MKD": ("MKD_2021.csv", "population", "Census 2021"),
     "HRV": ("HRV_2021.csv", "population", "Census 2021"),
+    "SVN": ("SVN_2026.csv", "population", "Population register, 1 Jan 2026"),
     # Kosovo : le nord a boycotté 2011 et 2024 ; 2024 y est très sous-dénombré.
     "XKO": ("XKO.csv", "population_2011", "Census 2011"),
-    # En attente : SVN (SiStat), BGR (NSI 2021), BIH (BHAS 2013).
+    # En attente : BGR (NSI 2021), BIH (BHAS 2013).
 }
 # Totaux nationaux de contrôle (même source que les tables).
-NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833}
+NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833, "SVN": 2135107}
 # Ville-État comptée hors États dans le total national.
 FED_OF = {"SRB": "BG-91", "HRV": "ZG-94"}
 
@@ -90,6 +91,11 @@ ALIASES = {
         "opatija veprinac": ["Opatija"], "lopar supetarska draga": ["Rab"],
         "vinodolska": ["Vinodolska općina"], "sveta marija na muri": ["Sveta Marija"],
     },
+    "SVN": {  # noms GADM tronqués ou antérieurs
+        "sveti andraz v slovenskih gorica": ["Sveti Andraž v Slov. goricah"],
+        "sveti jurij": ["Sveti Jurij ob Ščavnici"],
+        "sentjur pri celju": ["Šentjur"],
+    },
 }
 # Unités GADM qui ne sont que des fragments d'une commune déjà comptée (îlots,
 # hameaux, polygones « Unknown ») : superficie comptée, population nulle.
@@ -100,8 +106,22 @@ SUBPARTS = {
 # Communes du recensement absentes de GADM (créées après son découpage) :
 # localisées via geoBoundaries (découpage actuel) puis rattachées à l'État qui
 # contient leur point intérieur. POINTS : repli pour celles absentes de geoBoundaries.
-LOCATE = {"HRV": ("HRV", "ADM2", r"^(opcina|grad|otok) ")}
-POINTS = {"HRV": {"Tribunj": (43.753, 15.746)}}
+LOCATE = {"HRV": ("HRV", "ADM2", r"^(opcina|grad|otok) "),
+          "SVN": ("SVN", "ADM2", r"^$")}
+# Repli : coordonnées (lat, lon) du chef-lieu, ou nom GADM de la commune d'origine
+# (communes slovènes détachées en 2006, absentes ou mal encodées dans geoBoundaries).
+POINTS = {
+    "HRV": {"Tribunj": (43.753, 15.746)},
+    "SVN": {"Središče ob Dravi": "Ormož", "Sveti Tomaž": "Ormož",
+            "Straža": "Novo Mesto", "Šmarješke Toplice": "Novo Mesto",
+            "Šmartno pri Litiji": "Litija", "Ankaran/Ancarano": "Koper"},
+}
+
+
+def loc_key(name: str) -> str:
+    """Clé de nom pour la localisation (formes bilingues, abréviations SURS)."""
+    base = name.split(" (")[0].split(" – ")[0].split("/")[0]
+    return norm(base.replace("Slov. ", "Slovenskih "))
 # « Grad » à subdivisions : composantes couvertes dès que le Grad est apparié.
 SUBUNITS = {
     "Grad Užice": ["Užice", "Sevojno"],
@@ -187,7 +207,7 @@ def load_tables() -> dict:
             # Homonymes (ex. Otok, Privlaka en Croatie) : clé « nom (comitat) ».
             key = r["name"] if counts[norm(r["name"])] == 1 else f"{r['name']} ({r['district']})"
             pop[key] = int(r[col])
-            for form in {r["name"], r["name"].split(" – ")[0]}:
+            for form in {r["name"], r["name"].split(" – ")[0], r["name"].split("/")[0]}:
                 index.setdefault(norm(form), []).append((norm(r.get("district") or ""), key))
         out[iso] = {"pop": pop, "index": index, "label": label, "rows": rows}
     return out
@@ -313,14 +333,21 @@ def main() -> int:
         left = [k for k in t["pop"] if k not in used and k not in sub]
         gbidx = {}
         for f in geoboundaries(giso, adm)["features"]:
-            gbidx.setdefault(re.sub(prefix, "", norm(f["properties"]["shapeName"])), []).append(f)
+            gbidx.setdefault(re.sub(prefix, "", loc_key(f["properties"]["shapeName"])), []).append(f)
+        parent_pt = {}
+        for code, lst in units.items():
+            for p, g in lst:
+                if p.get("GID_0") == iso:
+                    parent_pt[norm(p.get("NAME_" + level(p)) or "")] = g.representative_point()
         for k in left:
-            base = norm(k.split(" (")[0].split(" – ")[0])
+            base = loc_key(k)
             pt = None
-            if k in POINTS.get(iso, {}):
-                lat, lon = POINTS[iso][k]
+            fb = POINTS.get(iso, {}).get(k)
+            if isinstance(fb, tuple):
                 from shapely.geometry import Point
-                pt = Point(lon, lat)
+                pt = Point(fb[1], fb[0])
+            elif isinstance(fb, str):
+                pt = parent_pt.get(norm(fb))
             elif len(gbidx.get(base, [])) == 1:
                 pt = shape(gbidx[base][0]["geometry"]).buffer(0).representative_point()
             if pt is None:
