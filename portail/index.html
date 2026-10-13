@@ -601,7 +601,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .imgslot{position:relative;margin:0;overflow:hidden;background:var(--surface-2);
   width:100%;aspect-ratio:16/10}
 .imgslot img{display:block;width:100%;height:100%;object-fit:cover}
-.imgslot img[src*="participation-crowd"]{object-position:center 88%}
+.imgslot img[src$="participation-crowd.jpg"]{object-position:center 88%}
 .imgslot.fill{position:absolute;inset:0;aspect-ratio:auto;height:100%}
 .imgslot img.rot{position:absolute;inset:0;opacity:0}
 @media (prefers-reduced-motion:reduce){.imgslot img.rot{display:none}}
@@ -1437,7 +1437,7 @@ function vIdentity(){
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/autonomy"><div class="pc-eye">Communities</div>
         <h3>Autonomous communities</h3>
-        <p>Twenty-five communities with cultural and municipal powers.</p>
+        <p>Twenty-four communities with cultural and municipal powers.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
     </div>
   </section>
@@ -1893,7 +1893,7 @@ const SLOTS={
 };
 /* Slot rotation: <id>.jpg, then <id>-2.jpg ... <id>-N.jpg cross-fade in place.
    Add a photo: drop the file and raise the count here. */
-const SLOT_N={'home-hero':17,'home-adriatic':2,'home-citizen':2,'home-closing':2};
+const SLOT_N={'home-hero':19,'home-adriatic':2,'home-citizen':3,'home-closing':2,'identity-people':2,'participation-crowd':2};
 const SLOT_T=7;
 function rotKeyframes(n,name){
   const v=100/n, f=v/6;
