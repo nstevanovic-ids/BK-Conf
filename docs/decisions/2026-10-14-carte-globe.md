@@ -92,6 +92,25 @@ des données réelles, des lumières nocturnes de la référence.
   points discrète.
 - **Sources** : déplacées dans la légende.
 
+### Animations légères (2026-10-14)
+Toutes sont supprimées si le système demande moins d'animations.
+
+- **Chiffres** : population, superficie, PIB et pourcentage montent jusqu'à leur
+  valeur à l'ouverture (1,3 s).
+- **Anneau du PIB** : les graduations s'allument une à une, puis une lueur parcourt
+  l'arc toutes les 4,8 s.
+- **Barres et jauges** : les barres poussent depuis la gauche en décalé, puis un
+  reflet glisse lentement le long de chaque dégradé ; la jauge UE et la barre de
+  répartition se remplissent aussi.
+- **Histogramme** : les colonnes montent depuis la ligne de base à l'ouverture et
+  à chaque changement de critère.
+- **Légende et bouton** : la légende en dégradé et le bouton « Open state page »
+  portent le même reflet lent.
+- **Carte** : un écho radar discret pulse autour des six villes-États et
+  municipalités fédérales.
+
+Les effets coûteux, comme l'animation du halo du territoire, sont évités.
+
 ## Conséquences techniques
 - **`geo.json` v2** :
   - coordonnées lon/lat en 1/1000 de degré, codées en delta par anneau ;

@@ -713,6 +713,40 @@ button.sr-bar:hover{background:var(--sr-hi)}
   .sr-src{position:relative;right:0;bottom:0;margin:14px 16px 0;text-align:left;max-width:none}
 }
 @media(prefers-reduced-motion:reduce){.sr-reg{transition:none}}
+.sr-ping circle{fill:none;stroke:#ffd27a;stroke-width:1.2;opacity:0}
+@media(prefers-reduced-motion:no-preference){
+  /* bars grow in, then a slow light sweep runs along each gradient */
+  .sr-bar .tr i{overflow:hidden;transform-origin:left;
+    animation:srGrowX .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms)}
+  .sr-bar .tr i::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent) no-repeat;
+    background-size:38% 100%;background-position:-60% 0;
+    animation:srSweep 5.5s ease-in-out infinite;animation-delay:calc(1.4s + var(--i,0)*160ms)}
+  .sr-split i,.sr-meter i{transform-origin:left;animation:srGrowX 1.1s cubic-bezier(.2,.8,.2,1) both}
+  .sr-meter i{animation-delay:.1s}
+  /* GDP ring: ticks light up in turn, then a glint travels along the lit arc */
+  .sr-ringsvg line.on{animation:srTickIn .45s ease-out both,srGlint 4.8s ease-in-out infinite;
+    animation-delay:calc(var(--i)*22ms),calc(1.6s + var(--i)*28ms)}
+  /* columns of the histogram rise from the baseline when the measure changes */
+  .sr-distwrap.rise .sr-dist rect{transform-box:fill-box;transform-origin:50% 100%;
+    animation:srGrowY .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*12ms)}
+  /* legend gradient and the active button carry the same slow sweep */
+  .sr-grad b{position:relative;overflow:hidden}
+  .sr-grad b::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent) no-repeat;
+    background-size:30% 100%;background-position:-50% 0;animation:srSweep 6s ease-in-out infinite 1s}
+  .sr-open{background-size:180% 100%;animation:srDrift 6s ease-in-out infinite alternate}
+  /* radar ping on the federal capitals */
+  .sr-ping circle{transform-box:fill-box;transform-origin:center;
+    animation:srPing 3.6s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:calc(var(--i)*.6s)}
+}
+@keyframes srGrowX{from{transform:scaleX(0)}}
+@keyframes srGrowY{from{transform:scaleY(0)}}
+@keyframes srSweep{0%{background-position:-60% 0}55%,100%{background-position:160% 0}}
+@keyframes srTickIn{from{opacity:0}}
+@keyframes srGlint{0%,7%,100%{stroke-width:2.4}3.5%{stroke-width:3.3;stroke:#ffd98f}}
+@keyframes srDrift{from{background-position:0% 0}to{background-position:100% 0}}
+@keyframes srPing{0%{transform:scale(.25);opacity:.9}70%{opacity:.15}100%{transform:scale(1.9);opacity:0}}
 .minimap{width:100%;height:auto;display:block;border:1px solid var(--line);
   border-radius:3px;background:var(--map-water)}
 .minimap .mm-land{fill:var(--map-land)}
@@ -1482,7 +1516,7 @@ function vMap(){
     <div class="sr-col sr-left">
       <div class="sr-card">
         <div class="sr-k">Population</div>
-        <div class="sr-big">${fmtN(T.pop)}</div>
+        <div class="sr-big"><span data-count="${T.pop}">${fmtN(T.pop)}</span></div>
         <div class="sr-split" role="img" aria-label="Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, federal cities ${Math.round(100*T.by.F[1]/T.pop)}%, federal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%">
           <i style="flex:${T.by.T[1]};background:linear-gradient(90deg,#2a3f9e,#4f7dff)"></i>
           <i style="flex:${T.by.F[1]};background:linear-gradient(90deg,#f08a3a,#f5b54a)"></i>
@@ -1496,7 +1530,7 @@ function vMap(){
       </div>
       <div class="sr-card">
         <div class="sr-k">Area</div>
-        <div class="sr-big">${fmtN(T.area)}<small>km²</small></div>
+        <div class="sr-big"><span data-count="${T.area}">${fmtN(T.area)}</span><small>km²</small></div>
         <dl class="sr-rows">
           <dt>Density</dt><dd>${fmtN(Math.round(T.pop/T.area))} / km²</dd>
           <dt>Municipalities</dt><dd>${fmtN(T.mun)}</dd>
@@ -1506,7 +1540,7 @@ function vMap(){
         <div class="sr-k">GDP per capita</div>
         <div class="sr-ring">
           ${srRing(T.eu)}
-          <div><div class="sr-big" style="font-size:1.45rem;margin:0">${fmtN(Math.round(T.gdp/100)*100)}<small>PPS</small></div>
+          <div><div class="sr-big" style="font-size:1.45rem;margin:0"><span data-count="${Math.round(T.gdp/100)*100}">${fmtN(Math.round(T.gdp/100)*100)}</span><small>PPS</small></div>
             <div class="sr-sub">per inhabitant in 2023, ${ring}% of the EU-27 average</div></div>
         </div>
         <dl class="sr-rows">
@@ -1516,7 +1550,7 @@ function vMap(){
       </div>
     </div>
     <div class="sr-col sr-right">
-      <div class="sr-card sr-sel" id="srSel" aria-live="polite">${srSelHTML(null)}</div>
+      <div class="sr-card sr-sel" id="srSel" aria-live="polite">${srSelHTML(null,true)}</div>
       <div class="sr-card" id="srPeoples">${srPeoplesHTML()}</div>
     </div>
     <div class="sr-legend" id="srLegend">${srLegendHTML()}</div>
@@ -2377,12 +2411,12 @@ function srRing(pct,size){
   size=size||84;const c=size/2,n=60,on=Math.round(n*Math.min(pct,100)/100),r0=c-11,r1=c-3;let t='';
   for(let i=0;i<n;i++){const a=-Math.PI/2+2*Math.PI*i/n,
       x0=c+r0*Math.cos(a),y0=c+r0*Math.sin(a),x1=c+r1*Math.cos(a),y1=c+r1*Math.sin(a);
-    const col=i<on?srLerp(SR_WARM.slice(1),i/Math.max(1,n-1)):'rgba(160,178,255,.14)';
-    t+=`<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${col}"/>`;}
+    const lit=i<on,col=lit?srLerp(SR_WARM.slice(1),i/Math.max(1,n-1)):'rgba(160,178,255,.14)';
+    t+=`<line${lit?` class="on" style="--i:${i}"`:''} x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${col}"/>`;}
   return `<svg class="sr-ringsvg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img"
     aria-label="${Math.round(pct)}% of the EU-27 average">${t}
     <circle cx="${c}" cy="${c}" r="${r0-5}" fill="none" stroke="rgba(160,178,255,.12)"/>
-    <text x="${c}" y="${c+5}">${Math.round(pct)}%</text></svg>`;
+    <text x="${c}" y="${c+5}"><tspan data-count="${Math.round(pct)}" data-suffix="%">${Math.round(pct)}%</tspan></text></svg>`;
 }
 // Every entity as one column, sorted by the active measure; the bottom fades out.
 function srDist(mode,hl,h){
@@ -2392,7 +2426,7 @@ function srDist(mode,hl,h){
   const bars=list.map((s,i)=>{const t=srT(s.c,mode),bh=Math.max(3,(h-14)*(.12+.88*t)),
       x=i*(bw+gap),y=h-bh,col=srTone(s.c,mode);
     return `<rect data-c="${s.c}" x="${x.toFixed(2)}" y="${y.toFixed(1)}" width="${bw.toFixed(2)}" height="${bh.toFixed(1)}"
-      rx="1" fill="${col}" class="${s.c===hl?'hl':''}"><title>${esc(s.n)}, ${srShort(srVal(s.c,mode),mode)}</title></rect>`;}).join('');
+      rx="1" fill="${col}" style="--i:${i}" class="${s.c===hl?'hl':''}"><title>${esc(s.n)}, ${srShort(srVal(s.c,mode),mode)}</title></rect>`;}).join('');
   const rank=hl?list.findIndex(s=>s.c===hl):-1;
   const mark=rank>=0?(()=>{const x=rank*(bw+gap)+bw/2;
     return `<path d="M${(x-3.5).toFixed(1)} 0H${(x+3.5).toFixed(1)}L${x.toFixed(1)} 5Z" fill="#ffe7a3"/>`;})():'';
@@ -2405,13 +2439,13 @@ function srDist(mode,hl,h){
     <line x1="0" y1="${h-.5}" x2="${W}" y2="${h-.5}" stroke="rgba(160,178,255,.25)"/></svg>`};
 }
 /* ---- panels ---- */
-function srSelHTML(code){
+function srSelHTML(code,rise){
   const s=code&&byCode(code), m=SR.mode==='peoples'?'states':SR.mode;
   const title={states:'Population',gdp:'GDP per capita',dens:'Density'}[m];
   if(!s){
     const d=srDist(m,null),r=srRange(m);
     return `<div class="sr-cardhead"><div class="sr-k">${title}, all ${d.n} entities</div></div>
-      <div class="sr-distwrap" data-mode="${m}">${d.svg}</div>
+      <div class="sr-distwrap${rise?' rise':''}" data-mode="${m}">${d.svg}</div>
       <div class="sr-axis"><span>${esc(r.max.n)} ${srShort(r.maxV,m)}</span><span>${esc(r.min.n)} ${srShort(r.minV,m)}</span></div>
       <p class="sr-hint">Hover a state or a column to see its figures, click to pin it.</p>`;
   }
@@ -2444,8 +2478,8 @@ function srPeoplesHTML(){
   const max=Math.max(...rows.map(r=>r[3]));
   return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
       ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
-    <div class="sr-bars">${rows.map(([k,n,c,v])=>
-      `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" aria-pressed="${SR.filter===k}"
+    <div class="sr-bars">${rows.map(([k,n,c,v],i)=>
+      `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" style="--i:${i}" aria-pressed="${SR.filter===k}"
         onclick="srFilter('${k}')" title="Show only the ${esc(n.toLowerCase())} on the map">
         <span class="nm">${esc(n)}</span>
         <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;--c:${c};--c0:${srA(c,.08)};--cg:${srA(c,.55)}"></i></span>
@@ -2520,6 +2554,10 @@ function initMap(){
   const clipPath=svg.querySelector('#srClipPath');
   el.limb=mk('path','sr-limb',svg);
   const hov=mk('path','sr-hover',over), pin=mk('path','sr-pin',over);
+  // federal capitals: a slow radar ping under each label
+  const pings=F.fed.map((f,i)=>{const g=mk('g','sr-ping',over);
+    mk('circle','',g,{r:'14',style:`--i:${i}`});mk('circle','',g,{r:'14',style:`--i:${i+.5}`});
+    return [g,GEO.pts[f.properties.c]];});
   const lbls=F.fed.map(f=>{const c=f.properties.c,s=byCode(c)||{};
     const t=mk('text','sr-flbl',over);t.textContent=s.k||c;return [t,GEO.pts[c]];});
   const sprite=document.createElement('canvas');sprite.width=sprite.height=64;
@@ -2574,6 +2612,9 @@ function initMap(){
     lbls.forEach(([t,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
       const xy=ok&&proj(ll);t.style.display=xy?'':'none';
       if(xy){t.setAttribute('x',xy[0].toFixed(1));t.setAttribute('y',(xy[1]+4).toFixed(1));}});
+    pings.forEach(([g,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
+      const xy=ok&&proj(ll);g.style.display=xy?'':'none';
+      if(xy)g.setAttribute('transform',`translate(${xy[0].toFixed(1)},${xy[1].toFixed(1)})`);});
     srOutline();srLightsDraw();};
   M.queue=()=>{if(!M.raf)M.raf=requestAnimationFrame(M.draw);};
   // During a gesture near the territory the drawn layers are only moved with a CSS
@@ -2645,7 +2686,7 @@ function initMap(){
   new ResizeObserver(()=>{if(!stage.isConnected)return;const z=M.k/M.kFit;size();
     const lon=M.lon,lat=M.lat;fit();M.k=M.kFit*z;M.lon=lon;M.lat=lat;M.queue();}).observe(stage);
 
-  size();fit();srApplyFilter();
+  size();fit();srApplyFilter();srCountUp(document.getElementById('sr'));
   if(SR.pin){const c=SR.pin;SR.pin=null;srPin(c,true);}
   const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(!SR.intro&&!reduce){
@@ -2659,6 +2700,15 @@ function initMap(){
       if(u<1)requestAnimationFrame(step);};
     M.k=k0;M.lon=SR_FROM[0];M.lat=SR_FROM[1];requestAnimationFrame(step);
   }else M.draw();
+}
+// Numbers of the panels count up once when the map opens (skipped with reduced motion).
+function srCountUp(root){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const els=[...root.querySelectorAll('[data-count]')],t0=performance.now(),dur=1300;
+  const step=t=>{const u=Math.min(1,(t-t0)/dur),q=1-Math.pow(1-u,3);
+    els.forEach(e=>{const v=+e.dataset.count;e.textContent=fmtN(Math.round(v*q))+(e.dataset.suffix||'');});
+    if(u<1&&root.isConnected)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
 }
 function srLightsDraw(){
   const M=SRM;if(!M)return;const x=M.ctx;x.setTransform(1,0,0,1,0,0);
@@ -2713,7 +2763,7 @@ function srMode(m){
     b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
   if(SRM)SRM.regs.forEach(([p])=>{p.style.fill=srFill(p.dataset.c);});
   const lg=document.getElementById('srLegend');if(lg)lg.innerHTML=srLegendHTML();
-  const c=document.getElementById('srSel');if(c)c.innerHTML=srSelHTML(SR.pin||SR.hover);
+  const c=document.getElementById('srSel');if(c)c.innerHTML=srSelHTML(SR.pin||SR.hover,true);
   srLightsDraw();
 }
 function srFilter(k){
