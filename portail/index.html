@@ -561,7 +561,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sr-far{fill:var(--sr-far)}
 .sr-land path{fill:var(--sr-land)}
 .sr-borders{fill:none;stroke:rgba(150,170,255,.22);stroke-width:.6}
-.sr-reg{stroke:rgba(6,11,29,.85);stroke-width:.6;stroke-linejoin:round;cursor:pointer;
+.sr-reg{stroke:rgba(5,8,24,.92);stroke-width:.9;stroke-linejoin:round;cursor:pointer;
   transition:fill .35s ease,opacity .25s ease}
 .sr-reg.fed{stroke:var(--sr-gold);stroke-width:.9}
 .sr-reg.muni{stroke-dasharray:3 2}
@@ -2263,13 +2263,22 @@ window.addEventListener('scroll',()=>{
    ============================================================ */
 const SR={mode:'peoples',lights:true,filter:null,pin:null,hover:null,intro:false};
 const SR_CENTER=[20.6,43.6], SR_FROM=[-12,24];   // resting centre; where the intro starts
+// Map palette for the dark screen: each people keeps its hue family (canon colours in
+// peuples.json stay for the light pages), pushed to full intensity. Checked with the
+// data-viz validator on the real neighbours of the map: worst neighbour pair 24 ΔE in
+// normal vision, 7.1 under colour-blindness simulation (orange / green, borders and
+// labels carry the difference); every pair in the legend at least 16 ΔE.
+const SR_PEOPLE={slo:'#0794f8',hrv:'#f10f4f',srb:'#b53ddd',bos:'#0bd7d9',
+  cng:'#eeda1b',mkd:'#ff8c00',bul:'#2fbf5b'};
+const SR_FED='#20246b';
+const srHex=k=>SR_PEOPLE[k]||(PEUPLES[k]||{}).hex||SR_FED;
 const SR_RAMP={
   gdp:{title:'GDP per capita, PPS, 2023',
-       hue:['#332d2c','#53462b','#7b672f','#a88b36','#d0b24a','#f0e2a0'],
+       hue:['#04425f','#0a658e','#128ac0','#11aef2','#82cefc','#cce9fc'],
        cuts:[12000,15000,20000,25000,35000],
        lbl:['under 12k','12–15k','15–20k','20–25k','25–35k','35k and over']},
   dens:{title:'Inhabitants per km²',
-       hue:['#1a2550','#24367e','#3150a9','#4c70cb','#7b9ae0','#bdcef4'],
+       hue:['#5d254f','#90347a','#c348a7','#e96bca','#fe9fe4','#fed7f1'],
        cuts:[30,60,100,200,500],
        lbl:['under 30','30–60','60–100','100–200','200–500','500 and over']}
 };
@@ -2307,7 +2316,7 @@ function srVal(code,mode){
 }
 function srFill(code){
   const s=byCode(code)||{};
-  if(SR.mode==='peoples')return s.t==='T'&&PEUPLES[s.p]?PEUPLES[s.p].hex:'#27326a';
+  if(SR.mode==='peoples')return s.t==='T'?srHex(s.p):SR_FED;
   const v=srVal(code,SR.mode),R=SR_RAMP[SR.mode];
   if(v==null)return '#1a2246';
   let i=0;while(i<R.cuts.length&&v>=R.cuts[i])i++;
@@ -2350,7 +2359,7 @@ function srSelHTML(code){
       <div class="sr-bars">${rank.map(x=>{const v=srVal(x.c,SR.mode);
         return `<button class="sr-bar" onclick="srPin('${x.c}',true)">
           <span class="nm">${esc(x.n)}</span>
-          <span class="tr"><i style="width:${(100*v/top).toFixed(1)}%;background:${srFill(x.c)}"></i></span>
+          <span class="tr"><i style="width:${(100*v/top).toFixed(1)}%;background:${srFill(x.c)}${x.t!=='T'&&SR.mode==='peoples'?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
           <span class="v">${fmt(v)}</span></button>`;}).join('')}</div>`;
   }
   const st=STATS[s.c]||{}, fed=s.t!=='T';
@@ -2374,8 +2383,8 @@ function srSelHTML(code){
 function srPeoplesHTML(){
   const sum={},fedSum=STATES.filter(s=>s.t!=='T').reduce((a,s)=>a+((STATS[s.c]||{}).population||0),0);
   STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
-  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,p.hex,sum[k]||0]);
-  rows.push(['fed','Federal entities','#27326a',fedSum]);
+  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,srHex(k),sum[k]||0]);
+  rows.push(['fed','Federal entities',SR_FED,fedSum]);
   const max=Math.max(...rows.map(r=>r[3]));
   return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
       ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
@@ -2389,8 +2398,8 @@ function srPeoplesHTML(){
 function srLegendHTML(){
   let h='';
   if(SR.mode==='peoples'){
-    h=Object.values(PEUPLES).map(p=>`<span><i style="background:${p.hex}"></i>${p.en}</span>`).join('')+
-      `<span><i style="background:#27326a;box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
+    h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${p.en}</span>`).join('')+
+      `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
   }else{
     const R=SR_RAMP[SR.mode];
     h=`<span style="color:var(--sr-ink)">${R.title}</span>`+
@@ -2576,7 +2585,7 @@ function srLightsDraw(){
   x.globalCompositeOperation='lighter';
   // light size follows the zoom and the size of the map on screen (phone vs desktop)
   const rel=Math.max(.45,Math.min(1.25,M.kFit*.22/760));
-  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,dim=SR.mode==='peoples'?1:.55;
+  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,dim=SR.mode==='peoples'?.8:.5;
   for(const [lon,lat,pop] of M.lights){
     if(d3.geoDistance([lon,lat],ctr)>M.clip-.02)continue;
     const p=M.proj([lon,lat]);if(!p)continue;
