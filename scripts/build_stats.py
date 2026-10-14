@@ -9,13 +9,19 @@ Pour chaque État :
     des contours (union des communes) ;
   - population     : somme des populations communales du dernier recensement du
     pays, si TOUTES les communes de l'État sont couvertes ; sinon null (en attente) ;
-  - source         : libellé du recensement (« Census 2022 (first results) »…).
+  - source         : libellé du recensement (« Census 2022 (first results) »…) ;
+  - gdp            : PIB par habitant 2023 en SPA, moyenne des régions de PIB des
+    communes pondérée par leur population ; null si une commune n'est pas rattachée ;
+  - gdp_eu         : en % de la moyenne UE-27 ; gdp_source : libellé public.
 
 Entrées :
   portail/data/<CODE>.geojson         contours communaux par État (GADM)
   portail/data/etats.json             liste canonique des États
   docs/data/population/<ISO>_*.csv    recensements par commune (name,population)
   docs/data/population/VILLES-ETATS.csv  villes-États et municipalités confédérales
+  docs/data/pib/PIB_2023.csv          PIB par habitant (SPA) par région NUTS 3 / entité
+  docs/data/pib/REGIONS.csv           rattachement commune -> région de PIB
+  docs/data/pib/CONTROLE_2023.csv     valeurs nationales (contrôle, moyenne UE-27)
 
 Pour ajouter un pays : déposer docs/data/population/<ISO>_<année>.csv avec les
 colonnes name,population (une ligne par commune), le déclarer dans TABLES, puis :
@@ -43,6 +49,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "portail" / "data"
 POP = ROOT / "docs" / "data" / "population"
+PIB = ROOT / "docs" / "data" / "pib"
 OUT = DATA / "stats.json"
 GEOD = Geod(ellps="WGS84")
 
@@ -65,6 +72,8 @@ NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833, "SVN"
 FED_OF = {"SRB": ["BG-91"], "HRV": ["ZG-94"], "BGR": ["SF-93"],
           "BIH": ["SA-92", "BK-95", "MO-96"]}
 # Composition communale des entités confédérales sans contour communal propre.
+# Région de PIB des villes-États sans commune au recensement.
+FED_REGION = {"BG-91": "RS110"}
 FED_NAMES = {
     "SF-93": ("BGR", ["Stolichna"]),
     "SA-92": ("BIH", ["Centar Sarajevo", "Hadžići", "Ilidža", "Ilijaš", "Novi Grad Sarajevo",
@@ -229,15 +238,45 @@ def load_tables() -> dict:
         counts = {}
         for r in rows:
             counts[norm(r["name"])] = counts.get(norm(r["name"]), 0) + 1
-        pop, index = {}, {}
+        pop, index, district = {}, {}, {}
         for r in rows:
             # Homonymes (ex. Otok, Privlaka en Croatie) : clé « nom (comitat) ».
             key = r["name"] if counts[norm(r["name"])] == 1 else f"{r['name']} ({r.get('district', '')})"
             pop[key] = int(r[col])
+            district[key] = r.get("district", "")
             for form in {r["name"], r["name"].split(" – ")[0], r["name"].split("/")[0]}:
                 index.setdefault(norm(form), []).append((norm(r.get("district") or ""), key))
-        out[iso] = {"pop": pop, "index": index, "label": label, "rows": rows}
+        out[iso] = {"pop": pop, "index": index, "label": label, "rows": rows,
+                    "district": district}
     return out
+
+
+def load_gdp():
+    """Régions de PIB (SPA/hab.), rattachements et valeurs nationales de contrôle."""
+    regions = {r["region"]: r for r in read_csv(PIB / "PIB_2023.csv")}
+    for r in regions.values():
+        r["pps"] = int(r["pps"])
+    link = {}
+    for r in read_csv(PIB / "REGIONS.csv"):
+        if r["region"] not in regions:
+            sys.exit(f"REGIONS.csv : région inconnue {r['region']}")
+        link.setdefault(r["iso"], {})[r["key"]] = r["region"]
+    ctrl = {r["geo"]: int(r["pps"]) for r in read_csv(PIB / "CONTROLE_2023.csv")}
+    return regions, link, ctrl
+
+
+def gdp_region(link, tables, iso, key, props=None):
+    """Région de PIB d'une commune du recensement (None si non rattachée)."""
+    lk = link.get(iso, {})
+    if iso in ("SRB", "HRV", "BGR"):
+        return lk.get(tables[iso]["district"].get(key, ""))
+    if iso == "SVN":
+        return lk.get((props or {}).get("NAME_1") or "")
+    if iso == "BIH":
+        return lk.get(key) or lk.get((props or {}).get("NAME_1") or "")
+    if iso == "MKD":
+        return lk.get(key)
+    return lk.get("*")
 
 
 def geoboundaries(iso: str, adm: str) -> dict:
@@ -252,6 +291,8 @@ def main() -> int:
     etats = json.loads((DATA / "etats.json").read_text(encoding="utf-8"))
     by_k = {s["k"]: s for s in etats}
     tables = load_tables()
+    gdp_regions, gdp_link, gdp_ctrl = load_gdp()
+    reg_of = {}   # (iso, clé du recensement) -> région de PIB
 
     # 1. Communes par État, chevauchements résolus.
     units = {}   # code d'État -> liste de (props, geom)
@@ -310,6 +351,8 @@ def main() -> int:
             if names:
                 resolved[(code, i)] = names
                 matched_names.setdefault(iso, set()).update(names)
+                for n in names:
+                    reg_of[(iso, n)] = gdp_region(gdp_link, tables, iso, n, p)
     for iso, used in matched_names.items():
         for g, parts in SUBUNITS.items():
             if g in used:
@@ -332,6 +375,7 @@ def main() -> int:
                 free.remove(best)
                 resolved[(code, i)] = [best]
                 matched_names["SRB"].add(best)
+                reg_of[("SRB", best)] = gdp_region(gdp_link, tables, "SRB", best)
 
     # Villes-États dotées d'un contour communal propre (ex. ZG-94 avec le
     # Turopolje) : leurs communes sont appariées au recensement comme pour un État.
@@ -352,6 +396,8 @@ def main() -> int:
         if ok and members:
             fed_members[s["c"]] = members
             for iso, k in members:
+                reg_of[(iso, k)] = gdp_region(gdp_link, tables, iso, k)
+            for iso, k in members:
                 matched_names.setdefault(iso, set()).add(k)
 
     for code, (iso, names) in FED_NAMES.items():
@@ -362,6 +408,8 @@ def main() -> int:
             sys.exit(f"{code} : communes inconnues dans {iso} : {missing_fed}")
         fed_members[code] = [(iso, n) for n in names]
         matched_names.setdefault(iso, set()).update(names)
+        for n in names:
+            reg_of[(iso, n)] = gdp_region(gdp_link, tables, iso, n)
 
     # Communes du recensement sans unité GADM : localisation géométrique.
     state_geom = {code: unary_union([g for _, g in lst]) for code, lst in units.items()}
@@ -376,11 +424,12 @@ def main() -> int:
         gbidx = {}
         for f in geoboundaries(giso, adm)["features"]:
             gbidx.setdefault(re.sub(prefix, "", loc_key(f["properties"]["shapeName"])), []).append(f)
-        parent_pt = {}
+        parent_pt, iso_units = {}, []
         for code, lst in units.items():
             for p, g in lst:
                 if p.get("GID_0") == iso:
                     parent_pt[norm(p.get("NAME_" + level(p)) or "")] = g.representative_point()
+                    iso_units.append((p, g))
         for k in left:
             base = loc_key(k)
             pt = None
@@ -398,11 +447,46 @@ def main() -> int:
                 if g.contains(pt):
                     located.setdefault(code, []).append((iso, k))
                     used.add(k)
+                    host = next((p for p, ug in iso_units if ug.contains(pt)), None)
+                    reg_of[(iso, k)] = gdp_region(gdp_link, tables, iso, k, host)
                     break
 
     # 3. Agrégation par État.
     fed_pop = {r["code"]: r for r in read_csv(POP / "VILLES-ETATS.csv")}
     stats, unmatched = {}, {}
+    gdp_by_iso = {}   # iso -> [Σ pop × SPA, Σ pop] (contrôle national)
+
+    def gdp_of(members):
+        """PIB/hab. pondéré par la population ; None si une commune n'a pas de région."""
+        num = den = 0
+        srcs = set()
+        for iso, k in members:
+            reg = reg_of.get((iso, k))
+            if reg is None:
+                return None
+            pop = tables[iso]["pop"][k]
+            num += pop * gdp_regions[reg]["pps"]
+            den += pop
+            srcs.add(gdp_regions[reg]["source"])
+            acc = gdp_by_iso.setdefault(iso, [0, 0])
+            acc[0] += pop * gdp_regions[reg]["pps"]
+            acc[1] += pop
+        return (num / den, srcs) if den else None
+
+    def gdp_fields(res):
+        if res is None:
+            return {"gdp": None, "gdp_eu": None, "gdp_source": None}
+        val, srcs = res
+        # « Eurostat NUTS 3 » + « Eurostat NUTS 3 (provisional) » → « Eurostat NUTS 3 (provisional) »
+        base, flags = set(), set()
+        for x in srcs:
+            m = re.match(r"^(.*?)(?: \((provisional|estimate)\))?$", x)
+            base.add(m.group(1))
+            if m.group(2):
+                flags.add(m.group(2))
+        label = " · ".join(sorted(base)) + ", 2023" + (f" ({', '.join(sorted(flags))})" if flags else "")
+        return {"gdp": int(round(val, -2)), "gdp_eu": round(100 * val / gdp_ctrl["EU27"]),
+                "gdp_source": label}
     for s in etats:
         code = s["c"]
         if s["t"] == "T":
@@ -434,6 +518,7 @@ def main() -> int:
                 "area": round(area_km2(geom)),
                 "population": None if missing else total,
                 "source": None if missing else " · ".join(sorted(srcs)),
+                **gdp_fields(None if missing else gdp_of(sorted(keys))),
             }
             if missing:
                 unmatched[code] = missing
@@ -441,11 +526,23 @@ def main() -> int:
             mem = fed_members[code]
             stats[code] = {"municipalities": len(mem), "area": None,
                            "population": sum(tables[i]["pop"][k] for i, k in mem),
-                           "source": " · ".join(sorted({tables[i]["label"] for i, _ in mem}))}
+                           "source": " · ".join(sorted({tables[i]["label"] for i, _ in mem})),
+                           **gdp_fields(gdp_of(mem))}
         else:
             stats[code] = {"municipalities": None, "area": None,
                            "population": int(fed_pop[code]["population"]) if code in fed_pop else None,
                            "source": fed_pop[code]["source"] if code in fed_pop else None}
+            reg = FED_REGION.get(code)
+            if reg and code in fed_pop:
+                pop = int(fed_pop[code]["population"])
+                iso = next(i for i, cs in FED_OF.items() if code in cs)
+                acc = gdp_by_iso.setdefault(iso, [0, 0])
+                acc[0] += pop * gdp_regions[reg]["pps"]
+                acc[1] += pop
+                stats[code].update(gdp_fields((gdp_regions[reg]["pps"],
+                                               {gdp_regions[reg]["source"]})))
+            else:
+                stats[code].update(gdp_fields(None))
 
     # 4. Superficie des villes-États et municipalités confédérales : contours
     #    portail/data/<CODE>.geojson (raccordés aux États par raccord_contours.py).
@@ -485,6 +582,18 @@ def main() -> int:
         print(line)
         if free and iso != "XKO":
             print(f"     hors États : {', '.join(free)}")
+    print("PIB par habitant 2023 (SPA) : moyenne des communes pondérée par la population")
+    ctrl_iso = {"SVN": "SVN", "HRV": "HRV", "BGR": "BGR", "SRB": "SRB", "MKD": "MKD",
+                "MNE": "MNE", "BIH": "BIH"}
+    for iso, (num, den) in sorted(gdp_by_iso.items()):
+        ref = gdp_ctrl.get(ctrl_iso.get(iso, ""))
+        line = f"  {iso} : {num / den:,.0f} sur {den:,} hab."
+        if ref:
+            line += f" / national {ref:,} ({100 * (num / den / ref - 1):+.1f} %)"
+        print(line)
+    n_gdp = sum(1 for v in stats.values() if v["gdp"] is not None)
+    print(f"États avec PIB par habitant : {n_gdp}/{len(stats)} ; en attente : "
+          f"{', '.join(sorted(c for c, v in stats.items() if v['gdp'] is None))}")
     n_pop = sum(1 for v in stats.values() if v["population"] is not None)
     print(f"États avec population : {n_pop}/{len(stats)} ; en attente : "
           f"{', '.join(sorted(c for c, v in stats.items() if v['population'] is None))}")

@@ -1,0 +1,110 @@
+# PIB par habitant 2023 en SPA (standard de pouvoir d'achat, UE-27 depuis 2020), par région.
+# NUTS 3 : Eurostat nama_10r_3gdp, unité PPS_EU27_2020_HAB, version du 10 février 2026 (relevé le 2026-10-14).
+#   Serbie : données provisoires (p) ; Macédoine du Nord : estimations (e) ; Monténégro = une seule région NUTS 3.
+# Bosnie-Herzégovine : pas de PIB régional publié en dessous des entités. Valeur nationale Eurostat
+#   (prc_ppp_ind, GDP, EXP_PPS_EU27_2020_HAB, 2023 : 13 600) répartie par entité :
+#   FBiH = 14 868 KM/hab. (FZS, bulletin 391) ; BiH = 14 588 KM/hab. (BHAS, NAC_00_2023_TB) ;
+#   RS + Brčko = (49 920 183 - 31 966 645) / (3 422 000 - 2 150 054) = 14 115 KM/hab.
+#   Indices 1,0192 et 0,9676 → 13 861 et 13 159, arrondis à la centaine.
+# Kosovo : absent des données PPS d'Eurostat. PIB PPA Banque mondiale 2023 (NY.GDP.PCAP.PP.CD, 15 817 $ int.)
+#   converti avec le rapport SPA / PPA médian de BA, ME, MK, RS (0,6239) → 9 868, arrondi à 9 900.
+# source : libellé public affiché sous le chiffre.
+region,label,pps,source
+SI031,Pomurska,23600,Eurostat NUTS 3
+SI032,Podravska,28500,Eurostat NUTS 3
+SI033,Koroška,26400,Eurostat NUTS 3
+SI034,Savinjska,30300,Eurostat NUTS 3
+SI035,Zasavska,19100,Eurostat NUTS 3
+SI036,Posavska,28700,Eurostat NUTS 3
+SI037,Jugovzhodna Slovenija,31600,Eurostat NUTS 3
+SI038,Primorsko-notranjska,22900,Eurostat NUTS 3
+SI041,Osrednjeslovenska,52000,Eurostat NUTS 3
+SI042,Gorenjska,30500,Eurostat NUTS 3
+SI043,Goriška,31600,Eurostat NUTS 3
+SI044,Obalno-kraška,33000,Eurostat NUTS 3
+HR021,Bjelovarsko-bilogorska,19900,Eurostat NUTS 3
+HR022,Virovitičko-podravska,15900,Eurostat NUTS 3
+HR023,Požeško-slavonska,16100,Eurostat NUTS 3
+HR024,Brodsko-posavska,19300,Eurostat NUTS 3
+HR025,Osječko-baranjska,22100,Eurostat NUTS 3
+HR026,Vukovarsko-srijemska,18000,Eurostat NUTS 3
+HR027,Karlovačka,21900,Eurostat NUTS 3
+HR028,Sisačko-moslavačka,22200,Eurostat NUTS 3
+HR031,Primorsko-goranska,34200,Eurostat NUTS 3
+HR032,Ličko-senjska,25000,Eurostat NUTS 3
+HR033,Zadarska,24100,Eurostat NUTS 3
+HR034,Šibensko-kninska,22900,Eurostat NUTS 3
+HR035,Splitsko-dalmatinska,24100,Eurostat NUTS 3
+HR036,Istarska,33300,Eurostat NUTS 3
+HR037,Dubrovačko-neretvanska,28900,Eurostat NUTS 3
+HR050,Grad Zagreb,50200,Eurostat NUTS 3
+HR061,Međimurska,25200,Eurostat NUTS 3
+HR062,Varaždinska,26300,Eurostat NUTS 3
+HR063,Koprivničko-križevačka,24600,Eurostat NUTS 3
+HR064,Krapinsko-zagorska,19800,Eurostat NUTS 3
+HR065,Zagrebačka,26900,Eurostat NUTS 3
+BG311,Vidin,12700,Eurostat NUTS 3
+BG312,Montana,12800,Eurostat NUTS 3
+BG313,Vratsa,22900,Eurostat NUTS 3
+BG314,Pleven,15000,Eurostat NUTS 3
+BG315,Lovech,15200,Eurostat NUTS 3
+BG321,Veliko Tarnovo,17100,Eurostat NUTS 3
+BG322,Gabrovo,20600,Eurostat NUTS 3
+BG323,Ruse,18300,Eurostat NUTS 3
+BG324,Razgrad,14500,Eurostat NUTS 3
+BG325,Silistra,11100,Eurostat NUTS 3
+BG331,Varna,22800,Eurostat NUTS 3
+BG332,Dobrich,14400,Eurostat NUTS 3
+BG333,Shumen,14500,Eurostat NUTS 3
+BG334,Targovishte,15900,Eurostat NUTS 3
+BG341,Burgas,18800,Eurostat NUTS 3
+BG342,Sliven,11400,Eurostat NUTS 3
+BG343,Yambol,15100,Eurostat NUTS 3
+BG344,Stara Zagora,30900,Eurostat NUTS 3
+BG411,Sofia (stolitsa),52000,Eurostat NUTS 3
+BG412,Sofia,20500,Eurostat NUTS 3
+BG413,Blagoevgrad,13900,Eurostat NUTS 3
+BG414,Pernik,13200,Eurostat NUTS 3
+BG415,Kyustendil,12700,Eurostat NUTS 3
+BG421,Plovdiv,18800,Eurostat NUTS 3
+BG422,Haskovo,11000,Eurostat NUTS 3
+BG423,Pazardzhik,13600,Eurostat NUTS 3
+BG424,Smolyan,14400,Eurostat NUTS 3
+BG425,Kardzhali,13200,Eurostat NUTS 3
+RS110,Beogradska oblast,31500,Eurostat NUTS 3 (provisional)
+RS121,Zapadnobačka,11800,Eurostat NUTS 3 (provisional)
+RS122,Južnobanatska,16700,Eurostat NUTS 3 (provisional)
+RS123,Južnobačka,21700,Eurostat NUTS 3 (provisional)
+RS124,Severnobanatska,14200,Eurostat NUTS 3 (provisional)
+RS125,Severnobačka,16100,Eurostat NUTS 3 (provisional)
+RS126,Srednjebanatska,10600,Eurostat NUTS 3 (provisional)
+RS127,Sremska,18800,Eurostat NUTS 3 (provisional)
+RS211,Zlatiborska,13000,Eurostat NUTS 3 (provisional)
+RS212,Kolubarska,13700,Eurostat NUTS 3 (provisional)
+RS213,Mačvanska,9000,Eurostat NUTS 3 (provisional)
+RS214,Moravička,14600,Eurostat NUTS 3 (provisional)
+RS215,Pomoravska,11000,Eurostat NUTS 3 (provisional)
+RS216,Rasinska,10700,Eurostat NUTS 3 (provisional)
+RS217,Raška,9500,Eurostat NUTS 3 (provisional)
+RS218,Šumadijska,12900,Eurostat NUTS 3 (provisional)
+RS221,Borska,39200,Eurostat NUTS 3 (provisional)
+RS222,Braničevska,12000,Eurostat NUTS 3 (provisional)
+RS223,Zaječarska,10000,Eurostat NUTS 3 (provisional)
+RS224,Jablanička,9000,Eurostat NUTS 3 (provisional)
+RS225,Nišavska,13800,Eurostat NUTS 3 (provisional)
+RS226,Pirotska,12300,Eurostat NUTS 3 (provisional)
+RS227,Podunavska,12500,Eurostat NUTS 3 (provisional)
+RS228,Pčinjska,8100,Eurostat NUTS 3 (provisional)
+RS229,Toplička,10200,Eurostat NUTS 3 (provisional)
+MK001,Vardarski,13200,Eurostat NUTS 3 (estimate)
+MK002,Istočen,14400,Eurostat NUTS 3 (estimate)
+MK003,Jugozapaden,14100,Eurostat NUTS 3 (estimate)
+MK004,Jugoistočen,17700,Eurostat NUTS 3 (estimate)
+MK005,Pelagoniski,15100,Eurostat NUTS 3 (estimate)
+MK006,Pološki,8600,Eurostat NUTS 3 (estimate)
+MK007,Severoistočen,8500,Eurostat NUTS 3 (estimate)
+MK008,Skopski,21900,Eurostat NUTS 3 (estimate)
+ME000,Crna Gora,19900,Eurostat NUTS 3
+BA-FBIH,Federacija Bosne i Hercegovine,13900,Eurostat (BiH) split by entity (FZS · BHAS)
+BA-RSBD,Republika Srpska + Brčko distrikt,13200,Eurostat (BiH) split by entity (FZS · BHAS)
+XK,Kosovo,9900,Estimate from World Bank PPP

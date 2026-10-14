@@ -1,0 +1,13 @@
+# PIB par habitant 2023 en SPA, valeurs nationales Eurostat (prc_ppp_ind, GDP, EXP_PPS_EU27_2020_HAB),
+# relevé le 2026-10-14 (Croatie : 29 800 de nama_10r_3gdp, même série que les régions ; prc_ppp_ind donne 29 000).
+# Sert au contrôle de build_stats.py (moyenne des communes pondérée par la population)
+# et au pourcentage de la moyenne UE-27 affiché sur le portail.
+geo,pps
+EU27,38100
+SVN,35000
+HRV,29800
+BGR,24300
+SRB,18600
+MKD,15800
+MNE,19900
+BIH,13600

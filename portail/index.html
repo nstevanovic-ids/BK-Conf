@@ -1294,7 +1294,8 @@ function vState(code){
       :`${pend}<span class="dsrc">Pending census data</span>`}</td></tr>
     <tr><td>Area</td><td>${st.area?fmtN(st.area)+' km²':pend}</td></tr>
     <tr><td>Population density</td><td>${hasPop&&st.area?fmtN(Math.round(st.population/st.area))+' inhabitants / km²':pend}</td></tr>
-    <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">·</span></td></tr>
+    <tr><td>GDP per capita (PPS, est.)</td><td>${st.gdp!=null?`${fmtN(st.gdp)} PPS<span class="dsrc">${st.gdp_eu}% of the EU-27 average · ${esc(st.gdp_source)}</span>`
+      :`${pend}<span class="dsrc">Pending regional accounts</span>`}</td></tr>
     <tr><td>Autonomous communities</td><td>${auts.length||'None'}</td></tr>`;
   return crumb([['Home','#/home'],['States','#/states'],[s.n]])+`
   <section class="section reveal">
@@ -1329,9 +1330,11 @@ function vState(code){
         </div>
         <div class="subhead">Key data</div>
         <table class="dtable"><tbody>${rows}</tbody></table>
-        <div class="notice">Demographic, territorial and economic data are integrated
-        through the territorial data layer, real municipal figures aggregated from
-        GADM boundaries, currently in preparation.</div>
+        <div class="notice">Key data are aggregated from the state's municipalities: population
+        from each country's latest census or population register, area from municipal
+        boundaries, GDP per capita from Eurostat regional accounts (2023, purchasing power
+        standards) averaged by population. In Bosnia and Herzegovina, regional GDP is only
+        published by entity.</div>
         ${auts.length?`
         <div class="subhead" style="margin-top:26px">Autonomous communities</div>
         <p class="note" style="margin-bottom:10px">Communities holding their own powers
