@@ -53,8 +53,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
 - Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
-  scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json,
-  échoue s'il reste un trou ou un recouvrement) ; cf. ADR 2026-10-14-raccord-carte.md
+  scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
+  en lon/lat pour d3-geo, échoue s'il reste un trou ou un recouvrement) ;
+  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md
 
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)
@@ -65,7 +66,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   `scripts/build_stats.py` depuis les GeoJSON d'États, les recensements de
   `docs/data/population/` et le PIB régional de `docs/data/pib/` (Eurostat 2023, SPA)
   (cf. ADR 2026-10-13-chiffres-cles-etats.md et 2026-10-14-pib-par-habitant.md)
-- `scripts/build_portail.py` = injecte data + drapeaux dans le template → build final
+- `lights.json` (une lumière par commune, intensité selon la population) est généré
+  par `scripts/build_stats.py` ; la carte (#/map) est un globe orthographique d3-geo
+  (`portail/vendor/`, d3-array + d3-geo, ISC) au style « salle de situation » sombre
+- `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux
