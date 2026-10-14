@@ -194,15 +194,8 @@ SEATS = {
     "Ivanjica": (43.581, 20.230),
 }
 
-# Villes-États : contours geoBoundaries (gbOpen), plus fidèles que Natural Earth
-# pour les superficies ; Mostar (MO-96) a son propre fichier dans portail/data/.
-GB_FED = {
-    "BG-91": ("SRB", "ADM1", "Belgrade"),
-    "ZG-94": ("HRV", "ADM1", "City of Zagreb"),
-    "SF-93": ("BGR", "ADM1", "Sofia City"),
-    "BK-95": ("BIH", "ADM2", "Brcko District"),
-    "SA-92": ("BIH", "ADM2", "Sarajevo Canton"),
-}
+# geoBoundaries (gbOpen) : localisation des communes absentes de GADM (LOCATE) ;
+# aussi utilisé par scripts/raccord_contours.py.
 GB_URL = ("https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/main/"
           "releaseData/gbOpen/{iso}/{adm}/geoBoundaries-{iso}-{adm}.geojson")
 
@@ -454,24 +447,20 @@ def main() -> int:
                            "population": int(fed_pop[code]["population"]) if code in fed_pop else None,
                            "source": fed_pop[code]["source"] if code in fed_pop else None}
 
-    # 4. Superficie des villes-États et municipalités confédérales.
+    # 4. Superficie des villes-États et municipalités confédérales : contours
+    #    portail/data/<CODE>.geojson (raccordés aux États par raccord_contours.py).
     fed_geom = {}
-    for c, (iso, adm, name) in GB_FED.items():
-        hit = [f for f in geoboundaries(iso, adm)["features"]
-               if f["properties"].get("shapeName") == name]
-        if len(hit) != 1:
-            sys.exit(f"geoBoundaries {iso} {adm} : « {name} » introuvable ou ambigu")
-        fed_geom[c] = shape(hit[0]["geometry"]).buffer(0)
     for s in etats:
         lf = DATA / f"{s['c']}.geojson"
-        if s["t"] != "T" and lf.exists():
+        if s["t"] != "T":
+            if not lf.exists():
+                sys.exit(f"contour manquant : {lf.relative_to(ROOT)} (lancer scripts/raccord_contours.py)")
             fc = json.loads(lf.read_text(encoding="utf-8"))
             fed_geom[s["c"]] = unary_union([shape(f["geometry"]).buffer(0) for f in fc["features"]])
     for c, g in fed_geom.items():
         stats[c]["area"] = round(area_km2(g))
     # Contrôle : aucune commune d'un État territorial ne doit se trouver dans une
-    # ville-État (test sur le point intérieur ; les écarts de tracé entre GADM et
-    # geoBoundaries le long des limites sont ignorés).
+    # ville-État (test sur le point intérieur).
     for code, lst in units.items():
         for p, g in lst:
             pt = g.representative_point()

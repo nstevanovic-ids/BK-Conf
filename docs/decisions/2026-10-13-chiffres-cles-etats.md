@@ -12,7 +12,8 @@ Les chiffres sont calculés par `scripts/build_stats.py` → `portail/data/stats
   sinon, unités GADM du fichier d'État après résolution des chevauchements.
   Le lac d'Ohrid et « Liberland » (unités GADM sans habitants) ne comptent pas comme communes.
 - **Superficie** : surface ellipsoïdale (WGS84) de l'union des communes. Pour les
-  villes-États : contours geoBoundaries (gbOpen) ; Mostar : `portail/data/MO-96.geojson`.
+  villes-États : contours `portail/data/<CODE>.geojson`, raccordés aux États voisins
+  (ADR 2026-10-14-raccord-carte).
 - **Population** : somme des populations communales du dernier recensement de chaque
   pays (`docs/data/population/`). Un État n'affiche sa population que si **toutes**
   ses communes sont couvertes ; sinon « Pending census data ».
@@ -35,8 +36,8 @@ Les chiffres sont calculés par `scripts/build_stats.py` → `portail/data/stats
 - Pojezerje : **DA-08**, avec le reste du delta de la Neretva (Opuzen, Metković, Ploče).
 - Žagubica : **TK-39**, retirée de PO-26 (transfert de l'Homolje à Timok).
 
-Ces rattachements ne valent que pour les statistiques : les fichiers GeoJSON gardent
-les doublons, donc la carte superpose encore ces communes (workstream cartes).
+Les doublons ont depuis été retirés des fichiers GeoJSON perdants
+(ADR 2026-10-14-raccord-carte) : la carte ne superpose plus ces communes.
 
 ## Croatie et Slovénie : découpage GADM ancien
 GADM précède la création de plusieurs communes : en Croatie Tribunj, Kukljica,
@@ -49,8 +50,9 @@ mesto, Šmartno pri Litiji ← Litija, Ankaran ← Koper).
 Les fragments GADM (îlots de Mali Lošinj, Premantura, Njivice, Blaca, unités
 « Unknown ») comptent en superficie, pas comme communes.
 
-Total de la Confédération : 25 147 358 habitants sur 357 015 km² (sommes de
+Total de la Confédération : 25 147 358 habitants sur 357 278 km² (sommes de
 sources d'années différentes, 2011 à 2026 ; le Kosovo n'y compte que KM-16).
+Superficie après raccord des contours le 2026-10-14 ; elle était de 357 015 km² avant.
 
 ## Points ouverts
 - ~~Turopolje et banlieue de Zagreb hors de tout État~~ : résolu par l'ADR

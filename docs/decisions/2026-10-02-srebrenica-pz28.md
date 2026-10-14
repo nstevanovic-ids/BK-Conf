@@ -29,3 +29,5 @@ Le polygone réel de **Mostar (MO-96)** a été ajouté à la même occasion
 (`portail/data/MO-96.geojson`, geoBoundaries ADM3) ; `gen_geo.py` consomme
 désormais les fichiers `portail/data/<code>.geojson` pour les unités fédérales,
 ce qui complète le dernier point en suspens (Mostar n'est plus un simple disque).
+Ce contour a été remplacé le 2026-10-14 par le trou laissé par les États voisins
+(ADR 2026-10-14-raccord-carte).
