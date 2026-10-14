@@ -37,6 +37,7 @@ def build_inline() -> int:
     geo = json.loads((DATA / "geo.json").read_text())
     constitution = json.loads((DATA / "constitution.json").read_text(encoding="utf-8"))
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
+    lights = json.loads((DATA / "lights.json").read_text(encoding="utf-8"))
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -49,6 +50,7 @@ def build_inline() -> int:
         f"GEO={json.dumps(geo, ensure_ascii=False)};\n"
         f"CONSTITUTION={json.dumps(constitution, ensure_ascii=False)};\n"
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
+        f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )
@@ -60,6 +62,13 @@ def build_inline() -> int:
         src,
         count=1,
     )
+    # Inline the vendored libraries (d3-geo for the map).
+    for lib in ("d3-array.min.js", "d3-geo.min.js"):
+        tag = f'<script src="vendor/{lib}"></script>'
+        if tag not in src:
+            sys.exit(f"balise absente du template : {tag}")
+        code = (PORTAIL / "vendor" / lib).read_text(encoding="utf-8").replace("</script", "<\\/script")
+        src = src.replace(tag, f"<script>\n{code}\n</script>")
     # Embed the licensed Zurich font files as base64 so the single file is
     # fully self-contained (font url(fonts/...) -> data URI).
     import base64
@@ -84,7 +93,7 @@ def build_linked() -> int:
     missing = [
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
                     "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
-                    "constitution.json", "stats.json")
+                    "constitution.json", "stats.json", "lights.json")
         if not (DATA / f).exists()
     ]
     if missing:

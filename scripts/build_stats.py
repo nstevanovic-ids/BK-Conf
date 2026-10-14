@@ -51,6 +51,7 @@ DATA = ROOT / "portail" / "data"
 POP = ROOT / "docs" / "data" / "population"
 PIB = ROOT / "docs" / "data" / "pib"
 OUT = DATA / "stats.json"
+OUT_LIGHTS = DATA / "lights.json"
 GEOD = Geod(ellps="WGS84")
 
 # Recensements par pays (code GADM GID_0). Colonne retenue + libellé public.
@@ -72,6 +73,9 @@ NATIONAL = {"SRB": 6690887, "MNE": 623633, "MKD": 1836713, "HRV": 3871833, "SVN"
 FED_OF = {"SRB": ["BG-91"], "HRV": ["ZG-94"], "BGR": ["SF-93"],
           "BIH": ["SA-92", "BK-95", "MO-96"]}
 # Composition communale des entités confédérales sans contour communal propre.
+# Lumières de la carte : point (lat, lon) des villes-États sans contour communal.
+FED_LIGHT = {"BG-91": (44.810, 20.460), "SF-93": (42.697, 23.322), "SA-92": (43.856, 18.413),
+             "BK-95": (44.873, 18.810), "MO-96": (43.343, 17.808)}
 # Région de PIB des villes-États sans commune au recensement.
 FED_REGION = {"BG-91": "RS110"}
 FED_NAMES = {
@@ -293,6 +297,7 @@ def main() -> int:
     tables = load_tables()
     gdp_regions, gdp_link, gdp_ctrl = load_gdp()
     reg_of = {}   # (iso, clé du recensement) -> région de PIB
+    pt_of = {}    # (iso, clé du recensement) -> (lon, lat) de la lumière sur la carte
 
     # 1. Communes par État, chevauchements résolus.
     units = {}   # code d'État -> liste de (props, geom)
@@ -351,8 +356,10 @@ def main() -> int:
             if names:
                 resolved[(code, i)] = names
                 matched_names.setdefault(iso, set()).update(names)
+                rp = g.representative_point()
                 for n in names:
                     reg_of[(iso, n)] = gdp_region(gdp_link, tables, iso, n, p)
+                    pt_of.setdefault((iso, n), (rp.x, rp.y))
     for iso, used in matched_names.items():
         for g, parts in SUBUNITS.items():
             if g in used:
@@ -376,6 +383,8 @@ def main() -> int:
                 resolved[(code, i)] = [best]
                 matched_names["SRB"].add(best)
                 reg_of[("SRB", best)] = gdp_region(gdp_link, tables, "SRB", best)
+                rp = g.representative_point()
+                pt_of[("SRB", best)] = (rp.x, rp.y)
 
     # Villes-États dotées d'un contour communal propre (ex. ZG-94 avec le
     # Turopolje) : leurs communes sont appariées au recensement comme pour un État.
@@ -384,7 +393,7 @@ def main() -> int:
         lf = DATA / f"{s['c']}.geojson"
         if s["t"] == "T" or not lf.exists():
             continue
-        members, ok = [], True
+        members, ok, mpts = [], True, []
         for ft in json.loads(lf.read_text(encoding="utf-8"))["features"]:
             p = ft["properties"]
             iso, nm = p.get("GID_0"), p.get("NAME_" + level(p)) or ""
@@ -393,10 +402,13 @@ def main() -> int:
                 ok = False
                 break
             members.append((iso, cands[0][1]))
+            rp = shape(ft["geometry"]).buffer(0).representative_point()
+            mpts.append((rp.x, rp.y))
         if ok and members:
             fed_members[s["c"]] = members
-            for iso, k in members:
+            for (iso, k), xy in zip(members, mpts):
                 reg_of[(iso, k)] = gdp_region(gdp_link, tables, iso, k)
+                pt_of[(iso, k)] = xy
             for iso, k in members:
                 matched_names.setdefault(iso, set()).add(k)
 
@@ -410,6 +422,8 @@ def main() -> int:
         matched_names.setdefault(iso, set()).update(names)
         for n in names:
             reg_of[(iso, n)] = gdp_region(gdp_link, tables, iso, n)
+            if code in FED_LIGHT:
+                pt_of[(iso, n)] = FED_LIGHT[code][::-1]
 
     # Communes du recensement sans unité GADM : localisation géométrique.
     state_geom = {code: unary_union([g for _, g in lst]) for code, lst in units.items()}
@@ -449,6 +463,7 @@ def main() -> int:
                     used.add(k)
                     host = next((p for p, ug in iso_units if ug.contains(pt)), None)
                     reg_of[(iso, k)] = gdp_region(gdp_link, tables, iso, k, host)
+                    pt_of[(iso, k)] = (pt.x, pt.y)
                     break
 
     # 3. Agrégation par État.
@@ -604,6 +619,36 @@ def main() -> int:
 
     OUT.write_text(json.dumps(stats, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"→ {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} kB)")
+
+    # Lumières de la carte : une par commune comptée dans un État ou une ville-État,
+    # au point intérieur de son contour, intensité selon sa population.
+    counted = set()
+    for s in etats:
+        if s["t"] == "T":
+            for i, (p, g) in enumerate(units.get(s["c"], [])):
+                for n in resolved.get((s["c"], i), []):
+                    counted.add((p.get("GID_0"), n))
+            counted.update(located.get(s["c"], []))
+    for mem in fed_members.values():
+        counted.update(mem)
+    lights = {}
+    for iso, k in counted:
+        xy = pt_of.get((iso, k))
+        if xy is None:
+            continue
+        q = (round(xy[0] * 1000), round(xy[1] * 1000))
+        lights[q] = lights.get(q, 0) + tables[iso]["pop"][k]
+    for code, (lat, lon) in FED_LIGHT.items():
+        if code not in fed_members and code in fed_pop:
+            q = (round(lon * 1000), round(lat * 1000))
+            lights[q] = lights.get(q, 0) + int(fed_pop[code]["population"])
+    flat = []
+    for (x, y), pop in sorted(lights.items(), key=lambda kv: kv[1]):
+        flat += [x, y, pop]
+    OUT_LIGHTS.write_text(json.dumps({"q": 1000, "p": flat}, separators=(",", ":")), encoding="utf-8")
+    tot = sum(lights.values())
+    print(f"→ {OUT_LIGHTS.relative_to(ROOT)} : {len(lights)} lumières, {tot:,} hab. "
+          f"({OUT_LIGHTS.stat().st_size // 1024} kB)")
     return 0
 
 
