@@ -30,8 +30,8 @@ des données réelles, des lumières nocturnes de la référence.
 - **États**, par défaut : ton azur profond commun, frontières lumineuses, villes-États
   et municipalités fédérales en or. Les peuples n'ont pas de code couleur
   (ADR 2026-10-14-pas-de-code-couleur-peuples).
-- **PIB par habitant** : 6 classes, rampe bleu électrique.
-- **Densité** : 6 classes, rampe magenta.
+- **PIB par habitant** : dégradé chaud continu, échelle logarithmique.
+- **Densité** : dégradé froid continu, échelle logarithmique.
 - **Peuples** : simple option, en dernier choix du sélecteur. Chaque peuple y prend
   une teinte vive :
 
@@ -64,6 +64,33 @@ des données réelles, des lumières nocturnes de la référence.
 - glisser pour déplacer, molette ou pincement pour zoomer, double-clic ;
 - clavier : flèches, +, −, 0 pour recadrer, Échap pour désélectionner ; chaque
   État est atteignable avec Tab, et Entrée ouvre sa fiche.
+
+### Finitions (2026-10-14, « manque de punch et de finesse, il faut du dégradé »)
+- **Dégradés tirés des couleurs canoniques** :
+  - froid : de l'azur `#374078` au bleu électrique et au cyan ;
+  - chaud : des gueules `#99402F` à l'orange et à l'or `#DFCC68`.
+
+  La luminosité croît à chaque pas de chaque dégradé. Ils servent aux
+  choroplèthes, aux barres, au compteur et aux boutons.
+- **Territoire** :
+  - halo lumineux autour des États (froid, ou chaud en mode PIB) ;
+  - reflet en dégradé et trame de points fins, découpés sur les États ;
+  - frontières plus fines ;
+  - villes-États et municipalités fédérales en dégradé or et orange ;
+  - lumières communales ambrées.
+- **Graphiques** :
+  - le PIB par habitant passe de l'anneau plein à 60 graduations éclairées le long
+    du dégradé chaud ;
+  - les barres sont en dégradé, avec un trait lumineux en bout ;
+  - un histogramme des 51 entités suit le critère actif, avec une colonne par
+    entité, triées et fondues vers le bas. Survoler une colonne l'éclaire, cliquer
+    l'épingle ;
+  - la fiche épinglée montre la même série en miniature, avec le rang de l'État ;
+  - une barre de répartition de la population (États, villes-États,
+    municipalités) est ajoutée sous le total.
+- **Cartes** : bordures en dégradé, chiffres en dégradé argenté, fond à trame de
+  points discrète.
+- **Sources** : déplacées dans la légende.
 
 ## Conséquences techniques
 - **`geo.json` v2** :
