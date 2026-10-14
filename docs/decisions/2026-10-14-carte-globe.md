@@ -27,14 +27,13 @@ Une lumière par commune (1 407 points), dont l'intensité dépend de la populat
 des données réelles, des lumières nocturnes de la référence.
 
 ### Coloration au choix
-- par peuple constitutif ;
-- par PIB par habitant (6 classes, rampe bleu électrique) ;
-- par densité (6 classes, rampe magenta).
-
-### Nuancier de la carte
-Révisé le 2026-10-14 à la demande de l'utilisateur (« il faut que ça claque plus, plus
-moderne »). Chaque peuple garde sa famille de teinte, poussée à pleine intensité pour
-l'écran sombre :
+- **États**, par défaut : ton azur profond commun, frontières lumineuses, villes-États
+  et municipalités fédérales en or. Les peuples n'ont pas de code couleur
+  (ADR 2026-10-14-pas-de-code-couleur-peuples).
+- **PIB par habitant** : 6 classes, rampe bleu électrique.
+- **Densité** : 6 classes, rampe magenta.
+- **Peuples** : simple option, en dernier choix du sélecteur. Chaque peuple y prend
+  une teinte vive :
 
 | Peuple | Couleur | Code |
 |---|---|---|
@@ -45,15 +44,12 @@ l'écran sombre :
 | Crnogorci | jaune | `#eeda1b` |
 | Makedonci | orange | `#ff8c00` |
 | Bãlgari | vert | `#2fbf5b` |
-| Entités fédérales | indigo cerclé d'or | `#20246b` |
 
-Contrôle avec le validateur de palettes (OKLab) sur les voisinages réels de la carte :
-- le pire couple de voisins s'écarte de 24 ΔE en vision normale ;
-- sous simulation du daltonisme, le pire couple est orange / vert à 7,1 ΔE ; les
-  frontières sombres et les infobulles portent la différence ;
-- tous les couples de la légende s'écartent d'au moins 16 ΔE.
-
-Les couleurs canoniques de `peuples.json` restent celles des pages claires du portail.
+  Contrôle OKLab sur les voisinages réels de la carte :
+  - le pire couple de voisins s'écarte de 24 ΔE en vision normale ;
+  - sous simulation du daltonisme, le pire couple est orange / vert à 7,1 ΔE ; les
+    frontières et les infobulles portent la différence ;
+  - tous les couples de la légende s'écartent d'au moins 16 ΔE.
 
 ### Panneaux flottants
 - population de la Confédération, répartie entre États, villes-États et
