@@ -547,7 +547,17 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   height:max(690px,calc(100vh - var(--hdr,150px) - 30px));overflow:hidden;isolation:isolate;
   background:radial-gradient(110% 80% at 50% 18%,#101a44 0%,#0a1230 38%,var(--sr-bg) 75%);
   font-feature-settings:"tnum" 1}
+.sr::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55;
+  background-image:radial-gradient(rgba(150,170,240,.10) 1px,transparent 1.3px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%);
+          mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%)}
 .sr-stage{position:absolute;inset:0;cursor:grab;touch-action:none;outline:none}
+.sr-stage{--glowc:rgba(79,125,255,.5)}
+.sr-stage[data-mode="gdp"]{--glowc:rgba(240,138,58,.45)}
+.sr-stage[data-mode="peoples"]{--glowc:rgba(220,230,255,.2)}
+.sr-regions{filter:drop-shadow(0 0 9px var(--glowc))}
+.sr-tex{pointer-events:none}
+.sr-stage[data-mode="peoples"] .sr-dots{opacity:.55}
 .sr-stage.grabbing{cursor:grabbing}
 .sr-stage:focus-visible{box-shadow:inset 0 0 0 2px var(--sr-gold)}
 .sr-layers{position:absolute;inset:0;transform-origin:0 0}
@@ -563,16 +573,17 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sr-reg{stroke:rgba(5,8,24,.92);stroke-width:.9;stroke-linejoin:round;cursor:pointer;
   transition:fill .35s ease,opacity .25s ease}
 .sr-reg.fed{stroke:var(--sr-gold);stroke-width:.9}
-.sr-stage[data-mode="states"] .sr-reg{stroke:rgba(140,165,255,.62);stroke-width:.8}
-.sr-stage[data-mode="states"] .sr-reg.fed{stroke:#fff3b0;stroke-width:1}
+.sr-stage[data-mode="states"] .sr-reg{stroke:rgba(150,178,255,.6);stroke-width:.55}
+.sr-stage[data-mode="states"] .sr-reg.fed{stroke:#ffe7a3;stroke-width:.8}
+.sr-stage[data-mode="gdp"] .sr-reg,.sr-stage[data-mode="dens"] .sr-reg{stroke:rgba(5,8,24,.55);stroke-width:.5}
 .sr-reg.muni{stroke-dasharray:3 2}
 .sr-reg.dim{opacity:.16}
 .sr-reg:focus{outline:none}
 .sr-occbase{fill:var(--sr-land);pointer-events:none}
 .sr-occ{fill:url(#srHatch);stroke:var(--sr-red);stroke-width:.8;stroke-dasharray:2 2;pointer-events:none}
-.sr-hover{fill:none;stroke:#fff;stroke-width:1.6;stroke-linejoin:round}
-.sr-pin{fill:none;stroke:var(--sr-gold);stroke-width:2.2;stroke-linejoin:round;
-  filter:drop-shadow(0 0 6px rgba(223,204,104,.7))}
+.sr-hover{fill:none;stroke:#fff;stroke-width:1.3;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(190,210,255,.9))}
+.sr-pin{fill:none;stroke:#ffe7a3;stroke-width:1.8;stroke-linejoin:round;
+  filter:drop-shadow(0 0 6px rgba(245,181,74,.85))}
 .sr-flbl{fill:var(--sr-ink);font-size:10.5px;font-weight:700;paint-order:stroke;
   stroke:rgba(6,11,29,.9);stroke-width:3px;text-anchor:middle}
 .sr-tip{position:absolute;z-index:6;pointer-events:none;opacity:0;transform:translate(-50%,-125%);
@@ -593,49 +604,67 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sr-seg button,.sr-btn{border:0;background:none;color:var(--sr-ink-2);font-size:.78rem;
   font-weight:600;padding:7px 14px;border-radius:999px}
 .sr-seg button:hover,.sr-btn:hover{color:var(--sr-ink)}
-.sr-seg button.on{background:var(--sr-ink);color:#0a1230}
+.sr-seg button.on{background:linear-gradient(160deg,#ffffff,#c4d0ff);color:#0a1230;
+  box-shadow:0 4px 14px -6px rgba(160,185,255,.9)}
 .sr-seg button:focus-visible,.sr-btn:focus-visible,.sr-bar:focus-visible,.sr-open:focus-visible{
   outline:2px solid var(--sr-gold);outline-offset:2px}
 .sr-tools{display:flex;gap:6px}
 .sr-btn{background:var(--sr-panel);border:1px solid var(--sr-edge);backdrop-filter:blur(12px);
   min-width:36px;height:36px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:7px}
-.sr-btn[aria-pressed="true"]{color:var(--sr-gold);border-color:rgba(223,204,104,.45)}
+.sr-btn[aria-pressed="true"]{color:#f5b54a;border-color:rgba(245,181,74,.45)}
 .sr-btn .dot{width:7px;height:7px;border-radius:50%;background:currentColor;
   box-shadow:0 0 8px currentColor}
-.sr-col{position:absolute;z-index:3;top:86px;display:flex;flex-direction:column;gap:12px}
+.sr-col{position:absolute;z-index:3;top:80px;display:flex;flex-direction:column;gap:10px}
 .sr-left{left:24px;width:262px}
 .sr-right{right:24px;width:316px}
-.sr-card{background:var(--sr-panel);border:1px solid var(--sr-edge);border-radius:12px;
-  padding:15px 17px;backdrop-filter:blur(14px) saturate(1.15)}
+.sr-card{border:1px solid transparent;border-radius:12px;padding:15px 17px;
+  background:linear-gradient(var(--sr-panel),var(--sr-panel)) padding-box,
+    linear-gradient(150deg,rgba(170,195,255,.34),rgba(170,195,255,.05) 38%,rgba(170,195,255,.03) 70%,rgba(245,181,74,.22)) border-box;
+  backdrop-filter:blur(14px) saturate(1.15);box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
 .sr-k{font-size:.76rem;color:var(--sr-ink-2);font-weight:600}
-.sr-big{font-size:1.9rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:6px;
-  color:var(--sr-ink)}
+.sr-big{font-size:1.9rem;font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-top:6px;
+  color:var(--sr-ink);background:linear-gradient(180deg,#ffffff 30%,#aebdf5);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .sr-big small{font-size:.95rem;font-weight:600;color:var(--sr-ink-2);margin-left:3px}
 .sr-sub{font-size:.74rem;color:var(--sr-ink-3);margin-top:4px;line-height:1.4}
-.sr-rows{margin:12px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:.78rem}
+.sr-split{display:flex;gap:2px;height:5px;margin-top:12px;border-radius:3px;overflow:hidden}
+.sr-split i{display:block;min-width:3px}
+.sr-rows{margin:11px 0 0;display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:.78rem}
 .sr-rows dt{color:var(--sr-ink-2)}
 .sr-rows dd{margin:0;text-align:right;font-weight:600}
 .sr-ring{display:flex;align-items:center;gap:14px;margin-top:8px}
 .sr-ring svg{flex:none}
-.sr-ring .trk{fill:none;stroke:rgba(160,178,255,.14);stroke-width:7}
-.sr-ring .val{fill:none;stroke:var(--sr-gold);stroke-width:7;stroke-linecap:round}
-.sr-ring text{fill:var(--sr-ink);font-size:15px;font-weight:700;text-anchor:middle}
+.sr-ringsvg line{stroke-width:2.4;stroke-linecap:round}
+.sr-ringsvg text{fill:var(--sr-ink);font-size:16px;font-weight:600;text-anchor:middle;letter-spacing:-.02em}
+.sr-dist{display:block;width:100%;height:92px}
+.sr-distwrap.mini{margin-top:10px}
+.sr-distwrap.mini .sr-dist{height:30px}
+.sr-dist rect{cursor:pointer;transition:fill .2s ease}
+.sr-dist rect:hover,.sr-dist rect.hl{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}
+.sr-axis{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:.68rem;color:var(--sr-ink-3)}
+.sr-axis span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-grad{gap:8px}
+.sr-grad b{display:inline-block;width:160px;height:7px;border-radius:4px;
+  box-shadow:0 0 12px -2px rgba(255,255,255,.25)}
+.sr-grad em{font-style:normal;color:var(--sr-ink-2)}
 /* selection card */
 .sr-sel{border-top:2px solid transparent;min-height:120px}
-.sr-sel.pinned{border-top-color:var(--sr-gold)}
+.sr-sel.pinned{box-shadow:0 0 0 1px rgba(245,181,74,.45),0 18px 40px -24px rgba(0,0,0,.8)}
 .sr-selhead{display:flex;gap:12px;align-items:center}
-.sr-selhead .fl{flex:none;width:52px;border-radius:3px;overflow:hidden;
+.sr-selhead .fl{flex:none;width:44px;border-radius:3px;overflow:hidden;
   box-shadow:0 0 0 1px rgba(255,255,255,.12)}
 .sr-selhead .fl svg{display:block;width:100%;height:auto}
 .sr-selhead h2{font-size:1.08rem;font-weight:700;margin:0;line-height:1.2;color:var(--sr-ink)}
 .sr-selhead p{margin:2px 0 0;font-size:.74rem;color:var(--sr-ink-2)}
 .sr-meter{position:relative;height:6px;border-radius:3px;background:rgba(160,178,255,.12);margin:7px 0 2px}
-.sr-meter i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--sr-gold)}
+.sr-meter i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
+  background:linear-gradient(90deg,#99402f,#f08a3a 55%,#ffe7a3);box-shadow:0 0 10px -1px rgba(240,138,58,.6)}
 .sr-meter b{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:var(--sr-ink-2)}
 .sr-meterlbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--sr-ink-3)}
-.sr-open{display:inline-flex;margin-top:13px;font-size:.78rem;font-weight:700;color:#0a1230;
-  background:var(--sr-gold);border-radius:999px;padding:7px 14px}
-.sr-open:hover{background:#efe08f}
+.sr-open{display:inline-flex;margin-top:10px;font-size:.78rem;font-weight:700;color:#1a0b05;
+  background:linear-gradient(100deg,#f08a3a,#f5b54a 60%,#ffe7a3);border-radius:999px;padding:7px 14px;
+  box-shadow:0 6px 18px -8px rgba(240,138,58,.9)}
+.sr-open:hover{filter:brightness(1.08)}
 .sr-hint{font-size:.78rem;color:var(--sr-ink-2);line-height:1.5;margin:6px 0 10px}
 /* bar lists (peoples, ranking) */
 .sr-bars{display:flex;flex-direction:column;gap:3px;margin-top:10px}
@@ -645,8 +674,11 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 button.sr-bar:hover{background:var(--sr-hi)}
 .sr-bar.off{opacity:.38}
 .sr-bar .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sr-ink-2)}
-.sr-bar .tr{height:8px;border-radius:0 4px 4px 0;background:rgba(160,178,255,.07);position:relative}
-.sr-bar .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0}
+.sr-bar .tr{height:6px;border-radius:3px;background:rgba(160,178,255,.07);position:relative}
+.sr-bar .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--c0),var(--c));box-shadow:2px 0 10px -1px var(--cg)}
+.sr-bar .tr i::after{content:"";position:absolute;right:0;top:-1px;bottom:-1px;width:2px;border-radius:2px;
+  background:#fff;opacity:.85}
 .sr-bar .v{text-align:right;font-weight:600}
 .sr-cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .sr-cardhead button{border:0;background:none;color:var(--sr-gold);font-size:.72rem;font-weight:600;padding:0}
@@ -660,7 +692,8 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .sr-legend i{width:11px;height:11px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(200,212,255,.18)}
 .sr-legend i.hatch{background:repeating-linear-gradient(45deg,var(--sr-red) 0 1.5px,transparent 1.5px 4px);
   box-shadow:inset 0 0 0 1px var(--sr-red)}
-.sr-legend i.light{border-radius:50%;background:radial-gradient(circle,#fff6d2 0,#dfcc68 35%,transparent 70%)}
+.sr-legend i.light{border-radius:50%;background:radial-gradient(circle,#fff6e0 0,#f08a3a 38%,transparent 72%)}
+.sr-srcs{color:var(--sr-ink-3);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
 .sr-src{position:absolute;z-index:3;right:24px;bottom:14px;font-size:.66rem;color:var(--sr-ink-3);
   text-align:right;max-width:300px;line-height:1.4}
 @media(max-width:1180px){
@@ -1418,7 +1451,7 @@ function vState(code){
 
 function vMap(){
   const T=srTotals(), r=srRange('gdp');
-  const ring=Math.round(T.eu), C=2*Math.PI*30;
+  const ring=Math.round(T.eu);
   return crumb([['Home','#/home'],['Map']])+`
   <section class="sr" id="sr" aria-label="Map of the Confederation">
     <div class="sr-stage" id="srStage" data-mode="${SR.mode}" tabindex="0"
@@ -1450,6 +1483,10 @@ function vMap(){
       <div class="sr-card">
         <div class="sr-k">Population</div>
         <div class="sr-big">${fmtN(T.pop)}</div>
+        <div class="sr-split" role="img" aria-label="Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, federal cities ${Math.round(100*T.by.F[1]/T.pop)}%, federal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%">
+          <i style="flex:${T.by.T[1]};background:linear-gradient(90deg,#2a3f9e,#4f7dff)"></i>
+          <i style="flex:${T.by.F[1]};background:linear-gradient(90deg,#f08a3a,#f5b54a)"></i>
+          <i style="flex:${T.by.M[1]};background:#ffe7a3"></i></div>
         <dl class="sr-rows">
           <dt>${T.by.T[0]} territorial states</dt><dd>${fmtN(T.by.T[1])}</dd>
           <dt>${T.by.F[0]} federal cities</dt><dd>${fmtN(T.by.F[1])}</dd>
@@ -1468,12 +1505,7 @@ function vMap(){
       <div class="sr-card">
         <div class="sr-k">GDP per capita</div>
         <div class="sr-ring">
-          <svg width="76" height="76" viewBox="0 0 76 76" role="img"
-            aria-label="${ring}% of the EU-27 average">
-            <circle class="trk" cx="38" cy="38" r="30"/>
-            <circle class="val" cx="38" cy="38" r="30" transform="rotate(-90 38 38)"
-              stroke-dasharray="${(C*Math.min(ring,100)/100).toFixed(1)} ${C.toFixed(1)}"/>
-            <text x="38" y="43">${ring}%</text></svg>
+          ${srRing(T.eu)}
           <div><div class="sr-big" style="font-size:1.45rem;margin:0">${fmtN(Math.round(T.gdp/100)*100)}<small>PPS</small></div>
             <div class="sr-sub">per inhabitant in 2023, ${ring}% of the EU-27 average</div></div>
         </div>
@@ -1488,8 +1520,6 @@ function vMap(){
       <div class="sr-card" id="srPeoples">${srPeoplesHTML()}</div>
     </div>
     <div class="sr-legend" id="srLegend">${srLegendHTML()}</div>
-    <div class="sr-src">Boundaries: GADM, geoBoundaries, Natural Earth. Population: national
-      censuses and registers. GDP: Eurostat regional accounts.</div>
   </section>`;
 }
 
@@ -2244,20 +2274,40 @@ const SR_CENTER=[20.6,43.6], SR_FROM=[-12,24];   // resting centre; where the in
 // simulation (orange / green, borders and labels carry it); legend pairs >= 16 ΔE.
 const SR_PEOPLE={slo:'#0794f8',hrv:'#f10f4f',srb:'#b53ddd',bos:'#0bd7d9',
   cng:'#eeda1b',mkd:'#ff8c00',bul:'#2fbf5b'};
-const SR_FED='#20246b', SR_STATE='#1b2a66', SR_CAPITAL='#dfcc68', SR_BAR='#8d9ce6';
+const SR_STATE='#1b2a66', SR_CAPITAL='#f5b54a';
+const SR_FED='#20246b';
 const srHex=k=>SR_PEOPLE[k]||SR_FED;
-const SR_RAMP={
-  gdp:{title:'GDP per capita, PPS, 2023',
-       hue:['#04425f','#0a658e','#128ac0','#11aef2','#82cefc','#cce9fc'],
-       cuts:[12000,15000,20000,25000,35000],
-       lbl:['under 12k','12–15k','15–20k','20–25k','25–35k','35k and over']},
-  dens:{title:'Inhabitants per km²',
-       hue:['#5d254f','#90347a','#c348a7','#e96bca','#fe9fe4','#fed7f1'],
-       cuts:[30,60,100,200,500],
-       lbl:['under 30','30–60','60–100','100–200','200–500','500 and over']}
+// Gradients drawn from the confederal colours: azur #374078 for the cool scale,
+// gueules #99402F to or #DFCC68 for the warm one (lightness rises step by step).
+const SR_COOL=['#1d2b72','#2a3f9e','#3a55c4','#4f7dff','#55b4ff','#b6e6ff'];
+const SR_WARM=['#5a1e16','#99402f','#d2602f','#f08a3a','#f5b54a','#ffe7a3'];
+const SR_SCALE={
+  states:{title:'Population',ramp:SR_COOL,log:true},
+  peoples:{title:'Population',ramp:SR_COOL,log:true},
+  gdp:{title:'GDP per capita, PPS, 2023',ramp:SR_WARM,log:true},
+  dens:{title:'Inhabitants per km²',ramp:SR_COOL,log:true}
 };
 let SRF=null, SRM=null;
-
+const srRgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const srHexOf=a=>'#'+a.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');
+const srA=(h,a)=>{const [r,g,b]=srRgb(h);return `rgba(${r},${g},${b},${a})`;};
+function srLerp(stops,t){
+  t=Math.max(0,Math.min(1,t));const n=stops.length-1,i=Math.min(n-1,Math.floor(t*n)),f=t*n-i;
+  const a=srRgb(stops[i]),b=srRgb(stops[i+1]);return srHexOf(a.map((v,k)=>v+(b[k]-v)*f));
+}
+const srDom={};
+function srT(code,mode){   // position of a value on the mode's scale, 0..1
+  const v=srVal(code,mode);if(v==null)return null;
+  if(!srDom[mode]){const r=srRange(mode);srDom[mode]=[r.minV,r.maxV];}
+  const [a,b]=srDom[mode],L=SR_SCALE[mode].log;
+  return L?(Math.log(v)-Math.log(a))/(Math.log(b)-Math.log(a)):(v-a)/(b-a);
+}
+function srTone(code,mode){  // the chart colour of an entity: its value on the gradient
+  mode=mode||SR.mode;const s=byCode(code)||{};
+  if(mode==='peoples')return s.t==='T'?srHex(s.p):SR_CAPITAL;
+  if(mode==='states')return s.t==='T'?srLerp(SR_COOL,.25+.75*(srT(code,'states')||0)):SR_CAPITAL;
+  const t=srT(code,mode);return t==null?'#1a2246':srLerp(SR_SCALE[mode].ramp,t);
+}
 function geoDecode(){
   if(SRF)return SRF;
   const q=GEO.q||1000;
@@ -2290,12 +2340,9 @@ function srVal(code,mode){
 }
 function srFill(code){
   const s=byCode(code)||{};
-  if(SR.mode==='states')return s.t==='T'?SR_STATE:SR_CAPITAL;
+  if(SR.mode==='states')return s.t==='T'?SR_STATE:'url(#srCap)';
   if(SR.mode==='peoples')return s.t==='T'?srHex(s.p):SR_FED;
-  const v=srVal(code,SR.mode),R=SR_RAMP[SR.mode];
-  if(v==null)return '#1a2246';
-  let i=0;while(i<R.cuts.length&&v>=R.cuts[i])i++;
-  return R.hue[i];
+  return srTone(code);
 }
 function srFmt(code,mode){
   const v=srVal(code,mode);
@@ -2320,28 +2367,58 @@ function srRange(mode){
     if(v<minV){minV=v;min=s;} if(v>maxV){maxV=v;max=s;}});
   return {min,max,minV,maxV};
 }
+function srShort(v,mode){
+  if(mode==='states'||mode==='peoples')return v>=1e6?(v/1e6).toFixed(2)+' M':fmtN(Math.round(v/1e3))+' k';
+  return fmtN(Math.round(v));
+}
+/* ---- charts ---- */
+// Ring of 60 ticks, lit along the warm gradient up to the value (EU-27 = 100 %).
+function srRing(pct,size){
+  size=size||84;const c=size/2,n=60,on=Math.round(n*Math.min(pct,100)/100),r0=c-11,r1=c-3;let t='';
+  for(let i=0;i<n;i++){const a=-Math.PI/2+2*Math.PI*i/n,
+      x0=c+r0*Math.cos(a),y0=c+r0*Math.sin(a),x1=c+r1*Math.cos(a),y1=c+r1*Math.sin(a);
+    const col=i<on?srLerp(SR_WARM.slice(1),i/Math.max(1,n-1)):'rgba(160,178,255,.14)';
+    t+=`<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${col}"/>`;}
+  return `<svg class="sr-ringsvg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img"
+    aria-label="${Math.round(pct)}% of the EU-27 average">${t}
+    <circle cx="${c}" cy="${c}" r="${r0-5}" fill="none" stroke="rgba(160,178,255,.12)"/>
+    <text x="${c}" y="${c+5}">${Math.round(pct)}%</text></svg>`;
+}
+// Every entity as one column, sorted by the active measure; the bottom fades out.
+function srDist(mode,hl,h){
+  h=h||92;const W=284,list=STATES.filter(s=>srVal(s.c,mode)!=null)
+    .sort((a,b)=>srVal(b.c,mode)-srVal(a.c,mode));
+  const n=list.length,gap=1.4,bw=(W-gap*(n-1))/n,top=srT(list[0].c,mode)||1;
+  const bars=list.map((s,i)=>{const t=srT(s.c,mode),bh=Math.max(3,(h-14)*(.12+.88*t)),
+      x=i*(bw+gap),y=h-bh,col=srTone(s.c,mode);
+    return `<rect data-c="${s.c}" x="${x.toFixed(2)}" y="${y.toFixed(1)}" width="${bw.toFixed(2)}" height="${bh.toFixed(1)}"
+      rx="1" fill="${col}" class="${s.c===hl?'hl':''}"><title>${esc(s.n)}, ${srShort(srVal(s.c,mode),mode)}</title></rect>`;}).join('');
+  const rank=hl?list.findIndex(s=>s.c===hl):-1;
+  const mark=rank>=0?(()=>{const x=rank*(bw+gap)+bw/2;
+    return `<path d="M${(x-3.5).toFixed(1)} 0H${(x+3.5).toFixed(1)}L${x.toFixed(1)} 5Z" fill="#ffe7a3"/>`;})():'';
+  return {n,rank,svg:`<svg class="sr-dist" viewBox="0 0 ${W} ${h}" preserveAspectRatio="none" role="img"
+    aria-label="${n} entities ranked by ${SR_SCALE[mode].title.toLowerCase()}">
+    <defs><linearGradient id="srFadeG${h}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".18"/></linearGradient>
+      <mask id="srFade${h}"><rect width="${W}" height="${h}" fill="url(#srFadeG${h})"/></mask></defs>
+    <g mask="url(#srFade${h})">${bars}</g>${mark}
+    <line x1="0" y1="${h-.5}" x2="${W}" y2="${h-.5}" stroke="rgba(160,178,255,.25)"/></svg>`};
+}
 /* ---- panels ---- */
 function srSelHTML(code){
-  const s=code&&byCode(code);
+  const s=code&&byCode(code), m=SR.mode==='peoples'?'states':SR.mode;
+  const title={states:'Population',gdp:'GDP per capita',dens:'Density'}[m];
   if(!s){
-    const rank=[...STATES].filter(x=>srVal(x.c,SR.mode)!=null)
-      .sort((a,b)=>srVal(b.c,SR.mode)-srVal(a.c,SR.mode)).slice(0,5);
-    const top=srVal(rank[0].c,SR.mode)||1;
-    const pop=SR.mode==='states'||SR.mode==='peoples';
-    const title=pop?'Most populous':{gdp:'Highest GDP per capita',dens:'Most densely populated'}[SR.mode];
-    const fmt=v=>pop?(v/1e6).toFixed(2)+' M':fmtN(Math.round(v));
-    return `<div class="sr-k">${title}</div>
-      <p class="sr-hint">Hover a state to see its figures, click to pin it.</p>
-      <div class="sr-bars">${rank.map(x=>{const v=srVal(x.c,SR.mode);
-        return `<button class="sr-bar" onclick="srPin('${x.c}',true)">
-          <span class="nm">${esc(x.n)}</span>
-          <span class="tr"><i style="width:${(100*v/top).toFixed(1)}%;background:${SR.mode==='states'?SR_BAR:srFill(x.c)}${x.t!=='T'&&SR.mode==='peoples'?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
-          <span class="v">${fmt(v)}</span></button>`;}).join('')}</div>`;
+    const d=srDist(m,null),r=srRange(m);
+    return `<div class="sr-cardhead"><div class="sr-k">${title}, all ${d.n} entities</div></div>
+      <div class="sr-distwrap" data-mode="${m}">${d.svg}</div>
+      <div class="sr-axis"><span>${esc(r.max.n)} ${srShort(r.maxV,m)}</span><span>${esc(r.min.n)} ${srShort(r.minV,m)}</span></div>
+      <p class="sr-hint">Hover a state or a column to see its figures, click to pin it.</p>`;
   }
   const st=STATS[s.c]||{}, fed=s.t!=='T';
   const who=fed?(s.t==='F'?'Federal city':'Federal municipality'):PEUPLES[s.p].en;
   const dens=st.population&&st.area?Math.round(st.population/st.area):null;
-  const eu=st.gdp_eu, scale=160;
+  const eu=st.gdp_eu, scale=160, d=srDist(m,s.c,30);
   return `<div class="sr-selhead"><div class="fl">${flagSVG(s)}</div>
       <div><h2>${esc(s.n)}</h2><p>${s.c}, ${who}</p></div></div>
     <dl class="sr-rows">
@@ -2354,14 +2431,16 @@ function srSelHTML(code){
       <i style="width:${Math.min(100,100*eu/scale).toFixed(1)}%"></i>
       <b style="left:${(100*100/scale).toFixed(1)}%"></b></div>
       <div class="sr-meterlbl"><span>${eu}% of the EU-27 average</span><span>EU = 100</span></div>`:''}
+    ${d.rank>=0?`<div class="sr-distwrap mini" data-mode="${m}">${d.svg}</div>
+      <div class="sr-meterlbl"><span>Rank ${d.rank+1} of ${d.n}</span><span>${title}</span></div>`:''}
     <a class="sr-open" href="#/state/${s.c}">Open state page</a>`;
 }
 function srPeoplesHTML(){
   const sum={},fedSum=STATES.filter(s=>s.t!=='T').reduce((a,s)=>a+((STATS[s.c]||{}).population||0),0);
   STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
   const opt=SR.mode==='peoples';   // colours only when the people option is on
-  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):SR_BAR,sum[k]||0]);
-  rows.push(['fed','Federal entities',opt?SR_FED:SR_CAPITAL,fedSum]);
+  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):'#4f7dff',sum[k]||0]);
+  rows.push(['fed','Federal entities',opt?SR_FED:'#f5b54a',fedSum]);
   const max=Math.max(...rows.map(r=>r[3]));
   return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
       ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
@@ -2369,24 +2448,27 @@ function srPeoplesHTML(){
       `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" aria-pressed="${SR.filter===k}"
         onclick="srFilter('${k}')" title="Show only the ${esc(n.toLowerCase())} on the map">
         <span class="nm">${esc(n)}</span>
-        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;background:${c}${k==='fed'&&opt?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
+        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;--c:${c};--c0:${srA(c,.08)};--cg:${srA(c,.55)}"></i></span>
         <span class="v">${(v/1e6).toFixed(1)} M</span></button>`).join('')}</div>`;
 }
 function srLegendHTML(){
   let h='';
   if(SR.mode==='states'){
     h=`<span><i style="background:${SR_STATE};box-shadow:inset 0 0 0 1px rgba(150,172,255,.7)"></i>Territorial states</span>`+
-      `<span><i style="background:${SR_CAPITAL}"></i>Federal cities and municipalities</span>`;
+      `<span><i style="background:radial-gradient(circle at 35% 35%,#ffe7a3,#f08a3a 60%,#99402f)"></i>Federal cities and municipalities</span>`;
   }else if(SR.mode==='peoples'){
     h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${p.en}</span>`).join('')+
       `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
   }else{
-    const R=SR_RAMP[SR.mode];
-    h=`<span style="color:var(--sr-ink)">${R.title}</span>`+
-      R.hue.map((c,i)=>`<span><i style="background:${c}"></i>${R.lbl[i]}</span>`).join('');
+    const S=SR_SCALE[SR.mode],r=srRange(SR.mode);
+    h=`<span style="color:var(--sr-ink)">${S.title}</span>
+      <span class="sr-grad"><em>${srShort(r.minV,SR.mode)}</em>
+        <b style="background:linear-gradient(90deg,${S.ramp.join(',')})"></b>
+        <em>${srShort(r.maxV,SR.mode)}</em></span>`;
   }
   h+=`<span><i class="hatch"></i>Occupied territories</span>`;
   if(SR.lights)h+=`<span><i class="light"></i>One light per municipality</span>`;
+  h+=`<span class="sr-srcs" tabindex="0" title="Boundaries: GADM, geoBoundaries, Natural Earth. Population: national censuses and registers. GDP: Eurostat regional accounts, 2023.">Sources</span>`;
   return h;
 }
 /* ---- engine ---- */
@@ -2404,7 +2486,15 @@ function initMap(){
       <stop offset="1" stop-color="#050b20"/></radialGradient>
     <filter id="srBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
     <pattern id="srHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="6" stroke="#d4644f" stroke-width="1.6" opacity=".8"/></pattern></defs>`;
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#d4644f" stroke-width="1.6" opacity=".8"/></pattern>
+    <pattern id="srDots" width="4.5" height="4.5" patternUnits="userSpaceOnUse">
+      <circle cx="2.25" cy="2.25" r=".62" fill="#cfdcff" fill-opacity=".26"/></pattern>
+    <linearGradient id="srSheen" x1="0" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#b9cdff" stop-opacity=".22"/><stop offset=".42" stop-color="#b9cdff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#02040f" stop-opacity=".42"/></linearGradient>
+    <radialGradient id="srCap" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#ffe7a3"/>
+      <stop offset=".55" stop-color="#f08a3a"/><stop offset="1" stop-color="#99402f"/></radialGradient>
+    <clipPath id="srClip"><path id="srClipPath"/></clipPath></defs>`;
   const el={halo:mk('path','sr-halo',svg),sphere:mk('path','sr-sphere',svg),grat:mk('path','sr-grat',svg)};
   const gFar=mk('g','',svg);
   const far=F.far.map(f=>[mk('path','sr-far',gFar),f]);
@@ -2423,14 +2513,19 @@ function initMap(){
     return [p,f];});
   const occ=F.occupied.map(f=>[mk('path','sr-occbase',svg),f]).concat(
     F.occupied.map(f=>[mk('path','sr-occ',svg),f]));
+  // texture of the territory: a light sheen and a fine dot screen, clipped to the states
+  const tex=mk('g','sr-tex',svg,{'clip-path':'url(#srClip)'});
+  mk('rect','',tex,{width:'100%',height:'100%',fill:'url(#srSheen)'});
+  mk('rect','sr-dots',tex,{width:'100%',height:'100%',fill:'url(#srDots)'});
+  const clipPath=svg.querySelector('#srClipPath');
   el.limb=mk('path','sr-limb',svg);
   const hov=mk('path','sr-hover',over), pin=mk('path','sr-pin',over);
   const lbls=F.fed.map(f=>{const c=f.properties.c,s=byCode(c)||{};
     const t=mk('text','sr-flbl',over);t.textContent=s.k||c;return [t,GEO.pts[c]];});
   const sprite=document.createElement('canvas');sprite.width=sprite.height=64;
   {const x=sprite.getContext('2d'),g=x.createRadialGradient(32,32,0,32,32,32);
-    g.addColorStop(0,'rgba(255,250,228,1)');g.addColorStop(.12,'rgba(255,238,178,.95)');
-    g.addColorStop(.35,'rgba(223,204,104,.38)');g.addColorStop(1,'rgba(223,204,104,0)');
+    g.addColorStop(0,'rgba(255,248,226,1)');g.addColorStop(.12,'rgba(255,214,150,.95)');
+    g.addColorStop(.36,'rgba(240,138,58,.34)');g.addColorStop(1,'rgba(240,138,58,0)');
     x.fillStyle=g;x.fillRect(0,0,64,64);}
   const L=(LIGHTS&&LIGHTS.p)||[], lq=(LIGHTS&&LIGHTS.q)||1000, lights=[];
   for(let i=0;i<L.length;i+=3)lights.push([L[i]/lq,L[i+1]/lq,L[i+2]]);
@@ -2474,6 +2569,7 @@ function initMap(){
     put(far);put(land);
     el.borders.setAttribute('d',path(F.borders)||'');
     put(regs);put(occ);
+    clipPath.setAttribute('d',regs.map(([p])=>p.getAttribute('d')||'').join(''));
     const zoomed=M.k/M.kFit;
     lbls.forEach(([t,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
       const xy=ok&&proj(ll);t.style.display=xy?'':'none';
@@ -2537,6 +2633,12 @@ function initMap(){
     else if(e.key==='-')zoomAt(1/1.3,c[0],c[1]);
     else if(e.key==='0')M.fitView();
     else if(e.key==='Escape')srPin(null);};
+  const room=document.getElementById('sr');
+  room.addEventListener('mouseover',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
+    if(r)srHover(r.dataset.c,true);});
+  room.addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest('.sr-dist rect'))srHover(null,true);});
+  room.addEventListener('click',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
+    if(r)srPin(r.dataset.c,true);});
   document.getElementById('srZin').onclick=()=>zoomAt(1.4,M.w/2,M.h/2);
   document.getElementById('srZout').onclick=()=>zoomAt(1/1.4,M.w/2,M.h/2);
   document.getElementById('srFit').onclick=M.fitView;
@@ -2589,9 +2691,13 @@ function srTip(code,x,y){
   t.innerHTML=`${esc(s.n||code)}<span>${code}, ${srFmt(code,SR.mode)}</span>`;
   t.style.left=x+'px';t.style.top=y+'px';t.classList.add('show');
 }
-function srHover(code){
+function srHover(code,fromChart){
   if(SR.hover===code)return;SR.hover=code;srOutline();
-  if(!SR.pin){const c=document.getElementById('srSel');if(c)c.innerHTML=srSelHTML(code);}
+  const c=document.getElementById('srSel');if(!c)return;
+  // over the map: the card shows the state; over a column: the column lights up
+  if(fromChart)c.querySelectorAll('.sr-dist rect').forEach(r=>
+    r.classList.toggle('hl',r.dataset.c===code||r.dataset.c===SR.pin));
+  else if(!SR.pin)c.innerHTML=srSelHTML(code);
 }
 function srPin(code,keep){
   SR.pin=code&&(keep||SR.pin!==code)?code:null;
