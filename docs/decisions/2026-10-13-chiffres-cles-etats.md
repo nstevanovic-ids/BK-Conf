@@ -59,4 +59,5 @@ Superficie après raccord des contours le 2026-10-14 ; elle était de 357 015 km
   2026-10-13-zagreb-turopolje (Turopolje et Stupnik à ZG-94, Bistra à ZA-45).
 - ~~Istočni Stari Grad dans le contour de SA-92~~ : résolu par l'ADR 2026-10-13-sarajevo-est
   (qui rattache aussi Istočna Ilidža et Istočno Novo Sarajevo à PZ-28).
-- PIB par habitant : toujours en attente.
+- ~~PIB par habitant : toujours en attente~~ : résolu par l'ADR 2026-10-14-pib-par-habitant
+  (Eurostat 2023, SPA, NUTS 3 pondéré par la population).
