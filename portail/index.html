@@ -344,7 +344,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .peoples{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .pp{background:var(--white);padding:15px 12px;text-align:center}
-.pp .pp-bar{height:4px;width:30px;margin:0 auto 9px;border-radius:2px}
 .pp b{font-family:var(--font);font-size:.97rem;display:block;color:var(--ink)}
 .pp span{font-size:.7rem;color:var(--ink-3)}
 
@@ -564,6 +563,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sr-reg{stroke:rgba(5,8,24,.92);stroke-width:.9;stroke-linejoin:round;cursor:pointer;
   transition:fill .35s ease,opacity .25s ease}
 .sr-reg.fed{stroke:var(--sr-gold);stroke-width:.9}
+.sr-stage[data-mode="states"] .sr-reg{stroke:rgba(140,165,255,.62);stroke-width:.8}
+.sr-stage[data-mode="states"] .sr-reg.fed{stroke:#fff3b0;stroke-width:1}
 .sr-reg.muni{stroke-dasharray:3 2}
 .sr-reg.dim{opacity:.16}
 .sr-reg:focus{outline:none}
@@ -1122,7 +1123,6 @@ function flagSVG(s){
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
     `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
-  const pu=PEUPLES[s.p];
   if(TRI[s.p]){const t=TRI[s.p];
    return `<svg ${v}><rect width="90" height="20" fill="${t[0]}"/><rect y="20" width="90" height="20" fill="${t[1]}"/>`+
     `<rect y="40" width="90" height="20" fill="${t[2]}"/>${roundel(s.k)}</svg>`;}
@@ -1133,7 +1133,7 @@ function flagSVG(s){
   if(s.p==='mkd'){let ray='';for(let i=0;i<8;i++){const a=i*Math.PI/4;
      ray+=`<path d="M45 30L${45+44*Math.cos(a)} ${30+44*Math.sin(a)}" stroke="#e7d4a4" stroke-width="4"/>`;}
    return `<svg ${v}><rect width="90" height="60" fill="#c8312b"/>${ray}${roundel(s.k)}</svg>`;}
-  return `<svg ${v}><rect width="90" height="60" fill="${pu.hex}"/>${roundel(s.k)}</svg>`;
+  return `<svg ${v}><rect width="90" height="60" fill="#374078"/>${roundel(s.k)}</svg>`;
 }
 /*__FLAGNOTE__*/
 function plateSVG(s){
@@ -1147,31 +1147,6 @@ function plateSVG(s){
    `font-weight="600" fill="#1b2030" letter-spacing="2">${s.k} · 000 · A</text></svg>`;
 }
 
-/* ============================================================
-   CARTOGRAM (schematic, superseded by the GADM layer)
-   ============================================================ */
-function cartogram(highlight){
-  const TS=44,GAP=7,cell=TS+GAP;
-  let mc=0,mr=0; STATES.forEach(s=>{mc=Math.max(mc,s.g[0]);mr=Math.max(mr,s.g[1]);});
-  const W=(mc+1)*cell+GAP,H=(mr+1)*cell+GAP;
-  let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img">`;
-  STATES.forEach(st=>{
-    const x=st.g[0]*cell+GAP,y=st.g[1]*cell+GAP;
-    const dim=highlight&&highlight!==st.c?' dim':'';
-    const hit=highlight===st.c;
-    const isC=st.t!=='T';
-    const acc=st.p==='fed'?'#3a4663':PEUPLES[st.p].hex;
-    const fill=hit?'#eef0f5':'#ffffff';
-    const dash=st.t==='M'?' stroke-dasharray="5 3"':'';
-    s+=`<g class="tile${dim}" onclick="go('#/state/${st.c}')"><title>${st.n} (${st.c})</title>`;
-    s+=`<rect x="${x}" y="${y}" width="${TS}" height="${TS}" rx="${isC?TS/2:3}" `+
-       `fill="${fill}" stroke="${hit?'#1f2742':'#d0d2d8'}" stroke-width="${hit?2.6:1.3}"${dash}/>`;
-    if(!isC) s+=`<rect x="${x}" y="${y}" width="${TS}" height="3.2" fill="${acc}"/>`;
-    s+=`<text x="${x+TS/2}" y="${y+TS/2+4.5}" text-anchor="middle" `+
-       `fill="${hit?'#1f2742':'#545b6c'}">${st.k}</text></g>`;
-  });
-  return s+'</svg>';
-}
 
 /* ============================================================
    VIEWS
@@ -1446,7 +1421,7 @@ function vMap(){
   const ring=Math.round(T.eu), C=2*Math.PI*30;
   return crumb([['Home','#/home'],['Map']])+`
   <section class="sr" id="sr" aria-label="Map of the Confederation">
-    <div class="sr-stage" id="srStage" tabindex="0"
+    <div class="sr-stage" id="srStage" data-mode="${SR.mode}" tabindex="0"
       aria-label="Map of the Confederation. Drag to move, scroll or press plus and minus to zoom, 0 to fit.">
       <div class="sr-layers" id="srLayers">
         <svg id="srSvg"></svg>
@@ -1459,7 +1434,7 @@ function vMap(){
       <div class="sr-title"><h1>Map of the Confederation</h1>
         <p>45 states, 4 federal cities and 2 federal municipalities</p></div>
       <div class="sr-seg" role="group" aria-label="Colour the states by">
-        ${[['peoples','Peoples'],['gdp','GDP per capita'],['dens','Density']].map(([m,l])=>
+        ${[['states','States'],['gdp','GDP per capita'],['dens','Density'],['peoples','Peoples']].map(([m,l])=>
           `<button data-m="${m}" class="${SR.mode===m?'on':''}" aria-pressed="${SR.mode===m}"
             onclick="srMode('${m}')">${l}</button>`).join('')}
       </div>
@@ -1741,7 +1716,6 @@ function vIdentity(){
     <div class="h2row"><h2>Seven constituent peoples</h2></div>
     <div class="peoples">
       ${Object.values(PEUPLES).map(p=>`<div class="pp">
-        <div class="pp-bar" style="background:${p.hex}"></div>
         <b>${p.name}</b><span>${p.en}</span></div>`).join('')}
     </div>
   </section>`;
@@ -1961,7 +1935,7 @@ function vDashboard(){
     <div class="panel">
       ${Object.values(PEUPLES).map(p=>`<div class="barrow">
         <span class="bl">${p.en}</span>
-        <span class="bt"><span class="bf" style="width:0%;background:${p.hex}"></span></span>
+        <span class="bt"><span class="bf" style="width:0%"></span></span>
         <span class="bv">·</span></div>`).join('')}
       <div class="barrow"><span class="bl">Unaffiliated</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
@@ -2052,7 +2026,7 @@ const SB_PAGES=[
  ['Home','Overview of the Confederation','#/home'],
  ['States & territories','Directory of the 49 states','#/states'],
  ['Autonomous communities','24 recognised minority communities','#/autonomy'],
- ['Interactive map','Territorial cartogram','#/map'],
+ ['Interactive map','Globe of the Confederation, key figures by state','#/map'],
  ['Institutions','The four federal institutions','#/institutions'],
  ['Constitution','Constitutional corpus','#/constitution'],
  ['Official journal','Latest confederal decisions','#/journal'],
@@ -2080,7 +2054,7 @@ function buildIndex(){
       hay:(a.n+' '+a.id+' '+a.com+' '+(h?h.n:'')).toLowerCase(),iconText:'◇'});});
   Object.entries(PEUPLES).forEach(([k,p])=>{
     idx.push({type:'Constituent peoples',label:p.en,sub:p.name+' · '+(STD[p.std]||''),
-      hash:'#/identity',hay:(p.en+' '+p.name+' '+k).toLowerCase(),iconDot:p.hex});});
+      hash:'#/identity',hay:(p.en+' '+p.name+' '+k).toLowerCase(),iconText:'○'});});
   ALPHA.forEach(a=>{
     idx.push({type:'Alphabet',label:a[0],sub:'IPA '+a[1],hash:'#/alphabet',
       hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0]});});
@@ -2261,17 +2235,17 @@ window.addEventListener('scroll',()=>{
    MAP, satellite view of the Confederation (d3-geo, vendored)
    geo.json v2 : lon/lat rings, 1/q degree, delta-encoded
    ============================================================ */
-const SR={mode:'peoples',lights:true,filter:null,pin:null,hover:null,intro:false};
+const SR={mode:'states',lights:true,filter:null,pin:null,hover:null,intro:false};
 const SR_CENTER=[20.6,43.6], SR_FROM=[-12,24];   // resting centre; where the intro starts
-// Map palette for the dark screen: each people keeps its hue family (canon colours in
-// peuples.json stay for the light pages), pushed to full intensity. Checked with the
-// data-viz validator on the real neighbours of the map: worst neighbour pair 24 ΔE in
-// normal vision, 7.1 under colour-blindness simulation (orange / green, borders and
-// labels carry the difference); every pair in the legend at least 16 ΔE.
+// The peoples carry no colour code (ADR 2026-10-14-pas-de-code-couleur-peuples). By
+// default the states share one confederal tone; colouring by people is only an
+// option of this map. Option palette checked with the data-viz validator on the real
+// neighbours: worst neighbour pair 24 ΔE in normal vision, 7.1 under colour-blindness
+// simulation (orange / green, borders and labels carry it); legend pairs >= 16 ΔE.
 const SR_PEOPLE={slo:'#0794f8',hrv:'#f10f4f',srb:'#b53ddd',bos:'#0bd7d9',
   cng:'#eeda1b',mkd:'#ff8c00',bul:'#2fbf5b'};
-const SR_FED='#20246b';
-const srHex=k=>SR_PEOPLE[k]||(PEUPLES[k]||{}).hex||SR_FED;
+const SR_FED='#20246b', SR_STATE='#1b2a66', SR_CAPITAL='#dfcc68', SR_BAR='#8d9ce6';
+const srHex=k=>SR_PEOPLE[k]||SR_FED;
 const SR_RAMP={
   gdp:{title:'GDP per capita, PPS, 2023',
        hue:['#04425f','#0a658e','#128ac0','#11aef2','#82cefc','#cce9fc'],
@@ -2316,6 +2290,7 @@ function srVal(code,mode){
 }
 function srFill(code){
   const s=byCode(code)||{};
+  if(SR.mode==='states')return s.t==='T'?SR_STATE:SR_CAPITAL;
   if(SR.mode==='peoples')return s.t==='T'?srHex(s.p):SR_FED;
   const v=srVal(code,SR.mode),R=SR_RAMP[SR.mode];
   if(v==null)return '#1a2246';
@@ -2352,14 +2327,15 @@ function srSelHTML(code){
     const rank=[...STATES].filter(x=>srVal(x.c,SR.mode)!=null)
       .sort((a,b)=>srVal(b.c,SR.mode)-srVal(a.c,SR.mode)).slice(0,5);
     const top=srVal(rank[0].c,SR.mode)||1;
-    const title={peoples:'Most populous',gdp:'Highest GDP per capita',dens:'Most densely populated'}[SR.mode];
-    const fmt=v=>SR.mode==='peoples'?(v/1e6).toFixed(2)+' M':fmtN(Math.round(v));
+    const pop=SR.mode==='states'||SR.mode==='peoples';
+    const title=pop?'Most populous':{gdp:'Highest GDP per capita',dens:'Most densely populated'}[SR.mode];
+    const fmt=v=>pop?(v/1e6).toFixed(2)+' M':fmtN(Math.round(v));
     return `<div class="sr-k">${title}</div>
       <p class="sr-hint">Hover a state to see its figures, click to pin it.</p>
       <div class="sr-bars">${rank.map(x=>{const v=srVal(x.c,SR.mode);
         return `<button class="sr-bar" onclick="srPin('${x.c}',true)">
           <span class="nm">${esc(x.n)}</span>
-          <span class="tr"><i style="width:${(100*v/top).toFixed(1)}%;background:${srFill(x.c)}${x.t!=='T'&&SR.mode==='peoples'?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
+          <span class="tr"><i style="width:${(100*v/top).toFixed(1)}%;background:${SR.mode==='states'?SR_BAR:srFill(x.c)}${x.t!=='T'&&SR.mode==='peoples'?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
           <span class="v">${fmt(v)}</span></button>`;}).join('')}</div>`;
   }
   const st=STATS[s.c]||{}, fed=s.t!=='T';
@@ -2383,8 +2359,9 @@ function srSelHTML(code){
 function srPeoplesHTML(){
   const sum={},fedSum=STATES.filter(s=>s.t!=='T').reduce((a,s)=>a+((STATS[s.c]||{}).population||0),0);
   STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
-  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,srHex(k),sum[k]||0]);
-  rows.push(['fed','Federal entities',SR_FED,fedSum]);
+  const opt=SR.mode==='peoples';   // colours only when the people option is on
+  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):SR_BAR,sum[k]||0]);
+  rows.push(['fed','Federal entities',opt?SR_FED:SR_CAPITAL,fedSum]);
   const max=Math.max(...rows.map(r=>r[3]));
   return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
       ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
@@ -2392,12 +2369,15 @@ function srPeoplesHTML(){
       `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" aria-pressed="${SR.filter===k}"
         onclick="srFilter('${k}')" title="Show only the ${esc(n.toLowerCase())} on the map">
         <span class="nm">${esc(n)}</span>
-        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;background:${c}${k==='fed'?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
+        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;background:${c}${k==='fed'&&opt?';box-shadow:inset 0 0 0 1px #dfcc68':''}"></i></span>
         <span class="v">${(v/1e6).toFixed(1)} M</span></button>`).join('')}</div>`;
 }
 function srLegendHTML(){
   let h='';
-  if(SR.mode==='peoples'){
+  if(SR.mode==='states'){
+    h=`<span><i style="background:${SR_STATE};box-shadow:inset 0 0 0 1px rgba(150,172,255,.7)"></i>Territorial states</span>`+
+      `<span><i style="background:${SR_CAPITAL}"></i>Federal cities and municipalities</span>`;
+  }else if(SR.mode==='peoples'){
     h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${p.en}</span>`).join('')+
       `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
   }else{
@@ -2585,7 +2565,8 @@ function srLightsDraw(){
   x.globalCompositeOperation='lighter';
   // light size follows the zoom and the size of the map on screen (phone vs desktop)
   const rel=Math.max(.45,Math.min(1.25,M.kFit*.22/760));
-  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,dim=SR.mode==='peoples'?.8:.5;
+  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,
+    dim={states:1,peoples:.8}[SR.mode]||.5;
   for(const [lon,lat,pop] of M.lights){
     if(d3.geoDistance([lon,lat],ctr)>M.clip-.02)continue;
     const p=M.proj([lon,lat]);if(!p)continue;
@@ -2620,6 +2601,8 @@ function srPin(code,keep){
 }
 function srMode(m){
   SR.mode=m;
+  const st=document.getElementById('srStage');if(st)st.dataset.mode=m;
+  const pc=document.getElementById('srPeoples');if(pc)pc.innerHTML=srPeoplesHTML();
   document.querySelectorAll('.sr-seg button').forEach(b=>{const on=b.dataset.m===m;
     b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
   if(SRM)SRM.regs.forEach(([p])=>{p.style.fill=srFill(p.dataset.c);});
@@ -2648,7 +2631,7 @@ function miniGeo(code){
   const path=d3.geoPath(proj).digits(1);
   const land=F.land.map(f=>path(f)).filter(Boolean).map(d=>`<path class="mm-land" d="${d}"/>`).join('');
   const regs=F.states.concat(F.fed).map(f=>{const c=f.properties.c,hit=c===code,s=byCode(c)||{};
-    const col=hit?(s.t==='T'&&PEUPLES[s.p]?PEUPLES[s.p].hex:'#3a4663'):'';
+    const col=hit?'#374078':'';
     return `<path class="mm-reg${hit?' mm-hit':''}" d="${path(f)||''}"${hit?` style="fill:${col};fill-opacity:1"`:''}/>`;});
   const hitIdx=regs.findIndex(r=>r.includes('mm-hit'));
   if(hitIdx>=0)regs.push(regs.splice(hitIdx,1)[0]);

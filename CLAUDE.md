@@ -93,6 +93,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Ne pas confondre identité « Balkan » et identité linguistique « sud-slave »
 - Ne pas proposer d'étoile rouge à 5 branches
 - Ne pas appliquer l'écriture inclusive
+- Ne pas attribuer de code couleur aux peuples (seule exception : l'option « Peoples »
+  de la carte) ; cf. ADR 2026-10-14-pas-de-code-couleur-peuples.md
 - Ne pas poser de question de clarification une fois les principes validés :
   proposer une solution et rédiger entièrement
 
