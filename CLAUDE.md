@@ -51,7 +51,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
-- Cartes GADM → scripts/gen_geo.py (contours d'États + fond de carte → geo.json)
+- Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
+  recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
+  scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json,
+  échoue s'il reste un trou ou un recouvrement) ; cf. ADR 2026-10-14-raccord-carte.md
 
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)

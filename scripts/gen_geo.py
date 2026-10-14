@@ -4,22 +4,30 @@ gen_geo.py — build portail/data/geo.json from the per-state GeoJSON files.
 
 Inputs (portail/data/):
   - one <CODE>.geojson per territorial state (e.g. BA-01.geojson), each a
-    FeatureCollection of its constituent GADM municipalities.
-  - etats.json (for the code <-> people mapping and seat list).
+    FeatureCollection of its constituent municipalities;
+  - one <CODE>.geojson per federal city / municipality (BG-91, SA-92, …);
+  - the occupied-territory files;
+  - etats.json (code <-> people mapping).
 
 Output:
-  - portail/data/geo.json : { w, h, land[], states[], pts{} }
-    * land   : neighbouring-country outlines (context), from Natural Earth
-    * states : one dissolved + simplified, pre-projected SVG path per state
-    * pts    : projected seat coordinates (for federal-city / municipality markers)
+  - portail/data/geo.json : { w, h, land[], states[], fed[], occupied[], pts{} }
+    * land     : neighbouring-country outlines (context), from Natural Earth
+    * states   : one dissolved, pre-projected SVG path per state
+    * fed      : same for the federal cities and municipalities
+    * occupied : hatched overlays, tied to their parent state
+    * pts      : projected label points of the federal units
 
-Everything is projected with the SAME equirectangular transform so the layers
-align. Run after adding or updating any state GeoJSON, then rebuild the portal.
+All layers form ONE coverage: they are projected together, cleaned with
+shapely.coverage_clean (residual slivers merged, overlaps removed) and
+simplified with shapely.coverage_simplify, which simplifies each shared border
+once. Neighbouring entities therefore keep identical borders: no gap, no
+overlap. The source contours must first be reconciled (scripts/raccord_contours.py).
 
+    python scripts/raccord_contours.py   # only after changing a source contour
     python scripts/gen_geo.py
     python scripts/build_portail.py --inline
 """
-import json, glob, re, math, os, sys, urllib.request
+import json, re, math, os, sys, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -36,7 +44,6 @@ W = 1000.0
 SX = W / ((LON1 - LON0) * COSM)
 H = (LAT1 - LAT0) * SX
 
-# Neighbouring countries kept as light context behind the states.
 # Neighbouring (non-member) countries drawn as light context behind the states.
 # Member countries are NOT listed here: their territory is covered by the state
 # polygons, so including their outlines would double the borders.
@@ -45,52 +52,60 @@ CONTEXT = {
     "Slovakia", "Moldova", "Ukraine",
 }
 
-# Real seat coordinates (lon, lat) for every state, including the federal
-# cities and municipalities that have no territorial polygon.
+# Label points (lon, lat) of the federal cities and municipalities.
 SEATS = {
-    "BA-01": (17.19, 44.77), "BC-02": (19.85, 45.25), "BN-03": (20.39, 45.38),
-    "BR-04": (18.61, 45.77), "BS-05": (17.66, 44.23), "BZ-06": (15.87, 44.81),
-    "CG-07": (19.26, 42.44), "CM-08": (27.91, 43.21), "DA-09": (16.44, 43.51),
-    "DJ-10": (27.83, 43.57), "DR-11": (18.09, 42.65), "GV-12": (13.65, 45.96),
-    "HZ-13": (17.59, 43.38), "HI-14": (18.34, 42.71), "IS-15": (13.85, 44.87),
-    "KJ-16": (15.08, 46.51), "KM-17": (21.16, 42.66), "KR-18": (14.51, 46.05),
-    "KV-19": (14.44, 45.33), "LG-20": (26.52, 43.53), "LK-21": (15.37, 44.55),
-    "MI-22": (25.97, 43.85), "MZ-23": (24.62, 43.42), "PI-24": (19.29, 43.78),
-    "PM-25": (16.17, 46.66), "PO-26": (20.93, 44.66), "PR-27": (23.09, 42.02),
-    "PZ-28": (19.22, 44.76), "RO-29": (24.75, 42.14), "RS-30": (20.51, 43.14),
-    "SI-31": (19.61, 44.98), "SL-32": (18.69, 45.55), "SP-33": (23.03, 42.61),
-    "ST-34": (15.65, 46.55), "SU-35": (20.92, 44.01), "SX-36": (26.32, 42.68),
-    "SZ-37": (18.99, 45.35), "TK-38": (22.28, 43.90), "TL-39": (22.59, 43.15),
-    "TR-40": (25.64, 42.43), "VI-41": (22.20, 41.74), "VZ-42": (20.97, 42.01),
-    "ZA-43": (15.87, 46.16),
-    "BG-91": (20.46, 44.81), "SA-92": (18.41, 43.86), "SF-93": (23.32, 23.32),
+    "BG-91": (20.46, 44.81), "SA-92": (18.41, 43.86), "SF-93": (23.32, 42.70),
     "ZG-94": (15.98, 45.81), "BK-95": (18.81, 44.87), "MO-96": (17.81, 43.34),
 }
-SEATS["SF-93"] = (23.32, 42.70)  # correct Sofia latitude
+
+# Occupied territories (hatched overlays) and the letters of their parent state.
+OCCUPIED = {
+    "KJ-16_Occupied-territories.geojson": "KJ",
+    "KM-17_Occupied-territories.geojson": "KM",
+    "Occupied_Beneska-Slovenija_GO-12.geojson": "GV",
+}
+# States with a non-numeric provisional code carry their own file name.
+EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
+
+GAP_PX = 3.0       # coverage_clean : slivers narrower than this (~4 km) are merged
+SIMPLIFY_PX = 0.9  # coverage_simplify tolerance (projected pixels)
+MIN_LAND_PX2 = 6   # context islands smaller than this are dropped
 
 
 def proj(lon, lat):
     return ((lon - LON0) * COSM * SX, (LAT1 - lat) * SX)
 
 
-def ring_path(coords):
-    return "M" + " ".join(
-        f"{proj(x, y)[0]:.1f},{proj(x, y)[1]:.1f}" for x, y in coords) + "Z"
+def xy_path(coords):
+    pts, last = [], None
+    for x, y in coords:
+        p = (round(x, 1), round(y, 1))
+        if p != last:
+            pts.append(p)
+            last = p
+    if len(pts) < 4:
+        return ""
+    return "M" + " ".join(f"{x:g},{y:g}" for x, y in pts[:-1]) + "Z"
 
 
-def geom_path(geom):
+def proj_path(geom, min_px2=0.0):
+    """SVG path of an already projected (multi)polygon; rings oriented so that
+    holes stay empty with the default nonzero fill rule."""
+    import shapely
+    from shapely.geometry.polygon import orient
     paths = []
-    polys = list(geom.geoms) if geom.geom_type == "MultiPolygon" else [geom]
-    for poly in polys:
-        if poly.is_empty:
+    for poly in shapely.get_parts(geom):
+        if poly.geom_type != "Polygon" or poly.is_empty or poly.area < min_px2:
             continue
-        paths.append(ring_path(poly.exterior.coords))
-        for inr in poly.interiors:
-            paths.append(ring_path(inr.coords))
+        poly = orient(poly, 1.0)
+        rings = [xy_path(poly.exterior.coords)] + [xy_path(r.coords) for r in poly.interiors]
+        paths += [r for r in rings if r]
     return " ".join(paths)
 
 
-def context_land():
+def context_countries():
+    """Neighbouring countries from Natural Earth 50m, clipped to the window."""
+    from shapely.geometry import box, shape
     override = os.environ.get("NE_GEOJSON")
     if override and Path(override).exists():
         NE_CACHE.write_bytes(Path(override).read_bytes())
@@ -111,144 +126,112 @@ def context_land():
             sys.exit(f"Could not fetch Natural Earth data ({last}). "
                      f"Set NE_GEOJSON=/path/to/ne_50m_admin_0_countries.geojson")
     ne = json.loads(NE_CACHE.read_text())
-    land = []
+    win = box(LON0 - 1, LAT0 - 1, LON1 + 1, LAT1 + 1)
+    out = {}
     for f in ne["features"]:
         nm = f["properties"].get("ADMIN") or f["properties"].get("NAME")
-        if nm not in CONTEXT:
-            continue
-        g = f["geometry"]
-        polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
-        parts = []
-        for poly in polys:
-            for ring in poly:
-                pr = [proj(x, y) for x, y in ring]
-                area = abs(sum(pr[i][0] * pr[i + 1][1] - pr[i + 1][0] * pr[i][1]
-                               for i in range(len(pr) - 1))) / 2
-                if area < 6:
-                    continue
-                pts, last = [], None
-                for lon, lat in ring:
-                    x, y = proj(lon, lat)
-                    p = (round(x, 1), round(y, 1))
-                    if p != last:
-                        pts.append(p)
-                        last = p
-                if len(pts) >= 3:
-                    parts.append("M" + " ".join(f"{x},{y}" for x, y in pts) + "Z")
-        if parts:
-            land.append({"n": nm, "d": " ".join(parts)})
-    return land
-
-
-def fill_slivers(geom, max_deg2=1.2e-5):
-    """Supprime les trous minuscules (< ~0,1 km²) laissés par la fusion de
-    contours de sources différentes ; les vraies enclaves sont bien plus grandes."""
-    from shapely.geometry import Polygon, MultiPolygon
-    polys = list(geom.geoms) if geom.geom_type == "MultiPolygon" else [geom]
-    out = [Polygon(p.exterior, [r for r in p.interiors if Polygon(r).area >= max_deg2])
-           for p in polys]
-    return out[0] if len(out) == 1 else MultiPolygon(out)
+        if nm in CONTEXT:
+            g = shape(f["geometry"]).buffer(0).intersection(win)
+            if not g.is_empty:
+                out[nm] = g
+    return out
 
 
 def main():
     try:
+        import numpy as np
+        import shapely
         from shapely.geometry import shape
         from shapely.ops import unary_union
     except ImportError:
-        sys.exit("shapely is required: pip install shapely")
+        sys.exit("shapely >= 2.1 and numpy are required: pip install shapely numpy")
 
     et = json.loads((DATA / "etats.json").read_text())
     by_k = {s["k"]: s for s in et}
 
     def dissolve(fp):
         fc = json.loads(fp.read_text())
-        geoms = [shape(f["geometry"]).buffer(0)
-                 for f in fc["features"] if f.get("geometry")]
-        return fill_slivers(unary_union(geoms)).simplify(0.008, preserve_topology=True)
+        return unary_union([shape(f["geometry"]).buffer(0)
+                            for f in fc["features"] if f.get("geometry")])
 
-    # Occupied territories: hatched overlays tied to their parent state.
-    OCCUPIED = {
-        "KJ-16_Occupied-territories.geojson": "KJ-16",
-        "KM-17_Occupied-territories.geojson": "KM-17",
-        "Occupied_Beneska-Slovenija_GO-12.geojson": "GV-12",
-    }
-
-    # States with a non-numeric provisional code carry their own file name.
-    EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO",
-             "VB-VRHBOSNA.geojson": "VB"}
-
-    states = []
+    # 1. Every cell of the coverage, in lon/lat: (layer, meta, geometry)
+    cells = []
     for fp in sorted(DATA.glob("*.geojson")):
         m = re.match(r"^([A-Z]{2})-\d+\.geojson$", fp.name)
         k = m.group(1) if m else EXTRA.get(fp.name)
-        if not k or k not in by_k:
-            continue  # skip autonomous / occupied / special-zone files
-        st = by_k[k]
-        if st["t"] != "T":
-            continue  # federal cities / municipalities are handled as `fed`
-        states.append({"c": st["c"], "k": st["k"], "p": st["p"],
-                       "d": geom_path(dissolve(fp))})
-
-    occupied = []
-    for fname, parent in OCCUPIED.items():
+        st = by_k.get(k)
+        if st and st["t"] == "T":
+            cells.append(("states", {"c": st["c"], "k": st["k"], "p": st["p"]}, dissolve(fp)))
+    for st in et:
+        fp = DATA / f"{st['c']}.geojson"
+        if st["t"] != "T" and fp.exists():
+            cells.append(("fed", {"c": st["c"]}, dissolve(fp)))
+    for fname, k in OCCUPIED.items():
         fp = DATA / fname
-        if fp.exists():
-            occupied.append({"parent": parent, "d": geom_path(dissolve(fp))})
+        if fp.exists() and k in by_k:
+            cells.append(("occupied", {"parent": by_k[k]["c"]}, dissolve(fp)))
+    members = unary_union([g for _, _, g in cells])
+    ne = context_countries()
+    land0 = len(cells)
+    for nm, g in ne.items():
+        cells.append(("land", {"n": nm}, g.difference(members).buffer(0)))
+    # Natural Earth (1:50m) and the member contours do not meet exactly: the
+    # gaps between them (e.g. along the Danube) go to the neighbouring country.
+    allu = unary_union([g for _, _, g in cells])
+    for ring in [r for p in shapely.get_parts(allu) for r in p.interiors]:
+        hole = shapely.Polygon(ring)
+        probe = hole.buffer(0.002)
+        i = max(range(len(cells)), key=lambda k: (k >= land0,
+                cells[k][2].boundary.intersection(probe).length))
+        if cells[i][2].boundary.intersection(probe).length == 0:
+            continue
+        layer, meta, g = cells[i]
+        cells[i] = (layer, meta, unary_union([g, hole]).buffer(0))
 
+    # 2. Project, clean the coverage, simplify shared borders once
+    def to_px(a):
+        return np.column_stack(((a[:, 0] - LON0) * COSM * SX, (LAT1 - a[:, 1]) * SX))
+    geoms = shapely.transform(np.array([g for _, _, g in cells], dtype=object), to_px)
+    geoms = shapely.coverage_clean(geoms, gap_width=GAP_PX)
+    geoms = shapely.coverage_simplify(geoms, SIMPLIFY_PX)
+    geoms = shapely.make_valid(geoms)
+
+    # 3. Control: no overlap between cells, no hole inside the land mass
+    all_px = shapely.union_all(geoms)
+    holes = [h for p in shapely.get_parts(all_px) for h in p.interiors
+             if shapely.Polygon(h).area > 0.05]
+    tree = shapely.STRtree(geoms)
+    overlap = 0.0
+    for i, j in zip(*tree.query(geoms, predicate="intersects")):
+        if i < j:
+            overlap += shapely.area(shapely.intersection(geoms[i], geoms[j]))
+
+    # 4. Layers. Under an occupied territory, the land of the country holding it.
+    out = {"states": [], "fed": [], "occupied": []}
+    land_px = {}
+    for (layer, meta, _), g in zip(cells, geoms):
+        if layer == "land":
+            land_px[meta["n"]] = g
+        else:
+            out[layer].append({**meta, "d": proj_path(g)})
+    for (layer, meta, g0), g in zip(cells, geoms):
+        if layer == "occupied":
+            host = max(ne, key=lambda n: ne[n].intersection(g0).area, default=None)
+            if host and ne[host].intersection(g0).area > 0.5 * g0.area:
+                land_px[host] = shapely.union(land_px[host], g)
+    land = [{"n": n, "d": proj_path(g, MIN_LAND_PX2)} for n, g in land_px.items()]
     pts = {c: [round(proj(lon, lat)[0], 1), round(proj(lon, lat)[1], 1)]
            for c, (lon, lat) in SEATS.items()}
 
-    # Federal cities / municipalities: real polygons from Natural Earth admin-1.
-    # (Mostar has no admin-1 unit and no boundary in the supplied data: it keeps
-    #  its seat marker as a fallback.)
-    NE1_FED = {
-        ("Republic of Serbia", "Grad Beograd"): "BG-91",
-        ("Croatia", "Grad Zagreb"): "ZG-94",
-        ("Bulgaria", "Grad Sofiya"): "SF-93",
-        ("Bosnia and Herzegovina", "Brčko Distrikt"): "BK-95",
-        ("Bosnia and Herzegovina", "Sarajevo"): "SA-92",
-    }
-    fed_map = {}
-    ne1_path = os.environ.get("NE_ADMIN1")
-    if not (ne1_path and Path(ne1_path).exists()):
-        cache = Path(os.environ.get("TMPDIR", "/tmp")) / "ne_10m_admin_1.geojson"
-        if not cache.exists():
-            url = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
-                   "master/geojson/ne_10m_admin_1_states_provinces.geojson")
-            try:
-                with urllib.request.urlopen(url, timeout=120) as r:
-                    data = r.read()
-                if data.lstrip().startswith(b"{"):
-                    cache.write_bytes(data)
-            except Exception as e:  # noqa: BLE001
-                print(f"  (admin-1 download failed: {e}; federal polygons skipped)")
-        ne1_path = str(cache) if cache.exists() else None
-    if ne1_path and Path(ne1_path).exists():
-        ne1 = json.loads(Path(ne1_path).read_text())
-        for f in ne1["features"]:
-            p = f["properties"]
-            code = NE1_FED.get((p.get("admin"), p.get("name") or p.get("name_en")))
-            if code:
-                g = shape(f["geometry"]).buffer(0).simplify(0.004,
-                                                            preserve_topology=True)
-                fed_map[code] = geom_path(g)
-    # Local federal polygon files (e.g. MO-96.geojson) override / complete NE1.
-    for s in et:
-        if s["t"] != "T":
-            lf = DATA / f"{s['c']}.geojson"
-            if lf.exists():
-                fed_map[s["c"]] = geom_path(dissolve(lf))
-    fed = [{"c": c, "d": d} for c, d in fed_map.items()]
-
-    out = {"w": round(W, 1), "h": round(H, 1), "land": context_land(),
-           "states": states, "fed": fed, "occupied": occupied, "pts": pts}
-    (DATA / "geo.json").write_text(
-        json.dumps(out, ensure_ascii=False, separators=(",", ":")))
+    res = {"w": round(W, 1), "h": round(H, 1), "land": [l for l in land if l["d"]],
+           "states": out["states"], "fed": out["fed"], "occupied": out["occupied"], "pts": pts}
+    (DATA / "geo.json").write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")))
     kb = (DATA / "geo.json").stat().st_size / 1024
-    print(f"geo.json: {len(states)} states, {len(fed)} federal polygons, "
-          f"{len(occupied)} occupied, {len(out['land'])} context countries, "
-          f"{kb:.1f} kB")
+    print(f"geo.json: {len(res['states'])} states, {len(res['fed'])} federal polygons, "
+          f"{len(res['occupied'])} occupied, {len(res['land'])} context countries, {kb:.1f} kB")
+    print(f"control: {len(holes)} hole(s) inside the territory, overlaps {overlap:.3f} px²")
+    return 0 if not holes and overlap < 1 else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
