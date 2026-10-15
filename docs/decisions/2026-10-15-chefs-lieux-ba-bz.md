@@ -20,6 +20,11 @@ dans Bosanska Krajina.
 - **BA-01 Bosanska Krajina** : chef-lieu **Bihać**.
 - **BZ-05 Zapadna Bosna** : chef-lieu **Baña Luka**. Graphie v3 : Бања → Baña.
 
+## Vrhbosna
+**VB-42 Vrhbosna : chef-lieu Zenica**, confirmé par l'utilisateur le 2026-10-15. Une
+note antérieure du projet indiquait Visoko ; Zenica fait foi. Le canon et les données
+portaient déjà Zenica.
+
 ## Propagation
 - `docs/canon/etats.md` et `portail/data/etats.json` sont corrigés.
 - Le portail est régénéré : fiches d'État, annuaire et recherche.

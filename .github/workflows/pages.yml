@@ -3,8 +3,7 @@ name: Deploy portal to GitHub Pages
 on:
   push:
     branches:
-      - main
-      - claude/jolly-fermi-wkwak0
+      - main   # seule branche publiée (cf. CLAUDE.md, « Branche de référence »)
     paths:
       - "portail/**"
       - "scripts/build_portail.py"

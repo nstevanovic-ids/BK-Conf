@@ -92,7 +92,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
   docs/decisions/2026-06-28-suppression-srednja-bosna.md.
 
 > 2026-10-15 : chefs-lieux de BA-01 (Bihać) et BZ-05 (Baña Luka) remis dans le bon
-> ordre ; cf. ADR docs/decisions/2026-10-15-chefs-lieux-ba-bz.md.
+> ordre ; chef-lieu de VB-42 Vrhbosna confirmé : Zenica ; cf. ADR docs/decisions/2026-10-15-chefs-lieux-ba-bz.md.
 
 > L'Article 1 bis de la Constitution v4 (docs/constitution/v4.md) est aligné
 > sur cette liste : 49 États (45 territoriaux + 4 villes-États), plus les

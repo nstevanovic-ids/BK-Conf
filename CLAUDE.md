@@ -57,6 +57,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
   en lon/lat pour d3-geo, échoue s'il reste un trou ou un recouvrement) ;
   cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md
 
+## Branche de référence
+- **`main`** est la seule branche publiée (GitHub Pages, `.github/workflows/pages.yml`).
+  Tout travail part de `main` dans une branche `claude/…`, puis revient par PR sur `main`.
+- `claude/jolly-fermi-wkwak0` (ancienne branche de déploiement) est alignée sur `main`
+  le 2026-10-15 et n'est plus publiée.
+
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
