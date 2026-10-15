@@ -27,10 +27,13 @@ docs/
 portail/
   index.html               Template SPA (HTML + CSS + JS de rendu)
   data/*.json              Source de vérité des données du portail
+  favicon.ico              Icône d'onglet 16/32/48 (généré par gen_favicon.py)
+  apple-touch-icon.png     Icône écran d'accueil iOS 180 px (généré)
   assets/                  Drapeaux et symboles (build)
 scripts/
   encode_drapeaux.py       Pipeline d'encodage des drapeaux
   build_portail.py         Assemblage du portail final
+  gen_favicon.py           Favicon + apple-touch-icon depuis le lion ailé (BK-CoA.png)
   gen_map.py               Générateur de cartes SVG (GADM) — à venir
 images-sources/            Uploads bruts, jamais modifiés
 ```
