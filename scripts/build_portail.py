@@ -72,7 +72,6 @@ def build_inline() -> int:
         src = src.replace(tag, f"<script>\n{code}\n</script>")
     # Embed the licensed Zurich font files as base64 so the single file is
     # fully self-contained (font url(fonts/...) -> data URI).
-    import base64
     fonts_dir = PORTAIL / "fonts"
     for woff in ("zurich-regular.woff2", "zurich-bold.woff2"):
         fp = fonts_dir / woff
