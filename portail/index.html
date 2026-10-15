@@ -1057,12 +1057,12 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .regpanel .dtable td:first-child{width:34%}
 .idcards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .idcard{position:relative;margin:0;aspect-ratio:856/540;border-radius:3.74% / 5.93%;overflow:hidden;
-  box-shadow:0 1px 2px rgba(20,24,40,.12),0 22px 46px rgba(20,24,40,.18);
+  box-shadow:0 1px 2px rgba(20,24,40,.10),0 14px 34px rgba(20,24,40,.13);
   transition:transform .25s ease;will-change:transform}
 .idcard svg{width:100%;height:100%;display:block}
-.idcard .holo{position:absolute;inset:0;pointer-events:none;mix-blend-mode:color-dodge;opacity:.32;
-  background:linear-gradient(115deg,transparent 22%,rgba(255,80,170,.55) 34%,rgba(80,220,255,.55) 44%,
-    rgba(255,236,90,.55) 54%,rgba(140,255,170,.45) 62%,transparent 74%);
+.idcard .holo{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.55;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,214,236,.7) 40%,rgba(206,236,255,.7) 48%,
+    rgba(255,246,200,.7) 56%,transparent 66%);
   background-size:260% 260%;background-position:var(--hx,30%) var(--hy,30%)}
 .idactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
 @media(prefers-reduced-motion:no-preference){
@@ -1070,6 +1070,42 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   .idcard:hover .holo{animation:none}
 }
 @keyframes holo{from{background-position:10% 20%}to{background-position:90% 80%}}
+.privacy{margin-top:16px;border:1px solid var(--line-2);border-radius:2px;background:var(--surface-2);padding:0 16px}
+.privacy summary{cursor:pointer;padding:12px 0;font-size:.82rem;font-weight:700;color:var(--ink-2)}
+.privacy p{font-size:.8rem;color:var(--ink-2);line-height:1.6;margin:0 0 12px}
+.privacy a{color:var(--navy);border-bottom:1px solid var(--line-3)}
+.tsbox{margin-top:16px;min-height:0}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,16px);z-index:200;max-width:min(560px,calc(100vw - 32px));
+  background:var(--indigo);color:#fff;font-size:.86rem;font-weight:600;padding:12px 18px;border-radius:3px;
+  box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+:root{--viz:#3a4cc0;--viz-track:#e9ebf3}
+[data-theme="dark"]{--viz:#6f82ee;--viz-track:#232a3d}
+.kpis.k4{grid-template-columns:repeat(4,1fr)}
+.kpi .kn small{font-size:.5em;color:var(--ink-3);font-weight:600}
+.vpanel{padding:18px 18px 8px}
+.vdaily{width:100%;height:auto;display:block;overflow:visible}
+.vdaily .vgrid{stroke:var(--line);stroke-width:1}
+.vdaily .vbase{stroke:var(--line-3);stroke-width:1}
+.vdaily .vax{font-size:11px;fill:var(--ink-3)}
+.vdaily .vcol{fill:var(--viz)}
+.vdaily .vhit:hover .vcol{opacity:.75}
+.vbar{display:grid;grid-template-columns:minmax(0,190px) 1fr 56px;gap:12px;align-items:center;padding:7px 0;
+  border-bottom:1px solid var(--line);font-size:.84rem;outline:none}
+.vbar:last-child{border-bottom:none}
+.vbar:focus-visible{box-shadow:inset 3px 0 0 var(--gold)}
+.vbar .vl{font-weight:600;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vbar .vl small{font-weight:500;color:var(--ink-3)}
+.vbar .vt{height:12px;background:var(--viz-track);border-radius:0 4px 4px 0;overflow:hidden}
+.vbar .vt i{display:block;height:100%;background:var(--viz);border-radius:0 4px 4px 0;min-width:0}
+.vbar .vv{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+.vtip{position:absolute;z-index:150;pointer-events:none;opacity:0;background:var(--surface);color:var(--ink);
+  border:1px solid var(--line-2);box-shadow:var(--shadow-lg);font-size:.78rem;font-weight:600;padding:6px 10px;
+  border-radius:2px;transition:opacity .12s ease;white-space:nowrap}
+.vtable{margin-top:18px}
+.vtable summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--ink-2);padding:6px 0}
+@media(max-width:960px){.kpis.k4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.vbar{grid-template-columns:minmax(0,1fr) 40% 44px}}
 @media(max-width:1100px){.steps.s5{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:960px){
   .reg{grid-template-columns:1fr;gap:18px}
@@ -1455,7 +1491,7 @@ function vHome(){
           Sabor. The live counter activates with the participatory platform.</p>
           <div class="membercount" style="font-size:2.6rem;font-weight:700;
             color:var(--indigo);line-height:1">0</div>
-          <div class="note">Registered citizens</div>
+          <div class="note membernote">Registered citizens</div>
           <a class="btn btn-ghost" style="margin-top:16px" href="#/dashboard">Membership dashboard</a>
         </div>
       </div>
@@ -2089,44 +2125,107 @@ function vParticipation(){
     <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
       ${cur?`<a class="btn btn-primary" href="#/citizen">My citizen card</a>
              <a class="btn btn-ghost" href="#/register">Amend my registration</a>`
-           :`<a class="btn btn-primary" href="#/register">Begin registration</a>`}
+           :`<a class="btn btn-primary" href="#/register">Begin registration</a>
+             ${apiOn()?'<a class="btn btn-ghost" href="#/access">Already a citizen? Get a link to your card</a>':''}`}
       <a class="btn btn-ghost" href="#/dashboard">Membership dashboard</a>
     </div>
-    <div class="notice">Registration is open in prototype form: the card is issued in your browser
-    with a provisional number. The participatory platform, consultations, debates, citizen proposals
-    and votes, runs on Decidim. At its opening the confederal register confirms each card and links
-    it to a platform account, with the state and the national register as verified attributes.</div>
+    <div class="notice">${apiOn()?`Registration is open. You confirm your e-mail address, the confederal register
+    issues your card with its definitive number and sends it to you. The participatory platform, consultations,
+    debates, citizen proposals and votes, will run on Decidim, with your card as the key to your account.`
+    :`Registration is open in prototype form: the card is issued in your browser with a provisional number.
+    When the confederal register opens, each card is confirmed by e-mail and receives its definitive number.
+    The participatory platform will run on Decidim.`}</div>
   </section>`;
 }
 
+let STATS_LIVE=null,STATS_AT=0;
+async function statsLoad(){
+  if(!apiOn())return null;
+  if(STATS_LIVE&&Date.now()-STATS_AT<60000)return STATS_LIVE;
+  const r=await api('GET','/v1/stats');
+  if(r.ok){STATS_LIVE=r.data;STATS_AT=Date.now();}
+  return STATS_LIVE;
+}
+// fmtN (en-GB thousands) is defined with the state figures below.
+function vizBars(rows,max){
+  return rows.map(([lab,v,sub])=>`<div class="vbar" tabindex="0" data-tip="${esc(lab)}: ${fmtN(v)}">
+    <span class="vl">${esc(lab)}${sub?` <small>${esc(sub)}</small>`:''}</span>
+    <span class="vt"><i style="width:${max?(100*v/max).toFixed(2):0}%"></i></span>
+    <span class="vv">${fmtN(v)}</span></div>`).join('');
+}
+function vizDaily(daily){
+  const days=[],m=new Map(daily);
+  for(let k=89;k>=0;k--){const d=new Date(Date.now()-k*864e5).toISOString().slice(0,10);days.push([d,m.get(d)||0]);}
+  const max=Math.max(1,...days.map(d=>d[1])),W=900,H=180,pl=34,pb=22,bw=(W-pl)/90;
+  const nice=max<=4?max:Math.ceil(max/4)*4,ticks=[0,nice/2,nice].filter((v,i,a)=>a.indexOf(v)===i);
+  const y=v=>H-pb-(H-pb-10)*v/nice;
+  let g=ticks.map(t=>`<line x1="${pl}" x2="${W}" y1="${y(t)}" y2="${y(t)}" class="vgrid"/><text x="${pl-6}" y="${y(t)+4}" class="vax" text-anchor="end">${fmtN(t)}</text>`).join('');
+  const cols=days.map(([d,v],k)=>{const x=pl+k*bw+bw*.18,w=Math.max(2,bw*.64),h=H-pb-y(v);
+    const r=Math.min(4,w/2,h);
+    const path=v?`<path class="vcol" d="M${x} ${H-pb}V${y(v)+r}q0 -${r} ${r} -${r}h${w-2*r}q${r} 0 ${r} ${r}V${H-pb}Z"/>`:'';
+    return `<g class="vhit" data-tip="${dmy(d)}: ${fmtN(v)} registration${v===1?'':'s'}"><rect x="${pl+k*bw}" y="0" width="${bw}" height="${H-pb}" fill="transparent"/>${path}</g>`;}).join('');
+  const lab=[0,30,60,89].map(k=>`<text x="${pl+k*bw+bw/2}" y="${H-6}" class="vax" text-anchor="middle">${dmy(days[k][0]).slice(0,5)}</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" class="vdaily" role="img" aria-label="Daily confirmed registrations over the last 90 days">${g}
+    <line x1="${pl}" x2="${W}" y1="${H-pb}" y2="${H-pb}" class="vbase"/>${cols}${lab}</svg>`;
+}
+function vizTip(root){
+  const tip=document.getElementById('vTip')||Object.assign(document.createElement('div'),{id:'vTip',className:'vtip'});
+  if(!tip.parentNode)document.body.appendChild(tip);
+  root.querySelectorAll('[data-tip]').forEach(el=>{
+    const show=e=>{tip.textContent=el.getAttribute('data-tip');tip.style.opacity=1;
+      const r=el.getBoundingClientRect();const x=e&&e.clientX?e.clientX:r.left+r.width/2;
+      tip.style.left=Math.min(innerWidth-tip.offsetWidth-8,Math.max(8,x-tip.offsetWidth/2))+'px';
+      tip.style.top=(r.top+scrollY-tip.offsetHeight-8)+'px';};
+    el.addEventListener('pointermove',show);el.addEventListener('focus',()=>show());
+    el.addEventListener('pointerleave',()=>tip.style.opacity=0);el.addEventListener('blur',()=>tip.style.opacity=0);
+  });
+}
+async function dashMount(){
+  const box=document.getElementById('dashLive');if(!box)return;
+  const S=await statsLoad();
+  if(!S){box.innerHTML=`<div class="notice">${apiOn()?'The confederal register cannot be reached at the moment.':'The dashboard activates when the confederal register opens. Figures will be published per state and per people, updated every minute.'}</div>`;return;}
+  const peo=Object.entries(PEUPLES).map(([k,p])=>[p.en,S.peoples[k]||0,p.name]);
+  peo.push(['No register',S.peoples.none||0,'']);
+  const st=Object.entries(S.states).map(([c,n])=>{const s=byCode(c);return[s?s.n:c,n,c];}).sort((a,b)=>b[1]-a[1]);
+  const pmax=Math.max(0,...peo.map(r=>r[1])),smax=Math.max(0,...st.map(r=>r[1]));
+  box.innerHTML=`<div class="kpis k4">
+      <div class="kpi"><div class="kn">${fmtN(S.total)}</div><div class="kl">Registered citizens</div></div>
+      <div class="kpi"><div class="kn">${fmtN(S.last30)}</div><div class="kl">Registrations · last 30 days</div></div>
+      <div class="kpi"><div class="kn">${Object.keys(S.states).filter(c=>(byCode(c)||{}).t!=='M').length}<small> / ${STATES.filter(s=>s.t!=='M').length}</small></div><div class="kl">States represented</div></div>
+      <div class="kpi"><div class="kn">${S.total?Math.round(100*S.abroad/S.total):0}<small> %</small></div><div class="kl">Registered from abroad</div></div>
+    </div>
+    <section class="section"><div class="h2row"><h2>Confirmed registrations, last 90 days</h2></div>
+      <div class="panel vpanel">${vizDaily(S.daily||[])}</div></section>
+    <section class="section"><div class="split2">
+      <div><div class="h2row"><h2>By national register</h2></div><div class="panel">${vizBars(peo,pmax)}</div>
+        <p class="note" style="margin-top:8px">Enrolment is voluntary (Art. 102); citizens without a register vote for the Kongres only.</p></div>
+      <div><div class="h2row"><h2>By state of attachment</h2></div><div class="panel">${st.length?vizBars(st.map(r=>[r[0],r[1],r[2]]),smax):'<p class="note">No registration yet.</p>'}</div></div>
+    </div>
+    <details class="vtable"><summary>Show the figures as a table</summary>
+      <table class="dtable"><tr><td>Total</td><td>${fmtN(S.total)}</td></tr>
+      ${st.map(r=>`<tr><td>${esc(r[0])} (${esc(r[2])})</td><td>${fmtN(r[1])}</td></tr>`).join('')}
+      ${peo.map(r=>`<tr><td>${esc(r[0])}</td><td>${fmtN(r[1])}</td></tr>`).join('')}</table></details>
+    <p class="note" style="margin-top:14px">Confirmed registrations only. Updated ${esc(new Date(S.updated).toLocaleString('en-GB'))}.</p></section>`;
+  vizTip(box);
+}
+async function homeCount(){
+  const el=document.querySelector('#app .membercount');if(!el)return;
+  const S=await statsLoad();if(!S)return;
+  const n=document.querySelector('#app .membernote');if(n)n.textContent='Registered citizens · updated every minute';
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=fmtN(S.total);return;}
+  const t0=performance.now(),tot=S.total;
+  const step=t=>{const k=Math.min(1,(t-t0)/900);el.textContent=fmtN(Math.round(tot*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
 function vDashboard(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Dashboard']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Transparency</div>
     <h1>Membership dashboard</h1>
-    <p class="lead">A public, real-time view of confederal digital citizenship, registered citizens by people and by state, with historical series.</p>
+    <p class="lead">A public view of confederal digital citizenship: confirmed registrations by
+    national register and by state, with the daily series. Totals only, never individual records.</p>
   </section>
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="kpis">
-      <div class="kpi"><div class="kn">·</div><div class="kl">Registered citizens</div></div>
-      <div class="kpi"><div class="kn">·</div><div class="kl">Registrations · last 30 days</div></div>
-      <div class="kpi"><div class="kn">·</div><div class="kl">States represented</div></div>
-    </div>
-  </section>
-  <section class="section reveal">
-    <div class="h2row"><h2>Breakdown by constituent people</h2></div>
-    <div class="panel">
-      ${Object.values(PEUPLES).map(p=>`<div class="barrow">
-        <span class="bl">${p.en}</span>
-        <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">·</span></div>`).join('')}
-      <div class="barrow"><span class="bl">Unaffiliated</span>
-        <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">·</span></div>
-    </div>
-    <div class="notice">The dashboard activates with the registration system. Figures
-    will be published per state and per people, updated in real time.</div>
-  </section>`;
+  <section class="section" style="padding-top:8px" id="dashLive"><p class="note">Loading the figures…</p></section>`;
 }
 
 /* ============================================================
@@ -2149,6 +2248,47 @@ function citLoad(){
 }
 function citSave(c){CIT_MEM=c;try{localStorage.setItem(CIT_KEY,JSON.stringify(c));}catch(e){}}
 function citClear(){CIT_MEM=null;try{localStorage.removeItem(CIT_KEY);}catch(e){}}
+
+/* --- confederal register API (registre/, Cloudflare Worker). Config :
+   portail/data/registre.json ; empty "api" = local prototype mode. --- */
+const apiOn=()=>!!(REGISTRE&&REGISTRE.api);
+const EMAIL_RE=/^[^\s@<>()",;:]{1,64}@[A-Za-z0-9.-]{1,190}\.[A-Za-z]{2,24}$/;
+async function api(method,path,body,token){
+  const h={};
+  if(body!==undefined)h['Content-Type']='application/json';
+  if(token)h.Authorization='Bearer '+token;
+  let r;
+  try{r=await fetch(REGISTRE.api.replace(/\/$/,'')+path,
+    {method,headers:h,body:body===undefined?undefined:JSON.stringify(body)});}
+  catch(e){return{ok:false,status:0,data:{message:'The confederal register cannot be reached. Check your connection and try again.'}};}
+  let data={};
+  if(r.status!==204){try{data=await r.json();}catch(e){}}
+  return{ok:r.ok,status:r.status,data:data||{}};
+}
+const remoteCit=()=>{const c=citLoad();return c&&c.remote&&c.access&&apiOn()?c:null;};
+let TS_LOAD=null;
+function tsLoad(){
+  if(window.turnstile)return Promise.resolve();
+  if(!TS_LOAD)TS_LOAD=new Promise((ok,ko)=>{const sc=document.createElement('script');
+    sc.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';sc.async=true;
+    sc.onload=ok;sc.onerror=()=>{TS_LOAD=null;ko();};document.head.appendChild(sc);});
+  return TS_LOAD;
+}
+async function tsMount(id,cb){
+  const el=document.getElementById(id);
+  if(!el||!REGISTRE.turnstileSiteKey)return;
+  try{await tsLoad();el.innerHTML='';
+    window.turnstile.render(el,{sitekey:REGISTRE.turnstileSiteKey,callback:cb,
+      'expired-callback':()=>cb(''),'error-callback':()=>cb(''),
+      theme:document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'});}
+  catch(e){el.innerHTML='<div class="err">The anti-robot check could not load. Check your connection or allow challenges.cloudflare.com for this page.</div>';}
+}
+const tsToken=v=>REGISTRE.turnstileSiteKey?v:(v||'dev');
+function toast(msg){
+  let t=document.getElementById('bkToast');
+  if(!t){t=document.createElement('div');t.id='bkToast';t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),5200);
+}
 
 /* --- text helpers : unified alphabet v3, search folding, ICAO 9303 --- */
 const CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','ѓ':'đ','е':'e','ж':'ž','з':'z',
@@ -2257,50 +2397,75 @@ const CARD_AUTH='Konfederalni registar državljana · Zagreb';
 const natForm=c=>{const p=PEUPLES[c.people];
   return c.people!=='none'&&p?(c.sex==='F'?p.f:p.m):'';};
 
-/* --- citizen card, ID-1 (85.6 x 54 mm), drawn at 856 x 540 ------------- */
+/* --- citizen card, ID-1 (85.6 x 54 mm), drawn at 856 x 540 -------------
+   Register : French CNI 2021 / Swiss ID 2023. Pale security ground, fine
+   guilloche, typographic header without a band, lion watermark, light
+   weights, colour kept to the gold hairline, the number and the seal. */
 const CARD_FONT="Zurich,Inter,'Helvetica Neue',Arial,sans-serif";
-function cardFit(t,max,base){return Math.max(13,Math.min(base,max/(String(t).length*.64)));}
-function cardGuilloche(w,h,n,col,op){
+const CK={ink:'#1c2333',ink2:'#5f6678',ink3:'#8a90a0',azur:'#2c3466',gold:'#b49a52',red:'#99402f',line:'#d3d6de'};
+function cardFit(t,max,base){return Math.max(12,Math.min(base,max/(String(t).length*.62)));}
+function cardGuilloche(w,h,n,col,op,amp,per){
   let d='';
   for(let i=0;i<n;i++){const y0=h*(i+.5)/n;
-    for(let x=0;x<=w;x+=12){
-      const y=y0+Math.sin(x/34+i*.8)*8+Math.sin(x/101+i*.35)*6;
+    for(let x=0;x<=w;x+=8){
+      const y=y0+Math.sin(x/per+i*.9)*amp+Math.sin(x/(per*2.9)+i*.37)*amp*.7;
       d+=(x?' L':'M')+x+' '+y.toFixed(1);}}
-  return `<path d="${d}" fill="none" stroke="${col}" stroke-width=".7" opacity="${op}"/>`;
+  return `<path d="${d}" fill="none" stroke="${col}" stroke-width=".45" opacity="${op}"/>`;
 }
-function cardRosette(cx,cy,rx,ry,n,col,op){
+function cardRosette(cx,cy,rx,ry,n,col,op,sw){
   let g='';for(let i=0;i<n;i++)g+=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" transform="rotate(${(180*i/n).toFixed(2)} ${cx} ${cy})"/>`;
-  return `<g fill="none" stroke="${col}" stroke-width=".7" opacity="${op}">${g}</g>`;
+  return `<g fill="none" stroke="${col}" stroke-width="${sw||.5}" opacity="${op}">${g}</g>`;
 }
 function cardBase(id,c,inner){
   return `<svg viewBox="0 0 856 540" xmlns="http://www.w3.org/2000/svg" font-family="${CARD_FONT}" role="img" aria-label="${esc(CARD_EN.doc)} ${esc(c.num)}">
   <defs>
-    <linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f7f2e3"/><stop offset=".55" stop-color="#eff0f4"/><stop offset="1" stop-color="#e3e8f3"/></linearGradient>
+    <linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2=".9">
+      <stop offset="0" stop-color="#f7ece7"/><stop offset=".38" stop-color="#f7f5f0"/>
+      <stop offset=".72" stop-color="#eef1f5"/><stop offset="1" stop-color="#e3eaf4"/></linearGradient>
+    <radialGradient id="${id}glow" cx=".78" cy=".42" r=".55">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".7"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
     <linearGradient id="${id}ovd" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e9c46a"/><stop offset=".3" stop-color="#f4a3c4"/><stop offset=".55" stop-color="#8fd3f4"/>
-      <stop offset=".8" stop-color="#b5e8a0"/><stop offset="1" stop-color="#dfcc68"/></linearGradient>
+      <stop offset="0" stop-color="#efe2b8"/><stop offset=".35" stop-color="#f1d3de"/><stop offset=".6" stop-color="#cfe3f1"/>
+      <stop offset=".85" stop-color="#dcebd6"/><stop offset="1" stop-color="#ecdcab"/></linearGradient>
+    <linearGradient id="${id}panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset="1" stop-color="#e8ecf4" stop-opacity=".9"/></linearGradient>
     <clipPath id="${id}clip"><rect width="856" height="540" rx="32"/></clipPath>
+    <filter id="${id}gold" color-interpolation-filters="sRGB"><feFlood flood-color="#ad8f47"/><feComposite in2="SourceAlpha" operator="in"/></filter>
   </defs>
   <g clip-path="url(#${id}clip)">
     <rect width="856" height="540" fill="url(#${id}bg)"/>
-    ${cardGuilloche(856,540,22,'#374078',.10)}
+    <rect width="856" height="540" fill="url(#${id}glow)"/>
+    ${cardGuilloche(856,540,34,CK.azur,.11,7,30)}
+    ${cardGuilloche(856,540,17,CK.gold,.10,11,57)}
     ${inner}
   </g>
-  <rect x=".75" y=".75" width="854.5" height="538.5" rx="31.5" fill="none" stroke="#c9ccd6" stroke-width="1.5"/>
+  <rect x=".75" y=".75" width="854.5" height="538.5" rx="31.5" fill="none" stroke="${CK.line}" stroke-width="1.5"/>
 </svg>`;
 }
 function cardLabel(L,k,x,y,anchor){
-  return `<text x="${x}" y="${y}" font-size="12.5" font-weight="600" letter-spacing=".7" fill="#5b6275"${anchor?` text-anchor="${anchor}"`:''}>${esc(L[k].toUpperCase())}<tspan fill="#9198a8" font-weight="500"> / ${esc(CARD_EN[k].toUpperCase())}</tspan></text>`;
+  return `<text x="${x}" y="${y}" font-size="11.5" fill="${CK.ink2}" letter-spacing=".3"${anchor?` text-anchor="${anchor}"`:''}>${esc(L[k])}<tspan fill="${CK.ink3}" font-style="italic"> / ${esc(CARD_EN[k])}</tspan></text>`;
 }
-function cardValue(t,x,y,max,base,fill){
-  return `<text x="${x}" y="${y}" font-size="${cardFit(t,max,base).toFixed(1)}" font-weight="700" fill="${fill||'#1b2030'}">${esc(t)}</text>`;
+function cardValue(t,x,y,max,base,o){
+  o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${cardFit(t,max,base).toFixed(1)}" font-weight="${o.w||500}" fill="${o.fill||CK.ink}"${o.ls?` letter-spacing="${o.ls}"`:''}>${esc(t)}</text>`;
 }
-function cardSeal(cx,cy,id){
-  return `<g><circle cx="${cx}" cy="${cy}" r="58" fill="url(#${id}ovd)" opacity=".85"/>
-    <path d="${star(cx,cy,54,24,7)}" fill="#ffffff" opacity=".35"/>
-    ${cardRosette(cx,cy,56,18,14,'#ffffff',.55)}
-    <image href="${COA_DATA}" x="${cx-34}" y="${cy-30}" width="68" height="60" opacity=".75" preserveAspectRatio="xMidYMid meet"/></g>`;
+function cardWatermark(id,x,y,w,h,op){
+  return `<image href="${COA_DATA}" x="${x}" y="${y}" width="${w}" height="${h}" opacity="${op}" filter="url(#${id}gold)" preserveAspectRatio="xMidYMid meet"/>`;
+}
+function cardSeal(cx,cy,r,id){
+  return `<g><circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id}ovd)" opacity=".9"/>
+    <path d="${star(cx,cy,r*.93,r*.42,7)}" fill="#ffffff" opacity=".45"/>
+    ${cardRosette(cx,cy,r*.96,r*.32,16,'#ffffff',.7,.6)}
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1"/>
+    <image href="${COA_DATA}" x="${cx-r*.55}" y="${cy-r*.5}" width="${r*1.1}" height="${r}" opacity=".55" preserveAspectRatio="xMidYMid meet"/></g>`;
+}
+function cardHeader(id,L,right){
+  return `<image href="${COA_DATA}" x="38" y="26" width="52" height="46" filter="url(#${id}gold)" preserveAspectRatio="xMidYMid meet"/>
+    <text x="104" y="50" font-size="16.5" font-weight="600" fill="${CK.azur}" letter-spacing="3.4">BALKANSKA KONFEDERACIJA</text>
+    <text x="104" y="71" font-size="11.5" fill="${CK.ink3}" letter-spacing="2.8">BALKAN CONFEDERATION</text>
+    ${right}
+    <line x1="40" y1="92" x2="816" y2="92" stroke="${CK.gold}" stroke-width=".8"/>
+    <path d="M428 88 L432 92 L428 96 L424 92 Z" fill="${CK.gold}"/>`;
 }
 function cardFront(c){
   const L=CARD_L[c.std]||CARD_L.central,s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c};
@@ -2308,59 +2473,96 @@ function cardFront(c){
   const sex=c.sex==='F'?'Ž / F':'M / M';
   const motto=('RAZLIČITI NARODI, JEDAN DOM · DIVERSE PEOPLES, ONE HOME · ').repeat(4);
   return cardBase('cf',c,`
-    ${cardRosette(150,262,150,46,24,'#99402f',.13)}
-    <rect width="856" height="98" fill="#374078"/>
-    <rect y="98" width="856" height="5" fill="#dfcc68"/>
-    <text x="40" y="50" font-size="30" font-weight="700" fill="#ffffff" letter-spacing=".4">BALKANSKA KONFEDERACIJA</text>
-    <text x="40" y="78" font-size="13" font-weight="700" fill="#dfcc68" letter-spacing="3.2">BALKAN CONFEDERATION</text>
-    <text x="816" y="50" font-size="19" font-weight="700" fill="#ffffff" text-anchor="end">${esc(L.doc)}</text>
-    <text x="816" y="77" font-size="12.5" font-weight="700" fill="#dfcc68" text-anchor="end" letter-spacing="2.4">${esc(CARD_EN.doc.toUpperCase())}</text>
-    <rect x="40" y="128" width="200" height="248" rx="10" fill="#374078"/>
-    ${cardRosette(140,252,92,30,16,'#dfcc68',.28)}
-    <image href="${COA_DATA}" x="56" y="176" width="168" height="150" preserveAspectRatio="xMidYMid meet"/>
-    <text x="140" y="360" font-size="13" font-weight="700" fill="#dfcc68" text-anchor="middle" letter-spacing="3">BKC</text>
-    ${cardLabel(L,'sur',272,146)}${cardValue(c.surname.toUpperCase(),272,178,312,30)}
-    ${cardLabel(L,'giv',272,211)}${cardValue(c.given.toUpperCase(),272,243,312,27)}
-    ${cardLabel(L,'sex',272,276)}${cardValue(sex,272,308,100,24)}
-    ${cardLabel(L,'dob',392,276)}${cardValue(dmy(c.dob),392,308,190,24)}
-    ${cardLabel(L,'nat',272,341)}${cardValue(nat||'—',272,373,312,24)}
-    ${cardLabel(L,'num',600,146)}${cardValue(c.num,600,178,216,26,'#99402f')}
-    ${cardLabel(L,'exp',600,211)}${cardValue(dmy(c.expiry),600,243,216,24)}
-    ${cardLabel(L,'st',600,341)}${cardValue(s.n,600,373,216,23)}
-    <text x="600" y="396" font-size="14" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(s.c)}</text>
-    ${cardSeal(768,442,'cf')}
-    <text x="40" y="424" font-size="9" font-weight="600" fill="#374078" opacity=".55" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(0,150))}</text>
-    <text x="40" y="452" font-size="9" font-weight="600" fill="#99402f" opacity=".5" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(20,170))}</text>
-    <rect y="496" width="856" height="44" fill="#374078" opacity=".07"/>
-    <text x="40" y="524" font-size="12" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(CARD_AUTH.toUpperCase())}</text>`);
+    ${cardRosette(612,300,230,74,36,CK.azur,.07)}
+    ${cardWatermark('cf',470,118,330,300,.09)}
+    ${cardHeader('cf',L,`<text x="816" y="50" font-size="14.5" font-weight="600" fill="${CK.azur}" letter-spacing="2.2" text-anchor="end">${esc(L.doc.toUpperCase())}</text>
+      <text x="816" y="71" font-size="12" fill="${CK.ink3}" font-style="italic" text-anchor="end">${esc(CARD_EN.doc)}</text>`)}
+    <rect x="40" y="120" width="186" height="236" rx="8" fill="url(#cfpanel)" stroke="${CK.line}" stroke-width=".8"/>
+    ${cardRosette(133,226,80,26,18,CK.gold,.22,.45)}
+    <image href="${COA_DATA}" x="58" y="166" width="150" height="132" filter="url(#cfgold)" preserveAspectRatio="xMidYMid meet"/>
+    <text x="133" y="336" font-size="11" font-weight="600" fill="${CK.azur}" text-anchor="middle" letter-spacing="4">BKC</text>
+    ${cardLabel(L,'sur',258,138)}${cardValue(c.surname.toUpperCase(),258,168,318,25,{w:600})}
+    ${cardLabel(L,'giv',258,202)}${cardValue(c.given.toUpperCase(),258,231,318,22,{w:600})}
+    ${cardLabel(L,'sex',258,265)}${cardValue(sex,258,291,90,19)}
+    ${cardLabel(L,'dob',362,265)}${cardValue(dmy(c.dob),362,291,214,19)}
+    ${cardLabel(L,'nat',258,325)}${cardValue(nat||'—',258,351,318,19)}
+    ${cardLabel(L,'num',600,138)}${cardValue(c.num,600,168,216,20,{w:600,fill:CK.red,ls:1.2})}
+    ${cardLabel(L,'exp',600,202)}${cardValue(dmy(c.expiry),600,231,216,19)}
+    ${cardLabel(L,'st',600,265)}${cardValue(s.n,600,291,216,19)}
+    <text x="600" y="311" font-size="11.5" fill="${CK.ink2}" letter-spacing="1.4">${esc(s.c)}</text>
+    ${cardSeal(768,402,46,'cf')}
+    <text x="258" y="398" font-size="7.5" fill="${CK.azur}" opacity=".42" letter-spacing="1" textLength="440" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(0,128))}</text>
+    <text x="258" y="410" font-size="7.5" fill="${CK.red}" opacity=".32" letter-spacing="1" textLength="440" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(20,148))}</text>
+    <line x1="40" y1="470" x2="816" y2="470" stroke="${CK.line}" stroke-width=".8"/>
+    <text x="40" y="500" font-size="10.5" fill="${CK.ink3}" letter-spacing="1.6">${esc(CARD_AUTH.toUpperCase())}</text>
+    <text x="816" y="500" font-size="10.5" fill="${CK.ink3}" letter-spacing="1.6" text-anchor="end">${esc(dmy(c.issued))}</text>`);
 }
 function cardBack(c){
   const L=CARD_L[c.std]||CARD_L.central,s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c};
-  const flag=STATE_FLAGS[s.c]?`<image href="${STATE_FLAGS[s.c]}" x="656" y="40" width="160" height="107" preserveAspectRatio="xMidYMid slice"/>`
-    :`<image href="${STATE_FLAG_DATA}" x="656" y="40" width="160" height="107" preserveAspectRatio="xMidYMid slice"/>`;
+  const flag=STATE_FLAGS[s.c]||STATE_FLAG_DATA;
   const mrz=mrzTD1(c);
   return cardBase('cb',c,`
-    ${cardRosette(620,170,190,60,28,'#374078',.10)}
-    ${cardLabel(L,'ori',40,64)}${cardValue(c.origin.n,40,98,560,26)}
-    ${cardLabel(L,'iss',40,140)}${cardValue(dmy(c.issued),40,172,260,24)}
-    ${cardLabel(L,'auth',40,214)}${cardValue(CARD_AUTH,40,246,560,21)}
-    <rect x="655" y="39" width="162" height="109" fill="none" stroke="#c9ccd6"/>
-    ${flag}
-    <text x="736" y="172" font-size="13" font-weight="700" fill="#374078" text-anchor="middle">${esc(s.n)}</text>
-    <text x="736" y="191" font-size="12" font-weight="600" fill="#5b6275" text-anchor="middle" letter-spacing="1">${esc(s.c)}</text>
-    <image href="${STATE_FLAG_DATA}" x="40" y="270" width="48" height="32" preserveAspectRatio="xMidYMid slice"/>
-    <text x="100" y="292" font-size="12" font-weight="600" fill="#5b6275" letter-spacing=".8">RAZLIČITI NARODI, JEDAN DOM</text>
-    <rect y="326" width="856" height="214" fill="#ffffff"/>
-    <rect y="326" width="856" height="2" fill="#dfcc68"/>
-    ${mrz.map((l,i)=>`<text x="40" y="${398+i*56}" style="font-family:'OCR B','OCR-B',Consolas,'Courier New',monospace" font-size="40" fill="#111" textLength="776" lengthAdjust="spacing">${l.replace(/</g,'&lt;')}</text>`).join('')}`);
+    ${cardRosette(560,190,220,70,34,CK.azur,.07)}
+    ${cardWatermark('cb',560,60,200,180,.07)}
+    <text x="40" y="54" font-size="12" font-weight="600" fill="${CK.azur}" letter-spacing="2.6">BALKANSKA KONFEDERACIJA</text>
+    <text x="40" y="72" font-size="10.5" fill="${CK.ink3}" letter-spacing="2.2">BALKAN CONFEDERATION</text>
+    <text x="816" y="54" font-size="13" font-weight="600" fill="${CK.red}" letter-spacing="1.2" text-anchor="end">${esc(c.num)}</text>
+    <line x1="40" y1="88" x2="600" y2="88" stroke="${CK.gold}" stroke-width=".8"/>
+    ${cardLabel(L,'ori',40,118)}${cardValue(c.origin.n,40,146,540,20,{w:600})}
+    ${cardLabel(L,'iss',40,182)}${cardValue(dmy(c.issued),40,208,250,18)}
+    ${cardLabel(L,'auth',40,244)}${cardValue(CARD_AUTH,40,270,540,17)}
+    <rect x="639.5" y="39.5" width="177" height="119" fill="#ffffff" stroke="${CK.line}"/>
+    <image href="${flag}" x="640" y="40" width="176" height="118" preserveAspectRatio="xMidYMid slice"/>
+    <text x="728" y="182" font-size="12.5" font-weight="600" fill="${CK.azur}" text-anchor="middle">${esc(s.n)}</text>
+    <text x="728" y="199" font-size="10.5" fill="${CK.ink2}" text-anchor="middle" letter-spacing="1.4">${esc(s.c)}</text>
+    <image href="${STATE_FLAG_DATA}" x="640" y="232" width="42" height="28" preserveAspectRatio="xMidYMid slice"/>
+    <text x="692" y="250" font-size="10" fill="${CK.ink2}" font-style="italic">Različiti narodi, jedan dom</text>
+    <rect y="318" width="856" height="222" fill="#ffffff" opacity=".6"/>
+    <line x1="0" y1="318" x2="856" y2="318" stroke="${CK.line}" stroke-width=".8"/>
+    ${mrz.map((l,i)=>`<text x="40" y="${388+i*54}" style="font-family:'OCR B','OCR-B',Consolas,'Courier New',monospace" font-size="38" fill="${CK.ink}" textLength="776" lengthAdjust="spacing">${l.replace(/</g,'&lt;')}</text>`).join('')}`);
+}
+/* Export : the card is drawn through an <img>, which cannot see the page's
+   web fonts, so the licensed Zurich faces are embedded as data URIs. */
+let CARD_FONT_CSS=null;
+async function cardFontCSS(){
+  if(CARD_FONT_CSS!==null)return CARD_FONT_CSS;
+  let css='';
+  try{
+    for(const sh of document.styleSheets){
+      let rs;try{rs=sh.cssRules;}catch(e){continue;}
+      for(const r of rs){
+        if(!(r instanceof CSSFontFaceRule)||!/Zurich/i.test(r.style.getPropertyValue('font-family')))continue;
+        const m=/url\(\s*["']?([^"')]+)["']?\s*\)/.exec(r.style.getPropertyValue('src'));if(!m)continue;
+        let u=m[1];
+        if(!u.startsWith('data:')){
+          const b=await (await fetch(u)).blob();
+          u=await new Promise((ok,ko)=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.onerror=ko;fr.readAsDataURL(b);});
+        }
+        css+=`@font-face{font-family:'Zurich';font-weight:${r.style.getPropertyValue('font-weight')||'normal'};src:url(${u}) format('woff2')}`;
+      }
+    }
+  }catch(e){css='';}
+  return CARD_FONT_CSS=css;
+}
+async function cardImage(c,side){
+  const css=await cardFontCSS();
+  const svg=(side==='back'?cardBack:cardFront)(c).replace('<defs>','<defs><style>'+css+'</style>');
+  return new Promise((ok,ko)=>{
+    const img=new Image();
+    img.onload=()=>{const cv=document.createElement('canvas');cv.width=1712;cv.height=1080;
+      cv.getContext('2d').drawImage(img,0,0,1712,1080);ok(cv);};
+    img.onerror=ko;
+    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+  });
 }
 
 /* --- wizard ------------------------------------------------------------ */
-function regBlank(){return{step:0,surname:'',given:'',sex:'',dob:'',basis:'',origin:null,
-  res:'',people:'',showNat:true,std:'',consent:false,err:{}};}
-function regFromCitizen(c){return{step:0,surname:c.surname,given:c.given,sex:c.sex,dob:c.dob,
+const REG_EXTRA=()=>({consent:false,consentData:false,consentReg:false,ts:'',busy:false,sent:null,apiErr:'',err:{}});
+function regBlank(){return{step:0,email:'',surname:'',given:'',sex:'',dob:'',basis:'',origin:null,
+  res:'',people:'',showNat:true,std:'',...REG_EXTRA()};}
+function regFromCitizen(c){return{step:0,email:c.email||'',surname:c.surname,given:c.given,sex:c.sex,dob:c.dob,
   basis:c.basis,origin:c.origin,res:c.abroad?'abroad':'in',people:c.people,showNat:c.showNat,
-  std:c.std,consent:false,err:{}};}
+  std:c.std,...REG_EXTRA()};}
 function regDefaultStd(){
   if(REG.people&&REG.people!=='none'&&PEUPLES[REG.people])return PEUPLES[REG.people].std;
   const s=REG.origin&&byCode(REG.origin.c);
@@ -2371,6 +2573,9 @@ function regErrors(i){
   if(i===0){
     if(!cleanName(R.surname))e.surname='Enter your surname.';
     if(!cleanName(R.given))e.given='Enter your given name or names.';
+    if(!remoteCit()){const em=String(R.email||'').trim();
+      if(apiOn()&&!em)e.email='Enter your e-mail address: your card is sent there.';
+      else if(em&&!EMAIL_RE.test(em))e.email='Enter a valid e-mail address.';}
     if(!R.sex)e.sex='Choose the sex shown on the card.';
     if(!/^\d{4}-\d{2}-\d{2}$/.test(R.dob))e.dob='Enter your date of birth.';
     else if(R.dob>isoToday()||+R.dob.slice(0,4)<1900)e.dob='Enter a valid date of birth.';
@@ -2384,7 +2589,12 @@ function regErrors(i){
   }
   if(i===2&&!R.people)e.people='Choose a register, or no register.';
   if(i===3&&!R.std)e.std='Choose the language of your card.';
-  if(i===4&&!R.consent)e.consent='The declaration is required to issue the card.';
+  if(i===4){
+    if(!R.consent)e.consent='The declaration is required to issue the card.';
+    if(apiOn()&&!remoteCit()&&!R.consentData)e.consent_data='Your consent to the processing of your data is required.';
+    if(apiOn()&&R.people&&R.people!=='none'&&!R.consentReg)e.consent_register='Your explicit consent is required to record your national register.';
+    if(apiOn()&&!remoteCit()&&REGISTRE.turnstileSiteKey&&!R.ts)e.ts='Please complete the anti-robot check.';
+  }
   return e;
 }
 const regErr=k=>REG.err[k]?`<div class="err" role="alert">${esc(REG.err[k])}</div>`:'';
@@ -2405,6 +2615,30 @@ function regAttachCard(o){
     <b>${esc(s.n)} <span class="mono" style="color:var(--ink-3);font-weight:600">${esc(s.c)}</span></b>
     <span>${esc(o.n)} → ${esc(s.n)}. ${kind}.</span></div></div>`;
 }
+function regMailField(){
+  const rc=remoteCit();
+  return `<div class="fld"><label class="fl" for="rMail">E-mail address</label>
+    ${rc?`<input id="rMail" type="email" value="${esc(rc.emailHint||'')}" disabled>`
+        :`<input id="rMail" type="email" autocomplete="email" inputmode="email" spellcheck="false"
+            value="${esc(REG.email)}" oninput="regSet('email',this.value)">`}
+    <div class="hint">${rc?'Your registration stays attached to this address. To use another one, delete your registration and register again.'
+      :apiOn()?'Your citizen card is sent to this address once you confirm it. It is used for nothing else and never published.'
+      :'The card will be e-mailed when the confederal register opens; until then it stays in this browser.'}</div>${regErr('email')}</div>`;
+}
+function regPrivacy(){
+  const ct=REGISTRE.contact?` Contact: <a href="mailto:${esc(REGISTRE.contact)}">${esc(REGISTRE.contact)}</a>.`:'';
+  return `<details class="privacy"><summary>Data protection notice</summary>
+    <p>The confederal register records what you enter in this form: e-mail address, name, sex, date of
+    birth, municipality and state of attachment, residence, card language and, if you choose one, your
+    national register. They serve only to issue your citizen card, to send it to you and to count
+    registrations; published figures are totals, never individual records.</p>
+    <p>Enrolment in a national register can reveal national origin. It is recorded only with your explicit
+    consent and kept apart from the register of citizens; it serves only the election of the Narodni Sabor.</p>
+    <p>The data are stored by Cloudflare in the European Union and e-mails are sent through Brevo
+    (France). Nothing is sold or shared. Unconfirmed registrations are deleted after seven days. You can
+    view, amend or delete your registration at any time from the link in your card e-mail; deletion is
+    immediate and final.${ct}</p></details>`;
+}
 function regStepHTML(i){
   const R=REG;
   if(i===0){
@@ -2422,6 +2656,7 @@ function regStepHTML(i){
           oninput="regSet('given',this.value)">${regErr('given')}</div>
     </div>
     <div class="hint" id="rPrev" style="margin:-8px 0 16px">${prev}</div>
+    ${regMailField()}
     <div class="frow">
       <div class="fld"><span class="fl">Sex</span>
         <div class="opts cols2">${regOpt('sex','F','Female','Ž · F')}${regOpt('sex','M','Male','M · M')}</div>
@@ -2516,22 +2751,54 @@ function regStepHTML(i){
       <div><b>I declare that I join the Balkan Confederation of my own free will and that the
       information above is accurate.</b><span>“A house one enters by choice, remains in by consent,
       and that no one is compelled to inhabit” (Preamble).</span></div></label>${regErr('consent')}
-    <div class="notice">Prototype: the card is issued in this browser with a provisional number and
-    stays on this device. When the participatory platform opens, the confederal register confirms each
-    card and assigns its definitive number.</div>`;
+    ${apiOn()?regConsentsHTML():`<div class="notice">Prototype: the card is issued in this browser with a provisional number and
+    stays on this device. When the confederal register opens, it confirms each card, assigns its
+    definitive number and sends it by e-mail.</div>`}
+    ${R.apiErr?`<div class="err" role="alert" style="margin-top:14px">${esc(R.apiErr)}</div>`:''}`;
+}
+function regConsentsHTML(){
+  const R=REG,rc=remoteCit(),p=PEUPLES[R.people];
+  return `${rc?'':`<label class="opt${R.consentData?' on':''}" style="margin-top:10px"><input type="checkbox"${R.consentData?' checked':''}
+      onchange="regTick(this,'consentData','consent_data')">
+      <div><b>I consent to the processing of these data by the confederal register, for the purposes set out below.</b></div></label>${regErr('consent_data')}`}
+    ${p?`<label class="opt${R.consentReg?' on':''}" style="margin-top:10px"><input type="checkbox"${R.consentReg?' checked':''}
+      onchange="regTick(this,'consentReg','consent_register')">
+      <div><b>I explicitly consent to the recording of my enrolment in the register of the ${esc(p.en)} (${esc(p.name)}).</b>
+      <span>This information can reveal national origin. You may withdraw it at any time by choosing “No register”.</span></div></label>${regErr('consent_register')}`:''}
+    ${regPrivacy()}
+    ${rc?'':`<div id="rTs" class="tsbox"></div>${regErr('ts')}`}`;
 }
 function regRender(){
   const nav=document.getElementById('regNav'),pan=document.getElementById('regPanel');
   if(!nav||!pan||!REG)return;
   const i=REG.step;
-  nav.innerHTML=REG_STEPS.map((s,k)=>`<li class="${k<i?'done':k===i?'on':''}"${k===i?' aria-current="step"':''}>
-    ${k<i?`<a href="javascript:regGo(${k})">${s[0]}</a>`:s[0]}<small>${s[1]}</small></li>`).join('');
+  nav.innerHTML=REG_STEPS.map((s,k)=>`<li class="${k<i||REG.sent?'done':k===i?'on':''}"${k===i?' aria-current="step"':''}>
+    ${k<i&&!REG.sent?`<a href="javascript:regGo(${k})">${s[0]}</a>`:s[0]}<small>${s[1]}</small></li>`).join('');
+  if(REG.sent){
+    pan.innerHTML=`<div class="regcount">Registration sent</div>
+      <h2>Check your inbox</h2>
+      <p class="lead">We sent a confirmation link to <b>${esc(REG.sent)}</b>. Open it within 48 hours:
+      your citizen card is issued the moment you confirm, and sent to the same address.</p>
+      <div class="notice">Nothing after a few minutes? Look in your spam folder. If the address was wrong,
+      go back to the form, correct it and send it again.</div>
+      <div class="regbar"><button class="btn btn-ghost" onclick="REG.sent=null;REG.step=0;regRender()">← Back to the form</button>
+        <a class="btn btn-primary" href="#/home">Back to the portal</a></div>`;
+    return;
+  }
+  const label=!apiOn()?'Issue my citizen card':remoteCit()?'Update my card':'Send my registration';
   pan.innerHTML=`<div class="regcount">Step ${i+1} of ${REG_STEPS.length}</div>`+regStepHTML(i)+
     `<div class="regbar">
       ${i?`<button class="btn btn-ghost" onclick="regGo(${i-1})">← Back</button>`:'<span></span>'}
       ${i<4?`<button class="btn btn-primary" onclick="regNext()">Continue →</button>`
-           :`<button class="btn btn-primary" onclick="regIssue()">Issue my citizen card</button>`}
+           :`<button class="btn btn-primary" id="rIssue" onclick="regIssue()"${REG.busy?' disabled':''}>${REG.busy?'Sending…':label}</button>`}
     </div>`;
+  if(i===4&&apiOn()&&!remoteCit()){REG.ts='';tsMount('rTs',t=>{REG.ts=t;if(t&&REG.err.ts){delete REG.err.ts;
+    const e=document.querySelector('#rTs + .err');if(e)e.remove();}});}
+}
+function regTick(el,f,ek){
+  REG[f]=el.checked;el.closest('.opt').classList.toggle('on',el.checked);
+  if(el.checked&&REG.err[ek]){delete REG.err[ek];
+    const e=el.closest('.opt').nextElementSibling;if(e&&e.classList.contains('err'))e.remove();}
 }
 function regSet(f,v){
   REG[f]=v;
@@ -2605,10 +2872,13 @@ document.addEventListener('click',e=>{
   const box=document.getElementById('rMunList');
   if(box&&!box.hidden&&!e.target.closest('.ac'))box.hidden=true;
 });
-function regIssue(){
-  const e=regErrors(4);REG.err=e;
+const REG_FIELD_STEP={email:0,surname:0,given:0,sex:0,dob:0,basis:1,origin:1,res:1,people:2,std:3};
+async function regIssue(){
+  if(REG.busy)return;
+  const e=regErrors(4);REG.err=e;REG.apiErr='';
   if(Object.keys(e).length){regRender();return;}
   for(let k=0;k<4;k++){const ek=regErrors(k);if(Object.keys(ek).length){REG.step=k;REG.err=ek;regRender();regTop();return;}}
+  if(apiOn())return regSubmit();
   const cur=citLoad(),s=byCode(REG.origin.c),today=isoToday();
   const same=cur&&cur.origin.c===REG.origin.c;
   const c={v:1,
@@ -2616,8 +2886,119 @@ function regIssue(){
     card:same?(cur.card||1)+1:1,issued:today,expiry:addYears(today,10),
     surname:cleanName(REG.surname),given:cleanName(REG.given),sex:REG.sex,dob:REG.dob,
     origin:REG.origin,basis:REG.basis,abroad:REG.res==='abroad',
-    people:REG.people,showNat:REG.people!=='none'&&REG.showNat,std:REG.std};
+    people:REG.people,showNat:REG.people!=='none'&&REG.showNat,std:REG.std,
+    email:String(REG.email||'').trim()||undefined};
   citSave(c);REG=null;go('#/citizen');
+}
+async function regSubmit(){
+  const R=REG,rc=remoteCit();
+  const body={surname:cleanName(R.surname),given:cleanName(R.given),sex:R.sex,dob:R.dob,basis:R.basis,
+    origin:{n:R.origin.n,iso:R.origin.iso},res:R.res,people:R.people,showNat:R.people!=='none'&&R.showNat,std:R.std,
+    consent:{accession:R.consent,data:rc?true:R.consentData,register:R.consentReg}};
+  R.busy=true;regRender();
+  const res=rc?await api('PATCH','/v1/card',body,rc.access)
+    :await api('POST','/v1/registrations',{...body,email:String(R.email).trim(),turnstile:tsToken(R.ts)});
+  R.busy=false;
+  if(res.ok){
+    if(rc){citSave({...res.data.card,access:rc.access});REG=null;go('#/citizen');
+      setTimeout(()=>toast('Your card has been updated.'),400);return;}
+    R.sent=res.data.emailHint||String(R.email).trim();regRender();regTop();return;
+  }
+  const d=res.data||{},f=d.field;
+  if(res.status===401&&rc){R.apiErr='Your access link has expired. Request a new one from the citizen card page.';}
+  else if(f&&f in REG_FIELD_STEP){R.err={[f]:d.message};R.step=REG_FIELD_STEP[f];regRender();regTop();return;}
+  else if(f){R.err={[f]:d.message};}
+  else R.apiErr=d.message||'The registration could not be sent. Please try again.';
+  regRender();
+}
+
+function vConfirm(){
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Confirmation']])+`
+  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Confirming your registration</h1></section>
+  <section class="section"><div class="pending-box" id="cfBox">
+    <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
+    <h4>Issuing your citizen card…</h4><p>This takes a few seconds.</p></div></section>`;
+}
+function vCardLink(){
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
+  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Opening your citizen card</h1></section>
+  <section class="section"><div class="pending-box" id="cfBox">
+    <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
+    <h4>Retrieving your card from the confederal register…</h4></div></section>`;
+}
+function linkFail(title,msg){
+  const b=document.getElementById('cfBox');if(!b)return;
+  b.innerHTML=`<h4>${esc(title)}</h4><p>${esc(msg)}</p>
+    <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-primary" href="#/access">Get a new link</a><a class="btn btn-ghost" href="#/register">Register</a></div>`;
+}
+/* The token travels in the URL fragment, never sent to the portal's host;
+   it is removed from the address bar and history as soon as it is read. */
+function takeToken(route){
+  const t=(location.hash.split('/')[2]||'').trim();
+  history.replaceState(null,'',location.pathname+location.search+'#/'+route);
+  return t;
+}
+async function confirmMount(){
+  const tok=takeToken('confirm');
+  if(!tok)return linkFail('No confirmation link','Open the link from your confirmation e-mail. It can be used once.');
+  if(!apiOn())return linkFail('Registration links are not active','The confederal register is not open on this portal yet.');
+  const r=await api('POST','/v1/confirm',{token:tok});
+  if(!r.ok)return linkFail(r.status===409?'Already confirmed':'This link cannot be used',r.data.message||'Please try again.');
+  citSave({...r.data.card,access:r.data.accessToken});REG=null;
+  go('#/citizen');
+  cardMail(true);
+}
+async function cardLinkMount(){
+  const tok=takeToken('card');
+  if(!tok)return linkFail('No card link','Open the link from your card e-mail, or ask for a new one.');
+  if(!apiOn())return linkFail('Card links are not active','The confederal register is not open on this portal yet.');
+  const r=await api('GET','/v1/card',undefined,tok);
+  if(!r.ok)return linkFail('This link cannot be used',r.data.message||'Please try again.');
+  citSave({...r.data.card,access:tok});REG=null;go('#/citizen');
+}
+/* Sends the card by e-mail ; the browser renders front and back and attaches them. */
+async function cardMail(first){
+  const c=remoteCit();if(!c)return;
+  let front,back;
+  try{front=(await cardImage(c,'front')).toDataURL('image/jpeg',.92).split(',')[1];
+      back=(await cardImage(c,'back')).toDataURL('image/jpeg',.92).split(',')[1];}catch(e){}
+  const r=await api('POST','/v1/card/mail',{front,back},c.access);
+  if(r.ok)toast(first?`Welcome, citizen. Your card has been sent to ${c.emailHint}.`:`Your card has been sent to ${c.emailHint}.`);
+  else toast(r.data.message||'The card could not be sent by e-mail.');
+}
+let ACC={ts:'',sent:'',err:'',busy:false};
+function vAccess(){
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Access to your card']])+`
+  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Access to your card</h1>
+    <p class="lead">Already a citizen? Enter the address you registered with: we send you a new link
+    to your card. It opens the card on any device and lets you amend or delete your registration.</p></section>
+  <section class="section" style="padding-top:8px"><div class="panel regpanel" id="accPanel" style="max-width:640px"></div></section>`;
+}
+function accRender(){
+  const el=document.getElementById('accPanel');if(!el)return;
+  if(!apiOn()){el.innerHTML='<p class="note">The confederal register is not open on this portal yet: cards are held in the browser that issued them.</p>';return;}
+  if(ACC.sent){el.innerHTML=`<h2>Check your inbox</h2><p class="lead">If <b>${esc(ACC.sent)}</b> belongs to a citizen, a new link
+    to the card is on its way. It may take a few minutes.</p><a class="btn btn-ghost" href="#/home">Back to the portal</a>`;return;}
+  el.innerHTML=`<div class="fld"><label class="fl" for="aMail">E-mail address</label>
+    <input id="aMail" type="email" autocomplete="email" inputmode="email" spellcheck="false"></div>
+    <div id="aTs" class="tsbox"></div>
+    ${ACC.err?`<div class="err" role="alert">${esc(ACC.err)}</div>`:''}
+    <div class="regbar"><span></span><button class="btn btn-primary" onclick="accSend()"${ACC.busy?' disabled':''}>Send me a new link</button></div>`;
+  ACC.ts='';tsMount('aTs',t=>{ACC.ts=t;});
+}
+async function accSend(){
+  const em=(document.getElementById('aMail').value||'').trim();
+  if(!EMAIL_RE.test(em)){ACC.err='Enter a valid e-mail address.';return accRender();}
+  if(REGISTRE.turnstileSiteKey&&!ACC.ts){ACC.err='Please complete the anti-robot check.';return accRender();}
+  ACC.busy=true;ACC.err='';
+  const r=await api('POST','/v1/access',{email:em,turnstile:tsToken(ACC.ts)});
+  ACC.busy=false;
+  if(r.ok)ACC.sent=r.data.emailHint||em;else ACC.err=r.data.message||'Please try again.';
+  accRender();
 }
 
 function vRegister(){
@@ -2642,9 +3023,12 @@ function vCitizen(){
     <h1>Citizen card</h1></section>
   <section class="section"><div class="pending-box">
     <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
-    <h4>No card has been issued in this browser</h4>
-    <p>Registration takes five steps. The card is kept on this device until the participatory platform opens.</p>
-    <a class="btn btn-primary" style="margin-top:16px" href="#/register">Become a citizen</a></div></section>`;
+    <h4>No card in this browser</h4>
+    <p>${apiOn()?'Registration takes five steps; your card is sent to you by e-mail. Already a citizen? Open the link from your card e-mail, or ask for a new one.'
+      :'Registration takes five steps. The card is kept on this device until the confederal register opens.'}</p>
+    <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-primary" href="#/register">Become a citizen</a>
+    ${apiOn()?'<a class="btn btn-ghost" href="#/access">Get a link to my card</a>':''}</div></div></section>`;
   const s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c},p=PEUPLES[c.people];
   return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
   <section class="section pagehead reveal">
@@ -2662,6 +3046,7 @@ function vCitizen(){
     <div class="idactions">
       <button class="btn btn-primary" onclick="cardPNG('front')">Download front (PNG)</button>
       <button class="btn btn-ghost" onclick="cardPNG('back')">Download back (PNG)</button>
+      ${c.remote&&c.access&&apiOn()?`<button class="btn btn-ghost" onclick="cardMail(false)">E-mail me my card</button>`:''}
       <a class="btn btn-ghost" href="#/register">Amend my registration</a>
     </div>
   </section>
@@ -2679,19 +3064,36 @@ function vCitizen(){
         <tr><td>Nation on card</td><td>${c.showNat?esc(natForm(c)):'Not printed'}</td></tr>
         <tr><td>Card language</td><td>${esc((STD_NAME[c.std]||STD_NAME.central)[0])}</td></tr>
         <tr><td>Card issue</td><td>Issue ${c.card||1} under number ${esc(c.num)}</td></tr>
+        ${c.emailHint?`<tr><td>E-mail</td><td>${esc(c.emailHint)}</td></tr>`:''}
       </table>
       <button class="btn btn-ghost" style="margin-top:16px" onclick="citDelete()">Delete my registration</button></div>
   </div>
-  <div class="notice">Prototype: this card is held only in this browser and its number is provisional.
-  At the opening of the participatory platform (Decidim), the confederal register confirms each
-  card, assigns its definitive number and links it to a platform account with the state and the
-  register as verified attributes.</div></section>`;
+  ${c.remote?`<div class="notice">Your card is recorded in the confederal register. The link in your card e-mail
+  opens it on any device; keep that e-mail and do not forward it.</div><div id="citSync"></div>`
+  :`<div class="notice">Prototype: this card is held only in this browser and its number is provisional.
+  When the confederal register opens, it confirms each card, assigns its definitive number and sends it by e-mail.</div>`}</section>`;
 }
-function citDelete(){
-  if(!confirm('Delete the registration held in this browser? The card and its number are removed from this device.'))return;
+async function citDelete(){
+  const rc=remoteCit();
+  if(!confirm(rc?'Delete your registration from the confederal register? Your card and its number are cancelled. This cannot be undone.'
+    :'Delete the registration held in this browser? The card and its number are removed from this device.'))return;
+  if(rc){const r=await api('DELETE','/v1/card',undefined,rc.access);
+    if(!r.ok&&r.status!==401){toast(r.data.message||'The deletion failed. Please try again.');return;}}
   citClear();REG=null;citHeader();render();
+  if(rc)setTimeout(()=>toast('Your registration has been deleted.'),400);
+}
+async function citSync(){
+  const rc=remoteCit();if(!rc)return;
+  const r=await api('GET','/v1/card',undefined,rc.access);
+  const box=document.getElementById('citSync');
+  if(r.ok){const fresh={...r.data.card,access:rc.access};
+    if(JSON.stringify(fresh)!==JSON.stringify(rc)){citSave(fresh);render();}}
+  else if(r.status===401&&box)box.innerHTML=`<div class="notice">The confederal register no longer recognises this browser's
+    link: it has expired, or the registration was deleted. The card shown is the copy kept here.
+    <a class="seeall" href="#/access">Get a new link</a></div>`;
 }
 function citMount(){
+  citSync();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
   document.querySelectorAll('.idcard[data-tilt]').forEach(el=>{
     el.addEventListener('pointermove',e=>{
@@ -2702,18 +3104,12 @@ function citMount(){
     el.addEventListener('pointerleave',()=>{el.style.transform='';});
   });
 }
-function cardPNG(side){
+async function cardPNG(side){
   const c=citLoad();if(!c)return;
-  const svg=(side==='back'?cardBack:cardFront)(c);
-  const img=new Image();
-  img.onload=()=>{
-    const cv=document.createElement('canvas');cv.width=1712;cv.height=1080;
-    cv.getContext('2d').drawImage(img,0,0,1712,1080);
-    cv.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);
-      a.download=`${c.num}-${side}.png`;document.body.appendChild(a);a.click();
-      setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);},'image/png');
-  };
-  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+  const cv=await cardImage(c,side);
+  cv.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);
+    a.download=`${c.num}-${side}.png`;document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);},'image/png');
 }
 function citHeader(){
   const a=document.getElementById('utReg');if(!a)return;
@@ -2732,7 +3128,8 @@ const ROUTES={
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
  'dashboard':[vDashboard,'#/participation'],'register':[vRegister,'#/participation'],
- 'citizen':[vCitizen,'#/participation']
+ 'citizen':[vCitizen,'#/participation'],'confirm':[vConfirm,'#/participation'],
+ 'card':[vCardLink,'#/participation'],'access':[vAccess,'#/participation']
 };
 function render(){
   if(document.startViewTransition &&
@@ -2760,6 +3157,11 @@ function renderNow(){
   if(h.startsWith('#/states'))renderGrid();
   if(h.startsWith('#/register'))regRender();
   if(h.startsWith('#/citizen'))citMount();
+  if(h.startsWith('#/confirm'))confirmMount();
+  if(h.startsWith('#/card'))cardLinkMount();
+  if(h.startsWith('#/access')){ACC={ts:'',sent:'',err:'',busy:false};accRender();}
+  if(h.startsWith('#/dashboard'))dashMount();
+  if(h==='#/home'||h==='#/'||h==='')homeCount();
   citHeader();
   window.scrollTo(0,0);
   const hd=document.querySelector('header');
@@ -3513,12 +3915,12 @@ function miniGeo(code){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[];
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,rg]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -3530,8 +3932,9 @@ async function loadData(){
     fetch(base+'stats.json').then(r=>r.json()),
     fetch(base+'lights.json').then(r=>r.json()),
     fetch(base+'opstine.json').then(r=>r.json()),
+    fetch(base+'registre.json').then(r=>r.json()).catch(()=>({})),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; REGISTRE={...REGISTRE,...rg};
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }

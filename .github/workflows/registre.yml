@@ -1,0 +1,65 @@
+name: Deploy confederal register (Cloudflare Worker)
+
+# Déploie registre/ (API du parcours citoyen) : migrations D1 puis Worker.
+# Inactif tant que la variable de dépôt REGISTRE_ENABLED ne vaut pas "true"
+# (Settings > Secrets and variables > Actions). Mise en service : registre/README.md.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "registre/**"
+      - "portail/data/opstine.json"
+      - "portail/data/etats.json"
+      - "portail/data/peuples.json"
+      - ".github/workflows/registre.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: registre
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ vars.REGISTRE_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: registre
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: registre/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Point wrangler.toml at the D1 database
+        run: |
+          test -n "${{ vars.D1_DATABASE_ID }}" || { echo "::error::Repository variable D1_DATABASE_ID is missing"; exit 1; }
+          sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml
+
+      - name: Apply migrations and deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: registre
+          packageManager: npm
+          preCommands: npx wrangler d1 migrations apply bk-registre --remote
+          command: deploy --var MAIL_FROM:${{ vars.MAIL_FROM }}
+          secrets: |
+            BREVO_API_KEY
+            TURNSTILE_SECRET
+            TOKEN_PEPPER
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          TURNSTILE_SECRET: ${{ secrets.TURNSTILE_SECRET }}
+          TOKEN_PEPPER: ${{ secrets.TOKEN_PEPPER }}

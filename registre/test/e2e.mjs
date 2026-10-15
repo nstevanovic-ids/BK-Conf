@@ -1,0 +1,81 @@
+// Test de bout en bout du registre contre `wrangler dev --local` (DEV=1, sans clés : mails journalisés).
+const API = process.env.API || 'http://127.0.0.1:8787';
+let fails = 0;
+const ok = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + m); if (!c) fails++; };
+async function call(method, path, body, headers = {}) {
+  const r = await fetch(API + path, { method, headers: { ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}), ...headers },
+    body: body === undefined ? undefined : JSON.stringify(body) });
+  const t = await r.text(); let j = null; try { j = JSON.parse(t); } catch (e) {}
+  return { s: r.status, j, h: r.headers };
+}
+const base = {
+  surname: 'Stevanović', given: 'Nikola', sex: 'M', dob: '1990-03-12', basis: 'ancestry',
+  origin: { n: 'Kragujevac', iso: 'SRB' }, res: 'abroad', people: 'srb', showNat: true, std: 'central',
+  consent: { accession: true, data: true, register: true }, turnstile: 'dev',
+};
+const PNG = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==';
+
+let r = await call('GET', '/v1/health'); ok(r.s === 200, 'health');
+r = await call('POST', '/v1/registrations', { ...base, email: 'a@example.org', dob: '2010-01-01' });
+ok(r.s === 422 && r.j.field === 'dob', 'minor refused (422 dob)');
+r = await call('POST', '/v1/registrations', { ...base, email: 'a@example.org', origin: { n: 'Kragujevac', iso: 'BGR' } });
+ok(r.s === 422 && r.j.field === 'origin', 'forged municipality refused');
+r = await call('POST', '/v1/registrations', { ...base, email: 'a@example.org', people: 'srb', consent: { accession: true, data: true } });
+ok(r.s === 422 && r.j.field === 'consent_register', 'register needs explicit consent');
+r = await call('POST', '/v1/registrations', { ...base, email: 'a@example.org', basis: 'residence', res: 'abroad' });
+ok(r.s === 422 && r.j.field === 'res', 'residence basis requires living inside');
+r = await fetch(API + '/v1/registrations', { method: 'POST', body: '{}', headers: { 'Content-Type': 'text/plain' } });
+ok(r.status === 415, 'wrong content type (415)');
+
+r = await call('POST', '/v1/registrations', { ...base, email: 'Nikola@Example.org' });
+ok(r.s === 202 && r.j.status === 'pending' && r.j.devToken && r.j.emailHint === 'n•••@example.org', 'registration accepted (202, pending)');
+const t1 = r.j.devToken;
+r = await call('POST', '/v1/registrations', { ...base, email: 'nikola@example.org', given: 'Nikola Petar' });
+ok(r.s === 202 && r.j.devToken && r.j.devToken !== t1, 'pending re-registration issues a new link');
+const t2 = r.j.devToken;
+r = await call('POST', '/v1/confirm', { token: t1 }); ok(r.s === 404, 'superseded link invalid');
+r = await call('POST', '/v1/confirm', { token: t2 });
+ok(r.s === 200 && r.j.card.num === 'BK-SU-000001' && r.j.card.given === 'Nikola Petar' && r.j.accessToken, 'confirmation issues BK-SU-000001');
+const acc = r.j.accessToken;
+ok(r.j.card.expiry.slice(0, 4) - r.j.card.issued.slice(0, 4) === 10, 'validity 10 years');
+r = await call('POST', '/v1/confirm', { token: t2 }); ok(r.s === 409, 'second confirmation refused (409)');
+
+const auth = { Authorization: 'Bearer ' + acc };
+r = await call('GET', '/v1/card', undefined, auth); ok(r.s === 200 && r.j.card.people === 'srb' && r.j.card.origin.c === 'SU-36', 'card readable with access link');
+r = await call('GET', '/v1/card', undefined, { Authorization: 'Bearer ' + 'x'.repeat(43) }); ok(r.s === 401, 'wrong access link refused');
+
+r = await call('POST', '/v1/registrations', { ...base, email: 'nikola@example.org' });
+ok(r.s === 202 && r.j.status === 'pending' && r.j.devAccess && !r.j.devToken, 'existing citizen: same answer, access link mailed');
+
+r = await call('PATCH', '/v1/card', { ...base, people: 'none', std: 'western' }, auth);
+ok(r.s === 200 && r.j.card.num === 'BK-SU-000001' && r.j.card.card === 2 && r.j.card.people === 'none' && !r.j.card.showNat, 'amend register: same number, issue 2');
+r = await call('PATCH', '/v1/card', { ...base, basis: 'own', origin: { n: 'Dubrovnik', iso: 'HRV' }, res: 'in' }, auth);
+ok(r.s === 200 && r.j.card.num === 'BK-DR-000001' && r.j.card.card === 1, 'change of state: new number BK-DR-000001');
+
+r = await call('POST', '/v1/card/mail', { front: PNG, back: PNG }, auth); ok(r.s === 202, 'card mailed with attachments');
+r = await call('POST', '/v1/card/mail', { front: 'PHN2Zz4=' }, auth); ok(r.s === 422, 'non-image attachment refused');
+
+r = await call('POST', '/v1/registrations', { ...base, email: 'ana@example.org', given: 'Ana', sex: 'F', basis: 'own', origin: { n: 'Dubrovnik', iso: 'HRV' }, res: 'in', people: 'hrv' });
+const t3 = r.j.devToken;
+r = await call('POST', '/v1/confirm', { token: t3 }); ok(r.s === 200 && r.j.card.num === 'BK-DR-000002', 'sequence per state: BK-DR-000002');
+const acc2 = r.j.accessToken;
+
+r = await call('GET', '/v1/stats');
+ok(r.s === 200 && r.j.total === 2 && r.j.states['DR-10'] === 2 && r.j.peoples.hrv === 1 && r.j.peoples.srb === 1 && r.j.peoples.none === 0 && r.j.statesRepresented === 1, 'stats: 2 citizens, DR-10, hrv 1, srb 1');
+ok(Array.isArray(r.j.daily) && r.j.daily.length >= 1 && r.j.last30 === 2, 'stats: daily series and last 30 days');
+
+r = await call('POST', '/v1/access', { email: 'ana@example.org', turnstile: 'dev' }); ok(r.s === 202 && r.j.devAccess, 'access link for a citizen');
+r = await call('POST', '/v1/access', { email: 'nobody@example.org', turnstile: 'dev' }); ok(r.s === 202 && r.j.status === 'sent' && !r.j.devAccess, 'unknown address: same answer, nothing sent');
+
+r = await call('DELETE', '/v1/card', undefined, { Authorization: 'Bearer ' + acc2 }); ok(r.s === 204, 'deletion (204)');
+r = await call('GET', '/v1/card', undefined, { Authorization: 'Bearer ' + acc2 }); ok(r.s === 401, 'deleted citizen: access link dead');
+r = await call('GET', '/v1/stats'); ok(r.j.total === 1 && r.j.peoples.hrv === 0, 'stats follow deletion');
+
+r = await call('GET', '/v1/health', undefined, { Origin: 'https://evil.example' }); ok(r.s === 403, 'foreign origin refused');
+r = await call('GET', '/v1/health', undefined, { Origin: 'http://localhost:8000' }); ok(r.h.get('access-control-allow-origin') === 'http://localhost:8000', 'allowed origin gets CORS header');
+
+for (let i = 0; i < 3; i++) r = await call('POST', '/v1/registrations', { ...base, email: 'spam@example.org' });
+r = await call('POST', '/v1/registrations', { ...base, email: 'spam@example.org' }); ok(r.s === 429, 'per-address quota (429 on 4th mail in an hour)');
+
+console.log(fails ? `${fails} FAILURE(S)` : 'ALL PASS');
+process.exit(fails ? 1 : 0);
