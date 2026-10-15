@@ -15,6 +15,7 @@ Usage :
     python scripts/build_portail.py --inline   # build inline (fichier unique)
 """
 import argparse
+import base64
 import json
 import sys
 from pathlib import Path
@@ -81,6 +82,12 @@ def build_inline() -> int:
                 f"url('fonts/{woff}') format('woff2')",
                 f"url(data:font/woff2;base64,{b64}) format('woff2')",
             )
+    # Favicon inliné en data URI : le fichier unique reste self-contained (file://).
+    # apple-touch-icon.png reste un lien relatif, copié à côté par le déploiement Pages.
+    ico = PORTAIL / "favicon.ico"
+    if ico.exists():
+        b64 = base64.b64encode(ico.read_bytes()).decode("ascii")
+        src = src.replace('href="favicon.ico"', f'href="data:image/x-icon;base64,{b64}"', 1)
 
     OUT_INLINE.write_text(src, encoding="utf-8")
     kb = len(src) // 1024
