@@ -25,6 +25,14 @@
 - **Soleil à 7 rais** — réservé au sceau confédéral (un rai par peuple)
 - Ne pas utiliser sur les drapeaux
 
+## Devise confédérale
+- **Naš dom** — *Notre maison* / *Our home* (ADR 2026-10-15-devise-nas-dom.md)
+- Forme identique dans les trois standards régionaux (occidental, central, oriental)
+  et en cyrillique (наш дом) ; aucune lettre propre à l'alphabet v3
+- Remplace *Različiti narodi, jedan dom*, forme štokavienne non transposable
+- Communautés autonomes : *Náš domov* (slovaque) · *Otthonunk* (hongrois) ·
+  *Yuvamız* (turc) · *Shtëpia jonë* (albanais)
+
 ## Interdits héraldiques
 - **Étoile / mullet à 5 branches** : proscrit (associations SFRJ petokraka)
 - Les drapeaux d'État évitent la petokraka rouge

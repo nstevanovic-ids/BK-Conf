@@ -1343,7 +1343,7 @@ function vHome(){
       <p class="lead">A federation of forty-nine states and seven constituent South Slavic
       peoples, united in a Balkan union founded on the equality of states and on direct
       democracy.</p>
-      <div class="motto">“Različiti narodi, jedan dom” · Diverse peoples, one home.</div>
+      <div class="motto">“Naš dom” · Our home.</div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#/states">Explore the states
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -1468,8 +1468,8 @@ function vHome(){
     <div class="band-inner" style="text-align:center">
       <svg class="crest" viewBox="0 0 100 100" id="homeCrest"
         style="width:76px;height:76px;margin:0 auto 12px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.4))"></svg>
-      <div class="band-q" style="margin:0 auto;max-width:26ch">Različiti narodi, jedan dom.</div>
-      <p class="band-sub" style="margin:14px auto 0">Diverse peoples, one home.</p>
+      <div class="band-q" style="margin:0 auto;max-width:26ch">Naš dom.</div>
+      <p class="band-sub" style="margin:14px auto 0">Our home.</p>
     </div>
   </section>`;
 }
@@ -2306,7 +2306,7 @@ function cardFront(c){
   const L=CARD_L[c.std]||CARD_L.central,s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c};
   const nat=c.showNat?natForm(c):'';
   const sex=c.sex==='F'?'Ž / F':'M / M';
-  const motto=('RAZLIČITI NARODI, JEDAN DOM · DIVERSE PEOPLES, ONE HOME · ').repeat(4);
+  const motto=('NAŠ DOM · OUR HOME · ').repeat(9);
   return cardBase('cf',c,`
     ${cardRosette(150,262,150,46,24,'#99402f',.13)}
     <rect width="856" height="98" fill="#374078"/>
@@ -2330,7 +2330,7 @@ function cardFront(c){
     <text x="600" y="396" font-size="14" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(s.c)}</text>
     ${cardSeal(768,442,'cf')}
     <text x="40" y="424" font-size="9" font-weight="600" fill="#374078" opacity=".55" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(0,150))}</text>
-    <text x="40" y="452" font-size="9" font-weight="600" fill="#99402f" opacity=".5" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(20,170))}</text>
+    <text x="40" y="452" font-size="9" font-weight="600" fill="#99402f" opacity=".5" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(10,160))}</text>
     <rect y="496" width="856" height="44" fill="#374078" opacity=".07"/>
     <text x="40" y="524" font-size="12" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(CARD_AUTH.toUpperCase())}</text>`);
 }
@@ -2349,7 +2349,7 @@ function cardBack(c){
     <text x="736" y="172" font-size="13" font-weight="700" fill="#374078" text-anchor="middle">${esc(s.n)}</text>
     <text x="736" y="191" font-size="12" font-weight="600" fill="#5b6275" text-anchor="middle" letter-spacing="1">${esc(s.c)}</text>
     <image href="${STATE_FLAG_DATA}" x="40" y="270" width="48" height="32" preserveAspectRatio="xMidYMid slice"/>
-    <text x="100" y="292" font-size="12" font-weight="600" fill="#5b6275" letter-spacing=".8">RAZLIČITI NARODI, JEDAN DOM</text>
+    <text x="100" y="292" font-size="12" font-weight="600" fill="#5b6275" letter-spacing=".8">NAŠ DOM</text>
     <rect y="326" width="856" height="214" fill="#ffffff"/>
     <rect y="326" width="856" height="2" fill="#dfcc68"/>
     ${mrz.map((l,i)=>`<text x="40" y="${398+i*56}" style="font-family:'OCR B','OCR-B',Consolas,'Courier New',monospace" font-size="40" fill="#111" textLength="776" lengthAdjust="spacing">${l.replace(/</g,'&lt;')}</text>`).join('')}`);
