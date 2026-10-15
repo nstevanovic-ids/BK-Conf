@@ -3,57 +3,43 @@
 gen_favicon.py — génère les icônes du portail à partir du lion ailé confédéral.
 
 Source  : images-sources/symboles/BK-CoA.png (lion ailé d'or, fond transparent)
-Sorties : portail/favicon.ico           16 / 32 / 48 px, tuile arrondie
-          portail/apple-touch-icon.png  180 px, tuile pleine (iOS applique son masque)
+Sorties : portail/favicon.ico           16 / 32 / 48 px
+          portail/apple-touch-icon.png  180 px
 
-Composition : lion d'or (couleur du fichier source, non recolorée) sur la tuile
-indigo de chrome du portail (#1f2742), identique à l'en-tête (masthead).
-Un lion d'or sur fond transparent serait illisible sur un onglet clair.
+Composition : le lion ailé seul, d'or (couleur du fichier source, non recolorée),
+sur fond transparent, sans tuile ni contour.
 
 Usage :
     python scripts/gen_favicon.py
 """
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "images-sources" / "symboles" / "BK-CoA.png"
 OUT = ROOT / "portail"
 
-INDIGO = (0x1F, 0x27, 0x42)   # --indigo, chrome structurel du portail
-SS = 8                        # suréchantillonnage pour l'anticrénelage des coins
-
-# taille → (marge relative autour du lion, rayon relatif des coins, renfort alpha)
-# Les petites tailles réduisent la marge et renforcent l'opacité du lion : les
-# hachures internes du dessin, moyennées à 16-32 px, ternissent sinon la silhouette.
-SPEC_ICO = {16: (0.03, 0.20, 1.6), 32: (0.08, 0.20, 1.3), 48: (0.10, 0.20, 1.15)}
-SPEC_TOUCH = (180, 0.14, 0.0, 1.0)  # pleine tuile, sans arrondi
+# taille → (marge relative autour du lion, renfort alpha)
+# Aux petites tailles, le renfort d'opacité évite que les hachures internes du
+# dessin, moyennées à 16-32 px, ne ternissent la silhouette.
+SPEC_ICO = {16: (0.0, 1.6), 32: (0.0, 1.3), 48: (0.02, 1.15)}
+SPEC_TOUCH = (180, 0.06, 1.0)
 
 
 def load_lion():
     """Retourne (couleur RGB du lion, masque alpha L) depuis la source."""
     im = Image.open(SRC).convert("RGBA")
-    alpha = im.getchannel("A")
-    im = im.crop(alpha.getbbox())
+    im = im.crop(im.getchannel("A").getbbox())
     # Le lion est monochrome : on prend la couleur du pixel le plus opaque.
-    px = max(im.get_flattened_data() if hasattr(im, "get_flattened_data") else im.getdata(),
-             key=lambda p: p[3])
+    data = im.get_flattened_data() if hasattr(im, "get_flattened_data") else im.getdata()
+    px = max(data, key=lambda p: p[3])
     return px[:3], im.getchannel("A")
 
 
-def tile(size: int, pad: float, radius: float, boost: float, gold,
-         mask: Image.Image) -> Image.Image:
-    # Fond : tuile indigo, coins arrondis dessinés en suréchantillonnage
-    big = size * SS
-    shape = Image.new("L", (big, big), 0)
-    ImageDraw.Draw(shape).rounded_rectangle(
-        (0, 0, big - 1, big - 1), radius=int(radius * big), fill=255)
-    shape = shape.resize((size, size), Image.LANCZOS)
-    out = Image.new("RGBA", (size, size), INDIGO + (0,))
-    out.putalpha(shape)
-
-    # Lion : on redimensionne le masque alpha seul (pas de halo de prémultiplication)
+def icon(size: int, pad: float, boost: float, gold, mask: Image.Image) -> Image.Image:
+    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    # On redimensionne le masque alpha seul (pas de halo de prémultiplication)
     box = size * (1 - 2 * pad)
     w, h = mask.size
     k = box / max(w, h)
@@ -70,16 +56,14 @@ def tile(size: int, pad: float, radius: float, boost: float, gold,
 def main() -> int:
     gold, mask = load_lion()
 
-    icons = [tile(s, p, r, b, gold, mask) for s, (p, r, b) in sorted(SPEC_ICO.items())]
+    icons = [icon(s, p, b, gold, mask) for s, (p, b) in sorted(SPEC_ICO.items())]
     ico = OUT / "favicon.ico"
-    # Pillow écrit chaque taille demandée à partir de append_images si fournies
     icons[-1].save(ico, format="ICO", sizes=[(i.width, i.height) for i in icons],
                    append_images=icons[:-1])
 
-    size, pad, radius, boost = SPEC_TOUCH
-    touch = tile(size, pad, radius, boost, gold, mask).convert("RGB")
+    size, pad, boost = SPEC_TOUCH
     apple = OUT / "apple-touch-icon.png"
-    touch.save(apple, optimize=True)
+    icon(size, pad, boost, gold, mask).save(apple, optimize=True)
 
     for f in (ico, apple):
         print(f"{f.relative_to(ROOT)}  ({f.stat().st_size} o)")
