@@ -3,18 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Balkan Confederation — Official Portal</title>
+<title>Balkan Confederation · Official Portal</title>
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f2742">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spectral:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Provisional fallback grotesque (Inter) until the licensed Zurich files are supplied.
+     Drop portail/fonts/zurich-regular.woff2 and zurich-bold.woff2 to switch to Zurich. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Licensed typeface (Zurich BT), files provided by the project owner.
+   The inline build embeds these as base64 for a self-contained file. */
+@font-face{font-family:'Zurich';font-style:normal;font-weight:300 500;font-display:swap;
+  src:url('fonts/zurich-regular.woff2') format('woff2')}
+@font-face{font-family:'Zurich';font-style:normal;font-weight:600 900;font-display:swap;
+  src:url('fonts/zurich-bold.woff2') format('woff2')}
 /* ============================================================
-   BALKANSKA KONFEDERACIJA — OFFICIAL PORTAL
+   BALKANSKA KONFEDERACIJA, OFFICIAL PORTAL
    Design system: institutional / Swiss-cold / documentary
-   Stage 1 — portal shell
+   Stage 1, portal shell
    ============================================================ */
 :root{
   --white:#ffffff;
@@ -38,12 +46,14 @@
   --line-3:#bcbfc7;
   --red:#9a2f23;
   --good:#3c6b46;
-  /* people identity hues — used only as small markers */
+  /* people identity hues, used only as small markers */
   --slo:#5b7a99; --hrv:#a8403a; --srb:#7b3f6e; --bos:#2f6f6a;
   --cng:#8a6d3b; --mkd:#bb8326; --bul:#4d7c4a; --fed:#3a4663;
   --shadow:0 1px 2px rgba(20,24,40,.04);
   --shadow-lg:0 18px 44px rgba(20,24,40,.12);
   --tile:#ffffff; --tile-line:#d0d2d8;
+  --font:'Zurich','Inter',system-ui,sans-serif;
+  --map-land:#e9edf3; --map-core:#d3dcea; --map-line:#a9b4c9; --map-water:#dde6f1;
   color-scheme:light;
 }
 [data-theme="dark"]{
@@ -71,16 +81,25 @@
   --shadow:0 1px 2px rgba(0,0,0,.3);
   --shadow-lg:0 18px 44px rgba(0,0,0,.5);
   --tile:#1d2230; --tile-line:#3a4258;
+  --map-land:#1a2030; --map-core:#27314c; --map-line:#3a4258; --map-water:#0b0f17;
   color-scheme:dark;
 }
 [data-theme="dark"] .tag.gold,
 [data-theme="dark"] .symtag.tag-soft{color:#f0deac}
 [data-theme="dark"] .langsel button.on{background:var(--gold-2);color:#1a1205}
 [data-theme="dark"] .topline{background:#b21d1d}
+/* display text that used the dark indigo ink would vanish on a dark surface */
+[data-theme="dark"] .glyph .g,
+[data-theme="dark"] .kpi .kn,
+[data-theme="dark"] .membercount{color:var(--ink)}
+[data-theme="dark"] .seeall:hover,
+[data-theme="dark"] .btn-ghost:hover{color:var(--gold-2)}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html{height:100%}
+body{min-height:100%} /* min-height, not height: a fixed body height released the sticky header after one screen */
+html{overflow-x:clip}
 body{
-  font-family:'Archivo',-apple-system,Segoe UI,sans-serif;
+  font-family:var(--font);
   background:var(--bg); color:var(--ink);
   -webkit-font-smoothing:antialiased; line-height:1.6;
   font-size:15px;
@@ -93,8 +112,9 @@ body{
     box-shadow .18s ease,transform .14s ease}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
-.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
-.serif{font-family:'Spectral',Georgia,serif}
+.mono{font-family:var(--font);font-feature-settings:"tnum" 1;letter-spacing:.01em}
+.serif{font-family:var(--font)}
+text{font-family:var(--font)}
 h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
 
 /* ---------- top hairline ---------- */
@@ -120,7 +140,7 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
   gap:16px;padding:16px 28px 14px}
 .emblem{width:44px;height:44px;flex:none}
 .brand{display:flex;flex-direction:column;line-height:1.12}
-.brand b{font-family:'Spectral',serif;font-size:1.3rem;font-weight:700;
+.brand b{font-family:var(--font);font-size:1.3rem;font-weight:700;
   letter-spacing:.005em;color:#fff}
 .brand span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold-soft);margin-top:3px;font-weight:600}
@@ -162,7 +182,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .hero{display:grid;grid-template-columns:1.35fr .85fr;gap:46px;
   padding:50px 0 40px;align-items:center}
 .hero h1{font-size:2.95rem;line-height:1.08;margin:6px 0 16px}
-.hero .motto{font-family:'Spectral',serif;font-style:italic;font-size:1.06rem;
+.hero .motto{font-family:var(--font);font-style:italic;font-size:1.06rem;
   color:var(--ink-2);border-left:2px solid var(--gold);padding-left:15px;margin:20px 0 24px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;
@@ -182,7 +202,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--white)}
 .fig{padding:22px 22px;border-right:1px solid var(--line)}
 .fig:last-child{border-right:none}
-.fig b{font-family:'Spectral',serif;font-size:2.5rem;font-weight:700;
+.fig b{font-family:var(--font);font-size:2.5rem;font-weight:700;
   color:var(--indigo);display:block;line-height:1}
 .fig span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:8px;display:block}
@@ -219,11 +239,10 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .dtable td:first-child{color:var(--ink-3);width:46%;font-size:.74rem;
   letter-spacing:.04em;text-transform:uppercase;font-weight:700;padding-top:13px}
 .dtable .pending{color:var(--ink-3)}
-.dtable .pending::after{content:" ·";color:var(--line-3)}
+.dtable .pending{color:var(--line-3)}
+.dtable .dsrc{display:block;font-size:.7rem;color:var(--ink-3);margin-top:2px}
 
 /* people dot + badges */
-.pdot{display:inline-block;width:9px;height:9px;border-radius:50%;
-  vertical-align:0;margin-right:6px}
 .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;padding:3px 8px;border-radius:3px;
   border:1px solid var(--line-2);color:var(--ink-2)}
@@ -260,15 +279,19 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .scard .flagwrap svg{width:100%;height:100%;display:block}
 .scard .smeta{padding:11px 13px 13px}
 .scard .smeta .scode{font-size:.66rem;letter-spacing:.09em;color:var(--ink-3);
-  font-weight:700;font-family:'IBM Plex Mono',monospace}
+  font-weight:700;font-family:var(--font)}
 .scard .smeta h3{font-size:1rem;margin:2px 0 3px}
 .scard .smeta .speu{font-size:.74rem;color:var(--ink-2)}
+.scard .smeta .spop{font-size:.72rem;color:var(--ink-3);margin-top:2px;font-variant-numeric:tabular-nums}
 .scard.muni{border-style:dashed}
 
 /* ---------- state detail ---------- */
 .detail{display:grid;grid-template-columns:360px 1fr;gap:34px;align-items:start}
 .flagcard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:18px}
+.coacard .coa-wrap{display:flex;justify-content:center;padding:8px 0 2px}
+.coacard .coa-wrap img{max-width:62%;height:auto;max-height:320px;
+  filter:drop-shadow(0 8px 18px rgba(20,24,40,.16))}
 .flagcard .fbig{aspect-ratio:3/2;border:1px solid var(--line);border-radius:2px;
   overflow:hidden;background:var(--surface-2)}
 .flagcard .fbig svg{width:100%;height:100%;display:block}
@@ -302,7 +325,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .tile{cursor:pointer}
 .tile rect,.tile circle{transition:.12s}
 .tile:hover rect,.tile:hover circle{stroke:var(--indigo);stroke-width:2.4}
-.tile text{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+.tile text{font-family:var(--font);font-size:12px;font-weight:600;
   pointer-events:none}
 .tile.dim{opacity:.34}
 .legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:16px;
@@ -314,8 +337,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:7px}
 .glyph{background:var(--white);border:1px solid var(--line-2);border-radius:3px;
   text-align:center;padding:11px 4px}
-.glyph .g{font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;color:var(--indigo)}
-.glyph .ipa{font-size:.66rem;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;
+.glyph .g{font-family:var(--font);font-size:1.5rem;font-weight:600;color:var(--indigo)}
+.glyph .ipa{font-size:.66rem;color:var(--ink-3);font-family:var(--font);
   margin-top:3px}
 .glyph.vow{background:var(--surface-2)}
 .glyph.new{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
@@ -324,15 +347,14 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .peoples{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .pp{background:var(--white);padding:15px 12px;text-align:center}
-.pp .pp-bar{height:4px;width:30px;margin:0 auto 9px;border-radius:2px}
-.pp b{font-family:'Spectral',serif;font-size:.97rem;display:block;color:var(--ink)}
+.pp b{font-family:var(--font);font-size:.97rem;display:block;color:var(--ink)}
 .pp span{font-size:.7rem;color:var(--ink-3)}
 
 /* ---------- dashboard ---------- */
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .kpi{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:22px;border-top:3px solid var(--gold)}
-.kpi .kn{font-family:'Spectral',serif;font-size:2.3rem;color:var(--indigo);
+.kpi .kn{font-family:var(--font);font-size:2.3rem;color:var(--indigo);
   font-weight:700;line-height:1}
 .kpi .kl{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:7px}
@@ -342,13 +364,13 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .barrow .bl{width:130px;font-weight:600;color:var(--ink-2)}
 .barrow .bt{flex:1;height:9px;background:var(--surface-3);border-radius:2px;overflow:hidden}
 .barrow .bf{height:100%;background:var(--line-3)}
-.barrow .bv{width:46px;text-align:right;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+.barrow .bv{width:46px;text-align:right;color:var(--ink-3);font-family:var(--font);font-size:.78rem}
 
 /* ---------- registration steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
 .step{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:20px;position:relative}
-.step .sn{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+.step .sn{font-family:var(--font);font-size:.78rem;font-weight:600;
   color:var(--gold);border:1px solid var(--gold-soft);border-radius:50%;
   width:26px;height:26px;display:flex;align-items:center;justify-content:center}
 .step h4{font-size:1rem;margin:11px 0 5px}
@@ -358,7 +380,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .cert .cemb{width:54px;height:54px;flex:none}
 .cert .cl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--gold-soft);font-weight:700}
-.cert .cid{font-family:'IBM Plex Mono',monospace;font-size:1.5rem;font-weight:600;
+.cert .cid{font-family:var(--font);font-size:1.5rem;font-weight:600;
   letter-spacing:.04em;margin-top:3px}
 .cert p{font-size:.8rem;color:rgba(233,234,240,.7);margin-top:4px}
 
@@ -368,7 +390,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   border-bottom:1px solid var(--line);align-items:baseline}
 .jrow:last-child{border-bottom:none}
 .jrow:hover{background:var(--surface-2)}
-.jrow .jd{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink-3);
+.jrow .jd{font-family:var(--font);font-size:.76rem;color:var(--ink-3);
   width:108px;flex:none}
 .jrow .jt{font-weight:600;font-size:.9rem;flex:1}
 .jrow .jt span{display:block;font-weight:400;font-size:.78rem;color:var(--ink-2);margin-top:2px}
@@ -378,6 +400,70 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 /* ---------- notice ---------- */
 .notice{background:var(--surface);border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
   border-radius:3px;padding:13px 16px;font-size:.83rem;color:var(--ink-2);margin-top:14px}
+
+/* ---------- constitution reader ---------- */
+.cpre{max-width:68ch;font-size:1.06rem;line-height:1.75;color:var(--ink)}
+.cpre p{margin:0 0 14px}
+.cpre p:first-child{font-weight:600}
+.cpre p.cfin{font-weight:700;margin-top:22px}
+.cpre .cmotto{font-style:italic;color:var(--gold);font-size:1.12rem;margin-top:18px}
+.creader{display:grid;grid-template-columns:250px minmax(0,1fr);gap:52px;align-items:start}
+.ctoc{position:sticky;top:var(--hdr,150px);max-height:calc(100vh - var(--hdr,150px) - 24px);
+  overflow:auto;font-size:.79rem;padding:4px 6px 12px 0;overscroll-behavior:contain}
+.ctoc-h{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--gold);margin-bottom:8px}
+.ctoc .cch{font-weight:700;color:var(--ink);margin:14px 0 4px;font-size:.76rem}
+.ctoc .cch span{display:block;font-weight:500;color:var(--ink-3);font-size:.72rem}
+.ctoc a{display:block;padding:4px 0 4px 10px;border-left:2px solid var(--line);
+  color:var(--ink-2);line-height:1.35}
+.ctoc a b{display:block;font-size:.68rem;color:var(--ink-3);font-weight:600}
+.ctoc a:hover{color:var(--ink);border-left-color:var(--gold)}
+.ctoc-t{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.ctoc .ctoc-t a{border:1px solid var(--line-2);border-radius:3px;padding:3px 8px;font-size:.7rem;font-weight:600}
+.ctoc .ctoc-t a.on{background:var(--indigo);color:var(--indigo-ink);border-color:var(--indigo)}
+.cbody{min-width:0}
+.cchap{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:700;margin:30px 0 0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.cbody .cchap:first-child{margin-top:0}
+.cart{padding:24px 0 26px;border-bottom:1px solid var(--line)}
+.cart .cnum{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.cart h3{font-size:1.18rem;margin:4px 0 12px;line-height:1.3}
+.cart p,.cart li{font-size:.96rem;line-height:1.68;max-width:74ch}
+.cart p{margin:0 0 10px}
+.cart .csub{font-weight:700;font-size:.86rem;margin:16px 0 6px;color:var(--ink)}
+.cart ol,.cart ul{margin:0 0 12px;padding:0;list-style:none}
+.cart .cul li{position:relative;padding-left:18px;margin-bottom:4px}
+.cart .cul li::before{content:'';position:absolute;left:4px;top:.72em;width:5px;height:5px;
+  border-radius:50%;background:var(--gold)}
+.cart .cll li,.cart .col li{display:flex;gap:10px;margin-bottom:6px}
+.cart .cmk{flex:none;min-width:1.6em;color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
+.cart .col.ccols{columns:2;column-gap:36px}
+.cart .col.ccols li{break-inside:avoid;margin-bottom:3px;font-size:.9rem}
+.cart a.cref{color:var(--navy);border-bottom:1px solid var(--line-3)}
+.cart a.cref:hover{color:var(--gold);border-bottom-color:var(--gold)}
+[data-theme="dark"] .cart a.cref{color:var(--gold-2);border-bottom-color:rgba(228,186,72,.4)}
+[data-theme="dark"] .cpre .cmotto{color:var(--gold-2)}
+.cpager{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.cpager a{border:1px solid var(--line);border-radius:4px;padding:14px 16px;background:var(--white);
+  font-weight:600;font-size:.88rem}
+.cpager a small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:4px}
+.cpager a.nx,.cpager span+a{text-align:right}
+.cpager a:hover{border-color:var(--gold)}
+@media(max-width:900px){
+  .creader{grid-template-columns:1fr;gap:18px}
+  .ctoc{position:static;max-height:none;overflow:visible;padding:0;
+    border:1px solid var(--line);border-radius:4px;background:var(--white);padding:14px 16px}
+  .ctoc a{display:inline-block;border-left:none;padding:3px 10px 3px 0}
+  .ctoc a b{display:inline;margin-right:4px}
+  .ctoc .cch{margin-top:10px}
+}
+@media(max-width:680px){
+  .cart .col.ccols{columns:1}
+  .cpager{grid-template-columns:1fr}
+  .cpager a.nx,.cpager span+a{text-align:left}
+  .cpre{font-size:1rem}
+}
 
 
 /* ---------- symbols page ---------- */
@@ -455,35 +541,234 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 @keyframes vt-out{to{opacity:0;transform:translateY(-6px)}}
 @keyframes vt-in{from{opacity:0;transform:translateY(10px)}}
 
-/* ---------- interactive map ---------- */
-.mapwrap{background:var(--surface);border:1px solid var(--line-2);border-radius:8px;
-  box-shadow:var(--shadow);overflow:hidden}
-.mapbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;
-  padding:13px 15px;border-bottom:1px solid var(--line)}
-.mapbar .mb-zoom{display:flex;gap:4px;margin-left:auto}
-.mapbar .mb-zoom button,.maptoggle{width:32px;height:32px;display:flex;
-  align-items:center;justify-content:center;border:1px solid var(--line-2);
-  background:var(--surface);color:var(--ink-2);border-radius:4px;font-size:1rem;font-weight:700}
-.mapbar .mb-zoom button:hover,.maptoggle:hover{border-color:var(--gold);color:var(--ink)}
-.maptoggle{width:auto;padding:0 12px;font-size:.76rem;font-weight:600;gap:7px}
-.maptoggle.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
-.mapstage{position:relative;height:min(64vh,560px);overflow:hidden;cursor:grab;
-  background:
-    linear-gradient(var(--line) 1px,transparent 1px) 0 0/26px 26px,
-    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/26px 26px,
-    var(--surface-2)}
-.mapstage.grabbing{cursor:grabbing}
-.mapstage svg{position:absolute;top:0;left:0;transform-origin:0 0;
-  transition:transform .12s ease;will-change:transform}
-.mapstage.grabbing svg{transition:none}
-.mtip{position:absolute;z-index:5;pointer-events:none;opacity:0;
-  background:var(--ink);color:var(--bg);font-size:.74rem;font-weight:600;
-  padding:6px 10px;border-radius:5px;white-space:nowrap;transform:translate(-50%,-130%);
-  transition:opacity .12s ease;box-shadow:var(--shadow-lg)}
-.mtip.show{opacity:1}
-.mtip span{display:block;font-weight:500;opacity:.72;font-size:.68rem;
-  font-family:'IBM Plex Mono',monospace}
-.tile rect,.tile circle{transition:fill .15s ease,stroke .12s ease}
+/* ---------- map: situation room (always dark, like an instrument screen) ---------- */
+.sr{--sr-bg:#050a1b;--sr-ocean:#081129;--sr-land:#1a2445;--sr-far:#172040;
+  --sr-grid:rgba(132,152,226,.11);--sr-glow:#4d5ec9;--sr-gold:#dfcc68;--sr-red:#d4644f;
+  --sr-ink:#e9ecf6;--sr-ink-2:#aab3d3;--sr-ink-3:#76809f;
+  --sr-panel:rgba(11,18,42,.72);--sr-edge:rgba(160,178,255,.14);--sr-hi:rgba(160,178,255,.08);
+  position:relative;margin:6px calc(50% - 50vw) -90px;color:var(--sr-ink);
+  height:max(690px,calc(100vh - var(--hdr,150px) - 30px));overflow:hidden;isolation:isolate;
+  background:radial-gradient(110% 80% at 50% 18%,#101a44 0%,#0a1230 38%,var(--sr-bg) 75%);
+  font-feature-settings:"tnum" 1}
+.sr::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55;
+  background-image:radial-gradient(rgba(150,170,240,.10) 1px,transparent 1.3px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%);
+          mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%)}
+.sr-stage{position:absolute;inset:0;cursor:grab;touch-action:none;outline:none}
+.sr-stage{--glowc:rgba(79,125,255,.5)}
+.sr-stage[data-mode="gdp"]{--glowc:rgba(240,138,58,.45)}
+.sr-stage[data-mode="peoples"]{--glowc:rgba(220,230,255,.2)}
+.sr-regions{filter:drop-shadow(0 0 9px var(--glowc))}
+.sr-tex{pointer-events:none}
+.sr-stage[data-mode="peoples"] .sr-dots{opacity:.55}
+.sr-stage.grabbing{cursor:grabbing}
+.sr-stage:focus-visible{box-shadow:inset 0 0 0 2px var(--sr-gold)}
+.sr-layers{position:absolute;inset:0;transform-origin:0 0}
+.sr-stage svg,.sr-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sr-over,.sr-lights{pointer-events:none}
+.sr-halo{fill:none;stroke:var(--sr-glow);stroke-width:26;opacity:.42;filter:url(#srBlur)}
+.sr-sphere{fill:url(#srOcean)}
+.sr-limb{fill:none;stroke:rgba(150,170,255,.55);stroke-width:1}
+.sr-grat{fill:none;stroke:var(--sr-grid);stroke-width:.7}
+.sr-far{fill:var(--sr-far)}
+.sr-land path{fill:var(--sr-land)}
+.sr-borders{fill:none;stroke:rgba(150,170,255,.22);stroke-width:.6}
+.sr-reg{stroke:rgba(5,8,24,.92);stroke-width:.9;stroke-linejoin:round;cursor:pointer;
+  transition:fill .35s ease,opacity .25s ease}
+.sr-reg.fed{stroke:var(--sr-gold);stroke-width:.9}
+.sr-stage[data-mode="states"] .sr-reg{stroke:rgba(150,178,255,.6);stroke-width:.55}
+.sr-stage[data-mode="states"] .sr-reg.fed{stroke:#ffe7a3;stroke-width:.8}
+.sr-stage[data-mode="gdp"] .sr-reg,.sr-stage[data-mode="dens"] .sr-reg{stroke:rgba(5,8,24,.55);stroke-width:.5}
+.sr-reg.muni{stroke-dasharray:3 2}
+.sr-reg.dim{opacity:.16}
+.sr-reg:focus{outline:none}
+.sr-occbase{fill:var(--sr-land);pointer-events:none}
+.sr-occ{fill:url(#srHatch);stroke:var(--sr-red);stroke-width:.8;stroke-dasharray:2 2;pointer-events:none}
+.sr-hover{fill:none;stroke:#fff;stroke-width:1.3;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(190,210,255,.9))}
+.sr-pin{fill:none;stroke:#ffe7a3;stroke-width:1.8;stroke-linejoin:round;
+  filter:drop-shadow(0 0 6px rgba(245,181,74,.85))}
+.sr-flbl{fill:var(--sr-ink);font-size:10.5px;font-weight:700;paint-order:stroke;
+  stroke:rgba(6,11,29,.9);stroke-width:3px;text-anchor:middle}
+.sr-tip{position:absolute;z-index:6;pointer-events:none;opacity:0;transform:translate(-50%,-125%);
+  background:rgba(8,13,33,.92);border:1px solid var(--sr-edge);color:var(--sr-ink);
+  padding:7px 11px;border-radius:8px;font-size:.78rem;font-weight:600;white-space:nowrap;
+  transition:opacity .12s ease}
+.sr-tip.show{opacity:1}
+.sr-tip span{display:block;color:var(--sr-ink-2);font-weight:500;font-size:.72rem;margin-top:2px}
+/* chrome */
+.sr-top{position:absolute;z-index:4;top:18px;left:24px;right:24px;display:flex;align-items:center;
+  gap:14px;pointer-events:none}
+.sr-top>*{pointer-events:auto}
+.sr-title{margin-right:auto}
+.sr-title h1{font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin:0;color:var(--sr-ink)}
+.sr-title p{margin:3px 0 0;font-size:.8rem;color:var(--sr-ink-2)}
+.sr-seg{display:flex;padding:3px;border-radius:999px;background:var(--sr-panel);
+  border:1px solid var(--sr-edge);backdrop-filter:blur(12px)}
+.sr-seg button,.sr-btn{border:0;background:none;color:var(--sr-ink-2);font-size:.78rem;
+  font-weight:600;padding:7px 14px;border-radius:999px}
+.sr-seg button:hover,.sr-btn:hover{color:var(--sr-ink)}
+.sr-seg button.on{background:linear-gradient(160deg,#ffffff,#c4d0ff);color:#0a1230;
+  box-shadow:0 4px 14px -6px rgba(160,185,255,.9)}
+.sr-seg button:focus-visible,.sr-btn:focus-visible,.sr-bar:focus-visible,.sr-open:focus-visible{
+  outline:2px solid var(--sr-gold);outline-offset:2px}
+.sr-tools{display:flex;gap:6px}
+.sr-btn{background:var(--sr-panel);border:1px solid var(--sr-edge);backdrop-filter:blur(12px);
+  min-width:36px;height:36px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:7px}
+.sr-btn[aria-pressed="true"]{color:#f5b54a;border-color:rgba(245,181,74,.45)}
+.sr-btn .dot{width:7px;height:7px;border-radius:50%;background:currentColor;
+  box-shadow:0 0 8px currentColor}
+.sr-col{position:absolute;z-index:3;top:80px;display:flex;flex-direction:column;gap:10px}
+.sr-left{left:24px;width:262px}
+.sr-right{right:24px;width:316px}
+.sr-card{border:1px solid transparent;border-radius:12px;padding:15px 17px;
+  background:linear-gradient(var(--sr-panel),var(--sr-panel)) padding-box,
+    linear-gradient(150deg,rgba(170,195,255,.34),rgba(170,195,255,.05) 38%,rgba(170,195,255,.03) 70%,rgba(245,181,74,.22)) border-box;
+  backdrop-filter:blur(14px) saturate(1.15);box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
+.sr-k{font-size:.76rem;color:var(--sr-ink-2);font-weight:600}
+.sr-big{font-size:1.9rem;font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-top:6px;
+  color:var(--sr-ink);background:linear-gradient(180deg,#ffffff 30%,#aebdf5);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sr-big small{font-size:.95rem;font-weight:600;color:var(--sr-ink-2);margin-left:3px}
+.sr-sub{font-size:.74rem;color:var(--sr-ink-3);margin-top:4px;line-height:1.4}
+.sr-split{display:flex;gap:2px;height:5px;margin-top:12px;border-radius:3px;overflow:hidden}
+.sr-split i{display:block;min-width:3px}
+.sr-rows{margin:11px 0 0;display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:.78rem}
+.sr-rows dt{color:var(--sr-ink-2)}
+.sr-rows dd{margin:0;text-align:right;font-weight:600}
+.sr-ring{display:flex;align-items:center;gap:14px;margin-top:8px}
+.sr-ring svg{flex:none}
+.sr-ringsvg line{stroke-width:2.4;stroke-linecap:round}
+.sr-ringsvg text{fill:var(--sr-ink);font-size:16px;font-weight:600;text-anchor:middle;letter-spacing:-.02em}
+.sr-dist{display:block;width:100%;height:92px}
+.sr-distwrap.mini{margin-top:10px}
+.sr-distwrap.mini .sr-dist{height:30px}
+.sr-dist rect{cursor:pointer;transition:fill .2s ease}
+.sr-dist rect:hover,.sr-dist rect.hl{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}
+.sr-axis{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:.68rem;color:var(--sr-ink-3)}
+.sr-axis span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-grad{gap:8px}
+.sr-grad b{display:inline-block;width:160px;height:7px;border-radius:4px;
+  box-shadow:0 0 12px -2px rgba(255,255,255,.25)}
+.sr-grad em{font-style:normal;color:var(--sr-ink-2)}
+/* selection card */
+.sr-sel{border-top:2px solid transparent;min-height:120px}
+.sr-sel.pinned{box-shadow:0 0 0 1px rgba(245,181,74,.45),0 18px 40px -24px rgba(0,0,0,.8)}
+.sr-selhead{display:flex;gap:12px;align-items:center}
+.sr-selhead .fl{flex:none;width:44px;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.sr-selhead .fl svg{display:block;width:100%;height:auto}
+.sr-selhead h2{font-size:1.08rem;font-weight:700;margin:0;line-height:1.2;color:var(--sr-ink)}
+.sr-selhead p{margin:2px 0 0;font-size:.74rem;color:var(--sr-ink-2)}
+.sr-meter{position:relative;height:6px;border-radius:3px;background:rgba(160,178,255,.12);margin:7px 0 2px}
+.sr-meter i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
+  background:linear-gradient(90deg,#99402f,#f08a3a 55%,#ffe7a3);box-shadow:0 0 10px -1px rgba(240,138,58,.6)}
+.sr-meter b{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:var(--sr-ink-2)}
+.sr-meterlbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--sr-ink-3)}
+.sr-open{display:inline-flex;margin-top:10px;font-size:.78rem;font-weight:700;color:#1a0b05;
+  background:linear-gradient(100deg,#f08a3a,#f5b54a 60%,#ffe7a3);border-radius:999px;padding:7px 14px;
+  box-shadow:0 6px 18px -8px rgba(240,138,58,.9)}
+.sr-open:hover{filter:brightness(1.08)}
+.sr-hint{font-size:.78rem;color:var(--sr-ink-2);line-height:1.5;margin:6px 0 10px}
+/* bar lists (peoples, ranking) */
+.sr-bars{display:flex;flex-direction:column;gap:3px;margin-top:10px}
+.sr-bar{display:grid;grid-template-columns:96px 1fr 52px;align-items:center;gap:9px;width:100%;
+  border:0;background:none;color:var(--sr-ink);font-size:.76rem;text-align:left;
+  padding:4px 6px;margin:0 -6px;border-radius:7px;width:calc(100% + 12px)}
+button.sr-bar:hover{background:var(--sr-hi)}
+.sr-bar.off{opacity:.38}
+.sr-bar .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sr-ink-2)}
+.sr-bar .tr{height:6px;border-radius:3px;background:rgba(160,178,255,.07);position:relative}
+.sr-bar .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--c0),var(--c));box-shadow:2px 0 10px -1px var(--cg)}
+.sr-bar .tr i::after{content:"";position:absolute;right:0;top:-1px;bottom:-1px;width:2px;border-radius:2px;
+  background:#fff;opacity:.85}
+.sr-bar .v{text-align:right;font-weight:600}
+.sr-cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.sr-cardhead button{border:0;background:none;color:var(--sr-gold);font-size:.72rem;font-weight:600;padding:0}
+/* legend */
+.sr-legend{position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;
+  max-width:min(760px,calc(100% - 640px));padding:9px 16px;border-radius:14px;
+  background:var(--sr-panel);border:1px solid var(--sr-edge);backdrop-filter:blur(12px);
+  font-size:.72rem;color:var(--sr-ink-2)}
+.sr-legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.sr-legend i{width:11px;height:11px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(200,212,255,.18)}
+.sr-legend i.hatch{background:repeating-linear-gradient(45deg,var(--sr-red) 0 1.5px,transparent 1.5px 4px);
+  box-shadow:inset 0 0 0 1px var(--sr-red)}
+.sr-legend i.light{border-radius:50%;background:radial-gradient(circle,#fff6e0 0,#f08a3a 38%,transparent 72%)}
+.sr-srcs{color:var(--sr-ink-3);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.sr-src{position:absolute;z-index:3;right:24px;bottom:14px;font-size:.66rem;color:var(--sr-ink-3);
+  text-align:right;max-width:300px;line-height:1.4}
+@media(max-width:1180px){
+  .sr{height:max(780px,calc(100vh - var(--hdr,150px) - 30px))}
+  .sr-legend{max-width:calc(100% - 48px);bottom:auto;top:76px}
+  .sr-col{top:150px}
+}
+@media(max-width:980px){
+  .sr{height:auto;margin-bottom:-90px;padding-bottom:28px;display:flex;flex-direction:column}
+  .sr-top{order:-1}
+  .sr-stage{position:relative;height:68vh;min-height:430px}
+  .sr-top{position:relative;top:0;left:0;right:0;padding:16px 16px 6px;flex-wrap:wrap}
+  .sr-title{flex-basis:100%}
+  .sr-legend{position:relative;left:0;top:0;transform:none;max-width:none;margin:10px 16px 0;
+    justify-content:flex-start}
+  .sr-col{position:relative;top:0;left:0;right:0;width:auto;margin:12px 16px 0}
+  .sr-src{position:relative;right:0;bottom:0;margin:14px 16px 0;text-align:left;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){.sr-reg{transition:none}}
+.sr-ping circle{fill:none;stroke:#ffd27a;stroke-width:1.2;opacity:0}
+@media(prefers-reduced-motion:no-preference){
+  /* bars grow in, then a slow light sweep runs along each gradient */
+  .sr-bar .tr i{overflow:hidden;transform-origin:left;
+    animation:srGrowX .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms)}
+  .sr-bar .tr i::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent) no-repeat;
+    background-size:38% 100%;background-position:-60% 0;
+    animation:srSweep 5.5s ease-in-out infinite;animation-delay:calc(1.4s + var(--i,0)*160ms)}
+  .sr-split i,.sr-meter i{transform-origin:left;animation:srGrowX 1.1s cubic-bezier(.2,.8,.2,1) both}
+  .sr-meter i{animation-delay:.1s}
+  /* GDP ring: ticks light up in turn, then a glint travels along the lit arc */
+  .sr-ringsvg line.on{animation:srTickIn .45s ease-out both,srGlint 4.8s ease-in-out infinite;
+    animation-delay:calc(var(--i)*22ms),calc(1.6s + var(--i)*28ms)}
+  /* columns of the histogram rise from the baseline when the measure changes */
+  .sr-distwrap.rise .sr-dist rect{transform-box:fill-box;transform-origin:50% 100%;
+    animation:srGrowY .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*12ms)}
+  /* legend gradient and the active button carry the same slow sweep */
+  .sr-grad b{position:relative;overflow:hidden}
+  .sr-grad b::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent) no-repeat;
+    background-size:30% 100%;background-position:-50% 0;animation:srSweep 6s ease-in-out infinite 1s}
+  .sr-open{background-size:180% 100%;animation:srDrift 6s ease-in-out infinite alternate}
+  /* radar ping on the federal capitals */
+  .sr-ping circle{transform-box:fill-box;transform-origin:center;
+    animation:srPing 3.6s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:calc(var(--i)*.6s)}
+}
+@keyframes srGrowX{from{transform:scaleX(0)}}
+@keyframes srGrowY{from{transform:scaleY(0)}}
+@keyframes srSweep{0%{background-position:-60% 0}55%,100%{background-position:160% 0}}
+@keyframes srTickIn{from{opacity:0}}
+@keyframes srGlint{0%,7%,100%{stroke-width:2.4}3.5%{stroke-width:3.3;stroke:#ffd98f}}
+@keyframes srDrift{from{background-position:0% 0}to{background-position:100% 0}}
+@keyframes srPing{0%{transform:scale(.25);opacity:.9}70%{opacity:.15}100%{transform:scale(1.9);opacity:0}}
+.minimap{width:100%;height:auto;display:block;border:1px solid var(--line);
+  border-radius:3px;background:var(--map-water)}
+.minimap .mm-land{fill:var(--map-land)}
+.minimap .mm-reg{fill:#aab4c9;fill-opacity:.55;stroke:var(--map-water);stroke-width:.4}
+.minimap .mm-hit{stroke:#fff;stroke-width:1.2}
+
+/* ---------- waving flags ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .flagwrap svg,.flagcard .fbig svg,.sb-ic svg{
+    animation:flagwave 5.5s ease-in-out infinite;transform-origin:left center}
+  .scard:hover .flagwrap svg{animation-duration:2.8s}
+}
+@keyframes flagwave{
+  0%,100%{transform:perspective(380px) rotateY(0deg) skewY(0deg)}
+  25%{transform:perspective(380px) rotateY(-3.5deg) skewY(.7deg)}
+  50%{transform:perspective(380px) rotateY(0deg) skewY(-.5deg)}
+  75%{transform:perspective(380px) rotateY(3.5deg) skewY(.5deg)}
+}
+
 
 /* ---------- search overlay ---------- */
 .scrim{position:fixed;inset:0;z-index:200;background:rgba(15,18,30,.46);
@@ -514,13 +799,113 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .sb-item .sb-tx b{font-size:.9rem;font-weight:600;color:var(--ink);display:block;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sb-item .sb-tx span{font-size:.74rem;color:var(--ink-3)}
-.sb-item .sb-code{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-3);flex:none}
+.sb-item .sb-code{font-family:var(--font);font-size:.7rem;color:var(--ink-3);flex:none}
 .sb-empty{padding:26px 18px;text-align:center;color:var(--ink-3);font-size:.86rem}
 .sb-foot{border-top:1px solid var(--line);padding:9px 18px;display:flex;gap:16px;
   font-size:.7rem;color:var(--ink-3)}
-.sb-foot kbd{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:var(--surface-2);
+.sb-foot kbd{font-family:var(--font);font-size:.66rem;background:var(--surface-2);
   border:1px solid var(--line-2);border-radius:3px;padding:1px 5px;margin-right:4px}
 @media(max-width:560px){.searchbox .sb-foot{display:none}}
+
+/* ---------- institutional restyle (gov.fr / Swiss Confederation) ---------- */
+/* Sharp, squared edges and restrained surfaces instead of soft rounded cards. */
+.panel,.pcard,.scard,.kpi,.step,.orgcard,.symcard,.symbody,.flagcard,.cartowrap,
+.notice,.searchbox,.btn,.chip,.tag,.toolbar input,.searchbtn,
+.glyph,.swatch,.pending-box,.mapstage,.fbig,.plate svg{border-radius:2px}
+.figs,.cards,.org,.peoples{border-radius:0;gap:1px}
+/* A calmer hero: drop the AI-style glow to a faint institutional wash. */
+.hero::before{background:
+  radial-gradient(640px 300px at 88% 6%,rgba(184,138,20,.06),transparent 64%)}
+[data-theme="dark"] .hero::before{background:
+  radial-gradient(640px 300px at 88% 6%,rgba(216,171,44,.08),transparent 64%)}
+.fig b{-webkit-text-fill-color:initial;background:none;color:var(--indigo)}
+[data-theme="dark"] .fig b{color:var(--ink)}
+.pcard:hover{transform:none;box-shadow:none;background:var(--surface-2);
+  box-shadow:inset 3px 0 0 var(--gold)}
+.eyebrow,.subhead,.pc-eye{font-weight:700}
+
+/* ============================================================
+   ONE-PAGE / IMMERSIVE HOME — full-bleed hero, parallax bands,
+   image slots, scroll animation
+   ============================================================ */
+/* image slots (placeholders until the owner supplies the files) */
+.imgslot{position:relative;margin:0;overflow:hidden;background:var(--surface-2);
+  width:100%;aspect-ratio:16/10}
+.imgslot img{display:block;width:100%;height:100%;object-fit:cover}
+.imgslot img[src$="participation-crowd.jpg"]{object-position:center 88%}
+.imgslot.fill{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.imgslot img.rot{position:absolute;inset:0;opacity:0}
+@media (prefers-reduced-motion:reduce){.imgslot img.rot{display:none}}
+.imgslot .slotlab{position:absolute;inset:0;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;text-align:center;padding:22px;
+  border:1.5px dashed var(--line-3);
+  background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(120,130,150,.05) 11px 22px),var(--surface-2)}
+.imgslot.miss{aspect-ratio:16/10}
+.imgslot.miss .slotlab{display:flex}
+.imgslot.fill.miss .slotlab{aspect-ratio:auto}
+.slotcat{font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:#fff;background:var(--ink-3);padding:3px 10px;border-radius:20px}
+.cat-paysage .slotcat{background:#3c6b46}
+.cat-politique .slotcat{background:var(--indigo)}
+.cat-humain .slotcat{background:#9a5a2f}
+.slotsub{font-size:.92rem;font-weight:600;color:var(--ink-2);max-width:26ch;line-height:1.35}
+.slotdim{font-size:.7rem;color:var(--ink-3);letter-spacing:.02em}
+
+/* full-bleed sections break out of the centred main column */
+.hero-full,.band{position:relative;width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:0;overflow:hidden}
+.hero-full{min-height:94vh;display:flex;align-items:center}
+.hero-full .hero-bg,.band .band-bg{position:absolute;inset:-12% 0;z-index:0;will-change:transform}
+.hero-full .hero-scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(11,14,24,.86),rgba(11,14,24,.55) 52%,rgba(11,14,24,.2))}
+.hero-full .hero-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
+  padding:0 28px;width:100%;color:#fff}
+.hero-full .eyebrow{color:var(--gold-soft)}
+.hero-full h1{color:#fff;font-size:clamp(2.5rem,6.2vw,4.6rem);line-height:1.02;
+  letter-spacing:-.022em;margin:8px 0 18px;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero-full .lead{color:rgba(255,255,255,.84);font-size:1.12rem;max-width:56ch}
+.hero-full .motto{color:#fff;border-left:2px solid var(--gold);margin:22px 0 26px}
+.hero-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;
+  color:rgba(255,255,255,.8);font-size:1.4rem;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+.btn-onlight{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.5);
+  backdrop-filter:blur(3px)}
+.btn-onlight:hover{background:#fff;color:var(--indigo);border-color:#fff}
+
+.band{min-height:62vh;display:flex;align-items:center;margin-top:70px;margin-bottom:70px}
+.band .band-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(11,14,24,.72),rgba(11,14,24,.42))}
+.band .band-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
+  padding:0 28px;width:100%;color:#fff}
+.band .eyebrow{color:var(--gold-soft)}
+.band-q{font-size:clamp(1.4rem,3.6vw,2.5rem);font-weight:600;line-height:1.18;
+  max-width:22ch;margin-top:10px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.band-sub{color:rgba(255,255,255,.82);margin-top:14px;max-width:52ch}
+
+/* editorial split: image + text */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.feat.rev .feat-img{order:2}
+.feat-img{border-radius:2px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.feat h2{font-size:1.9rem;margin-bottom:12px}
+
+/* scroll reveal + stagger */
+.io>*{opacity:0;transform:translateY(14px)}
+.io.in>*{opacity:1;transform:none;
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.io.in>*:nth-child(2){transition-delay:.06s}
+.io.in>*:nth-child(3){transition-delay:.12s}
+.io.in>*:nth-child(4){transition-delay:.18s}
+.hero-full.io>*,.band.io>*{opacity:1;transform:none} /* bg handles itself */
+@media(prefers-reduced-motion:reduce){
+  .io>*,.io.in>*{opacity:1;transform:none;transition:none}
+  .hero-cue{animation:none}
+  .hero-full .hero-bg,.band .band-bg{transform:none!important}
+}
+@media(max-width:820px){
+  .feat,.feat.rev .feat-img{grid-template-columns:1fr;order:0}
+  .hero-full{min-height:88vh}
+  .band{min-height:52vh}
+}
 
 /* ---------- footer ---------- */
 footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
@@ -530,7 +915,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   color:var(--gold-soft);font-weight:700;margin-bottom:13px}
 .fmain a{display:block;font-size:.83rem;padding:3px 0;color:rgba(233,234,240,.62)}
 .fmain a:hover{color:#fff}
-.fbrand b{font-family:'Spectral',serif;color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
+.fbrand b{font-family:var(--font);color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
 .fbrand p{font-size:.82rem;line-height:1.55}
 .fbottom{border-top:1px solid rgba(255,255,255,.1)}
 .fbottom .wrap{max-width:1240px;margin:0 auto;padding:15px 28px;display:flex;
@@ -549,6 +934,55 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   .kpis,.steps{grid-template-columns:1fr}
   .fmain{grid-template-columns:1fr 1fr}
   .hero h1{font-size:2.2rem}
+}
+
+/* ---------- phones / small tablets ---------- */
+@media(max-width:680px){
+  main{padding:0 16px 70px}
+  /* utility bar: drop the long crumb, let the row breathe */
+  .utility .wrap{padding:6px 16px;gap:10px;justify-content:space-between}
+  .utility .crumbtag{display:none}
+  .langsel button{padding:3px 5px}
+  /* masthead reflows; search becomes a full-width second row */
+  .masthead{flex-wrap:wrap;padding:12px 16px 12px;gap:10px 14px}
+  .searchbtn{order:5;min-width:0;width:100%;margin-left:0}
+  nav.primary .wrap{padding:0 8px}
+  nav.primary a{padding:11px 12px;font-size:.82rem}
+  /* one-column figure/stat grids */
+  .figs{grid-template-columns:repeat(2,1fr)}
+  .fig{border-right:none;border-bottom:1px solid var(--line)}
+  .fig:last-child{border-bottom:none}
+  .peoples{grid-template-columns:1fr}
+  .fmain{grid-template-columns:1fr;gap:22px}
+  /* immersive sections: gentler heights + spacing on phones */
+  .hero-full{min-height:82vh}
+  .band{min-height:46vh;margin-top:44px;margin-bottom:44px}
+  .band-inner,.hero-full .hero-inner{padding:0 16px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{justify-content:center}
+  /* keep placeholder labels from covering hero/band copy */
+  .imgslot.fill .slotlab{padding:14px}
+  .imgslot.fill.miss .slotlab .slotsub,
+  .imgslot.fill.miss .slotlab .slotdim{display:none}
+  /* tables & detail */
+  .dtable td:first-child{width:42%}
+  /* let grid/flex children shrink instead of forcing overflow */
+  .split2>*,.split-32>*,.detail>*,.org>*,.feat>*{min-width:0}
+  .jrow{flex-wrap:wrap;gap:4px 12px}
+  .jrow .jd{width:100%;flex:none}
+  .jrow .jt{min-width:0}
+  .detail{gap:22px}
+  .toolbar input{min-width:0;width:100%}
+  .cartowrap svg,.mapstage svg{min-width:0}
+  /* license plate / wide svg never force scroll */
+  .plate svg,.minicarto svg{width:100%;height:auto}
+}
+@media(max-width:430px){
+  .figs{grid-template-columns:1fr}
+  .fig{border-right:none}
+  .pagehead h1{font-size:1.7rem}
+  .hero-full h1{font-size:2.1rem}
+  .feat{gap:26px}
 }
 </style>
 <script>
@@ -634,8 +1068,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="fmain">
     <div class="fbrand">
       <b>Balkanska Konfederacija</b>
-      <p>The official digital portal of the Balkan Confederation — a federation of
-      47 states and seven constituent peoples. Documentary reference and
+      <p>The official digital portal of the Balkan Confederation, a federation of
+      49 states and seven constituent peoples. Documentary reference and
       participatory infrastructure.</p>
     </div>
     <div>
@@ -659,11 +1093,13 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </div>
   </div>
   <div class="fbottom"><div class="wrap">
-    <span>Balkanska Konfederacija — digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
-    <span>Portal shell — Stage 1</span>
+    <span>Balkanska Konfederacija · digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
+    <span>Portal shell · Stage 1</span>
   </div></div>
 </footer>
 
+<script src="vendor/d3-array.min.js"></script>
+<script src="vendor/d3-geo.min.js"></script>
 <script>
 const COA_DATA="data:image/png;base64,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";
 const CIVIL_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYBAMAAADI6zXoAAAAGFBMVEX///+Gmb8PNH4ONH/LDg7JBQXMBANPIVIW1QAAAAADl0lEQVR42u3VAQmAMBCG0ZsswGWwk3WNYgVtMDsIG5y8r8DB/2BrR0wvz8jQrDYTIBRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEKoPxCmoefVF9wY4zZ0bcK47OwvFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUF/rK47sdi5O2FoauvpD+hjaXyiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCiFCIRRCIUQohEIohAiFUAiFEKHK9gKr1wrqlsM+XwAAAABJRU5ErkJggg==";
@@ -682,18 +1118,20 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
- {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet — v3.0',
+ {d:'2026-10-13',cat:'Law',t:'Consolidated Constitution of the Balkan Confederation, v4',
+  s:'Preamble and Titles I bis, IV, V, VI and VII, 53 articles, published in full.'},
+ {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet, v3.0',
   s:'Thirty-two letters; restoration of the jat’ (ě); areal Balkan diacritics.'},
- {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution — v2',
-  s:'Titles I bis, IV, V and VI — institutions, languages, financial equalisation.'},
+ {d:'2026-05-12',cat:'Law',t:'Consolidated draft of the Confederal Constitution, v2',
+  s:'Titles I bis, IV, V and VI, institutions, languages, financial equalisation.'},
  {d:'2026-04-30',cat:'Finance',t:'Confederal financial equalisation formula',
-  s:'Article 132 — objective indicators, 85% floor of fiscal capacity per capita.'},
+  s:'Article 132, objective indicators, 85% floor of fiscal capacity per capita.'},
  {d:'2026-04-08',cat:'Institutions',t:'Designation of the four federal capitals',
-  s:'Article 1 ter — Sarajevo, Beograd, Zagreb and Sofija.'}
+  s:'Article 1 ter, Sarajevo, Beograd, Zagreb and Sofija.'}
 ];
 
 /* ============================================================
-   SVG — emblem, star geometry, flags, plates
+   SVG, emblem, star geometry, flags, plates
    ============================================================ */
 function star(cx,cy,ro,ri,pts,rot){
   rot=rot||-Math.PI/2; let d='';
@@ -713,7 +1151,7 @@ const TRI={
 };
 function roundel(code){
   return `<circle cx="45" cy="30" r="14.5" fill="#ffffff" stroke="#1f2742" stroke-width="1.4"/>`+
-   `<text x="45" y="35.6" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `<text x="45" y="35.6" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
    `font-size="13" font-weight="600" fill="#1f2742">${code}</text>`;
 }
 function flagSVG(s){
@@ -748,14 +1186,13 @@ function flagSVG(s){
     `<path d="M43 12l2 2 2-2M43 16l2 2 2-2" stroke="#fff" stroke-width="1" fill="none"/></svg>`;
   if(s.t==='F') return `<svg ${v}><image href="${STATE_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
   if(s.t==='M') return `<svg ${v}><image href="${CIVIL_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<rect x="2" y="2" width="86" height="56" fill="none" stroke="#b88a14" stroke-width="1.6" stroke-dasharray="5 3"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
-  const pu=PEUPLES[s.p];
   if(TRI[s.p]){const t=TRI[s.p];
    return `<svg ${v}><rect width="90" height="20" fill="${t[0]}"/><rect y="20" width="90" height="20" fill="${t[1]}"/>`+
     `<rect y="40" width="90" height="20" fill="${t[2]}"/>${roundel(s.k)}</svg>`;}
@@ -766,7 +1203,7 @@ function flagSVG(s){
   if(s.p==='mkd'){let ray='';for(let i=0;i<8;i++){const a=i*Math.PI/4;
      ray+=`<path d="M45 30L${45+44*Math.cos(a)} ${30+44*Math.sin(a)}" stroke="#e7d4a4" stroke-width="4"/>`;}
    return `<svg ${v}><rect width="90" height="60" fill="#c8312b"/>${ray}${roundel(s.k)}</svg>`;}
-  return `<svg ${v}><rect width="90" height="60" fill="${pu.hex}"/>${roundel(s.k)}</svg>`;
+  return `<svg ${v}><rect width="90" height="60" fill="#374078"/>${roundel(s.k)}</svg>`;
 }
 /*__FLAGNOTE__*/
 function plateSVG(s){
@@ -774,37 +1211,12 @@ function plateSVG(s){
    `<rect width="240" height="50" rx="5" fill="#ffffff" stroke="#d0d2d8" stroke-width="1"/>`+
    `<rect width="34" height="50" rx="5" fill="#0e347f"/><rect x="29" width="6" height="50" fill="#0e347f"/>`+
    `<image href="${COA_DATA}" x="2" y="3" width="30" height="22" preserveAspectRatio="xMidYMid meet"/>`+
-   `<text x="17" y="42" text-anchor="middle" font-family="IBM Plex Mono,monospace" `+
+   `<text x="17" y="42" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
    `font-size="10" font-weight="700" fill="#f8c300">BK</text>`+
-   `<text x="58" y="35" font-family="IBM Plex Mono,monospace" font-size="26" `+
+   `<text x="58" y="35" font-family="Zurich,Inter,sans-serif" font-size="26" `+
    `font-weight="600" fill="#1b2030" letter-spacing="2">${s.k} · 000 · A</text></svg>`;
 }
 
-/* ============================================================
-   CARTOGRAM (schematic — superseded by the GADM layer)
-   ============================================================ */
-function cartogram(highlight){
-  const TS=44,GAP=7,cell=TS+GAP;
-  let mc=0,mr=0; STATES.forEach(s=>{mc=Math.max(mc,s.g[0]);mr=Math.max(mr,s.g[1]);});
-  const W=(mc+1)*cell+GAP,H=(mr+1)*cell+GAP;
-  let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img">`;
-  STATES.forEach(st=>{
-    const x=st.g[0]*cell+GAP,y=st.g[1]*cell+GAP;
-    const dim=highlight&&highlight!==st.c?' dim':'';
-    const hit=highlight===st.c;
-    const isC=st.t!=='T';
-    const acc=st.p==='fed'?'#3a4663':PEUPLES[st.p].hex;
-    const fill=hit?'#eef0f5':'#ffffff';
-    const dash=st.t==='M'?' stroke-dasharray="5 3"':'';
-    s+=`<g class="tile${dim}" onclick="go('#/state/${st.c}')"><title>${st.n} (${st.c})</title>`;
-    s+=`<rect x="${x}" y="${y}" width="${TS}" height="${TS}" rx="${isC?TS/2:3}" `+
-       `fill="${fill}" stroke="${hit?'#1f2742':'#d0d2d8'}" stroke-width="${hit?2.6:1.3}"${dash}/>`;
-    if(!isC) s+=`<rect x="${x}" y="${y}" width="${TS}" height="3.2" fill="${acc}"/>`;
-    s+=`<text x="${x+TS/2}" y="${y+TS/2+4.5}" text-anchor="middle" `+
-       `fill="${hit?'#1f2742':'#545b6c'}">${st.k}</text></g>`;
-  });
-  return s+'</svg>';
-}
 
 /* ============================================================
    VIEWS
@@ -817,40 +1229,96 @@ function crumb(parts){
 
 function vHome(){
   return `
-  <section class="hero reveal">
-    <div>
+  <section class="hero-full">
+    <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}</div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
       <div class="eyebrow">Official portal</div>
-      <h1>The Balkan Confederation</h1>
-      <p class="lead">A federation of forty-seven states and seven constituent peoples,
-      bringing together the South Slavic nations and the autonomous Albanian, Hungarian,
-      Turkish and Slovak communities within a Balkan union founded on the equality of
-      states and on direct democracy.</p>
-      <div class="motto">“Različiti narodi, jedan dom” — Diverse peoples, one home.</div>
+      <h1>The Balkan<br>Confederation</h1>
+      <p class="lead">A federation of forty-nine states and seven constituent South Slavic
+      peoples, united in a Balkan union founded on the equality of states and on direct
+      democracy.</p>
+      <div class="motto">“Različiti narodi, jedan dom” · Diverse peoples, one home.</div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#/states">Explore the states
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a class="btn btn-ghost" href="#/participation">Become a citizen</a>
+        <a class="btn btn-onlight" href="#/participation">Become a citizen</a>
       </div>
     </div>
-    <div class="hero-aside"><svg class="crest" viewBox="0 0 100 100" id="homeCrest"></svg></div>
+    <a class="hero-cue" href="#/home" aria-label="Scroll down"
+       onclick="event.preventDefault();window.scrollBy({top:window.innerHeight*0.82,behavior:'smooth'})">▾</a>
   </section>
 
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="figs">
-      <div class="fig"><b>47</b><span>Confederated states</span></div>
+  <section class="section io" style="padding-top:56px">
+    <div class="eyebrow">The union</div>
+    <h2 style="font-size:2rem;max-width:20ch">A confederation of states, a home for peoples.</h2>
+    <p class="lead" style="margin-top:12px">Balkan by territory, South Slavic by language and
+    kinship: forty-nine states govern themselves within a single confederal order founded
+    on equality and direct democracy.</p>
+    <div class="figs" style="margin-top:28px">
+      <div class="fig"><b>49</b><span>Confederated states</span></div>
       <div class="fig"><b>7</b><span>Constituent peoples</span></div>
       <div class="fig"><b>4</b><span>Federal capitals</span></div>
-      <div class="fig"><b>25</b><span>Autonomous communities</span></div>
+      <div class="fig"><b>24</b><span>Autonomous communities</span></div>
     </div>
   </section>
 
-  <section class="section reveal" style="animation-delay:.1s">
+  <section class="band">
+    <div class="band-bg" data-parallax="0.20">${imgSlot('home-adriatic','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner">
+      <div class="eyebrow">The land</div>
+      <div class="band-q">From the Adriatic shore to the Black Sea, one confederal space.</div>
+    </div>
+  </section>
+
+  <section class="section io">
+    <div class="feat">
+      <div class="feat-img">${peopleGallery()}</div>
+      <div>
+        <div class="eyebrow">The peoples</div>
+        <h2>Seven peoples, one home</h2>
+        <p class="lead">Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and
+        Bulgarians share a unified South Slavic language and alphabet, alongside recognised
+        Albanian, Hungarian, Turkish and Slovak communities.</p>
+        <a class="btn btn-ghost" style="margin-top:20px" href="#/identity">Language &amp; identity →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section io">
+    <div class="feat rev">
+      <div class="feat-img">${imgSlot('home-assembly')}</div>
+      <div>
+        <div class="eyebrow">The institutions</div>
+        <h2>Four federal institutions</h2>
+        <p class="lead">The Kongres legislates, the Narodni Sabor guards the equality of
+        nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the
+        Constitution, seated across the four federal capitals.</p>
+        <a class="btn btn-ghost" style="margin-top:20px" href="#/institutions">The institutions →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-bg" data-parallax="0.18">${imgSlot('home-citizen','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner">
+      <div class="eyebrow">Citizenship</div>
+      <div class="band-q">Every citizen is an elector of the Narodni Sabor.</div>
+      <p class="band-sub">Confederal digital citizenship opens the participatory platform:
+      consultations, debates, proposals and votes.</p>
+      <a class="btn btn-primary" style="margin-top:20px" href="#/participation">Become a citizen</a>
+    </div>
+  </section>
+
+  <section class="section io">
     <div class="h2row"><h2>Explore the portal</h2></div>
     <div class="cards">
       ${[
-       ['Territory','States &amp; territories','The 45 states, federal cities and autonomous federal municipalities.','#/states'],
+       ['Territory','States &amp; territories','The 49 states, federal cities and autonomous federal municipalities.','#/states'],
        ['Geography','Interactive map','Municipal boundaries, demographic and economic indicators by state.','#/map'],
-       ['Government','Institutions','The Kongres, Narodni Sabor, Savezno Veće and Ustavni Sud.','#/institutions'],
+       ['Government','Institutions','The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.','#/institutions'],
        ['Law','Constitution','The consolidated text of the Confederal Constitution and its titles.','#/constitution'],
        ['Language','Identity &amp; alphabet','The unified Latin alphabet, the symbols and heraldry of the union.','#/identity'],
        ['Civic life','Participation','Confederal digital citizenship and the participatory platform.','#/participation']
@@ -880,12 +1348,23 @@ function vHome(){
           <p class="note" style="margin-bottom:14px">Registered citizens form the
           electoral body of the Narodni Sabor. The live counter activates with the
           participation module.</p>
-          <div style="font-family:'Spectral',serif;font-size:2.6rem;font-weight:700;
-            color:var(--indigo);line-height:1">—</div>
+          <div class="membercount" style="font-size:2.6rem;font-weight:700;
+            color:var(--indigo);line-height:1">0</div>
           <div class="note">Registered citizens</div>
           <a class="btn btn-ghost" style="margin-top:16px" href="#/dashboard">Membership dashboard</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="band" style="margin-bottom:0">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('home-closing','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner" style="text-align:center">
+      <svg class="crest" viewBox="0 0 100 100" id="homeCrest"
+        style="width:76px;height:76px;margin:0 auto 12px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.4))"></svg>
+      <div class="band-q" style="margin:0 auto;max-width:26ch">Različiti narodi, jedan dom.</div>
+      <p class="band-sub" style="margin:14px auto 0">Diverse peoples, one home.</p>
     </div>
   </section>`;
 }
@@ -895,7 +1374,7 @@ function vStates(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Directory</div>
     <h1>States &amp; territories</h1>
-    <p class="lead">Forty-three territorial states, four federal cities and two autonomous
+    <p class="lead">Forty-five territorial states, four federal cities and two autonomous
     federal municipalities. Filter by constituent people or search by name, code or seat.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
@@ -927,7 +1406,8 @@ function renderGrid(){
     return `<a class="scard ${s.t==='M'?'muni':''}" href="#/state/${s.c}">
       <div class="flagwrap">${flagSVG(s)}</div>
       <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3>
-      <div class="speu">${pu.en}</div></div></a>`;}).join('');
+      <div class="speu">${pu.en}</div>${(STATS[s.c]||{}).population!=null
+        ?`<div class="spop">${fmtN(STATS[s.c].population)} inhabitants</div>`:''}</div></a>`;}).join('');
 }
 
 function vState(code){
@@ -937,21 +1417,25 @@ function vState(code){
   const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p], auts=autOf(code);
   const typeLabel={T:'Territorial state',F:'Federal city',M:'Autonomous federal municipality'}[s.t];
   const note=FLAGNOTE[s.k]||(fed
-    ?(s.t==='F'?'Confederal state flag — flown by federal institutions seated in this city. A badge bears the city code.'
-      :'Civil flag of the Confederation under direct federal jurisdiction — dashed border marks the autonomous municipal status.')
-    :'Provisional systemic flag — pan-colours of the constituent people, pending the dedicated heraldic design.');
+    ?(s.t==='F'?'Confederal state flag, flown by federal institutions seated in this city. A badge bears the city code.'
+      :'Civil flag of the Confederation under direct federal jurisdiction, dashed border marks the autonomous municipal status.')
+    :'Provisional systemic flag, pan-colours of the constituent people, pending the dedicated heraldic design.');
   let rows=`<tr><td>Official code</td><td class="mono">${s.c}</td></tr>
     <tr><td>Status</td><td>${typeLabel}</td></tr>`;
   if(!fed){
-    rows+=`<tr><td>Constituent people</td><td><span class="pdot" style="background:${pu.hex}"></span>${pu.en} · ${pu.name}</td></tr>`;
+    rows+=`<tr><td>Constituent people</td><td>${pu.en} · ${pu.name}</td></tr>`;
     rows+=`<tr><td>Regional standard</td><td>${STD[pu.std]}</td></tr>`;
     rows+=`<tr><td>Seat</td><td>${s.ch}</td></tr>`;
   }else rows+=`<tr><td>Function</td><td>${s.ch}</td></tr>`;
-  rows+=`<tr><td>Municipalities</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Population</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Area</td><td><span class="pending">—</span></td></tr>
-    <tr><td>Population density</td><td><span class="pending">—</span></td></tr>
-    <tr><td>GDP per capita (PPP, est.)</td><td><span class="pending">—</span></td></tr>
+  const st=STATS[s.c]||{}, pend='<span class="pending">·</span>';
+  const hasPop=st.population!=null;
+  rows+=`<tr><td>Municipalities</td><td>${st.municipalities!=null?fmtN(st.municipalities):(fed?'—':pend)}</td></tr>
+    <tr><td>Population</td><td>${hasPop?`${fmtN(st.population)}<span class="dsrc">${esc(st.source)}</span>`
+      :`${pend}<span class="dsrc">Pending census data</span>`}</td></tr>
+    <tr><td>Area</td><td>${st.area?fmtN(st.area)+' km²':pend}</td></tr>
+    <tr><td>Population density</td><td>${hasPop&&st.area?fmtN(Math.round(st.population/st.area))+' inhabitants / km²':pend}</td></tr>
+    <tr><td>GDP per capita (PPS, est.)</td><td>${st.gdp!=null?`${fmtN(st.gdp)} PPS<span class="dsrc">${st.gdp_eu}% of the EU-27 average · ${esc(st.gdp_source)}</span>`
+      :`${pend}<span class="dsrc">Pending regional accounts</span>`}</td></tr>
     <tr><td>Autonomous communities</td><td>${auts.length||'None'}</td></tr>`;
   return crumb([['Home','#/home'],['States','#/states'],[s.n]])+`
   <section class="section reveal">
@@ -961,15 +1445,20 @@ function vState(code){
           <div class="fbig">${flagSVG(s)}</div>
           <div class="fcap">${note}</div>
         </div>
+        <div class="flagcard coacard" style="margin-top:14px">
+          <div class="subhead">Coat of arms</div>
+          <div class="coa-wrap"><img src="images/coa-${s.c}.webp" alt="Coat of arms of ${esc(s.n)}"
+            loading="lazy" onerror="this.closest('.coacard').remove()"></div>
+        </div>
         <div class="flagcard" style="margin-top:14px">
           <div class="subhead">Licence plate</div>
           <div class="plate">${plateSVG(s)}</div>
-          <div class="fcap">Confederal format — country band <b>BK</b> followed by the state code.</div>
+          <div class="fcap">Confederal format, country band <b>BK</b> followed by the state code.</div>
         </div>
         <div class="flagcard minicarto" style="margin-top:14px">
           <div class="subhead">Location</div>
-          ${cartogram(code)}
-          <div class="fcap">Schematic placement — pending the cartographic layer.</div>
+          ${miniGeo(code)}
+          <div class="fcap">Geographic position of the seat on the Balkan peninsula.</div>
         </div>
       </div>
       <div>
@@ -977,13 +1466,15 @@ function vState(code){
         <h1 style="font-size:2.1rem;margin-bottom:6px">${s.n}</h1>
         <div style="margin-bottom:18px">
           <span class="tag indigo">${s.c}</span>
-          ${!fed?`<span class="tag" style="margin-left:6px"><span class="pdot" style="background:${pu.hex}"></span>${pu.en}</span>`:''}
+          ${!fed?`<span style="margin-left:12px;color:var(--ink-2);font-weight:600;font-size:.92rem">${pu.en}</span>`:''}
         </div>
         <div class="subhead">Key data</div>
         <table class="dtable"><tbody>${rows}</tbody></table>
-        <div class="notice">Demographic, territorial and economic data are integrated
-        through the territorial data layer — real municipal figures aggregated from
-        GADM boundaries — currently in preparation.</div>
+        <div class="notice">Key data are aggregated from the state's municipalities: population
+        from each country's latest census or population register, area from municipal
+        boundaries, GDP per capita from Eurostat regional accounts (2023, purchasing power
+        standards) averaged by population. In Bosnia and Herzegovina, regional GDP is only
+        published by entity.</div>
         ${auts.length?`
         <div class="subhead" style="margin-top:26px">Autonomous communities</div>
         <p class="note" style="margin-bottom:10px">Communities holding their own powers
@@ -996,39 +1487,76 @@ function vState(code){
 }
 
 function vMap(){
+  const T=srTotals(), r=srRange('gdp');
+  const ring=Math.round(T.eu);
   return crumb([['Home','#/home'],['Map']])+`
-  <section class="section pagehead reveal">
-    <div class="eyebrow">Geography</div>
-    <h1>Interactive map</h1>
-    <p class="lead">A navigable schematic of the forty-seven states, coloured by
-    constituent people. Drag to pan, scroll or use the controls to zoom, hover for
-    details, and select a state to open its page. The georeferenced GADM boundary
-    layer, with demographic and economic overlays, will replace this schematic.</p>
-  </section>
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="mapwrap">
-      <div class="mapbar">
-        <button class="maptoggle on" onclick="mapFilter('all',this)">All</button>
-        ${Object.entries(PEUPLES).map(([k,p])=>
-          `<button class="maptoggle" onclick="mapFilter('${k}',this)">${p.en}</button>`).join('')}
-        <button class="maptoggle" onclick="mapFilter('fed',this)">Federal</button>
-        <div class="mb-zoom">
-          <button id="mZout" aria-label="Zoom out" title="Zoom out">−</button>
-          <button id="mReset" aria-label="Fit to view" title="Fit to view"
-            style="width:auto;padding:0 11px;font-size:.72rem;font-weight:600">Fit</button>
-          <button id="mZin" aria-label="Zoom in" title="Zoom in">+</button>
+  <section class="sr" id="sr" aria-label="Map of the Confederation">
+    <div class="sr-stage" id="srStage" data-mode="${SR.mode}" tabindex="0"
+      aria-label="Map of the Confederation. Drag to move, scroll or press plus and minus to zoom, 0 to fit.">
+      <div class="sr-layers" id="srLayers">
+        <svg id="srSvg"></svg>
+        <canvas class="sr-lights" id="srLights" aria-hidden="true"></canvas>
+        <svg class="sr-over" id="srOver" aria-hidden="true"></svg>
+      </div>
+      <div class="sr-tip" id="srTip"></div>
+    </div>
+    <div class="sr-top">
+      <div class="sr-title"><h1>Map of the Confederation</h1>
+        <p>45 states, 4 federal cities and 2 federal municipalities</p></div>
+      <div class="sr-seg" role="group" aria-label="Colour the states by">
+        ${[['states','States'],['gdp','GDP per capita'],['dens','Density'],['peoples','Peoples']].map(([m,l])=>
+          `<button data-m="${m}" class="${SR.mode===m?'on':''}" aria-pressed="${SR.mode===m}"
+            onclick="srMode('${m}')">${l}</button>`).join('')}
+      </div>
+      <div class="sr-tools">
+        <button class="sr-btn" id="srLightsBtn" aria-pressed="${SR.lights}" onclick="srToggleLights()"
+          title="One light per municipality, brighter with population"><span class="dot"></span>Lights</button>
+        <button class="sr-btn" id="srZout" aria-label="Zoom out">&minus;</button>
+        <button class="sr-btn" id="srFit">Fit</button>
+        <button class="sr-btn" id="srZin" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+    <div class="sr-col sr-left">
+      <div class="sr-card">
+        <div class="sr-k">Population</div>
+        <div class="sr-big"><span data-count="${T.pop}">${fmtN(T.pop)}</span></div>
+        <div class="sr-split" role="img" aria-label="Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, federal cities ${Math.round(100*T.by.F[1]/T.pop)}%, federal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%">
+          <i style="flex:${T.by.T[1]};background:linear-gradient(90deg,#2a3f9e,#4f7dff)"></i>
+          <i style="flex:${T.by.F[1]};background:linear-gradient(90deg,#f08a3a,#f5b54a)"></i>
+          <i style="flex:${T.by.M[1]};background:#ffe7a3"></i></div>
+        <dl class="sr-rows">
+          <dt>${T.by.T[0]} territorial states</dt><dd>${fmtN(T.by.T[1])}</dd>
+          <dt>${T.by.F[0]} federal cities</dt><dd>${fmtN(T.by.F[1])}</dd>
+          <dt>${T.by.M[0]} federal municipalities</dt><dd>${fmtN(T.by.M[1])}</dd>
+        </dl>
+        <div class="sr-sub">Latest census or population register of each country</div>
+      </div>
+      <div class="sr-card">
+        <div class="sr-k">Area</div>
+        <div class="sr-big"><span data-count="${T.area}">${fmtN(T.area)}</span><small>km²</small></div>
+        <dl class="sr-rows">
+          <dt>Density</dt><dd>${fmtN(Math.round(T.pop/T.area))} / km²</dd>
+          <dt>Municipalities</dt><dd>${fmtN(T.mun)}</dd>
+        </dl>
+      </div>
+      <div class="sr-card">
+        <div class="sr-k">GDP per capita</div>
+        <div class="sr-ring">
+          ${srRing(T.eu)}
+          <div><div class="sr-big" style="font-size:1.45rem;margin:0"><span data-count="${Math.round(T.gdp/100)*100}">${fmtN(Math.round(T.gdp/100)*100)}</span><small>PPS</small></div>
+            <div class="sr-sub">per inhabitant in 2023, ${ring}% of the EU-27 average</div></div>
         </div>
-      </div>
-      <div class="mapstage" id="mapStage">
-        ${mapTiles()}
-        <div class="mtip" id="mapTip"></div>
+        <dl class="sr-rows">
+          <dt>Highest, ${esc(r.max.n)}</dt><dd>${fmtN(r.maxV)}</dd>
+          <dt>Lowest, ${esc(r.min.n)}</dt><dd>${fmtN(r.minV)}</dd>
+        </dl>
       </div>
     </div>
-    <div class="legend" style="margin-top:16px">
-      ${Object.values(PEUPLES).map(p=>`<span><i style="background:${p.hex}"></i>${p.en}</span>`).join('')}
-      <span><i style="background:#3a4663"></i>Federal territories</span>
-      <span style="color:var(--ink-3)">· Rounded = federal city · Dashed = autonomous municipality</span>
+    <div class="sr-col sr-right">
+      <div class="sr-card sr-sel" id="srSel" aria-live="polite">${srSelHTML(null,true)}</div>
+      <div class="sr-card" id="srPeoples">${srPeoplesHTML()}</div>
     </div>
+    <div class="sr-legend" id="srLegend">${srLegendHTML()}</div>
   </section>`;
 }
 
@@ -1038,13 +1566,13 @@ function vInstitutions(){
      'Delegates elected by universal direct suffrage, proportional ballot.',
      'Each state is one constituency; 2 to 20 delegates by population.',
      'Votes laws and the budget, ratifies treaties, grants pardon.',
-     'Elects the judges of the Ustavni Sud and confirms the Savezno Veće.']],
+     'Elects the judges of the Ustavni Sud and confirms the Konfederalno Veće.']],
    ['rep','Assembly of Nations','Narodni Sabor',[
-     'Seven national delegations of ten members — 70 members in all.',
+     'Seven national delegations of ten members, 70 members in all.',
      'Elected by citizens enrolled in each national register.',
      'Mandatory consent: languages, alphabet, borders, symbols, equalisation.',
      'Alarm right and review of petitions from autonomous communities.']],
-   ['exe','Confederal Council — executive','Savezno Veće',[
+   ['exe','Confederal Council, executive','Konfederalno Veće',[
      'College of seven councillors, one per constituent people.',
      'Decisions by consensus; failing that, simple majority.',
      'Annual rotating presidency (Slovene → … → Bulgarian).',
@@ -1061,6 +1589,12 @@ function vInstitutions(){
     <h1>Institutions of the Confederation</h1>
     <p class="lead">The legislative, executive and judicial functions are separated
     (Art. 101). No person may sit in more than one confederal organ.</p>
+  </section>
+  <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('institutions-hall','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      Seated across Sarajevo, Beograd, Zagreb and Sofija.</div></div>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="org">
@@ -1082,31 +1616,117 @@ function vInstitutions(){
   </section>`;
 }
 
+/* ============================================================
+   CONSTITUTION READER, data: portail/data/constitution.json
+   (generated from docs/constitution/v4.en.md by scripts/build_constitution.py)
+   ============================================================ */
+const C_ROMAN={'1bis':'I bis','4':'IV','5':'V','6':'VI','7':'VII'};
+function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
+function cIndex(){
+  if(cIndex.m)return cIndex.m;
+  const m={};
+  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{m[a.id]=t.id;}));
+  return cIndex.m=m;
+}
+function cRange(t){const a=cArticles(t);
+  return a.length===1?a[0].num:a[0].num+' – '+a[a.length-1].num.replace('Article ','');}
+function cInline(x,links){
+  let h=esc(x).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+              .replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  if(!links)return h;
+  const idx=cIndex();
+  h=h.replace(/\b(Articles?) (\d+(?: bis)?)/g,(m,w,n)=>{
+    const id='art-'+n.replace(' ',''), t=idx[id];
+    return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
+  h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
+    `(<a class="cref" href="#/state/${c}">${c}</a>)`:m);
+  return h;
+}
+function cBlock(b){
+  if(b.t==='p')return `<p>${cInline(b.x,true)}</p>`;
+  if(b.t==='h')return `<div class="csub">${cInline(b.x)}</div>`;
+  if(b.t==='ul')return `<ul class="cul">${b.items.map(i=>`<li>${cInline(i,true)}</li>`).join('')}</ul>`;
+  if(b.t==='ll')return `<ol class="cll">${b.items.map(i=>
+    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
+  if(b.t==='ol')return `<ol class="col${b.items.length>12?' ccols':''}">${b.items.map(i=>
+    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
+  return '';
+}
+function cJump(id){
+  const el=document.getElementById(id); if(!el)return false;
+  const hdr=document.querySelector('header'), off=(hdr?hdr.offsetHeight:0)+16;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});
+  const t=cIndex()[id];
+  if(t)history.replaceState(null,'','#/constitution/'+t+'/'+id);
+  return false;
+}
 function vConstitution(){
-  const titles=[
-   ['Title I bis','Confederated states and their components','Composition, federal capitals, autonomous communities, federal municipalities.'],
-   ['Title IV','Institutions of the Confederation','Organs, separation of powers, constituent peoples, Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud, direct democracy.'],
-   ['Title V','Languages and the alphabet','National language, three regional standards, official alphabet, linguistic freedom.'],
-   ['Title VI','Confederal finances and equalisation','Equalisation principle and formula, financial transparency, geographic proportionality of investment.']
-  ];
-  return crumb([['Home','#/home'],['Constitution']])+`
+  const C=CONSTITUTION, T=C.titles||[];
+  const parts=(location.hash||'').replace(/^#\//,'').split('/');
+  const cur=T.find(t=>t.id===parts[1]);
+  const nArt=T.reduce((n,t)=>n+cArticles(t).length,0);
+  if(!cur){
+    return crumb([['Home','#/home'],['Constitution']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Fundamental law</div>
-    <h1>Constitution of the Confederation</h1>
-    <p class="lead">The consolidated text of the Confederal Constitution. Official acts
+    <h1>Constitution of the Balkan Confederation</h1>
+    <p class="lead">Consolidated text, version ${esc(C.version.replace('v',''))} of
+    ${esc(C.date)}: a preamble and ${nArt} articles in ${T.length} titles. Official acts
     are published in the unified South Slavic Latin alphabet and in the three regional
-    standards.</p>
+    standards; this is the English text.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="h2row"><h2>Titles</h2><a class="seeall" href="#/journal">Official Journal →</a></div>
     <div class="jlist">
-      ${titles.map(t=>`<div class="jrow">
-        <span class="jd">${t[0]}</span>
-        <span class="jt">${t[1]}<span>${t[2]}</span></span>
-        <span class="jcat">Read</span></div>`).join('')}
+      ${T.map(t=>`<a class="jrow" href="#/constitution/${t.id}">
+        <span class="jd">${esc(t.num)}</span>
+        <span class="jt">${esc(t.name)}<span>${esc(cRange(t))} · ${cArticles(t).length} articles</span></span>
+        <span class="jcat">Read →</span></a>`).join('')}
     </div>
-    <div class="notice">The full article-by-article reader is integrated at a later
-    stage. Drafting currently covers the consolidated v2 text.</div>
+  </section>
+  <section class="section reveal" style="animation-delay:.1s">
+    <div class="eyebrow">Preamble</div>
+    <div class="cpre">
+      ${C.preamble.paras.map((p,i)=>`<p${i===C.preamble.paras.length-1?' class="cfin"':''}>${cInline(p)}</p>`).join('')}
+      <p class="cmotto">${cInline(C.preamble.motto)}</p>
+    </div>
+    <div class="cpager"><span></span>
+      <a href="#/constitution/${T[0].id}"><small>Begin reading</small>${esc(T[0].num)} · ${esc(T[0].name)} →</a></div>
+  </section>`;
+  }
+  const i=T.indexOf(cur), prev=T[i-1], next=T[i+1];
+  const toc=cur.chapters.map(ch=>`
+      ${ch.num?`<div class="cch">${esc(ch.num)}<span>${esc(ch.name)}</span></div>`:''}
+      ${ch.articles.map(a=>`<a href="#/constitution/${cur.id}/${a.id}"
+        onclick="return cJump('${a.id}')"><b>${esc(a.num.replace('Article ','Art. '))}</b>${esc(a.name)}</a>`).join('')}`).join('');
+  const body=cur.chapters.map(ch=>`
+      ${ch.num?`<h2 class="cchap">${esc(ch.num)} · ${esc(ch.name)}</h2>`:''}
+      ${ch.articles.map(a=>`<article class="cart" id="${a.id}">
+        <div class="cnum">${esc(a.num)}</div>
+        <h3>${esc(a.name)}</h3>
+        ${a.body.map(cBlock).join('')}
+      </article>`).join('')}`).join('');
+  return crumb([['Home','#/home'],['Constitution','#/constitution'],[cur.num]])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Constitution · ${esc(cur.num)}</div>
+    <h1>${esc(cur.name)}</h1>
+    <p class="lead">${esc(cRange(cur))} · ${cArticles(cur).length} articles.
+    Consolidated text, version ${esc(C.version.replace('v',''))} of ${esc(C.date)}.</p>
+  </section>
+  <section class="section reveal" style="animation-delay:.05s">
+    <div class="creader">
+      <nav class="ctoc" aria-label="Articles of ${esc(cur.num)}">
+        <div class="ctoc-h">${esc(cur.num)}</div>${toc}
+        <div class="ctoc-t">${T.map(t=>`<a class="${t===cur?'on':''}" href="#/constitution/${t.id}">${esc(t.num)}</a>`).join('')}</div>
+      </nav>
+      <div class="cbody">${body}
+        <div class="cpager">
+          ${prev?`<a href="#/constitution/${prev.id}"><small>← Previous</small>${esc(prev.num)} · ${esc(prev.name)}</a>`
+                :`<a href="#/constitution"><small>← Back</small>Preamble and table of titles</a>`}
+          ${next?`<a class="nx" href="#/constitution/${next.id}"><small>Next →</small>${esc(next.num)} · ${esc(next.name)}</a>`:'<span></span>'}
+        </div>
+      </div>
+    </div>
   </section>`;
 }
 
@@ -1115,7 +1735,7 @@ function vJournal(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Records</div>
     <h1>Official Journal</h1>
-    <p class="lead">The chronological record of confederal acts — constitutional drafts,
+    <p class="lead">The chronological record of confederal acts, constitutional drafts,
     laws, regulations and institutional decisions.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
@@ -1137,11 +1757,17 @@ function vIdentity(){
     written identity rests on a unified Latin alphabet; its institutional identity on a
     shared system of symbols and heraldry.</p>
   </section>
+  <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('identity-people','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      One language, seven peoples, a living tongue.</div></div>
+  </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="cards">
       <a class="pcard" href="#/alphabet"><div class="pc-eye">Writing</div>
         <h3>Unified alphabet</h3>
-        <p>The South Slavic Latin alphabet — 32 letters, version 3.</p>
+        <p>The South Slavic Latin alphabet, 32 letters, version 3.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/symbols"><div class="pc-eye">Heraldry</div>
         <h3>Symbols &amp; heraldry</h3>
@@ -1149,7 +1775,7 @@ function vIdentity(){
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/autonomy"><div class="pc-eye">Communities</div>
         <h3>Autonomous communities</h3>
-        <p>Twenty-five communities with cultural and municipal powers.</p>
+        <p>Twenty-four communities with cultural and municipal powers.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
     </div>
   </section>
@@ -1157,7 +1783,6 @@ function vIdentity(){
     <div class="h2row"><h2>Seven constituent peoples</h2></div>
     <div class="peoples">
       ${Object.values(PEUPLES).map(p=>`<div class="pp">
-        <div class="pp-bar" style="background:${p.hex}"></div>
         <b>${p.name}</b><span>${p.en}</span></div>`).join('')}
     </div>
   </section>`;
@@ -1167,8 +1792,8 @@ function vAlphabet(){
   return crumb([['Home','#/home'],['Identity','#/identity'],['Alphabet']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Linguistic identity</div>
-    <h1>South Slavic Latin alphabet — v3</h1>
-    <p class="lead">Thirty-two letters — 7 vowels and 25 consonants — based on the
+    <h1>South Slavic Latin alphabet, v3</h1>
+    <p class="lead">Thirty-two letters, 7 vowels and 25 consonants, based on the
     gajica and on areal Balkan features (schwa <b>ã</b>, tilde <b>ñ</b>, cedilla
     <b>ļ</b>, jat’ <b>ě</b>). The letter <b>ç</b> is reserved for proper names
     (Albanian, Turkish) and is not counted among the thirty-two.</p>
@@ -1211,9 +1836,8 @@ function vSymbols(){
           <img src="${COA_DATA}" alt="Coat of arms of the Balkan Confederation" />
         </div>
         <div class="symcap">
-          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion — heir to the
-          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground —
-          stands for the union of the constituent peoples. It appears in gold, with no
+          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion, heir to the
+          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground, stands for the union of the constituent peoples. It appears in gold, with no
           shield, on official seals, state correspondence and the state flag.</p>
         </div>
       </div>
@@ -1236,7 +1860,7 @@ function vSymbols(){
             <p>The civil flag is the flag of the people of the Confederation. It is
             flown by citizens, civil associations and on public buildings under
             municipal authority. Vertical red hoist; horizontal field of azure, argent
-            and azure — the unadorned base of the state flag.</p>
+            and azure, the unadorned base of the state flag.</p>
           </div>
         </div>
       </div>
@@ -1277,7 +1901,7 @@ function vAutonomy(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Communities</div>
     <h1>Autonomous communities</h1>
-    <p class="lead">Twenty-five autonomous communities guarantee the cultural,
+    <p class="lead">Twenty-four autonomous communities guarantee the cultural,
     educational and municipal rights of minority communities (Art. 1 quater to
     1 sexies). They hold no legislative power of their own, but a right of consultation
     and of petition.</p>
@@ -1317,12 +1941,18 @@ function vParticipation(){
     materialises immediately, and opens the right to take part in confederal
     consultations and votes.</p>
   </section>
+  <section class="band" style="min-height:42vh;margin-top:20px;margin-bottom:40px">
+    <div class="band-bg" data-parallax="0.16">${imgSlot('participation-crowd','fill')}</div>
+    <div class="band-scrim"></div>
+    <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
+      The electoral body of the Narodni Sabor.</div></div>
+  </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="h2row"><h2>Registration in three steps</h2></div>
     <div class="steps">
       <div class="step"><div class="sn">1</div>
         <h4>State of attachment</h4>
-        <p>Chosen by municipality of origin — including from the diaspora — or by free
+        <p>Chosen by municipality of origin, including from the diaspora, or by free
         attachment. Determines the constituency for the Kongres.</p></div>
       <div class="step"><div class="sn">2</div>
         <h4>Constituent nation</h4>
@@ -1330,7 +1960,7 @@ function vParticipation(){
         “unaffiliated”. Determines the register for the Narodni Sabor.</p></div>
       <div class="step"><div class="sn">3</div>
         <h4>Linguistic standard</h4>
-        <p>Preferred regional standard — western, central or eastern — for the language
+        <p>Preferred regional standard, western, central or eastern, for the language
         of the interface and of official documents.</p></div>
     </div>
     <div class="cert" style="margin-top:16px">
@@ -1346,8 +1976,8 @@ function vParticipation(){
       <button class="btn btn-primary" onclick="alert('The registration flow opens with the participation module.')">Begin registration</button>
       <a class="btn btn-ghost" href="#/dashboard" style="margin-left:8px">Membership dashboard</a>
     </div>
-    <div class="notice">The participatory platform — consultations, debates, citizen
-    proposals and votes — is built on an open-source participation infrastructure of
+    <div class="notice">The participatory platform, consultations, debates, citizen
+    proposals and votes, is built on an open-source participation infrastructure of
     the Decidim type. The registration flow and the live dashboard are activated in the
     next development stage.</div>
   </section>`;
@@ -1358,26 +1988,25 @@ function vDashboard(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Transparency</div>
     <h1>Membership dashboard</h1>
-    <p class="lead">A public, real-time view of confederal digital citizenship —
-    registered citizens by people and by state, with historical series.</p>
+    <p class="lead">A public, real-time view of confederal digital citizenship, registered citizens by people and by state, with historical series.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="kpis">
-      <div class="kpi"><div class="kn">—</div><div class="kl">Registered citizens</div></div>
-      <div class="kpi"><div class="kn">—</div><div class="kl">Registrations · last 30 days</div></div>
-      <div class="kpi"><div class="kn">—</div><div class="kl">States represented</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">Registered citizens</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">Registrations · last 30 days</div></div>
+      <div class="kpi"><div class="kn">·</div><div class="kl">States represented</div></div>
     </div>
   </section>
   <section class="section reveal">
     <div class="h2row"><h2>Breakdown by constituent people</h2></div>
     <div class="panel">
       ${Object.values(PEUPLES).map(p=>`<div class="barrow">
-        <span class="bl"><span class="pdot" style="background:${p.hex}"></span>${p.en}</span>
+        <span class="bl">${p.en}</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">—</span></div>`).join('')}
+        <span class="bv">·</span></div>`).join('')}
       <div class="barrow"><span class="bl">Unaffiliated</span>
         <span class="bt"><span class="bf" style="width:0%"></span></span>
-        <span class="bv">—</span></div>
+        <span class="bv">·</span></div>
     </div>
     <div class="notice">The dashboard activates with the registration system. Figures
     will be published per state and per people, updated in real time.</div>
@@ -1421,10 +2050,15 @@ function renderNow(){
   });
   if(h.startsWith('#/states'))renderGrid();
   window.scrollTo(0,0);
+  const hd=document.querySelector('header');
+  if(hd)document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
   requestAnimationFrame(()=>{
     setupReveal();
+    setupParallax();
     animateFigs();
     if(h.startsWith('#/map'))initMap();
+    const cp=h.split('/');
+    if(cp[1]==='constitution'&&cp[3])cJump(cp[3]);
   });
 }
 function animateFigs(){
@@ -1451,15 +2085,15 @@ document.getElementById('langsel').addEventListener('click',e=>{
 window.addEventListener('hashchange',render);
 
 /* ============================================================
-   PORTAL SEARCH — client-side index over states, autonomous
+   PORTAL SEARCH, client-side index over states, autonomous
    communities, peoples, alphabet letters and pages.
    ============================================================ */
 let SIDX=null, sbResults=[], sbSel=0;
 const SB_PAGES=[
  ['Home','Overview of the Confederation','#/home'],
- ['States & territories','Directory of the 47 states','#/states'],
- ['Autonomous communities','25 recognised minority communities','#/autonomy'],
- ['Interactive map','Territorial cartogram','#/map'],
+ ['States & territories','Directory of the 49 states','#/states'],
+ ['Autonomous communities','24 recognised minority communities','#/autonomy'],
+ ['Interactive map','Globe of the Confederation, key figures by state','#/map'],
  ['Institutions','The four federal institutions','#/institutions'],
  ['Constitution','Constitutional corpus','#/constitution'],
  ['Official journal','Latest confederal decisions','#/journal'],
@@ -1469,6 +2103,7 @@ const SB_PAGES=[
  ['Participation','Register and take part','#/participation'],
  ['Dashboard','Confederal indicators','#/dashboard'],
 ];
+function fmtN(n){return Number(n).toLocaleString('en-GB');}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function buildIndex(){
@@ -1486,10 +2121,15 @@ function buildIndex(){
       hay:(a.n+' '+a.id+' '+a.com+' '+(h?h.n:'')).toLowerCase(),iconText:'◇'});});
   Object.entries(PEUPLES).forEach(([k,p])=>{
     idx.push({type:'Constituent peoples',label:p.en,sub:p.name+' · '+(STD[p.std]||''),
-      hash:'#/identity',hay:(p.en+' '+p.name+' '+k).toLowerCase(),iconDot:p.hex});});
+      hash:'#/identity',hay:(p.en+' '+p.name+' '+k).toLowerCase(),iconText:'○'});});
   ALPHA.forEach(a=>{
     idx.push({type:'Alphabet',label:a[0],sub:'IPA '+a[1],hash:'#/alphabet',
       hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0]});});
+  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{
+    const txt=a.body.map(b=>b.x||(b.items||[]).map(i=>Array.isArray(i)?i[1]:i).join(' ')).join(' ');
+    idx.push({type:'Constitution',label:a.num+' · '+a.name,sub:t.num+' · '+t.name,
+      hash:'#/constitution/'+t.id+'/'+a.id,
+      hay:(a.num+' '+a.name+' '+t.name+' '+txt).toLowerCase(),iconText:'§'});}));
   SB_PAGES.forEach(p=>{
     idx.push({type:'Pages',label:p[0],sub:p[1],hash:p[2],
       hay:(p[0]+' '+p[1]).toLowerCase(),iconText:'§'});});
@@ -1514,7 +2154,7 @@ function searchQuery(raw){
 }
 function sbIcon(i){
   if(i.icon)return i.icon;
-  if(i.iconDot)return `<span style="width:11px;height:11px;border-radius:50%;`+
+  if(i.iconDot)return `<span style="width:14px;height:10px;border-radius:2px;`+
     `background:${i.iconDot};display:inline-block"></span>`;
   return `<span>${esc(i.iconText||'')}</span>`;
 }
@@ -1560,7 +2200,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ============================================================
-   THEME — light / dark with persistence
+   THEME, light / dark with persistence
    ============================================================ */
 function toggleTheme(){
   const cur=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
@@ -1570,105 +2210,614 @@ function toggleTheme(){
 }
 
 /* ============================================================
-   SCROLL REVEAL — sections fade up as they enter the viewport
+   SCROLL REVEAL, sections fade up as they enter the viewport
    ============================================================ */
 let _io=null;
 function setupReveal(){
   if(_io)_io.disconnect();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const els=document.querySelectorAll('#app .section, #app .hero');
+  const els=document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band');
   _io=new IntersectionObserver(ents=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
-  },{rootMargin:'0px 0px -7% 0px',threshold:.03});
+  },{rootMargin:'0px 0px -7% 0px',threshold:.02});
   els.forEach(el=>{el.classList.remove('reveal');el.classList.add('io');_io.observe(el);});
 }
 
 /* ============================================================
-   INTERACTIVE MAP — zoom / pan / hover tooltip / people filter
+   IMAGE SLOTS — labelled placeholders until the owner supplies
+   the files (drop portail/images/<id>.jpg, then push).
    ============================================================ */
-function mapTiles(){
-  const TS=44,GAP=8,cell=TS+GAP;
-  let mc=0,mr=0;STATES.forEach(s=>{mc=Math.max(mc,s.g[0]);mr=Math.max(mr,s.g[1]);});
-  const W=(mc+1)*cell+GAP,H=(mr+1)*cell+GAP;
-  let s=`<svg id="mapSvg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `+
-    `xmlns="http://www.w3.org/2000/svg">`;
-  STATES.forEach(st=>{
-    const x=st.g[0]*cell+GAP,y=st.g[1]*cell+GAP;
-    const isC=st.t!=='T';
-    const acc=st.p==='fed'?'#3a4663':PEUPLES[st.p].hex;
-    const dash=st.t==='M'?' stroke-dasharray="5 3"':'';
-    s+=`<g class="tile" data-c="${st.c}" data-p="${st.p}" data-n="${esc(st.n)}" `+
-       `tabindex="0" role="button" aria-label="${esc(st.n)} (${st.c})" `+
-       `onkeydown="if(event.key==='Enter')go('#/state/${st.c}')">`;
-    s+=`<rect x="${x}" y="${y}" width="${TS}" height="${TS}" rx="${isC?TS/2:5}" `+
-       `fill="${acc}" fill-opacity="${isC?.94:.88}"${dash}/>`;
-    s+=`<text x="${x+TS/2}" y="${y+TS/2+4.5}" text-anchor="middle" fill="#fff" `+
-       `style="paint-order:stroke" stroke="rgba(0,0,0,.22)" stroke-width=".7">${st.k}</text></g>`;
-  });
-  return s+'</svg>';
+const SLOTS={
+ 'home-hero':{cat:'Paysage',subj:'Panorama balkanique / côte adriatique',w:2400,h:1400},
+ 'home-adriatic':{cat:'Paysage',subj:'Mer et montagnes (bande parallax)',w:2400,h:1100},
+ 'home-peoples':{cat:'Humain',subj:'Visages des sept peuples',w:1800,h:1200},
+ 'home-assembly':{cat:'Politique',subj:'Assemblée / institution / cérémonie',w:1800,h:1200},
+ 'home-citizen':{cat:'Humain',subj:'Citoyen · vie quotidienne',w:2400,h:1100},
+ 'home-closing':{cat:'Paysage',subj:'Ville historique au crépuscule',w:2400,h:1100},
+ 'identity-people':{cat:'Humain',subj:'La langue vivante · portraits',w:1800,h:1000},
+ 'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais fédéral',w:1800,h:1000},
+ 'participation-crowd':{cat:'Humain',subj:'Citoyens · place publique',w:2400,h:1000},
+};
+/* Slot rotation: <id>.jpg, then <id>-2.jpg ... <id>-N.jpg cross-fade in place.
+   Add a photo: drop the file and raise the count here. */
+const SLOT_N={'home-hero':22,'home-adriatic':3,'home-citizen':4,'home-closing':4,'home-assembly':3,'identity-people':4,'institutions-hall':4,'participation-crowd':3};
+const SLOT_T=7;
+function rotKeyframes(n,name){
+  const v=100/n, f=v/6;
+  return `<style>@keyframes ${name}{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
 }
+function imgSlot(id,cls){
+  const s=SLOTS[id]||{cat:'Image',subj:id,w:1600,h:900};
+  const n=SLOT_N[id]||1, kf='rot-'+id;
+  let extra='';
+  if(n>1){
+    extra=rotKeyframes(n,kf);
+    for(let i=2;i<=n;i++)extra+=`<img class="rot" src="images/${id}-${i}.jpg" alt="" loading="lazy" `+
+      `style="animation:${kf} ${n*SLOT_T}s ${(i-1)*SLOT_T}s infinite" onerror="this.remove()">`;
+  }
+  return `<figure class="imgslot cat-${s.cat.toLowerCase()} ${cls||''}">`+
+    `<img src="images/${id}.jpg" alt="${esc(s.subj)}" loading="lazy" onerror="imgFail(this)">`+extra+
+    `<figcaption class="slotlab"><span class="slotcat">${s.cat}</span>`+
+    `<span class="slotsub">${esc(s.subj)}</span>`+
+    `<span class="slotdim mono">${s.w}×${s.h} · images/${id}.jpg</span></figcaption></figure>`;
+}
+/* People gallery: images/peoples/<key>-<n>.jpg, shuffled on every load. */
+const PEOPLE_IMGS={slo:5,hrv:5,srb:5,misc:6};
+function peopleGallery(){
+  const list=[];Object.entries(PEOPLE_IMGS).forEach(([k,n])=>{for(let i=1;i<=n;i++)list.push(`images/peoples/${k}-${i}.jpg`);});
+  if(!list.length)return imgSlot('home-peoples');
+  for(let i=list.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[list[i],list[j]]=[list[j],list[i]];}
+  const n=list.length,T=5;
+  return rotKeyframes(n,'rot-peoples')+`<figure class="imgslot" style="aspect-ratio:3/2">`+
+    `<img src="${list[0]}" alt="" loading="lazy" style="object-position:center 30%">`+
+    list.slice(1).map((u,i)=>`<img class="rot" src="${u}" alt="" loading="lazy" style="object-position:center 30%;animation:rot-peoples ${n*T}s ${(i+1)*T}s infinite" onerror="this.remove()">`).join('')+
+    `</figure>`;
+}
+function imgFail(el){const f=el.closest('.imgslot');if(f){f.classList.add('miss');el.remove();}}
+
+/* ============================================================
+   PARALLAX — gentle depth on [data-parallax] backgrounds
+   ============================================================ */
+let _plx=[], _plxTick=false;
+function setupParallax(){
+  _plx=[...document.querySelectorAll('#app [data-parallax]')];
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){_plx=[];return;}
+  onParallax();
+}
+function onParallax(){
+  const vh=window.innerHeight;
+  for(const el of _plx){
+    const r=el.getBoundingClientRect();
+    const off=((r.top+r.height/2)-vh/2)/vh;
+    const f=parseFloat(el.dataset.parallax)||0.15;
+    el.style.transform=`translate3d(0,${(-off*f*100).toFixed(1)}px,0)`;
+  }
+}
+window.addEventListener('scroll',()=>{
+  if(_plxTick||!_plx.length)return;_plxTick=true;
+  requestAnimationFrame(()=>{onParallax();_plxTick=false;});
+},{passive:true});
+
+/* ============================================================
+   MAP, satellite view of the Confederation (d3-geo, vendored)
+   geo.json v2 : lon/lat rings, 1/q degree, delta-encoded
+   ============================================================ */
+const SR={mode:'states',lights:true,filter:null,pin:null,hover:null,intro:false};
+const SR_CENTER=[20.6,43.6], SR_FROM=[-12,24];   // resting centre; where the intro starts
+// The peoples carry no colour code (ADR 2026-10-14-pas-de-code-couleur-peuples). By
+// default the states share one confederal tone; colouring by people is only an
+// option of this map. Option palette checked with the data-viz validator on the real
+// neighbours: worst neighbour pair 24 ΔE in normal vision, 7.1 under colour-blindness
+// simulation (orange / green, borders and labels carry it); legend pairs >= 16 ΔE.
+const SR_PEOPLE={slo:'#0794f8',hrv:'#f10f4f',srb:'#b53ddd',bos:'#0bd7d9',
+  cng:'#eeda1b',mkd:'#ff8c00',bul:'#2fbf5b'};
+const SR_STATE='#1b2a66', SR_CAPITAL='#f5b54a';
+const SR_FED='#20246b';
+const srHex=k=>SR_PEOPLE[k]||SR_FED;
+// Gradients drawn from the confederal colours: azur #374078 for the cool scale,
+// gueules #99402F to or #DFCC68 for the warm one (lightness rises step by step).
+const SR_COOL=['#1d2b72','#2a3f9e','#3a55c4','#4f7dff','#55b4ff','#b6e6ff'];
+const SR_WARM=['#5a1e16','#99402f','#d2602f','#f08a3a','#f5b54a','#ffe7a3'];
+const SR_SCALE={
+  states:{title:'Population',ramp:SR_COOL,log:true},
+  peoples:{title:'Population',ramp:SR_COOL,log:true},
+  gdp:{title:'GDP per capita, PPS, 2023',ramp:SR_WARM,log:true},
+  dens:{title:'Inhabitants per km²',ramp:SR_COOL,log:true}
+};
+let SRF=null, SRM=null;
+const srRgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const srHexOf=a=>'#'+a.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');
+const srA=(h,a)=>{const [r,g,b]=srRgb(h);return `rgba(${r},${g},${b},${a})`;};
+function srLerp(stops,t){
+  t=Math.max(0,Math.min(1,t));const n=stops.length-1,i=Math.min(n-1,Math.floor(t*n)),f=t*n-i;
+  const a=srRgb(stops[i]),b=srRgb(stops[i+1]);return srHexOf(a.map((v,k)=>v+(b[k]-v)*f));
+}
+const srDom={};
+function srT(code,mode){   // position of a value on the mode's scale, 0..1
+  const v=srVal(code,mode);if(v==null)return null;
+  if(!srDom[mode]){const r=srRange(mode);srDom[mode]=[r.minV,r.maxV];}
+  const [a,b]=srDom[mode],L=SR_SCALE[mode].log;
+  return L?(Math.log(v)-Math.log(a))/(Math.log(b)-Math.log(a)):(v-a)/(b-a);
+}
+function srTone(code,mode){  // the chart colour of an entity: its value on the gradient
+  mode=mode||SR.mode;const s=byCode(code)||{};
+  if(mode==='peoples')return s.t==='T'?srHex(s.p):SR_CAPITAL;
+  if(mode==='states')return s.t==='T'?srLerp(SR_COOL,.25+.75*(srT(code,'states')||0)):SR_CAPITAL;
+  const t=srT(code,mode);return t==null?'#1a2246':srLerp(SR_SCALE[mode].ramp,t);
+}
+function geoDecode(){
+  if(SRF)return SRF;
+  const q=GEO.q||1000;
+  const ring=(a,close)=>{const r=[];let x=a[0],y=a[1];r.push([x/q,y/q]);
+    for(let i=2;i<a.length;i+=2){x+=a[i];y+=a[i+1];r.push([x/q,y/q]);}
+    if(close)r.push(r[0]);return r;};
+  const polys=g=>g.map(p=>{const P=p.map(a=>ring(a,true));
+    // guard the d3 winding: a polygon larger than a hemisphere is inside out
+    if(d3.geoArea({type:'Polygon',coordinates:P})>2*Math.PI)P.forEach(r=>r.reverse());
+    return P;});
+  const feat=o=>{const props={...o};delete props.g;
+    return {type:'Feature',properties:props,geometry:{type:'MultiPolygon',coordinates:polys(o.g)}};};
+  const states=(GEO.states||[]).map(feat), fed=(GEO.fed||[]).map(feat);
+  SRF={states,fed,occupied:(GEO.occupied||[]).map(feat),land:(GEO.land||[]).map(feat),
+    far:polys(GEO.far||[]).map(c=>({type:'Polygon',coordinates:c})),
+    borders:{type:'MultiLineString',coordinates:(GEO.borders||[]).map(a=>ring(a,false))},
+    members:{type:'FeatureCollection',features:states.concat(fed)}};
+  return SRF;
+}
+function srProjection(){
+  // Orthographic: the true globe, without the area distortion of a tilted view.
+  return d3.geoOrthographic().clipAngle(90).precision(1);
+}
+/* ---- data helpers ---- */
+function srVal(code,mode){
+  const st=STATS[code]||{};
+  if(mode==='gdp')return st.gdp;
+  if(mode==='dens')return st.population&&st.area?st.population/st.area:null;
+  return st.population;
+}
+function srFill(code){
+  const s=byCode(code)||{};
+  if(SR.mode==='states')return s.t==='T'?SR_STATE:'url(#srCap)';
+  if(SR.mode==='peoples')return s.t==='T'?srHex(s.p):SR_FED;
+  return srTone(code);
+}
+function srFmt(code,mode){
+  const v=srVal(code,mode);
+  if(v==null)return '';
+  if(mode==='gdp')return fmtN(v)+' PPS per inhabitant';
+  if(mode==='dens')return fmtN(Math.round(v))+' inhabitants / km²';
+  return fmtN(v)+' inhabitants';
+}
+function srTotals(){
+  const T={pop:0,area:0,mun:0,gdp:0,eu:0,by:{T:[0,0],F:[0,0],M:[0,0]}};
+  let g=0,e=0,gp=0;
+  STATES.forEach(s=>{const st=STATS[s.c]||{},p=st.population||0;
+    T.pop+=p;T.area+=st.area||0;T.mun+=st.municipalities||0;
+    if(T.by[s.t]){T.by[s.t][0]++;T.by[s.t][1]+=p;}
+    if(st.gdp&&p){g+=p*st.gdp;e+=p*st.gdp_eu;gp+=p;}});
+  T.gdp=gp?g/gp:0;T.eu=gp?e/gp:0;
+  return T;
+}
+function srRange(mode){
+  let min=null,max=null,minV=Infinity,maxV=-Infinity;
+  STATES.forEach(s=>{const v=srVal(s.c,mode);if(v==null)return;
+    if(v<minV){minV=v;min=s;} if(v>maxV){maxV=v;max=s;}});
+  return {min,max,minV,maxV};
+}
+function srShort(v,mode){
+  if(mode==='states'||mode==='peoples')return v>=1e6?(v/1e6).toFixed(2)+' M':fmtN(Math.round(v/1e3))+' k';
+  return fmtN(Math.round(v));
+}
+/* ---- charts ---- */
+// Ring of 60 ticks, lit along the warm gradient up to the value (EU-27 = 100 %).
+function srRing(pct,size){
+  size=size||84;const c=size/2,n=60,on=Math.round(n*Math.min(pct,100)/100),r0=c-11,r1=c-3;let t='';
+  for(let i=0;i<n;i++){const a=-Math.PI/2+2*Math.PI*i/n,
+      x0=c+r0*Math.cos(a),y0=c+r0*Math.sin(a),x1=c+r1*Math.cos(a),y1=c+r1*Math.sin(a);
+    const lit=i<on,col=lit?srLerp(SR_WARM.slice(1),i/Math.max(1,n-1)):'rgba(160,178,255,.14)';
+    t+=`<line${lit?` class="on" style="--i:${i}"`:''} x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${col}"/>`;}
+  return `<svg class="sr-ringsvg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img"
+    aria-label="${Math.round(pct)}% of the EU-27 average">${t}
+    <circle cx="${c}" cy="${c}" r="${r0-5}" fill="none" stroke="rgba(160,178,255,.12)"/>
+    <text x="${c}" y="${c+5}"><tspan data-count="${Math.round(pct)}" data-suffix="%">${Math.round(pct)}%</tspan></text></svg>`;
+}
+// Every entity as one column, sorted by the active measure; the bottom fades out.
+function srDist(mode,hl,h){
+  h=h||92;const W=284,list=STATES.filter(s=>srVal(s.c,mode)!=null)
+    .sort((a,b)=>srVal(b.c,mode)-srVal(a.c,mode));
+  const n=list.length,gap=1.4,bw=(W-gap*(n-1))/n,top=srT(list[0].c,mode)||1;
+  const bars=list.map((s,i)=>{const t=srT(s.c,mode),bh=Math.max(3,(h-14)*(.12+.88*t)),
+      x=i*(bw+gap),y=h-bh,col=srTone(s.c,mode);
+    return `<rect data-c="${s.c}" x="${x.toFixed(2)}" y="${y.toFixed(1)}" width="${bw.toFixed(2)}" height="${bh.toFixed(1)}"
+      rx="1" fill="${col}" style="--i:${i}" class="${s.c===hl?'hl':''}"><title>${esc(s.n)}, ${srShort(srVal(s.c,mode),mode)}</title></rect>`;}).join('');
+  const rank=hl?list.findIndex(s=>s.c===hl):-1;
+  const mark=rank>=0?(()=>{const x=rank*(bw+gap)+bw/2;
+    return `<path d="M${(x-3.5).toFixed(1)} 0H${(x+3.5).toFixed(1)}L${x.toFixed(1)} 5Z" fill="#ffe7a3"/>`;})():'';
+  return {n,rank,svg:`<svg class="sr-dist" viewBox="0 0 ${W} ${h}" preserveAspectRatio="none" role="img"
+    aria-label="${n} entities ranked by ${SR_SCALE[mode].title.toLowerCase()}">
+    <defs><linearGradient id="srFadeG${h}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".18"/></linearGradient>
+      <mask id="srFade${h}"><rect width="${W}" height="${h}" fill="url(#srFadeG${h})"/></mask></defs>
+    <g mask="url(#srFade${h})">${bars}</g>${mark}
+    <line x1="0" y1="${h-.5}" x2="${W}" y2="${h-.5}" stroke="rgba(160,178,255,.25)"/></svg>`};
+}
+/* ---- panels ---- */
+function srSelHTML(code,rise){
+  const s=code&&byCode(code), m=SR.mode==='peoples'?'states':SR.mode;
+  const title={states:'Population',gdp:'GDP per capita',dens:'Density'}[m];
+  if(!s){
+    const d=srDist(m,null),r=srRange(m);
+    return `<div class="sr-cardhead"><div class="sr-k">${title}, all ${d.n} entities</div></div>
+      <div class="sr-distwrap${rise?' rise':''}" data-mode="${m}">${d.svg}</div>
+      <div class="sr-axis"><span>${esc(r.max.n)} ${srShort(r.maxV,m)}</span><span>${esc(r.min.n)} ${srShort(r.minV,m)}</span></div>
+      <p class="sr-hint">Hover a state or a column to see its figures, click to pin it.</p>`;
+  }
+  const st=STATS[s.c]||{}, fed=s.t!=='T';
+  const who=fed?(s.t==='F'?'Federal city':'Federal municipality'):PEUPLES[s.p].en;
+  const dens=st.population&&st.area?Math.round(st.population/st.area):null;
+  const eu=st.gdp_eu, scale=160, d=srDist(m,s.c,30);
+  return `<div class="sr-selhead"><div class="fl">${flagSVG(s)}</div>
+      <div><h2>${esc(s.n)}</h2><p>${s.c}, ${who}</p></div></div>
+    <dl class="sr-rows">
+      <dt>Population</dt><dd>${st.population!=null?fmtN(st.population):'pending'}</dd>
+      <dt>Area</dt><dd>${st.area?fmtN(st.area)+' km²':'pending'}</dd>
+      <dt>Density</dt><dd>${dens!=null?fmtN(dens)+' / km²':'pending'}</dd>
+      <dt>GDP per capita</dt><dd>${st.gdp!=null?fmtN(st.gdp)+' PPS':'pending'}</dd>
+    </dl>
+    ${eu!=null?`<div class="sr-meter" role="img" aria-label="${eu}% of the EU-27 average">
+      <i style="width:${Math.min(100,100*eu/scale).toFixed(1)}%"></i>
+      <b style="left:${(100*100/scale).toFixed(1)}%"></b></div>
+      <div class="sr-meterlbl"><span>${eu}% of the EU-27 average</span><span>EU = 100</span></div>`:''}
+    ${d.rank>=0?`<div class="sr-distwrap mini" data-mode="${m}">${d.svg}</div>
+      <div class="sr-meterlbl"><span>Rank ${d.rank+1} of ${d.n}</span><span>${title}</span></div>`:''}
+    <a class="sr-open" href="#/state/${s.c}">Open state page</a>`;
+}
+function srPeoplesHTML(){
+  const sum={},fedSum=STATES.filter(s=>s.t!=='T').reduce((a,s)=>a+((STATS[s.c]||{}).population||0),0);
+  STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
+  const opt=SR.mode==='peoples';   // colours only when the people option is on
+  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):'#4f7dff',sum[k]||0]);
+  rows.push(['fed','Federal entities',opt?SR_FED:'#f5b54a',fedSum]);
+  const max=Math.max(...rows.map(r=>r[3]));
+  return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
+      ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
+    <div class="sr-bars">${rows.map(([k,n,c,v],i)=>
+      `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" style="--i:${i}" aria-pressed="${SR.filter===k}"
+        onclick="srFilter('${k}')" title="Show only the ${esc(n.toLowerCase())} on the map">
+        <span class="nm">${esc(n)}</span>
+        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;--c:${c};--c0:${srA(c,.08)};--cg:${srA(c,.55)}"></i></span>
+        <span class="v">${(v/1e6).toFixed(1)} M</span></button>`).join('')}</div>`;
+}
+function srLegendHTML(){
+  let h='';
+  if(SR.mode==='states'){
+    h=`<span><i style="background:${SR_STATE};box-shadow:inset 0 0 0 1px rgba(150,172,255,.7)"></i>Territorial states</span>`+
+      `<span><i style="background:radial-gradient(circle at 35% 35%,#ffe7a3,#f08a3a 60%,#99402f)"></i>Federal cities and municipalities</span>`;
+  }else if(SR.mode==='peoples'){
+    h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${p.en}</span>`).join('')+
+      `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
+  }else{
+    const S=SR_SCALE[SR.mode],r=srRange(SR.mode);
+    h=`<span style="color:var(--sr-ink)">${S.title}</span>
+      <span class="sr-grad"><em>${srShort(r.minV,SR.mode)}</em>
+        <b style="background:linear-gradient(90deg,${S.ramp.join(',')})"></b>
+        <em>${srShort(r.maxV,SR.mode)}</em></span>`;
+  }
+  h+=`<span><i class="hatch"></i>Occupied territories</span>`;
+  if(SR.lights)h+=`<span><i class="light"></i>One light per municipality</span>`;
+  h+=`<span class="sr-srcs" tabindex="0" title="Boundaries: GADM, geoBoundaries, Natural Earth. Population: national censuses and registers. GDP: Eurostat regional accounts, 2023.">Sources</span>`;
+  return h;
+}
+/* ---- engine ---- */
 function initMap(){
-  const stage=document.getElementById('mapStage');
-  const svg=document.getElementById('mapSvg');
-  const tip=document.getElementById('mapTip');
-  if(!stage||!svg)return;
-  const vb=svg.viewBox.baseVal;
-  let scale=1,tx=0,ty=0;const minS=.4,maxS=5;
-  const apply=()=>{svg.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;};
-  const fit=()=>{const r=stage.getBoundingClientRect();
-    scale=Math.min(r.width/vb.width,r.height/vb.height)*.94;
-    tx=(r.width-vb.width*scale)/2;ty=(r.height-vb.height*scale)/2;apply();};
-  const zoom=(f,cx,cy)=>{const r=stage.getBoundingClientRect();
-    cx=cx==null?r.width/2:cx;cy=cy==null?r.height/2:cy;
-    const ns=Math.max(minS,Math.min(maxS,scale*f));
-    tx=cx-(cx-tx)*(ns/scale);ty=cy-(cy-ty)*(ns/scale);scale=ns;apply();};
-  stage.onwheel=e=>{e.preventDefault();const r=stage.getBoundingClientRect();
-    zoom(e.deltaY<0?1.12:1/1.12,e.clientX-r.left,e.clientY-r.top);};
-  let drag=false,sx=0,sy=0,moved=false;
-  stage.onpointerdown=e=>{drag=true;moved=false;sx=e.clientX;sy=e.clientY;
-    stage.classList.add('grabbing');stage.setPointerCapture(e.pointerId);};
+  const stage=document.getElementById('srStage');
+  if(!stage||!window.d3||!GEO.states)return;
+  const F=geoDecode(), NS='http://www.w3.org/2000/svg';
+  const svg=document.getElementById('srSvg'), over=document.getElementById('srOver');
+  const cv=document.getElementById('srLights'), tip=document.getElementById('srTip');
+  const mk=(tag,cls,parent,attrs={})=>{const e=document.createElementNS(NS,tag);
+    if(cls)e.setAttribute('class',cls);for(const k in attrs)e.setAttribute(k,attrs[k]);
+    parent.appendChild(e);return e;};
+  svg.innerHTML=`<defs>
+    <radialGradient id="srOcean" cx="46%" cy="40%" r="62%"><stop offset="0" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#050b20"/></radialGradient>
+    <filter id="srBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+    <pattern id="srHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#d4644f" stroke-width="1.6" opacity=".8"/></pattern>
+    <pattern id="srDots" width="4.5" height="4.5" patternUnits="userSpaceOnUse">
+      <circle cx="2.25" cy="2.25" r=".62" fill="#cfdcff" fill-opacity=".26"/></pattern>
+    <linearGradient id="srSheen" x1="0" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#b9cdff" stop-opacity=".22"/><stop offset=".42" stop-color="#b9cdff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#02040f" stop-opacity=".42"/></linearGradient>
+    <radialGradient id="srCap" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#ffe7a3"/>
+      <stop offset=".55" stop-color="#f08a3a"/><stop offset="1" stop-color="#99402f"/></radialGradient>
+    <clipPath id="srClip"><path id="srClipPath"/></clipPath></defs>`;
+  const el={halo:mk('path','sr-halo',svg),sphere:mk('path','sr-sphere',svg),grat:mk('path','sr-grat',svg)};
+  const gFar=mk('g','',svg);
+  const far=F.far.map(f=>[mk('path','sr-far',gFar),f]);
+  const gLand=mk('g','sr-land',svg);
+  const land=F.land.map(f=>[mk('path','',gLand),f]);
+  el.borders=mk('path','sr-borders',svg);
+  const gReg=mk('g','sr-regions',svg);
+  const regs=F.states.concat(F.fed).map(f=>{
+    const c=f.properties.c,s=byCode(c)||{},fed=s.t&&s.t!=='T';
+    const p=mk('path','sr-reg'+(fed?' fed':'')+(s.t==='M'?' muni':''),gReg,
+      {'data-c':c,'data-p':fed?'fed':s.p,tabindex:'0',role:'button',
+       'aria-label':`${s.n||c} (${c}). ${srFmt(c,'peoples')}`});
+    p.style.fill=srFill(c);
+    p.addEventListener('focus',()=>{if(p.matches(':focus-visible'))srPin(c,true);});
+    p.addEventListener('keydown',e=>{if(e.key==='Enter')go('#/state/'+c);});
+    return [p,f];});
+  const occ=F.occupied.map(f=>[mk('path','sr-occbase',svg),f]).concat(
+    F.occupied.map(f=>[mk('path','sr-occ',svg),f]));
+  // texture of the territory: a light sheen and a fine dot screen, clipped to the states
+  const tex=mk('g','sr-tex',svg,{'clip-path':'url(#srClip)'});
+  mk('rect','',tex,{width:'100%',height:'100%',fill:'url(#srSheen)'});
+  mk('rect','sr-dots',tex,{width:'100%',height:'100%',fill:'url(#srDots)'});
+  const clipPath=svg.querySelector('#srClipPath');
+  el.limb=mk('path','sr-limb',svg);
+  const hov=mk('path','sr-hover',over), pin=mk('path','sr-pin',over);
+  // federal capitals: a slow radar ping under each label
+  const pings=F.fed.map((f,i)=>{const g=mk('g','sr-ping',over);
+    mk('circle','',g,{r:'14',style:`--i:${i}`});mk('circle','',g,{r:'14',style:`--i:${i+.5}`});
+    return [g,GEO.pts[f.properties.c]];});
+  const lbls=F.fed.map(f=>{const c=f.properties.c,s=byCode(c)||{};
+    const t=mk('text','sr-flbl',over);t.textContent=s.k||c;return [t,GEO.pts[c]];});
+  const sprite=document.createElement('canvas');sprite.width=sprite.height=64;
+  {const x=sprite.getContext('2d'),g=x.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'rgba(255,248,226,1)');g.addColorStop(.12,'rgba(255,214,150,.95)');
+    g.addColorStop(.36,'rgba(240,138,58,.34)');g.addColorStop(1,'rgba(240,138,58,0)');
+    x.fillStyle=g;x.fillRect(0,0,64,64);}
+  const L=(LIGHTS&&LIGHTS.p)||[], lq=(LIGHTS&&LIGHTS.q)||1000, lights=[];
+  for(let i=0;i<L.length;i+=3)lights.push([L[i]/lq,L[i+1]/lq,L[i+2]]);
+  const proj=srProjection(), path=d3.geoPath(proj).digits(1);
+  const grat=d3.geoGraticule().step([10,10])();
+  // bounding cap of every drawn feature, to skip what is off screen or behind the globe
+  const cap=f=>{const c=d3.geoCentroid(f);let r=0;
+    d3.geoStream(f,{point:(x,y)=>{const d=d3.geoDistance(c,[x,y]);if(d>r)r=d;},
+      lineStart(){},lineEnd(){},polygonStart(){},polygonEnd(){},sphere(){}});return [c,r];};
+  [far,land,regs,occ].forEach(list=>list.forEach(it=>{it[2]=cap(it[1]);}));
+  const layers=document.getElementById('srLayers');
+  const M=SRM={stage,svg,over,cv,ctx:cv.getContext('2d'),proj,path,el,land,regs,occ,hov,pin,lbls,far,layers,
+    T:{a:1,x:0,y:0},
+    sprite,lights,grat,F,lon:SR_CENTER[0],lat:SR_CENTER[1],k:1,kFit:1,dpr:1,w:0,h:0,raf:0,
+    clip:Math.PI/2};
+
+  const clampView=()=>{M.lon=((M.lon+540)%360)-180;M.lat=Math.max(-80,Math.min(80,M.lat));
+    M.k=Math.max(M.kMin,Math.min(M.kFit*9,M.k));};
+  const size=()=>{const r=stage.getBoundingClientRect();M.w=r.width;M.h=r.height;
+    M.dpr=Math.min(2,window.devicePixelRatio||1);
+    [svg,over].forEach(s=>{s.setAttribute('viewBox',`0 0 ${M.w} ${M.h}`);});
+    cv.width=Math.round(M.w*M.dpr);cv.height=Math.round(M.h*M.dpr);};
+  const fit=()=>{
+    const wide=M.w>=980, x0=wide?310:16, x1=wide?M.w-364:M.w-16, y0=wide?(M.w<1180?150:84):16, y1=M.h-(wide?70:16);
+    M.lon=SR_CENTER[0];M.lat=SR_CENTER[1];
+    proj.rotate([-M.lon,-M.lat,0]).fitExtent([[x0,y0],[x1,Math.max(y0+200,y1)]],F.members);
+    M.k=M.kFit=proj.scale();M.kMin=Math.min(M.w,M.h)*.3;};
+  M.draw=()=>{
+    M.raf=0;proj.rotate([-M.lon,-M.lat,0]).scale(M.k);
+    M.T={a:1,x:0,y:0};layers.style.transform='';
+    const sph=path({type:'Sphere'})||'';
+    el.sphere.setAttribute('d',sph);el.halo.setAttribute('d',sph);el.limb.setAttribute('d',sph);
+    el.grat.setAttribute('d',path(grat)||'');
+    const ctr=[M.lon,M.lat],t=proj.translate(),
+      reach=Math.max(...[[0,0],[M.w,0],[0,M.h],[M.w,M.h]].map(([x,y])=>Math.hypot(x-t[0],y-t[1])))+40,
+      vis=reach>=M.k?Math.PI/2:Math.asin(reach/M.k);
+    const put=list=>list.forEach(it=>{const [p,f,c]=it;
+      const show=d3.geoDistance(ctr,c[0])-c[1]<vis;
+      if(show){p.setAttribute('d',path(f)||'');it[3]=1;}
+      else if(it[3]){p.setAttribute('d','');it[3]=0;}});
+    put(far);put(land);
+    el.borders.setAttribute('d',path(F.borders)||'');
+    put(regs);put(occ);
+    clipPath.setAttribute('d',regs.map(([p])=>p.getAttribute('d')||'').join(''));
+    const zoomed=M.k/M.kFit;
+    lbls.forEach(([t,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
+      const xy=ok&&proj(ll);t.style.display=xy?'':'none';
+      if(xy){t.setAttribute('x',xy[0].toFixed(1));t.setAttribute('y',(xy[1]+4).toFixed(1));}});
+    pings.forEach(([g,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
+      const xy=ok&&proj(ll);g.style.display=xy?'':'none';
+      if(xy)g.setAttribute('transform',`translate(${xy[0].toFixed(1)},${xy[1].toFixed(1)})`);});
+    srOutline();srLightsDraw();};
+  M.queue=()=>{if(!M.raf)M.raf=requestAnimationFrame(M.draw);};
+  // During a gesture near the territory the drawn layers are only moved with a CSS
+  // transform (orthographic is nearly affine there); the exact redraw follows when
+  // the gesture pauses. Far out, the globe turns and is redrawn at every frame.
+  const pq=srProjection();
+  const sync=()=>pq.translate(proj.translate()).scale(M.k).rotate([-M.lon,-M.lat,0]);
+  let idle=0;
+  const fast=k=>k>=M.kFit*.6&&M.k>=M.kFit*.6;
+  const settle=()=>{layers.style.transform=`translate(${M.T.x}px,${M.T.y}px) scale(${M.T.a})`;
+    clearTimeout(idle);idle=setTimeout(M.queue,160);};
+  const zoomAt=(f,cx,cy)=>{
+    // zooming in keeps the point under the cursor; zooming out keeps the centre
+    sync();const k0=M.k;
+    if(f<1){[cx,cy]=proj.translate();}
+    const a=f>1?pq.invert([cx,cy]):null;M.k*=f;clampView();
+    if(a&&isFinite(a[0]))for(let i=0;i<2;i++){sync();
+      const b=pq.invert([cx,cy]);if(!b||!isFinite(b[0]))break;M.lon+=a[0]-b[0];M.lat+=a[1]-b[1];}
+    clampView();const g=M.k/k0;
+    if(fast(k0)){M.T.x=cx+g*(M.T.x-cx);M.T.y=cy+g*(M.T.y-cy);M.T.a*=g;settle();}
+    else M.queue();};
+  const panBy=(x0,y0,x1,y1)=>{sync();const a=pq.invert([x0,y0]),b=pq.invert([x1,y1]);
+    if(!a||!b||!isFinite(a[0]+b[0]+a[1]+b[1]))return;
+    M.lon+=a[0]-b[0];M.lat+=a[1]-b[1];clampView();
+    if(fast(M.k)){M.T.x+=x1-x0;M.T.y+=y1-y0;settle();}else M.queue();};
+  M.fitView=()=>{fit();M.queue();};
+
+  // pointer: drag to move, pinch or wheel to zoom, click to pin
+  const pts=new Map();let moved=false,start=null,pinch=null;
+  const regAt=(x,y)=>{const e=document.elementFromPoint(x,y);return e&&e.closest&&e.closest('.sr-reg');};
+  stage.onpointerdown=e=>{stage.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
+    if(pts.size===1){moved=false;start=[e.clientX,e.clientY];stage.classList.add('grabbing');}};
   stage.onpointermove=e=>{
     const r=stage.getBoundingClientRect();
-    if(drag){moved=true;tx+=e.clientX-sx;ty+=e.clientY-sy;sx=e.clientX;sy=e.clientY;apply();
-      tip.classList.remove('show');return;}
-    const t=e.target.closest&&e.target.closest('.tile');
-    if(t){tip.innerHTML=`${t.dataset.n}<span>${t.dataset.c}</span>`;
-      tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';
-      tip.classList.add('show');}
-    else tip.classList.remove('show');
-  };
-  stage.onpointerup=e=>{drag=false;stage.classList.remove('grabbing');
-    if(!moved){const t=e.target.closest&&e.target.closest('.tile');
-      if(t)go('#/state/'+t.dataset.c);}};
-  stage.onpointerleave=()=>{drag=false;stage.classList.remove('grabbing');
-    tip.classList.remove('show');};
-  document.getElementById('mZin').onclick=()=>zoom(1.3);
-  document.getElementById('mZout').onclick=()=>zoom(1/1.3);
-  document.getElementById('mReset').onclick=fit;
-  fit();
+    if(pts.has(e.pointerId)){
+      const prev=pts.get(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
+      if(pts.size===2){const [p,q]=[...pts.values()],d=Math.hypot(p[0]-q[0],p[1]-q[1]);
+        if(pinch)zoomAt(d/pinch,(p[0]+q[0])/2-r.left,(p[1]+q[1])/2-r.top);pinch=d;moved=true;return;}
+      if(Math.hypot(e.clientX-start[0],e.clientY-start[1])>4)moved=true;
+      if(moved){panBy(prev[0]-r.left,prev[1]-r.top,e.clientX-r.left,e.clientY-r.top);srTip(null);}
+      return;}
+    const t=regAt(e.clientX,e.clientY);
+    srHover(t?t.dataset.c:null);srTip(t?t.dataset.c:null,e.clientX-r.left,e.clientY-r.top);};
+  stage.onpointerup=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;
+    if(pts.size)return;stage.classList.remove('grabbing');
+    try{stage.releasePointerCapture(e.pointerId);}catch(_){}
+    if(!moved){const t=regAt(e.clientX,e.clientY);srPin(t?t.dataset.c:null);}};
+  stage.onpointercancel=e=>{pts.delete(e.pointerId);pinch=null;stage.classList.remove('grabbing');};
+  stage.onpointerleave=()=>{if(!pts.size){srHover(null);srTip(null);}};
+  stage.onwheel=e=>{e.preventDefault();const r=stage.getBoundingClientRect();
+    zoomAt(Math.pow(1.0018,-e.deltaY*(e.deltaMode?40:1)),e.clientX-r.left,e.clientY-r.top);};
+  stage.ondblclick=e=>{const r=stage.getBoundingClientRect();zoomAt(1.8,e.clientX-r.left,e.clientY-r.top);};
+  stage.onkeydown=e=>{if(e.target!==stage)return;const s=60,c=[M.w/2,M.h/2];
+    const keys={ArrowLeft:[-s,0],ArrowRight:[s,0],ArrowUp:[0,-s],ArrowDown:[0,s]};
+    if(keys[e.key]){e.preventDefault();panBy(c[0],c[1],c[0]-keys[e.key][0],c[1]-keys[e.key][1]);}
+    else if(e.key==='+'||e.key==='=')zoomAt(1.3,c[0],c[1]);
+    else if(e.key==='-')zoomAt(1/1.3,c[0],c[1]);
+    else if(e.key==='0')M.fitView();
+    else if(e.key==='Escape')srPin(null);};
+  const room=document.getElementById('sr');
+  room.addEventListener('mouseover',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
+    if(r)srHover(r.dataset.c,true);});
+  room.addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest('.sr-dist rect'))srHover(null,true);});
+  room.addEventListener('click',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
+    if(r)srPin(r.dataset.c,true);});
+  document.getElementById('srZin').onclick=()=>zoomAt(1.4,M.w/2,M.h/2);
+  document.getElementById('srZout').onclick=()=>zoomAt(1/1.4,M.w/2,M.h/2);
+  document.getElementById('srFit').onclick=M.fitView;
+  new ResizeObserver(()=>{if(!stage.isConnected)return;const z=M.k/M.kFit;size();
+    const lon=M.lon,lat=M.lat;fit();M.k=M.kFit*z;M.lon=lon;M.lat=lat;M.queue();}).observe(stage);
+
+  size();fit();srApplyFilter();srCountUp(document.getElementById('sr'));
+  if(SR.pin){const c=SR.pin;SR.pin=null;srPin(c,true);}
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!SR.intro&&!reduce){
+    // one orchestrated moment: the Earth turns and the view descends onto the Confederation
+    SR.intro=true;const k1=M.k,k0=Math.min(M.w,M.h)*.36,t0=performance.now();
+    const rot=d3.geoInterpolate(SR_FROM,SR_CENTER);
+    const step=t=>{if(!stage.isConnected)return;const u=Math.min(1,(t-t0)/2600);
+      const q=u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;
+      const r=rot(Math.min(1,q*1.35));M.lon=r[0];M.lat=r[1];
+      M.k=k0*Math.pow(k1/k0,Math.max(0,(q-.18)/.82));M.draw();
+      if(u<1)requestAnimationFrame(step);};
+    M.k=k0;M.lon=SR_FROM[0];M.lat=SR_FROM[1];requestAnimationFrame(step);
+  }else M.draw();
 }
-function mapFilter(p,btn){
-  document.querySelectorAll('.maptoggle').forEach(b=>b.classList.toggle('on',b===btn));
-  document.querySelectorAll('#mapSvg .tile').forEach(g=>
-    g.classList.toggle('dim',p!=='all'&&g.dataset.p!==p));
+// Numbers of the panels count up once when the map opens (skipped with reduced motion).
+function srCountUp(root){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const els=[...root.querySelectorAll('[data-count]')],t0=performance.now(),dur=1300;
+  const step=t=>{const u=Math.min(1,(t-t0)/dur),q=1-Math.pow(1-u,3);
+    els.forEach(e=>{const v=+e.dataset.count;e.textContent=fmtN(Math.round(v*q))+(e.dataset.suffix||'');});
+    if(u<1&&root.isConnected)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
+function srLightsDraw(){
+  const M=SRM;if(!M)return;const x=M.ctx;x.setTransform(1,0,0,1,0,0);
+  x.clearRect(0,0,M.cv.width,M.cv.height);
+  if(!SR.lights)return;
+  x.globalCompositeOperation='lighter';
+  // light size follows the zoom and the size of the map on screen (phone vs desktop)
+  const rel=Math.max(.45,Math.min(1.25,M.kFit*.22/760));
+  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,
+    dim={states:1,peoples:.8}[SR.mode]||.5;
+  for(const [lon,lat,pop] of M.lights){
+    if(d3.geoDistance([lon,lat],ctr)>M.clip-.02)continue;
+    const p=M.proj([lon,lat]);if(!p)continue;
+    const r=(2.2+Math.sqrt(pop)/52)*z*d;
+    x.globalAlpha=dim*Math.min(1,.28+Math.sqrt(pop)/260);
+    x.drawImage(M.sprite,p[0]*d-r,p[1]*d-r,2*r,2*r);
+  }
+  x.globalAlpha=1;x.globalCompositeOperation='source-over';
+}
+function srOutline(){
+  const M=SRM;if(!M)return;
+  const f=c=>{const r=c&&M.regs.find(([p])=>p.dataset.c===c);return r?M.path(r[1])||'':'';};
+  M.hov.setAttribute('d',SR.hover&&SR.hover!==SR.pin?f(SR.hover):'');
+  M.pin.setAttribute('d',f(SR.pin));
+}
+function srTip(code,x,y){
+  const t=document.getElementById('srTip');if(!t)return;
+  if(!code){t.classList.remove('show');return;}
+  const s=byCode(code)||{};
+  t.innerHTML=`${esc(s.n||code)}<span>${code}, ${srFmt(code,SR.mode)}</span>`;
+  t.style.left=x+'px';t.style.top=y+'px';t.classList.add('show');
+}
+function srHover(code,fromChart){
+  if(SR.hover===code)return;SR.hover=code;srOutline();
+  const c=document.getElementById('srSel');if(!c)return;
+  // over the map: the card shows the state; over a column: the column lights up
+  if(fromChart)c.querySelectorAll('.sr-dist rect').forEach(r=>
+    r.classList.toggle('hl',r.dataset.c===code||r.dataset.c===SR.pin));
+  else if(!SR.pin)c.innerHTML=srSelHTML(code);
+}
+function srPin(code,keep){
+  SR.pin=code&&(keep||SR.pin!==code)?code:null;
+  const c=document.getElementById('srSel');
+  if(c){c.innerHTML=srSelHTML(SR.pin||SR.hover);c.classList.toggle('pinned',!!SR.pin);}
+  srOutline();
+}
+function srMode(m){
+  SR.mode=m;
+  const st=document.getElementById('srStage');if(st)st.dataset.mode=m;
+  const pc=document.getElementById('srPeoples');if(pc)pc.innerHTML=srPeoplesHTML();
+  document.querySelectorAll('.sr-seg button').forEach(b=>{const on=b.dataset.m===m;
+    b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+  if(SRM)SRM.regs.forEach(([p])=>{p.style.fill=srFill(p.dataset.c);});
+  const lg=document.getElementById('srLegend');if(lg)lg.innerHTML=srLegendHTML();
+  const c=document.getElementById('srSel');if(c)c.innerHTML=srSelHTML(SR.pin||SR.hover,true);
+  srLightsDraw();
+}
+function srFilter(k){
+  SR.filter=k&&SR.filter!==k?k:null;srApplyFilter();
+  const c=document.getElementById('srPeoples');if(c)c.innerHTML=srPeoplesHTML();
+}
+function srApplyFilter(){
+  if(SRM)SRM.regs.forEach(([p])=>p.classList.toggle('dim',!!SR.filter&&p.dataset.p!==SR.filter));
+}
+function srToggleLights(){
+  SR.lights=!SR.lights;
+  const b=document.getElementById('srLightsBtn');if(b)b.setAttribute('aria-pressed',SR.lights);
+  const lg=document.getElementById('srLegend');if(lg)lg.innerHTML=srLegendHTML();
+  srLightsDraw();
+}
+function miniGeo(code){
+  if(!window.d3||!GEO.states)return '';
+  const F=geoDecode(),w=600,h=360;
+  const proj=srProjection().rotate([-SR_CENTER[0],-SR_CENTER[1],0])
+    .fitExtent([[12,12],[w-12,h-12]],F.members);
+  const path=d3.geoPath(proj).digits(1);
+  const land=F.land.map(f=>path(f)).filter(Boolean).map(d=>`<path class="mm-land" d="${d}"/>`).join('');
+  const regs=F.states.concat(F.fed).map(f=>{const c=f.properties.c,hit=c===code,s=byCode(c)||{};
+    const col=hit?'#374078':'';
+    return `<path class="mm-reg${hit?' mm-hit':''}" d="${path(f)||''}"${hit?` style="fill:${col};fill-opacity:1"`:''}/>`;});
+  const hitIdx=regs.findIndex(r=>r.includes('mm-hit'));
+  if(hitIdx>=0)regs.push(regs.splice(hitIdx,1)[0]);
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" class="minimap" role="img"
+    aria-label="Location of ${esc((byCode(code)||{}).n||code)} in the Confederation">${land}${regs.join('')}</svg>`;
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
     fetch(base+'alfabet.json').then(r=>r.json()),
     fetch(base+'state_flags.json').then(r=>r.json()),
     fetch(base+'flagnotes.json').then(r=>r.json()),
+    fetch(base+'geo.json').then(r=>r.json()),
+    fetch(base+'constitution.json').then(r=>r.json()),
+    fetch(base+'stats.json').then(r=>r.json()),
+    fetch(base+'lights.json').then(r=>r.json()),
   ]);
-  PEUPLES=pe; STATES=st;
-  al=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); AUT=au; ALPHA=al; STATE_FLAGS=fl; FLAGNOTE=fn;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li;
+  AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }
 loadData().then(()=>{ render(); }).catch(e=>{

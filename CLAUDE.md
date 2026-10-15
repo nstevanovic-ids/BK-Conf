@@ -18,12 +18,17 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Le projet est sud-slave **+ balkanique**, explicitement PAS pan-slave
 
 ## Composition (source : docs/canon/etats.md)
-- **47 États** : 43 territoriaux + 4 villes-États + 2 municipalités fédérales
+- **49 États** : 45 territoriaux + 4 villes-États + 2 municipalités fédérales
+  (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
+  alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md ;
+  Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošnjaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofia (défense + sciences)
-- 4 institutions fédérales : Kongres, Narodni Sabor, Savezno Veće, Ustavni Sud
-- 25 entités autonomes (docs/canon/entites-autonomes.md)
+- 4 institutions confédérales : Kongres, Narodni Sabor, Konfederalno Veće, Ustavni Sud
+  (*Savezno Veće* abandonné : *savezni* = échelon fédéral yougoslave ;
+  cf. ADR docs/decisions/2026-10-13-constitution-v4.md)
+- 24 entités autonomes (docs/canon/entites-autonomes.md)
 
 ## Symboles (docs/canon/couleurs-symboles.md)
 - Emblème confédéral unique : **lion ailé d'or** (héraldiquement neutre entre les 7 peuples)
@@ -39,17 +44,38 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Règle toponymique v3 : њ→ñ, љ→ļ, sinon latin inchangé. Beograd = exception déclarée.
 
 ## Workstreams (jamais mélanger dans une même session)
-- Constitution → docs/constitution/
+- Constitution → docs/constitution/ (texte de travail en vigueur : **v4.md**, français ;
+  texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
+  fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
+  régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
-- Cartes GADM → scripts/gen_map.py
+- Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
+  recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
+  scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
+  en lon/lat pour d3-geo, échoue s'il reste un trou ou un recouvrement) ;
+  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md
+
+## Branche de référence
+- **`main`** est la seule branche publiée (GitHub Pages, `.github/workflows/pages.yml`).
+  Tout travail part de `main` dans une branche `claude/…`, puis revient par PR sur `main`.
+- `claude/jolly-fermi-wkwak0` (ancienne branche de déploiement) est alignée sur `main`
+  le 2026-10-15 et n'est plus publiée.
 
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu)
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
-  entites-autonomes, alfabet, flagnotes, state_flags)
-- `scripts/build_portail.py` = injecte data + drapeaux dans le template → build final
+  entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
+  généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
+- `stats.json` (communes, population, superficie, PIB par habitant) est généré par
+  `scripts/build_stats.py` depuis les GeoJSON d'États, les recensements de
+  `docs/data/population/` et le PIB régional de `docs/data/pib/` (Eurostat 2023, SPA)
+  (cf. ADR 2026-10-13-chiffres-cles-etats.md et 2026-10-14-pib-par-habitant.md)
+- `lights.json` (une lumière par commune, intensité selon la population) est généré
+  par `scripts/build_stats.py` ; la carte (#/map) est un globe orthographique d3-geo
+  (`portail/vendor/`, d3-array + d3-geo, ISC) au style « salle de situation » sombre
+- `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux
@@ -69,10 +95,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Proportionnalité démographique : ratio État/peuple surveillé (HHI ≈ 0.034)
 
 ## Ne pas faire
-- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-13)
+- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-14)
 - Ne pas confondre identité « Balkan » et identité linguistique « sud-slave »
 - Ne pas proposer d'étoile rouge à 5 branches
 - Ne pas appliquer l'écriture inclusive
+- Ne pas attribuer de code couleur aux peuples (seule exception : l'option « Peoples »
+  de la carte) ; cf. ADR 2026-10-14-pas-de-code-couleur-peuples.md
 - Ne pas poser de question de clarification une fois les principes validés :
   proposer une solution et rédiger entièrement
 

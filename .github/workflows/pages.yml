@@ -3,8 +3,7 @@ name: Deploy portal to GitHub Pages
 on:
   push:
     branches:
-      - main
-      - claude/jolly-fermi-wkwak0
+      - main   # seule branche publiée (cf. CLAUDE.md, « Branche de référence »)
     paths:
       - "portail/**"
       - "scripts/build_portail.py"
@@ -39,6 +38,10 @@ jobs:
           python scripts/build_portail.py --inline
           mkdir -p _site
           cp balkanska_konfederacija.html _site/index.html
+          # Ship the licensed Zurich font files if present (referenced by @font-face)
+          if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
+          # Ship owner-supplied images (referenced as images/<id>.jpg)
+          if [ -d portail/images ]; then cp -r portail/images _site/images; fi
           cp portail/favicon.ico portail/apple-touch-icon.png _site/
 
       - name: Upload Pages artifact

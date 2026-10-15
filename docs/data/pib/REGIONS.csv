@@ -1,0 +1,189 @@
+# Rattachement des communes du recensement aux régions de PIB_2023.csv.
+# key : SRB, HRV, BGR = district (oblast, županija, oblast) de la table de recensement ;
+#       SVN = région statistique GADM (NAME_1, anciens noms compris) ; MKD = commune ;
+#       BIH = entité GADM (NAME_1) ou commune (prioritaire) ; MNE, XKO = * (pays entier).
+iso,key,region
+SRB,Grad Beograd,RS110
+SRB,Zapadnobačka,RS121
+SRB,Južnobanatska,RS122
+SRB,Južnobačka,RS123
+SRB,Severnobanatska,RS124
+SRB,Severnobačka,RS125
+SRB,Srednjobanatska,RS126
+SRB,Sremska,RS127
+SRB,Zlatiborska,RS211
+SRB,Kolubarska,RS212
+SRB,Mačvanska,RS213
+SRB,Moravička,RS214
+SRB,Pomoravska,RS215
+SRB,Rasinska,RS216
+SRB,Raška,RS217
+SRB,Šumadijska,RS218
+SRB,Borska,RS221
+SRB,Braničevska,RS222
+SRB,Zaječarska,RS223
+SRB,Jablanička,RS224
+SRB,Nišavska,RS225
+SRB,Pirotska,RS226
+SRB,Podunavska,RS227
+SRB,Pčinjska,RS228
+SRB,Toplička,RS229
+HRV,Bjelovarsko-bilogorska,HR021
+HRV,Virovitičko-podravska,HR022
+HRV,Požeško-slavonska,HR023
+HRV,Brodsko-posavska,HR024
+HRV,Osječko-baranjska,HR025
+HRV,Vukovarsko-srijemska,HR026
+HRV,Karlovačka,HR027
+HRV,Sisačko-moslavačka,HR028
+HRV,Primorsko-goranska,HR031
+HRV,Ličko-senjska,HR032
+HRV,Zadarska,HR033
+HRV,Šibensko-kninska,HR034
+HRV,Splitsko-dalmatinska,HR035
+HRV,Istarska,HR036
+HRV,Dubrovačko-neretvanska,HR037
+HRV,Grad Zagreb,HR050
+HRV,Međimurska,HR061
+HRV,Varaždinska,HR062
+HRV,Koprivničko-križevačka,HR063
+HRV,Krapinsko-zagorska,HR064
+HRV,Zagrebačka,HR065
+BGR,Vidin,BG311
+BGR,Montana,BG312
+BGR,Vratsa,BG313
+BGR,Pleven,BG314
+BGR,Lovech,BG315
+BGR,Veliko Tarnovo,BG321
+BGR,Gabrovo,BG322
+BGR,Ruse,BG323
+BGR,Razgrad,BG324
+BGR,Silistra,BG325
+BGR,Varna,BG331
+BGR,Dobrich,BG332
+BGR,Shumen,BG333
+BGR,Targovishte,BG334
+BGR,Burgas,BG341
+BGR,Sliven,BG342
+BGR,Yambol,BG343
+BGR,Stara Zagora,BG344
+BGR,Sofia (stolitsa),BG411
+BGR,Sofia,BG412
+BGR,Blagoevgrad,BG413
+BGR,Pernik,BG414
+BGR,Kyustendil,BG415
+BGR,Plovdiv,BG421
+BGR,Haskovo,BG422
+BGR,Pazardzhik,BG423
+BGR,Smolyan,BG424
+BGR,Kardzhali,BG425
+SVN,Pomurska,SI031
+SVN,Podravska,SI032
+SVN,Koroška,SI033
+SVN,Savinjska,SI034
+SVN,Zasavska,SI035
+SVN,Spodnjeposavska,SI036
+SVN,Posavska,SI036
+SVN,Jugovzhodna Slovenija,SI037
+SVN,Notranjsko-kraška,SI038
+SVN,Primorsko-notranjska,SI038
+SVN,Osrednjeslovenska,SI041
+SVN,Gorenjska,SI042
+SVN,Goriška,SI043
+SVN,Obalno-kraška,SI044
+MKD,Čaška,MK001
+MKD,Demir Kapija,MK001
+MKD,Gradsko,MK001
+MKD,Kavadarci,MK001
+MKD,Negotino,MK001
+MKD,Rosoman,MK001
+MKD,Sveti Nikole,MK001
+MKD,Lozovo,MK001
+MKD,Veles,MK001
+MKD,Berovo,MK002
+MKD,Češinovo-Obleševo,MK002
+MKD,Delčevo,MK002
+MKD,Karbinci,MK002
+MKD,Kočani,MK002
+MKD,Makedonska Kamenica,MK002
+MKD,Pehčevo,MK002
+MKD,Probištip,MK002
+MKD,Štip,MK002
+MKD,Vinica,MK002
+MKD,Zrnovci,MK002
+MKD,Centar Župa,MK003
+MKD,Debar,MK003
+MKD,Debarca,MK003
+MKD,Kičevo,MK003
+MKD,Makedonski Brod,MK003
+MKD,Ohrid,MK003
+MKD,Plasnica,MK003
+MKD,Struga,MK003
+MKD,Vevčani,MK003
+MKD,Bogdanci,MK004
+MKD,Bosilovo,MK004
+MKD,Gevgelija,MK004
+MKD,Dojran,MK004
+MKD,Konče,MK004
+MKD,Novo Selo,MK004
+MKD,Radoviš,MK004
+MKD,Strumica,MK004
+MKD,Valandovo,MK004
+MKD,Vasilevo,MK004
+MKD,Bitola,MK005
+MKD,Demir Hisar,MK005
+MKD,Dolneni,MK005
+MKD,Krivogaštani,MK005
+MKD,Kruševo,MK005
+MKD,Mogila,MK005
+MKD,Novaci,MK005
+MKD,Prilep,MK005
+MKD,Resen,MK005
+MKD,Bogovinje,MK006
+MKD,Brvenica,MK006
+MKD,Gostivar,MK006
+MKD,Jegunovce,MK006
+MKD,Mavrovo and Rostuša,MK006
+MKD,Tearce,MK006
+MKD,Tetovo,MK006
+MKD,Vrapčište,MK006
+MKD,Želino,MK006
+MKD,Kratovo,MK007
+MKD,Kriva Palanka,MK007
+MKD,Kumanovo,MK007
+MKD,Lipkovo,MK007
+MKD,Rankovce,MK007
+MKD,Staro Nagoričane,MK007
+MKD,Aerodrom,MK008
+MKD,Aračinovo,MK008
+MKD,Butel,MK008
+MKD,Čair,MK008
+MKD,Centar,MK008
+MKD,Čučer-Sandevo,MK008
+MKD,Gazi Baba,MK008
+MKD,Gjorče Petrov,MK008
+MKD,Ilinden,MK008
+MKD,Karpoš,MK008
+MKD,Kisela Voda,MK008
+MKD,Petrovec,MK008
+MKD,Saraj,MK008
+MKD,Sopište,MK008
+MKD,Studeničani,MK008
+MKD,Šuto Orizari,MK008
+MKD,Zelenikovo,MK008
+MNE,*,ME000
+XKO,*,XK
+BIH,Federacija Bosna i Hercegovina,BA-FBIH
+BIH,Repuplika Srpska,BA-RSBD
+BIH,Srebrenica,BA-RSBD
+BIH,Brčko,BA-RSBD
+BIH,Grad Mostar,BA-FBIH
+BIH,Centar Sarajevo,BA-FBIH
+BIH,Hadžići,BA-FBIH
+BIH,Ilidža,BA-FBIH
+BIH,Ilijaš,BA-FBIH
+BIH,Novi Grad Sarajevo,BA-FBIH
+BIH,Novo Sarajevo,BA-FBIH
+BIH,Stari Grad Sarajevo,BA-FBIH
+BIH,Trnovo (FBiH),BA-FBIH
+BIH,Vogošća,BA-FBIH
