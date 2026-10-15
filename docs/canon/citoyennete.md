@@ -108,7 +108,8 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
   sceau optiquement variable (lion ailé sur soleil à sept rais, usage de sceau) ;
   micro-impression de la devise ; autorité et date de délivrance en pied.
 - **Verso** : en-tête réduit et numéro ; commune d'origine, date de délivrance, autorité ;
-  drapeau de l'État, drapeau confédéral et devise ; zone de lecture automatique sur fond
+  drapeau de l'État, drapeau confédéral et devise ; pour les cartes du registre, **QR de
+  vérification** (`#/verify/<numéro>.<émission>`) ; zone de lecture automatique sur fond
   éclairci.
 - Libellés en romain, l'anglais en italique ; valeurs en graisse moyenne. La police Zurich
   est embarquée dans l'export PNG.
@@ -159,6 +160,14 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
   aucun mot de passe. Sécurité détaillée : ADR 2026-10-15-registre-confederal.md.
 - **Mode prototype** : tant que `portail/data/registre.json` n'a pas d'`api`, la carte
   reste dans le navigateur (`localStorage`, clé `bk-citizen`) avec un numéro provisoire.
+
+## Wallet et vérification
+
+- **Google Wallet** : pass générique depuis `#/citizen` (nom, numéro, État, validité, QR) ;
+  jamais la date de naissance ni la narodnost. Mis à jour à l'amendement, invalidé et vidé
+  à la suppression. Apple Wallet différé (compte Apple Developer requis).
+- **Vérification publique** (`#/verify`, `GET /v1/verify/…`) : valide, remplacée,
+  expirée, annulée, inconnue ; aucune donnée personnelle.
 
 ## Plateforme participative (Decidim)
 

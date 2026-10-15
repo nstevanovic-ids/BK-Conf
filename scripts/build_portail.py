@@ -67,8 +67,8 @@ def build_inline() -> int:
         src,
         count=1,
     )
-    # Inline the vendored libraries (d3-geo for the map).
-    for lib in ("d3-array.min.js", "d3-geo.min.js"):
+    # Inline the vendored libraries (d3-geo for the map, qrcode for the citizen card).
+    for lib in ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js"):
         tag = f'<script src="vendor/{lib}"></script>'
         if tag not in src:
             sys.exit(f"balise absente du template : {tag}")

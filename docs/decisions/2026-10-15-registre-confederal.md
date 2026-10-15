@@ -75,14 +75,34 @@ or à losange, libellés en romain avec l'anglais en italique, valeurs en graiss
 La couleur se limite au filet, au numéro (gueules) et au sceau irisé. La police Zurich est
 embarquée dans l'export PNG.
 
-### 6. Suite
+### 6. Google Wallet et vérification publique
+- **Pass générique Google Wallet** (le « pass générique privé », prévu pour les pièces
+  d'identité, exige l'approbation de Google et un justificatif d'entité valable : hors de
+  portée). Le registre est l'émetteur (compte de service, clé en secret) ; le lien d'ajout
+  est un JWT signé qui ne porte que l'identifiant de l'objet.
+- **Contenu minimal** : nom, numéro, État, validité, QR de vérification. Ni date de
+  naissance ni narodnost, un pass générique n'ayant pas les protections d'un pass privé.
+- Amendement : pass remis à jour. Suppression : pass invalidé et vidé de toute donnée
+  personnelle (l'API ne permet pas à l'émetteur de supprimer l'objet).
+- **Vérification publique** `GET /v1/verify/BK-XX-NNNNNN?issue=n` et page `#/verify` :
+  valide, remplacée (émission plus récente), expirée, annulée, inconnue. Aucune donnée
+  personnelle. Un numéro absent mais inférieur au compteur de son État est « annulé » :
+  pas de registre des annulations à tenir.
+- **QR au verso** des cartes du registre et dans le pass : lien vers `#/verify/<numéro>.<émission>`.
+- Apple Wallet : même principe (pass `.pkpass` générique signé), différé faute de compte
+  Apple Developer (99 $ par an).
+
+### 7. Suite
 - Decidim : le registre devient la source de son autorisation `bk_citizenship`
   (`docs/canon/citoyennete.md`).
 - Domaine propre pour le portail et l'API (facultatif, l'API fonctionne sur `workers.dev`).
 
 ## Propagation
-- `registre/` (Worker, migration, tests, README), `.github/workflows/registre.yml`.
+- `registre/` (Worker, migrations 0001-0002, `wallet.js`, tests avec Google simulé, README),
+  `.github/workflows/registre.yml`, `scripts/gen_wallet_images.py`, `portail/images/wallet-*.png`,
+  `portail/vendor/qrcode.min.js`.
 - Portail : champ e-mail, consentements, notice, Turnstile, routes `#/confirm`, `#/card`,
-  `#/access`, envoi de la carte, tableau de bord et compteur d'accueil en direct, nouvelle
-  carte ; `portail/data/registre.json` (vide = mode prototype).
+  `#/access`, `#/verify`, envoi de la carte, bouton Google Wallet, QR de vérification,
+  tableau de bord et compteur d'accueil en direct, nouvelle carte ;
+  `portail/data/registre.json` (vide = mode prototype).
 - `docs/canon/citoyennete.md`, `CLAUDE.md`.

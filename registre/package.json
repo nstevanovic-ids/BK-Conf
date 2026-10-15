@@ -4,6 +4,7 @@
   "description": "Registre confédéral des citoyens — API du parcours #/register (Cloudflare Worker + D1)",
   "type": "module",
   "scripts": {
+    "setup:dev": "node test/setup-dev.mjs",
     "dev": "wrangler dev --local --port 8787",
     "migrate:local": "wrangler d1 migrations apply bk-registre --local",
     "migrate:remote": "wrangler d1 migrations apply bk-registre --remote",

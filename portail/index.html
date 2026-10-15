@@ -1079,6 +1079,17 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   background:var(--indigo);color:#fff;font-size:.86rem;font-weight:600;padding:12px 18px;border-radius:3px;
   box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.btn-wallet{background:#111;color:#fff;border-color:#111;border-radius:20px;padding:10px 18px}
+.btn-wallet:hover{background:#2b2b2b}
+.btn-wallet[disabled]{opacity:.6}
+.vstat{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:14px 16px;border:1px solid var(--line-2);
+  border-left:4px solid var(--vs);background:var(--surface-2)}
+.vstat .vs-ic{flex:none;width:28px;height:28px;border-radius:50%;background:var(--vs);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.vstat b{display:block;font-size:.95rem}
+.vstat span:not(.vs-ic){display:block;font-size:.82rem;color:var(--ink-2);margin-top:2px}
+.vs-good{--vs:#2f7a4a}.vs-warn{--vs:#b8740f}.vs-bad{--vs:#a8322a}
+[data-theme="dark"] .vs-good{--vs:#4f9e6a}[data-theme="dark"] .vs-warn{--vs:#d08f2e}[data-theme="dark"] .vs-bad{--vs:#cf5a4f}
 :root{--viz:#3a4cc0;--viz-track:#e9ebf3}
 [data-theme="dark"]{--viz:#6f82ee;--viz-track:#232a3d}
 .kpis.k4{grid-template-columns:repeat(4,1fr)}
@@ -1241,6 +1252,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 
 <script src="vendor/d3-array.min.js"></script>
 <script src="vendor/d3-geo.min.js"></script>
+<script src="vendor/qrcode.min.js"></script>
 <script>
 const COA_DATA="data:image/png;base64,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";
 const CIVIL_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYBAMAAADI6zXoAAAAGFBMVEX///+Gmb8PNH4ONH/LDg7JBQXMBANPIVIW1QAAAAADl0lEQVR42u3VAQmAMBCG0ZsswGWwk3WNYgVtMDsIG5y8r8DB/2BrR0wvz8jQrDYTIBRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEKoPxCmoefVF9wY4zZ0bcK47OwvFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUF/rK47sdi5O2FoauvpD+hjaXyiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIVQCBEKoRAKIUIhFEIhRCiEQiiECIVQCIUQoRAKoRAiFEIhFEKEQiiEQohQCIUQoQkQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCqEQIhRCIRRChEIohEKIUAiFUAgRCqEQCiFCIRRCIUQohEIohAiFUAiFEKEQCiFCIRRCIUQohEIohAiFUAiFEKHK9gKr1wrqlsM+XwAAAABJRU5ErkJggg==";
@@ -2511,15 +2523,37 @@ function cardBack(c){
     ${cardLabel(L,'ori',40,118)}${cardValue(c.origin.n,40,146,540,20,{w:600})}
     ${cardLabel(L,'iss',40,182)}${cardValue(dmy(c.issued),40,208,250,18)}
     ${cardLabel(L,'auth',40,244)}${cardValue(CARD_AUTH,40,270,540,17)}
+    ${c.remote&&c.num?`
+    <rect x="665.5" y="35.5" width="151" height="101" fill="#ffffff" stroke="${CK.line}"/>
+    <image href="${flag}" x="666" y="36" width="150" height="100" preserveAspectRatio="xMidYMid slice"/>
+    <text x="741" y="155" font-size="11.5" font-weight="600" fill="${CK.azur}" text-anchor="middle">${esc(s.n)}</text>
+    <text x="741" y="170" font-size="10" fill="${CK.ink2}" text-anchor="middle" letter-spacing="1.4">${esc(s.c)}</text>
+    ${cardQR(verifyLink(c),724,186,92)}
+    <text x="770" y="298" font-size="8" fill="${CK.ink3}" text-anchor="middle" letter-spacing="1.6">VERIFY</text>
+    <image href="${STATE_FLAG_DATA}" x="40" y="288" width="36" height="24" preserveAspectRatio="xMidYMid slice"/>
+    <text x="86" y="304" font-size="10" fill="${CK.ink2}" font-style="italic">Različiti narodi, jedan dom</text>`:`
     <rect x="639.5" y="39.5" width="177" height="119" fill="#ffffff" stroke="${CK.line}"/>
     <image href="${flag}" x="640" y="40" width="176" height="118" preserveAspectRatio="xMidYMid slice"/>
     <text x="728" y="182" font-size="12.5" font-weight="600" fill="${CK.azur}" text-anchor="middle">${esc(s.n)}</text>
     <text x="728" y="199" font-size="10.5" fill="${CK.ink2}" text-anchor="middle" letter-spacing="1.4">${esc(s.c)}</text>
     <image href="${STATE_FLAG_DATA}" x="640" y="232" width="42" height="28" preserveAspectRatio="xMidYMid slice"/>
-    <text x="692" y="250" font-size="10" fill="${CK.ink2}" font-style="italic">Različiti narodi, jedan dom</text>
+    <text x="692" y="250" font-size="10" fill="${CK.ink2}" font-style="italic">Različiti narodi, jedan dom</text>`}
     <rect y="318" width="856" height="222" fill="#ffffff" opacity=".6"/>
     <line x1="0" y1="318" x2="856" y2="318" stroke="${CK.line}" stroke-width=".8"/>
     ${mrz.map((l,i)=>`<text x="40" y="${388+i*54}" style="font-family:'OCR B','OCR-B',Consolas,'Courier New',monospace" font-size="38" fill="${CK.ink}" textLength="776" lengthAdjust="spacing">${l.replace(/</g,'&lt;')}</text>`).join('')}`);
+}
+/* Verification QR (register cards) : the public verification page of the portal,
+   number and card issue, never personal data. */
+const portalBase=()=>location.origin+location.pathname;
+const verifyLink=c=>portalBase()+'#/verify/'+c.num+'.'+(c.card||1);
+function cardQR(text,x,y,size){
+  if(typeof qrcode!=='function')return '';
+  const q=qrcode(0,'M');q.addData(text);q.make();
+  const n=q.getModuleCount(),m=size/(n+2);
+  let d='';
+  for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))
+    d+=`M${(x+(k+1)*m).toFixed(2)} ${(y+(r+1)*m).toFixed(2)}h${m.toFixed(2)}v${m.toFixed(2)}h-${m.toFixed(2)}z`;
+  return `<rect x="${x}" y="${y}" width="${size}" height="${size}" fill="#ffffff" rx="3"/><path d="${d}" fill="${CK.ink}"/>`;
 }
 /* Export : the card is drawn through an <img>, which cannot see the page's
    web fonts, so the licensed Zurich faces are embedded as data URIs. */
@@ -2969,6 +3003,45 @@ async function cardMail(first){
   if(r.ok)toast(first?`Welcome, citizen. Your card has been sent to ${c.emailHint}.`:`Your card has been sent to ${c.emailHint}.`);
   else toast(r.data.message||'The card could not be sent by e-mail.');
 }
+function vVerify(){
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Verify a card']])+`
+  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Verify a citizen card</h1>
+    <p class="lead">Enter the number printed on the card, or scan the QR code on its back. The confederal
+    register answers with the status of the card only, never with personal data.</p></section>
+  <section class="section" style="padding-top:8px"><div class="panel regpanel" style="max-width:640px">
+    <div class="fld"><label class="fl" for="vNum">Card number</label>
+      <input id="vNum" type="text" spellcheck="false" autocomplete="off" placeholder="BK-XX-NNNNNN"
+        onkeydown="if(event.key==='Enter')verifyRun()" style="text-transform:uppercase;letter-spacing:.06em"></div>
+    <div class="regbar" style="margin-top:6px;padding-top:0;border-top:none"><span></span>
+      <button class="btn btn-primary" onclick="verifyRun()">Verify</button></div>
+    <div id="vOut" aria-live="polite"></div></div></section>`;
+}
+const VSTAT={
+ valid:['good','✓','Valid card'],superseded:['warn','!','Superseded'],expired:['warn','!','Expired'],
+ revoked:['bad','×','No longer valid'],unknown:['bad','?','Unknown number']};
+async function verifyRun(issue){
+  const inp=document.getElementById('vNum'),out=document.getElementById('vOut');if(!inp)return;
+  const num=inp.value.trim().toUpperCase().replace(/\s+/g,'');
+  if(!/^BK-[A-Z]{2}-\d{6}$/.test(num)){out.innerHTML='<div class="err">A card number reads BK-XX-NNNNNN.</div>';return;}
+  if(!apiOn()){out.innerHTML='<div class="notice">Verification opens with the confederal register.</div>';return;}
+  out.innerHTML='<p class="note" style="margin-top:12px">Checking…</p>';
+  const r=await api('GET','/v1/verify/'+encodeURIComponent(num)+(issue?'?issue='+encodeURIComponent(issue):''));
+  if(!r.ok){out.innerHTML=`<div class="err">${esc(r.data.message||'The register cannot be reached.')}</div>`;return;}
+  const d=r.data,st=VSTAT[d.status]||VSTAT.unknown;
+  const detail={
+    valid:`State of attachment ${esc(d.stateName)} (${esc(d.state)}) · card issue ${d.issue} · valid until ${esc(dmy(d.expiry))}.`,
+    superseded:`A newer card, issue ${d.issue}, exists under this number. This copy is no longer current.`,
+    expired:`This card expired on ${esc(dmy(d.expiry))}.`,
+    revoked:'This number was issued, then cancelled by its holder or replaced after a change of state.',
+    unknown:'No card has been issued under this number.'}[d.status]||'';
+  out.innerHTML=`<div class="vstat vs-${st[0]}"><span class="vs-ic" aria-hidden="true">${st[1]}</span>
+    <div><b>${st[2]} · ${esc(d.num)}</b><span>${detail}</span></div></div>`;
+}
+function verifyMount(){
+  const m=/^#\/verify\/([A-Za-z0-9-]+)(?:\.(\d+))?/.exec(location.hash);
+  if(m){document.getElementById('vNum').value=m[1].toUpperCase();verifyRun(m[2]);}
+}
 let ACC={ts:'',sent:'',err:'',busy:false};
 function vAccess(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Access to your card']])+`
@@ -3046,7 +3119,11 @@ function vCitizen(){
     <div class="idactions">
       <button class="btn btn-primary" onclick="cardPNG('front')">Download front (PNG)</button>
       <button class="btn btn-ghost" onclick="cardPNG('back')">Download back (PNG)</button>
-      ${c.remote&&c.access&&apiOn()?`<button class="btn btn-ghost" onclick="cardMail(false)">E-mail me my card</button>`:''}
+      ${c.remote&&c.access&&apiOn()?`<button class="btn btn-ghost" onclick="cardMail(false)">E-mail me my card</button>
+        <button class="btn btn-wallet" id="gwBtn" hidden onclick="walletGoogle(this)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M16 14.5h2"/></svg>
+          Add to Google Wallet</button>`:''}
       <a class="btn btn-ghost" href="#/register">Amend my registration</a>
     </div>
   </section>
@@ -3092,8 +3169,23 @@ async function citSync(){
     link: it has expired, or the registration was deleted. The card shown is the copy kept here.
     <a class="seeall" href="#/access">Get a new link</a></div>`;
 }
+let HEALTH=null;
+async function apiHealth(){
+  if(!apiOn())return null;
+  if(!HEALTH){const r=await api('GET','/v1/health');HEALTH=r.ok?r.data:{};}
+  return HEALTH;
+}
+async function walletGoogle(btn){
+  const rc=remoteCit();if(!rc)return;
+  btn.disabled=true;
+  const r=await api('POST','/v1/card/wallet/google',{},rc.access);
+  btn.disabled=false;
+  if(r.ok&&r.data.url){location.href=r.data.url;return;}
+  toast(r.data.message||'Google Wallet could not be reached. Please try again later.');
+}
 function citMount(){
   citSync();
+  apiHealth().then(h=>{const b=document.getElementById('gwBtn');if(b&&h&&h.wallet&&h.wallet.google)b.hidden=false;});
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
   document.querySelectorAll('.idcard[data-tilt]').forEach(el=>{
     el.addEventListener('pointermove',e=>{
@@ -3129,7 +3221,8 @@ const ROUTES={
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
  'dashboard':[vDashboard,'#/participation'],'register':[vRegister,'#/participation'],
  'citizen':[vCitizen,'#/participation'],'confirm':[vConfirm,'#/participation'],
- 'card':[vCardLink,'#/participation'],'access':[vAccess,'#/participation']
+ 'card':[vCardLink,'#/participation'],'access':[vAccess,'#/participation'],
+ 'verify':[vVerify,'#/participation']
 };
 function render(){
   if(document.startViewTransition &&
@@ -3161,6 +3254,7 @@ function renderNow(){
   if(h.startsWith('#/card'))cardLinkMount();
   if(h.startsWith('#/access')){ACC={ts:'',sent:'',err:'',busy:false};accRender();}
   if(h.startsWith('#/dashboard'))dashMount();
+  if(h.startsWith('#/verify'))verifyMount();
   if(h==='#/home'||h==='#/'||h==='')homeCount();
   citHeader();
   window.scrollTo(0,0);
@@ -3217,6 +3311,7 @@ const SB_PAGES=[
  ['Participation','Register and take part','#/participation'],
  ['Registration','Become a citizen in five steps','#/register'],
  ['Citizen card','Your confederal citizen card','#/citizen'],
+ ['Verify a card','Check the status of a citizen card','#/verify'],
  ['Dashboard','Confederal indicators','#/dashboard'],
 ];
 function fmtN(n){return Number(n).toLocaleString('en-GB');}

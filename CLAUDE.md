@@ -84,6 +84,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   déployé par `.github/workflows/registre.yml` ; le portail l'appelle si
   `portail/data/registre.json` a une `api`, sinon mode prototype. Mise en service :
   registre/README.md ; sécurité et RGPD : ADR 2026-10-15-registre-confederal.md
+- Carte : vérification publique `#/verify` (QR au verso), pass Google Wallet générique
+  (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ; jamais de date de
+  naissance ni de narodnost sur un pass
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 

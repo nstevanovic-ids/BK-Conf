@@ -7,6 +7,7 @@ et statistiques publiques du tableau de bord.
 - **Cloudflare Workers** (code `src/`) et **D1** (base SQLite, données dans l'Union européenne)
 - **Brevo** pour les e-mails transactionnels (société française, données dans l'UE)
 - **Cloudflare Turnstile** contre les robots
+- **Google Wallet** (facultatif) : pass « carte citoyenne » ajouté depuis `#/citizen`
 
 Règles et sécurité : `docs/canon/citoyennete.md` et ADR `docs/decisions/2026-10-15-registre-confederal.md`.
 
@@ -68,15 +69,35 @@ Le déploiement Pages part tout seul. L'inscription envoie alors un e-mail de
 confirmation, la carte est délivrée avec un numéro définitif `BK-XX-000001`, puis envoyée
 par e-mail avec son recto et son verso.
 
+### 6. Google Wallet (facultatif)
+1. [Google Pay & Wallet Console](https://pay.google.com/business/console) > *Google Wallet API* :
+   créer le compte émetteur (gratuit) et noter l'**Issuer ID**. Renseigner le profil d'entreprise.
+2. [Google Cloud Console](https://console.cloud.google.com) : nouveau projet, activer
+   *Google Wallet API*, créer un **compte de service** puis une **clé JSON** (*Keys* > *Add key*).
+3. Retour dans la Wallet Console > *Users* : inviter l'adresse du compte de service
+   (`…@….iam.gserviceaccount.com`) avec le rôle *Developer*.
+4. GitHub : secret `GOOGLE_WALLET_KEY` = contenu complet du fichier JSON ; variable
+   `GOOGLE_WALLET_ISSUER_ID` = Issuer ID. Relancer le workflow.
+5. Le bouton « Add to Google Wallet » apparaît sur la carte. Au départ, le compte est en
+   **mode démo** : seuls les comptes de test déclarés dans la console peuvent ajouter le
+   pass (préfixe « [TEST ONLY] »). Pour l'ouvrir à tous : *Request publishing access*.
+6. Avant la demande de publication, remplacer le bouton du portail (`.btn-wallet`) par le
+   badge officiel « Add to Google Wallet » des consignes de marque Google.
+
+Le pass ne porte que le nom, le numéro, l'État, la validité et le QR de vérification :
+ni date de naissance ni narodnost. Il est remis à jour quand le titulaire amende son
+inscription, invalidé et vidé de ses données quand il la supprime. Logo et bandeau :
+`portail/images/wallet-*.png` (`scripts/gen_wallet_images.py`).
+
 ## Développement local
 
 ```bash
 cd registre
 npm install
-printf 'DEV=1\n' > .dev.vars        # mode dev : sans clés, les e-mails sont journalisés
+npm run setup:dev                    # .dev.vars (DEV=1) + clé de test du Google Wallet simulé
 npm run migrate:local
 npm run dev                          # http://127.0.0.1:8787
-npm test                             # 30 vérifications de bout en bout
+npm test                             # 42 vérifications ; Google Wallet simulé sur le port 8788
 ```
 
 En mode dev sans `BREVO_API_KEY`, l'API renvoie les jetons dans ses réponses
@@ -88,6 +109,7 @@ En mode dev sans `BREVO_API_KEY`, l'API renvoie les jetons dans ses réponses
 |---|---|---|
 | GET | `/v1/health` | santé |
 | GET | `/v1/stats` | totaux publics (par État, par registre, série quotidienne) |
+| GET | `/v1/verify/BK-XX-NNNNNN?issue=n` | statut public d'une carte : valid, superseded, expired, revoked, unknown (aucune donnée personnelle) |
 | POST | `/v1/registrations` | inscription ; envoie le lien de confirmation (réponse 202 identique dans tous les cas) |
 | POST | `/v1/confirm` | confirme l'adresse, attribue le numéro, renvoie la carte et le jeton d'accès |
 | POST | `/v1/access` | renvoie un lien d'accès à un citoyen (réponse identique dans tous les cas) |
@@ -95,6 +117,7 @@ En mode dev sans `BREVO_API_KEY`, l'API renvoie les jetons dans ses réponses
 | PATCH | `/v1/card` | amendement ; nouvel État = nouveau numéro |
 | DELETE | `/v1/card` | suppression immédiate et définitive |
 | POST | `/v1/card/mail` | envoie la carte par e-mail (recto et verso joints), 5 fois par jour au plus |
+| POST | `/v1/card/wallet/google` | crée ou met à jour le pass Google Wallet, renvoie le lien d'ajout |
 
 Une tâche planifiée quotidienne supprime les inscriptions non confirmées de plus de sept
 jours et les jetons expirés.

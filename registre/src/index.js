@@ -13,6 +13,7 @@ import OPSTINE from '../../portail/data/opstine.json';
 import ETATS from '../../portail/data/etats.json';
 import PEUPLES from '../../portail/data/peuples.json';
 import { mailConfirm, mailCard, mailAccess } from './mail.js';
+import { walletConfigured, googleSaveUrl, googleRefresh, googleRevoke } from './wallet.js';
 
 const OP = new Map(OPSTINE.m.map(r => [r[0] + '|' + r[1], r[2]]));
 const STATE = new Map(ETATS.map(s => [s.c, s]));
@@ -36,6 +37,7 @@ function ageOn(dob, today) { let a = +today.slice(0, 4) - +dob.slice(0, 4); if (
 const isDev = env => env.DEV === '1';
 const devLeak = env => isDev(env) && !env.BREVO_API_KEY;
 const portal = env => (env.PORTAL_URL || '').replace(/\/?$/, '/');
+const verifyUrl = (env, c) => portal(env) + '#/verify/' + c.num + '.' + c.card;
 function hint(email) { const [u, d] = email.split('@'); return u.slice(0, 1) + '•••@' + d; }
 
 function json(data, status = 200, headers = {}) {
@@ -292,7 +294,7 @@ async function confirm(req, env, ip, url) {
   return json({ accessToken: access, card: cardOf(await citizen(env, c.id)) });
 }
 
-async function amend(req, env, c, url) {
+async function amend(req, env, c, url, ctx) {
   const b = await readJson(req, 16384);
   await limit(env, 'amend:' + c.id, 20, DAY);
   const d = validate(b, { email: false });
@@ -307,10 +309,15 @@ async function amend(req, env, c, url) {
     ...registerStmts(env, c.id, d.people, t),
   ]);
   await dropStatsCache(url);
-  return json({ card: cardOf(await citizen(env, c.id)) });
+  const fresh = await citizen(env, c.id);
+  if (c.wallet_google && walletConfigured(env))
+    ctx.waitUntil(googleRefresh(env, fresh, STATE.get(fresh.state), verifyUrl(env, fresh)).catch(e => console.error('wallet refresh', e.message)));
+  return json({ card: cardOf(fresh) });
 }
 
-async function removeCitizen(env, c, url) {
+async function removeCitizen(env, c, url, ctx) {
+  if (c.wallet_google && walletConfigured(env))
+    ctx.waitUntil(googleRevoke(env, c).catch(e => console.error('wallet revoke', e.message)));
   await env.DB.batch([
     env.DB.prepare('DELETE FROM tokens WHERE citizen_id = ?1').bind(c.id),
     env.DB.prepare('DELETE FROM national_register WHERE citizen_id = ?1').bind(c.id),
@@ -406,21 +413,53 @@ async function cleanup(env) {
   ]);
 }
 
+async function wallet(env, c) {
+  if (!walletConfigured(env)) throw new HttpError(501, 'wallet_not_configured', 'Google Wallet is not available yet.');
+  await limit(env, 'wallet:' + c.id, 10, DAY);
+  const origins = (env.ALLOWED_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean);
+  let link;
+  try { link = await googleSaveUrl(env, c, STATE.get(c.state), verifyUrl(env, c), origins); }
+  catch (e) { console.error('wallet', e.message); throw new HttpError(502, 'wallet_failed', 'Google Wallet could not be reached. Please try again later.'); }
+  if (!c.wallet_google) await env.DB.prepare('UPDATE citizens SET wallet_google = 1 WHERE id = ?1').bind(c.id).run();
+  return json({ url: link });
+}
+
+// Vérification publique : statut d'un numéro, sans aucune donnée personnelle.
+// Un numéro absent mais inférieur au compteur de son État a été délivré puis annulé
+// (suppression ou changement d'État) : aucun registre des annulations n'est nécessaire.
+async function verify(env, ip, num, url) {
+  await limit(env, 'verify-ip:' + ip, 120, 3600e3);
+  const m = /^BK-([A-Z]{2})-(\d{6})$/.exec(num);
+  if (!m) throw new HttpError(400, 'invalid_number', 'A card number reads BK-XX-NNNNNN.');
+  const issue = url.searchParams.get('issue');
+  const c = await env.DB.prepare('SELECT state, card, issued, expiry FROM citizens WHERE num = ?1 AND verified_at IS NOT NULL').bind(num).first();
+  const head = { 'Cache-Control': 'public, max-age=30' };
+  if (c) {
+    const s = STATE.get(c.state);
+    const status = c.expiry < todayIso() ? 'expired' : issue && +issue !== c.card ? 'superseded' : 'valid';
+    return json({ num, status, state: c.state, stateName: s ? s.n : c.state, issue: c.card, expiry: c.expiry }, 200, head);
+  }
+  const ctr = await env.DB.prepare('SELECT n FROM counters WHERE letters = ?1').bind(m[1]).first();
+  return json({ num, status: ctr && +m[2] >= 1 && +m[2] <= ctr.n ? 'revoked' : 'unknown' }, 200, head);
+}
+
 async function route(req, env, ctx, url) {
   const p = url.pathname.replace(/\/+$/, '');
   const m = req.method;
   const ip = req.headers.get('CF-Connecting-IP') || 'local';
-  if (p === '/v1/health' && m === 'GET') return json({ ok: true });
+  if (p === '/v1/health' && m === 'GET') return json({ ok: true, wallet: { google: walletConfigured(env) } });
+  if (p.startsWith('/v1/verify/') && m === 'GET') return verify(env, ip, decodeURIComponent(p.slice(11)), url);
   if (p === '/v1/stats' && m === 'GET') return stats(env, ctx, url);
   if (p === '/v1/registrations' && m === 'POST') return register(req, env, ip);
   if (p === '/v1/confirm' && m === 'POST') return confirm(req, env, ip, url);
   if (p === '/v1/access' && m === 'POST') return access(req, env, ip);
-  if (p === '/v1/card' || p === '/v1/card/mail') {
+  if (p === '/v1/card' || p === '/v1/card/mail' || p === '/v1/card/wallet/google') {
     const c = await auth(req, env);
+    if (p === '/v1/card/wallet/google' && m === 'POST') return wallet(env, c);
     if (p === '/v1/card/mail' && m === 'POST') return mailMyCard(req, env, c, req.headers.get('Authorization').slice(7).trim());
     if (p === '/v1/card' && m === 'GET') return json({ card: cardOf(c) });
-    if (p === '/v1/card' && m === 'PATCH') return amend(req, env, c, url);
-    if (p === '/v1/card' && m === 'DELETE') return removeCitizen(env, c, url);
+    if (p === '/v1/card' && m === 'PATCH') return amend(req, env, c, url, ctx);
+    if (p === '/v1/card' && m === 'DELETE') return removeCitizen(env, c, url, ctx);
     throw new HttpError(405, 'method', 'Method not allowed');
   }
   throw new HttpError(404, 'not_found', 'Not found');

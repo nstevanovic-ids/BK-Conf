@@ -20,10 +20,13 @@ ALLOWED_ORIGINS = "https://nstevanovic-ids.github.io"
 # Expéditeur vérifié chez Brevo (adresse sur votre domaine, SPF/DKIM configurés).
 MAIL_FROM = "registar@example.org"
 MAIL_FROM_NAME = "Konfederalni registar državljana"
+# Google Wallet : identifiant d'émetteur (Google Pay & Wallet Console). Vide = pass désactivé.
+GOOGLE_WALLET_ISSUER_ID = ""
 # Secrets, jamais dans ce fichier (GitHub Actions ou `wrangler secret put`) :
 #   BREVO_API_KEY      clé API transactionnelle Brevo
 #   TURNSTILE_SECRET   clé secrète du widget Cloudflare Turnstile
 #   TOKEN_PEPPER       chaîne aléatoire (32 octets ou plus) qui sale les empreintes de jetons
+#   GOOGLE_WALLET_KEY  clé JSON du compte de service Google Wallet (facultatif)
 
 # Nettoyage quotidien : inscriptions non confirmées, jetons expirés, compteurs anti-abus.
 [triggers]

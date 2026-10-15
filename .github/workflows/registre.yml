@@ -24,6 +24,8 @@ jobs:
   deploy:
     if: ${{ vars.REGISTRE_ENABLED == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      HAS_WALLET_KEY: ${{ secrets.GOOGLE_WALLET_KEY != '' }}
     defaults:
       run:
         working-directory: registre
@@ -46,6 +48,12 @@ jobs:
           test -n "${{ vars.D1_DATABASE_ID }}" || { echo "::error::Repository variable D1_DATABASE_ID is missing"; exit 1; }
           sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml
 
+      - name: Build the deploy command
+        run: |
+          ARGS="deploy --var MAIL_FROM:${{ vars.MAIL_FROM }}"
+          if [ -n "${{ vars.GOOGLE_WALLET_ISSUER_ID }}" ]; then ARGS="$ARGS --var GOOGLE_WALLET_ISSUER_ID:${{ vars.GOOGLE_WALLET_ISSUER_ID }}"; fi
+          echo "DEPLOY_ARGS=$ARGS" >> "$GITHUB_ENV"
+
       - name: Apply migrations and deploy
         uses: cloudflare/wrangler-action@v3
         with:
@@ -54,7 +62,7 @@ jobs:
           workingDirectory: registre
           packageManager: npm
           preCommands: npx wrangler d1 migrations apply bk-registre --remote
-          command: deploy --var MAIL_FROM:${{ vars.MAIL_FROM }}
+          command: ${{ env.DEPLOY_ARGS }}
           secrets: |
             BREVO_API_KEY
             TURNSTILE_SECRET
@@ -63,3 +71,12 @@ jobs:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           TURNSTILE_SECRET: ${{ secrets.TURNSTILE_SECRET }}
           TOKEN_PEPPER: ${{ secrets.TOKEN_PEPPER }}
+
+      # Google Wallet (facultatif) : clé du compte de service, envoyée seulement si elle existe.
+      - name: Google Wallet service account key
+        if: ${{ env.HAS_WALLET_KEY == 'true' }}
+        run: printf '%s' "$GOOGLE_WALLET_KEY" | npx wrangler secret put GOOGLE_WALLET_KEY
+        env:
+          GOOGLE_WALLET_KEY: ${{ secrets.GOOGLE_WALLET_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
