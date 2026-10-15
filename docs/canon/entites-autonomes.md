@@ -5,8 +5,8 @@ Droits culturels, éducatifs et municipaux des communautés minoritaires
 
 | ID | Nom | Communauté | État hôte |
 |----|-----|-----------|-----------|
-| SBO-PZ | Savez Bošnjačkih Opština Zapadnog Podriña | Bosniak | Zapadno Podriñe (PZ-28) |
-| SBO-RS | Savez Bošnjačkih Opština Raške-Sanxaka | Bosniak | Raška Sanxak (RS-30) |
+| SBO-PZ | Savez Bošñačkih Opština Zapadnog Podriña | Bosniak | Zapadno Podriñe (PZ-28) |
+| SBO-RS | Savez Bošñačkih Opština Raške-Sanxaka | Bosniak | Raška Sanxak (RS-30) |
 | SSO-DA | Savez Srpskih Opština Dalmacije | Serb | Dalmacija (DA-08) |
 | SSO-LK | Savez Srpskih Opština Like | Serb | Lika (LK-20) |
 | SSO-SL | Savez Srpskih Opština Slavonije | Serb | Slavonija (SL-32) |

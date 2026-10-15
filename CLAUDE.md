@@ -22,9 +22,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
   alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md ;
   Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md)
-- 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošnjaci, Crnogorci, Makedonci, Bãlgari
+- 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošñaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
-  Sofia (défense + sciences)
+  Sofija (défense + sciences)
 - 4 institutions confédérales : Kongres, Narodni Sabor, Konfederalno Veće, Ustavni Sud
   (*Savezno Veće* abandonné : *savezni* = échelon fédéral yougoslave ;
   cf. ADR docs/decisions/2026-10-13-constitution-v4.md)
@@ -75,6 +75,11 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - `lights.json` (une lumière par commune, intensité selon la population) est généré
   par `scripts/build_stats.py` ; la carte (#/map) est un globe orthographique d3-geo
   (`portail/vendor/`, d3-array + d3-geo, ISC) au style « salle de situation » sombre
+- `opstine.json` (index commune → État du parcours citoyen) est généré par
+  `scripts/build_stats.py` avec `stats.json` et `lights.json`
+- Parcours citoyen : `#/register` (5 étapes) et `#/citizen` (carte TD1) ; règles dans
+  docs/canon/citoyennete.md (ADR 2026-10-15-parcours-citoyennete.md). Rattachement par la
+  commune, jamais par libre choix ; narodnost hors zone de lecture automatique
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 

@@ -2,36 +2,50 @@
  "slo": {
   "name": "Slovenci",
   "en": "Slovenes",
-  "std": "western"
+  "std": "western",
+  "m": "Slovenec",
+  "f": "Slovenka"
  },
  "hrv": {
   "name": "Hrvati",
   "en": "Croats",
-  "std": "central"
+  "std": "central",
+  "m": "Hrvat",
+  "f": "Hrvatica"
  },
  "srb": {
   "name": "Srbi",
   "en": "Serbs",
-  "std": "central"
+  "std": "central",
+  "m": "Srbin",
+  "f": "Srpkinja"
  },
  "bos": {
-  "name": "Bošnjaci",
+  "name": "Bošñaci",
   "en": "Bosniaks",
-  "std": "central"
+  "std": "central",
+  "m": "Bošñak",
+  "f": "Bošñakinja"
  },
  "cng": {
   "name": "Crnogorci",
   "en": "Montenegrins",
-  "std": "central"
+  "std": "central",
+  "m": "Crnogorac",
+  "f": "Crnogorka"
  },
  "mkd": {
   "name": "Makedonci",
   "en": "Macedonians",
-  "std": "eastern"
+  "std": "eastern",
+  "m": "Makedonec",
+  "f": "Makedonka"
  },
  "bul": {
   "name": "Bãlgari",
   "en": "Bulgarians",
-  "std": "eastern"
+  "std": "eastern",
+  "m": "Bãlgarin",
+  "f": "Bãlgarka"
  }
 }

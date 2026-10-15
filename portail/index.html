@@ -984,6 +984,110 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   .hero-full h1{font-size:2.1rem}
   .feat{gap:26px}
 }
+
+/* ============================================================
+   CITIZENSHIP, registration wizard (#/register) and card (#/citizen)
+   ============================================================ */
+.steps.s5{grid-template-columns:repeat(5,1fr)}
+.reg{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;align-items:start}
+.regnav{position:sticky;top:var(--hdr,150px);list-style:none;counter-reset:rs;
+  border-left:1px solid var(--line-2);margin-left:12px}
+.regnav li{position:relative;padding:8px 0 12px 24px;font-size:.86rem;font-weight:600;color:var(--ink-3)}
+.regnav li::before{counter-increment:rs;content:counter(rs);position:absolute;left:-12px;top:7px;
+  width:23px;height:23px;border-radius:50%;background:var(--bg);border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--ink-3)}
+.regnav li small{display:block;font-weight:500;font-size:.72rem;color:var(--ink-3)}
+.regnav li.done{color:var(--ink-2)}
+.regnav li.done a:hover{color:var(--gold)}
+.regnav li.done::before{content:'✓';border-color:var(--good);color:var(--good)}
+.regnav li.on{color:var(--ink)}
+.regnav li.on::before{background:var(--indigo);border-color:var(--indigo);color:#fff}
+[data-theme="dark"] .regnav li.on::before{background:var(--gold-2);border-color:var(--gold-2);color:#1a1205}
+.regpanel{padding:28px 30px}
+.regpanel h2{font-size:1.4rem;margin-bottom:6px}
+.regpanel .lead{font-size:.94rem;margin-bottom:22px}
+.regcount{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:var(--gold);margin-bottom:8px}
+.fld{margin-bottom:18px}
+.fl{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  color:var(--ink-2);margin-bottom:7px}
+.fld input[type=text],.fld input[type=date],.fld input[type=search]{width:100%;padding:11px 13px;
+  border:1px solid var(--line-2);border-radius:2px;background:var(--white);font-family:inherit;
+  font-size:.95rem;color:var(--ink)}
+.fld input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,138,20,.16)}
+.hint{font-size:.76rem;color:var(--ink-3);margin-top:6px;line-height:1.5}
+.hint b{color:var(--ink);font-weight:700}
+.err{font-size:.78rem;color:var(--red);margin-top:6px;font-weight:600}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.frow>*{min-width:0}
+.opts{display:grid;gap:8px}
+.opts.cols2{grid-template-columns:1fr 1fr}
+.opt{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line-2);
+  border-radius:2px;background:var(--white);cursor:pointer;
+  transition:border-color .12s ease,background-color .12s ease,box-shadow .12s ease}
+.opt:hover{border-color:var(--gold)}
+.opt input{margin-top:3px;flex:none;accent-color:var(--indigo)}
+[data-theme="dark"] .opt input{accent-color:var(--gold-2)}
+.opt>div{min-width:0}
+.opt b{display:block;font-size:.9rem;font-weight:700}
+.opt span{display:block;font-size:.77rem;color:var(--ink-3);margin-top:1px}
+.opt .nf{margin-left:auto;padding-left:8px;font-size:.8rem;font-weight:600;color:var(--ink-2);
+  white-space:nowrap;align-self:center}
+.opt.on{border-color:var(--indigo);background:var(--surface-2);box-shadow:inset 3px 0 0 var(--gold)}
+[data-theme="dark"] .opt.on{border-color:var(--gold-2)}
+.opt:focus-within{outline:2px solid var(--gold);outline-offset:1px}
+.ac{position:relative}
+.aclist{position:absolute;left:0;right:0;top:100%;z-index:30;background:var(--white);
+  border:1px solid var(--line-2);box-shadow:var(--shadow-lg);max-height:330px;overflow:auto}
+.aclist button{display:flex;width:100%;gap:12px;align-items:baseline;text-align:left;background:none;
+  border:none;border-bottom:1px solid var(--line);padding:10px 13px;color:var(--ink);font-size:.88rem}
+.aclist button:last-child{border-bottom:none}
+.aclist button:hover,.aclist button.sel{background:var(--surface-2);box-shadow:inset 3px 0 0 var(--gold)}
+.aclist button small{margin-left:auto;color:var(--ink-3);font-size:.74rem;white-space:nowrap}
+.acnone{padding:13px;font-size:.82rem;color:var(--ink-3)}
+.attach{display:flex;gap:16px;align-items:center;padding:14px 16px;border:1px solid var(--line-2);
+  border-left:3px solid var(--gold);background:var(--surface-2)}
+.attach .af{width:78px;flex:none;aspect-ratio:3/2;border:1px solid var(--line);background:var(--white)}
+.attach .af svg{width:100%;height:100%;display:block}
+.attach b{display:block;font-size:1.02rem}
+.attach>div{min-width:0}
+.attach span{display:block;font-size:.78rem;color:var(--ink-2);margin-top:2px}
+.regbar{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:26px;
+  padding-top:18px;border-top:1px solid var(--line)}
+.regpanel .dtable td:first-child{width:34%}
+.idcards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.idcard{position:relative;margin:0;aspect-ratio:856/540;border-radius:3.74% / 5.93%;overflow:hidden;
+  box-shadow:0 1px 2px rgba(20,24,40,.12),0 22px 46px rgba(20,24,40,.18);
+  transition:transform .25s ease;will-change:transform}
+.idcard svg{width:100%;height:100%;display:block}
+.idcard .holo{position:absolute;inset:0;pointer-events:none;mix-blend-mode:color-dodge;opacity:.32;
+  background:linear-gradient(115deg,transparent 22%,rgba(255,80,170,.55) 34%,rgba(80,220,255,.55) 44%,
+    rgba(255,236,90,.55) 54%,rgba(140,255,170,.45) 62%,transparent 74%);
+  background-size:260% 260%;background-position:var(--hx,30%) var(--hy,30%)}
+.idactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+@media(prefers-reduced-motion:no-preference){
+  .idcard .holo{animation:holo 9s ease-in-out infinite alternate}
+  .idcard:hover .holo{animation:none}
+}
+@keyframes holo{from{background-position:10% 20%}to{background-position:90% 80%}}
+@media(max-width:1100px){.steps.s5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:960px){
+  .reg{grid-template-columns:1fr;gap:18px}
+  .regnav{position:static;display:flex;border-left:none;margin-left:0;
+    border-bottom:1px solid var(--line-2);overflow-x:auto}
+  .regnav li{flex:1;min-width:0;padding:34px 6px 10px;text-align:center;font-size:.74rem}
+  .regnav li::before{left:50%;top:4px;transform:translateX(-50%)}
+  .regnav li small{display:none}
+  .idcards{grid-template-columns:1fr;max-width:620px}
+  .steps.s5{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .frow,.opts.cols2{grid-template-columns:1fr}
+  .regpanel{padding:20px 16px}
+  .regnav li:not(.on){font-size:0}
+  .regnav li:not(.on) a{font-size:0}
+  .attach{flex-direction:column;align-items:flex-start}
+}
 </style>
 <script>
 /* apply saved / system theme before first paint to avoid a flash */
@@ -1008,7 +1112,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
         <button data-l="ist">IST</button>
       </div>
       <span class="sep"></span>
-      <a class="ut" href="#/participation">Register</a>
+      <a class="ut" id="utReg" href="#/register">Register</a>
       <span class="sep"></span>
       <button class="themebtn" id="themeBtn" onclick="toggleTheme()"
         aria-label="Toggle dark mode" title="Toggle light / dark theme">
@@ -1088,7 +1192,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </div>
     <div>
       <h5>Participate</h5>
-      <a href="#/participation">Become a citizen</a>
+      <a href="#/register">Become a citizen</a>
+      <a href="#/citizen">Citizen card</a>
       <a href="#/dashboard">Membership dashboard</a>
     </div>
   </div>
@@ -1242,7 +1347,7 @@ function vHome(){
       <div class="hero-actions">
         <a class="btn btn-primary" href="#/states">Explore the states
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a class="btn btn-onlight" href="#/participation">Become a citizen</a>
+        <a class="btn btn-onlight" href="#/register">Become a citizen</a>
       </div>
     </div>
     <a class="hero-cue" href="#/home" aria-label="Scroll down"
@@ -1305,10 +1410,10 @@ function vHome(){
     <div class="band-scrim"></div>
     <div class="band-inner">
       <div class="eyebrow">Citizenship</div>
-      <div class="band-q">Every citizen is an elector of the Narodni Sabor.</div>
+      <div class="band-q">Your state elects the Kongres. Your people elect the Narodni Sabor.</div>
       <p class="band-sub">Confederal digital citizenship opens the participatory platform:
       consultations, debates, proposals and votes.</p>
-      <a class="btn btn-primary" style="margin-top:20px" href="#/participation">Become a citizen</a>
+      <a class="btn btn-primary" style="margin-top:20px" href="#/register">Become a citizen</a>
     </div>
   </section>
 
@@ -1345,9 +1450,9 @@ function vHome(){
         <div class="h2row"><h2>Membership</h2></div>
         <div class="panel">
           <div class="eyebrow">Confederal digital citizenship</div>
-          <p class="note" style="margin-bottom:14px">Registered citizens form the
-          electoral body of the Narodni Sabor. The live counter activates with the
-          participation module.</p>
+          <p class="note" style="margin-bottom:14px">Registered citizens elect the Kongres
+          in their state; those enrolled in a national register also elect the Narodni
+          Sabor. The live counter activates with the participatory platform.</p>
           <div class="membercount" style="font-size:2.6rem;font-weight:700;
             color:var(--indigo);line-height:1">0</div>
           <div class="note">Registered citizens</div>
@@ -1932,54 +2037,65 @@ function vAutonomy(){
 }
 
 function vParticipation(){
+  const cur=citLoad();
   return crumb([['Home','#/home'],['Participation']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Civic life</div>
     <h1>Confederal digital citizenship</h1>
-    <p class="lead">The Balkan Confederation is, first of all, a community that one
-    chooses to join. Confederal citizenship is declarative: it is acquired online,
-    materialises immediately, and opens the right to take part in confederal
+    <p class="lead">The Balkan Confederation is a house one enters by choice and remains in by
+    consent. Confederal citizenship is declarative: it is requested online in five steps and takes
+    effect when the citizen card is issued. It opens the right to take part in confederal
     consultations and votes.</p>
   </section>
   <section class="band" style="min-height:42vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('participation-crowd','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
-      The electoral body of the Narodni Sabor.</div></div>
+      One state for the Kongres, one people for the Narodni Sabor.</div></div>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
-    <div class="h2row"><h2>Registration in three steps</h2></div>
-    <div class="steps">
+    <div class="h2row"><h2>Registration in five steps</h2></div>
+    <div class="steps s5">
       <div class="step"><div class="sn">1</div>
-        <h4>State of attachment</h4>
-        <p>Chosen by municipality of origin, including from the diaspora, or by free
-        attachment. Determines the constituency for the Kongres.</p></div>
+        <h4>Identity</h4>
+        <p>Name, sex and date of birth, as on the card. Cyrillic names are transcribed into the
+        unified Latin alphabet. Open from the age of 18.</p></div>
       <div class="step"><div class="sn">2</div>
-        <h4>Constituent nation</h4>
-        <p>A personal, voluntary and revocable choice among the seven peoples, or
-        “unaffiliated”. Determines the register for the Narodni Sabor.</p></div>
+        <h4>State of attachment</h4>
+        <p>Set by the municipality of origin, one's own or a parent's or grandparent's for the
+        diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice.</p></div>
       <div class="step"><div class="sn">3</div>
-        <h4>Linguistic standard</h4>
-        <p>Preferred regional standard, western, central or eastern, for the language
-        of the interface and of official documents.</p></div>
+        <h4>National register</h4>
+        <p>A personal, voluntary and revocable choice among the seven peoples, or none.
+        Determines the vote for the Narodni Sabor (Art. 102, 108).</p></div>
+      <div class="step"><div class="sn">4</div>
+        <h4>Document language</h4>
+        <p>Western, central or eastern standard for the wording of the card. Language belongs to
+        the document, not to its holder.</p></div>
+      <div class="step"><div class="sn">5</div>
+        <h4>Declaration</h4>
+        <p>Review, declaration of free accession and issue of the citizen card.</p></div>
     </div>
     <div class="cert" style="margin-top:16px">
       <svg class="cemb" viewBox="0 0 100 100" id="certEmblem"></svg>
       <div>
-        <div class="cl">Confederal citizenship certificate</div>
-        <div class="cid">JK-000000</div>
-        <p>Each registration yields a signed digital certificate and a badge for social
-        networks. The three choices are independent and may be amended at any time.</p>
+        <div class="cl">Confederal citizen card</div>
+        <div class="cid">${cur?esc(cur.num):'BK-XX-NNNNNN'}</div>
+        <p>ICAO 9303 TD1 card with a machine-readable zone. XX is the state of attachment. The
+        nation is printed only if the holder wishes, and never in the machine-readable zone. The
+        register and the language may be amended at any time.</p>
       </div>
     </div>
-    <div style="margin-top:18px">
-      <button class="btn btn-primary" onclick="alert('The registration flow opens with the participation module.')">Begin registration</button>
-      <a class="btn btn-ghost" href="#/dashboard" style="margin-left:8px">Membership dashboard</a>
+    <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+      ${cur?`<a class="btn btn-primary" href="#/citizen">My citizen card</a>
+             <a class="btn btn-ghost" href="#/register">Amend my registration</a>`
+           :`<a class="btn btn-primary" href="#/register">Begin registration</a>`}
+      <a class="btn btn-ghost" href="#/dashboard">Membership dashboard</a>
     </div>
-    <div class="notice">The participatory platform, consultations, debates, citizen
-    proposals and votes, is built on an open-source participation infrastructure of
-    the Decidim type. The registration flow and the live dashboard are activated in the
-    next development stage.</div>
+    <div class="notice">Registration is open in prototype form: the card is issued in your browser
+    with a provisional number. The participatory platform, consultations, debates, citizen proposals
+    and votes, runs on Decidim. At its opening the confederal register confirms each card and links
+    it to a platform account, with the state and the national register as verified attributes.</div>
   </section>`;
 }
 
@@ -2014,6 +2130,598 @@ function vDashboard(){
 }
 
 /* ============================================================
+   CITIZENSHIP, registration wizard (#/register) and citizen card
+   (#/citizen). Canon : docs/canon/citoyennete.md
+   ADR : docs/decisions/2026-10-15-parcours-citoyennete.md
+   ============================================================ */
+const CIT_KEY='bk-citizen';
+let CIT_MEM=null;          // fallback when browser storage is unavailable
+let REG=null;              // registration draft (in memory until issue)
+const REG_STEPS=[
+ ['Identity','Name, sex, date of birth'],
+ ['State of attachment','Municipality of origin'],
+ ['National register','Narodni Sabor'],
+ ['Document language','Regional standard'],
+ ['Declaration','Review and issue']];
+function citLoad(){
+  try{const v=localStorage.getItem(CIT_KEY);if(v)return JSON.parse(v);}catch(e){}
+  return CIT_MEM;
+}
+function citSave(c){CIT_MEM=c;try{localStorage.setItem(CIT_KEY,JSON.stringify(c));}catch(e){}}
+function citClear(){CIT_MEM=null;try{localStorage.removeItem(CIT_KEY);}catch(e){}}
+
+/* --- text helpers : unified alphabet v3, search folding, ICAO 9303 --- */
+const CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','ѓ':'đ','е':'e','ж':'ž','з':'z',
+ 'ѕ':'dz','и':'i','ѝ':'i','й':'j','ј':'j','к':'k','л':'l','љ':'ļ','м':'m','н':'n','њ':'ñ',
+ 'о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','ќ':'ć','у':'u','ф':'f','х':'h','ц':'c',
+ 'ч':'č','џ':'x','ш':'š','щ':'št','ъ':'ã','ь':'j','ю':'ju','я':'ja'};
+/* Cyrillic -> unified Latin v3 (њ→ñ, љ→ļ, џ/дж→x, ъ→ã). Latin input is kept as typed. */
+function cyr2lat(s){
+  return String(s).replace(/дж/g,'x').replace(/Дж|ДЖ/g,'X').replace(/[Ѐ-ӿ]/g,ch=>{
+    const lo=ch.toLowerCase(),t=CYR[lo];
+    if(t===undefined)return ch;
+    return ch===lo?t:t.charAt(0).toUpperCase()+t.slice(1);
+  });
+}
+const hasCyr=s=>/[Ѐ-ӿ]/.test(s);
+function fold(s){
+  return cyr2lat(s).replace(/[đĐ]/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .toLowerCase().replace(/[-–/().,']/g,' ').replace(/\s+/g,' ').trim();
+}
+const MRZ_MAP={'Ä':'AE','Ö':'OE','Ü':'UE','Ő':'OE','Ű':'UE','Å':'AA','Æ':'AE','Ø':'OE',
+ 'Œ':'OE','Þ':'TH','Đ':'D','Ł':'L','Ħ':'H'};
+function mrzText(s){
+  return cyr2lat(s).toUpperCase().replace(/[ÄÖÜŐŰÅÆØŒÞĐŁĦ]/g,c=>MRZ_MAP[c])
+    .normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/['’`]/g,'')
+    .replace(/[^A-Z0-9]+/g,'<').replace(/^<+|<+$/g,'');
+}
+function mrzCheck(s){
+  const w=[7,3,1];let t=0;
+  for(let i=0;i<s.length;i++){const c=s[i];
+    t+=(c==='<'?0:c>='0'&&c<='9'?+c:c.charCodeAt(0)-55)*w[i%3];}
+  return String(t%10);
+}
+const mrzPad=(s,n)=>(s+'<'.repeat(n)).slice(0,n);
+const ymd6=d=>d.slice(2,4)+d.slice(5,7)+d.slice(8,10);
+/* ICAO 9303 TD1 : 3 lines x 30 characters. Nationality and issuing state : BKC.
+   The nation (narodnost) is never written in the machine-readable zone. */
+function mrzTD1(c){
+  const doc=mrzPad(c.num.replace(/^BK-/,'').replace(/-/g,''),9);
+  const l1=mrzPad('IDBKC'+doc+mrzCheck(doc),30);
+  const dob=ymd6(c.dob),exp=ymd6(c.expiry);
+  const l2a=dob+mrzCheck(dob)+c.sex+exp+mrzCheck(exp)+'BKC'+'<'.repeat(11);
+  const l2=l2a+mrzCheck(l1.slice(5,30)+l2a.slice(0,7)+l2a.slice(8,15)+l2a.slice(18,29));
+  const l3=mrzPad(mrzText(c.surname)+'<<'+mrzText(c.given),30);
+  return [l1,l2,l3];
+}
+const isoToday=()=>{const d=new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const dmy=d=>d?d.slice(8,10)+'.'+d.slice(5,7)+'.'+d.slice(0,4):'';
+function addYears(d,n){const y=+d.slice(0,4)+n,md=d.slice(5);
+  return y+'-'+(md==='02-29'?'02-28':md);}
+function ageOn(dob,today){let a=+today.slice(0,4)-+dob.slice(0,4);
+  if(today.slice(5)<dob.slice(5))a--;return a;}
+/* Provisional number BK-XX-NNNNNN (XX = letters of the state of attachment).
+   The definitive number is assigned in sequence by the confederal register. */
+function citNumber(k,seed){
+  let h=2166136261;
+  for(const ch of seed){h^=ch.codePointAt(0);h=Math.imul(h,16777619)>>>0;}
+  return 'BK-'+k+'-'+String(h%999999+1).padStart(6,'0');
+}
+const cleanName=s=>cyr2lat(String(s||'').replace(/\s+/g,' ').trim());
+
+/* --- municipality of origin index (portail/data/opstine.json) --- */
+let OPX=null;
+function opIndex(){
+  if(!OPX)OPX=OPSTINE.map(r=>({n:r[0],iso:r[1],c:r[2],alt:r[3]||'',
+    k:fold(r[0]),ka:r[3]?fold(r[3]):''}));
+  return OPX;
+}
+function opSearch(q){
+  const f=fold(q);if(f.length<2)return[];
+  const qs=[...new Set([f,f.replace(/dj/g,'d')])];
+  const toks=qs.map(x=>x.split(' '));
+  const wordHit=(key,ts)=>ts.every(t=>key.split(' ').some(w=>w.startsWith(t)));
+  const out=[];
+  for(const o of opIndex()){
+    let sc=-1;
+    for(const x of qs){
+      if(o.k===x||o.ka===x)sc=Math.max(sc,3);
+      else if(o.k.startsWith(x)||o.ka.startsWith(x))sc=Math.max(sc,2);
+    }
+    if(sc<0&&toks.some(ts=>wordHit(o.k,ts)||(o.ka&&wordHit(o.ka,ts))))sc=1;
+    if(sc>=0)out.push([sc,o]);
+  }
+  out.sort((a,b)=>b[0]-a[0]||a[1].k.localeCompare(b[1].k));
+  return out.slice(0,8).map(x=>x[1]);
+}
+
+/* --- card wording : language is an attribute of the document ---------- */
+const CARD_L={
+ western:{doc:'Državljanska izkaznica',sur:'Priimek',giv:'Ime',sex:'Spol',dob:'Datum rojstva',
+   nat:'Narodnost',st:'Država',num:'Številka',exp:'Velja do',iss:'Datum izdaje',
+   ori:'Domovinska občina',auth:'Izdajatelj'},
+ central:{doc:'Državljanska karta',sur:'Prezime',giv:'Ime',sex:'Pol',dob:'Datum rođenja',
+   nat:'Narodnost',st:'Država',num:'Broj',exp:'Važi do',iss:'Datum izdavanja',
+   ori:'Opština porěkla',auth:'Izdavač'},
+ eastern:{doc:'Graždanska karta',sur:'Familija',giv:'Ime',sex:'Pol',dob:'Data na raždane',
+   nat:'Narodnost',st:'Dãržava',num:'Nomer',exp:'Validna do',iss:'Data na izdavane',
+   ori:'Obština na proizhod',auth:'Izdatel'}};
+const CARD_EN={doc:'Citizen card',sur:'Surname',giv:'Given names',sex:'Sex',
+ dob:'Date of birth',nat:'Nation',st:'State',num:'Card no.',exp:'Date of expiry',
+ iss:'Date of issue',ori:'Municipality of origin',auth:'Authority'};
+const STD_NAME={western:['Western standard','zapadni standard','Slovene-based'],
+ central:['Central standard','središnji standard','Štokavian-based'],
+ eastern:['Eastern standard','istočni standard','Bulgarian-Macedonian-based']};
+const CARD_AUTH='Konfederalni registar državljana · Zagreb';
+const natForm=c=>{const p=PEUPLES[c.people];
+  return c.people!=='none'&&p?(c.sex==='F'?p.f:p.m):'';};
+
+/* --- citizen card, ID-1 (85.6 x 54 mm), drawn at 856 x 540 ------------- */
+const CARD_FONT="Zurich,Inter,'Helvetica Neue',Arial,sans-serif";
+function cardFit(t,max,base){return Math.max(13,Math.min(base,max/(String(t).length*.64)));}
+function cardGuilloche(w,h,n,col,op){
+  let d='';
+  for(let i=0;i<n;i++){const y0=h*(i+.5)/n;
+    for(let x=0;x<=w;x+=12){
+      const y=y0+Math.sin(x/34+i*.8)*8+Math.sin(x/101+i*.35)*6;
+      d+=(x?' L':'M')+x+' '+y.toFixed(1);}}
+  return `<path d="${d}" fill="none" stroke="${col}" stroke-width=".7" opacity="${op}"/>`;
+}
+function cardRosette(cx,cy,rx,ry,n,col,op){
+  let g='';for(let i=0;i<n;i++)g+=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" transform="rotate(${(180*i/n).toFixed(2)} ${cx} ${cy})"/>`;
+  return `<g fill="none" stroke="${col}" stroke-width=".7" opacity="${op}">${g}</g>`;
+}
+function cardBase(id,c,inner){
+  return `<svg viewBox="0 0 856 540" xmlns="http://www.w3.org/2000/svg" font-family="${CARD_FONT}" role="img" aria-label="${esc(CARD_EN.doc)} ${esc(c.num)}">
+  <defs>
+    <linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f2e3"/><stop offset=".55" stop-color="#eff0f4"/><stop offset="1" stop-color="#e3e8f3"/></linearGradient>
+    <linearGradient id="${id}ovd" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9c46a"/><stop offset=".3" stop-color="#f4a3c4"/><stop offset=".55" stop-color="#8fd3f4"/>
+      <stop offset=".8" stop-color="#b5e8a0"/><stop offset="1" stop-color="#dfcc68"/></linearGradient>
+    <clipPath id="${id}clip"><rect width="856" height="540" rx="32"/></clipPath>
+  </defs>
+  <g clip-path="url(#${id}clip)">
+    <rect width="856" height="540" fill="url(#${id}bg)"/>
+    ${cardGuilloche(856,540,22,'#374078',.10)}
+    ${inner}
+  </g>
+  <rect x=".75" y=".75" width="854.5" height="538.5" rx="31.5" fill="none" stroke="#c9ccd6" stroke-width="1.5"/>
+</svg>`;
+}
+function cardLabel(L,k,x,y,anchor){
+  return `<text x="${x}" y="${y}" font-size="12.5" font-weight="600" letter-spacing=".7" fill="#5b6275"${anchor?` text-anchor="${anchor}"`:''}>${esc(L[k].toUpperCase())}<tspan fill="#9198a8" font-weight="500"> / ${esc(CARD_EN[k].toUpperCase())}</tspan></text>`;
+}
+function cardValue(t,x,y,max,base,fill){
+  return `<text x="${x}" y="${y}" font-size="${cardFit(t,max,base).toFixed(1)}" font-weight="700" fill="${fill||'#1b2030'}">${esc(t)}</text>`;
+}
+function cardSeal(cx,cy,id){
+  return `<g><circle cx="${cx}" cy="${cy}" r="58" fill="url(#${id}ovd)" opacity=".85"/>
+    <path d="${star(cx,cy,54,24,7)}" fill="#ffffff" opacity=".35"/>
+    ${cardRosette(cx,cy,56,18,14,'#ffffff',.55)}
+    <image href="${COA_DATA}" x="${cx-34}" y="${cy-30}" width="68" height="60" opacity=".75" preserveAspectRatio="xMidYMid meet"/></g>`;
+}
+function cardFront(c){
+  const L=CARD_L[c.std]||CARD_L.central,s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c};
+  const nat=c.showNat?natForm(c):'';
+  const sex=c.sex==='F'?'Ž / F':'M / M';
+  const motto=('RAZLIČITI NARODI, JEDAN DOM · DIVERSE PEOPLES, ONE HOME · ').repeat(4);
+  return cardBase('cf',c,`
+    ${cardRosette(150,262,150,46,24,'#99402f',.13)}
+    <rect width="856" height="98" fill="#374078"/>
+    <rect y="98" width="856" height="5" fill="#dfcc68"/>
+    <text x="40" y="50" font-size="30" font-weight="700" fill="#ffffff" letter-spacing=".4">BALKANSKA KONFEDERACIJA</text>
+    <text x="40" y="78" font-size="13" font-weight="700" fill="#dfcc68" letter-spacing="3.2">BALKAN CONFEDERATION</text>
+    <text x="816" y="50" font-size="19" font-weight="700" fill="#ffffff" text-anchor="end">${esc(L.doc)}</text>
+    <text x="816" y="77" font-size="12.5" font-weight="700" fill="#dfcc68" text-anchor="end" letter-spacing="2.4">${esc(CARD_EN.doc.toUpperCase())}</text>
+    <rect x="40" y="128" width="200" height="248" rx="10" fill="#374078"/>
+    ${cardRosette(140,252,92,30,16,'#dfcc68',.28)}
+    <image href="${COA_DATA}" x="56" y="176" width="168" height="150" preserveAspectRatio="xMidYMid meet"/>
+    <text x="140" y="360" font-size="13" font-weight="700" fill="#dfcc68" text-anchor="middle" letter-spacing="3">BKC</text>
+    ${cardLabel(L,'sur',272,146)}${cardValue(c.surname.toUpperCase(),272,178,312,30)}
+    ${cardLabel(L,'giv',272,211)}${cardValue(c.given.toUpperCase(),272,243,312,27)}
+    ${cardLabel(L,'sex',272,276)}${cardValue(sex,272,308,100,24)}
+    ${cardLabel(L,'dob',392,276)}${cardValue(dmy(c.dob),392,308,190,24)}
+    ${cardLabel(L,'nat',272,341)}${cardValue(nat||'—',272,373,312,24)}
+    ${cardLabel(L,'num',600,146)}${cardValue(c.num,600,178,216,26,'#99402f')}
+    ${cardLabel(L,'exp',600,211)}${cardValue(dmy(c.expiry),600,243,216,24)}
+    ${cardLabel(L,'st',600,341)}${cardValue(s.n,600,373,216,23)}
+    <text x="600" y="396" font-size="14" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(s.c)}</text>
+    ${cardSeal(768,442,'cf')}
+    <text x="40" y="424" font-size="9" font-weight="600" fill="#374078" opacity=".55" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(0,150))}</text>
+    <text x="40" y="452" font-size="9" font-weight="600" fill="#99402f" opacity=".5" letter-spacing="1.2" textLength="620" lengthAdjust="spacingAndGlyphs">${esc(motto.slice(20,170))}</text>
+    <rect y="496" width="856" height="44" fill="#374078" opacity=".07"/>
+    <text x="40" y="524" font-size="12" font-weight="600" fill="#5b6275" letter-spacing="1">${esc(CARD_AUTH.toUpperCase())}</text>`);
+}
+function cardBack(c){
+  const L=CARD_L[c.std]||CARD_L.central,s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c};
+  const flag=STATE_FLAGS[s.c]?`<image href="${STATE_FLAGS[s.c]}" x="656" y="40" width="160" height="107" preserveAspectRatio="xMidYMid slice"/>`
+    :`<image href="${STATE_FLAG_DATA}" x="656" y="40" width="160" height="107" preserveAspectRatio="xMidYMid slice"/>`;
+  const mrz=mrzTD1(c);
+  return cardBase('cb',c,`
+    ${cardRosette(620,170,190,60,28,'#374078',.10)}
+    ${cardLabel(L,'ori',40,64)}${cardValue(c.origin.n,40,98,560,26)}
+    ${cardLabel(L,'iss',40,140)}${cardValue(dmy(c.issued),40,172,260,24)}
+    ${cardLabel(L,'auth',40,214)}${cardValue(CARD_AUTH,40,246,560,21)}
+    <rect x="655" y="39" width="162" height="109" fill="none" stroke="#c9ccd6"/>
+    ${flag}
+    <text x="736" y="172" font-size="13" font-weight="700" fill="#374078" text-anchor="middle">${esc(s.n)}</text>
+    <text x="736" y="191" font-size="12" font-weight="600" fill="#5b6275" text-anchor="middle" letter-spacing="1">${esc(s.c)}</text>
+    <image href="${STATE_FLAG_DATA}" x="40" y="270" width="48" height="32" preserveAspectRatio="xMidYMid slice"/>
+    <text x="100" y="292" font-size="12" font-weight="600" fill="#5b6275" letter-spacing=".8">RAZLIČITI NARODI, JEDAN DOM</text>
+    <rect y="326" width="856" height="214" fill="#ffffff"/>
+    <rect y="326" width="856" height="2" fill="#dfcc68"/>
+    ${mrz.map((l,i)=>`<text x="40" y="${398+i*56}" style="font-family:'OCR B','OCR-B',Consolas,'Courier New',monospace" font-size="40" fill="#111" textLength="776" lengthAdjust="spacing">${l.replace(/</g,'&lt;')}</text>`).join('')}`);
+}
+
+/* --- wizard ------------------------------------------------------------ */
+function regBlank(){return{step:0,surname:'',given:'',sex:'',dob:'',basis:'',origin:null,
+  res:'',people:'',showNat:true,std:'',consent:false,err:{}};}
+function regFromCitizen(c){return{step:0,surname:c.surname,given:c.given,sex:c.sex,dob:c.dob,
+  basis:c.basis,origin:c.origin,res:c.abroad?'abroad':'in',people:c.people,showNat:c.showNat,
+  std:c.std,consent:false,err:{}};}
+function regDefaultStd(){
+  if(REG.people&&REG.people!=='none'&&PEUPLES[REG.people])return PEUPLES[REG.people].std;
+  const s=REG.origin&&byCode(REG.origin.c);
+  return s&&PEUPLES[s.p]?PEUPLES[s.p].std:'central';
+}
+function regErrors(i){
+  const e={},R=REG;
+  if(i===0){
+    if(!cleanName(R.surname))e.surname='Enter your surname.';
+    if(!cleanName(R.given))e.given='Enter your given name or names.';
+    if(!R.sex)e.sex='Choose the sex shown on the card.';
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(R.dob))e.dob='Enter your date of birth.';
+    else if(R.dob>isoToday()||+R.dob.slice(0,4)<1900)e.dob='Enter a valid date of birth.';
+    else if(ageOn(R.dob,isoToday())<18)e.dob='Online registration is open from the age of 18 (Art. 104).';
+  }
+  if(i===1){
+    if(!R.basis)e.basis='Choose the basis of your attachment.';
+    if(!R.origin)e.origin='Choose a municipality from the list.';
+    if(!R.res)e.res='Tell us where you live.';
+    else if(R.basis==='residence'&&R.res==='abroad')e.res='Attachment by residence requires living in the Confederation.';
+  }
+  if(i===2&&!R.people)e.people='Choose a register, or no register.';
+  if(i===3&&!R.std)e.std='Choose the language of your card.';
+  if(i===4&&!R.consent)e.consent='The declaration is required to issue the card.';
+  return e;
+}
+const regErr=k=>REG.err[k]?`<div class="err" role="alert">${esc(REG.err[k])}</div>`:'';
+function regOpt(field,val,title,sub,extra,type){
+  const on=REG[field]===val;
+  return `<label class="opt${on?' on':''}"><input type="${type||'radio'}" name="r_${field}" value="${esc(val)}"${on?' checked':''}
+    onchange="regPick('${field}',this.value)"><div><b>${title}</b>${sub?`<span>${sub}</span>`:''}</div>${extra?`<span class="nf">${extra}</span>`:''}</label>`;
+}
+function regAttachCard(o){
+  if(!o)return '';
+  const s=byCode(o.c);if(!s)return '';
+  const p=PEUPLES[s.p];
+  const kind=s.t==='F'?'Confederal territory, counts as a state'
+    :s.t==='M'?'Confederal municipality, not a state: its Kongres constituency is set by confederal law'
+    :`State of the ${p?p.en:''}${s.ch?' · chef-lieu '+esc(s.ch):''}`;
+  return `<div class="attach"><div class="af">${flagSVG(s)}</div><div>
+    <div class="eyebrow" style="margin:0 0 2px">Your state of attachment</div>
+    <b>${esc(s.n)} <span class="mono" style="color:var(--ink-3);font-weight:600">${esc(s.c)}</span></b>
+    <span>${esc(o.n)} → ${esc(s.n)}. ${kind}.</span></div></div>`;
+}
+function regStepHTML(i){
+  const R=REG;
+  if(i===0){
+    const prev=(hasCyr(R.surname)||hasCyr(R.given))
+      ?`Card spelling: <b>${esc(cleanName(R.surname).toUpperCase())}</b> · <b>${esc(cleanName(R.given).toUpperCase())}</b>`:'';
+    return `<h2>Identity</h2>
+    <p class="lead">As it will appear on your card. Names written in Cyrillic are transcribed
+    into the unified Latin alphabet; Latin names are kept exactly as typed.</p>
+    <div class="frow">
+      <div class="fld"><label class="fl" for="rSur">Surname</label>
+        <input id="rSur" type="text" autocomplete="family-name" spellcheck="false" value="${esc(R.surname)}"
+          oninput="regSet('surname',this.value)">${regErr('surname')}</div>
+      <div class="fld"><label class="fl" for="rGiv">Given names</label>
+        <input id="rGiv" type="text" autocomplete="given-name" spellcheck="false" value="${esc(R.given)}"
+          oninput="regSet('given',this.value)">${regErr('given')}</div>
+    </div>
+    <div class="hint" id="rPrev" style="margin:-8px 0 16px">${prev}</div>
+    <div class="frow">
+      <div class="fld"><span class="fl">Sex</span>
+        <div class="opts cols2">${regOpt('sex','F','Female','Ž · F')}${regOpt('sex','M','Male','M · M')}</div>
+        <div class="hint">Sets the grammatical form of your nation on the card.</div>${regErr('sex')}</div>
+      <div class="fld"><label class="fl" for="rDob">Date of birth</label>
+        <input id="rDob" type="date" max="${isoToday()}" min="1900-01-01" value="${esc(R.dob)}"
+          oninput="regSet('dob',this.value)" onchange="regSet('dob',this.value)">
+        <div class="hint">Registration is open from the age of 18, the age of the vote (Art. 104).</div>${regErr('dob')}</div>
+    </div>`;
+  }
+  if(i===1){
+    return `<h2>State of attachment</h2>
+    <p class="lead">Your state follows from your municipality of origin, in the manner of a
+    Swiss <i>lieu d'origine</i>. It is your constituency for the Kongres and the state whose
+    referendums you vote in. It is not a free choice.</p>
+    <div class="fld"><span class="fl">Basis of attachment</span><div class="opts">
+      ${regOpt('basis','own','My municipality of origin','Where I was born, or the municipality my family is registered in')}
+      ${regOpt('basis','ancestry',"A parent's or grandparent's municipality of origin",'For the diaspora, up to the second generation')}
+      ${regOpt('basis','residence','My municipality of residence','For residents with no origin in the Confederation')}
+    </div>${regErr('basis')}</div>
+    <div class="fld"><label class="fl" for="rMun">Municipality</label>
+      <div class="ac"><input id="rMun" type="search" autocomplete="off" spellcheck="false" role="combobox"
+        aria-expanded="false" aria-controls="rMunList" aria-autocomplete="list"
+        placeholder="e.g. Kragujevac, Trebinje, Ohrid, Plovdiv" value="${esc(R.origin?R.origin.n:'')}"
+        oninput="regSearch(this.value)" onkeydown="regSearchKey(event)" onfocus="regSearch(this.value)">
+      <div class="aclist" id="rMunList" role="listbox" hidden></div></div>
+      <div class="hint">${OPSTINE.length.toLocaleString('en')} municipalities of the 49 states and the two confederal
+        municipalities. Cyrillic and spellings without diacritics are accepted.</div>${regErr('origin')}
+    </div>
+    <div id="rAttach">${regAttachCard(R.origin)}</div>
+    <div class="fld" style="margin-top:18px"><span class="fl">Residence</span><div class="opts cols2">
+      ${regOpt('res','in','In the Confederation')}
+      ${regOpt('res','abroad','Abroad · diaspora','You vote in your state of attachment')}
+    </div>${regErr('res')}</div>`;
+  }
+  if(i===2){
+    const sx=R.sex==='F'?'f':'m';
+    return `<h2>National register</h2>
+    <p class="lead">Every citizen may enrol in the register of the constituent people of his
+    choice. The choice is personal, voluntary and revocable, and need not match the people of
+    your state (Art. 102).</p>
+    <div class="opts cols2">
+      ${Object.entries(PEUPLES).map(([k,p])=>regOpt('people',k,esc(p.name),esc(p.en),esc(p[sx]||''))).join('')}
+      ${regOpt('people','none','No register','Kongres and referendums only')}
+    </div>${regErr('people')}
+    <div class="notice"><b>Enrolled:</b> you elect the Kongres in your state and the ten delegates of
+    your people to the Narodni Sabor, in one constituency covering the whole Confederation (Art. 108).
+    <b>Not enrolled:</b> you keep all civic rights and vote for the Kongres and in referendums, but not
+    for the Narodni Sabor (Art. 102).</div>
+    <div class="fld" style="margin-top:16px"${R.people&&R.people!=='none'?'':' hidden'} id="rNatBox">
+      <label class="opt${R.showNat?' on':''}"><input type="checkbox"${R.showNat?' checked':''}
+        onchange="REG.showNat=this.checked;this.closest('.opt').classList.toggle('on',this.checked)">
+        <div><b>Print my nation on the card</b><span>Your enrolment is recorded either way. No one may be
+        compelled to declare his nation: if you untick this box the card shows a dash.</span></div></label>
+    </div>`;
+  }
+  if(i===3){
+    const ex=k=>{const L=CARD_L[k];return `${L.sur} · ${L.dob} · ${L.exp}`;};
+    return `<h2>Language of the document</h2>
+    <p class="lead">Language is an attribute of the document, not of its holder. The standard you
+    choose sets the wording of your card; it is not recorded as a personal characteristic and does
+    not limit the standard you use anywhere else (Art. 128, 130).</p>
+    <div class="opts">
+      ${['western','central','eastern'].map(k=>regOpt('std',k,
+        `${STD_NAME[k][0]} <span style="display:inline;color:var(--ink-3);font-weight:500">· ${STD_NAME[k][1]}</span>`,
+        STD_NAME[k][2]+' · <i>'+esc(ex(k))+'</i>')).join('')}
+    </div>${regErr('std')}
+    <div class="hint" style="margin-top:10px">English is printed beside every label. The card is written in
+    the unified Latin alphabet; the Cyrillic alphabet remains free in public and private life (Art. 129).</div>`;
+  }
+  const s=R.origin&&byCode(R.origin.c),p=PEUPLES[R.people];
+  const nat=R.people==='none'?'No register':p?`${esc(p.name)} (${esc(p.en)})`:'';
+  const cur=citLoad();
+  const reissue=cur?(cur.origin.c===(R.origin&&R.origin.c)
+    ?`Your number ${esc(cur.num)} is kept; a new card is issued.`
+    :`Your state of attachment changes: a new number is issued and ${esc(cur.num)} is retired.`):'';
+  const row=(k,v,st)=>`<tr><td>${k}</td><td>${v} <a class="seeall" style="margin-left:8px" href="javascript:regGo(${st})">Edit</a></td></tr>`;
+  return `<h2>Declaration</h2>
+    <p class="lead">Check your details, then confirm that you join of your own free will.</p>
+    <table class="dtable">
+      ${row('Name',`<b>${esc(cleanName(R.surname).toUpperCase())}</b> ${esc(cleanName(R.given))}`,0)}
+      ${row('Sex · born',`${R.sex==='F'?'Female':'Male'} · ${esc(dmy(R.dob))}`,0)}
+      ${row('Municipality',`${esc(R.origin?R.origin.n:'')} <span class="note">(${{own:'own origin',ancestry:'family origin',residence:'residence'}[R.basis]||''})</span>`,1)}
+      ${row('State of attachment',s?`${esc(s.n)} · ${esc(s.c)}`:'',1)}
+      ${row('Residence',R.res==='abroad'?'Abroad · diaspora':'In the Confederation',1)}
+      ${row('National register',nat+(R.people!=='none'?` · ${R.showNat?'printed as '+esc(natForm(R)):'not printed'}`:''),2)}
+      ${row('Document language',esc(STD_NAME[R.std]?STD_NAME[R.std][0]:''),3)}
+    </table>
+    ${reissue?`<div class="notice">${reissue}</div>`:''}
+    <label class="opt${R.consent?' on':''}" style="margin-top:18px"><input type="checkbox"${R.consent?' checked':''}
+      onchange="regConsent(this)">
+      <div><b>I declare that I join the Balkan Confederation of my own free will and that the
+      information above is accurate.</b><span>“A house one enters by choice, remains in by consent,
+      and that no one is compelled to inhabit” (Preamble).</span></div></label>${regErr('consent')}
+    <div class="notice">Prototype: the card is issued in this browser with a provisional number and
+    stays on this device. When the participatory platform opens, the confederal register confirms each
+    card and assigns its definitive number.</div>`;
+}
+function regRender(){
+  const nav=document.getElementById('regNav'),pan=document.getElementById('regPanel');
+  if(!nav||!pan||!REG)return;
+  const i=REG.step;
+  nav.innerHTML=REG_STEPS.map((s,k)=>`<li class="${k<i?'done':k===i?'on':''}"${k===i?' aria-current="step"':''}>
+    ${k<i?`<a href="javascript:regGo(${k})">${s[0]}</a>`:s[0]}<small>${s[1]}</small></li>`).join('');
+  pan.innerHTML=`<div class="regcount">Step ${i+1} of ${REG_STEPS.length}</div>`+regStepHTML(i)+
+    `<div class="regbar">
+      ${i?`<button class="btn btn-ghost" onclick="regGo(${i-1})">← Back</button>`:'<span></span>'}
+      ${i<4?`<button class="btn btn-primary" onclick="regNext()">Continue →</button>`
+           :`<button class="btn btn-primary" onclick="regIssue()">Issue my citizen card</button>`}
+    </div>`;
+}
+function regSet(f,v){
+  REG[f]=v;
+  if(REG.err[f]){delete REG.err[f];}
+  if(f==='surname'||f==='given'){
+    const el=document.getElementById('rPrev');
+    if(el)el.innerHTML=(hasCyr(REG.surname)||hasCyr(REG.given))
+      ?`Card spelling: <b>${esc(cleanName(REG.surname).toUpperCase())}</b> · <b>${esc(cleanName(REG.given).toUpperCase())}</b>`:'';
+  }
+}
+function regPick(f,v){
+  REG[f]=v;delete REG.err[f];
+  document.querySelectorAll(`input[name="r_${f}"]`).forEach(x=>
+    x.closest('.opt').classList.toggle('on',x.value===v));
+  if(f==='people'){const b=document.getElementById('rNatBox');if(b)b.hidden=(v==='none');}
+}
+function regConsent(el){
+  REG.consent=el.checked;el.closest('.opt').classList.toggle('on',el.checked);
+  if(el.checked&&REG.err.consent){delete REG.err.consent;
+    const e=el.closest('.opt').nextElementSibling;if(e&&e.classList.contains('err'))e.remove();}
+}
+function regGo(k){
+  if(k>REG.step)return;
+  REG.step=k;REG.err={};regRender();regTop();
+}
+function regNext(){
+  const e=regErrors(REG.step);
+  REG.err=e;
+  if(Object.keys(e).length){regRender();
+    const f=document.querySelector('#regPanel .err');if(f)f.scrollIntoView({block:'center',behavior:'smooth'});return;}
+  if(REG.step===2&&!REG.std)REG.std=regDefaultStd();
+  REG.step++;regRender();regTop();
+}
+function regTop(){
+  const p=document.getElementById('regPanel');if(!p)return;
+  const y=p.getBoundingClientRect().top+scrollY-(document.querySelector('header').offsetHeight+16);
+  if(scrollY>y)scrollTo({top:y,behavior:'smooth'});
+}
+let REG_AC=[],REG_ACI=-1;
+function regSearch(q){
+  const box=document.getElementById('rMunList'),inp=document.getElementById('rMun');if(!box)return;
+  if(REG.origin&&q!==REG.origin.n){REG.origin=null;document.getElementById('rAttach').innerHTML='';}
+  REG_AC=opSearch(q);REG_ACI=REG_AC.length?0:-1;
+  if(fold(q).length<2){box.hidden=true;inp.setAttribute('aria-expanded','false');return;}
+  box.innerHTML=REG_AC.length?REG_AC.map((o,k)=>{const s=byCode(o.c);
+    return `<button type="button" role="option" id="rMunO${k}" class="${k===REG_ACI?'sel':''}" onmousedown="event.preventDefault()" onclick="regChoose(${k})">
+      <span>${esc(o.n)}${o.alt?` <span class="note">${esc(o.alt)}</span>`:''}</span><small>${esc(s?s.n:o.c)} · ${esc(o.c)}</small></button>`;}).join('')
+    :`<div class="acnone">No municipality matches “${esc(q)}”. Try the official name, without “Grad” or “Općina”.</div>`;
+  box.hidden=false;inp.setAttribute('aria-expanded','true');
+  if(REG_ACI>=0)inp.setAttribute('aria-activedescendant','rMunO'+REG_ACI);
+}
+function regSearchKey(e){
+  const box=document.getElementById('rMunList');
+  if(!box||box.hidden)return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+    e.preventDefault();if(!REG_AC.length)return;
+    REG_ACI=(REG_ACI+(e.key==='ArrowDown'?1:-1)+REG_AC.length)%REG_AC.length;
+    box.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('sel',k===REG_ACI));
+    e.target.setAttribute('aria-activedescendant','rMunO'+REG_ACI);
+  }else if(e.key==='Enter'){e.preventDefault();if(REG_ACI>=0)regChoose(REG_ACI);}
+  else if(e.key==='Escape'){box.hidden=true;e.target.setAttribute('aria-expanded','false');}
+}
+function regChoose(k){
+  const o=REG_AC[k];if(!o)return;
+  REG.origin={n:o.n,iso:o.iso,c:o.c};delete REG.err.origin;
+  const inp=document.getElementById('rMun'),box=document.getElementById('rMunList');
+  inp.value=o.n;box.hidden=true;inp.setAttribute('aria-expanded','false');
+  document.getElementById('rAttach').innerHTML=regAttachCard(REG.origin);
+}
+document.addEventListener('click',e=>{
+  const box=document.getElementById('rMunList');
+  if(box&&!box.hidden&&!e.target.closest('.ac'))box.hidden=true;
+});
+function regIssue(){
+  const e=regErrors(4);REG.err=e;
+  if(Object.keys(e).length){regRender();return;}
+  for(let k=0;k<4;k++){const ek=regErrors(k);if(Object.keys(ek).length){REG.step=k;REG.err=ek;regRender();regTop();return;}}
+  const cur=citLoad(),s=byCode(REG.origin.c),today=isoToday();
+  const same=cur&&cur.origin.c===REG.origin.c;
+  const c={v:1,
+    num:same?cur.num:citNumber(s.k,[REG.surname,REG.given,REG.dob,REG.origin.c,Date.now()].join('|')),
+    card:same?(cur.card||1)+1:1,issued:today,expiry:addYears(today,10),
+    surname:cleanName(REG.surname),given:cleanName(REG.given),sex:REG.sex,dob:REG.dob,
+    origin:REG.origin,basis:REG.basis,abroad:REG.res==='abroad',
+    people:REG.people,showNat:REG.people!=='none'&&REG.showNat,std:REG.std};
+  citSave(c);REG=null;go('#/citizen');
+}
+
+function vRegister(){
+  const cur=citLoad();
+  if(!REG)REG=cur?regFromCitizen(cur):regBlank();
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Registration']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Confederal digital citizenship</div>
+    <h1>${cur?'Amend your registration':'Become a citizen'}</h1>
+    <p class="lead">Five steps, a few minutes. Your state, your national register and the language
+    of your card are three independent choices; the last two may be changed at any time.</p>
+  </section>
+  <section class="section" style="padding-top:8px"><div class="reg">
+    <ol class="regnav" id="regNav" aria-label="Registration steps"></ol>
+    <div class="panel regpanel" id="regPanel"></div>
+  </div></section>`;
+}
+function vCitizen(){
+  const c=citLoad();
+  if(!c)return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
+  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Citizen card</h1></section>
+  <section class="section"><div class="pending-box">
+    <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
+    <h4>No card has been issued in this browser</h4>
+    <p>Registration takes five steps. The card is kept on this device until the participatory platform opens.</p>
+    <a class="btn btn-primary" style="margin-top:16px" href="#/register">Become a citizen</a></div></section>`;
+  const s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c},p=PEUPLES[c.people];
+  return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Citizen card</h1>
+    <p class="lead">${esc(c.num)} · issued ${esc(dmy(c.issued))} · valid until ${esc(dmy(c.expiry))}.
+    The front is your badge for social networks; the back carries the machine-readable zone
+    (ICAO 9303, TD1).</p>
+  </section>
+  <section class="section" style="padding-top:8px">
+    <div class="idcards">
+      <figure class="idcard" data-tilt>${cardFront(c)}<span class="holo" aria-hidden="true"></span></figure>
+      <figure class="idcard" data-tilt>${cardBack(c)}<span class="holo" aria-hidden="true"></span></figure>
+    </div>
+    <div class="idactions">
+      <button class="btn btn-primary" onclick="cardPNG('front')">Download front (PNG)</button>
+      <button class="btn btn-ghost" onclick="cardPNG('back')">Download back (PNG)</button>
+      <a class="btn btn-ghost" href="#/register">Amend my registration</a>
+    </div>
+  </section>
+  <section class="section"><div class="split2">
+    <div class="panel"><div class="eyebrow">Your civic rights</div>
+      <table class="dtable">
+        <tr><td>Kongres</td><td>Constituency of ${esc(s.n)} (${esc(s.c)})${c.abroad?' · voting from abroad':''}</td></tr>
+        <tr><td>Narodni Sabor</td><td>${p?`Register of the ${esc(p.en)} (${esc(p.name)}) · one constituency for the whole Confederation`:'Not enrolled · no vote for the Narodni Sabor (Art. 102)'}</td></tr>
+        <tr><td>Referendums</td><td>Confederal votes, and the votes of ${esc(s.n)}${s.t==='M'?' as set by confederal law':''}</td></tr>
+        <tr><td>Initiative</td><td>Constitutional initiative (300,000 citizens) and optional referendum (150,000 citizens)</td></tr>
+      </table></div>
+    <div class="panel"><div class="eyebrow">Your record</div>
+      <table class="dtable">
+        <tr><td>Municipality</td><td>${esc(c.origin.n)} <span class="note">(${{own:'own origin',ancestry:'family origin',residence:'residence'}[c.basis]||''})</span></td></tr>
+        <tr><td>Nation on card</td><td>${c.showNat?esc(natForm(c)):'Not printed'}</td></tr>
+        <tr><td>Card language</td><td>${esc((STD_NAME[c.std]||STD_NAME.central)[0])}</td></tr>
+        <tr><td>Card issue</td><td>Issue ${c.card||1} under number ${esc(c.num)}</td></tr>
+      </table>
+      <button class="btn btn-ghost" style="margin-top:16px" onclick="citDelete()">Delete my registration</button></div>
+  </div>
+  <div class="notice">Prototype: this card is held only in this browser and its number is provisional.
+  At the opening of the participatory platform (Decidim), the confederal register confirms each
+  card, assigns its definitive number and links it to a platform account with the state and the
+  register as verified attributes.</div></section>`;
+}
+function citDelete(){
+  if(!confirm('Delete the registration held in this browser? The card and its number are removed from this device.'))return;
+  citClear();REG=null;citHeader();render();
+}
+function citMount(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.querySelectorAll('.idcard[data-tilt]').forEach(el=>{
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      el.style.setProperty('--hx',(x*100).toFixed(1)+'%');el.style.setProperty('--hy',(y*100).toFixed(1)+'%');
+      el.style.transform=`perspective(900px) rotateY(${((x-.5)*8).toFixed(2)}deg) rotateX(${((.5-y)*8).toFixed(2)}deg)`;
+    });
+    el.addEventListener('pointerleave',()=>{el.style.transform='';});
+  });
+}
+function cardPNG(side){
+  const c=citLoad();if(!c)return;
+  const svg=(side==='back'?cardBack:cardFront)(c);
+  const img=new Image();
+  img.onload=()=>{
+    const cv=document.createElement('canvas');cv.width=1712;cv.height=1080;
+    cv.getContext('2d').drawImage(img,0,0,1712,1080);
+    cv.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);
+      a.download=`${c.num}-${side}.png`;document.body.appendChild(a);a.click();
+      setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);},'image/png');
+  };
+  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+function citHeader(){
+  const a=document.getElementById('utReg');if(!a)return;
+  const c=citLoad();
+  a.textContent=c?'My card':'Register';a.setAttribute('href',c?'#/citizen':'#/register');
+}
+
+/* ============================================================
    ROUTER
    ============================================================ */
 function go(h){location.hash=h;}
@@ -2023,7 +2731,8 @@ const ROUTES={
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
- 'dashboard':[vDashboard,'#/participation']
+ 'dashboard':[vDashboard,'#/participation'],'register':[vRegister,'#/participation'],
+ 'citizen':[vCitizen,'#/participation']
 };
 function render(){
   if(document.startViewTransition &&
@@ -2049,6 +2758,9 @@ function renderNow(){
     if(e)e.innerHTML=emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
   });
   if(h.startsWith('#/states'))renderGrid();
+  if(h.startsWith('#/register'))regRender();
+  if(h.startsWith('#/citizen'))citMount();
+  citHeader();
   window.scrollTo(0,0);
   const hd=document.querySelector('header');
   if(hd)document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
@@ -2101,6 +2813,8 @@ const SB_PAGES=[
  ['Alphabet','Unified South Slavic Latin alphabet','#/alphabet'],
  ['Symbols','Emblem, flag and palette','#/symbols'],
  ['Participation','Register and take part','#/participation'],
+ ['Registration','Become a citizen in five steps','#/register'],
+ ['Citizen card','Your confederal citizen card','#/citizen'],
  ['Dashboard','Confederal indicators','#/dashboard'],
 ];
 function fmtN(n){return Number(n).toLocaleString('en-GB');}
@@ -2799,12 +3513,12 @@ function miniGeo(code){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[];
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -2815,8 +3529,9 @@ async function loadData(){
     fetch(base+'constitution.json').then(r=>r.json()),
     fetch(base+'stats.json').then(r=>r.json()),
     fetch(base+'lights.json').then(r=>r.json()),
+    fetch(base+'opstine.json').then(r=>r.json()),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m;
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }
