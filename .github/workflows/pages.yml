@@ -43,6 +43,7 @@ jobs:
           if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
           # Ship owner-supplied images (referenced as images/<id>.jpg)
           if [ -d portail/images ]; then cp -r portail/images _site/images; fi
+          cp portail/favicon.ico portail/apple-touch-icon.png _site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
