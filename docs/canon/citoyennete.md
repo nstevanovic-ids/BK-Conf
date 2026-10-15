@@ -1,12 +1,15 @@
 # Citoyenneté confédérale — parcours d'inscription et carte citoyenne
 
 Canon en vigueur du parcours `#/register` et de la carte `#/citizen` du portail.
-Décision : ADR `docs/decisions/2026-10-15-parcours-citoyennete.md`.
+Décisions : ADR `docs/decisions/2026-10-15-parcours-citoyennete.md` (parcours, carte) et
+`docs/decisions/2026-10-15-registre-confederal.md` (registre, e-mail, décompte, dessin).
 
 ## Principe
 
 - La citoyenneté confédérale est **déclarative** : on la demande en ligne, elle prend effet
   à la délivrance de la carte citoyenne (Préambule : « une maison où l'on entre par choix »).
+- La carte est délivrée après **confirmation de l'adresse e-mail** (double opt-in) et
+  envoyée à cette adresse ; une adresse = un citoyen.
 - Inscription en ligne ouverte à partir de **18 ans**, âge du vote (art. 104). Les mineurs
   sont hors du parcours actuel.
 - Trois choix **indépendants** : l'État de rattachement, le registre national, le standard
@@ -16,11 +19,11 @@ Décision : ADR `docs/decisions/2026-10-15-parcours-citoyennete.md`.
 
 | Étape | Contenu | Règle |
 |---|---|---|
-| 1. Identité | Nom, prénoms, sexe (F/M), date de naissance | Nom saisi en cyrillique : translittéré en latin v3 ; nom saisi en latin : conservé tel quel |
+| 1. Identité | Nom, prénoms, adresse e-mail, sexe (F/M), date de naissance | Nom saisi en cyrillique : translittéré en latin v3 ; nom saisi en latin : conservé tel quel |
 | 2. État de rattachement | Base, commune, résidence | Déterminé par la commune ; aucun libre choix |
 | 3. Registre national | Sept peuples ou aucun ; impression de la narodnost | Art. 102 : personnel, volontaire, modifiable |
 | 4. Langue du document | Standard occidental, central ou oriental | Attribut du document, pas du titulaire |
-| 5. Déclaration | Récapitulatif, déclaration d'adhésion libre, délivrance | Déclaration obligatoire |
+| 5. Déclaration | Récapitulatif, déclaration d'adhésion libre, consentements, envoi | Déclaration et consentement au traitement obligatoires ; consentement explicite au registre national s'il y en a un |
 
 ## État de rattachement
 
@@ -90,17 +93,26 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
 
 - Format **ID-1** (85,6 × 54 mm), zone de lecture automatique **ICAO 9303 TD1**.
 - Numéro **BK-XX-NNNNNN** : XX = lettres de l'État de rattachement (LK, SU, BK…), NNNNNN =
-  séquence par État attribuée par le registre, jamais réattribuée.
+  séquence par État attribuée par le registre à la confirmation (`BK-SU-000001`), jamais
+  réattribuée.
 - Changement d'État de rattachement : nouveau numéro, l'ancien est retiré. Autre
   amendement : même numéro, nouvelle émission de carte.
 - Validité : **10 ans** (29 février → 28 février).
-- **Recto** : en-tête Balkanska Konfederacija / Balkan Confederation, titre dans le
-  standard choisi ; lion ailé et code BKC ; nom, prénoms, sexe (Ž / F, M / M), date de
-  naissance, narodnost ou tiret ; numéro (rouge confédéral), expiration, État et code ;
+- **Dessin** (registre CNI 2021 / carte suisse 2023) : fond de sécurité pâle, ivoire rosé
+  vers azur clair ; guilloches fines azur et or ; rosace et lion en filigrane ; aucun
+  bandeau de couleur. Couleur réservée au filet or, au numéro (gueules) et au sceau irisé.
+- **Recto** : lion or vieilli, *BALKANSKA KONFEDERACIJA* / *BALKAN CONFEDERATION* en
+  capitales espacées, titre du document dans le standard choisi et « Citizen card » en
+  italique ; filet or à losange ; panneau du lion avec le code BKC ; nom, prénoms, sexe
+  (Ž / F, M / M), date de naissance, narodnost ou tiret ; numéro, expiration, État et code ;
   sceau optiquement variable (lion ailé sur soleil à sept rais, usage de sceau) ;
-  micro-impression de la devise ; autorité.
-- **Verso** : commune d'origine, date de délivrance, autorité, drapeau de l'État, drapeau
-  confédéral et devise ; zone de lecture automatique.
+  micro-impression de la devise ; autorité et date de délivrance en pied.
+- **Verso** : en-tête réduit et numéro ; commune d'origine, date de délivrance, autorité ;
+  drapeau de l'État, drapeau confédéral et devise ; pour les cartes du registre, **QR de
+  vérification** (`#/verify/<numéro>.<émission>`) ; zone de lecture automatique sur fond
+  éclairci.
+- Libellés en romain, l'anglais en italique ; valeurs en graisse moyenne. La police Zurich
+  est embarquée dans l'export PNG.
 - **Autorité** : *Konfederalni registar državljana · Zagreb*, tenu par le département de la
   Justice et des droits fondamentaux (art. 114 d, siège Zagreb).
 
@@ -135,10 +147,27 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
 
 ## Données
 
-- **Prototype** : l'enregistrement reste dans le navigateur (`localStorage`, clé
-  `bk-citizen`), sans transmission ; le numéro est provisoire (hachage FNV-1a).
-- **Cible** : registre des citoyens (identité, commune, État) et registres nationaux tenus
-  séparément ; le standard est une propriété de la carte.
+- **Registre confédéral** (`registre/`, Cloudflare Workers + D1 en juridiction UE, e-mails
+  Brevo, Turnstile) : registre des citoyens (identité, adresse, commune, État, carte) et
+  registre national tenus dans des tables distinctes ; le standard est une propriété de la
+  carte.
+- Le registre national révèle potentiellement l'origine nationale (RGPD art. 9) :
+  consentement explicite distinct, retirable en choisissant « aucun registre ».
+- Inscriptions non confirmées supprimées après 7 jours ; suppression par le titulaire
+  immédiate et définitive ; statistiques publiques en totaux uniquement (par État, par
+  registre, série quotidienne).
+- Jetons de 256 bits dans le fragment d'URL, stockés sous forme d'empreinte poivrée ;
+  aucun mot de passe. Sécurité détaillée : ADR 2026-10-15-registre-confederal.md.
+- **Mode prototype** : tant que `portail/data/registre.json` n'a pas d'`api`, la carte
+  reste dans le navigateur (`localStorage`, clé `bk-citizen`) avec un numéro provisoire.
+
+## Wallet et vérification
+
+- **Google Wallet** : pass générique depuis `#/citizen` (nom, numéro, État, validité, QR) ;
+  jamais la date de naissance ni la narodnost. Mis à jour à l'amendement, invalidé et vidé
+  à la suppression. Apple Wallet différé (compte Apple Developer requis).
+- **Vérification publique** (`#/verify`, `GET /v1/verify/…`) : valide, remplacée,
+  expirée, annulée, inconnue ; aucune donnée personnelle.
 
 ## Plateforme participative (Decidim)
 

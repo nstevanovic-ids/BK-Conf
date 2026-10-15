@@ -17,6 +17,11 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `institutions-hall.jpg` | Politique | Hémicycle / palais fédéral | 1800×1000 | Page Institutions — bande |
 | `participation-crowd.jpg` | Humain | Citoyens · place publique | 2400×1000 | Page Participation — bande |
 
+Images générées (ne pas remplacer à la main) : `wallet-logo.png` (660×660) et
+`wallet-hero.png` (1032×336), logo et bandeau du pass Google Wallet de la carte citoyenne,
+produits par `scripts/gen_wallet_images.py` et référencés par leur URL publique par le
+registre (`registre/src/wallet.js`).
+
 Cadrage : les images sont affichées en `object-fit: cover` (recadrées au
 besoin) ; garde le sujet vers le centre. Les emplacements sont définis dans
 `portail/index.html` (objet `SLOTS`) — pour en ajouter/retirer, éditer cet objet.
