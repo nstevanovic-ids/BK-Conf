@@ -21,6 +21,7 @@ docs/
     entites-autonomes.md   25 entités autonomes
     couleurs-symboles.md   Palette et héraldique confédérale
     nominations.md         Règle Balkan vs Sud-slave vs Južnoslovenski
+    citoyennete.md         Parcours d'inscription et carte citoyenne (TD1)
   constitution/            v2 (intégrée), v3 (en cours)
   alfabet/                 Spec alphabet sud-slave latin
   decisions/               Journal ADR (Architecture Decision Records)

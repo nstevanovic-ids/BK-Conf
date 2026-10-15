@@ -14,6 +14,10 @@ Pour chaque État :
     communes pondérée par leur population ; null si une commune n'est pas rattachée ;
   - gdp_eu         : en % de la moyenne UE-27 ; gdp_source : libellé public.
 
+Sorties annexes : portail/data/lights.json (une lumière par commune, carte #/map) et
+portail/data/opstine.json (index commune → État du parcours citoyen #/register :
+[nom du recensement, ISO, code d'État, nom GADM si différent]).
+
 Entrées :
   portail/data/<CODE>.geojson         contours communaux par État (GADM)
   portail/data/etats.json             liste canonique des États
@@ -52,6 +56,7 @@ POP = ROOT / "docs" / "data" / "population"
 PIB = ROOT / "docs" / "data" / "pib"
 OUT = DATA / "stats.json"
 OUT_LIGHTS = DATA / "lights.json"
+OUT_OPSTINE = DATA / "opstine.json"
 GEOD = Geod(ellps="WGS84")
 
 # Recensements par pays (code GADM GID_0). Colonne retenue + libellé public.
@@ -78,6 +83,9 @@ FED_LIGHT = {"BG-91": (44.810, 20.460), "SF-93": (42.697, 23.322), "SA-92": (43.
              "BK-95": (44.873, 18.810), "MO-96": (43.343, 17.808)}
 # Région de PIB des villes-États sans commune au recensement.
 FED_REGION = {"BG-91": "RS110"}
+# Villes-États comptées en bloc : district du recensement dont les communes
+# (gradske opštine) figurent dans l'index des communes d'origine (opstine.json).
+FED_DISTRICT = {"BG-91": ("SRB", "Grad Beograd")}
 FED_NAMES = {
     "SF-93": ("BGR", ["Stolichna"]),
     "SA-92": ("BIH", ["Centar Sarajevo", "Hadžići", "Ilidža", "Ilijaš", "Novi Grad Sarajevo",
@@ -649,6 +657,48 @@ def main() -> int:
     tot = sum(lights.values())
     print(f"→ {OUT_LIGHTS.relative_to(ROOT)} : {len(lights)} lumières, {tot:,} hab. "
           f"({OUT_LIGHTS.stat().st_size // 1024} kB)")
+
+    # Index des communes d'origine (parcours citoyen, étape « State of attachment ») :
+    # chaque commune comptée ci-dessus, avec son pays et l'État qui la contient.
+    # Entrée : [nom du recensement, ISO, code d'État, nom GADM si la forme diffère].
+    opstine = {}
+
+    def add_opstina(name, iso, code, alt=None):
+        alt = alt if alt and norm(alt) != norm(name) else None
+        cur = opstine.get((name, iso))
+        if cur and cur[0] != code:
+            sys.exit(f"opstine : « {name} » ({iso}) rattachée à {cur[0]} et à {code}")
+        if not cur or (alt and not cur[1]):
+            opstine[(name, iso)] = (code, alt)
+
+    for s in etats:
+        if s["t"] != "T":
+            continue
+        for i, (p, g) in enumerate(units.get(s["c"], [])):
+            for n in resolved.get((s["c"], i), []):
+                if n in SUBUNITS:          # « Grad » à subdivisions : ses composantes
+                    for part in SUBUNITS[n]:
+                        add_opstina(part, p.get("GID_0"), s["c"])
+                add_opstina(n, p.get("GID_0"), s["c"], p.get("NAME_" + level(p)))
+        for iso, k in located.get(s["c"], []):
+            add_opstina(k, iso, s["c"])
+    for code, mem in fed_members.items():
+        for iso, k in mem:
+            add_opstina(k, iso, code)
+    for code, (iso, district) in FED_DISTRICT.items():
+        for r in tables[iso]["rows"]:
+            if r.get("district") == district and r.get("kind") == "M":
+                add_opstina(r["name"], iso, code)
+    for s in etats:                        # villes-États et municipalités : leur nom
+        if s["t"] != "T" and not any(norm(n) == norm(s["n"]) and c == s["c"]
+                                     for (n, _), (c, _) in opstine.items()):
+            add_opstina(s["n"], "BKC", s["c"])
+    rows = sorted(([n, iso, c] + ([a] if a else []) for (n, iso), (c, a) in opstine.items()),
+                  key=lambda r: (norm(r[0]), r[1]))
+    OUT_OPSTINE.write_text(json.dumps({"v": 1, "m": rows}, ensure_ascii=False,
+                                      separators=(",", ":")), encoding="utf-8")
+    print(f"→ {OUT_OPSTINE.relative_to(ROOT)} : {len(rows)} communes "
+          f"({OUT_OPSTINE.stat().st_size // 1024} kB)")
     return 0
 
 

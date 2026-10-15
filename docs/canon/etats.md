@@ -61,7 +61,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 |------|-----|----------|
 | BG-91 | Beograd | Economic capital |
 | SA-92 | Sarajevo | Political capital — canton de Sarajevo (9 communes) ; Sarajevo-Est (RS) dans PZ-28 (ADR 2026-10-13-sarajevo-est) |
-| SF-93 | Sofia | Defence &amp; sciences capital |
+| SF-93 | Sofija | Defence &amp; sciences capital |
 | ZG-94 | Zagreb | Judicial capital — Grad Zagreb + Turopolje (Velika Gorica, Kravarsko, Orle, Pokupsko) + Stupnik (ADR 2026-10-13-zagreb-turopolje) |
 
 ## Municipalités fédérales autonomes (2)
