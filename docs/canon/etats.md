@@ -9,11 +9,11 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
 | Code | Nom | Peuple | Chef-lieu |
 |------|-----|--------|-----------|
-| BA-01 | Bosanska Krajina | Bosniaks | Baña Luka |
+| BA-01 | Bosanska Krajina | Bosniaks | Bihać |
 | BC-02 | Bačka | Serbs | Novi Sad |
 | BN-03 | Banat | Serbs | Zreñanin |
 | BR-04 | Baraña | Croats | Beli Manastir |
-| BZ-05 | Zapadna Bosna | Serbs | Bihać |
+| BZ-05 | Zapadna Bosna | Serbs | Baña Luka |
 | CG-06 | Crna Gora | Montenegrins | Podgorica |
 | CM-07 | Černomorska | Bulgarians | Varna |
 | DA-08 | Dalmacija | Croats | Split |
@@ -90,6 +90,9 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 - 2026-06-28 : suppression de l'État Sredña Bosna (BS-05) ; renumérotation
   contiguë (cascade -1 à partir de BZ). Cf. ADR
   docs/decisions/2026-06-28-suppression-srednja-bosna.md.
+
+> 2026-10-15 : chefs-lieux de BA-01 (Bihać) et BZ-05 (Baña Luka) remis dans le bon
+> ordre ; cf. ADR docs/decisions/2026-10-15-chefs-lieux-ba-bz.md.
 
 > L'Article 1 bis de la Constitution v4 (docs/constitution/v4.md) est aligné
 > sur cette liste : 49 États (45 territoriaux + 4 villes-États), plus les
