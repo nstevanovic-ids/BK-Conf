@@ -271,6 +271,9 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .chip:hover{border-color:var(--gold)}
 .chip.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
 .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
+.flaggroup{font-size:1rem;font-weight:700;margin:26px 0 12px;display:flex;align-items:baseline;gap:8px}
+.flaggroup span{font-size:.8rem;font-weight:600;color:var(--ink-3)}
+.flaggroup:first-of-type{margin-top:4px}
 .scard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   overflow:hidden;transition:.14s;display:flex;flex-direction:column}
 .scard:hover{border-color:var(--gold);transform:translateY(-2px)}
@@ -1988,15 +1991,14 @@ function vSymbols(){
 
   <section class="section reveal">
     <div class="h2row"><h2>State flags</h2><a class="seeall" href="#/states">All states &rarr;</a></div>
-    <div class="sgrid">
-      ${STATES.filter(s=>s.t==='T').slice(0,12).map(s=>`<a class="scard" href="#/state/${s.c}">
+    ${[['T','Territorial states'],['F','Federal cities'],['M','Federal municipalities']].map(([t,label])=>{
+      const list=STATES.filter(s=>s.t===t);
+      return `<h3 class="flaggroup">${label} <span>${list.length}</span></h3>
+      <div class="sgrid">${list.map(s=>`<a class="scard" href="#/state/${s.c}">
         <div class="flagwrap">${flagSVG(s)}</div>
-        <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3></div></a>`).join('')}
-    </div>
-    <div class="notice">Forty-two dedicated state flags are now designed.
-    The single remaining territorial state (Zagorje) carry a provisional systemic flag based on
-    the pan-colours of their constituent people, pending the dedicated heraldic
-    design.</div>
+        <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3></div></a>`).join('')}</div>`;}).join('')}
+    <div class="notice">All 51 entities have their own flag: 45 territorial states, 4 federal
+    cities and 2 federal municipalities. Select a flag to open the state page and its description.</div>
   </section>`;
 }
 
