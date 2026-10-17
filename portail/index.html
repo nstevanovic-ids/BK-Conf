@@ -1226,6 +1226,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-17',cat:'Law',t:'Constitution of the Balkan Confederation, v4.1: full text',
+  s:'Titles I, II and III restored: general provisions, fundamental rights, citizenship, social goals, the States and the municipalities. 106 articles in eight titles.'},
  {d:'2026-10-13',cat:'Law',t:'Consolidated Constitution of the Balkan Confederation, v4',
   s:'Preamble and Titles I bis, IV, V, VI and VII, 53 articles, published in full.'},
  {d:'2026-05-24',cat:'Identity',t:'Specification of the Unified South Slavic Latin Alphabet, v3.0',
@@ -1728,7 +1730,6 @@ function vInstitutions(){
    CONSTITUTION READER, data: portail/data/constitution.json
    (generated from docs/constitution/v4.en.md by scripts/build_constitution.py)
    ============================================================ */
-const C_ROMAN={'1bis':'I bis','4':'IV','5':'V','6':'VI','7':'VII'};
 function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
 function cIndex(){
   if(cIndex.m)return cIndex.m;
@@ -1743,7 +1744,7 @@ function cInline(x,links){
               .replace(/\*([^*]+)\*/g,'<em>$1</em>');
   if(!links)return h;
   const idx=cIndex();
-  h=h.replace(/\b(Articles?) (\d+(?: bis)?)/g,(m,w,n)=>{
+  h=h.replace(/\b(Articles?) (\d+(?: (?:bis|ter|quater|quinquies|sexies|septies)\b)?)/g,(m,w,n)=>{
     const id='art-'+n.replace(' ',''), t=idx[id];
     return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
   h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
@@ -2046,7 +2047,7 @@ function vParticipation(){
     <h1>Confederal digital citizenship</h1>
     <p class="lead">The Balkan Confederation is a house one enters by choice and remains in by
     consent. Confederal citizenship is declarative: it is requested online in five steps and takes
-    effect when the citizen card is issued. It opens the right to take part in confederal
+    effect when the citizen card is issued (Art. 37). It opens the right to take part in confederal
     consultations and votes.</p>
   </section>
   <section class="band" style="min-height:42vh;margin-top:20px;margin-bottom:40px">
@@ -2065,7 +2066,7 @@ function vParticipation(){
       <div class="step"><div class="sn">2</div>
         <h4>State of attachment</h4>
         <p>Set by the municipality of origin, one's own or a parent's or grandparent's for the
-        diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice.</p></div>
+        diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice (Art. 38).</p></div>
       <div class="step"><div class="sn">3</div>
         <h4>National register</h4>
         <p>A personal, voluntary and revocable choice among the seven peoples, or none.
@@ -2438,7 +2439,7 @@ function regStepHTML(i){
     return `<h2>State of attachment</h2>
     <p class="lead">Your state follows from your municipality of origin, in the manner of a
     Swiss <i>lieu d'origine</i>. It is your constituency for the Kongres and the state whose
-    referendums you vote in. It is not a free choice.</p>
+    referendums you vote in. It is not a free choice (Art. 38, 39).</p>
     <div class="fld"><span class="fl">Basis of attachment</span><div class="opts">
       ${regOpt('basis','own','My municipality of origin','Where I was born, or the municipality my family is registered in')}
       ${regOpt('basis','ancestry',"A parent's or grandparent's municipality of origin",'For the diaspora, up to the second generation')}

@@ -50,6 +50,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
+  Depuis la version 4.1, c'est le texte intégral : titres 1 à 3 (texte de base du
+  1er mai 2020, art. 1 à 53), titres 1 bis et 4 à 7 (art. 1 bis à 145). Les numéros
+  54 à 99 restent libres (compétences de la Confédération, à rédiger) ; cf. ADR
+  2026-10-17-constitution-titres-1-3.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente

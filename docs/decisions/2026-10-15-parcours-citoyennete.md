@@ -37,6 +37,10 @@ vigueur : `docs/canon/citoyennete.md`.
    `bk_citizenship`, `unique_id` = numéro, `metadata` = État et registre).
 
 ## Projet d'article — à intégrer par le workstream Constitution
+> **2026-10-17 : intégré.** Ce projet est repris aux articles 37 (citoyenneté
+> confédérale) et 38 (rattachement) de la Constitution v4.1, dans le titre 2 restauré,
+> et non en article 102 bis ; cf. ADR 2026-10-17-constitution-titres-1-3.md.
+
 Ce projet n'est pas inséré dans `v4.md` / `v4.en.md` (séparation des workstreams). Place
 proposée : après l'article 102, sans renumérotation.
 
