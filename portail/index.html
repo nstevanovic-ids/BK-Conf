@@ -311,6 +311,83 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .minicarto svg{width:100%;height:auto;display:block}
 
 /* ---------- institutions ---------- */
+/* ---------- institutions: who elects whom (schema) + how a law is made ---------- */
+.isc-wrap{overflow-x:auto;margin:6px -4px 0;padding:4px;-webkit-overflow-scrolling:touch}
+.isc{display:block;width:100%;min-width:720px;height:auto;font-family:var(--font)}
+.isc .isc-n{cursor:pointer;outline:none;transition:opacity .25s}
+.isc .isc-n rect{fill:var(--white);stroke:var(--line-3);stroke-width:1.2;transition:stroke .2s,stroke-width .2s}
+.isc .isc-n.cit rect{fill:var(--indigo);stroke:var(--indigo)}
+.isc .isc-n.cit .isc-t{fill:#fff}
+.isc .isc-n.cit .isc-m{fill:rgba(233,234,240,.78)}
+.isc .isc-n.cit .isc-r{fill:var(--gold-pale)}
+.isc .isc-n.joint rect{fill:var(--surface-2)}
+.isc .isc-n:hover rect,.isc .isc-n:focus-visible rect{stroke:var(--gold);stroke-width:2}
+.isc .isc-n.sel rect{stroke:var(--gold);stroke-width:2.6}
+.isc-t{font-size:19px;font-weight:700;fill:var(--ink)}
+.isc-n.joint .isc-t{font-size:13.5px}
+.isc-r{font-size:12.5px;font-weight:600;fill:var(--gold)}
+.isc-m{font-size:12.5px;fill:var(--ink-2)}
+.isc-l{font-size:12px;fill:var(--ink-3);transition:fill .2s}
+.isc .e{transition:opacity .25s}
+.isc .e .ln{fill:none;stroke:var(--line-3);stroke-width:1.6;marker-end:url(#iscArr);transition:stroke .2s}
+.isc .e.dash .ln{stroke-dasharray:5 5}
+.isc .e.plain .ln{marker-end:none}
+.isc .e .fl{fill:none;stroke:var(--gold-2);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1 13;opacity:0}
+.isc[data-sel] .e:not(.on){opacity:.18}
+.isc[data-sel] .isc-n:not(.sel):not(.rel){opacity:.4}
+.isc .e.on .ln{stroke:var(--gold);marker-end:url(#iscArrOn)}
+.isc .e.on.plain .ln{marker-end:none}
+.isc .e.on .isc-l{fill:var(--ink)}
+@media(prefers-reduced-motion:no-preference){
+  .isc .e.on .fl{opacity:1;animation:iscFlow 1.1s linear infinite}
+  .isc.draw .e .ln{stroke-dasharray:var(--len) var(--len);stroke-dashoffset:var(--len);
+    marker-end:none;animation:iscDraw .55s ease-out forwards;animation-delay:var(--dl);animation-play-state:paused}
+  .isc.draw .e .isc-l{opacity:0;animation:iscFade .35s ease forwards;animation-delay:calc(var(--dl) + .35s);
+    animation-play-state:paused}
+  .isc.draw.go .e .ln,.isc.draw.go .e .isc-l{animation-play-state:running}
+}
+@keyframes iscFlow{to{stroke-dashoffset:-14}}
+@keyframes iscDraw{to{stroke-dashoffset:0}}
+@keyframes iscFade{to{opacity:1}}
+.isc-hint{font-size:.8rem;color:var(--ink-3);margin-top:6px}
+.isc-detail{margin-top:18px;border-top:2px solid var(--ink);padding-top:18px;
+  display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:10px 40px;min-height:150px}
+.isc-detail h3{font-size:1.3rem;margin:0}
+.isc-detail .isc-role{font-size:.84rem;color:var(--gold);font-weight:600;margin:2px 0 10px}
+.isc-detail p{font-size:.95rem;line-height:1.66;color:var(--ink-2);max-width:68ch;margin:0}
+.isc-detail .isc-arts{font-size:.8rem;color:var(--ink-3)}
+.isc-detail .isc-arts b{display:block;color:var(--ink);font-size:.8rem;margin-bottom:6px}
+.isc-detail .isc-arts a{display:inline-block;margin:0 10px 6px 0;font-weight:600;color:var(--gold)}
+.isc-detail .isc-arts a:hover{text-decoration:underline}
+.isc-empty{grid-column:1/-1;font-size:.95rem;color:var(--ink-3);align-self:center}
+.law-chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 30px}
+.law-rail{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:22px;position:relative;padding:32px 0 0;margin:0}
+.law-rail::before{content:'';position:absolute;left:9px;right:9px;top:9px;height:2px;background:var(--line-2)}
+.law-fill{position:absolute;left:9px;top:9px;height:2px;width:0;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .8s ease,height .8s ease}
+.law-st{position:relative;opacity:.28;transition:opacity .4s}
+.law-st.on{opacity:1}
+.law-dot{position:absolute;top:-32px;left:0;width:20px;height:20px;border-radius:50%;
+  background:var(--white);border:2px solid var(--line-3);display:grid;place-items:center;
+  font-size:11px;font-weight:700;line-height:1;color:#fff;transition:background .3s,border-color .3s}
+.law-st.on.pass .law-dot{background:var(--gold);border-color:var(--gold)}
+.law-st.on.alt .law-dot{background:var(--white);border-color:var(--gold);color:var(--gold)}
+.law-st.on.skip .law-dot{border-style:dashed;color:var(--ink-3)}
+.law-st.on.stop .law-dot{background:var(--red);border-color:var(--red)}
+.law-k{display:block;font-size:.98rem;font-weight:700;margin-bottom:6px}
+.law-x{font-size:.86rem;color:var(--ink-2);line-height:1.58;margin:0 0 8px}
+.law-st.skip .law-x{color:var(--ink-3)}
+.law-a a{font-size:.75rem;font-weight:600;color:var(--gold);margin-right:9px}
+.law-a a:hover{text-decoration:underline}
+@media(max-width:760px){
+  .isc-detail{grid-template-columns:1fr}
+  .law-rail{grid-template-columns:1fr;gap:18px;padding:0 0 0 36px}
+  .law-rail::before{left:9px;right:auto;top:10px;bottom:10px;width:2px;height:auto}
+  .law-fill{left:9px;top:10px;width:2px;height:0}
+  .law-dot{top:0;left:-36px}
+}
+@media(prefers-reduced-motion:reduce){.law-fill,.law-st{transition:none}}
 .org{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
   border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .orgcard{background:var(--white);padding:24px 26px}
@@ -1678,35 +1755,188 @@ function vMap(){
   </section>`;
 }
 
+/* ---------- institutions: who elects whom ---------- */
+const INS_NODES={
+ cit:{x:300,y:20,w:400,h:88,t:'Citizens',r:'Every citizen aged 18 or over',
+   m:['Two ballots on the same day'],
+   d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
+   a:[37,39,102,104,108]},
+ kon:{x:40,y:196,w:320,h:112,t:'Kongres',r:'Legislature',
+   m:['49 constituencies, 2 to 20 delegates each'],
+   d:'Each of the 49 States is one constituency and elects between 2 and 20 delegates in proportion to its population, by proportional list vote, for four years. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
+   a:[103,104,105,106]},
+ ns:{x:640,y:196,w:320,h:112,t:'Narodni Sabor',r:'Assembly of Nations',
+   m:['7 national delegations of 10 members'],
+   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. On any other law, two-thirds of one delegation can raise the alarm.',
+   a:[107,108,109,110]},
+ joint:{x:410,y:230,w:180,h:44,t:'Confederal Assembly',r:'',m:[],
+   d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm the seven councillors of the Konfederalno Veće, as one college, in a single vote by simple majority. If the college is rejected, the delegations concerned nominate new candidates within 30 days.',
+   a:[105,112]},
+ kv:{x:360,y:384,w:280,h:100,t:'Konfederalno Veće',r:'Executive council',
+   m:['7 councillors, one per people'],
+   d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
+   a:[111,112,113,114,115]},
+ us:{x:360,y:548,w:280,h:100,t:'Ustavni Sud',r:'Constitutional court, Zagreb',
+   m:['14 judges, two per people'],
+   d:'For each of its two seats, every people\'s delegation in the Narodni Sabor proposes three candidates; the Kongres elects the judges by a two-thirds majority. Judges serve one twelve-year term, and a third of the court is renewed every four years. The court reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
+   a:[116,117,118,119]}
+};
+const INS_EDGES=[
+ {n:['cit','kon'],d:'M380 108 V150 H200 V192',l:[[290,142,'middle','vote in their State']]},
+ {n:['cit','ns'],d:'M620 108 V150 H800 V192',l:[[720,142,'middle','vote by national register']]},
+ {n:['kon','joint'],d:'M360 252 H410',c:'plain'},
+ {n:['ns','joint'],d:'M640 252 H590',c:'plain'},
+ {n:['joint','kv'],d:'M500 274 V380',l:[[510,332,'start','confirms the college']]},
+ {n:['ns','kv'],d:'M720 308 V434 H644',l:[[728,368,'start','each delegation'],[728,384,'start','nominates one councillor']]},
+ {n:['kon','kv'],d:'M280 308 V434 H356',c:'dash',l:[[272,376,'end','oversight']]},
+ {n:['ns','us'],d:'M900 308 V598 H644',l:[[892,520,'end','proposes three candidates'],[892,536,'end','for each seat']]},
+ {n:['kon','us'],d:'M100 308 V598 H356',l:[[108,520,'start','elects the judges'],[108,536,'start','by a two-thirds majority']]}
+];
+function artLink(n){const id='art-'+n,t=cIndex()[id];
+  return t?`<a href="#/constitution/${t}/${id}">Art. ${n}</a>`:`Art. ${n}`;}
+function insSVG(){
+  const node=(k,o)=>{
+    const tx=k==='joint'?o.x+o.w/2:o.x+20, an=k==='joint'?'middle':'start';
+    const lines=k==='joint'
+      ?`<text class="isc-t" x="${tx}" y="${o.y+20}" text-anchor="middle">${o.t}</text>
+        <text class="isc-m" x="${tx}" y="${o.y+35}" text-anchor="middle" style="font-size:11px">joint sitting</text>`
+      :`<text class="isc-t" x="${tx}" y="${o.y+31}">${esc(o.t)}</text>
+        <text class="isc-r" x="${tx}" y="${o.y+52}">${esc(o.r)}</text>
+        ${o.m.map((m,i)=>`<text class="isc-m" x="${tx}" y="${o.y+76+i*17}">${esc(m)}</text>`).join('')}`;
+    return `<g class="isc-n ${k}" data-id="${k}" tabindex="0" role="button" aria-pressed="false"
+      aria-label="${esc(o.t)}${o.r?', '+esc(o.r):''}">
+      <rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" rx="${k==='joint'?22:4}"/>${lines}</g>`;
+  };
+  const arrow=(id,cls)=>`<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+    orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(${cls})"/></marker>`;
+  return `<svg class="isc" id="iscSvg" viewBox="0 0 1000 660" role="group"
+    aria-label="How the confederal institutions are elected">
+    <defs>${arrow('iscArr','--line-3')}${arrow('iscArrOn','--gold')}</defs>
+    ${INS_EDGES.map((e,i)=>`<g class="e ${e.c||''}" data-n="${e.n.join(' ')}" style="--dl:${(0.15+i*0.12).toFixed(2)}s">
+      <path class="ln" d="${e.d}"/><path class="fl" d="${e.d}"/>
+      ${(e.l||[]).map(l=>`<text class="isc-l" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}">${l[3]}</text>`).join('')}</g>`).join('')}
+    ${Object.entries(INS_NODES).map(([k,o])=>node(k,o)).join('')}
+  </svg>`;
+}
+function insDetail(k){
+  const el=document.getElementById('iscDetail'); if(!el)return;
+  if(!k){el.innerHTML=`<p class="isc-empty">Select an institution in the diagram to see how it is
+    formed and what it does.</p>`;return;}
+  const o=INS_NODES[k];
+  el.innerHTML=`<div><h3>${esc(o.t)}</h3><div class="isc-role">${esc(o.r||'Joint sitting of the two chambers')}</div>
+    <p>${esc(o.d)}</p></div>
+    <div class="isc-arts"><b>In the Constitution</b>${o.a.map(artLink).join('')}</div>`;
+}
+function insSelect(k){
+  const svg=document.getElementById('iscSvg'); if(!svg)return;
+  const cur=svg.getAttribute('data-sel'); if(cur===k)k=null;
+  if(k)svg.setAttribute('data-sel',k); else svg.removeAttribute('data-sel');
+  const rel=new Set();
+  svg.querySelectorAll('.e').forEach(e=>{
+    const n=e.dataset.n.split(' '), on=!!k&&n.includes(k);
+    e.classList.toggle('on',on); if(on)n.forEach(x=>rel.add(x));});
+  svg.querySelectorAll('.isc-n').forEach(g=>{
+    const id=g.dataset.id;
+    g.classList.toggle('sel',id===k); g.classList.toggle('rel',!!k&&rel.has(id));
+    g.setAttribute('aria-pressed',id===k?'true':'false');});
+  insDetail(k);
+}
+/* ---------- institutions: how a confederal law is made ---------- */
+const LAW_STAGES=['Kongres','Narodni Sabor','Publication','People and States','Outcome'];
+const LAW={
+ ordinary:{n:'Ordinary law',o:'In force.',s:[
+   ['pass','Adopted by a simple majority of the delegates present. The quorum is an absolute majority of all delegates.',[106]],
+   ['pass','No consent is needed. For 30 days any national delegation may raise the alarm; none does.',[109]],
+   ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
+   ['skip','No request is filed within 100 days, so there is no vote.',[122]],
+   ['pass','The law enters into force. The Ustavni Sud can still review its conformity with the Constitution.',[118]]]},
+ consent:{n:'Law on languages',o:'In force, with the consent of the peoples.',s:[
+   ['pass','Adopted by a simple majority of the delegates present.',[106]],
+   ['pass','Languages require the consent of the Narodni Sabor: a majority in plenary and a majority within at least five of the seven delegations.',[109,110]],
+   ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
+   ['skip','No request is filed within 100 days.',[122]],
+   ['pass','The law enters into force. Without the consent of the Narodni Sabor it could not have done so.',[109]]]},
+ alarm:{n:'Alarm motion',o:'In force, after a two-thirds vote.',s:[
+   ['pass','Adopted by a simple majority of the delegates present.',[106]],
+   ['alt','Two-thirds of one national delegation vote an alarm motion within 30 days. The law is suspended and sent to a joint conciliation committee for 60 days. Conciliation fails.',[109]],
+   ['alt','The Kongres can now adopt the law only by a two-thirds majority. It does so, and the law is published.',[109]],
+   ['skip','No referendum request is filed within 100 days.',[122]],
+   ['pass','The law enters into force.',[109]]]},
+ referendum:{n:'Referendum',o:'Rejected by the people.',s:[
+   ['pass','Adopted by a simple majority of the delegates present.',[106]],
+   ['pass','No consent is needed and no alarm is raised.',[109]],
+   ['pass','Published in the Official Journal. A 100-day window opens.',[122]],
+   ['alt','150,000 citizens or 12 States request a vote within 100 days. The law goes to the people and is rejected if a majority votes against it.',[122]],
+   ['stop','A majority votes no. The law does not enter into force.',[122]]]},
+ amendment:{n:'Constitutional amendment',o:'Part of the Constitution.',s:[
+   ['pass','The Kongres adopts the amendment.',[105]],
+   ['pass','Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations.',[109,110]],
+   ['pass','Published, then put to a mandatory vote of the people and the States.',[123]],
+   ['pass','Double majority: a majority of voters across the Confederation and a majority of the States, 25 of 49. Each State counts as one vote, decided by its own voters.',[123,124]],
+   ['pass','The amendment enters the Constitution.',[123]]]}
+};
+const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
+let _lawT=[];
+function lawHTML(){
+  return `<div class="law-chips" role="group" aria-label="Choose a case">
+    ${Object.entries(LAW).map(([k,v])=>`<button class="chip" data-law="${k}" aria-pressed="false"
+      onclick="lawPlay('${k}',true)">${v.n}</button>`).join('')}</div>
+    <ol class="law-rail" id="lawRail"><span class="law-fill" id="lawFill" aria-hidden="true"></span>
+    ${LAW_STAGES.map((st,i)=>`<li class="law-st" data-i="${i}"><span class="law-dot" aria-hidden="true"></span>
+      <b class="law-k">${st}</b><p class="law-x"></p><span class="law-a"></span></li>`).join('')}</ol>
+`;
+}
+function lawFillTo(i){
+  const rail=document.getElementById('lawRail'), fill=document.getElementById('lawFill'); if(!rail||!fill)return;
+  const dot=rail.querySelectorAll('.law-dot')[i]; if(!dot)return;
+  const r=rail.getBoundingClientRect(), d=dot.getBoundingClientRect();
+  if(matchMedia('(max-width:760px)').matches){fill.style.width='';fill.style.height=Math.max(0,d.top-r.top+10-10)+'px';}
+  else{fill.style.height='';fill.style.width=Math.max(0,d.left-r.left+10-9)+'px';}
+}
+function lawPlay(k,animate){
+  _lawT.forEach(clearTimeout); _lawT=[];
+  const rail=document.getElementById('lawRail'); if(!rail)return;
+  const c=LAW[k], sts=[...rail.querySelectorAll('.law-st')];
+  document.querySelectorAll('.law-chips .chip').forEach(b=>{
+    const on=b.dataset.law===k; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on);});
+  const still=!animate||matchMedia('(prefers-reduced-motion:reduce)').matches;
+  sts.forEach((el,i)=>{const st=c.s[i];
+    el.className='law-st '+st[0];
+    el.querySelector('.law-dot').textContent=LAW_MARK[st[0]];
+    el.querySelector('.law-x').textContent=st[1];
+    el.querySelector('.law-a').innerHTML=st[2].map(artLink).join('');});
+  rail.setAttribute('aria-label',c.n+': '+c.o);
+  if(still){sts.forEach(el=>el.classList.add('on'));
+    requestAnimationFrame(()=>lawFillTo(sts.length-1));return;}
+  lawFillTo(0);
+  sts.forEach((el,i)=>_lawT.push(setTimeout(()=>{
+    if(!document.body.contains(el))return;
+    el.classList.add('on'); lawFillTo(i);},180+i*1050)));
+}
+function insMount(){
+  const svg=document.getElementById('iscSvg'); if(!svg)return;
+  svg.querySelectorAll('.isc-n').forEach(g=>{
+    g.addEventListener('click',()=>insSelect(g.dataset.id));
+    g.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();insSelect(g.dataset.id);}});});
+  insDetail(null);
+  lawPlay('ordinary',false);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
+  svg.querySelectorAll('.e .ln').forEach(p=>p.parentNode.style.setProperty('--len',Math.ceil(p.getTotalLength())));
+  svg.classList.add('draw');
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;
+      io.disconnect(); svg.classList.add('go');
+      setTimeout(()=>svg.classList.remove('draw','go'),2200);});},{threshold:.3});
+  io.observe(svg);
+}
 function vInstitutions(){
-  const org=[
-   ['leg','Legislative organ','Kongres',[
-     'Delegates elected by universal direct suffrage, proportional ballot.',
-     'Each state is one constituency; 2 to 20 delegates by population.',
-     'Votes laws and the budget, ratifies treaties, grants pardon.',
-     'Elects the judges of the Ustavni Sud and confirms the Konfederalno Veće.']],
-   ['rep','Assembly of Nations','Narodni Sabor',[
-     'Seven national delegations of ten members, 70 members in all.',
-     'Elected by citizens enrolled in each national register.',
-     'Mandatory consent: languages, alphabet, borders, symbols, equalisation.',
-     'Alarm right and review of petitions from autonomous communities.']],
-   ['exe','Confederal Council, executive','Konfederalno Veće',[
-     'College of seven councillors, one per constituent people.',
-     'Decisions by consensus; failing that, simple majority.',
-     'Annual rotating presidency (Slovene → … → Bulgarian).',
-     'Seven departments across Sarajevo, Beograd, Sofija and Zagreb.']],
-   ['jud','Judicial organ','Ustavni Sud',[
-     'Constitutional Court sitting in Zagreb.',
-     'Fourteen judges, two per constituent people; 12-year term.',
-     'Constitutional review, conflicts of competence.',
-     'Individual remedies and disputes of the autonomous communities.']]
-  ];
   return crumb([['Home','#/home'],['Institutions']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Confederal architecture</div>
     <h1>Institutions of the Confederation</h1>
-    <p class="lead">The legislative, executive and judicial functions are separated
-    (Art. 101). No person may sit in more than one confederal organ.</p>
+    <p class="lead">Two chambers, one elected by the States and one by the peoples, choose a
+    collegial executive and the judges of the constitutional court. The legislative, executive
+    and judicial functions are separated, and no one may sit in more than one confederal organ
+    (Art. 101).</p>
   </section>
   <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('institutions-hall','fill')}</div>
@@ -1714,22 +1944,29 @@ function vInstitutions(){
     <div class="band-inner"><div class="band-q" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">
       Seated across Sarajevo, Beograd, Zagreb and Sofija.</div></div>
   </section>
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="org">
-      ${org.map(o=>`<div class="orgcard">
-        <div class="org-k">${o[1]}</div><h3>${o[2]}</h3>
-        <ul>${o[3].map(li=>`<li>${li}</li>`).join('')}</ul></div>`).join('')}
-    </div>
+  <section class="section reveal">
+    <div class="h2row"><h2>Who elects whom</h2></div>
+    <p class="lead">Citizens elect both chambers. The chambers then form the executive and the
+    court, so that every people takes part in each of them.</p>
+    <div class="isc-wrap">${insSVG()}</div>
+    <div class="isc-detail" id="iscDetail" aria-live="polite"></div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>How a confederal law is made</h2></div>
+    <p class="lead" style="margin-bottom:18px">Every confederal law passes the Kongres. The
+    Narodni Sabor guards the matters that touch the peoples, and the citizens keep the last
+    word through the referendum. Choose a case to follow it step by step.</p>
+    ${lawHTML()}
   </section>
   <section class="section reveal">
     <div class="h2row"><h2>Direct democracy</h2></div>
     <div class="split2">
       <div class="panel"><div class="eyebrow">Popular initiative</div>
-        <p class="note">300,000 citizens may propose a constitutional revision, adopted
-        by the double majority of the people and of the states.</p></div>
+        <p class="note">300,000 citizens may propose a constitutional revision within 18 months,
+        adopted by the double majority of the people and of the States (Art. 121).</p></div>
       <div class="panel"><div class="eyebrow">Optional referendum</div>
-        <p class="note">150,000 citizens or 12 states may submit any confederal law to a
-        popular vote within 100 days of its publication.</p></div>
+        <p class="note">150,000 citizens or 12 States may submit any confederal law to a
+        popular vote within 100 days of its publication (Art. 122).</p></div>
     </div>
   </section>`;
 }
@@ -2771,6 +3008,7 @@ function renderNow(){
   if(h.startsWith('#/states'))renderGrid();
   if(h.startsWith('#/register'))regRender();
   if(h.startsWith('#/citizen'))citMount();
+  if(h.startsWith('#/institutions'))insMount();
   citHeader();
   window.scrollTo(0,0);
   const hd=document.querySelector('header');
