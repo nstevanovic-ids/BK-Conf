@@ -41,6 +41,7 @@
   --gold-2:#d6a829;
   --gold-bright:#f8c300;
   --gold-soft:#f1deac;
+  --gold-pale:#f1deac; /* texte or sur fond toujours sombre (en-tête, pied, bandeaux) : identique dans les deux thèmes */
   --line:#e4e5e8;
   --line-2:#d0d2d8;
   --line-3:#bcbfc7;
@@ -126,7 +127,7 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
 .utility .wrap{max-width:1240px;margin:0 auto;display:flex;align-items:center;
   justify-content:flex-end;gap:18px;padding:6px 28px;font-size:.74rem}
 .utility .crumbtag{margin-right:auto;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gold-soft);font-weight:600;font-size:.68rem}
+  color:var(--gold-pale);font-weight:600;font-size:.68rem}
 .langsel{display:flex;align-items:center;gap:2px}
 .langsel button{background:none;border:none;color:rgba(233,234,240,.6);
   font-size:.72rem;font-weight:600;padding:3px 7px;border-radius:2px;letter-spacing:.04em}
@@ -143,7 +144,7 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
 .brand b{font-family:var(--font);font-size:1.3rem;font-weight:700;
   letter-spacing:.005em;color:#fff}
 .brand span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-soft);margin-top:3px;font-weight:600}
+  color:var(--gold-pale);margin-top:3px;font-weight:600}
 .searchbtn{margin-left:auto;display:flex;align-items:center;gap:7px;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
   color:rgba(233,234,240,.8);font-size:.78rem;font-weight:500;
@@ -382,7 +383,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   display:flex;align-items:center;gap:20px}
 .cert .cemb{width:54px;height:54px;flex:none}
 .cert .cl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gold-soft);font-weight:700}
+  color:var(--gold-pale);font-weight:700}
 .cert .cid{font-family:var(--font);font-size:1.5rem;font-weight:600;
   letter-spacing:.04em;margin-top:3px}
 .cert p{font-size:.8rem;color:rgba(233,234,240,.7);margin-top:4px}
@@ -868,7 +869,7 @@ button.sr-bar:hover{background:var(--sr-hi)}
   linear-gradient(90deg,rgba(11,14,24,.86),rgba(11,14,24,.55) 52%,rgba(11,14,24,.2))}
 .hero-full .hero-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
   padding:0 28px;width:100%;color:#fff}
-.hero-full .eyebrow{color:var(--gold-soft)}
+.hero-full .eyebrow{color:var(--gold-pale)}
 .hero-full h1{color:#fff;font-size:clamp(2.5rem,6.2vw,4.6rem);line-height:1.02;
   letter-spacing:-.022em;margin:8px 0 18px;text-shadow:0 2px 30px rgba(0,0,0,.35)}
 .hero-full .lead{color:rgba(255,255,255,.84);font-size:1.12rem;max-width:56ch}
@@ -885,7 +886,7 @@ button.sr-bar:hover{background:var(--sr-hi)}
   background:linear-gradient(90deg,rgba(11,14,24,.72),rgba(11,14,24,.42))}
 .band .band-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;
   padding:0 28px;width:100%;color:#fff}
-.band .eyebrow{color:var(--gold-soft)}
+.band .eyebrow{color:var(--gold-pale)}
 .band-q{font-size:clamp(1.4rem,3.6vw,2.5rem);font-weight:600;line-height:1.18;
   max-width:22ch;margin-top:10px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .band-sub{color:rgba(255,255,255,.82);margin-top:14px;max-width:52ch}
@@ -920,7 +921,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .fmain{max-width:1240px;margin:0 auto;padding:42px 28px 30px;
   display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
 .fmain h5{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold-soft);font-weight:700;margin-bottom:13px}
+  color:var(--gold-pale);font-weight:700;margin-bottom:13px}
 .fmain a{display:block;font-size:.83rem;padding:3px 0;color:rgba(233,234,240,.62)}
 .fmain a:hover{color:#fff}
 .fbrand b{font-family:var(--font);color:#fff;font-size:1.05rem;display:block;margin-bottom:7px}
