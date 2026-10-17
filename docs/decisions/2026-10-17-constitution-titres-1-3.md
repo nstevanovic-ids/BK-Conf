@@ -70,6 +70,9 @@ Le détail est dans la section H de l'annexe de `v4.md`.
   garantie aux constitutions des États.
 
 ## Reste ouvert
+> **Mise à jour du 2026-10-17 (v4.2)** : le chapitre « Compétences » est intégré, et les
+> art. 49 à 53 sont renumérotés 50 à 54 ; cf. ADR 2026-10-17-constitution-competences.md.
+
 Les numéros 54 à 99 restent libres. Dans le modèle suisse, ils portent :
 
 - le catalogue des compétences de la Confédération (relations extérieures, sécurité,

@@ -13,7 +13,8 @@ Structure produite :
   {version, date, source, preamble:{paras[], motto},
    titles:[{id, num, name, chapters:[{num, name, articles:[...]}]}]}
   title.id = « title-4 », « title-1bis » ; article.id = « art-109 », « art-140bis »
-  article = {id, num, name, body:[block]}
+  article = {id, num, name, body:[block], sec?:{num, name}}
+            (sec : section qui s'ouvre avant cet article, « #### Section N / Nom »)
   block   = {"t":"p","x":str} | {"t":"ul","items":[str]}
           | {"t":"ol","items":[[n,str]]} | {"t":"ll","items":[[letter,str]]}
           | {"t":"h","x":str}   (intertitre en gras, ex. « Territorial States (45): »)
@@ -71,6 +72,14 @@ def blocks(text: str) -> list:
     return out
 
 
+def section(text: str):
+    """Premier intertitre « #### Section N / Nom » d'un texte, et sa position."""
+    m = re.search(r"^#### Section (\S+) / (.+)$", text, re.M)
+    if not m:
+        return None, len(text)
+    return {"num": "Section " + m.group(1), "name": m.group(2).strip()}, m.start()
+
+
 def parse(md: str) -> dict:
     head = re.search(r"^## Consolidated text, version (\S+) \(([^)]+)\)", md, re.M)
     doc = {
@@ -106,17 +115,27 @@ def parse(md: str) -> dict:
             cm = re.match(r"^Chapter (\d+) / (.+)$", ch_head.strip())
             chapter = {"num": f"Chapter {cm.group(1)}" if cm else "",
                        "name": cm.group(2).strip() if cm else "", "articles": []}
-            for ap in re.split(r"^### ", ch_body, flags=re.M)[1:]:
+            parts = re.split(r"^### ", ch_body, flags=re.M)
+            pending, _ = section(parts[0])
+            for ap in parts[1:]:
                 a_head, _, a_body = ap.partition("\n")
+                # un intertitre de section en fin de corps ouvre la section de l'article suivant
+                nxt, cut = section(a_body)
+                a_body = a_body[:cut]
                 am = re.match(r"^Article (\d+(?: \w+)?) / (.+)$", a_head.strip())
                 if not am:
+                    pending = nxt or pending
                     continue
-                chapter["articles"].append({
+                art = {
                     "id": "art-" + slug(am.group(1)),
                     "num": "Article " + am.group(1),
                     "name": am.group(2).strip(),
                     "body": blocks(a_body),
-                })
+                }
+                if pending:
+                    art["sec"] = pending
+                chapter["articles"].append(art)
+                pending = nxt
             if chapter["articles"]:
                 title["chapters"].append(chapter)
         doc["titles"].append(title)
@@ -130,7 +149,8 @@ def main() -> int:
         print("Échec de l'analyse : préambule, titres ou articles introuvables.", file=sys.stderr)
         return 1
     OUT.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"{OUT.relative_to(ROOT)} : {len(doc['titles'])} titres, {n_art} articles, "
+    n_sec = sum(1 for t in doc["titles"] for c in t["chapters"] for a in c["articles"] if "sec" in a)
+    print(f"{OUT.relative_to(ROOT)} : {len(doc['titles'])} titres, {n_art} articles, {n_sec} sections, "
           f"{len(doc['preamble']['paras'])} alinéas de préambule "
           f"({OUT.stat().st_size // 1024} kB)")
     return 0

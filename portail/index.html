@@ -417,6 +417,11 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   color:var(--gold);margin-bottom:8px}
 .ctoc .cch{font-weight:700;color:var(--ink);margin:14px 0 4px;font-size:.76rem}
 .ctoc .cch span{display:block;font-weight:500;color:var(--ink-3);font-size:.72rem}
+.ctoc .csec{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:10px 0 2px 10px}
+.ctoc .csec span{display:block;text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink-3);font-size:.7rem}
+.csech{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-2);
+  margin:34px 0 0;padding-bottom:7px;border-bottom:1px solid var(--line-2)}
+.cchap+.csech{margin-top:18px}
 .ctoc a{display:block;padding:4px 0 4px 10px;border-left:2px solid var(--line);
   color:var(--ink-2);line-height:1.35}
 .ctoc a b{display:block;font-size:.68rem;color:var(--ink-3);font-weight:600}
@@ -1226,6 +1231,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-17',cat:'Law',t:'Constitution v4.2: powers of the Confederation',
+  s:'Title III, Chapter 2, Articles 55 to 99: foreign relations, defence, education, culture, environment, transport, energy, economy and currency, social security, civil and criminal law. 152 articles.'},
  {d:'2026-10-17',cat:'Law',t:'Constitution of the Balkan Confederation, v4.1: full text',
   s:'Titles I, II and III restored: general provisions, fundamental rights, citizenship, social goals, the States and the municipalities. 106 articles in eight titles.'},
  {d:'2026-10-13',cat:'Law',t:'Consolidated Constitution of the Balkan Confederation, v4',
@@ -1806,11 +1813,11 @@ function vConstitution(){
   const i=T.indexOf(cur), prev=T[i-1], next=T[i+1];
   const toc=cur.chapters.map(ch=>`
       ${ch.num?`<div class="cch">${esc(ch.num)}<span>${esc(ch.name)}</span></div>`:''}
-      ${ch.articles.map(a=>`<a href="#/constitution/${cur.id}/${a.id}"
+      ${ch.articles.map(a=>`${a.sec?`<div class="csec">${esc(a.sec.num)}<span>${esc(a.sec.name)}</span></div>`:''}<a href="#/constitution/${cur.id}/${a.id}"
         onclick="return cJump('${a.id}')"><b>${esc(a.num.replace('Article ','Art. '))}</b>${esc(a.name)}</a>`).join('')}`).join('');
   const body=cur.chapters.map(ch=>`
       ${ch.num?`<h2 class="cchap">${esc(ch.num)} · ${esc(ch.name)}</h2>`:''}
-      ${ch.articles.map(a=>`<article class="cart" id="${a.id}">
+      ${ch.articles.map(a=>`${a.sec?`<h3 class="csech">${esc(a.sec.num)} · ${esc(a.sec.name)}</h3>`:''}<article class="cart" id="${a.id}">
         <div class="cnum">${esc(a.num)}</div>
         <h3>${esc(a.name)}</h3>
         ${a.body.map(cBlock).join('')}
