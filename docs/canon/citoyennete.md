@@ -2,6 +2,8 @@
 
 Canon en vigueur du parcours `#/register` et de la carte `#/citizen` du portail.
 Décision : ADR `docs/decisions/2026-10-15-parcours-citoyennete.md`.
+Base constitutionnelle : art. 37 à 40 de la Constitution v4.1 (citoyenneté, rattachement,
+droits politiques, citoyens établis à l'étranger), qui reprennent le projet d'article 102 bis.
 
 ## Principe
 
