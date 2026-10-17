@@ -39,6 +39,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Couleurs : #99402F gueules · #374078 azur · #FFFFFF argent · #DFCC68 or
 - INTERDIT : étoile/mullet à 5 branches (associations SFRJ petokraka proscrites)
 
+## Routes (docs/canon/routes.md, constitution art. 91 bis)
+- Route confédérale `Bk-N` (touche ≥ 2 États ; toutes les routes de Brčko et Mostar),
+  nom « Route de [A]–[B] » ; Bk-1 à 9 = grands axes entre capitales, Bk-10+ = secondaire
+- Route étatique `Xx-N` (2e lettre en minuscule : `Da-1` ≠ État `DA-09`), nom « Route de
+  [ville] », compteur par État ; jamais de zéro initial (tri numérique à l'affichage)
+
 ## Alphabet sud-slave v3 (docs/alfabet/v3.md)
 - **32 lettres** (7 voyelles + 25 consonnes), base gajica + traits aréaux balkaniques
 - ě restauré (jat' illyrien), ñ pour /ɲ/, ļ pour /ʎ/, ã schwa bulgare
@@ -50,7 +56,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.2 : texte intégral, 152 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
+  Version 4.2 : texte intégral, 153 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
   dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`), titres
   1 bis et 4 à 7 (art. 1 bis à 145) ; cf. ADR 2026-10-17-constitution-titres-1-3.md et
   2026-10-17-constitution-competences.md
