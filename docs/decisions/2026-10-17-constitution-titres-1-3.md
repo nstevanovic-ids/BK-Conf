@@ -27,7 +27,7 @@ La version 4.1 intègre le texte de base, adapté au canon, dans `v4.md` et `v4.
 |---|---|---|
 | 1 / Dispositions générales | 1 à 7 | Confédération balkanique, but, États, langues, État de droit, subsidiarité, responsabilité |
 | 2 / Droits fondamentaux, citoyenneté et buts sociaux | 8 à 41 | 29 droits fondamentaux ; citoyenneté et droits politiques (37 à 40) ; buts sociaux (41) |
-| 3 / De la Confédération, des États confédérés et des communes | 42 à 53 | tâches, collaboration, conventions interbalkaniques, primauté du droit confédéral, communes, constitutions des États, ordre constitutionnel, territoire |
+| 3 / De la Confédération, des États confédérés et des municipalités | 42 à 53 | tâches, collaboration, conventions interbalkaniques, primauté du droit confédéral, municipalités, constitutions des États, ordre constitutionnel, territoire |
 
 Aucun article existant n'est renuméroté. La constitution compte 106 articles en huit titres.
 
@@ -42,8 +42,8 @@ Le détail est dans la section H de l'annexe de `v4.md`.
   standards, avec renvoi aux articles 127 et 128.
 - **Citoyenneté** (art. 37 à 40) : alignée sur `docs/canon/citoyennete.md` :
   - citoyenneté déclarative ;
-  - rattachement par la commune d'origine (la sienne, celle d'un parent ou d'un
-    grand-parent), sinon par la commune de résidence, jamais par libre choix ;
+  - rattachement par la municipalité d'origine (la sienne, celle d'un parent ou d'un
+    grand-parent), sinon par la municipalité de résidence, jamais par libre choix ;
   - aucune déchéance ;
   - droits politiques confédéraux et étatiques exercés dans l'État de rattachement.
 
@@ -53,13 +53,16 @@ Le détail est dans la section H de l'annexe de `v4.md`.
   - générique masculin (« citoyens » au lieu de « citoyens et citoyennes », « un juge ») ;
   - « Tribunal confédéral » remplacé par Cour confédérale de justice (art. 1 ter c) ;
   - coquille « Kalkaniques » corrigée.
-- **« Municipalités »** (titre 3) : remplacé par **communes** (opštine), car
-  « municipalité » désigne Brčko et Mostar.
+- **« Municipalités »** (titre 3) : terme du texte de 2020 **conservé** pour l'échelon
+  local (décision de l'utilisateur du 2026-10-17, qui annule le remplacement par « communes »
+  fait dans la première rédaction). « Municipalité confédérale autonome » continue de
+  désigner Brčko et Mostar (art. 1 septies). La municipalité d'origine de l'art. 38 est la
+  « commune d'origine » de `docs/canon/citoyennete.md`.
 - **Article 48 inachevé** (« Les États peuvent, par ») : complété sur le modèle de la
   Constitution fédérale suisse, dont le texte de 2020 est issu.
 - **Articles 49 à 53 rédigés** pour clore le chapitre :
   - primauté du droit confédéral ;
-  - communes ;
+  - municipalités ;
   - garantie des constitutions des États ;
   - ordre constitutionnel : intervention sur demande de l'État, cohérente avec l'art. 139 ;
   - territoire : consentement du Narodni Sabor, cohérent avec l'art. 109.
