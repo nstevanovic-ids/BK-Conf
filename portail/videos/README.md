@@ -40,4 +40,4 @@ La vidéo brute n'est pas versionnée (≈ 20 Mo pour 15 s) : la conserver hors 
 
 | État | Film | Durée | Contenu |
 |------|------|-------|---------|
-| BA-01 Bosanska Krajina | 2026-10-18, Grok Imagine | 14,4 s | Una (rapides, vue zénithale), village et minaret, rivière et balançoire, fleurs, rétroviseur au couchant, guitariste en ville |
+| BA-01 Bosanska Krajina | 2026-10-18 (v2), Grok Imagine | 14,4 s | Una (rapides, vue zénithale), village et minaret, rivière, rétroviseur au couchant, fleurs, guitariste en ville, drapeau de Bosanska Krajina au vent sur la vallée |
