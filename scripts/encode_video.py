@@ -3,14 +3,16 @@
 encode_video.py — prépare une vidéo d'État pour le header animé du portail.
 
 Prend une vidéo brute (Grok Imagine, montage, etc.) et produit, dans portail/videos/ :
-  <CODE>.mp4       H.264 1280×720 (CRF 28), son AAC — écrans larges
-  <CODE>-480.mp4   H.264 854×480, plus léger — téléphones (<source media>)
+  <CODE>.mp4       H.264 1280×720 (CRF 28), sans son — écrans larges
+  <CODE>-480.mp4   H.264 854×480 (CRF 29), sans son — téléphones (<source media>)
   <CODE>.jpg       poster (première image), affiché avant lecture et en reduced-motion
 puis inscrit l'État dans portail/data/videos.json (manifeste lu par le portail).
 
-Boucle sans couture : les premières images (FADE, 15 par défaut) sont fondues en fin de vidéo
-(xfade + acrossfade). La fin de la vidéo produite retombe exactement sur sa première
-image : la boucle <video loop> ne montre plus de coupe. Durée finale = durée source − FADE.
+Le film est muet sur le portail : la piste son de la source est supprimée.
+
+Boucle sans couture : les premières images (FADE, 15 par défaut) sont fondues en fin de
+vidéo (xfade). La dernière image produite enchaîne exactement sur la première : la boucle
+<video loop> ne montre plus de coupe. Durée finale = durée source − FADE.
 
 Les métadonnées de la source sont retirées (signature du générateur, vignette jointe).
 La vidéo brute n'est pas versionnée (trop lourde) : la garder hors du dépôt.
@@ -31,52 +33,39 @@ MANIFEST = ROOT / "portail" / "data" / "videos.json"
 ETATS = ROOT / "portail" / "data" / "etats.json"
 
 FPS = 24
-# (suffixe, largeur, hauteur, CRF, débit audio)
-VARIANTS = [("", 1280, 720, 28, "96k"), ("-480", 854, 480, 29, "64k")]
+# (suffixe, largeur, hauteur, CRF)
+VARIANTS = [("", 1280, 720, 28), ("-480", 854, 480, 29)]
 
 
-def probe(path: Path) -> dict:
+def duration(path: Path) -> float:
+    """Durée du flux vidéo principal (la vignette jointe éventuelle est ignorée)."""
     out = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries",
-         "stream=index,codec_type,codec_name,width,height,duration:stream_disposition=attached_pic",
-         "-of", "json", str(path)],
+         "stream=codec_type,duration:stream_disposition=attached_pic", "-of", "json", str(path)],
         check=True, capture_output=True, text=True).stdout
-    streams = json.loads(out)["streams"]
-    video = next(s for s in streams
+    video = next(s for s in json.loads(out)["streams"]
                  if s["codec_type"] == "video" and not s.get("disposition", {}).get("attached_pic"))
-    audio = next((s for s in streams if s["codec_type"] == "audio"), None)
-    return {"video": video, "audio": audio, "duration": float(video["duration"])}
+    return float(video["duration"])
 
 
-def encode(src: Path, dst: Path, w: int, h: int, crf: int, abr: str,
-           n: int, f: int, has_audio: bool) -> None:
+def encode(src: Path, dst: Path, w: int, h: int, crf: int, n: int, f: int) -> None:
     """n = images de la source, f = images de fondu (calcul en images entières : un fondu
     à cheval sur deux images laisse une marche visible au bouclage)."""
-    # La source est ouverte deux fois (entrée 0 = corps, entrée 1 = tête à fondre en fin) :
-    # avec un split/asplit, acrossfade attend la fin de sa première entrée et la branche
-    # « tête » ne reçoit jamais d'échantillons (piste son vide, sans erreur).
+    # La source est ouverte deux fois (entrée 0 = corps, entrée 1 = tête à fondre en fin).
     # Corps = images [f, n), tête = images [0, f). Le fondu dure f−1 images : la dernière
     # image produite est exactement l'image f−1 de la source, et la boucle repart sur f.
-    off, xd, out = (n - 2 * f) / FPS, (f - 1) / FPS, (n - f) / FPS
+    off, xd = (n - 2 * f) / FPS, (f - 1) / FPS
     pre = f"scale={w}:{h}:flags=lanczos,setsar=1,fps={FPS},format=yuv420p"
     vf = (f"[0:v:0]{pre},trim=start_frame={f},setpts=PTS-STARTPTS[a];"
           f"[1:v:0]{pre},trim=end_frame={f},setpts=PTS-STARTPTS[b];"
           f"[a][b]xfade=transition=fade:duration={xd:.5f}:offset={off:.5f},format=yuv420p[v]")
-    cmd = ["ffmpeg", "-v", "error", "-y", "-i", str(src), "-i", str(src)]
-    if has_audio:
-        vf += (f";[0:a:0]aresample=48000,atrim=start={f / FPS:.5f},asetpts=PTS-STARTPTS[x];"
-               f"[1:a:0]aresample=48000,atrim=end={f / FPS:.5f},asetpts=PTS-STARTPTS[y];"
-               f"[x][y]acrossfade=d={f / FPS:.5f}:c1=tri:c2=tri,"
-               f"apad=whole_dur={out:.5f},atrim=end={out:.5f}[au]")
-    cmd += ["-filter_complex", vf, "-map", "[v]", "-frames:v", str(n - f)]
-    if has_audio:
-        cmd += ["-map", "[au]", "-c:a", "aac", "-b:a", abr, "-ac", "2"]
-    cmd += ["-c:v", "libx264", "-preset", "slow", "-crf", str(crf),
-            "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.0", "-g", "48",
-            "-map_metadata", "-1", "-movflags", "+faststart", str(dst)]
-    subprocess.run(cmd, check=True)
-    if has_audio and probe(dst)["audio"] is None:
-        sys.exit(f"piste son absente du résultat : {dst}")
+    subprocess.run(
+        ["ffmpeg", "-v", "error", "-y", "-i", str(src), "-i", str(src),
+         "-filter_complex", vf, "-map", "[v]", "-frames:v", str(n - f), "-an",
+         "-c:v", "libx264", "-preset", "slow", "-crf", str(crf),
+         "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.0", "-g", "48",
+         "-map_metadata", "-1", "-movflags", "+faststart", str(dst)],
+        check=True)
 
 
 def main() -> int:
@@ -95,15 +84,14 @@ def main() -> int:
     if not args.source.exists():
         sys.exit(f"source introuvable : {args.source}")
 
-    info = probe(args.source)
-    n, f = round(info["duration"] * FPS), max(2, round(args.fade * FPS))
+    n, f = round(duration(args.source) * FPS), max(2, round(args.fade * FPS))
     if n < 3 * f:
         sys.exit(f"vidéo trop courte ({n} images) pour un fondu de {f} images")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    for suffix, w, h, crf, abr in VARIANTS:
+    for suffix, w, h, crf in VARIANTS:
         dst = OUT_DIR / f"{args.code}{suffix}.mp4"
-        encode(args.source, dst, w, h, crf, abr, n, f, info["audio"] is not None)
+        encode(args.source, dst, w, h, crf, n, f)
         print(f"{dst.relative_to(ROOT)}  {dst.stat().st_size / 1e6:.2f} Mo")
 
     poster = OUT_DIR / f"{args.code}.jpg"
@@ -119,7 +107,6 @@ def main() -> int:
         "sm": f"videos/{args.code}-480.mp4",
         "poster": f"videos/{args.code}.jpg",
         "dur": out_dur,
-        "audio": info["audio"] is not None,
     }
     manifest = dict(sorted(manifest.items()))
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
