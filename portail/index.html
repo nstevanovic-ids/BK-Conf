@@ -1044,27 +1044,11 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .shero-meta em{font-style:normal;font-weight:500;color:rgba(255,255,255,.62);margin-right:5px}
 .shero-meta .shero-code{font-feature-settings:"tnum" 1;letter-spacing:.08em;color:#fff;
   border:1px solid rgba(255,255,255,.5);padding:2px 9px;border-radius:2px}
-.shero-ctl{display:flex;gap:10px;flex:none}
-.shero-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.42);
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  transition:background-color .18s,color .18s,border-color .18s}
-.shero-btn:hover{background:#fff;color:var(--indigo);border-color:#fff}
-.shero-btn:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
-.shero-btn svg{width:16px;height:16px}
-.shero-btn .i-on{display:none}
-.shero-btn[aria-pressed="true"] .i-on{display:block}
-.shero-btn[aria-pressed="true"] .i-off{display:none}
-.shero-bar{position:absolute;left:0;right:0;bottom:0;height:3px;z-index:3;
-  background:rgba(255,255,255,.14)}
-.shero-bar i{display:block;height:100%;background:#dfcc68;transform:scaleX(0);
-  transform-origin:left center}
 @media(prefers-reduced-motion:no-preference){
   .shero-media video{animation:shZoom 2.8s cubic-bezier(.2,.7,.2,1) both}
   .shero-top{animation:shUp .7s .1s ease both}
   .shero-id>*{animation:shUp .8s cubic-bezier(.2,.7,.2,1) both}
   .shero-id>:nth-child(2){animation-delay:.12s}
-  .shero-ctl{animation:shUp .8s .3s ease both}
   .shero-flag svg{animation:flagwave 5.5s ease-in-out infinite;transform-origin:left center}
 }
 @keyframes shZoom{from{transform:scale(1.09)}to{transform:none}}
@@ -1072,12 +1056,10 @@ button.sr-bar:hover{background:var(--sr-hi)}
 @media(max-width:680px){
   .shero{height:clamp(360px,64vh,560px)}
   .shero-top,.shero-inner{padding-left:16px;padding-right:16px}
-  .shero-inner{flex-direction:column;align-items:stretch;gap:16px;padding-bottom:26px}
+  .shero-inner{padding-bottom:26px}
   .shero-id{flex-direction:column;align-items:flex-start;gap:12px}
   .shero-flag{width:64px;margin-bottom:0}
-  .shero-ctl{position:absolute;right:16px;bottom:26px}
-  .shero-meta{font-size:.8rem;margin-right:100px}
-  .shero-btn{width:40px;height:40px}
+  .shero-meta{font-size:.8rem}
 }
 
 /* directory card of a state that has a film */
@@ -1787,18 +1769,12 @@ function vState(code){
 }
 
 /* ============================================================
-   STATE FILM — the state page opens on a looping, muted film.
-   Files: portail/videos/<code>.mp4 (720p), <code>-480.mp4 (phones),
-   <code>.jpg (poster), listed in data/videos.json by
+   STATE FILM — the state page opens on a looping, silent film, no
+   controls. Files: portail/videos/<code>.mp4 (720p), <code>-480.mp4
+   (phones), <code>.jpg (poster), listed in data/videos.json by
    scripts/encode_video.py. Plays only while on screen; reduced
-   motion or data saver: poster only, play on demand.
+   motion or data saver: poster only.
    ============================================================ */
-const SH_IC={
-  pause:'<svg class="i-on" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="2.5" width="3" height="11" rx=".6"/><rect x="9.5" y="2.5" width="3" height="11" rx=".6"/></svg>',
-  play:'<svg class="i-off" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 2.4v11.2a.6.6 0 0 0 .9.5l9-5.6a.6.6 0 0 0 0-1L5.4 1.9a.6.6 0 0 0-.9.5z"/></svg>',
-  snd:'<svg class="i-on" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6v4h2.6L8.5 13V3L5.1 6z" fill="currentColor"/><path d="M11 5.6a3.4 3.4 0 0 1 0 4.8M12.9 3.7a6 6 0 0 1 0 8.6"/></svg>',
-  mute:'<svg class="i-off" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6v4h2.6L8.5 13V3L5.1 6z" fill="currentColor"/><path d="M11 6l3.5 4M14.5 6L11 10"/></svg>'
-};
 function sheroHTML(s,vd,typeLabel,trail){
   const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p];
   const meta=[`<span class="shero-code">${s.c}</span>`];
@@ -1823,55 +1799,28 @@ function sheroHTML(s,vd,typeLabel,trail){
           <div class="shero-meta"><div class="shm">${meta.join('')}</div></div>
         </div>
       </div>
-      <div class="shero-ctl" role="group" aria-label="Film controls">
-        <button type="button" class="shero-btn" id="shPlay" aria-pressed="false"
-          aria-label="Play the film">${SH_IC.pause}${SH_IC.play}</button>
-        ${vd.audio?`<button type="button" class="shero-btn" id="shSnd" aria-pressed="false"
-          aria-label="Turn sound on">${SH_IC.snd}${SH_IC.mute}</button>`:''}
-      </div>
     </div>
-    <div class="shero-bar" aria-hidden="true"><i></i></div>
   </section>`;
 }
-let _sh=null;   // live film header: {v, held, seen, io}
+let _sh=null;   // live film header: {v, seen, io}
 function sheroMount(){
   if(_sh){if(_sh.io)_sh.io.disconnect();_sh=null;}
   const root=document.getElementById('shero'); if(!root)return;
-  const v=root.querySelector('video'), bar=root.querySelector('.shero-bar i');
-  const bP=document.getElementById('shPlay'), bS=document.getElementById('shSnd');
-  const calm=matchMedia('(prefers-reduced-motion:reduce)').matches||
-    !!(navigator.connection&&navigator.connection.saveData);
-  // held: the visitor (or a calm-motion setting) keeps the film paused
-  const st=_sh={v,held:calm,seen:true,io:null};
+  // reduced motion or data saver: the poster stays, the film never loads
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||
+     (navigator.connection&&navigator.connection.saveData))return;
+  const v=root.querySelector('video'), st=_sh={v,seen:true,io:null};
   v.muted=true;
-  const go=()=>{v.preload='auto';const p=v.play();if(p&&p.catch)p.catch(()=>{});};
-  const sync=()=>{const on=!v.paused;
-    bP.setAttribute('aria-pressed',String(on));
-    bP.setAttribute('aria-label',on?'Pause the film':'Play the film');};
-  let raf=0;
-  const step=()=>{if(!root.isConnected){cancelAnimationFrame(raf);return;}
-    if(v.duration)bar.style.transform=`scaleX(${(v.currentTime/v.duration).toFixed(4)})`;
-    raf=requestAnimationFrame(step);};
-  v.addEventListener('play',()=>{sync();cancelAnimationFrame(raf);raf=requestAnimationFrame(step);});
-  v.addEventListener('pause',()=>{sync();cancelAnimationFrame(raf);});
-  bP.addEventListener('click',()=>{
-    if(v.paused){st.held=false;go();}else{st.held=true;v.pause();}});
-  if(bS)bS.addEventListener('click',()=>{
-    v.muted=!v.muted;
-    if(!v.muted){v.volume=.8;if(v.paused){st.held=false;go();}}
-    bS.setAttribute('aria-pressed',String(!v.muted));
-    bS.setAttribute('aria-label',v.muted?'Turn sound on':'Mute the film');});
   if('IntersectionObserver' in window){
     st.io=new IntersectionObserver(es=>es.forEach(e=>{st.seen=e.isIntersecting;
-      if(!st.seen)v.pause();else if(!st.held&&!document.hidden)go();}),{threshold:.2});
+      if(!st.seen)v.pause();else if(!document.hidden)shPlay(v);}),{threshold:.2});
     st.io.observe(root);
-  }else if(!st.held)go();
-  sync();
+  }else shPlay(v);
 }
+function shPlay(v){v.preload='auto';const p=v.play();if(p&&p.catch)p.catch(()=>{});}
 document.addEventListener('visibilitychange',()=>{
   if(!_sh||!_sh.v.isConnected)return;
-  if(document.hidden)_sh.v.pause();
-  else if(!_sh.held&&_sh.seen){const p=_sh.v.play();if(p&&p.catch)p.catch(()=>{});}
+  if(document.hidden)_sh.v.pause();else if(_sh.seen)shPlay(_sh.v);
 });
 
 function vMap(){
