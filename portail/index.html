@@ -312,8 +312,9 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 
 /* ---------- institutions ---------- */
 /* ---------- institutions: who elects whom (schema) + how a law is made ---------- */
-.isc-wrap{overflow-x:auto;margin:6px -4px 0;padding:4px;-webkit-overflow-scrolling:touch}
-.isc{display:block;width:100%;min-width:720px;height:auto;font-family:var(--font)}
+.isc-wrap{margin:6px -4px 0;padding:4px}
+.isc{display:block;width:100%;height:auto;font-family:var(--font)}
+.isc-tall{display:none;max-width:500px;margin:0 auto}
 .isc .isc-n{cursor:pointer;outline:none;transition:opacity .25s}
 .isc .isc-n rect{fill:var(--white);stroke:var(--line-3);stroke-width:1.2;transition:stroke .2s,stroke-width .2s}
 .isc .isc-n.cit rect{fill:var(--indigo);stroke:var(--indigo)}
@@ -325,18 +326,29 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .isc .isc-n.sel rect{stroke:var(--gold);stroke-width:2.6}
 .isc-t{font-size:19px;font-weight:700;fill:var(--ink)}
 .isc-n.joint .isc-t{font-size:13.5px}
+.isc-js{font-size:11px}
+.isc-tall .isc-t{font-size:16.5px}
+.isc-tall .isc-n.joint .isc-t{font-size:12.5px}
+.isc-tall .isc-r,.isc-tall .isc-m{font-size:11.5px}
+.isc-tall .isc-js{font-size:10.5px}
+.isc-tall .isc-l{font-size:11px}
+@media(max-width:860px){.isc-wide{display:none}.isc-tall{display:block}}
 .isc-r{font-size:12.5px;font-weight:600;fill:var(--gold)}
 .isc-m{font-size:12.5px;fill:var(--ink-2)}
 .isc-l{font-size:12px;fill:var(--ink-3);transition:fill .2s}
 .isc .e{transition:opacity .25s}
-.isc .e .ln{fill:none;stroke:var(--line-3);stroke-width:1.6;marker-end:url(#iscArr);transition:stroke .2s}
+.isc .e .ln{fill:none;stroke:var(--line-3);stroke-width:1.6;transition:stroke .2s}
+.isc-wide .e .ln{marker-end:url(#iscArr-wide)}
+.isc-tall .e .ln{marker-end:url(#iscArr-tall)}
 .isc .e.dash .ln{stroke-dasharray:5 5}
 .isc .e.plain .ln{marker-end:none}
 .isc .e .fl{fill:none;stroke:var(--gold-2);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1 13;opacity:0}
 .isc[data-sel] .e:not(.on){opacity:.18}
 .isc[data-sel] .isc-n:not(.sel):not(.rel){opacity:.4}
-.isc .e.on .ln{stroke:var(--gold);marker-end:url(#iscArrOn)}
-.isc .e.on.plain .ln{marker-end:none}
+.isc .e.on .ln{stroke:var(--gold)}
+.isc-wide .e.on .ln{marker-end:url(#iscArrOn-wide)}
+.isc-tall .e.on .ln{marker-end:url(#iscArrOn-tall)}
+.isc .e.plain .ln,.isc .e.on.plain .ln{marker-end:none}
 .isc .e.on .isc-l{fill:var(--ink)}
 @media(prefers-reduced-motion:no-preference){
   .isc .e.on .fl{opacity:1;animation:iscFlow 1.1s linear infinite}
@@ -1757,64 +1769,85 @@ function vMap(){
 
 /* ---------- institutions: who elects whom ---------- */
 const INS_NODES={
- cit:{x:300,y:20,w:400,h:88,t:'Citizens',r:'Every citizen aged 18 or over',
+ cit:{t:'Citizens',r:'Every citizen aged 18 or over',
    m:['Two ballots on the same day'],
    d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
    a:[37,39,102,104,108]},
- kon:{x:40,y:196,w:320,h:112,t:'Kongres',r:'Legislature',
-   m:['49 constituencies, 2 to 20 delegates each'],
+ kon:{t:'Kongres',r:'Legislature',
+   m:['49 constituencies, 2 to 20 delegates each'],mt:['49 constituencies','2 to 20 delegates each'],
    d:'Each of the 49 States is one constituency and elects between 2 and 20 delegates in proportion to its population, by proportional list vote, for four years. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
    a:[103,104,105,106]},
- ns:{x:640,y:196,w:320,h:112,t:'Narodni Sabor',r:'Assembly of Nations',
-   m:['7 national delegations of 10 members'],
+ ns:{t:'Narodni Sabor',r:'Assembly of Nations',
+   m:['7 national delegations of 10 members'],mt:['7 delegations','of 10 members'],
    d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. On any other law, two-thirds of one delegation can raise the alarm.',
    a:[107,108,109,110]},
- joint:{x:410,y:230,w:180,h:44,t:'Confederal Assembly',r:'',m:[],
+ joint:{t:'Confederal Assembly',r:'',m:[],
    d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm the seven councillors of the Konfederalno Veće, as one college, in a single vote by simple majority. If the college is rejected, the delegations concerned nominate new candidates within 30 days.',
    a:[105,112]},
- kv:{x:360,y:384,w:280,h:100,t:'Konfederalno Veće',r:'Executive council',
+ kv:{t:'Konfederalno Veće',r:'Executive council',
    m:['7 councillors, one per people'],
    d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
    a:[111,112,113,114,115]},
- us:{x:360,y:548,w:280,h:100,t:'Ustavni Sud',r:'Constitutional court, Zagreb',
+ us:{t:'Ustavni Sud',r:'Constitutional court, Zagreb',
    m:['14 judges, two per people'],
    d:'For each of its two seats, every people\'s delegation in the Narodni Sabor proposes three candidates; the Kongres elects the judges by a two-thirds majority. Judges serve one twelve-year term, and a third of the court is renewed every four years. The court reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
    a:[116,117,118,119]}
 };
-const INS_EDGES=[
- {n:['cit','kon'],d:'M380 108 V150 H200 V192',l:[[290,142,'middle','vote in their State']]},
- {n:['cit','ns'],d:'M620 108 V150 H800 V192',l:[[720,142,'middle','vote by national register']]},
- {n:['kon','joint'],d:'M360 252 H410',c:'plain'},
- {n:['ns','joint'],d:'M640 252 H590',c:'plain'},
- {n:['joint','kv'],d:'M500 274 V380',l:[[510,332,'start','confirms the college']]},
- {n:['ns','kv'],d:'M720 308 V434 H644',l:[[728,368,'start','each delegation'],[728,384,'start','nominates one councillor']]},
- {n:['kon','kv'],d:'M280 308 V434 H356',c:'dash',l:[[272,376,'end','oversight']]},
- {n:['ns','us'],d:'M900 308 V598 H644',l:[[892,520,'end','proposes three candidates'],[892,536,'end','for each seat']]},
- {n:['kon','us'],d:'M100 308 V598 H356',l:[[108,520,'start','elects the judges'],[108,536,'start','by a two-thirds majority']]}
-];
+/* two layouts of the same diagram: wide (desktop) and tall (phones and tablets, ≤ 860 px) */
+const INS_GEO={
+ wide:{vb:[1000,660],pad:20,ty:[31,52,76,17],
+  nodes:{cit:[300,20,400,88],kon:[40,196,320,112],ns:[640,196,320,112],joint:[410,230,180,44],
+         kv:[360,384,280,100],us:[360,548,280,100]},
+  edges:[
+   {n:['cit','kon'],d:'M380 108 V150 H200 V192',l:[[290,142,'middle','vote in their State']]},
+   {n:['cit','ns'],d:'M620 108 V150 H800 V192',l:[[720,142,'middle','vote by national register']]},
+   {n:['kon','joint'],d:'M360 252 H410',c:'plain'},
+   {n:['ns','joint'],d:'M640 252 H590',c:'plain'},
+   {n:['joint','kv'],d:'M500 274 V380',l:[[510,332,'start','confirms the college']]},
+   {n:['ns','kv'],d:'M720 308 V434 H644',l:[[728,368,'start','each delegation'],[728,384,'start','nominates one councillor']]},
+   {n:['kon','kv'],d:'M280 308 V434 H356',c:'dash',l:[[272,376,'end','oversight']]},
+   {n:['ns','us'],d:'M900 308 V598 H644',l:[[892,520,'end','proposes three candidates'],[892,536,'end','for each seat']]},
+   {n:['kon','us'],d:'M100 308 V598 H356',l:[[108,520,'start','elects the judges'],[108,536,'start','by a two-thirds majority']]}]},
+ tall:{vb:[380,642],pad:12,ty:[26,45,64,16],
+  nodes:{cit:[40,8,300,78],kon:[8,140,178,104],ns:[194,140,178,104],joint:[110,282,160,40],
+         kv:[80,388,220,80],us:[80,552,220,80]},
+  edges:[
+   {n:['cit','kon'],d:'M120 86 V136',l:[[128,116,'start','in their State']]},
+   {n:['cit','ns'],d:'M260 86 V136',l:[[268,116,'start','by register']]},
+   {n:['kon','joint'],d:'M66 244 V302 H110',c:'plain'},
+   {n:['ns','joint'],d:'M314 244 V302 H270',c:'plain'},
+   {n:['joint','kv'],d:'M190 322 V384',l:[[198,358,'start','confirms the college']]},
+   {n:['ns','kv'],d:'M336 244 V428 H304',l:[[325,336,'middle','nominates one councillor each',90]]},
+   {n:['kon','kv'],d:'M44 244 V428 H76',c:'dash',l:[[55,336,'middle','oversight',-90]]},
+   {n:['ns','us'],d:'M358 244 V592 H304',l:[[347,510,'middle','proposes three per seat',90]]},
+   {n:['kon','us'],d:'M22 244 V592 H76',l:[[33,510,'middle','elects the judges by ⅔',-90]]}]}
+};
 function artLink(n){const id='art-'+n,t=cIndex()[id];
   return t?`<a href="#/constitution/${t}/${id}">Art. ${n}</a>`:`Art. ${n}`;}
-function insSVG(){
+function insSVG(lay){
+  const G=INS_GEO[lay];
   const node=(k,o)=>{
-    const tx=k==='joint'?o.x+o.w/2:o.x+20, an=k==='joint'?'middle':'start';
+    const [x,y,w,h]=G.nodes[k], tx=k==='joint'?x+w/2:x+G.pad, ty=G.ty;
+    const meta=(lay==='tall'&&o.mt)||o.m;
     const lines=k==='joint'
-      ?`<text class="isc-t" x="${tx}" y="${o.y+20}" text-anchor="middle">${o.t}</text>
-        <text class="isc-m" x="${tx}" y="${o.y+35}" text-anchor="middle" style="font-size:11px">joint sitting</text>`
-      :`<text class="isc-t" x="${tx}" y="${o.y+31}">${esc(o.t)}</text>
-        <text class="isc-r" x="${tx}" y="${o.y+52}">${esc(o.r)}</text>
-        ${o.m.map((m,i)=>`<text class="isc-m" x="${tx}" y="${o.y+76+i*17}">${esc(m)}</text>`).join('')}`;
+      ?`<text class="isc-t" x="${tx}" y="${y+h/2-2}" text-anchor="middle">${o.t}</text>
+        <text class="isc-m isc-js" x="${tx}" y="${y+h/2+12}" text-anchor="middle">joint sitting</text>`
+      :`<text class="isc-t" x="${tx}" y="${y+ty[0]}">${esc(o.t)}</text>
+        <text class="isc-r" x="${tx}" y="${y+ty[1]}">${esc(o.r)}</text>
+        ${meta.map((m,i)=>`<text class="isc-m" x="${tx}" y="${y+ty[2]+i*ty[3]}">${esc(m)}</text>`).join('')}`;
     return `<g class="isc-n ${k}" data-id="${k}" tabindex="0" role="button" aria-pressed="false"
       aria-label="${esc(o.t)}${o.r?', '+esc(o.r):''}">
-      <rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" rx="${k==='joint'?22:4}"/>${lines}</g>`;
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${k==='joint'?h/2:4}"/>${lines}</g>`;
   };
   const arrow=(id,cls)=>`<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
     orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(${cls})"/></marker>`;
-  return `<svg class="isc" id="iscSvg" viewBox="0 0 1000 660" role="group"
+  const lab=l=>`<text class="isc-l" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}"${l[4]?
+    ` transform="rotate(${l[4]} ${l[0]} ${l[1]})"`:''}>${l[3]}</text>`;
+  return `<svg class="isc isc-${lay}" viewBox="0 0 ${G.vb[0]} ${G.vb[1]}" role="group"
     aria-label="How the confederal institutions are elected">
-    <defs>${arrow('iscArr','--line-3')}${arrow('iscArrOn','--gold')}</defs>
-    ${INS_EDGES.map((e,i)=>`<g class="e ${e.c||''}" data-n="${e.n.join(' ')}" style="--dl:${(0.15+i*0.12).toFixed(2)}s">
-      <path class="ln" d="${e.d}"/><path class="fl" d="${e.d}"/>
-      ${(e.l||[]).map(l=>`<text class="isc-l" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}">${l[3]}</text>`).join('')}</g>`).join('')}
+    <defs>${arrow('iscArr-'+lay,'--line-3')}${arrow('iscArrOn-'+lay,'--gold')}</defs>
+    ${G.edges.map((e,i)=>`<g class="e ${e.c||''}" data-n="${e.n.join(' ')}" style="--dl:${(0.15+i*0.12).toFixed(2)}s">
+      <path class="ln" d="${e.d}"/><path class="fl" d="${e.d}"/>${(e.l||[]).map(lab).join('')}</g>`).join('')}
     ${Object.entries(INS_NODES).map(([k,o])=>node(k,o)).join('')}
   </svg>`;
 }
@@ -1828,17 +1861,19 @@ function insDetail(k){
     <div class="isc-arts"><b>In the Constitution</b>${o.a.map(artLink).join('')}</div>`;
 }
 function insSelect(k){
-  const svg=document.getElementById('iscSvg'); if(!svg)return;
-  const cur=svg.getAttribute('data-sel'); if(cur===k)k=null;
-  if(k)svg.setAttribute('data-sel',k); else svg.removeAttribute('data-sel');
-  const rel=new Set();
-  svg.querySelectorAll('.e').forEach(e=>{
-    const n=e.dataset.n.split(' '), on=!!k&&n.includes(k);
-    e.classList.toggle('on',on); if(on)n.forEach(x=>rel.add(x));});
-  svg.querySelectorAll('.isc-n').forEach(g=>{
-    const id=g.dataset.id;
-    g.classList.toggle('sel',id===k); g.classList.toggle('rel',!!k&&rel.has(id));
-    g.setAttribute('aria-pressed',id===k?'true':'false');});
+  const svgs=document.querySelectorAll('svg.isc'); if(!svgs.length)return;
+  if(svgs[0].getAttribute('data-sel')===k)k=null;
+  svgs.forEach(svg=>{
+    if(k)svg.setAttribute('data-sel',k); else svg.removeAttribute('data-sel');
+    const rel=new Set();
+    svg.querySelectorAll('.e').forEach(e=>{
+      const n=e.dataset.n.split(' '), on=!!k&&n.includes(k);
+      e.classList.toggle('on',on); if(on)n.forEach(x=>rel.add(x));});
+    svg.querySelectorAll('.isc-n').forEach(g=>{
+      const id=g.dataset.id;
+      g.classList.toggle('sel',id===k); g.classList.toggle('rel',!!k&&rel.has(id));
+      g.setAttribute('aria-pressed',id===k?'true':'false');});
+  });
   insDetail(k);
 }
 /* ---------- institutions: how a confederal law is made ---------- */
@@ -1914,19 +1949,23 @@ function lawPlay(k,animate){
     el.classList.add('on'); lawFillTo(i);},180+i*1050)));
 }
 function insMount(){
-  const svg=document.getElementById('iscSvg'); if(!svg)return;
-  svg.querySelectorAll('.isc-n').forEach(g=>{
+  const svgs=[...document.querySelectorAll('svg.isc')]; if(!svgs.length)return;
+  svgs.forEach(svg=>svg.querySelectorAll('.isc-n').forEach(g=>{
     g.addEventListener('click',()=>insSelect(g.dataset.id));
-    g.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();insSelect(g.dataset.id);}});});
+    g.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();insSelect(g.dataset.id);}});}));
   insDetail(null);
   lawPlay('ordinary',false);
   if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
-  svg.querySelectorAll('.e .ln').forEach(p=>p.parentNode.style.setProperty('--len',Math.ceil(p.getTotalLength())));
-  svg.classList.add('draw');
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;
-      io.disconnect(); svg.classList.add('go');
-      setTimeout(()=>svg.classList.remove('draw','go'),2200);});},{threshold:.3});
-  io.observe(svg);
+  svgs.forEach(svg=>{
+    svg.querySelectorAll('.e .ln').forEach(p=>{let L=1200;try{L=Math.ceil(p.getTotalLength())||L;}catch(e){}
+      p.parentNode.style.setProperty('--len',L);});
+    svg.classList.add('draw');
+    /* the hidden layout starts drawing when it becomes visible (rotation, resize) */
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;
+        io.disconnect(); svg.classList.add('go');
+        setTimeout(()=>svg.classList.remove('draw','go'),2200);});},{threshold:.25});
+    io.observe(svg);
+  });
 }
 function vInstitutions(){
   return crumb([['Home','#/home'],['Institutions']])+`
@@ -1948,7 +1987,7 @@ function vInstitutions(){
     <div class="h2row"><h2>Who elects whom</h2></div>
     <p class="lead">Citizens elect both chambers. The chambers then form the executive and the
     court, so that every people takes part in each of them.</p>
-    <div class="isc-wrap">${insSVG()}</div>
+    <div class="isc-wrap">${insSVG('wide')}${insSVG('tall')}</div>
     <div class="isc-detail" id="iscDetail" aria-live="polite"></div>
   </section>
   <section class="section reveal">
