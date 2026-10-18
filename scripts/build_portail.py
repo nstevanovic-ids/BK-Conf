@@ -40,6 +40,10 @@ def build_inline() -> int:
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
     lights = json.loads((DATA / "lights.json").read_text(encoding="utf-8"))
     opstine = json.loads((DATA / "opstine.json").read_text(encoding="utf-8"))
+    # Films d'États (scripts/encode_video.py) : manifeste optionnel ; les fichiers
+    # vidéo restent liés (videos/…), copiés à côté par le déploiement Pages.
+    vfile = DATA / "videos.json"
+    videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -54,6 +58,7 @@ def build_inline() -> int:
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
         f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
+        f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )

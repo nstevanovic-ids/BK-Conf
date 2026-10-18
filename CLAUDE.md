@@ -92,6 +92,11 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Parcours citoyen : `#/register` (5 étapes) et `#/citizen` (carte TD1) ; règles dans
   docs/canon/citoyennete.md (ADR 2026-10-15-parcours-citoyennete.md). Rattachement par la
   commune, jamais par libre choix ; narodnost hors zone de lecture automatique
+- Films d'États : `portail/videos/<code>.mp4` (+ `-480.mp4`, poster `.jpg`), listés dans
+  `portail/data/videos.json` ; produits par `scripts/encode_video.py <code> <source>`
+  (boucle sans couture, deux tailles). La fiche d'un État filmé s'ouvre sur un bandeau
+  vidéo plein écran (titre en surimpression) ; cf. ADR 2026-10-18-films-etats.md et
+  portail/videos/README.md. Vidéos brutes hors dépôt
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
