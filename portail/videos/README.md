@@ -41,3 +41,4 @@ La vidéo brute n'est pas versionnée (≈ 20 Mo pour 15 s) : la conserver hors 
 | État | Film | Durée | Contenu |
 |------|------|-------|---------|
 | BA-01 Bosanska Krajina | 2026-10-18 (v2), Grok Imagine | 14,4 s | Una (rapides, vue zénithale), village et minaret, rivière, rétroviseur au couchant, fleurs, guitariste en ville, drapeau de Bosanska Krajina au vent sur la vallée |
+| BC-02 Bačka | 2026-10-19, Grok Imagine | 14,4 s | Petrovaradin sur le Danube, salaš dans les vergers, champs de tournesols, place de l'hôtel de ville de Subotica, plaine et canal au couchant, drapeau de Bačka au vent |
