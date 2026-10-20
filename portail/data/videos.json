@@ -10,5 +10,17 @@
   "sm": "videos/BC-02-480.mp4",
   "poster": "videos/BC-02.jpg",
   "dur": 14.42
+ },
+ "BN-03": {
+  "src": "videos/BN-03.mp4",
+  "sm": "videos/BN-03-480.mp4",
+  "poster": "videos/BN-03.jpg",
+  "dur": 14.42
+ },
+ "BR-04": {
+  "src": "videos/BR-04.mp4",
+  "sm": "videos/BR-04-480.mp4",
+  "poster": "videos/BR-04.jpg",
+  "dur": 14.42
  }
 }
