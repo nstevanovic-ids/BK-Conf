@@ -25,6 +25,9 @@ progression et piste son retirés).
   la première l'image 15 : la boucle `<video loop>` ne montre pas de coupe.
 - **H.264 en MP4** : seul format lu partout (Safari iOS compris). Deux tailles via
   `<source media="(max-width:680px)">` : 1,9 Mo sur téléphone au lieu de 4,7 Mo.
+- **CRF plafonné** (2,6 Mbit/s en 720p, 1,2 Mbit/s en 480p, ajouté le 2026-10-20) : la
+  source du Banat, très accentuée, donnait 9,9 Mo ; plafonnée, 5 Mo pour une image
+  identique à l'œil. Les films ordinaires restent sous le plafond.
 - **Manifeste explicite** plutôt que détection par erreur 404 (comme les armoiries) :
   la mise en page de la fiche dépend de la présence du film, elle doit être connue
   avant le rendu.

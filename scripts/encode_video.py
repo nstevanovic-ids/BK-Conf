@@ -3,8 +3,8 @@
 encode_video.py — prépare une vidéo d'État pour le header animé du portail.
 
 Prend une vidéo brute (Grok Imagine, montage, etc.) et produit, dans portail/videos/ :
-  <CODE>.mp4       H.264 1280×720 (CRF 28), sans son — écrans larges
-  <CODE>-480.mp4   H.264 854×480 (CRF 29), sans son — téléphones (<source media>)
+  <CODE>.mp4       H.264 1280×720 (CRF 28, ≤ 2,6 Mbit/s), sans son — écrans larges
+  <CODE>-480.mp4   H.264 854×480 (CRF 29, ≤ 1,2 Mbit/s), sans son — téléphones (<source media>)
   <CODE>.jpg       poster (première image), affiché avant lecture et en reduced-motion
 puis inscrit l'État dans portail/data/videos.json (manifeste lu par le portail).
 
@@ -33,8 +33,10 @@ MANIFEST = ROOT / "portail" / "data" / "videos.json"
 ETATS = ROOT / "portail" / "data" / "etats.json"
 
 FPS = 24
-# (suffixe, largeur, hauteur, CRF)
-VARIANTS = [("", 1280, 720, 28), ("-480", 854, 480, 29)]
+# (suffixe, largeur, hauteur, CRF, débit plafond kbit/s)
+# CRF plafonné : la qualité ne baisse que sur les sources très détaillées (grain,
+# accentuation), dont le poids doublerait sinon (BN-03 : 9,9 Mo sans plafond).
+VARIANTS = [("", 1280, 720, 28, 2600), ("-480", 854, 480, 29, 1200)]
 
 
 def duration(path: Path) -> float:
@@ -48,7 +50,7 @@ def duration(path: Path) -> float:
     return float(video["duration"])
 
 
-def encode(src: Path, dst: Path, w: int, h: int, crf: int, n: int, f: int) -> None:
+def encode(src: Path, dst: Path, w: int, h: int, crf: int, cap: int, n: int, f: int) -> None:
     """n = images de la source, f = images de fondu (calcul en images entières : un fondu
     à cheval sur deux images laisse une marche visible au bouclage)."""
     # La source est ouverte deux fois (entrée 0 = corps, entrée 1 = tête à fondre en fin).
@@ -63,6 +65,7 @@ def encode(src: Path, dst: Path, w: int, h: int, crf: int, n: int, f: int) -> No
         ["ffmpeg", "-v", "error", "-y", "-i", str(src), "-i", str(src),
          "-filter_complex", vf, "-map", "[v]", "-frames:v", str(n - f), "-an",
          "-c:v", "libx264", "-preset", "slow", "-crf", str(crf),
+         "-maxrate", f"{cap}k", "-bufsize", f"{2 * cap}k",
          "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.0", "-g", "48",
          "-map_metadata", "-1", "-movflags", "+faststart", str(dst)],
         check=True)
@@ -89,9 +92,9 @@ def main() -> int:
         sys.exit(f"vidéo trop courte ({n} images) pour un fondu de {f} images")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    for suffix, w, h, crf in VARIANTS:
+    for suffix, w, h, crf, cap in VARIANTS:
         dst = OUT_DIR / f"{args.code}{suffix}.mp4"
-        encode(args.source, dst, w, h, crf, n, f)
+        encode(args.source, dst, w, h, crf, cap, n, f)
         print(f"{dst.relative_to(ROOT)}  {dst.stat().st_size / 1e6:.2f} Mo")
 
     poster = OUT_DIR / f"{args.code}.jpg"
