@@ -3,8 +3,8 @@
 Chaque fiche État (`#/state/<code>`) peut s'ouvrir sur un film en boucle, muet et sans
 commandes, plein écran sous l'en-tête, avec le titre de l'État, son drapeau et son code
 en surimpression. Les États sans film gardent la fiche classique. Dans l'annuaire
-(`#/states`), la carte d'un État filmé porte un badge **Film** et laisse apparaître le
-poster au survol.
+(`#/states`), la carte d'un État filmé laisse apparaître le poster au survol (pas de
+badge).
 
 | Fichier | Rôle |
 |---------|------|

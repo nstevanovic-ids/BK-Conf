@@ -17,7 +17,9 @@ progression et piste son retirés).
 - Fichiers dans `portail/videos/` (`<code>.mp4`, `<code>-480.mp4`, `<code>.jpg`),
   manifeste `portail/data/videos.json`, produits par `scripts/encode_video.py`.
   Le déploiement Pages copie `portail/videos/` comme `portail/images/`.
-- Annuaire : badge **Film** et poster au survol sur la carte d'un État filmé.
+- Annuaire : poster au survol sur la carte d'un État filmé. Le badge « Film » (texte +
+  icône lecture) a été retiré le 2026-10-21 à la demande de l'utilisateur (« ça ne sert
+  à rien »).
 
 ## Choix techniques
 - **Boucle sans couture** : les 15 premières images sont fondues dans la fin (xfade, en
