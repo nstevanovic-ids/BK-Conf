@@ -46,3 +46,4 @@ La vidéo brute n'est pas versionnée (≈ 20 Mo pour 15 s) : la conserver hors 
 | BC-02 Bačka | 2026-10-19, Grok Imagine | 14,4 s | Petrovaradin sur le Danube, salaš dans les vergers, champs de tournesols, place de l'hôtel de ville de Subotica, plaine et canal au couchant, drapeau de Bačka au vent |
 | BN-03 Banat | 2026-10-20, Grok Imagine | 14,4 s | Hôtel de ville à beffroi, lac et plage, rue piétonne fleurie, maison banatienne, collines sableuses, vignobles, drapeau du Banat au vent |
 | BR-04 Baraña | 2026-10-20, Grok Imagine | 14,4 s | Monument de Batina sur le Danube, rues de village, ville au bord du Danube, vignobles à vélo, Kopački rit, drapeau de Baraña au vent |
+| BZ-05 Zapadna Bosna | 2026-10-21, Grok Imagine | 14,4 s | Cathédrale du Christ-Sauveur (vue zénithale), mosquée Ferhadija, forteresse Kastel sur le Vrbas, rafting dans le canyon du Vrbas, monastère orthodoxe, moulins et cascades de Krupa na Vrbasu, drapeau de Zapadna Bosna au vent |
