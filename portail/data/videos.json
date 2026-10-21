@@ -22,5 +22,11 @@
   "sm": "videos/BR-04-480.mp4",
   "poster": "videos/BR-04.jpg",
   "dur": 14.42
+ },
+ "BZ-05": {
+  "src": "videos/BZ-05.mp4",
+  "sm": "videos/BZ-05-480.mp4",
+  "poster": "videos/BZ-05.jpg",
+  "dur": 14.42
  }
 }
