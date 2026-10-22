@@ -1375,6 +1375,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-22',cat:'Law',t:'Constitution v4.4: the institutions completed',
+  s:'Deadlock rules for the election of councillors and judges, a 90-day limit for the consent of the Narodni Sabor, legislative initiative and promulgation, urgent laws, a state of emergency, half renewal of the Ustavni Sud; new Confederal Chancellery, Court of Justice, Prosecutor\'s Office, Court of Audit, Language Institute, Library and Archives and Council of Communities. 165 articles.'},
  {d:'2026-10-22',cat:'Law',t:'Constitution v4.3: probation and fifteen-year lock for national registers',
   s:'Articles 102, 108, 112 and 117: enrolment from the age of 18; a first enrolment is probationary for three years and may be rectified once; otherwise another register only after fifteen years; free withdrawal; effect from the first Narodni Sabor election held more than a year later; eight years of enrolment for confederal councillors and constitutional judges.'},
  {d:'2026-10-17',cat:'Law',t:'Constitution v4.2: powers of the Confederation',
@@ -1887,23 +1889,23 @@ const INS_NODES={
    d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
    a:[37,39,102,104,108]},
  kon:{t:'Kongres',r:'Legislature',
-   m:['49 constituencies, 2 to 20 delegates each'],mt:['49 constituencies','2 to 20 delegates each'],
-   d:'Each of the 49 States is one constituency and elects between 2 and 20 delegates in proportion to its population, by proportional list vote, for four years. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
-   a:[103,104,105,106]},
+   m:['51 constituencies, 1 to 20 delegates each'],mt:['51 constituencies','1 to 20 delegates each'],
+   d:'Each of the 49 States is one constituency and elects between 2 and 20 delegates in proportion to its population; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
+   a:[103,104,105,106,'106 bis']},
  ns:{t:'Narodni Sabor',r:'Assembly of Nations',
    m:['7 national delegations of 10 members'],mt:['7 delegations','of 10 members'],
-   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. On any other law, two-thirds of one delegation can raise the alarm.',
-   a:[107,108,109,110]},
+   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. It must decide within 90 days, or its consent is deemed given. On any other law, two-thirds of one delegation can raise the alarm.',
+   a:[107,108,109,110,'110 bis']},
  joint:{t:'Confederal Assembly',r:'',m:[],
-   d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm the seven councillors of the Konfederalno Veće, as one college, in a single vote by simple majority. If the college is rejected, the delegations concerned nominate new candidates within 30 days.',
-   a:[105,112]},
+   d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm each of the seven councillors of the Konfederalno Veće by a separate vote. A rejected delegation nominates a new candidate within 30 days; after a second rejection it presents three, and the Assembly elects one of them. The Assembly also elects the Chancellor of the Confederation.',
+   a:[105,112,'115 bis']},
  kv:{t:'Konfederalno Veće',r:'Executive council',
    m:['7 councillors, one per people'],
    d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
-   a:[111,112,113,114,115]},
+   a:[111,112,'112 bis',113,114,115]},
  us:{t:'Ustavni Sud',r:'Constitutional court, Zagreb',
    m:['14 judges, two per people'],
-   d:'For each of its two seats, every people\'s delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judges by a two-thirds majority. Judges serve one twelve-year term, and a third of the court is renewed every four years. The court reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
+   d:'For each seat, the people\'s delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judge by a two-thirds majority, or after two rounds by an absolute majority of its members. Judges serve one twelve-year term; half of the court, one judge per people, is renewed every six years. The court sits in plenary or in two chambers of seven, one judge per people in each. It reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
    a:[116,117,118,119]}
 };
 /* two layouts of the same diagram: wide (desktop) and tall (phones and tablets, ≤ 860 px) */
@@ -1935,7 +1937,7 @@ const INS_GEO={
    {n:['ns','us'],d:'M358 244 V592 H304',l:[[347,510,'middle','proposes three per seat',90]]},
    {n:['kon','us'],d:'M22 244 V592 H76',l:[[33,510,'middle','elects the judges by ⅔',-90]]}]}
 };
-function artLink(n){const id='art-'+n,t=cIndex()[id];
+function artLink(n){const id='art-'+String(n).replace(/ /g,''),t=cIndex()[id];
   return t?`<a href="#/constitution/${t}/${id}">Art. ${n}</a>`:`Art. ${n}`;}
 function insSVG(lay){
   const G=INS_GEO[lay];
@@ -1995,12 +1997,12 @@ const LAW={
  ordinary:{n:'Ordinary law',o:'In force.',s:[
    ['pass','Adopted by a simple majority of the delegates present. The quorum is an absolute majority of all delegates.',[106]],
    ['pass','No consent is needed. For 30 days any national delegation may raise the alarm; none does.',[109]],
-   ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
+   ['pass','Promulgated by the President of the Confederation and published in the Official Journal within 30 days. A 100-day window opens for a referendum request.',['106 bis',122]],
    ['skip','No request is filed within 100 days, so there is no vote.',[122]],
    ['pass','The law enters into force. The Ustavni Sud can still review its conformity with the Constitution.',[118]]]},
  consent:{n:'Law on languages',o:'In force, with the consent of the peoples.',s:[
    ['pass','Adopted by a simple majority of the delegates present.',[106]],
-   ['pass','Languages require the consent of the Narodni Sabor: a majority in plenary and a majority within at least five of the seven delegations.',[109,110]],
+   ['pass','The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations.',[109,110,'110 bis']],
    ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
    ['skip','No request is filed within 100 days.',[122]],
    ['pass','The law enters into force. Without the consent of the Narodni Sabor it could not have done so.',[109]]]},
@@ -2014,7 +2016,7 @@ const LAW={
    ['pass','Adopted by a simple majority of the delegates present.',[106]],
    ['pass','No consent is needed and no alarm is raised.',[109]],
    ['pass','Published in the Official Journal. A 100-day window opens.',[122]],
-   ['alt','150,000 citizens or 12 States request a vote within 100 days. The law goes to the people and is rejected if a majority votes against it.',[122]],
+   ['alt','150,000 citizens, or 12 States with no more than half from one people, request a vote within 100 days. The law goes to the people and is rejected if a majority votes against it.',[122]],
    ['stop','A majority votes no. The law does not enter into force.',[122]]]},
  amendment:{n:'Constitutional amendment',o:'Part of the Constitution.',s:[
    ['pass','The Kongres adopts the amendment.',[105]],
@@ -2117,8 +2119,26 @@ function vInstitutions(){
         <p class="note">300,000 citizens may propose a constitutional revision within 18 months,
         adopted by the double majority of the people and of the States (Art. 121).</p></div>
       <div class="panel"><div class="eyebrow">Optional referendum</div>
-        <p class="note">150,000 citizens or 12 States may submit any confederal law to a
-        popular vote within 100 days of its publication (Art. 122).</p></div>
+        <p class="note">150,000 citizens, or 12 States of which no more than half belong to the
+        same people, may submit any confederal law to a popular vote within 100 days of its
+        publication (Art. 122).</p></div>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Other confederal bodies</h2></div>
+    <p class="lead" style="margin-bottom:18px">Around the four institutions, independent bodies run
+    the elections, try and prosecute, audit the accounts, keep the currency, the language and the
+    archives, and give a voice to the communities outside the seven peoples.</p>
+    <div class="cards">
+      ${[
+       ['Sarajevo','Confederal Chancellery','Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.',['115 bis']],
+       ['Zagreb','Court of Justice and Prosecutor\'s Office','The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.',['119 bis','119 ter']],
+       ['Beograd','Confederal Central Bank','Issues the dinar. Five governors for seven years, no more than two from the same people.',['97 bis']],
+       ['Ljubljana','Confederal Court of Audit','Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.',['136 bis',133]],
+       ['Ohrid · Cetinje','Language Institute · Library and Archives','The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.',['130 bis',74]],
+       ['Advisory','Council of Communities','The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.',['1 octies']]
+      ].map(c=>`<div class="pcard"><div class="pc-eye">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p>
+        <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
   </section>`;
 }
@@ -2141,7 +2161,7 @@ function cInline(x,links){
               .replace(/\*([^*]+)\*/g,'<em>$1</em>');
   if(!links)return h;
   const idx=cIndex();
-  h=h.replace(/\b(Articles?) (\d+(?: (?:bis|ter|quater|quinquies|sexies|septies)\b)?)/g,(m,w,n)=>{
+  h=h.replace(/\b(Articles?) (\d+(?: (?:bis|ter|quater|quinquies|sexies|septies|octies)\b)?)/g,(m,w,n)=>{
     const id='art-'+n.replace(' ',''), t=idx[id];
     return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
   h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
@@ -2829,7 +2849,7 @@ function regAttachCard(o){
   const s=byCode(o.c);if(!s)return '';
   const p=PEUPLES[s.p];
   const kind=s.t==='F'?'Confederal territory, counts as a state'
-    :s.t==='M'?'Confederal municipality, not a state: its Kongres constituency is set by confederal law'
+    :s.t==='M'?'Confederal municipality, not a state: its own Kongres constituency (Art. 103)'
     :`State of the ${p?p.en:''}${s.ch?' · chef-lieu '+esc(s.ch):''}`;
   return `<div class="attach"><div class="af">${flagSVG(s)}</div><div>
     <div class="eyebrow" style="margin:0 0 2px">Your state of attachment</div>

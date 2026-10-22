@@ -112,7 +112,7 @@ def parse(md: str) -> dict:
             chap_parts = ["\n" + pre] + chap_parts
         for cp in chap_parts:
             ch_head, _, ch_body = cp.partition("\n")
-            cm = re.match(r"^Chapter (\d+) / (.+)$", ch_head.strip())
+            cm = re.match(r"^Chapter (\d+(?: bis)?) / (.+)$", ch_head.strip())
             chapter = {"num": f"Chapter {cm.group(1)}" if cm else "",
                        "name": cm.group(2).strip() if cm else "", "articles": []}
             parts = re.split(r"^### ", ch_body, flags=re.M)
