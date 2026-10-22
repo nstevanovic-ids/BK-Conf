@@ -59,8 +59,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   Version 4.3 : texte intégral, 153 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
   dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`), titres
   1 bis et 4 à 7 (art. 1 bis à 145) ; cf. ADR 2026-10-17-constitution-titres-1-3.md et
-  2026-10-17-constitution-competences.md ; registres nationaux verrouillés vingt ans
-  (art. 102), cf. ADR 2026-10-22-verrou-registre-national.md
+  2026-10-17-constitution-competences.md ; registres nationaux : période probatoire de
+  trois ans, verrou de quinze ans (art. 102), cf. ADR 2026-10-22-verrou-registre-national.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Symboles confédéraux (lynx, lettre-emblème glagolitique/bosančica) → en attente
@@ -93,8 +93,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Parcours citoyen : `#/register` (5 étapes) et `#/citizen` (carte TD1) ; règles dans
   docs/canon/citoyennete.md (ADR 2026-10-15-parcours-citoyennete.md). Rattachement par la
   commune, jamais par libre choix ; narodnost hors zone de lecture automatique ; registre
-  national : autre registre vingt ans après l'inscription, retrait libre, effet différé d'un an
-  pour le Narodni Sabor (ADR 2026-10-22-verrou-registre-national.md)
+  national : rectification unique dans les trois ans d'une première inscription, sinon autre
+  registre quinze ans après l'inscription ; retrait libre ; effet différé d'un an pour le
+  Narodni Sabor (ADR 2026-10-22-verrou-registre-national.md)
 - Films d'États : `portail/videos/<code>.mp4` (+ `-480.mp4`, poster `.jpg`), listés dans
   `portail/data/videos.json` ; produits par `scripts/encode_video.py <code> <source>`
   (boucle sans couture, deux tailles, sans son). La fiche d'un État filmé s'ouvre sur un

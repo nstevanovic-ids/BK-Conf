@@ -21,7 +21,7 @@ droits politiques, citoyens établis à l'étranger), qui reprennent le projet d
 |---|---|---|
 | 1. Identité | Nom, prénoms, sexe (F/M), date de naissance | Nom saisi en cyrillique : translittéré en latin v3 ; nom saisi en latin : conservé tel quel |
 | 2. État de rattachement | Base, commune, résidence | Déterminé par la commune ; aucun libre choix |
-| 3. Registre national | Sept peuples ou aucun ; impression de la narodnost | Art. 102 : personnel, volontaire ; autre registre après 20 ans ; retrait libre ; effet différé |
+| 3. Registre national | Sept peuples ou aucun ; impression de la narodnost | Art. 102 : personnel, volontaire ; rectification unique pendant 3 ans ; sinon autre registre après 15 ans ; retrait libre ; effet différé |
 | 4. Langue du document | Standard occidental, central ou oriental | Attribut du document, pas du titulaire |
 | 5. Déclaration | Récapitulatif, déclaration d'adhésion libre, délivrance | Déclaration obligatoire |
 
@@ -55,11 +55,17 @@ Trois bases, dans cet ordre :
   Narodni Sabor dans la circonscription unique de son peuple (art. 108). Non inscrit : tous
   les droits civiques, Kongres et référendums, pas de vote au Narodni Sabor.
 - Le registre est **indépendant de l'État** de rattachement.
-- **Verrou de vingt ans** (art. 102) :
+- **Période probatoire et verrou** (art. 102) :
   - inscription ouverte à 18 ans révolus ;
-  - inscription à un **autre** registre seulement vingt ans après la précédente inscription ;
-  - **retrait libre**, mais il n'abrège pas le verrou ; le retour au registre quitté est une
-    nouvelle inscription.
+  - une **première** inscription est probatoire pendant **trois ans** : elle peut être
+    rectifiée une fois au profit d'un autre registre ; le verrou court alors à compter de la
+    rectification ;
+  - hors de ce cas, inscription à un **autre** registre seulement **quinze ans** après la
+    précédente inscription ;
+  - **retrait libre**, mais il n'abrège pas le verrou ; un retrait pendant la période
+    probatoire n'éteint pas la rectification ;
+  - le retour au registre quitté est possible à tout moment ; il ne relance pas le verrou,
+    mais l'effet différé s'y applique.
 - **Effet différé** : une inscription ou un changement de registre ne vaut, pour le vote et
   l'éligibilité au Narodni Sabor, qu'à la première élection tenue plus d'un an après la
   demande.
@@ -151,9 +157,17 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
 
 - **Prototype** : l'enregistrement reste dans le navigateur (`localStorage`, clé
   `bk-citizen`), sans transmission ; le numéro est provisoire (hachage FNV-1a).
-- **Registre dans le prototype** : la carte porte `reg = {p, since}`, dernier registre et
-  date d'inscription, conservés après un retrait. Le parcours refuse un autre registre avant
-  `since` + 20 ans. Une carte antérieure sans `reg` est réputée inscrite à sa date d'émission.
+- **Registre dans le prototype** : la carte porte `reg = {p, since, prob, eff}`, conservé
+  après un retrait :
+  - `p` : dernier registre ;
+  - `since` : date d'inscription, point de départ du verrou ;
+  - `prob` : fin de la période probatoire, `null` après une rectification ou pour une
+    inscription ultérieure ;
+  - `eff` : date après laquelle l'inscription compte pour le Narodni Sabor.
+
+  Le parcours accepte un autre registre avant `prob`, puis le refuse jusqu'à `since` +
+  15 ans. Une carte antérieure sans `reg` est réputée inscrite pour la première fois à sa
+  date d'émission.
 - **Cible** : registre des citoyens (identité, commune, État) et registres nationaux tenus
   séparément ; le standard est une propriété de la carte.
 
@@ -173,8 +187,9 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
   assemblée par délégation nationale du Narodni Sabor, ouverte au vote des seuls inscrits
   au registre correspondant ; référendums d'État ouverts aux seuls rattachés.
 - `workflow.renewable = true` : un amendement de la carte met à jour l'autorisation. Le
-  registre national n'y change que dans les conditions de l'art. 102 : autre registre
-  vingt ans après la précédente inscription, retrait libre. `metadata` porte la date
+  registre national n'y change que dans les conditions de l'art. 102 : rectification unique
+  pendant les trois ans d'une première inscription, sinon autre registre quinze ans après la
+  précédente inscription ; retrait libre. `metadata` porte la date
   d'inscription et la date d'effet ; l'accès à l'assemblée d'une délégation ne vaut qu'à
   partir de la date d'effet.
 - À l'ouverture, le registre attribue les numéros définitifs et ré-émet les cartes
