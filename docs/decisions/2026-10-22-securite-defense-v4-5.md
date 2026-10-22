@@ -99,8 +99,10 @@ en version 4.5 (annexe L) : cinq articles nouveaux, soit 170 articles au total.
 - `docs/constitution/v4.md` et `v4.en.md` : version 4.5 et annexe L.
 - `portail/data/constitution.json` régénéré.
 - Portail :
-  - nouvelle page `#/security` (« Security and defence ») : quatre services, six garde-fous,
+  - nouvelle page `#/security` (« Security and Defence ») : quatre services, six garde-fous,
     état d'exception ;
   - onglet « Security » propre dans la navigation principale, entre Institutions et Constitution (« je pensais que ça allait être un onglet en dehors de Institutions ») ; lien depuis la page Institutions et le pied de page et entrée dans la recherche ;
+  - quatre encarts image, un par service (`images/security-*.jpg`, 1600×900, cf.
+    `portail/images/README.md`) ;
   - Journal officiel : entrée v4.5.
 - `CLAUDE.md`.

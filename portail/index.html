@@ -933,6 +933,7 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .cat-paysage .slotcat{background:#3c6b46}
 .cat-politique .slotcat{background:var(--indigo)}
 .cat-humain .slotcat{background:#9a5a2f}
+.cat-sécurité .slotcat{background:#99402F}
 .slotsub{font-size:.92rem;font-weight:600;color:var(--ink-2);max-width:26ch;line-height:1.35}
 .slotdim{font-size:.7rem;color:var(--ink-3);letter-spacing:.02em}
 
@@ -1187,7 +1188,18 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .opt.off{opacity:.45;cursor:not-allowed}
 /* ---------- security and defence ---------- */
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.secgrid .panel{display:flex;flex-direction:column;gap:10px}
+.secard{background:var(--white);border:1px solid var(--line-2);border-radius:6px;overflow:hidden;
+  display:flex;flex-direction:column;transition:box-shadow .25s ease,transform .25s ease}
+.secard:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.secimg{position:relative;overflow:hidden}
+.secimg .imgslot,.secimg .imgslot.miss{aspect-ratio:16/9}
+.secimg .imgslot img{transition:transform .7s ease}
+.secard:hover .secimg .imgslot img{transform:scale(1.035)}
+.secimg:not(:has(.miss))::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;
+  background:linear-gradient(to top,rgba(20,24,40,.35),transparent);pointer-events:none}
+.secbody{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+@media(prefers-reduced-motion:reduce){.secard,.secimg .imgslot img{transition:none}
+  .secard:hover{transform:none}.secard:hover .secimg .imgslot img{transform:none}}
 .secgrid h3{font-size:1.18rem;margin:0}
 .secgrid h3 span{display:block;font-size:.8rem;font-weight:500;color:var(--ink-3);margin-top:2px}
 .secgrid .seclead{font-size:.9rem;color:var(--ink-2);line-height:1.6;margin:0}
@@ -1346,7 +1358,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <a href="#/states">States &amp; territories</a>
       <a href="#/map">Interactive map</a>
       <a href="#/institutions">Institutions</a>
-      <a href="#/security">Security and defence</a>
+      <a href="#/security">Security and Defence</a>
       <a href="#/autonomy">Autonomous communities</a>
     </div>
     <div>
@@ -2156,7 +2168,7 @@ function vInstitutions(){
       ].map(c=>`<div class="pcard"><div class="pc-eye">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p>
         <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
-    <a class="btn btn-ghost" style="margin-top:20px" href="#/security">Security and defence →</a>
+    <a class="btn btn-ghost" style="margin-top:20px" href="#/security">Security and Defence →</a>
   </section>`;
 }
 
@@ -2166,25 +2178,25 @@ function vInstitutions(){
 function vSecurity(){
   const arts=a=>a.map(artLink).join(' · ');
   const forces=[
-   {eye:'Department of Defence and Security · Sofija',n:'Konfederalna Žandarmerija',en:'Confederal Gendarmerie',
+   {img:'security-zandarmerija',eye:'Department of Defence and Security · Sofija',n:'Konfederalna Žandarmerija',en:'Confederal Gendarmerie',
     lead:'A territorial force with military status. Its Granična Straža guards the borders and customs; a special unit handles counter-terrorism and hostage rescue.',
     rows:[['Missions','Borders and customs, transport routes and waterways, confederal buildings and staff, the police of Brčko and Mostar, protected natural areas, reinforcement of State police on request.'],
           ['Command','A commander and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.'],
           ['Limits','No ordinary policing inside a State unless it asks, save under a confirmed state of emergency with five delegations; never against political, associative or trade-union gatherings.']],
     a:[139,140,'140 bis']},
-   {eye:'Department of Justice and Fundamental Rights · Zagreb',n:'Konfederalni Istražni Ured',en:'Confederal Bureau of Investigation',
+   {img:'security-istrazni-ured',eye:'Department of Justice and Fundamental Rights · Zagreb',n:'Konfederalni Istražni Ured',en:'Confederal Bureau of Investigation',
     lead:'An investigative agency for six offences only, with no patrols and no community policing. The Confederal Prosecutor\'s Office decides whether to prosecute.',
     rows:[['Offences','Attacks on the security of the Confederation, terrorism, organised crime across States, corruption of confederal officials, electoral fraud, war crimes and crimes against humanity.'],
           ['Command','A directorate of three, not all of one people; the director-general rotates among the peoples; seven years.'],
           ['Limits','Investigations of elected officials, judges or State powers need the prior authorisation of the special chamber; no files on nationality, religion, politics or union membership.']],
     a:[141,142,143,144,145]},
-   {eye:'Konfederalno Veće, collegially · Sarajevo',n:'Konfederalna Obavěštajna Agencija',en:'Confederal Intelligence Agency',
+   {img:'security-obavestajna-agencija',eye:'Konfederalno Veće, collegially · Sarajevo',n:'Konfederalna Obavěštajna Agencija',en:'Confederal Intelligence Agency',
     lead:'Gathers intelligence abroad through its external branch; at home, its internal branch acts only against four threats. It answers to the whole council, never to one councillor.',
     rows:[['At home','Espionage and foreign interference, terrorism, proliferation of weapons of mass destruction, attacks on critical infrastructure and information systems.'],
           ['Command','A director and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.'],
           ['Limits','No police powers; every intrusive measure on the territory needs the special chamber; data destroyed once no longer needed.']],
     a:['145 bis','145 ter']},
-   {eye:'Department of Defence and Security · Sofija',n:'Confederal Armed Forces',en:'A militia army',
+   {img:'security-armed-forces',eye:'Department of Defence and Security · Sofija',n:'Confederal Armed Forces',en:'A militia army',
     lead:'They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.',
     rows:[['Service','Compulsory for men, with a civilian alternative; voluntary for all.'],
           ['Command','The Chief of the General Staff (načelnik Generalštaba), confirmed by two thirds of the Kongres and five delegations, for four years, renewable once.'],
@@ -2197,10 +2209,10 @@ function vSecurity(){
    ['No political policing','No surveillance of lawful political, associative or union life; no files on nationality, religion or politics.',[137,145]],
    ['Two chambers watching','A joint committee of fourteen, two per people, oversees all three services with access to classified files.',['138 ter']],
    ['A door for complaints','Any person may apply to the Inspector General; his findings can be challenged before the Court of Justice.',['138 bis']]];
-  return crumb([['Home','#/home'],['Security and defence']])+`
+  return crumb([['Home','#/home'],['Security and Defence']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Confederal security</div>
-    <h1>Security and defence</h1>
+    <h1>Security and Defence</h1>
     <p class="lead">Public security belongs first to the States, the confederal territories
     included: each has its own police. The Confederation keeps only the powers the Constitution
     lists, through services placed under different masters and answerable to the judges and to
@@ -2209,13 +2221,16 @@ function vSecurity(){
   <section class="section reveal">
     <div class="h2row"><h2>Four services</h2></div>
     <div class="secgrid">
-      ${forces.map(f=>`<div class="panel">
-        <div class="eyebrow" style="margin:0">${f.eye}</div>
-        <h3>${f.n}<span>${f.en}</span></h3>
-        <p class="seclead">${f.lead}</p>
-        <table class="dtable">${f.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
-        <div class="secarts">${arts(f.a)}</div>
-      </div>`).join('')}
+      ${forces.map(f=>`<article class="secard">
+        <div class="secimg">${imgSlot(f.img)}</div>
+        <div class="secbody">
+          <div class="eyebrow" style="margin:0">${f.eye}</div>
+          <h3>${f.n}<span>${f.en}</span></h3>
+          <p class="seclead">${f.lead}</p>
+          <table class="dtable">${f.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
+          <div class="secarts">${arts(f.a)}</div>
+        </div>
+      </article>`).join('')}
     </div>
   </section>
   <section class="section reveal">
@@ -3388,7 +3403,7 @@ const SB_PAGES=[
  ['Autonomous communities','24 recognised minority communities','#/autonomy'],
  ['Interactive map','Globe of the Confederation, key figures by state','#/map'],
  ['Institutions','The four federal institutions','#/institutions'],
- ['Security and defence','Gendarmerie, Bureau of Investigation, intelligence, armed forces','#/security'],
+ ['Security and Defence','Gendarmerie, Bureau of Investigation, intelligence, armed forces','#/security'],
  ['Constitution','Constitutional corpus','#/constitution'],
  ['Official journal','Latest confederal decisions','#/journal'],
  ['Identity','Language, alphabet and symbols','#/identity'],
@@ -3533,6 +3548,10 @@ const SLOTS={
  'identity-people':{cat:'Humain',subj:'La langue vivante · portraits',w:1800,h:1000},
  'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais fédéral',w:1800,h:1000},
  'participation-crowd':{cat:'Humain',subj:'Citoyens · place publique',w:2400,h:1000},
+ 'security-zandarmerija':{cat:'Sécurité',subj:'Konfederalna Žandarmerija · Granična Straža',w:1600,h:900},
+ 'security-istrazni-ured':{cat:'Sécurité',subj:'Konfederalni Istražni Ured · enquêteurs',w:1600,h:900},
+ 'security-obavestajna-agencija':{cat:'Sécurité',subj:'Konfederalna Obavěštajna Agencija · renseignement',w:1600,h:900},
+ 'security-armed-forces':{cat:'Sécurité',subj:'Forces armées confédérales',w:1600,h:900},
 };
 /* Slot rotation: <id>.jpg, then <id>-2.jpg ... <id>-N.jpg cross-fade in place.
    Add a photo: drop the file and raise the count here. */
