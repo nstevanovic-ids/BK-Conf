@@ -1184,6 +1184,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .opt .nf{margin-left:auto;padding-left:8px;font-size:.8rem;font-weight:600;color:var(--ink-2);
   white-space:nowrap;align-self:center}
 .opt.on{border-color:var(--indigo);background:var(--surface-2);box-shadow:inset 3px 0 0 var(--gold)}
+.opt.off{opacity:.45;cursor:not-allowed}
+.opt.off:hover{border-color:var(--line-2)}
 [data-theme="dark"] .opt.on{border-color:var(--gold-2)}
 .opt:focus-within{outline:2px solid var(--gold);outline-offset:1px}
 .ac{position:relative}
@@ -1373,6 +1375,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-22',cat:'Law',t:'Constitution v4.3: probation and fifteen-year lock for national registers',
+  s:'Articles 102, 108, 112 and 117: enrolment from the age of 18; a first enrolment is probationary for three years and may be rectified once; otherwise another register only after fifteen years; free withdrawal; effect from the first Narodni Sabor election held more than a year later; eight years of enrolment for confederal councillors and constitutional judges.'},
  {d:'2026-10-17',cat:'Law',t:'Constitution v4.2: powers of the Confederation',
   s:'Title III, Chapter 2, Articles 55 to 99: foreign relations, defence, education, culture, environment, transport, road classification, energy, economy and currency, social security, civil and criminal law. 153 articles.'},
  {d:'2026-10-17',cat:'Law',t:'Constitution of the Balkan Confederation, v4.1: full text',
@@ -1880,7 +1884,7 @@ function vMap(){
 const INS_NODES={
  cit:{t:'Citizens',r:'Every citizen aged 18 or over',
    m:['Two ballots on the same day'],
-   d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
+   d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
    a:[37,39,102,104,108]},
  kon:{t:'Kongres',r:'Legislature',
    m:['49 constituencies, 2 to 20 delegates each'],mt:['49 constituencies','2 to 20 delegates each'],
@@ -1888,18 +1892,18 @@ const INS_NODES={
    a:[103,104,105,106]},
  ns:{t:'Narodni Sabor',r:'Assembly of Nations',
    m:['7 national delegations of 10 members'],mt:['7 delegations','of 10 members'],
-   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. On any other law, two-thirds of one delegation can raise the alarm.',
+   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. On any other law, two-thirds of one delegation can raise the alarm.',
    a:[107,108,109,110]},
  joint:{t:'Confederal Assembly',r:'',m:[],
    d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm the seven councillors of the Konfederalno Veće, as one college, in a single vote by simple majority. If the college is rejected, the delegations concerned nominate new candidates within 30 days.',
    a:[105,112]},
  kv:{t:'Konfederalno Veće',r:'Executive council',
    m:['7 councillors, one per people'],
-   d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
+   d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
    a:[111,112,113,114,115]},
  us:{t:'Ustavni Sud',r:'Constitutional court, Zagreb',
    m:['14 judges, two per people'],
-   d:'For each of its two seats, every people\'s delegation in the Narodni Sabor proposes three candidates; the Kongres elects the judges by a two-thirds majority. Judges serve one twelve-year term, and a third of the court is renewed every four years. The court reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
+   d:'For each of its two seats, every people\'s delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judges by a two-thirds majority. Judges serve one twelve-year term, and a third of the court is renewed every four years. The court reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.',
    a:[116,117,118,119]}
 };
 /* two layouts of the same diagram: wide (desktop) and tall (phones and tablets, ≤ 860 px) */
@@ -2462,8 +2466,10 @@ function vParticipation(){
         diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice (Art. 38).</p></div>
       <div class="step"><div class="sn">3</div>
         <h4>National register</h4>
-        <p>A personal, voluntary and revocable choice among the seven peoples, or none.
-        Determines the vote for the Narodni Sabor (Art. 102, 108).</p></div>
+        <p>A personal and voluntary choice among the seven peoples, or none. A first enrolment
+        may be rectified once within three years, then another register only after fifteen years;
+        withdrawal is free. Counts for the Narodni Sabor from the first election held more than a
+        year later (Art. 102, 108).</p></div>
       <div class="step"><div class="sn">4</div>
         <h4>Document language</h4>
         <p>Western, central or eastern standard for the wording of the card. Language belongs to
@@ -2479,7 +2485,8 @@ function vParticipation(){
         <div class="cid">${cur?esc(cur.num):'BK-XX-NNNNNN'}</div>
         <p>ICAO 9303 TD1 card with a machine-readable zone. XX is the state of attachment. The
         nation is printed only if the holder wishes, and never in the machine-readable zone. The
-        register and the language may be amended at any time.</p>
+        language may be amended at any time; the national register once within three years of a first
+        enrolment, otherwise only after fifteen years (Art. 102).</p>
       </div>
     </div>
     <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
@@ -2757,6 +2764,32 @@ function regBlank(){return{step:0,surname:'',given:'',sex:'',dob:'',basis:'',ori
 function regFromCitizen(c){return{step:0,surname:c.surname,given:c.given,sex:c.sex,dob:c.dob,
   basis:c.basis,origin:c.origin,res:c.abroad?'abroad':'in',people:c.people,showNat:c.showNat,
   std:c.std,consent:false,err:{}};}
+/* National register (Art. 102). A first enrolment is probationary for three years and may be
+   rectified once to another register; otherwise another register only fifteen years after the
+   last enrolment. Withdrawal is free and does not shorten the lock; a withdrawal during the
+   probation keeps the rectification open; a return to the register left does not restart the
+   lock. An enrolment counts for the Narodni Sabor from the first election held more than a
+   year after the request.
+   reg = {p, since, prob, eff}: last register; date of enrolment (starts the lock); end of the
+   probation (null after a rectification or for a later enrolment); date after which it counts.
+   A card issued before v4.3 has no reg: first enrolment on its date of issue. */
+const REG_LOCK=15,REG_PROB=3;
+function citReg(c){
+  if(!c)return null;
+  const r=c.reg||(c.people&&c.people!=='none'?{p:c.people,since:c.issued}:null);
+  if(!r)return null;
+  return {p:r.p,since:r.since,prob:r.prob!==undefined?r.prob:addYears(r.since,REG_PROB),
+    eff:r.eff||addYears(r.since,1)};
+}
+/* Rule for another register: {mode:'prob'} rectification open until .prob,
+   {mode:'lock'} closed until .until, null when open. */
+function regRule(c){
+  const r=citReg(c);if(!r)return null;
+  const t=isoToday(),until=addYears(r.since,REG_LOCK);
+  if(r.prob&&t<r.prob)return Object.assign({mode:'prob',until},r);
+  if(t<until)return Object.assign({mode:'lock',until},r);
+  return null;
+}
 function regDefaultStd(){
   if(REG.people&&REG.people!=='none'&&PEUPLES[REG.people])return PEUPLES[REG.people].std;
   const s=REG.origin&&byCode(REG.origin.c);
@@ -2779,14 +2812,16 @@ function regErrors(i){
     else if(R.basis==='residence'&&R.res==='abroad')e.res='Attachment by residence requires living in the Confederation.';
   }
   if(i===2&&!R.people)e.people='Choose a register, or no register.';
+  if(i===2&&R.people&&R.people!=='none'){const L=regRule(citLoad());
+    if(L&&L.mode==='lock'&&R.people!==L.p)e.people=`Another register is open to you from ${dmy(L.until)}, fifteen years after your enrolment (Art. 102).`;}
   if(i===3&&!R.std)e.std='Choose the language of your card.';
   if(i===4&&!R.consent)e.consent='The declaration is required to issue the card.';
   return e;
 }
 const regErr=k=>REG.err[k]?`<div class="err" role="alert">${esc(REG.err[k])}</div>`:'';
-function regOpt(field,val,title,sub,extra,type){
+function regOpt(field,val,title,sub,extra,type,off){
   const on=REG[field]===val;
-  return `<label class="opt${on?' on':''}"><input type="${type||'radio'}" name="r_${field}" value="${esc(val)}"${on?' checked':''}
+  return `<label class="opt${on?' on':''}${off?' off':''}"><input type="${type||'radio'}" name="r_${field}" value="${esc(val)}"${on?' checked':''}${off?' disabled':''}
     onchange="regPick('${field}',this.value)"><div><b>${title}</b>${sub?`<span>${sub}</span>`:''}</div>${extra?`<span class="nf">${extra}</span>`:''}</label>`;
 }
 function regAttachCard(o){
@@ -2854,13 +2889,23 @@ function regStepHTML(i){
     </div>${regErr('res')}</div>`;
   }
   if(i===2){
-    const sx=R.sex==='F'?'f':'m';
+    const sx=R.sex==='F'?'f':'m',L=regRule(citLoad()),lk=!!L&&L.mode==='lock';
+    const Ln=L&&PEUPLES[L.p]?esc(PEUPLES[L.p].en):'';
     return `<h2>National register</h2>
     <p class="lead">Every citizen may enrol in the register of the constituent people of his
-    choice. The choice is personal, voluntary and revocable, and need not match the people of
-    your state (Art. 102).</p>
+    choice. The choice is personal and voluntary and need not match the people of your state.
+    A first enrolment is probationary for three years and may be rectified once; after that,
+    another register is open only fifteen years after your enrolment. You may withdraw at any
+    time. An enrolment counts for the Narodni Sabor from the first election held more than a
+    year later (Art. 102).</p>
+    ${lk?`<div class="notice" style="margin:0 0 14px"><b>Register locked until ${esc(dmy(L.until))}.</b> You enrolled in
+    the register of the ${Ln} on ${esc(dmy(L.since))}. You may stay or withdraw;
+    another register is open to you from ${esc(dmy(L.until))} (Art. 102).</div>`
+    :L?`<div class="notice" style="margin:0 0 14px"><b>Probationary enrolment until ${esc(dmy(L.prob))}.</b> You enrolled in
+    the register of the ${Ln} on ${esc(dmy(L.since))}. Until then you may rectify it once, to another
+    register; the fifteen-year lock then runs from the rectification (Art. 102).</div>`:''}
     <div class="opts cols2">
-      ${Object.entries(PEUPLES).map(([k,p])=>regOpt('people',k,esc(p.name),esc(p.en),esc(p[sx]||''))).join('')}
+      ${Object.entries(PEUPLES).map(([k,p])=>regOpt('people',k,esc(p.name),esc(p.en),esc(p[sx]||''),'',lk&&k!==L.p)).join('')}
       ${regOpt('people','none','No register','Kongres and referendums only')}
     </div>${regErr('people')}
     <div class="notice"><b>Enrolled:</b> you elect the Kongres in your state and the ten delegates of
@@ -2891,6 +2936,19 @@ function regStepHTML(i){
   const s=R.origin&&byCode(R.origin.c),p=PEUPLES[R.people];
   const nat=R.people==='none'?'No register':p?`${esc(p.name)} (${esc(p.en)})`:'';
   const cur=citLoad();
+  let enrol='';
+  if(R.people&&R.people!=='none'&&!(cur&&cur.people===R.people)){
+    const t=isoToday(),pr=citReg(cur),L=regRule(cur),en=esc(p?p.en:'');
+    const eff=`counts for the Narodni Sabor from the first election held after ${esc(dmy(addYears(t,1)))}`;
+    const nxt=`another register will be open to you from ${esc(dmy(addYears(t,REG_LOCK)))} (Art. 102).`;
+    enrol=!pr?`Your enrolment in the register of the ${en} ${eff}. It is probationary until
+        ${esc(dmy(addYears(t,REG_PROB)))}: you may rectify it once, to another register. Otherwise ${nxt}`
+      :pr.p===R.people?`Your return to the register of the ${en} ${eff}. Your enrolment date of
+        ${esc(dmy(pr.since))} is kept (Art. 102).`
+      :L&&L.mode==='prob'?`This change uses your single rectification. Your enrolment in the register
+        of the ${en} ${eff}; ${nxt}`
+      :`Your enrolment in the register of the ${en} ${eff}; ${nxt}`;
+  }
   const reissue=cur?(cur.origin.c===(R.origin&&R.origin.c)
     ?`Your number ${esc(cur.num)} is kept; a new card is issued.`
     :`Your state of attachment changes: a new number is issued and ${esc(cur.num)} is retired.`):'';
@@ -2907,6 +2965,7 @@ function regStepHTML(i){
       ${row('Document language',esc(STD_NAME[R.std]?STD_NAME[R.std][0]:''),3)}
     </table>
     ${reissue?`<div class="notice">${reissue}</div>`:''}
+    ${enrol?`<div class="notice">${enrol}</div>`:''}
     <label class="opt${R.consent?' on':''}" style="margin-top:18px"><input type="checkbox"${R.consent?' checked':''}
       onchange="regConsent(this)">
       <div><b>I declare that I join the Balkan Confederation of my own free will and that the
@@ -3007,12 +3066,17 @@ function regIssue(){
   for(let k=0;k<4;k++){const ek=regErrors(k);if(Object.keys(ek).length){REG.step=k;REG.err=ek;regRender();regTop();return;}}
   const cur=citLoad(),s=byCode(REG.origin.c),today=isoToday();
   const same=cur&&cur.origin.c===REG.origin.c;
+  const prev=citReg(cur),eff=addYears(today,1);
+  const reg=REG.people==='none'?prev
+    :!prev?{p:REG.people,since:today,prob:addYears(today,REG_PROB),eff}
+    :prev.p===REG.people?(cur.people===REG.people?prev:Object.assign({},prev,{eff}))
+    :{p:REG.people,since:today,prob:null,eff};
   const c={v:1,
     num:same?cur.num:citNumber(s.k,[REG.surname,REG.given,REG.dob,REG.origin.c,Date.now()].join('|')),
     card:same?(cur.card||1)+1:1,issued:today,expiry:addYears(today,10),
     surname:cleanName(REG.surname),given:cleanName(REG.given),sex:REG.sex,dob:REG.dob,
     origin:REG.origin,basis:REG.basis,abroad:REG.res==='abroad',
-    people:REG.people,showNat:REG.people!=='none'&&REG.showNat,std:REG.std};
+    people:REG.people,reg,showNat:REG.people!=='none'&&REG.showNat,std:REG.std};
   citSave(c);REG=null;go('#/citizen');
 }
 
@@ -3024,7 +3088,9 @@ function vRegister(){
     <div class="eyebrow">Confederal digital citizenship</div>
     <h1>${cur?'Amend your registration':'Become a citizen'}</h1>
     <p class="lead">Five steps, a few minutes. Your state, your national register and the language
-    of your card are three independent choices; the last two may be changed at any time.</p>
+    of your card are three independent choices. The language may be changed at any time; a first
+    national register may be rectified once within three years, otherwise another register only
+    fifteen years after your enrolment (Art. 102).</p>
   </section>
   <section class="section" style="padding-top:8px"><div class="reg">
     <ol class="regnav" id="regNav" aria-label="Registration steps"></ol>
@@ -3041,7 +3107,10 @@ function vCitizen(){
     <h4>No card has been issued in this browser</h4>
     <p>Registration takes five steps. The card is kept on this device until the participatory platform opens.</p>
     <a class="btn btn-primary" style="margin-top:16px" href="#/register">Become a citizen</a></div></section>`;
-  const s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c},p=PEUPLES[c.people];
+  const s=byCode(c.origin.c)||{n:c.origin.n,c:c.origin.c},p=PEUPLES[c.people],r=citReg(c),L=regRule(c);
+  const lockTxt=!L?'':L.mode==='prob'
+    ?` <span class="note">Probationary until ${esc(dmy(L.prob))}: one rectification to another register (Art. 102).</span>`
+    :` <span class="note">Another register from ${esc(dmy(L.until))} (Art. 102).</span>`;
   return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Confederal digital citizenship</div>
@@ -3065,7 +3134,7 @@ function vCitizen(){
     <div class="panel"><div class="eyebrow">Your civic rights</div>
       <table class="dtable">
         <tr><td>Kongres</td><td>Constituency of ${esc(s.n)} (${esc(s.c)})${c.abroad?' · voting from abroad':''}</td></tr>
-        <tr><td>Narodni Sabor</td><td>${p?`Register of the ${esc(p.en)} (${esc(p.name)}) · one constituency for the whole Confederation`:'Not enrolled · no vote for the Narodni Sabor (Art. 102)'}</td></tr>
+        <tr><td>Narodni Sabor</td><td>${p?`Register of the ${esc(p.en)} (${esc(p.name)}) since ${esc(dmy(r?r.since:c.issued))} · one constituency for the whole Confederation · counts from the first election held after ${esc(dmy(r?r.eff:addYears(c.issued,1)))}.`:'Not enrolled · no vote for the Narodni Sabor (Art. 102).'}${lockTxt}</td></tr>
         <tr><td>Referendums</td><td>Confederal votes, and the votes of ${esc(s.n)}${s.t==='M'?' as set by confederal law':''}</td></tr>
         <tr><td>Initiative</td><td>Constitutional initiative (300,000 citizens) and optional referendum (150,000 citizens)</td></tr>
       </table></div>
