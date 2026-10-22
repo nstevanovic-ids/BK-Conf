@@ -32,13 +32,15 @@ Ces emblèmes sont la base des futurs logos. Aucun logo n'est encore dessiné.
      unités d'intervention.
    - Autre option écartée : la couleuvre gardienne de la maison (*zmija čuvarkuća*),
      liée à la devise *Naš dom*.
+5. **Konfederalni Istražni Ured : la balance.** Décision de l'utilisateur : « Istražni …
+   ce sera la balance ». La balance est aussi le signe habituel des tribunaux. Pour
+   distinguer le Bureau du Ustavni Sud et de la Cour confédérale de justice, la variante
+   proposée fait reposer le fléau sur une épée verticale : la justice qui enquête et agit.
 
 ## Règles communes aux logos des services
 Elles sont consignées dans `docs/canon/couleurs-symboles.md`.
 
 ## Reste ouvert
-- Emblème du Konfederalni Istražni Ured. Pistes : lanterne, ou clé et glaive. L'œil est
-  proscrit.
 - Emblème des forces armées. Pistes : buzdovan et épée, ou épées croisées sous une
   couronne de chêne avec le lion ailé en petit.
 - Animal totem de la Confédération.
