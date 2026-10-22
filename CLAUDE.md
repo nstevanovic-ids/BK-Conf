@@ -31,7 +31,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Autres organes (v4.4) : Chancellerie confédérale (Sarajevo), Cour confédérale de justice et
   Parquet confédéral (Zagreb), Banque centrale (Beograd), Cour des comptes (Ljubljana),
   Institut confédéral de la langue (Ohrid), Bibliothèque et Archives (Cetinje), Conseil des
-  communautés (albanaise, hongroise, slovaque, turque) ; coalitions d'États (initiative,
+  communautés (albanaise, hongroise, slovaque, turque), Konfederalna Obavěštajna Agencija
+  (renseignement, Sarajevo, sans pouvoir de police) ; coalitions d'États (initiative,
   référendum) : la moitié au plus d'un même peuple ; cf. ADR
   docs/decisions/2026-10-22-constitution-v4-4-institutions.md
 - 24 entités autonomes (docs/canon/entites-autonomes.md)
@@ -62,11 +63,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.4 : texte intégral, 165 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
+  Version 4.5 : texte intégral, 170 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
   dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`), titres
   1 bis et 4 à 7 (art. 1 bis à 146, articles « bis » insérés sans renumérotation) ; cf. ADR
   2026-10-17-constitution-titres-1-3.md, 2026-10-17-constitution-competences.md et
-  2026-10-22-constitution-v4-4-institutions.md ; registres nationaux : période probatoire de
+  2026-10-22-constitution-v4-4-institutions.md ; sécurité et défense (titre 7, art. 61 bis),
+  cf. ADR 2026-10-22-securite-defense-v4-5.md ; registres nationaux : période probatoire de
   trois ans, verrou de quinze ans (art. 102), cf. ADR 2026-10-22-verrou-registre-national.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
