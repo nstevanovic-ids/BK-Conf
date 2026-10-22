@@ -7,7 +7,9 @@ inflexions de l'utilisateur :
 - « oui pour 9 mais il faut bien un service intérieur non ? » ;
 - « L'armée n'aura pas de général d'État-major, pourquoi ? ».
 
-Il a aussi demandé « une page plutôt » qu'une section pour la sécurité. Constitution portée
+Il a aussi demandé « une page plutôt » qu'une section pour la sécurité. Sur les choix
+laissés ouverts, il a répondu : « oui pour le nom de l'agence, pas de règle de peuple, 4 ans
+oui, Generalštab oui ». Constitution portée
 en version 4.5 (annexe L) : cinq articles nouveaux, soit 170 articles au total.
 
 ## Constat
@@ -73,7 +75,8 @@ en version 4.5 (annexe L) : cinq articles nouveaux, soit 170 articles au total.
    - **Autorité collégiale du Konfederalno Veće** : aucun conseiller ne la dirige seul. La
      défense tient déjà la Žandarmerija, la justice tient le Bureau : un troisième service
      sous un seul conseiller concentrerait trop.
-   - **Direction** : un directeur et deux adjoints, pas tous trois du même peuple.
+   - **Direction** : un directeur et deux adjoints, sans condition de peuple (décision de
+     l'utilisateur).
    - **Contrôles** : autorisation préalable de la chambre spéciale pour toute mesure
      intrusive, interdictions de l'art. 145, destruction des données devenues inutiles.
 
@@ -85,8 +88,7 @@ en version 4.5 (annexe L) : cinq articles nouveaux, soit 170 articles au total.
     - autorité du Konfederalno Veće par le département de la Défense ;
     - un chef de l'état-major général (*načelnik Generalštaba*), confirmé aux deux tiers et
       par cinq délégations, pour quatre ans renouvelables une fois ;
-    - ce chef n'appartient pas au même peuple que le conseiller chargé de la défense lors de
-      sa nomination ;
+    - aucune condition de peuple (décision de l'utilisateur) ;
     - en cas d'engagement pour la défense du pays, l'Assemblée confédérale élit un
       commandant en chef au grade de général, sur le modèle suisse.
 
