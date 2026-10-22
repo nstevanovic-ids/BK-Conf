@@ -46,8 +46,9 @@ Trois bases, dans cet ordre :
   si différent]`. Il couvre les communes des 45 États territoriaux, les gradske opštine de
   Beograd, Stolichna (Sofija), les neuf communes de Sarajevo, Zagreb et le Turopolje, Brčko
   et Mostar.
-- **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, mais
-  leur circonscription pour le Kongres reste à fixer par la loi confédérale.
+- **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, et
+  chacune forme sa propre circonscription pour le Kongres, avec au moins un délégué
+  (art. 39 et 103, v4.4).
 
 ## Registre national
 
@@ -168,8 +169,10 @@ yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms of
   Le parcours accepte un autre registre avant `prob`, puis le refuse jusqu'à `since` +
   15 ans. Une carte antérieure sans `reg` est réputée inscrite pour la première fois à sa
   date d'émission.
-- **Cible** : registre des citoyens (identité, commune, État) et registres nationaux tenus
-  séparément ; le standard est une propriété de la carte.
+- **Cible** : registre des citoyens (identité, commune, État), tenu par le département de la
+  Justice à Zagreb, et registres nationaux tenus séparément par la Chancellerie confédérale à
+  Sarajevo (art. 115 bis, v4.4), qui en publie chaque année les flux (inscriptions,
+  rectifications, changements, retraits) ; le standard est une propriété de la carte.
 
 ## Plateforme participative (Decidim)
 
