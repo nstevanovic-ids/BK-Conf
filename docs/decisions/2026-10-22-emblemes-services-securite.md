@@ -32,10 +32,13 @@ Ces emblèmes sont la base des futurs logos. Aucun logo n'est encore dessiné.
      unités d'intervention.
    - Autre option écartée : la couleuvre gardienne de la maison (*zmija čuvarkuća*),
      liée à la devise *Naš dom*.
-5. **Konfederalni Istražni Ured : la balance.** Décision de l'utilisateur : « Istražni …
-   ce sera la balance ». La balance est aussi le signe habituel des tribunaux. Pour
-   distinguer le Bureau du Ustavni Sud et de la Cour confédérale de justice, la variante
-   proposée fait reposer le fléau sur une épée verticale : la justice qui enquête et agit.
+5. **Konfederalni Istražni Ured : la balance et l'épée.**
+   - Décisions de l'utilisateur : « Istražni … ce sera la balance », puis « oui voilà
+     balance et épée ».
+   - Le fléau de la balance repose sur une épée verticale : la justice qui enquête et
+     agit.
+   - L'épée distingue le Bureau du Ustavni Sud et de la Cour confédérale de justice, dont
+     la balance seule est le signe habituel.
 
 ## Règles communes aux logos des services
 Elles sont consignées dans `docs/canon/couleurs-symboles.md`.

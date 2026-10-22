@@ -48,7 +48,7 @@
 | Konfederalna Žandarmerija (art. 138 à 140) | **Lynx des Balkans** | aire transfrontalière, comme les missions de la Granična Straža ; espèce menacée que la Žandarmerija protège (art. 139 f) ; revendiqué par aucun peuple |
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
-| Konfederalni Istražni Ured (art. 141 à 145) | **Balance** | la justice qui pèse les preuves ; Bureau placé sous le département de la Justice ; variante proposée : fléau porté par une épée verticale, pour distinguer le Bureau des juridictions |
+| Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
 | Forces armées | à choisir | piste : buzdovan et épée |
 
 Règles communes aux logos des services :
