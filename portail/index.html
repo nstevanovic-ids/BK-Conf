@@ -1306,6 +1306,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     <a href="#/states">States</a>
     <a href="#/map">Map</a>
     <a href="#/institutions">Institutions</a>
+    <a href="#/security">Security</a>
     <a href="#/constitution">Constitution</a>
     <a href="#/identity">Identity</a>
     <a href="#/participation">Participation</a>
@@ -1345,6 +1346,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <a href="#/states">States &amp; territories</a>
       <a href="#/map">Interactive map</a>
       <a href="#/institutions">Institutions</a>
+      <a href="#/security">Security and defence</a>
       <a href="#/autonomy">Autonomous communities</a>
     </div>
     <div>
@@ -2195,7 +2197,7 @@ function vSecurity(){
    ['No political policing','No surveillance of lawful political, associative or union life; no files on nationality, religion or politics.',[137,145]],
    ['Two chambers watching','A joint committee of fourteen, two per people, oversees all three services with access to classified files.',['138 ter']],
    ['A door for complaints','Any person may apply to the Inspector General; his findings can be challenged before the Court of Justice.',['138 bis']]];
-  return crumb([['Home','#/home'],['Institutions','#/institutions'],['Security and defence']])+`
+  return crumb([['Home','#/home'],['Security and defence']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow">Confederal security</div>
     <h1>Security and defence</h1>
@@ -3304,7 +3306,7 @@ function citHeader(){
 function go(h){location.hash=h;}
 const ROUTES={
  'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
- 'institutions':[vInstitutions,'#/institutions'],'security':[vSecurity,'#/institutions'],'constitution':[vConstitution,'#/constitution'],
+ 'institutions':[vInstitutions,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],

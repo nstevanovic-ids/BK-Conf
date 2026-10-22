@@ -101,6 +101,6 @@ en version 4.5 (annexe L) : cinq articles nouveaux, soit 170 articles au total.
 - Portail :
   - nouvelle page `#/security` (« Security and defence ») : quatre services, six garde-fous,
     état d'exception ;
-  - lien depuis la page Institutions et entrée dans la recherche ;
+  - onglet « Security » propre dans la navigation principale, entre Institutions et Constitution (« je pensais que ça allait être un onglet en dehors de Institutions ») ; lien depuis la page Institutions et le pied de page et entrée dans la recherche ;
   - Journal officiel : entrée v4.5.
 - `CLAUDE.md`.
