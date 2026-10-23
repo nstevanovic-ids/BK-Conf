@@ -41,8 +41,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Emblème confédéral unique : **lion ailé d'or** (héraldiquement neutre entre les 7 peuples) :
   syncrétisme de l'aigle balkanique et du lion bulgare, lion rampant aux ailes d'aigle ;
   **aucune filiation vénitienne** (ni livre, ni auréole du lion de saint Marc)
-- Drapeau confédéral : tricolore pur, sans canton
-- Soleil à 7 rais réservé au sceau
+- Drapeau civil : bande rouge au guindant, champ bleu-blanc-bleu, sans symbole ; drapeau
+  d'État : soleil d'or à 36 rais chargé du lion ailé de gueules sur la bande rouge, frises
+  textiles bordant la bande blanche (constitution art. 7 bis)
+- Soleil à 7 rais réservé au sceau (distinct du soleil à 36 rais du drapeau d'État)
 - Devise confédérale : **Naš dom** (Notre maison / Our home), identique dans les trois
   standards ; cf. ADR docs/decisions/2026-10-15-devise-nas-dom.md
 - Couleurs : #99402F gueules · #374078 azur · #FFFFFF argent · #DFCC68 or

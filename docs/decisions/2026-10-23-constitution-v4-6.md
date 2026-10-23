@@ -62,9 +62,9 @@ au total.
    1848, la dernière en 1932 à Genève. L'Allemagne n'a jamais employé son art. 37. L'Espagne
    a appliqué son art. 155 en 2017-2018.
 5. **Symboles** (art. 7 bis) :
-   - le drapeau : bande verticale rouge au guindant, champ bleu, blanc et bleu, comme sur le
-     portail ;
-   - le drapeau d'État est fixé par la loi ;
+   - le drapeau civil : bande verticale rouge au guindant, champ bleu, blanc et bleu ;
+   - le drapeau d'État : le même, avec sur la bande rouge un soleil d'or rayonnant chargé du
+     lion ailé de gueules, et des frises bordant la bande blanche ;
    - l'emblème est le lion ailé d'or ;
    - le sceau porte le lion ailé sur un soleil à sept rais ;
    - la devise est *Naš dom* ;
@@ -72,10 +72,12 @@ au total.
    - les lois sur les symboles exigent le consentement du Narodni Sabor.
 
 ## Incohérences relevées, hors de cette décision (chantier des symboles)
-- **Soleil sur le drapeau d'État.** La page Symbols décrit un drapeau d'État portant
-  « the radiant sun charged with the lion » au guindant. Le canon réserve le soleil à sept
-  rais au sceau et l'interdit sur les drapeaux. L'art. 7 bis renvoie le drapeau d'État à la
-  loi pour ne pas trancher ici.
+- **Soleil sur le drapeau d'État : résolu.** Décision de l'utilisateur du 23 octobre 2026 :
+  « le soleil et le lion, c'est le *state flag* ; sans, c'est le *civil flag* ».
+  - Le soleil du drapeau d'État compte 36 rais, comptés sur l'image du portail. C'est un
+    motif distinct du soleil à sept rais du sceau : il n'y a pas de contradiction avec le
+    canon, qui précise désormais la différence.
+  - L'art. 7 bis décrit maintenant les deux drapeaux.
 - **Lion vénitien : résolu.** La page Symbols présentait le lion comme « heir to the
   Venetian and Adriatic heraldic tradition ». L'utilisateur l'a corrigé le 23 octobre 2026 :
   « il n'est pas hérité de la tradition vénitienne, c'est un syncrétisme entre l'aigle
