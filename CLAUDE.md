@@ -122,6 +122,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   Extra Condensed ; polices OFL auto-hébergées dans `portail/fonts/`, intégrées en base64
   par le build inline. Toute police doit couvrir č ć đ ě ļ ñ, le cyrillique (ѣ compris)
   et l'API (ADR 2026-10-23-typographie.md)
+- Transitions : un seul glissement vertical entre sections, comme une one page (en-tête
+  immobile, sens selon l'ordre de la navigation, 620 ms, sans fondu) ; rien d'autre ne
+  s'anime à l'arrivée sur une page (ADR 2026-10-23-glissement-sections.md)
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
