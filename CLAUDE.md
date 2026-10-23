@@ -38,7 +38,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - 24 entités autonomes (docs/canon/entites-autonomes.md)
 
 ## Symboles (docs/canon/couleurs-symboles.md)
-- Emblème confédéral unique : **lion ailé d'or** (héraldiquement neutre entre les 7 peuples)
+- Emblème confédéral unique : **lion ailé d'or** (héraldiquement neutre entre les 7 peuples) :
+  syncrétisme de l'aigle balkanique et du lion bulgare, lion rampant aux ailes d'aigle ;
+  **aucune filiation vénitienne** (ni livre, ni auréole du lion de saint Marc)
 - Drapeau confédéral : tricolore pur, sans canton
 - Soleil à 7 rais réservé au sceau
 - Devise confédérale : **Naš dom** (Notre maison / Our home), identique dans les trois

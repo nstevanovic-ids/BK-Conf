@@ -76,10 +76,11 @@ au total.
   « the radiant sun charged with the lion » au guindant. Le canon réserve le soleil à sept
   rais au sceau et l'interdit sur les drapeaux. L'art. 7 bis renvoie le drapeau d'État à la
   loi pour ne pas trancher ici.
-- **Lion vénitien.** La page Symbols présente le lion comme « crowned » et « heir to the
-  Venetian and Adriatic heraldic tradition ». L'utilisateur rejette un lion d'apparence
-  vénitienne (22 octobre 2026), et le canon laisse encore cette filiation en attente.
-  L'art. 7 bis ne parle que du « lion ailé d'or ».
+- **Lion vénitien : résolu.** La page Symbols présentait le lion comme « heir to the
+  Venetian and Adriatic heraldic tradition ». L'utilisateur l'a corrigé le 23 octobre 2026 :
+  « il n'est pas hérité de la tradition vénitienne, c'est un syncrétisme entre l'aigle
+  largement présent dans la symbolique balkanique et celle du lion bulgare ». Le canon des
+  symboles et la page Symbols ont été corrigés dans cette même PR.
 
 ## Propagation
 - `docs/constitution/v4.md` et `v4.en.md` : version 4.6 et annexe M.

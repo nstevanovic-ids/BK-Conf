@@ -15,7 +15,14 @@
 ## Emblème confédéral
 - **Lion ailé d'or** — emblème unique, héraldiquement neutre entre les 7 peuples
 - Choisi pour sa neutralité (pas d'appropriation par un peuple particulier)
-- Référence à approfondir : filiation vénitienne ou récit propre (en attente)
+- **Récit propre, aucune filiation vénitienne** (décision de l'utilisateur, 23 octobre 2026) :
+  syncrétisme entre **l'aigle**, très présent dans la symbolique balkanique (aigle bicéphale
+  byzantin, serbe et monténégrin, aigle de Carniole), et **le lion bulgare** (lion d'or
+  rampant et couronné). Les ailes de l'aigle portées par le corps du lion.
+- Iconographie : lion **rampant** comme le lion bulgare ; ailes d'aigle déployées. Aucun
+  attribut du lion de saint Marc (ni livre, ni auréole, ni posture passante ou assise), pour
+  qu'on ne puisse pas le confondre avec le lion vénitien.
+- La couronne de la représentation du portail vient du lion bulgare.
 
 ## Drapeau confédéral
 - Tricolore pur, **sans canton ni symbole**
