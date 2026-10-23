@@ -15,15 +15,34 @@
 ## Emblème confédéral
 - **Lion ailé d'or** — emblème unique, héraldiquement neutre entre les 7 peuples
 - Choisi pour sa neutralité (pas d'appropriation par un peuple particulier)
-- Référence à approfondir : filiation vénitienne ou récit propre (en attente)
+- **Récit propre, aucune filiation vénitienne** (décision de l'utilisateur, 23 octobre 2026) :
+  syncrétisme entre **l'aigle**, très présent dans la symbolique balkanique (aigle bicéphale
+  byzantin, serbe et monténégrin, aigle de Carniole), et **le lion bulgare** (lion d'or
+  rampant et couronné). Les ailes de l'aigle portées par le corps du lion.
+- Iconographie : lion **rampant** comme le lion bulgare ; ailes d'aigle déployées. Aucun
+  attribut du lion de saint Marc (ni livre, ni auréole, ni posture passante ou assise), pour
+  qu'on ne puisse pas le confondre avec le lion vénitien.
+- La couronne de la représentation du portail vient du lion bulgare.
 
-## Drapeau confédéral
-- Tricolore pur, **sans canton ni symbole**
-- Drapeau d'État (vs drapeau civil) : à spécifier si variante chargée souhaitée
+## Drapeaux confédéraux (constitution art. 7 bis)
+Décision de l'utilisateur, 23 octobre 2026 : « le soleil et le lion, c'est le *state flag* ;
+sans, c'est le *civil flag* ».
+- **Drapeau civil** : une bande verticale rouge au guindant et un champ de trois bandes
+  horizontales bleue, blanche et bleue, **sans symbole**. C'est le drapeau des citoyens, des
+  associations et des bâtiments publics municipaux.
+- **Drapeau d'État** : le drapeau civil, plus deux éléments :
+  - sur la bande rouge, un **soleil d'or rayonnant à 36 rais** chargé du **lion ailé de
+    gueules** ;
+  - la bande blanche bordée de **frises** inspirées des textiles balkaniques.
+
+  Il est réservé aux institutions confédérales, aux forces armées et aux représentations à
+  l'étranger.
+- Le soleil du drapeau d'État (36 rais, compté sur l'image du portail) est un motif
+  **distinct** du soleil à sept rais du sceau.
 
 ## Sceau
 - **Soleil à 7 rais** — réservé au sceau confédéral (un rai par peuple)
-- Ne pas utiliser sur les drapeaux
+- Ne pas utiliser sur les drapeaux, où figure le soleil à 36 rais du drapeau d'État
 
 ## Devise confédérale
 - **Naš dom** — *Notre maison* / *Our home* (ADR 2026-10-15-devise-nas-dom.md)

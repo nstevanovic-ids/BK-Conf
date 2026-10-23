@@ -1401,6 +1401,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-23',cat:'Law',t:'Constitution v4.6: immunities, conciliation, treaties, enforcement and symbols',
+  s:'Absolute and relative immunity and a session guarantee, authorised by the special chamber; a conciliation committee of fourteen, one member per people from each chamber, also when consent is refused; consent of the Narodni Sabor and an optional referendum for treaties; graduated confederal enforcement; the flag, emblem, seal and motto of the Confederation. 174 articles.'},
  {d:'2026-10-22',cat:'Law',t:'Constitution v4.5: security and defence',
   s:'Each confederal territory keeps its own police; a command for the Gendarmerie; a Confederal Intelligence Agency without police powers, abroad and against four threats at home; an Inspector General and a joint security committee; a Chief of the General Staff, and a general elected by the Confederal Assembly in wartime. 170 articles.'},
  {d:'2026-10-22',cat:'Law',t:'Constitution v4.4: the institutions completed',
@@ -2034,9 +2036,15 @@ const LAW={
    ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
    ['skip','No request is filed within 100 days.',[122]],
    ['pass','The law enters into force. Without the consent of the Narodni Sabor it could not have done so.',[109]]]},
+ refused:{n:'Consent refused',o:'In force, after conciliation.',s:[
+   ['pass','Adopted by a simple majority of the delegates present.',[106]],
+   ['alt','Only four of the seven delegations approve: consent is refused. A conciliation committee of fourteen, one member per people from each chamber, drafts a single compromise on the disputed provisions; both chambers adopt it without amendment, the Narodni Sabor with five delegations.',[109,'110 ter']],
+   ['pass','Published in the Official Journal in its compromise version. A 100-day window opens for a referendum request.',[122]],
+   ['skip','No request is filed within 100 days.',[122]],
+   ['pass','The compromise version enters into force. Had conciliation failed, the law would have been abandoned.',['110 ter']]]},
  alarm:{n:'Alarm motion',o:'In force, after a two-thirds vote.',s:[
    ['pass','Adopted by a simple majority of the delegates present.',[106]],
-   ['alt','Two-thirds of one national delegation vote an alarm motion within 30 days. The law is suspended and sent to a joint conciliation committee for 60 days. Conciliation fails.',[109]],
+   ['alt','Two-thirds of one national delegation vote an alarm motion within 30 days. The law is suspended and sent to the conciliation committee, fourteen members, one per people from each chamber, for 60 days. No compromise wins the vote of the delegation that raised the alarm.',[109,'110 ter']],
    ['alt','The Kongres can now adopt the law only by a two-thirds majority. It does so, and the law is published.',[109]],
    ['skip','No referendum request is filed within 100 days.',[122]],
    ['pass','The law enters into force.',[109]]]},
@@ -2471,9 +2479,11 @@ function vSymbols(){
           <img src="${COA_DATA}" alt="Coat of arms of the Balkan Confederation" />
         </div>
         <div class="symcap">
-          <p><b>Or, a winged lion rampant.</b> The crowned and winged lion, heir to the
-          Venetian and Adriatic heraldic tradition transposed onto the Balkan ground, stands for the union of the constituent peoples. It appears in gold, with no
-          shield, on official seals, state correspondence and the state flag.</p>
+          <p><b>Or, a winged lion rampant.</b> The emblem joins the two great beasts of
+          Balkan heraldry: the wings of the eagle, borne from the Byzantine double-headed eagle
+          to the eagle of Carniola, and the crowned body of the Bulgarian lion. Neither eagle
+          nor lion alone, it stands for the union of the constituent peoples. It appears in
+          gold, with no shield, on official seals, state correspondence and the state flag.</p>
         </div>
       </div>
       <div>
