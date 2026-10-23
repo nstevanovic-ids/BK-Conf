@@ -38,7 +38,7 @@ jobs:
           python scripts/build_portail.py --inline
           mkdir -p _site
           cp balkanska_konfederacija.html _site/index.html
-          # Ship the licensed Zurich font files if present (referenced by @font-face)
+          # Ship the OFL font files and their licences (fonts are also inlined as base64)
           if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
           # Ship owner-supplied images (referenced as images/<id>.jpg)
           if [ -d portail/images ]; then cp -r portail/images _site/images; fi

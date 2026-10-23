@@ -77,17 +77,16 @@ def build_inline() -> int:
             sys.exit(f"balise absente du template : {tag}")
         code = (PORTAIL / "vendor" / lib).read_text(encoding="utf-8").replace("</script", "<\\/script")
         src = src.replace(tag, f"<script>\n{code}\n</script>")
-    # Embed the licensed Zurich font files as base64 so the single file is
-    # fully self-contained (font url(fonts/...) -> data URI).
+    # Embed the OFL font files (Arimo, Sofia Sans Extra Condensed) as base64 so the
+    # single file is fully self-contained (font url(fonts/...) -> data URI).
     fonts_dir = PORTAIL / "fonts"
-    for woff in ("zurich-regular.woff2", "zurich-bold.woff2"):
+    for woff in ("arimo.woff2", "sofia-sans-extra-condensed.woff2"):
         fp = fonts_dir / woff
-        if fp.exists():
-            b64 = base64.b64encode(fp.read_bytes()).decode("ascii")
-            src = src.replace(
-                f"url('fonts/{woff}') format('woff2')",
-                f"url(data:font/woff2;base64,{b64}) format('woff2')",
-            )
+        ref = f"url('fonts/{woff}') format('woff2')"
+        if not fp.exists() or ref not in src:
+            sys.exit(f"police absente du dépôt ou du template : {woff}")
+        b64 = base64.b64encode(fp.read_bytes()).decode("ascii")
+        src = src.replace(ref, f"url(data:font/woff2;base64,{b64}) format('woff2')")
     # Favicon inliné en data URI : le fichier unique reste self-contained (file://).
     # apple-touch-icon.png reste un lien relatif, copié à côté par le déploiement Pages.
     ico = PORTAIL / "favicon.ico"

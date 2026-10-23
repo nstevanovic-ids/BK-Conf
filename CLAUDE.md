@@ -118,6 +118,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (boucle sans couture, deux tailles, sans son). La fiche d'un État filmé s'ouvre sur un
   bandeau vidéo plein écran, juste la vidéo : ni son, ni bouton (titre en surimpression) ; cf. ADR 2026-10-18-films-etats.md et
   portail/videos/README.md. Vidéos brutes hors dépôt
+- Typographie : texte en Arimo, titres (h1–h4, marque, grands chiffres) en Sofia Sans
+  Extra Condensed ; polices OFL auto-hébergées dans `portail/fonts/`, intégrées en base64
+  par le build inline. Toute police doit couvrir č ć đ ě ļ ñ, le cyrillique (ѣ compris)
+  et l'API (ADR 2026-10-23-typographie.md)
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 

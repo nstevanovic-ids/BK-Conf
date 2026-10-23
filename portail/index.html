@@ -7,18 +7,16 @@
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f2742">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Provisional fallback grotesque (Inter) until the licensed Zurich files are supplied.
-     Drop portail/fonts/zurich-regular.woff2 and zurich-bold.woff2 to switch to Zurich. -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Licensed typeface (Zurich BT), files provided by the project owner.
-   The inline build embeds these as base64 for a self-contained file. */
-@font-face{font-family:'Zurich';font-style:normal;font-weight:300 500;font-display:swap;
-  src:url('fonts/zurich-regular.woff2') format('woff2')}
-@font-face{font-family:'Zurich';font-style:normal;font-weight:600 900;font-display:swap;
-  src:url('fonts/zurich-bold.woff2') format('woff2')}
+/* Typefaces (SIL Open Font License, see fonts/OFL-*.txt), self-hosted variable fonts
+   subset to Latin + Latin Extended A/B, IPA, Greek and Cyrillic (incl. extended).
+   Text: Arimo (wght 400–700). Titles and key figures: Sofia Sans Extra Condensed
+   (wght 400–800). The inline build embeds both as base64 for a self-contained file. */
+@font-face{font-family:'Arimo';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('fonts/arimo.woff2') format('woff2')}
+@font-face{font-family:'Sofia Sans Extra Condensed';font-style:normal;font-weight:400 800;font-display:swap;
+  size-adjust:110%; /* cap height 0.655 → 0.72 em, as in the Zurich titles the layout was drawn for */
+  src:url('fonts/sofia-sans-extra-condensed.woff2') format('woff2')}
 /* ============================================================
    BALKANSKA KONFEDERACIJA, OFFICIAL PORTAL
    Design system: institutional / Swiss-cold / documentary
@@ -53,7 +51,8 @@
   --shadow:0 1px 2px rgba(20,24,40,.04);
   --shadow-lg:0 18px 44px rgba(20,24,40,.12);
   --tile:#ffffff; --tile-line:#d0d2d8;
-  --font:'Zurich','Inter',system-ui,sans-serif;
+  --font:'Arimo',system-ui,sans-serif;
+  --font-display:'Sofia Sans Extra Condensed','Arimo',system-ui,sans-serif;
   --map-land:#e9edf3; --map-core:#d3dcea; --map-line:#a9b4c9; --map-water:#dde6f1;
   color-scheme:light;
 }
@@ -116,7 +115,7 @@ button{font-family:inherit;cursor:pointer}
 .mono{font-family:var(--font);font-feature-settings:"tnum" 1;letter-spacing:.01em}
 .serif{font-family:var(--font)}
 text{font-family:var(--font)}
-h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.2;letter-spacing:0;color:var(--ink)}
 
 /* ---------- top hairline ---------- */
 .topline{height:3px;background:#c90505;width:100%}
@@ -141,7 +140,7 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
   gap:16px;padding:16px 28px 14px}
 .emblem{width:44px;height:44px;flex:none}
 .brand{display:flex;flex-direction:column;line-height:1.12}
-.brand b{font-family:var(--font);font-size:1.3rem;font-weight:700;
+.brand b{font-family:var(--font-display);font-size:1.3rem;font-weight:700;
   letter-spacing:.005em;color:#fff}
 .brand span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold-pale);margin-top:3px;font-weight:600}
@@ -203,7 +202,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--white)}
 .fig{padding:22px 22px;border-right:1px solid var(--line)}
 .fig:last-child{border-right:none}
-.fig b{font-family:var(--font);font-size:2.5rem;font-weight:700;
+.fig b{font-family:var(--font-display);font-size:2.5rem;font-weight:700;
   color:var(--indigo);display:block;line-height:1}
 .fig span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:8px;display:block}
@@ -447,7 +446,7 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .kpi{background:var(--white);border:1px solid var(--line-2);border-radius:4px;
   padding:22px;border-top:3px solid var(--gold)}
-.kpi .kn{font-family:var(--font);font-size:2.3rem;color:var(--indigo);
+.kpi .kn{font-family:var(--font-display);font-size:2.3rem;color:var(--indigo);
   font-weight:700;line-height:1}
 .kpi .kl{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:7px}
@@ -1446,7 +1445,7 @@ const TRI={
 };
 function roundel(code){
   return `<circle cx="45" cy="30" r="14.5" fill="#ffffff" stroke="#1f2742" stroke-width="1.4"/>`+
-   `<text x="45" y="35.6" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
+   `<text x="45" y="35.6" text-anchor="middle" font-family="Arimo,sans-serif" `+
    `font-size="13" font-weight="600" fill="#1f2742">${code}</text>`;
 }
 function flagSVG(s){
@@ -1481,12 +1480,12 @@ function flagSVG(s){
     `<path d="M43 12l2 2 2-2M43 16l2 2 2-2" stroke="#fff" stroke-width="1" fill="none"/></svg>`;
   if(s.t==='F') return `<svg ${v}><image href="${STATE_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Arimo,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
   if(s.t==='M') return `<svg ${v}><image href="${CIVIL_FLAG_DATA}" x="0" y="0" width="90" height="60" preserveAspectRatio="xMidYMid slice"/>`+
     `<rect x="2" y="2" width="86" height="56" fill="none" stroke="#b88a14" stroke-width="1.6" stroke-dasharray="5 3"/>`+
     `<circle cx="73" cy="11" r="8.5" fill="#ffffff" stroke="#0e347f" stroke-width="1.2"/>`+
-    `<text x="73" y="14" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
+    `<text x="73" y="14" text-anchor="middle" font-family="Arimo,sans-serif" `+
     `font-size="7.5" font-weight="700" fill="#0e347f">${s.k}</text></svg>`;
   if(TRI[s.p]){const t=TRI[s.p];
    return `<svg ${v}><rect width="90" height="20" fill="${t[0]}"/><rect y="20" width="90" height="20" fill="${t[1]}"/>`+
@@ -1506,9 +1505,9 @@ function plateSVG(s){
    `<rect width="240" height="50" rx="5" fill="#ffffff" stroke="#d0d2d8" stroke-width="1"/>`+
    `<rect width="34" height="50" rx="5" fill="#0e347f"/><rect x="29" width="6" height="50" fill="#0e347f"/>`+
    `<image href="${COA_DATA}" x="2" y="3" width="30" height="22" preserveAspectRatio="xMidYMid meet"/>`+
-   `<text x="17" y="42" text-anchor="middle" font-family="Zurich,Inter,sans-serif" `+
+   `<text x="17" y="42" text-anchor="middle" font-family="Arimo,sans-serif" `+
    `font-size="10" font-weight="700" fill="#f8c300">BK</text>`+
-   `<text x="58" y="35" font-family="Zurich,Inter,sans-serif" font-size="26" `+
+   `<text x="58" y="35" font-family="Arimo,sans-serif" font-size="26" `+
    `font-weight="600" fill="#1b2030" letter-spacing="2">${s.k} · 000 · A</text></svg>`;
 }
 
@@ -2800,7 +2799,7 @@ const natForm=c=>{const p=PEUPLES[c.people];
   return c.people!=='none'&&p?(c.sex==='F'?p.f:p.m):'';};
 
 /* --- citizen card, ID-1 (85.6 x 54 mm), drawn at 856 x 540 ------------- */
-const CARD_FONT="Zurich,Inter,'Helvetica Neue',Arial,sans-serif";
+const CARD_FONT="Arimo,'Helvetica Neue',Arial,sans-serif";
 function cardFit(t,max,base){return Math.max(13,Math.min(base,max/(String(t).length*.64)));}
 function cardGuilloche(w,h,n,col,op){
   let d='';
