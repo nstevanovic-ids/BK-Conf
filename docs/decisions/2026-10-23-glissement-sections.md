@@ -1,7 +1,8 @@
 # ADR 2026-10-23 — Transition entre sections : un seul glissement vertical
 
 ## Statut
-Accepté sous réserve de validation du rendu. Demande de l'utilisateur du 2026-10-23 :
+Accepté. Amendé le 2026-10-24 : glissement horizontal entre les pages d'une même
+section (ADR 2026-10-24-etats-en-tete-mobile.md). Demande de l'utilisateur du 2026-10-23 :
 « qu'il n'y ait qu'un glissement, comme une one page ».
 
 ## Constat
