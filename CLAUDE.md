@@ -67,9 +67,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.6 : texte intégral, 174 articles. Titres 1 à 3 (texte de base, art. 1 à 99,
-  dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`), titres
-  1 bis et 4 à 7 (art. 1 bis à 146, articles « bis » insérés sans renumérotation) ; cf. ADR
+  Version 4.7 : texte intégral, 190 articles en dix titres. Titres 1 à 3 (texte de base, art. 1
+  à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
+  chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
+  146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
+  renforcées révisables seulement par les sept délégations nationales), titre 9 dispositions
+  finales et transitoires (151 à 156) ; Kongres de 250 délégués, Sainte-Laguë (art. 103) ;
+  cf. ADR 2026-10-24-constitution-v4-7.md ; cf. ADR
   2026-10-17-constitution-titres-1-3.md, 2026-10-17-constitution-competences.md et
   2026-10-22-constitution-v4-4-institutions.md ; sécurité et défense (titre 7, art. 61 bis),
   cf. ADR 2026-10-22-securite-defense-v4-5.md ; immunités, conciliation, traités, exécution

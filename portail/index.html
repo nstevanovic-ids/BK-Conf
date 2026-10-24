@@ -1270,6 +1270,20 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   white-space:nowrap;align-self:center}
 .opt.on{border-color:var(--indigo);background:var(--surface-2);box-shadow:inset 3px 0 0 var(--gold)}
 .opt.off{opacity:.45;cursor:not-allowed}
+/* ---------- Kongres seats ---------- */
+.seatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px;
+  border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+.seat{background:var(--white);padding:10px 14px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;min-width:0;
+  border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.seat:hover .sn{color:var(--gold)}
+@media(max-width:760px){.seatgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seat{padding:9px 10px;gap:8px}.seat .sn{font-size:.8rem}.seat .sv{font-size:1.35rem}}
+.seat .sn{font-size:.86rem;font-weight:600;color:var(--ink);min-width:0;line-height:1.3}
+.seat .sn small{display:block;font-size:.7rem;font-weight:500;color:var(--ink-3);margin-top:2px}
+.seat .sv{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--indigo);line-height:1}
+[data-theme="dark"] .seat .sv{color:var(--ink)}
+.seatnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;line-height:1.6}
 /* ---------- security and defence ---------- */
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .secard{background:var(--white);border:1px solid var(--line-2);border-radius:6px;overflow:hidden;
@@ -1495,6 +1509,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-24',cat:'Law',t:'Constitution v4.7: finances, the Kongres, revision and final provisions',
+  s:'A financial regime on the Swiss model: a debt brake, a capped confederal income tax shared with the States, tax harmonisation and an exclusive value added tax; a Kongres of 250 delegates shared out by the Sainte-Laguë method; total and partial revision, with five entrenched guarantees that only all seven national delegations can revise; entry into force, first elections and the opening of the national registers. 190 articles in ten titles.'},
  {d:'2026-10-23',cat:'Law',t:'Constitution v4.6: immunities, conciliation, treaties, enforcement and symbols',
   s:'Absolute and relative immunity and a session guarantee, authorised by the special chamber; a conciliation committee of fourteen, one member per people from each chamber, also when consent is refused; consent of the Narodni Sabor and an optional referendum for treaties; graduated confederal enforcement; the flag, emblem, seal and motto of the Confederation. 174 articles.'},
  {d:'2026-10-22',cat:'Law',t:'Constitution v4.5: security and defence',
@@ -2014,8 +2030,8 @@ const INS_NODES={
    d:'Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.',
    a:[37,39,102,104,108]},
  kon:{t:'Kongres',r:'Legislature',
-   m:['51 constituencies, 1 to 20 delegates each'],mt:['51 constituencies','1 to 20 delegates each'],
-   d:'Each of the 49 States is one constituency and elects between 2 and 20 delegates in proportion to its population; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
+   m:['250 delegates, 51 constituencies'],mt:['250 delegates','51 constituencies'],
+   d:'250 delegates. Each of the 49 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.',
    a:[103,104,105,106,'106 bis']},
  ns:{t:'Narodni Sabor',r:'Assembly of Nations',
    m:['7 national delegations of 10 members'],mt:['7 delegations','of 10 members'],
@@ -2151,13 +2167,39 @@ const LAW={
    ['stop','A majority votes no. The law does not enter into force.',[122]]]},
  amendment:{n:'Constitutional amendment',o:'Part of the Constitution.',s:[
    ['pass','The Kongres adopts the amendment.',[105]],
-   ['pass','Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations.',[109,110]],
+   ['pass','Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations, or within all seven if it touches an entrenched guarantee.',[109,110,150]],
    ['pass','Published, then put to a mandatory vote of the people and the States.',[123]],
    ['pass','Double majority: a majority of voters across the Confederation and a majority of the States, 25 of 49. Each State counts as one vote, decided by its own voters.',[123,124]],
    ['pass','The amendment enters the Constitution.',[123]]]}
 };
 const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
 let _lawT=[];
+/* Kongres seats (Art. 103): 250 seats, Sainte-Laguë (common divisor, standard rounding),
+   2 to 20 per State, at least 1 for Brčko and Mostar. Computed from STATS. */
+function kongresSeats(total=250){
+  const rows=STATES.filter(s=>STATS[s.c]&&STATS[s.c].population).map(s=>({c:s.c,n:s.n,t:s.t,p:STATS[s.c].population}));
+  const seats=D=>rows.map(r=>Math.min(20,Math.max(r.t==='M'?1:2,Math.round(r.p/D))));
+  let lo=1,hi=1e7,D=0,s=[];
+  for(let i=0;i<200;i++){D=(lo+hi)/2;s=seats(D);const n=s.reduce((a,b)=>a+b,0);
+    if(n>total)lo=D;else if(n<total)hi=D;else break;}
+  rows.forEach((r,i)=>r.s=s[i]);
+  rows.sort((a,b)=>b.s-a.s||b.p-a.p);
+  return {D,rows,pop:rows.reduce((a,r)=>a+r.p,0)};
+}
+function seatsHTML(){
+  const K=kongresSeats();
+  if(K.rows.length<51)return '';
+  return `<div class="kpis">
+      <div class="kpi"><div class="kn">250</div><div class="kl">Delegates</div></div>
+      <div class="kpi"><div class="kn">${K.rows.length}</div><div class="kl">Constituencies</div></div>
+      <div class="kpi"><div class="kn">${fmtN(Math.round(K.pop/250/100)*100)}</div><div class="kl">Inhabitants per delegate, on average</div></div>
+    </div>
+    <div class="seatgrid">${K.rows.map(r=>`<a class="seat" href="#/state/${r.c}"><span class="sn">${esc(r.n)}<small>${r.c} · ${fmtN(r.p)}</small></span><span class="sv">${r.s}</span></a>`).join('')}</div>
+    <p class="seatnote">Each population is divided by a common divisor, here ${fmtN(Math.round(K.D/10)*10)}, and rounded
+    to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and
+    at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the
+    Konfederalno Veće confirms the distribution after each census (${artLink(103)}).</p>`;
+}
 function lawHTML(){
   return `<div class="law-chips" role="group" aria-label="Choose a case">
     ${Object.entries(LAW).map(([k,v])=>`<button class="chip" data-law="${k}" aria-pressed="false"
@@ -2240,6 +2282,13 @@ function vInstitutions(){
     <div class="isc-detail" id="iscDetail" aria-live="polite"></div>
   </section>
   <section class="section reveal">
+    <div class="h2row"><h2>The 250 seats of the Kongres</h2></div>
+    <p class="lead" style="margin-bottom:18px">Every State is a constituency. Seats follow the population,
+    so that a delegate represents roughly the same number of inhabitants everywhere, within a floor that
+    keeps the smallest States in the chamber.</p>
+    ${seatsHTML()}
+  </section>
+  <section class="section reveal">
     <div class="h2row"><h2>How a confederal law is made</h2></div>
     <p class="lead" style="margin-bottom:18px">Every confederal law passes the Kongres. The
     Narodni Sabor guards the matters that touch the peoples, and the citizens keep the last
@@ -2250,12 +2299,29 @@ function vInstitutions(){
     <div class="h2row"><h2>Direct democracy</h2></div>
     <div class="split2">
       <div class="panel"><div class="eyebrow">Popular initiative</div>
-        <p class="note">300,000 citizens may propose a constitutional revision within 18 months,
-        adopted by the double majority of the people and of the States (Art. 121).</p></div>
+        <p class="note">300,000 citizens may propose a total or partial revision of the Constitution
+        within 18 months. A partial revision is adopted by the double majority of the people and of the
+        States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).</p></div>
       <div class="panel"><div class="eyebrow">Optional referendum</div>
         <p class="note">150,000 citizens, or 12 States of which no more than half belong to the
         same people, may submit any confederal law to a popular vote within 100 days of its
         publication (Art. 122).</p></div>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Revising the Constitution</h2></div>
+    <p class="lead" style="margin-bottom:18px">Any part of the Constitution can be revised, by the
+    chambers or by the citizens, and every revision goes to the people and the States. Five guarantees,
+    on which the union of the peoples rests, can be revised only if each of the seven national delegations
+    agrees (${['147','150'].map(artLink).join(' · ')}).</p>
+    <div class="steps s5">
+      ${[['Parity of the peoples','Ten members per people in the Narodni Sabor, one councillor per people in the Konfederalno Veće.',[107,111]],
+         ['Consent and alarm','The consent of the Narodni Sabor, the alarm bell and conciliation.',[109,110,'110 ter']],
+         ['Core rights','Human dignity, equality, the right to life and personal liberty.',[8,9,11]],
+         ['Free enrolment','Free choice of a national register, no compulsion to declare one, and the right to join none.',[102]],
+         ['The guarantee itself','The rule that protects these four cannot be lifted by a smaller majority.',[150]]]
+        .map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${g[0]}</h4>
+        <p>${g[1]}</p><span class="sa">${g[2].map(artLink).join(' · ')}</span></div>`).join('')}
     </div>
   </section>
   <section class="section reveal">
@@ -3603,6 +3669,8 @@ const SB_PAGES=[
  ['Institutions','The four federal institutions','#/institutions'],
  ['Security and Defence','Gendarmerie, Bureau of Investigation, intelligence, armed forces','#/security'],
  ['Constitution','Constitutional corpus','#/constitution'],
+ ['Kongres seats','250 delegates in 51 constituencies','#/institutions'],
+ ['Revising the Constitution','Total and partial revision, entrenched guarantees','#/institutions'],
  ['Official journal','Latest confederal decisions','#/journal'],
  ['Identity','Language, alphabet and symbols','#/identity'],
  ['Alphabet','Unified South Slavic Latin alphabet','#/alphabet'],
