@@ -78,6 +78,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   trois ans, verrou de quinze ans (art. 102), cf. ADR 2026-10-22-verrou-registre-national.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
+- Plateforme participative (Decidim, e-Konfederacija) → docs/plateforme/ ; lancement sur les
+  réseaux (X d'abord, puis Instagram) → docs/communication/
 - Symboles confédéraux (animal totem à choisir, lettre-emblème glagolitique/bosančica) → en
   attente ; le lynx est l'emblème de la Žandarmerija, plus un candidat au totem (ADR
   2026-10-22-emblemes-services-securite.md)
