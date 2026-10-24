@@ -1,6 +1,6 @@
 # Liste canonique des États — Balkanska Konfederacija
 
-**45 États territoriaux + 4 villes-États fédérales + 2 municipalités fédérales autonomes.**
+**45 États territoriaux + 4 territoires confédéraux (villes-États) + 2 municipalités confédérales autonomes.**
 Numérotation strictement alphabétique par code. Source de vérité du projet.
 Trois États ajoutés le 2026-06-28 (Lašva, Soli, Vrhbosna) en codes provisoires
 LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
@@ -55,7 +55,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | VZ-44 | Zapaden Vardar | Macedonians | Tetovo |
 | ZA-45 | Zagorje | Croats | Krapina |
 
-## Villes-États fédérales (4)
+## Territoires confédéraux, villes-États (4)
 
 | Code | Nom | Fonction |
 |------|-----|----------|
@@ -64,12 +64,12 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | SF-93 | Sofija | Defence &amp; sciences capital |
 | ZG-94 | Zagreb | Judicial capital — Grad Zagreb + Turopolje (Velika Gorica, Kravarsko, Orle, Pokupsko) + Stupnik (ADR 2026-10-13-zagreb-turopolje) |
 
-## Municipalités fédérales autonomes (2)
+## Municipalités confédérales autonomes (2)
 
 | Code | Nom | Statut |
 |------|-----|--------|
-| BK-95 | Brčko | Direct federal jurisdiction |
-| MO-96 | Mostar | Direct federal jurisdiction |
+| BK-95 | Brčko | Direct confederal jurisdiction |
+| MO-96 | Mostar | Direct confederal jurisdiction |
 
 ## Renames de codes appliqués (vs constitution v2)
 

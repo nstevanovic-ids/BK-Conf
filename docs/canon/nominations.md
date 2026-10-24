@@ -16,7 +16,7 @@ Décrit **uniquement** :
 - l'alphabet : *alphabet sud-slave latin unifié*
 - les 7 peuples constitutifs
 
-- ❌ NE JAMAIS dire « confédération sud-slave » pour désigner l'entité fédérale
+- ❌ NE JAMAIS dire « confédération sud-slave » pour désigner l'entité confédérale
 - ✅ « les sept peuples sud-slaves », « la langue sud-slave »
 
 ## Positionnement linguistique
