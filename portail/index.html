@@ -1156,7 +1156,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .menubtn{display:none}
 @media(max-width:760px),(max-height:520px){
   header{display:flex;flex-direction:column}
-  .masthead{order:1;width:100%;flex-wrap:nowrap;height:56px;padding:0 6px 0 16px;gap:10px}
+  /* flex:none : la barre garde 56 px même quand le menu ouvert dépasse l'écran */
+  .masthead{order:1;width:100%;flex:none;flex-wrap:nowrap;height:56px;padding:0 6px 0 16px;gap:10px}
   .emblem{width:34px;height:34px}
   .brand{min-width:0}
   .brand b{font-size:1.1rem;white-space:nowrap}
@@ -1176,18 +1177,22 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   header.open .menubtn .ic-burger{display:none}
   header.open .menubtn .ic-close{display:block}
   header.open nav.primary{display:block;order:2;flex:1 0 auto;background:var(--indigo)}
-  header.open nav.primary .wrap{flex-direction:column;flex-wrap:nowrap;padding:10px 0}
-  header.open nav.primary a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;
-    letter-spacing:.01em;color:rgba(255,255,255,.78);padding:11px 22px 11px 19px;
+  header.open nav.primary .wrap{flex-direction:column;flex-wrap:nowrap;padding:8px 0}
+  header.open nav.primary a{font-family:var(--font-display);font-size:1.5rem;font-weight:700;
+    line-height:1.2;letter-spacing:.01em;color:rgba(255,255,255,.78);padding:10px 22px 10px 19px;
     border-bottom:none;border-left:3px solid transparent}
   header.open nav.primary a.active{color:#fff;border-left-color:var(--gold)}
   header.open .utility{display:block;order:3;border-bottom:none;border-top:1px solid rgba(255,255,255,.1)}
-  header.open .utility .wrap{flex-wrap:wrap;justify-content:flex-start;gap:14px 18px;
-    padding:18px 22px calc(26px + env(safe-area-inset-bottom));font-size:.88rem}
-  header.open .utility .crumbtag{order:9;width:100%;margin:6px 0 0}
-  header.open .langsel button{font-size:.84rem;padding:6px 10px}
+  /* une ligne : langues, Register, thème calé à droite ; mention dessous */
+  header.open .utility .wrap{flex-wrap:wrap;justify-content:flex-start;gap:12px 14px;
+    padding:16px 16px calc(22px + env(safe-area-inset-bottom)) 22px;font-size:.88rem}
+  header.open .utility .sep{display:none}
+  header.open .utility .themebtn{margin-left:auto;width:40px;height:34px;justify-content:center}
+  header.open .utility .crumbtag{order:9;width:100%;margin:2px 0 0}
+  header.open .langsel button{font-size:.84rem;padding:6px 9px}
+  /* filet en ombre portée : aucune incidence sur la hauteur de la barre */
   header.open .masthead{position:sticky;top:0;z-index:1;background:var(--indigo);
-    border-bottom:1px solid rgba(255,255,255,.08)}
+    box-shadow:inset 0 -1px 0 rgba(255,255,255,.08)}
 }
 /* téléphone en paysage : la navigation tient sur deux colonnes */
 @media(max-height:520px) and (min-width:560px){

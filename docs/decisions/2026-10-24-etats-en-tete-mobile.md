@@ -51,6 +51,12 @@ trois lignes.
 - Accessibilité : `aria-expanded`, `aria-controls="nav"`, libellé Open / Close menu,
   focus sur la section courante à l'ouverture, retour sur le bouton après Échap.
 - Au-delà de 760 px : en-tête inchangé.
+- **Barre fixe à 56 px**, menu ouvert ou fermé (`flex: none`) : sur un écran peu haut
+  (357 × 666, signalé le 2026-10-24), le menu ouvert dépassait de 66 px et la barre,
+  élément flexible de l'en-tête, était comprimée à 45 px, son contenu remontant de 6 px.
+  Le filet sous la barre est une ombre portée, sans incidence sur sa hauteur. Le menu est
+  resserré (sections en 1,5 rem, interligne 1,2) et tient sans défiler jusqu'à 360 × 640 ;
+  au-dessous, il défile sous la barre. Langues, Register et thème sur une seule ligne.
 
 ## Vérification
 Chromium 153 (Playwright) : 360 × 740, 390 × 844, 680 × 900, 760 et 761 × 1000,
