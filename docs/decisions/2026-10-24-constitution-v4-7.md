@@ -146,7 +146,8 @@ second tableau à maintenir.
 
 ## Propagation
 - `docs/constitution/v4.md` et `v4.en.md` : version 4.7 et annexe N. Articles 103, 110,
-  118 j et 121 modifiés.
+  118 j et 121 modifiés. *Ļubļana* à l'art. 1 ter, selon la règle toponymique v3 (ADR
+  2026-10-24-alphabet-transition-libelles.md).
 - `portail/data/constitution.json` régénéré : 10 titres, 190 articles.
 - Portail, page Institutions :
   - nouvelle section « The 250 seats of the Kongres », dont la répartition est calculée en
