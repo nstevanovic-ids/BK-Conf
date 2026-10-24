@@ -894,8 +894,8 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .searchbox .sb-in{display:flex;align-items:center;gap:11px;padding:15px 18px;
   border-bottom:1px solid var(--line)}
 .searchbox .sb-in svg{flex:none;color:var(--ink-3)}
-.searchbox input{flex:1;border:none;outline:none;font-family:inherit;font-size:1.02rem;
-  color:var(--ink);background:none}
+.searchbox input{flex:1;min-width:0;border:none;outline:none;font-family:inherit;font-size:1.02rem;
+  color:var(--ink);background:none}  /* min-width:0 : sinon le champ pousse ESC hors du cadre */
 .searchbox .sb-esc{font-size:.62rem;font-weight:700;letter-spacing:.06em;color:var(--ink-3);
   border:1px solid var(--line-2);border-radius:3px;padding:3px 7px;flex:none}
 .sb-results{overflow-y:auto;padding:7px 0}
@@ -919,6 +919,25 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .sb-foot kbd{font-family:var(--font);font-size:.66rem;background:var(--surface-2);
   border:1px solid var(--line-2);border-radius:3px;padding:1px 5px;margin-right:4px}
 @media(max-width:560px){.searchbox .sb-foot{display:none}}
+/* écran tactile : une croix de fermeture remplace le badge ESC */
+.sb-close{display:none;flex:none;align-items:center;justify-content:center;width:44px;height:44px;
+  margin:-8px -10px -8px 0;background:none;border:none;color:var(--ink-2);padding:0}
+.sb-close svg{width:22px;height:22px}
+@media(pointer:coarse),(max-width:760px),(max-height:520px){
+  .searchbox .sb-esc{display:none}
+  .sb-close{display:flex}
+}
+/* téléphone : la recherche occupe l'écran ; sa barre de saisie a la hauteur de
+   la barre du portail (56 px). Cf. ADR 2026-10-24-etats-en-tete-mobile.md */
+@media(max-width:760px),(max-height:520px){
+  html.search-open{overflow:hidden}
+  .scrim{padding:0;align-items:stretch;backdrop-filter:none}
+  .searchbox{max-width:none;height:100%;max-height:none;border:none;border-radius:0;box-shadow:none}
+  .searchbox .sb-in{flex:none;height:56px;padding:0 6px 0 16px;gap:12px}
+  .searchbox .sb-close{margin:0}
+  .sb-results{flex:1;overscroll-behavior:contain}
+  .sb-item{padding:11px 16px 11px 13px}
+}
 
 /* ---------- institutional restyle (gov.fr / Swiss Confederation) ---------- */
 /* Sharp, squared edges and restrained surfaces instead of soft rounded cards. */
@@ -1407,6 +1426,9 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
         placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query">
       <span class="sb-esc">ESC</span>
+      <button class="sb-close" type="button" onclick="closeSearch()" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="sb-results" id="searchResults"></div>
     <div class="sb-foot">
@@ -3665,11 +3687,13 @@ function openSearch(){
   toggleMenu(false);
   const sc=document.getElementById('searchScrim');
   sc.classList.add('open');
+  document.documentElement.classList.add('search-open');
   const inp=document.getElementById('searchInput');
   inp.value='';sbSel=0;sbResults=searchQuery('');renderResults();
   setTimeout(()=>inp.focus(),0);
 }
-function closeSearch(){document.getElementById('searchScrim').classList.remove('open');}
+function closeSearch(){document.getElementById('searchScrim').classList.remove('open');
+  document.documentElement.classList.remove('search-open');}
 function sbHover(n){sbSel=n;
   document.querySelectorAll('.sb-item').forEach(e=>e.classList.toggle('sel',+e.dataset.n===n));}
 function sbGo(n){const i=sbResults[n];if(!i)return;closeSearch();go(i.hash);}
