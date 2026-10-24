@@ -58,6 +58,21 @@ trois lignes.
   resserré (sections en 1,5 rem, interligne 1,2) et tient sans défiler jusqu'à 360 × 640 ;
   au-dessous, il défile sous la barre. Langues, Register et thème sur une seule ligne.
 
+## 3. Recherche sur mobile
+
+### Constat
+La fenêtre de recherche (juin 2026) n'avait pas de version mobile : le champ de saisie ne
+rétrécissait pas sous la largeur de son texte indicatif et poussait le badge ESC hors du
+cadre (signalé le 2026-10-24 sur 357 × 666) ; sans clavier, la fenêtre ne se fermait qu'en
+touchant la marge grisée.
+
+### Décision
+- Champ de saisie `min-width: 0` : rien ne déborde, à toutes les tailles.
+- Écran tactile : une croix de fermeture remplace le badge ESC.
+- Téléphone (mêmes seuils que l'en-tête compact) : la recherche occupe l'écran ; sa
+  barre de saisie fait 56 px, comme la barre du portail ; la page dessous ne défile pas.
+- Ordinateur : inchangé (fenêtre centrée, badge ESC, raccourcis clavier).
+
 ## Vérification
 Chromium 153 (Playwright) : 360 × 740, 390 × 844, 680 × 900, 760 et 761 × 1000,
 844 × 390, 1366 × 820, thèmes clair et sombre, mouvement réduit. Axe et sens corrects
