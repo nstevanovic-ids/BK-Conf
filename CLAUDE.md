@@ -122,9 +122,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
   Extra Condensed ; polices OFL auto-hébergées dans `portail/fonts/`, intégrées en base64
   par le build inline. Toute police doit couvrir č ć đ ě ļ ñ, le cyrillique (ѣ compris)
   et l'API (ADR 2026-10-23-typographie.md)
-- Transitions : un seul glissement vertical entre sections, comme une one page (en-tête
-  immobile, sens selon l'ordre de la navigation, 620 ms, sans fondu) ; rien d'autre ne
-  s'anime à l'arrivée sur une page (ADR 2026-10-23-glissement-sections.md)
+- Transitions : un seul glissement, 620 ms, sans fondu, en-tête immobile ; vertical entre
+  les sections de la navigation, horizontal entre les pages d'une même section (fiches
+  d'États, titres de la constitution, sous-pages) ; rien d'autre ne s'anime à l'arrivée ;
+  retour d'une fiche : la grille des États revient à sa position, filtre conservé
+  (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md)
+- En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
+  nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 

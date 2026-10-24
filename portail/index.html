@@ -628,11 +628,15 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
   .hero-aside .crest{animation:none}
 }
 
-/* ---------- transition entre sections : un seul glissement vertical ----------
-   Comme une one page : l'en-tête reste en place, la page sortante et la page
-   entrante glissent d'un bloc, sans fondu. data-vt="next" (section suivante
-   dans l'ordre de la navigation) : le contenu monte ; data-vt="prev" : il
-   descend. Posé par render() ; cf. ADR 2026-10-23-glissement-sections.md */
+/* ---------- transition entre pages : un seul glissement ----------
+   Convention one page : les sections de la navigation s'enchaînent
+   verticalement, les pages d'une même section (fiches d'États, titres de la
+   constitution, sous-pages) horizontalement, comme des diapositives.
+   L'en-tête reste en place ; page sortante et page entrante glissent d'un bloc,
+   sans fondu. data-vt = axe-sens, posé par render() :
+   y-next le contenu monte · y-prev il descend · x-next il part à gauche ·
+   x-prev il part à droite. Cf. ADR 2026-10-23-glissement-sections.md et
+   2026-10-24-etats-en-tete-mobile.md */
 @media(prefers-reduced-motion:no-preference){
   body>.topline{view-transition-name:bk-topline}
   body>header{view-transition-name:bk-header}   /* noms uniques : un doublon annule la transition */
@@ -645,15 +649,23 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
     clip-path:inset(var(--vt-top,0px) 0 0 0);
     animation-duration:.62s;animation-timing-function:cubic-bezier(.65,0,.35,1);
     animation-fill-mode:both;mix-blend-mode:normal}
-  ::view-transition-old(root){animation-name:vt-next-out}
-  ::view-transition-new(root){animation-name:vt-next-in}
-  :root[data-vt="prev"]::view-transition-old(root){animation-name:vt-prev-out}
-  :root[data-vt="prev"]::view-transition-new(root){animation-name:vt-prev-in}
+  ::view-transition-old(root){animation-name:vt-y-next-out}
+  ::view-transition-new(root){animation-name:vt-y-next-in}
+  :root[data-vt="y-prev"]::view-transition-old(root){animation-name:vt-y-prev-out}
+  :root[data-vt="y-prev"]::view-transition-new(root){animation-name:vt-y-prev-in}
+  :root[data-vt="x-next"]::view-transition-old(root){animation-name:vt-x-next-out}
+  :root[data-vt="x-next"]::view-transition-new(root){animation-name:vt-x-next-in}
+  :root[data-vt="x-prev"]::view-transition-old(root){animation-name:vt-x-prev-out}
+  :root[data-vt="x-prev"]::view-transition-new(root){animation-name:vt-x-prev-in}
 }
-@keyframes vt-next-out{to{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
-@keyframes vt-next-in{from{transform:translateY(calc(100% - var(--vt-top,0px)))}}
-@keyframes vt-prev-out{to{transform:translateY(calc(100% - var(--vt-top,0px)))}}
-@keyframes vt-prev-in{from{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
+@keyframes vt-y-next-out{to{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
+@keyframes vt-y-next-in{from{transform:translateY(calc(100% - var(--vt-top,0px)))}}
+@keyframes vt-y-prev-out{to{transform:translateY(calc(100% - var(--vt-top,0px)))}}
+@keyframes vt-y-prev-in{from{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
+@keyframes vt-x-next-out{to{transform:translateX(-100%)}}
+@keyframes vt-x-next-in{from{transform:translateX(100%)}}
+@keyframes vt-x-prev-out{to{transform:translateX(100%)}}
+@keyframes vt-x-prev-in{from{transform:translateX(-100%)}}
 
 /* ---------- map: situation room (always dark, like an instrument screen) ---------- */
 .sr{--sr-bg:#050a1b;--sr-ocean:#081129;--sr-land:#1a2445;--sr-far:#172040;
@@ -1099,15 +1111,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 /* ---------- phones / small tablets ---------- */
 @media(max-width:680px){
   main{padding:0 16px 70px}
-  /* utility bar: drop the long crumb, let the row breathe */
-  .utility .wrap{padding:6px 16px;gap:10px;justify-content:space-between}
-  .utility .crumbtag{display:none}
-  .langsel button{padding:3px 5px}
-  /* masthead reflows; search becomes a full-width second row */
-  .masthead{flex-wrap:wrap;padding:12px 16px 12px;gap:10px 14px}
-  .searchbtn{order:5;min-width:0;width:100%;margin-left:0}
-  nav.primary .wrap{padding:0 8px}
-  nav.primary a{padding:11px 12px;font-size:.82rem}
+  /* en-tête : voir « en-tête compact » plus bas */
   /* one-column figure/stat grids */
   .figs{grid-template-columns:repeat(2,1fr)}
   .fig{border-right:none;border-bottom:1px solid var(--line)}
@@ -1143,6 +1147,53 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   .pagehead h1{font-size:1.7rem}
   .hero-full h1{font-size:2.1rem}
   .feat{gap:26px}
+}
+
+/* ---------- en-tête compact : téléphones, et paysage peu haut ----------
+   Une seule barre de 56 px (emblème, nom, recherche, menu). La navigation,
+   les langues, Register et le thème passent dans le menu, qui recouvre
+   l'écran sous la barre. Cf. ADR 2026-10-24-etats-en-tete-mobile.md */
+.menubtn{display:none}
+@media(max-width:760px),(max-height:520px){
+  header{display:flex;flex-direction:column}
+  .masthead{order:1;width:100%;flex-wrap:nowrap;height:56px;padding:0 6px 0 16px;gap:10px}
+  .emblem{width:34px;height:34px}
+  .brand{min-width:0}
+  .brand b{font-size:1.1rem;white-space:nowrap}
+  .brand span{font-size:.55rem;letter-spacing:.17em;margin-top:1px;white-space:nowrap}
+  .searchbtn{margin-left:auto;width:44px;height:44px;min-width:0;padding:0;flex:none;
+    justify-content:center;background:none;border:none;color:#fff}
+  .searchbtn .sb-lab,.searchbtn .sb-kbd{display:none}
+  .searchbtn svg{width:19px;height:19px}
+  .menubtn{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;
+    background:none;border:none;color:#fff;padding:0}
+  .menubtn svg{width:24px;height:24px}
+  .menubtn .ic-close{display:none}
+  nav.primary,.utility{display:none}
+  /* menu ouvert : l'en-tête occupe l'écran, la page dessous ne défile plus */
+  html.menu-open{overflow:hidden;overflow-anchor:none}
+  header.open{height:100vh;height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+  header.open .menubtn .ic-burger{display:none}
+  header.open .menubtn .ic-close{display:block}
+  header.open nav.primary{display:block;order:2;flex:1 0 auto;background:var(--indigo)}
+  header.open nav.primary .wrap{flex-direction:column;flex-wrap:nowrap;padding:10px 0}
+  header.open nav.primary a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;
+    letter-spacing:.01em;color:rgba(255,255,255,.78);padding:11px 22px 11px 19px;
+    border-bottom:none;border-left:3px solid transparent}
+  header.open nav.primary a.active{color:#fff;border-left-color:var(--gold)}
+  header.open .utility{display:block;order:3;border-bottom:none;border-top:1px solid rgba(255,255,255,.1)}
+  header.open .utility .wrap{flex-wrap:wrap;justify-content:flex-start;gap:14px 18px;
+    padding:18px 22px calc(26px + env(safe-area-inset-bottom));font-size:.88rem}
+  header.open .utility .crumbtag{order:9;width:100%;margin:6px 0 0}
+  header.open .langsel button{font-size:.84rem;padding:6px 10px}
+  header.open .masthead{position:sticky;top:0;z-index:1;background:var(--indigo);
+    border-bottom:1px solid rgba(255,255,255,.08)}
+}
+/* téléphone en paysage : la navigation tient sur deux colonnes */
+@media(max-height:520px) and (min-width:560px){
+  header.open nav.primary .wrap{display:grid;grid-template-columns:1fr 1fr;padding:6px 0}
+  header.open nav.primary a{font-size:1.3rem;padding:7px 22px 7px 19px}
+  header.open .utility .wrap{padding-top:12px;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 }
 
 /* ============================================================
@@ -1315,11 +1366,18 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <b>Balkanska Konfederacija</b>
       <span>Balkan Confederation</span>
     </div>
-    <button class="searchbtn" id="searchBtn" onclick="openSearch()">
+    <button class="searchbtn" id="searchBtn" onclick="openSearch()" aria-label="Search the portal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      Search the portal
-      <span class="mono" style="margin-left:auto;font-size:.66rem;opacity:.7">⌘K</span>
+      <span class="sb-lab">Search the portal</span>
+      <span class="mono sb-kbd" style="margin-left:auto;font-size:.66rem;opacity:.7">⌘K</span>
+    </button>
+    <button class="menubtn" id="menuBtn" onclick="toggleMenu()" aria-controls="nav"
+      aria-expanded="false" aria-label="Open menu">
+      <svg class="ic-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
   <nav class="primary"><div class="wrap" id="nav">
@@ -1683,22 +1741,23 @@ function vStates(){
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="toolbar">
-      <input id="q" placeholder="Search a state, a code, a seat…" oninput="renderGrid()">
-      <button class="chip on" data-p="all" onclick="setF(this)">All</button>
+      <input id="q" placeholder="Search a state, a code, a seat…" oninput="renderGrid()" value="${esc(curQ)}">
+      <button class="chip${curF==='all'?' on':''}" data-p="all" onclick="setF(this)">All</button>
       ${Object.entries(PEUPLES).map(([k,p])=>
-        `<button class="chip" data-p="${k}" onclick="setF(this)">${p.en}</button>`).join('')}
-      <button class="chip" data-p="fed" onclick="setF(this)">Federal</button>
+        `<button class="chip${curF===k?' on':''}" data-p="${k}" onclick="setF(this)">${p.en}</button>`).join('')}
+      <button class="chip${curF==='fed'?' on':''}" data-p="fed" onclick="setF(this)">Federal</button>
     </div>
     <div class="sgrid" id="grid"></div>
     <div class="notice">Autonomous communities within the states are listed on the
       <a href="#/autonomy" style="font-weight:600;color:var(--gold)">Autonomous communities</a> page.</div>
   </section>`;
 }
-let curF='all';
+let curF='all', curQ='';   // filtre et recherche de la grille, gardés pendant la visite
 function setF(b){curF=b.dataset.p;
   document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));renderGrid();}
 function renderGrid(){
-  const q=(document.getElementById('q')?.value||'').toLowerCase();
+  const inp=document.getElementById('q'); if(inp)curQ=inp.value;
+  const q=curQ.toLowerCase();
   const list=STATES.filter(s=>{
     const fok=curF==='all'||s.p===curF;
     const qok=!q||(s.n+s.c+s.ch+s.k).toLowerCase().includes(q);
@@ -3366,23 +3425,29 @@ function routePlace(h){
   return [NAV_ORDER.indexOf(ROUTES[seg][1]),keys.indexOf(seg),fine];
 }
 function placeCmp(a,b){for(let i=0;i<3;i++)if(a[i]!==b[i])return a[i]<b[i]?-1:1;return 0;}
-let _shown=null;   // dernière route rendue
+let _shown=null, _from=null;   // dernière route rendue, route qu'on quitte
+let _gridY=null;                  // position dans la grille des États au départ vers une fiche
 function render(){
+  toggleMenu(false);
   const h=location.hash||'#/home', prev=_shown;
-  _shown=h;
-  const d=prev===null?0:placeCmp(routePlace(prev),routePlace(h));
+  _shown=h; _from=prev;
+  const pa=prev===null?null:routePlace(prev), pb=routePlace(h);
+  const d=pa?placeCmp(pa,pb):0;
   /* même page : renvoi vers un article du titre déjà affiché → simple défilement */
   if(prev!==null&&d===0){
     const cp=h.split('/');
     if(cp[1]==='constitution'&&cp[3]&&document.getElementById(cp[3])){cJump(cp[3]);return;}
   }
+  /* grille → fiche : on retient la position pour y revenir au retour */
+  if(prev&&prev.startsWith('#/states')&&h.startsWith('#/state/'))_gridY=window.scrollY;
   /* un seul glissement ; aucun au premier affichage ni sur la même page */
   if(d===0||!document.startViewTransition||
      matchMedia('(prefers-reduced-motion:reduce)').matches){renderNow();return;}
   const root=document.documentElement;
-  root.dataset.vt=d<0?'next':'prev';
-  const hd=document.querySelector('header'), tl=document.querySelector('.topline');
-  root.style.setProperty('--vt-top',((hd?hd.offsetHeight:0)+(tl?tl.offsetHeight:0))+'px');
+  /* même section de la navigation : glissement horizontal, sinon vertical */
+  root.dataset.vt=(pa[0]===pb[0]?'x-':'y-')+(d<0?'next':'prev');
+  const hd=document.querySelector('body>header');
+  root.style.setProperty('--vt-top',Math.max(0,Math.round(hd?hd.getBoundingClientRect().bottom:0))+'px');
   const vt=document.startViewTransition(renderNow);
   const done=()=>{if(_shown===h)delete root.dataset.vt;};
   vt.finished.then(done,done);
@@ -3405,19 +3470,23 @@ function renderNow(){
     const e=document.getElementById(id);
     if(e)e.innerHTML=emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
   });
-  if(h.startsWith('#/states'))renderGrid();
+  if(h.startsWith('#/states')){
+    renderGrid();
+    /* retour d'une fiche : la grille revient là où on l'avait quittée */
+    if(_from&&_from.startsWith('#/state/')&&_gridY!==null)
+      window.scrollTo({top:_gridY,behavior:'instant'});
+  }
   if(h.startsWith('#/register'))regRender();
   if(h.startsWith('#/citizen'))citMount();
   if(h.startsWith('#/institutions'))insMount();
   sheroMount();
   citHeader();
-  const hd=document.querySelector('header');
-  if(hd)document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
+  setHdr();
   /* arrivée sur un article : la page entre déjà positionnée, le glissement l'apporte */
   const cp=h.split('/');
   if(cp[1]==='constitution'&&cp[3])cJump(cp[3],true);
+  setupReveal();
   requestAnimationFrame(()=>{
-    setupReveal();
     setupParallax();
     animateFigs();
     if(h.startsWith('#/map'))initMap();
@@ -3455,6 +3524,44 @@ document.getElementById('langsel').addEventListener('click',e=>{
   }
 });
 window.addEventListener('hashchange',render);
+/* le portail place lui-même la page (haut de page, article, retour à la grille) :
+   la restauration du navigateur au retour arrière décalerait la page sortante */
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+
+/* ============================================================
+   MENU MOBILE, en-tête compact (≤ 760 px de large ou ≤ 520 px de haut)
+   ============================================================ */
+const MENU_MQ=matchMedia('(max-width:760px),(max-height:520px)');
+function toggleMenu(force){
+  const hd=document.querySelector('body>header'), b=document.getElementById('menuBtn');
+  if(!hd||!b)return;
+  const was=hd.classList.contains('open'), open=force===undefined?!was:!!force;
+  if(open===was)return;
+  const y=window.scrollY;
+  hd.classList.toggle('open',open);
+  document.documentElement.classList.toggle('menu-open',open);
+  /* l'en-tête reprend sa hauteur : la page reste où elle était (sans l'ancrage
+     de défilement, qui la décalerait de la hauteur du menu) */
+  if(!open)window.scrollTo({top:y,behavior:'instant'});
+  b.setAttribute('aria-expanded',open);
+  b.setAttribute('aria-label',open?'Close menu':'Open menu');
+  if(open){hd.scrollTop=0;
+    (document.querySelector('#nav a.active')||document.querySelector('#nav a')).focus({preventScroll:true});}
+}
+/* un lien du menu ferme le menu (la navigation suit) */
+document.querySelector('body>header').addEventListener('click',e=>{
+  if(e.target.closest('a'))toggleMenu(false);});
+document.addEventListener('keydown',e=>{
+  const hd=document.querySelector('body>header');
+  if(e.key==='Escape'&&hd.classList.contains('open')){toggleMenu(false);document.getElementById('menuBtn').focus();}
+});
+function setHdr(){
+  const hd=document.querySelector('body>header');
+  if(hd&&!hd.classList.contains('open'))
+    document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
+}
+MENU_MQ.addEventListener('change',e=>{if(!e.matches)toggleMenu(false);setHdr();});
+window.addEventListener('resize',setHdr,{passive:true});
 
 /* ============================================================
    PORTAL SEARCH, client-side index over states, autonomous
@@ -3550,6 +3657,7 @@ function renderResults(){
   if(sel)sel.scrollIntoView({block:'nearest'});
 }
 function openSearch(){
+  toggleMenu(false);
   const sc=document.getElementById('searchScrim');
   sc.classList.add('open');
   const inp=document.getElementById('searchInput');
@@ -3592,14 +3700,16 @@ function setupReveal(){
   if(_io)_io.disconnect();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
   /* seules les sections situées sous l'écran à l'arrivée apparaissent en
-     défilant ; celles déjà visibles entrent avec le glissement, sans fondu */
+     défilant ; celles déjà à l'écran (ou au-dessus) entrent avec le glissement,
+     sans fondu : elles perdent la classe io, même posée en dur dans le gabarit.
+     Appelé de façon synchrone par renderNow, avant la capture de la page entrante. */
   const vh=window.innerHeight;
-  const els=[...document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band')]
-    .filter(el=>el.getBoundingClientRect().top>=vh);
   _io=new IntersectionObserver(ents=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
   },{rootMargin:'0px 0px -7% 0px',threshold:0}); /* 0 : une section très haute (titre III, 22 000 px) n'atteint jamais 2 % visibles */
-  els.forEach(el=>{el.classList.add('io');_io.observe(el);});
+  document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band').forEach(el=>{
+    if(el.getBoundingClientRect().top<vh){el.classList.remove('io');return;}
+    el.classList.add('io');_io.observe(el);});
 }
 
 /* ============================================================
