@@ -174,9 +174,8 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .pagehead h1{font-size:2.15rem;margin:4px 0 10px}
 .divider{height:1px;background:var(--line);margin:6px 0}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(9px);animation:rv .5s ease forwards}
-@keyframes rv{to{opacity:1;transform:none}}
+/* .reveal : plus d'animation d'entrée, le glissement entre sections suffit
+   (cf. ADR 2026-10-23-glissement-sections.md) ; la classe reste un marqueur */
 
 /* ---------- hero ---------- */
 .hero{display:grid;grid-template-columns:1.35fr .85fr;gap:46px;
@@ -627,16 +626,34 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 @media(prefers-reduced-motion:reduce){
   .io,.io.in{opacity:1;transform:none;transition:none}
   .hero-aside .crest{animation:none}
-  .reveal{animation:none;opacity:1;transform:none}
 }
 
-/* ---------- view transitions ---------- */
+/* ---------- transition entre sections : un seul glissement vertical ----------
+   Comme une one page : l'en-tête reste en place, la page sortante et la page
+   entrante glissent d'un bloc, sans fondu. data-vt="next" (section suivante
+   dans l'ordre de la navigation) : le contenu monte ; data-vt="prev" : il
+   descend. Posé par render() ; cf. ADR 2026-10-23-glissement-sections.md */
 @media(prefers-reduced-motion:no-preference){
-  ::view-transition-old(root){animation:vt-out .22s ease both}
-  ::view-transition-new(root){animation:vt-in .30s ease both}
+  body>.topline{view-transition-name:bk-topline}
+  body>header{view-transition-name:bk-header}   /* noms uniques : un doublon annule la transition */
+  ::view-transition-group(bk-header),::view-transition-group(bk-topline){animation:none}
+  ::view-transition-old(bk-header),::view-transition-old(bk-topline){display:none}
+  ::view-transition-new(bk-header),::view-transition-new(bk-topline){animation:none}
+  /* --vt-top = bas de l'en-tête : la zone vide qu'il laisse dans chaque capture
+     est retranchée, les deux pages se suivent bord à bord sous l'en-tête */
+  ::view-transition-old(root),::view-transition-new(root){
+    clip-path:inset(var(--vt-top,0px) 0 0 0);
+    animation-duration:.62s;animation-timing-function:cubic-bezier(.65,0,.35,1);
+    animation-fill-mode:both;mix-blend-mode:normal}
+  ::view-transition-old(root){animation-name:vt-next-out}
+  ::view-transition-new(root){animation-name:vt-next-in}
+  :root[data-vt="prev"]::view-transition-old(root){animation-name:vt-prev-out}
+  :root[data-vt="prev"]::view-transition-new(root){animation-name:vt-prev-in}
 }
-@keyframes vt-out{to{opacity:0;transform:translateY(-6px)}}
-@keyframes vt-in{from{opacity:0;transform:translateY(10px)}}
+@keyframes vt-next-out{to{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
+@keyframes vt-next-in{from{transform:translateY(calc(100% - var(--vt-top,0px)))}}
+@keyframes vt-prev-out{to{transform:translateY(calc(100% - var(--vt-top,0px)))}}
+@keyframes vt-prev-in{from{transform:translateY(calc(var(--vt-top,0px) - 100%))}}
 
 /* ---------- map: situation room (always dark, like an instrument screen) ---------- */
 .sr{--sr-bg:#050a1b;--sr-ocean:#081129;--sr-land:#1a2445;--sr-far:#172040;
@@ -1031,13 +1048,6 @@ button.sr-bar:hover{background:var(--sr-hi)}
 .shero-meta em{font-style:normal;font-weight:500;color:rgba(255,255,255,.62);margin-right:5px}
 .shero-meta .shero-code{font-feature-settings:"tnum" 1;letter-spacing:.08em;color:#fff;
   border:1px solid rgba(255,255,255,.5);padding:2px 9px;border-radius:2px}
-@media(prefers-reduced-motion:no-preference){
-  .shero-media video{animation:shZoom 2.8s cubic-bezier(.2,.7,.2,1) both}
-  .shero-top{animation:shUp .7s .1s ease both}
-  .shero-id>*{animation:shUp .8s cubic-bezier(.2,.7,.2,1) both}
-  .shero-id>:nth-child(2){animation-delay:.12s}}
-@keyframes shZoom{from{transform:scale(1.09)}to{transform:none}}
-@keyframes shUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media(max-width:680px){
   .shero{height:clamp(360px,64vh,560px)}
   .shero-top,.shero-inner{padding-left:16px;padding-right:16px}
@@ -2107,6 +2117,9 @@ function insMount(){
   lawPlay('ordinary',false);
   if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
   svgs.forEach(svg=>{
+    /* schéma déjà visible à l'arrivée : il entre tracé, avec le glissement */
+    const r=svg.getBoundingClientRect();
+    if(r.height&&r.top<window.innerHeight)return;
     svg.querySelectorAll('.e .ln').forEach(p=>{let L=1200;try{L=Math.ceil(p.getTotalLength())||L;}catch(e){}
       p.parentNode.style.setProperty('--len',L);});
     svg.classList.add('draw');
@@ -2294,10 +2307,10 @@ function cBlock(b){
     `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
   return '';
 }
-function cJump(id){
+function cJump(id,now){
   const el=document.getElementById(id); if(!el)return false;
   const hdr=document.querySelector('header'), off=(hdr?hdr.offsetHeight:0)+16;
-  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:now?'instant':'smooth'});
   const t=cIndex()[id];
   if(t)history.replaceState(null,'','#/constitution/'+t+'/'+id);
   return false;
@@ -3337,11 +3350,42 @@ const ROUTES={
  'dashboard':[vDashboard,'#/participation'],'register':[vRegister,'#/participation'],
  'citizen':[vCitizen,'#/participation']
 };
+/* Place d'une route dans le fil du portail, comme sur une one page :
+   [rang dans la navigation, rang de la route, rang fin (code d'État, titre de
+   la constitution)]. Sert au sens du glissement ; deux places égales = même page. */
+const NAV_ORDER=['#/home','#/states','#/map','#/institutions','#/security',
+  '#/constitution','#/identity','#/participation'];
+function routePlace(h){
+  const p=(h||'#/home').replace(/^#\//,'').split('/');
+  const keys=Object.keys(ROUTES);
+  if(p[0]==='state')return [1,keys.indexOf('states'),parseInt((p[1]||'').split('-')[1],10)||0];
+  const seg=ROUTES[p[0]]?p[0]:'home';
+  let fine=0;
+  if(seg==='constitution'&&p[1]){
+    const i=(CONSTITUTION.titles||[]).findIndex(t=>t.id===p[1]);fine=i+1;}
+  return [NAV_ORDER.indexOf(ROUTES[seg][1]),keys.indexOf(seg),fine];
+}
+function placeCmp(a,b){for(let i=0;i<3;i++)if(a[i]!==b[i])return a[i]<b[i]?-1:1;return 0;}
+let _shown=null;   // dernière route rendue
 function render(){
-  if(document.startViewTransition &&
-     !matchMedia('(prefers-reduced-motion:reduce)').matches)
-    document.startViewTransition(renderNow);
-  else renderNow();
+  const h=location.hash||'#/home', prev=_shown;
+  _shown=h;
+  const d=prev===null?0:placeCmp(routePlace(prev),routePlace(h));
+  /* même page : renvoi vers un article du titre déjà affiché → simple défilement */
+  if(prev!==null&&d===0){
+    const cp=h.split('/');
+    if(cp[1]==='constitution'&&cp[3]&&document.getElementById(cp[3])){cJump(cp[3]);return;}
+  }
+  /* un seul glissement ; aucun au premier affichage ni sur la même page */
+  if(d===0||!document.startViewTransition||
+     matchMedia('(prefers-reduced-motion:reduce)').matches){renderNow();return;}
+  const root=document.documentElement;
+  root.dataset.vt=d<0?'next':'prev';
+  const hd=document.querySelector('header'), tl=document.querySelector('.topline');
+  root.style.setProperty('--vt-top',((hd?hd.offsetHeight:0)+(tl?tl.offsetHeight:0))+'px');
+  const vt=document.startViewTransition(renderNow);
+  const done=()=>{if(_shown===h)delete root.dataset.vt;};
+  vt.finished.then(done,done);
 }
 function renderNow(){
   const h=location.hash||'#/home';
@@ -3354,6 +3398,7 @@ function renderNow(){
     html=r[0]();key=r[1];
   }
   app.innerHTML=html;
+  window.scrollTo(0,0);   // avant les montages : leurs mesures partent du haut de page
   document.querySelectorAll('#nav a').forEach(a=>
     a.classList.toggle('active',a.getAttribute('href')===key));
   ['homeCrest','symEmblem','certEmblem'].forEach(id=>{
@@ -3366,29 +3411,39 @@ function renderNow(){
   if(h.startsWith('#/institutions'))insMount();
   sheroMount();
   citHeader();
-  window.scrollTo(0,0);
   const hd=document.querySelector('header');
   if(hd)document.documentElement.style.setProperty('--hdr',(hd.offsetHeight+16)+'px');
+  /* arrivée sur un article : la page entre déjà positionnée, le glissement l'apporte */
+  const cp=h.split('/');
+  if(cp[1]==='constitution'&&cp[3])cJump(cp[3],true);
   requestAnimationFrame(()=>{
     setupReveal();
     setupParallax();
     animateFigs();
     if(h.startsWith('#/map'))initMap();
-    const cp=h.split('/');
-    if(cp[1]==='constitution'&&cp[3])cJump(cp[3]);
   });
 }
+/* Grands chiffres : comptage seulement s'ils entrent à l'écran en défilant ;
+   visibles dès l'arrivée, ils sont déjà en place (rien ne bouge que le glissement). */
+let _figIo=null;
+function countUp(el){
+  const target=parseInt(el.textContent,10);if(isNaN(target))return;
+  const start=performance.now(),dur=850;
+  el.textContent='0';
+  const step=t=>{const k=Math.min(1,(t-start)/dur);
+    el.textContent=Math.round(target*(1-Math.pow(1-k,3)));
+    if(k<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
 function animateFigs(){
+  if(_figIo)_figIo.disconnect();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  document.querySelectorAll('#app .fig b').forEach(el=>{
-    const target=parseInt(el.textContent,10);if(isNaN(target))return;
-    const start=performance.now(),dur=850;
-    el.textContent='0';
-    const step=t=>{const k=Math.min(1,(t-start)/dur);
-      el.textContent=Math.round(target*(1-Math.pow(1-k,3)));
-      if(k<1)requestAnimationFrame(step);};
-    requestAnimationFrame(step);
-  });
+  const vh=window.innerHeight;
+  const els=[...document.querySelectorAll('#app .fig b')].filter(el=>el.getBoundingClientRect().top>=vh);
+  if(!els.length)return;
+  _figIo=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){_figIo.unobserve(e.target);countUp(e.target);}}),{threshold:.6});
+  els.forEach(el=>_figIo.observe(el));
 }
 document.getElementById('hdEmblem').innerHTML=
   emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
@@ -3536,11 +3591,15 @@ let _io=null;
 function setupReveal(){
   if(_io)_io.disconnect();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const els=document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band');
+  /* seules les sections situées sous l'écran à l'arrivée apparaissent en
+     défilant ; celles déjà visibles entrent avec le glissement, sans fondu */
+  const vh=window.innerHeight;
+  const els=[...document.querySelectorAll('#app .section, #app .hero, #app .hero-full, #app .band')]
+    .filter(el=>el.getBoundingClientRect().top>=vh);
   _io=new IntersectionObserver(ents=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
   },{rootMargin:'0px 0px -7% 0px',threshold:0}); /* 0 : une section très haute (titre III, 22 000 px) n'atteint jamais 2 % visibles */
-  els.forEach(el=>{el.classList.remove('reveal');el.classList.add('io');_io.observe(el);});
+  els.forEach(el=>{el.classList.add('io');_io.observe(el);});
 }
 
 /* ============================================================
