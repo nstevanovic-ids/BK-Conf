@@ -77,7 +77,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   Datum rođeña), formes genrées (Srpkiña, Bošñakiña), središñi standard ; noms de personnes
   jamais réécrits (ADR 2026-10-25-alphabet-v3-mots-courants.md)
 - Cyrillique confédéral (docs/alfabet/cyrillique-confederal.md) : une lettre pour chacune des
-  32 (ě→ѣ, ã→ъ, ñ→њ, ļ→љ, x→џ, ja = ја) ; bulgare лю/ля → ļu/ļa
+  32 (ě→ѣ, ã→ъ, ñ→њ, ļ→љ, x→џ, ja = ја) ; bulgare лю/ля → ļu/ļa ; un texte cyrillique lu en
+  ekavien n'a pas de yat (ě → е) ; portail : variante orientale aux conventions bulgares
 
 ## Workstreams (jamais mélanger dans une même session)
 - Constitution → docs/constitution/ (texte de travail en vigueur : **v4.md**, français ;
@@ -160,7 +161,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
   en-tête, navigation, recherche, pied de page, fil d'Ariane ; phase 2, étape 1 : titres et
   intertitres des pages (`data-i18n`, observateur sur #app, ADR 2026-10-25-interface-phase-2-titres.md) ;
-  texte courant en anglais ; alphabet v3 (ñ, ļ) dans toutes les chaînes ;
+  texte courant en anglais ; alphabet v3 (ñ, ļ) dans toutes les chaînes ; cyrillique dérivé
+  à l'affichage pour SRE et IST (bascule Lat / Ћир) : central = cyrillique confédéral lu en
+  ekavien (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ;
+  ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et

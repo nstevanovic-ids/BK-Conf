@@ -132,6 +132,11 @@ header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--ind
   font-size:.72rem;font-weight:600;padding:3px 7px;border-radius:2px;letter-spacing:.04em}
 .langsel button:hover{color:#fff}
 .langsel button.on{color:var(--indigo);background:var(--gold-soft)}
+.scriptsel{padding-left:6px;margin-left:2px;border-left:1px solid rgba(255,255,255,.16)}
+.scriptsel[hidden]{display:none}
+/* Sofia Sans draws Bulgarian Cyrillic forms by default (т, д, г…); the central standard in
+   Cyrillic takes the standard upright forms of its stylistic set ss01 (= locl RUS). */
+html[lang="sh-Cyrl"] body{font-feature-settings:"ss01"}
 .utility .sep{width:1px;height:13px;background:rgba(255,255,255,.16)}
 .utility a.ut{color:rgba(233,234,240,.7);font-weight:600;letter-spacing:.03em}
 .utility a.ut:hover{color:#fff}
@@ -1455,6 +1460,10 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
         <button data-l="sre">SRE</button>
         <button data-l="ist">IST</button>
       </div>
+      <div class="langsel scriptsel" id="scriptsel" hidden>
+        <button data-s="lat" aria-label="Latin">Lat</button>
+        <button data-s="cyr" aria-label="Cyrillic">Ћир</button>
+      </div>
       <span class="sep"></span>
       <a class="ut" id="utReg" href="#/register">Register</a>
       <span class="sep"></span>
@@ -1471,7 +1480,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="masthead">
     <svg class="emblem" id="hdEmblem" viewBox="0 0 100 100"></svg>
     <div class="brand">
-      <b>Balkanska Konfederacija</b>
+      <b data-i18n="brand">Balkanska Konfederacija</b>
       <span data-i18n="brand_sub">Balkan Confederation</span>
     </div>
     <button class="searchbtn" id="searchBtn" onclick="openSearch()" aria-label="Search the portal" data-i18n-aria="search">
@@ -1581,6 +1590,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-25',cat:'Identity',t:'The portal in Cyrillic',
+  s:'The central and eastern standards can now be read in Cyrillic: Lat / Ћир beside the languages. The central standard uses the confederal Cyrillic read in its ekavian form, without the yat; the eastern standard follows Bulgarian conventions. The Latin of the unified alphabet remains the source.'},
  {d:'2026-10-25',cat:'Identity',t:'The unified alphabet on the card and in the Constitution',
   s:'The letters ñ and ļ now apply to every official word, not only to place names: the card reads Državļanska karta, Datum rođeña and Konfederalni registar državļana, the feminine forms are Srpkiña and Bošñakiña, and the central standard is the središñi standard (Constitution v4.11, Art. 128). Names of persons are never rewritten.'},
  {d:'2026-10-25',cat:'Identity',t:'Severna Trakija, without the yat',
@@ -1711,16 +1722,58 @@ function plateSVG(s){
 /* ---------- interface language (portail/data/i18n.json) ----------
    Phase 1 : header, navigation, search, footer and breadcrumbs follow the chosen
    standard (ZAP, SRE, IST) ; page content stays in English. */
-let LANG='en';
+let LANG='en',SCRIPT='lat';
 try{const l=localStorage.getItem('bk-lang');if(l)LANG=l;}catch(e){}
-function T(k){const e=(I18N.t||{})[k];return e?(e[LANG]||e.en):k;}
+try{if(localStorage.getItem('bk-script')==='cyr')SCRIPT='cyr';}catch(e){}
+/* Cyrillic display of the central and eastern standards (ADR 2026-10-25-portail-cyrillique.md).
+   The Latin v3 strings stay the only source; the Cyrillic is derived on the fly:
+   - središñi : confederal Cyrillic (ñ њ, ļ љ, x џ, ć ћ, đ ђ, j ј), read ekavian : ě → е ;
+   - istočni : Bulgarian conventions (ja я, ju ю, št щ, x дж, ñ/ļ + a, u, o → ня ню ньо, ля лю льо,
+     j before a consonant or at the end → й, jo after a consonant → ьо).
+   Tokens with digits (v3, TD1) are kept as written. */
+const cyrOn=()=>SCRIPT==='cyr'&&(LANG==='sre'||LANG==='ist');
+const CYR_SRE={a:'а',b:'б',c:'ц',č:'ч',ć:'ћ',d:'д',đ:'ђ',e:'е',ě:'е',f:'ф',g:'г',h:'х',i:'и',j:'ј',k:'к',l:'л',
+  ļ:'љ',m:'м',n:'н',ñ:'њ',o:'о',p:'п',r:'р',s:'с',š:'ш',t:'т',u:'у',v:'в',x:'џ',z:'з',ž:'ж',ã:'ъ'};
+const CYR_IST={...CYR_SRE,ć:'ћ',đ:'ђ',x:'дж',j:'й',ļ:'ль',ñ:'нь'};
+const CYR_V='aeiouãě';
+function cyrWord(w,std){
+  if(/\d/.test(w))return w;
+  const lo=w.toLowerCase().replace(/lj/g,'ļ').replace(/nj/g,'ñ').replace(/dž/g,'x');
+  let out='';
+  if(std==='ist'){
+    for(let i=0;i<lo.length;i++){
+      const c=lo[i],n=lo[i+1]||'',p=lo[i-1]||'';
+      if(c==='š'&&n==='t'){out+='щ';i++;continue;}
+      if(c==='j'||c==='ļ'||c==='ñ'){
+        const base=c==='ļ'?'л':c==='ñ'?'н':'';
+        if(n==='a'){out+=base+'я';i++;continue;}
+        if(n==='u'){out+=base+'ю';i++;continue;}
+        if(n==='o'){out+=base?base+'ьо':(p&&!CYR_V.includes(p)?'ьо':'йо');i++;continue;}
+        out+=base?base+'ь':'й';continue;
+      }
+      out+=CYR_IST[c]!==undefined?CYR_IST[c]:c;
+    }
+  }else for(const c of lo)out+=CYR_SRE[c]!==undefined?CYR_SRE[c]:c;
+  if(w.length>1&&w===w.toUpperCase()&&w!==w.toLowerCase())return out.toUpperCase();
+  return w[0]!==w[0].toLowerCase()?out[0].toUpperCase()+out.slice(1):out;
+}
+function toCyr(s,std){
+  return String(s).split(/(<[^>]*>|&[a-z#0-9]+;)/i).map(part=>part[0]==='<'||part[0]==='&'?part
+    :part.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std))).join('');
+}
+function T(k){const e=(I18N.t||{})[k];const s=e?(e[LANG]||e.en):k;return cyrOn()&&e?toCyr(s,LANG):s;}
 /* breadcrumb labels that are navigation labels follow the language */
 const CRUMB_KEYS={'Home':'nav_home','States':'nav_states','Map':'nav_map','Institutions':'nav_institutions',
   'Security and Defence':'l_security','Constitution':'nav_constitution','Identity':'nav_identity',
   'Participation':'nav_participation','Official Journal':'l_journal','Citizen card':'l_card'};
 function applyChrome(){
   if(!(I18N.langs||{})[LANG])LANG='en';
-  document.documentElement.lang=I18N.langs[LANG].html||'en';
+  document.documentElement.lang=cyrOn()?(LANG==='ist'?'bg':'sh-Cyrl'):(I18N.langs[LANG].html||'en');
+  const ss=document.getElementById('scriptsel');
+  if(ss){ss.hidden=!(LANG==='sre'||LANG==='ist');
+    ss.querySelector('[data-s="cyr"]').textContent=LANG==='ist'?'Кир':'Ћир';
+    ss.querySelectorAll('button').forEach(b=>{const on=b.dataset.s===SCRIPT;
+      b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
   i18nApply(document);
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',T(el.dataset.i18nAria)));
   document.querySelectorAll('[data-i18n-title]').forEach(el=>el.setAttribute('title',T(el.dataset.i18nTitle)));
@@ -4433,6 +4486,12 @@ document.getElementById('langsel').addEventListener('click',e=>{
   try{localStorage.setItem('bk-lang',LANG);}catch(err){}
   applyChrome();   // breadcrumbs carry data-i18n too
 });
+document.getElementById('scriptsel').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b||b.dataset.s===SCRIPT)return;
+  SCRIPT=b.dataset.s==='cyr'?'cyr':'lat';
+  try{localStorage.setItem('bk-script',SCRIPT);}catch(err){}
+  applyChrome();
+});
 window.addEventListener('hashchange',render);
 /* le portail place lui-même la page (haut de page, article, retour à la grille) :
    la restauration du navigateur au retour arrière décalerait la page sortante */
@@ -4532,7 +4591,7 @@ function buildIndex(){
   return idx;
 }
 function searchQuery(raw){
-  const q=raw.trim().toLowerCase();
+  const q=cyr2lat(raw).trim().toLowerCase();   // Cyrillic input is searched in Latin v3
   if(!SIDX)SIDX=buildIndex();
   if(!q)return SIDX.filter(i=>i.type==='Pages').slice(0,8);
   const terms=q.split(/\s+/), scored=[];
