@@ -146,6 +146,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md)
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
+- Interface dans les trois standards (phase 1) : `portail/data/i18n.json` (en, zap, sre, ist) ;
+  en-tête, navigation, recherche, pied de page, fil d'Ariane ; contenu des pages en anglais ;
+  règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
+  d'abord ; au središnji, ni serbe ni croate quand un neutre existe)
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
