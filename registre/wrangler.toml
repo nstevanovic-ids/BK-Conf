@@ -19,7 +19,7 @@ PORTAL_URL = "https://nstevanovic-ids.github.io/BK-Conf/"
 ALLOWED_ORIGINS = "https://nstevanovic-ids.github.io"
 # Expéditeur vérifié chez Brevo (adresse sur votre domaine, SPF/DKIM configurés).
 MAIL_FROM = "registar@example.org"
-MAIL_FROM_NAME = "Konfederalni registar državljana"
+MAIL_FROM_NAME = "Konfederalni registar državļana"
 # Google Wallet : identifiant d'émetteur (Google Pay & Wallet Console). Vide = pass désactivé.
 GOOGLE_WALLET_ISSUER_ID = ""
 # Secrets, jamais dans ce fichier (GitHub Actions ou `wrangler secret put`) :

@@ -25,7 +25,7 @@ function layout(title, paras, button, foot) {
   ${p}${btn}
 </td></tr>
 <tr><td style="padding:14px 32px 24px;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.5;color:${INK2};border-top:1px solid #ececef">
-  ${foot}<br>Konfederalni registar državljana · Zagreb
+  ${foot}<br>Konfederalni registar državļana · Zagreb
 </td></tr>
 </table></td></tr></table></body></html>`;
 }
@@ -33,7 +33,7 @@ function layout(title, paras, button, foot) {
 const textOf = (title, paras, button, foot) =>
   [title, '', ...paras.map(p => p.replace(/<[^>]+>/g, '')), '',
    button ? `${button.label}: ${button.href}` : '', '', foot.replace(/<[^>]+>/g, ''),
-   'Konfederalni registar državljana · Zagreb'].join('\n');
+   'Konfederalni registar državļana · Zagreb'].join('\n');
 
 function build(to, name, subject, title, paras, button, foot, attachments) {
   return {

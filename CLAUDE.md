@@ -8,7 +8,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Discussions et documentation interne : **français**
 - Livrables publics (portail, constitution publiée) : **anglais** (« le latin du XXIe siècle »)
 - Rédaction : **générique masculin**, jamais d'écriture inclusive
-- Termes de nationalité genrés en sud-slave (Crnogorka/Crnogorac, Srpkinja/Srbin)
+- Termes de nationalité genrés en sud-slave (Crnogorka/Crnogorac, Srpkiña/Srbin)
 
 ## Distinction de nommage critique
 - Entité confédérale = **Balkan** (géographique, inclut les communautés autonomes
@@ -73,6 +73,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   2026-10-25-noms-etats-yat.md) ; sinon latin
   inchangé. Beograd = exception déclarée.
   Communes : scripts/toponymie_v3.py (opstine.json v 2, nom officiel en alias)
+- ñ et ļ dans tout mot sud-slave, pas seulement les noms de lieux : carte (Državļanska karta,
+  Datum rođeña), formes genrées (Srpkiña, Bošñakiña), srediñi standard ; noms de personnes
+  jamais réécrits (ADR 2026-10-25-alphabet-v3-mots-courants.md)
 - Cyrillique confédéral (docs/alfabet/cyrillique-confederal.md) : une lettre pour chacune des
   32 (ě→ѣ, ã→ъ, ñ→њ, ļ→љ, x→џ, ja = ја) ; bulgare лю/ля → ļu/ļa
 
@@ -81,8 +84,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.10 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat). Titres 1 à 3 (texte de base, art. 1
+  Version 4.11 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : srediñi standard). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
@@ -159,7 +162,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   intertitres des pages (`data-i18n`, observateur sur #app, ADR 2026-10-25-interface-phase-2-titres.md) ;
   texte courant en anglais ; alphabet v3 (ñ, ļ) dans toutes les chaînes ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
-  d'abord ; au središnji, ni serbe ni croate quand un neutre existe)
+  d'abord ; au srediñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et
   2026-10-25-registre-phase-0.md) : `registre/` (Cloudflare Worker + D1 UE + Brevo + Turnstile),
   déployé par `.github/workflows/registre.yml` ; le portail l'appelle si

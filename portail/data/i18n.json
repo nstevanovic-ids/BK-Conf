@@ -3,7 +3,7 @@
   "langs": {
     "en":  {"lab": "EN",  "html": "en",      "name": "English"},
     "zap": {"lab": "ZAP", "html": "sl",      "name": "zapadni standard"},
-    "sre": {"lab": "SRE", "html": "sh",      "name": "središnji standard"},
+    "sre": {"lab": "SRE", "html": "sh",      "name": "srediñi standard"},
     "ist": {"lab": "IST", "html": "bg-Latn", "name": "istočni standard"}
   },
   "t": {
@@ -115,7 +115,7 @@
     "h_card_first":   {"en": "A card is needed first", "zap": "Najprej potrebujete izkaznico", "sre": "Prvo je potrebna karta", "ist": "Pãrvo e nužna karta"},
     "h_card_not_found": {"en": "Card not found", "zap": "Izkaznice ni mogoče najti", "sre": "Karta nije pronađena", "ist": "Kartata ne e namerena"},
     "h_of_age":       {"en": "Now of age", "zap": "Polnoletnost", "sre": "Punolětnost", "ist": "Pãlnoletie"},
-    "h_no_card":      {"en": "No card in this browser", "zap": "V tem brskalniku ni izkaznice", "sre": "Na ovom uređaju nema karte", "ist": "V tozi brauzãr njama karta"},
+    "h_no_card":      {"en": "No card in this browser", "zap": "V tem brskalniku ni izkaznice", "sre": "Na ovom uređaju nema karte", "ist": "V tozi brauzãr ñama karta"},
     "h_rights":       {"en": "Your civic rights", "zap": "Vaše državļanske pravice", "sre": "Vaša građanska prava", "ist": "Vašite graždanski prava"},
     "h_record":       {"en": "Your record", "zap": "Vaš vpis", "sre": "Vaš upis", "ist": "Vašijat zapis"},
     "h_amend":        {"en": "Amend your registration", "zap": "Spremenite prijavo", "sre": "Izměnite prijavu", "ist": "Promenete zajavkata si"},

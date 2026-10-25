@@ -142,7 +142,7 @@ async function send(env, m) {
     method: 'POST',
     headers: { 'api-key': env.BREVO_API_KEY, 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
-      sender: { email: env.MAIL_FROM, name: env.MAIL_FROM_NAME || 'Konfederalni registar državljana' },
+      sender: { email: env.MAIL_FROM, name: env.MAIL_FROM_NAME || 'Konfederalni registar državļana' },
       to: [{ email: m.to, name: m.name }],
       subject: m.subject, htmlContent: m.html, textContent: m.text,
       ...(m.attachments.length ? { attachment: m.attachments } : {}),

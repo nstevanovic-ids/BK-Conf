@@ -29,8 +29,8 @@ gardent *lj* et *nj* :
 - *Državljanska karta*, *Datum izdavanja*, *Konfederalni registar državljana* ;
 - *središnji standard*.
 
-Faut-il les aligner sur la règle 5 ? Décision à prendre par l'utilisateur ; en attendant,
-l'interface écrit *Državļanska karta* et la carte imprime *Državljanska karta*.
+Faut-il les aligner sur la règle 5 ? **Réglé le même jour** : oui (ADR
+2026-10-25-alphabet-v3-mots-courants.md).
 
 ## Propagation
 - `portail/data/i18n.json` (clés `h_*`, phase 1 corrigée, `note_en`).

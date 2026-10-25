@@ -51,7 +51,7 @@ Trois bases, dans cet ordre :
   la forme v3 (`scripts/toponymie_v3.py`, ADR 2026-10-25-toponymie-v3-option-1.md) ; les noms
   officiels restent cherchables. Il couvre les communes des 45 États territoriaux, les
   gradske opštine de Beograd, Stolična (Sofija), les neuf communes de Sarajevo, Zagreb et le
-  Turopolje, Brčko et Mostar.
+  Turopoļe, Brčko et Mostar.
 - **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, et
   chacune forme sa propre circonscription pour le Kongres, avec au moins un délégué
   (art. 39 et 103, v4.4).
@@ -113,7 +113,7 @@ filiation et par adoption).
   dans la zone de lecture automatique.
 - Le registre national est tenu **séparément** du registre des citoyens et ne sert qu'à
   l'élection du Narodni Sabor (cohérent avec l'art. 145 a).
-- Formes genrées : `docs/canon/peuples.md` (Srbin / Srpkinja, Bošñak / Bošñakinja,
+- Formes genrées : `docs/canon/peuples.md` (Srbin / Srpkiña, Bošñak / Bošñakiña,
   Bãlgarin / Bãlgarka…).
 
 ## Langue du document
@@ -125,24 +125,27 @@ filiation et par adoption).
 
 | Champ | Occidental | Central | Oriental | Anglais |
 |---|---|---|---|---|
-| Titre | Državljanska izkaznica | Državljanska karta | Graždanska karta | Citizen card |
+| Titre | Državļanska izkaznica | Državļanska karta | Graždanska karta | Citizen card |
 | Nom | Priimek | Prezime | Familija | Surname |
 | Prénoms | Ime | Ime | Ime | Given names |
 | Sexe | Spol | Pol | Pol | Sex |
-| Date de naissance | Datum rojstva | Datum rođenja | Data na raždane | Date of birth |
+| Date de naissance | Datum rojstva | Datum rođeña | Data na raždane | Date of birth |
 | Narodnost | Narodnost | Narodnost | Narodnost | Nation |
 | État | Država | Država | Dãržava | State |
 | Numéro | Številka | Broj | Nomer | Card no. |
-| Expiration | Velja do | Važi do | Validna do | Date of expiry |
-| Délivrance | Datum izdaje | Datum izdavanja | Data na izdavane | Date of issue |
+| Expiration | Veļa do | Važi do | Validna do | Date of expiry |
+| Délivrance | Datum izdaje | Datum izdavaña | Data na izdavane | Date of issue |
 | Commune d'origine | Domovinska občina | Opština porěkla | Obština na proizhod | Municipality of origin |
-| Autorité | Izdajatelj | Izdavač | Izdadena ot | Authority |
+| Autorité | Izdajateļ | Izdavač | Izdadena ot | Authority |
 
 Libellés **validés** le 2026-10-24 (workstream Alphabet, ADR
 2026-10-24-alphabet-transition-libelles.md). L'oriental *Izdadena ot* remplace *Izdatel* :
 c'est la formule des cartes d'identité bulgares (*издадена от*) et macédoniennes (*издадена
 од*), accordée au nom de la carte. Le central exploite le yat (*porěklo* unifie *poreklo /
 porijeklo*) et la forme *opština* des noms officiels (Samostalna Opština).
+
+Graphie v3 (2026-10-25, ADR 2026-10-25-alphabet-v3-mots-courants.md) : ñ et ļ s'appliquent aux
+libellés comme aux noms (*Državļanska*, *rođeña*, *izdavaña*, *Veļa do*, *Izdajateļ*).
 
 ## Carte citoyenne
 
@@ -168,7 +171,7 @@ porijeklo*) et la forme *opština* des noms officiels (Samostalna Opština).
   éclairci.
 - Libellés en romain, l'anglais en italique ; valeurs en graisse moyenne. La carte est
   composée en Arimo (ADR 2026-10-23-typographie.md), embarquée dans l'export PNG.
-- **Autorité** : *Konfederalni registar državljana · Zagreb*, tenu par le département de la
+- **Autorité** : *Konfederalni registar državļana · Zagreb*, tenu par le département de la
   Justice et des droits fondamentaux (art. 114 d, siège Zagreb).
 
 ### Zone de lecture automatique (TD1, 3 × 30 caractères)

@@ -4,8 +4,8 @@
 |------|-----|---------|----------|----------------|----------------|
 | slo | Slovenci | Slovenes | western | Slovenec | Slovenka |
 | hrv | Hrvati | Croats | central | Hrvat | Hrvatica |
-| srb | Srbi | Serbs | central | Srbin | Srpkinja |
-| bos | Bošñaci | Bosniaks | central | Bošñak | Bošñakinja |
+| srb | Srbi | Serbs | central | Srbin | Srpkiña |
+| bos | Bošñaci | Bosniaks | central | Bošñak | Bošñakiña |
 | cng | Crnogorci | Montenegrins | central | Crnogorac | Crnogorka |
 | mkd | Makedonci | Macedonians | eastern | Makedonec | Makedonka |
 | bul | Bãlgari | Bulgarians | eastern | Bãlgarin | Bãlgarka |
