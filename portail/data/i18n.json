@@ -41,6 +41,7 @@
     "l_card":         {"en": "Citizen card", "zap": "Državljanska izkaznica", "sre": "Državljanska karta", "ist": "Graždanska karta"},
     "l_dashboard":    {"en": "Membership dashboard", "zap": "Pregled članstva", "sre": "Pregled članstva", "ist": "Pregled na členstvoto"},
     "f_portal":       {"en": "digital portal", "zap": "digitalni portal", "sre": "digitalni portal", "ist": "digitalen portal"},
-    "note_en":        {"en": "", "zap": "Vsebina strani je za zdaj v angleščini.", "sre": "Sadržaj stranice je zasad na engleskom.", "ist": "Sãdãržanieto na stranicata zasega e na anglijski."}
+    "note_en":        {"en": "", "zap": "Vsebina strani je za zdaj v angleščini.", "sre": "Sadržaj stranice je zasad na engleskom.", "ist": "Sãdãržanieto na stranicata zasega e na anglijski."},
+    "f_stats":        {"en": "Visits are counted anonymously, without cookies (GoatCounter).", "zap": "Obiski se štejejo anonimno, brez piškotkov (GoatCounter).", "sre": "Pristupi se broje anonimno, bez kolačića (GoatCounter).", "ist": "Poseštenijata se brojat anonimno, bez biskvitki (GoatCounter)."}
   }
 }

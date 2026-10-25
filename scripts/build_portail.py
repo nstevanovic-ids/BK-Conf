@@ -45,6 +45,9 @@ def build_inline() -> int:
     i18n = json.loads((DATA / "i18n.json").read_text(encoding="utf-8"))
     vfile = DATA / "videos.json"
     videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
+    # Réglages du site (mesure d'audience GoatCounter, ADR 2026-10-25-mesure-audience.md).
+    sfile = DATA / "site.json"
+    site = json.loads(sfile.read_text(encoding="utf-8")) if sfile.exists() else {}
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -61,6 +64,7 @@ def build_inline() -> int:
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"SITE={json.dumps(site, ensure_ascii=False)};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )

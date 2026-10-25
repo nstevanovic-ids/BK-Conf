@@ -147,8 +147,9 @@ together can change them.
   - abonnés et taux d'engagement par série ;
   - clics vers `#/register` (paramètre `utm_source`, placé avant le `#` pour être lisible par un outil de mesure) ;
   - inscriptions, après l'ouverture de la plateforme.
-- **Statistiques du portail** : le portail n'a pas aujourd'hui de mesure d'audience. Il
-  faudrait un outil sans cookie (GoatCounter ou Plausible), et la décision reste à prendre.
+- **Statistiques du portail** : GoatCounter, sans cookie (décision du 2026-10-25, ADR
+  2026-10-25-mesure-audience.md). Il compte les routes du portail et prend la provenance
+  dans `utm_source` ; il s'active dès que son code est inscrit dans `portail/data/site.json`.
 - **Bilan** à J + 30 : garder ou abandonner chaque série selon l'engagement qu'elle obtient.
 
 ## Sources
