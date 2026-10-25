@@ -1,14 +1,12 @@
 # Formes v3 validées qui ne découlent pas des seules substitutions graphiques (nj → ñ, lj → ļ,
 # dž → x ; gj → đ, kj → ć en macédonien) : yat restauré là où la forme officielle montre le
-# réflexe ijekavien (ije, je), racine Srěm déjà au canon, Běli Manastir (chef-lieu validé),
-# noms serbes des communes du nord de Kosovo i Metohija, coquille de source.
-# ADR 2026-10-25-toponymie-v3-option-1.md. Les noms ekaviens attendent la liste de racines
-# docs/alfabet/yat-racines.md.
+# réflexe ijekavien (ije, je) ; les noms ekaviens n'ont pas de yat et gardent e (décision du
+# 2026-10-25, ADR 2026-10-25-ekavien-sans-yat.md) ; noms serbes des communes du nord de
+# Kosovo i Metohija, coquille de source. ADR 2026-10-25-toponymie-v3-cyrillique.md.
 iso,officiel,v3,motif
 BIH,Bijeljina,Běļina,yat (bijel-) et љ
 BIH,Han Pijesak,Han Pěsak,yat (pijesak)
 BIH,Široki Brijeg,Široki Brěg,yat (brijeg)
-HRV,Beli Manastir,Běli Manastir,yat (bel-) ; chef-lieu de Baraña validé
 HRV,Bjelovar,Bělovar,yat (bjel-)
 HRV,Gornja Rijeka,Gorña Rěka,yat (rijeka) et њ
 HRV,Nijemci,Němci,yat (nijem-)
@@ -21,8 +19,6 @@ MNE,Bijelo Polje,Bělo Poļe,yat (bijel-) et љ
 MNE,Pljevlja,Plěvļa,yat (plěva) : le premier lj est l + je
 SRB,Prijepolje,Prěpoļe,yat (prije-) et љ
 SRB,Sjenica,Sěnica,yat (sjen-)
-SRB,Sremska Mitrovica,Srěmska Mitrovica,racine Srěm (canon)
-SRB,Sremski Karlovci,Srěmski Karlovci,racine Srěm (canon)
 XKO,Leposaviq,Leposavić,forme serbe (KM-16)
 XKO,Shtërpca,Štrpce,forme serbe (KM-16)
 XKO,Zveçan,Zvečan,forme serbe (KM-16)

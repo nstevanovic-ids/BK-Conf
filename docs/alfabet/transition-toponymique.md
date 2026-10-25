@@ -147,7 +147,9 @@ officielle (Bela Palanka ← *bělъ*). Il faudrait une liste de racines à yat.
   `docs/alfabet/toponymes-v3.csv`.
 - Le cyrillique bulgare des 265 communes est dans `docs/alfabet/toponymes-bg.csv`.
 - Les six chefs-lieux sont convertis.
-- Les noms ekaviens attendent la liste de racines `docs/alfabet/yat-racines.md`.
+- Les noms ekaviens n'ont pas de yat et gardent *e* (décision du 2026-10-25, ADR
+  2026-10-25-ekavien-sans-yat.md). Beli Manastir et Sremska Mitrovica gardent donc leur
+  forme officielle, et 342 communes changent au total.
 
 **Option 1 (retenue) : la règle s'applique à tout nom slave affiché par la
 Confédération.**
