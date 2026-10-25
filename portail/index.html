@@ -1273,6 +1273,21 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 /* South Slavic name above, English name below */
 .pcard h3 .ssn{display:block;font-family:var(--font);font-size:.8rem;font-weight:500;
   letter-spacing:0;color:var(--ink-3);margin-top:3px}
+/* ---------- Konfederalno Veće : presidency rota ---------- */
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.pcard .arrow a{white-space:nowrap}
+@media(max-width:1100px){.cards.c4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.cards.c4{grid-template-columns:1fr}}
+.rota{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-2);
+  border-left:1px solid var(--line-2);margin-top:6px}
+.rota li{list-style:none;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);
+  background:var(--white);padding:14px 12px;min-width:0}
+.rota .ry{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.rota b{display:block;font-family:var(--font-display);font-size:1.25rem;line-height:1.1;margin-top:6px;color:var(--ink)}
+.rota span{display:block;font-size:.76rem;color:var(--ink-3);margin-top:2px}
+@media(max-width:860px){.rota{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.depsec{font-size:.78rem;color:var(--ink-3);margin-top:8px;line-height:1.5}
+.depsec b{color:var(--ink-2);font-weight:600}
 /* ---------- Kongres seats ---------- */
 .seatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px;
   border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
@@ -2347,7 +2362,69 @@ function vInstitutions(){
       ].map(c=>`<div class="pcard"><div class="pc-eye">${c[0]}</div><h3>${c[4]}<span class="ssn">${c[1]}</span></h3><p>${c[2]}</p>
         <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
-    <a class="btn btn-ghost" style="margin-top:20px" href="#/security">Security and Defence →</a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+      <a class="btn btn-ghost" href="#/council">Konfederalno Veće: presidency and departments →</a>
+      <a class="btn btn-ghost" href="#/security">Security and Defence →</a>
+    </div>
+  </section>`;
+}
+
+/* ============================================================
+   KONFEDERALNO VEĆE (#/council) : presidency and departments,
+   Articles 111 to 115 bis
+   ============================================================ */
+function vCouncil(){
+  const arts=a=>a.map(artLink).join(' · ');
+  const rota=['slo','hrv','srb','bos','cng','mkd','bul'];
+  const deps=[
+   ['Sarajevo','Foreign Affairs','Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.',[],[55,56,57]],
+   ['Sofija','Defence and Security','The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.',['Konfederalne Oružane Snage','Konfederalna Žandarmerija','ACGUB'],[59,62,139,140]],
+   ['Beograd','Finance and Treasury','The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.',[],['99 bis','99 sexies',133]],
+   ['Zagreb','Justice and Fundamental Rights','Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.',['Konfederalni Istražni Ured'],[99,141,143]],
+   ['Sofija','Education, Culture and Science','The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.',[],[63,66,67,74]],
+   ['Beograd','Economy and Infrastructure','The single economic area, competition, confederal roads, railways, energy and communications.',[],['91 bis',95,96,97]],
+   ['Sarajevo','Environment, Territory and Resources','Sustainable development, spatial planning, water, forests, nature and the protected seas.',[],[78,80,83,85]],
+   ['Sarajevo','Konfederalna Kancelarija','The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.',[],['115 bis']]];
+  const rules=[
+   ['One people, one councillor','Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.',[112]],
+   ['Consensus first','Decisions are taken by consensus, otherwise by majority, with the president\'s casting vote in a tie.',[111]],
+   ['Thirty days to listen','A decision taken against three councillors or more is suspended for thirty days while the delegations of their peoples are heard, then reconsidered.',[111]],
+   ['Departments change hands','The council shares out the departments; no people heads the same one for two terms in a row.',[114]],
+   ['Full time','Councillors hold no other office, seat or paid activity. Four-year term, renewable once.',[112,115]],
+   ['Accounts to the Kongres','The yearly report counts, department by department, the decisions taken by consensus and by majority.',[111]]];
+  return crumb([['Home','#/home'],['Institutions','#/institutions'],['Konfederalno Veće']])+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">Confederal Council · Sarajevo</div>
+    <h1>Konfederalno Veće</h1>
+    <p class="lead">Seven councillors, one for each constituent people, govern the Confederation
+    together. Each heads a department seated in one of the four capitals, and the presidency passes
+    from one to the next every year. No one governs alone (${arts([111,113,114])}).</p>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>The presidency</h2></div>
+    <p class="lead" style="margin-bottom:18px">The president chairs the council and represents the
+    Confederation abroad, with no other power than a casting vote. The office rotates every year in a
+    fixed order, and no one holds it twice in a row; the first cycle begins with the Slovene councillor
+    (${arts([113,153])}).</p>
+    <ol class="rota">${rota.map((k,i)=>{const p=PEUPLES[k]||{};
+      return `<li><div class="ry">Year ${i+1}</div><b>${esc(p.en||k)}</b><span>${esc(p.name||'')}</span></li>`;}).join('')}</ol>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>Seven departments</h2></div>
+    <p class="lead" style="margin-bottom:18px">Each councillor directs his department from its seat;
+    the council meets in Sarajevo, served by the Konfederalna Kancelarija (${arts([114,'115 bis'])}).</p>
+    <div class="cards c4">
+      ${deps.map(d=>`<div class="pcard"><div class="pc-eye">${d[0]}</div><h3>${d[1]}</h3><p>${d[2]}</p>
+        ${d[3].length?`<div class="depsec"><b>Services</b> · ${d[3].join(' · ')}</div>`:''}
+        <div class="arrow">${arts(d[4])}</div></div>`).join('')}
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2>How the council works</h2></div>
+    <div class="steps">
+      ${rules.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${g[0]}</h4>
+        <p>${g[1]}</p><span class="sa">${arts(g[2])}</span></div>`).join('')}
+    </div>
   </section>`;
 }
 
@@ -3508,7 +3585,7 @@ function citHeader(){
 function go(h){location.hash=h;}
 const ROUTES={
  'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
- 'institutions':[vInstitutions,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
+ 'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
@@ -3683,6 +3760,7 @@ const SB_PAGES=[
  ['Security and Defence','Gendarmerie, Bureau of Investigation, intelligence, armed forces','#/security'],
  ['Constitution','Constitutional corpus','#/constitution'],
  ['Kongres seats','250 delegates in 51 constituencies','#/institutions'],
+ ['Konfederalno Veće','Presidency, seven departments and how the council decides','#/council'],
  ['Revising the Constitution','Total and partial revision, entrenched guarantees','#/institutions'],
  ['Official journal','Latest confederal decisions','#/journal'],
  ['Identity','Language, alphabet and symbols','#/identity'],
