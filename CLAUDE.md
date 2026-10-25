@@ -154,6 +154,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - `scripts/encode_drapeaux.py` → PNG palette base64 (max 400px, 64 couleurs,
   Floyd-Steinberg) → `portail/data/state_flags.json`
 - SVG → cairosvg → PNG avant encodage. WebP s'ouvre directement avec PIL.
+- Blasons : sources `images-sources/symboles/<Nom>-CoA.*` →
+  `scripts/encode_blason.py <code> <source>` → `portail/images/coa-<code>.webp` (fond clair
+  détouré, recadré) ; la fiche État affiche la carte « Coat of arms » si le fichier existe
 - **Le nom de fichier n'est PAS la source de vérité** : l'ordre d'upload suit
   l'ordre alphabétique des codes d'État. Toujours vérifier visuellement le contenu.
 
