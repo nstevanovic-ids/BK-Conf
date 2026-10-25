@@ -83,8 +83,8 @@ La Chancellerie publie chaque année le nombre total d'inscrits à chaque regist
 
 ## Non décidé
 - **Pondération des voix d'États** dans la double majorité des votations (art. 123 et 124),
-  sur une formule mathématique (point 3 de la discussion) : proposée, en attente de
-  l'accord de l'utilisateur.
+  sur une formule mathématique (point 3 de la discussion) : mise de côté le 2026-10-25 ;
+  variantes proportionnelle et Penrose documentées dans l'analyse.
 - **Pondération des délégations du Narodni Sabor** (Penrose) : non retenue à ce stade.
 
 ## Propagation
