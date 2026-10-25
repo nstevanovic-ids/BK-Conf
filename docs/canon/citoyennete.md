@@ -101,11 +101,13 @@ Trois bases, dans cet ordre :
 | Expiration | Velja do | Važi do | Validna do | Date of expiry |
 | Délivrance | Datum izdaje | Datum izdavanja | Data na izdavane | Date of issue |
 | Commune d'origine | Domovinska občina | Opština porěkla | Obština na proizhod | Municipality of origin |
-| Autorité | Izdajatelj | Izdavač | Izdatel | Authority |
+| Autorité | Izdajatelj | Izdavač | Izdadena ot | Authority |
 
-Libellés **provisoires**, à valider dans le workstream Alphabet. Le central exploite le
-yat (*porěklo* unifie *poreklo / porijeklo*) et la forme *opština* des noms officiels
-(Samostalna Opština).
+Libellés **validés** le 2026-10-24 (workstream Alphabet, ADR
+2026-10-24-alphabet-transition-libelles.md). L'oriental *Izdadena ot* remplace *Izdatel* :
+c'est la formule des cartes d'identité bulgares (*издадена от*) et macédoniennes (*издадена
+од*), accordée au nom de la carte. Le central exploite le yat (*porěklo* unifie *poreklo /
+porijeklo*) et la forme *opština* des noms officiels (Samostalna Opština).
 
 ## Carte citoyenne
 
