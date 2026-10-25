@@ -42,6 +42,7 @@ def build_inline() -> int:
     opstine = json.loads((DATA / "opstine.json").read_text(encoding="utf-8"))
     # Films d'États (scripts/encode_video.py) : manifeste optionnel ; les fichiers
     # vidéo restent liés (videos/…), copiés à côté par le déploiement Pages.
+    i18n = json.loads((DATA / "i18n.json").read_text(encoding="utf-8"))
     vfile = DATA / "videos.json"
     videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
 
@@ -59,6 +60,7 @@ def build_inline() -> int:
         f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )
@@ -105,7 +107,8 @@ def build_linked() -> int:
     missing = [
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
                     "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
-                    "constitution.json", "stats.json", "lights.json", "opstine.json")
+                    "constitution.json", "stats.json", "lights.json", "opstine.json",
+                    "i18n.json")
         if not (DATA / f).exists()
     ]
     if missing:

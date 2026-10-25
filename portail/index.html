@@ -1288,6 +1288,11 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 @media(max-width:860px){.rota{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .depsec{font-size:.78rem;color:var(--ink-3);margin-top:8px;line-height:1.5}
 .depsec b{color:var(--ink-2);font-weight:600}
+/* ---------- interface language : note under the header ---------- */
+.langnote{background:var(--surface-3);color:var(--ink-2);font-size:.78rem;text-align:center;
+  padding:7px 16px;border-bottom:1px solid var(--line-2)}
+.langnote[hidden]{display:none}
+.sb-foot i{font-style:normal}
 /* ---------- Kongres seats ---------- */
 .seatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px;
   border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
@@ -1396,7 +1401,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 <header>
   <div class="utility">
     <div class="wrap">
-      <span class="crumbtag">Official portal of the Balkan Confederation</span>
+      <span class="crumbtag" data-i18n="topline">Official portal of the Balkan Confederation</span>
       <div class="langsel" id="langsel">
         <button class="on" data-l="en">EN</button>
         <button data-l="zap">ZAP</button>
@@ -1407,7 +1412,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <a class="ut" id="utReg" href="#/register">Register</a>
       <span class="sep"></span>
       <button class="themebtn" id="themeBtn" onclick="toggleTheme()"
-        aria-label="Toggle dark mode" title="Toggle light / dark theme">
+        aria-label="Toggle dark mode" title="Toggle light / dark theme" data-i18n-title="theme">
         <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1420,16 +1425,16 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     <svg class="emblem" id="hdEmblem" viewBox="0 0 100 100"></svg>
     <div class="brand">
       <b>Balkanska Konfederacija</b>
-      <span>Balkan Confederation</span>
+      <span data-i18n="brand_sub">Balkan Confederation</span>
     </div>
-    <button class="searchbtn" id="searchBtn" onclick="openSearch()" aria-label="Search the portal">
+    <button class="searchbtn" id="searchBtn" onclick="openSearch()" aria-label="Search the portal" data-i18n-aria="search">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <span class="sb-lab">Search the portal</span>
+      <span class="sb-lab" data-i18n="search">Search the portal</span>
       <span class="mono sb-kbd" style="margin-left:auto;font-size:.66rem;opacity:.7">⌘K</span>
     </button>
     <button class="menubtn" id="menuBtn" onclick="toggleMenu()" aria-controls="nav"
-      aria-expanded="false" aria-label="Open menu">
+      aria-expanded="false" aria-label="Open menu" data-i18n-aria="menu">
       <svg class="ic-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1437,16 +1442,17 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </button>
   </div>
   <nav class="primary"><div class="wrap" id="nav">
-    <a href="#/home">Home</a>
-    <a href="#/states">States</a>
-    <a href="#/map">Map</a>
-    <a href="#/institutions">Institutions</a>
-    <a href="#/security">Security</a>
-    <a href="#/constitution">Constitution</a>
-    <a href="#/identity">Identity</a>
-    <a href="#/participation">Participation</a>
+    <a href="#/home" data-i18n="nav_home">Home</a>
+    <a href="#/states" data-i18n="nav_states">States</a>
+    <a href="#/map" data-i18n="nav_map">Map</a>
+    <a href="#/institutions" data-i18n="nav_institutions">Institutions</a>
+    <a href="#/security" data-i18n="nav_security">Security</a>
+    <a href="#/constitution" data-i18n="nav_constitution">Constitution</a>
+    <a href="#/identity" data-i18n="nav_identity">Identity</a>
+    <a href="#/participation" data-i18n="nav_participation">Participation</a>
   </div></nav>
 </header>
+<div class="langnote" id="langNote" hidden></div>
 
 <main id="app"></main>
 
@@ -1456,7 +1462,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
-        placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query">
+        placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query" data-i18n-ph="search_ph">
       <span class="sb-esc">ESC</span>
       <button class="sb-close" type="button" onclick="closeSearch()" aria-label="Close search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1464,9 +1470,9 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </div>
     <div class="sb-results" id="searchResults"></div>
     <div class="sb-foot">
-      <span><kbd>↑</kbd><kbd>↓</kbd>navigate</span>
-      <span><kbd>↵</kbd>open</span>
-      <span><kbd>esc</kbd>close</span>
+      <span><kbd>↑</kbd><kbd>↓</kbd><i data-i18n="search_nav">navigate</i></span>
+      <span><kbd>↵</kbd><i data-i18n="search_open">open</i></span>
+      <span><kbd>esc</kbd><i data-i18n="search_close">close</i></span>
     </div>
   </div>
 </div>
@@ -1475,34 +1481,34 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="fmain">
     <div class="fbrand">
       <b>Balkanska Konfederacija</b>
-      <p>The official digital portal of the Balkan Confederation, a federation of
+      <p data-i18n="f_tag">The official digital portal of the Balkan Confederation, a confederation of
       49 states and seven constituent peoples. Documentary reference and
       participatory infrastructure.</p>
     </div>
     <div>
-      <h5>The Confederation</h5>
-      <a href="#/states">States &amp; territories</a>
-      <a href="#/map">Interactive map</a>
-      <a href="#/institutions">Institutions</a>
-      <a href="#/security">Security and Defence</a>
-      <a href="#/autonomy">Autonomous communities</a>
+      <h5 data-i18n="f_conf">The Confederation</h5>
+      <a href="#/states" data-i18n="l_states">States &amp; territories</a>
+      <a href="#/map" data-i18n="l_map">Interactive map</a>
+      <a href="#/institutions" data-i18n="nav_institutions">Institutions</a>
+      <a href="#/security" data-i18n="l_security">Security and Defence</a>
+      <a href="#/autonomy" data-i18n="l_autonomy">Autonomous communities</a>
     </div>
     <div>
-      <h5>Law &amp; identity</h5>
-      <a href="#/constitution">Constitution</a>
-      <a href="#/journal">Official Journal</a>
-      <a href="#/alphabet">Unified alphabet</a>
-      <a href="#/symbols">Symbols &amp; heraldry</a>
+      <h5 data-i18n="f_law">Law &amp; identity</h5>
+      <a href="#/constitution" data-i18n="nav_constitution">Constitution</a>
+      <a href="#/journal" data-i18n="l_journal">Official Journal</a>
+      <a href="#/alphabet" data-i18n="l_alphabet">Unified alphabet</a>
+      <a href="#/symbols" data-i18n="l_symbols">Symbols &amp; heraldry</a>
     </div>
     <div>
-      <h5>Participate</h5>
-      <a href="#/register">Become a citizen</a>
-      <a href="#/citizen">Citizen card</a>
-      <a href="#/dashboard">Membership dashboard</a>
+      <h5 data-i18n="f_part">Participate</h5>
+      <a href="#/register" data-i18n="l_become">Become a citizen</a>
+      <a href="#/citizen" data-i18n="l_card">Citizen card</a>
+      <a href="#/dashboard" data-i18n="l_dashboard">Membership dashboard</a>
     </div>
   </div>
   <div class="fbottom"><div class="wrap">
-    <span>Balkanska Konfederacija · digital portal · Sarajevo · Beograd · Zagreb · Sofija</span>
+    <span>Balkanska Konfederacija · <i data-i18n="f_portal">digital portal</i> · Sarajevo · Beograd · Zagreb · Sofija</span>
     <span>Portal shell · Stage 1</span>
   </div></div>
 </footer>
@@ -1648,10 +1654,35 @@ function plateSVG(s){
 /* ============================================================
    VIEWS
    ============================================================ */
+/* ---------- interface language (portail/data/i18n.json) ----------
+   Phase 1 : header, navigation, search, footer and breadcrumbs follow the chosen
+   standard (ZAP, SRE, IST) ; page content stays in English. */
+let LANG='en';
+try{const l=localStorage.getItem('bk-lang');if(l)LANG=l;}catch(e){}
+function T(k){const e=(I18N.t||{})[k];return e?(e[LANG]||e.en):k;}
+/* breadcrumb labels that are navigation labels follow the language */
+const CRUMB_KEYS={'Home':'nav_home','States':'nav_states','Map':'nav_map','Institutions':'nav_institutions',
+  'Security and Defence':'l_security','Constitution':'nav_constitution','Identity':'nav_identity',
+  'Participation':'nav_participation','Official Journal':'l_journal','Citizen card':'l_card'};
+function applyChrome(){
+  if(!(I18N.langs||{})[LANG])LANG='en';
+  document.documentElement.lang=I18N.langs[LANG].html||'en';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=T(el.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',T(el.dataset.i18nAria)));
+  document.querySelectorAll('[data-i18n-title]').forEach(el=>el.setAttribute('title',T(el.dataset.i18nTitle)));
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.setAttribute('placeholder',T(el.dataset.i18nPh)));
+  document.querySelectorAll('#langsel button').forEach(b=>{const on=b.dataset.l===LANG;
+    b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+  const n=document.getElementById('langNote');
+  if(n){n.hidden=LANG==='en';n.textContent=LANG==='en'?'':T('note_en');}
+  citHeader();
+}
 function crumb(parts){
+  const k=p=>CRUMB_KEYS[p]?` data-i18n="${CRUMB_KEYS[p]}"`:'';
+  const lab=p=>CRUMB_KEYS[p]?T(CRUMB_KEYS[p]):p;
   return `<div class="breadcrumb">`+parts.map((p,i)=>i<parts.length-1
-    ? `<a href="${p[1]}">${p[0]}</a> &nbsp;›&nbsp; `
-    : `<b>${p[0]}</b>`).join('')+`</div>`;
+    ? `<a href="${p[1]}"${k(p[0])}>${lab(p[0])}</a> &nbsp;›&nbsp; `
+    : `<b${k(p[0])}>${lab(p[0])}</b>`).join('')+`</div>`;
 }
 
 function vHome(){
@@ -1662,7 +1693,7 @@ function vHome(){
     <div class="hero-inner">
       <div class="eyebrow">Official portal</div>
       <h1>The Balkan<br>Confederation</h1>
-      <p class="lead">A federation of forty-nine states and seven constituent South Slavic
+      <p class="lead">A confederation of forty-nine states and seven constituent South Slavic
       peoples, united in a Balkan union founded on the equality of states and on direct
       democracy.</p>
       <div class="motto">“Naš dom” · Our home.</div>
@@ -3576,7 +3607,7 @@ function cardPNG(side){
 function citHeader(){
   const a=document.getElementById('utReg');if(!a)return;
   const c=citLoad();
-  a.textContent=c?'My card':'Register';a.setAttribute('href',c?'#/citizen':'#/register');
+  a.textContent=c?T('my_card'):T('register');a.setAttribute('href',c?'#/citizen':'#/register');
 }
 
 /* ============================================================
@@ -3610,7 +3641,9 @@ function routePlace(h){
 function placeCmp(a,b){for(let i=0;i<3;i++)if(a[i]!==b[i])return a[i]<b[i]?-1:1;return 0;}
 let _shown=null, _from=null;   // dernière route rendue, route qu'on quitte
 let _gridY=null;                  // position dans la grille des États au départ vers une fiche
+let _chrome=false;
 function render(){
+  if(!_chrome){_chrome=true;applyChrome();}
   toggleMenu(false);
   const h=location.hash||'#/home', prev=_shown;
   _shown=h; _from=prev;
@@ -3700,11 +3733,11 @@ function animateFigs(){
 document.getElementById('hdEmblem').innerHTML=
   emblemSVG().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'');
 document.getElementById('langsel').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  if(b.dataset.l!=='en'){
-    alert('This interface language will be available with the multilingual corpus. English is active.');
-    return;
-  }
+  const b=e.target.closest('button'); if(!b||!(I18N.langs||{})[b.dataset.l])return;
+  if(b.dataset.l===LANG)return;
+  LANG=b.dataset.l;
+  try{localStorage.setItem('bk-lang',LANG);}catch(err){}
+  applyChrome();   // breadcrumbs carry data-i18n too
 });
 window.addEventListener('hashchange',render);
 /* le portail place lui-même la page (haut de page, article, retour à la grille) :
@@ -3912,7 +3945,7 @@ const SLOTS={
  'home-citizen':{cat:'Humain',subj:'Citoyen · vie quotidienne',w:2400,h:1100},
  'home-closing':{cat:'Paysage',subj:'Ville historique au crépuscule',w:2400,h:1100},
  'identity-people':{cat:'Humain',subj:'La langue vivante · portraits',w:1800,h:1000},
- 'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais fédéral',w:1800,h:1000},
+ 'institutions-hall':{cat:'Politique',subj:'Hémicycle / palais confédéral',w:1800,h:1000},
  'participation-crowd':{cat:'Humain',subj:'Citoyens · place publique',w:2400,h:1000},
  'security-zandarmerija':{cat:'Sécurité',subj:'Konfederalna Žandarmerija · Granična Straža',w:1600,h:900},
  'security-istrazni-ured':{cat:'Sécurité',subj:'Konfederalni Istražni Ured · enquêteurs',w:1600,h:900},
@@ -4480,12 +4513,12 @@ function miniGeo(code){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -4498,8 +4531,9 @@ async function loadData(){
     fetch(base+'lights.json').then(r=>r.json()),
     fetch(base+'opstine.json').then(r=>r.json()),
     fetch(base+'videos.json').then(r=>r.ok?r.json():{}).catch(()=>({})),   // optionnel
+    fetch(base+'i18n.json').then(r=>r.ok?r.json():I18N).catch(()=>I18N),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi;
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1;
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }
