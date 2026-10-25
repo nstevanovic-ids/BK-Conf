@@ -38,16 +38,15 @@ séparément pour validation, et l'interface multilingue (B10).
 
    C'est une **proposition** : elle n'est pas canonique avant une décision expresse.
 
-## Restent à trancher
-- **Portée du yat dans les noms de lieux** (`transition-toponymique.md`, § 4). Option 1,
-  recommandée : le yat s'applique à tous les noms slaves affichés, Beograd excepté. Six
-  chefs-lieux changent alors : Rěka, Běļina, Široki Brěg, Běli Manastir, Osěk, Sloveñ
-  Gradec. Option 2 : le yat se limite aux noms créés par la Confédération, et Srěmska
-  Mitrovica redevient Sremska Mitrovica.
-- **Municipalités** : formes v3 des 1 461 municipalités (188 en *nj*/*lj*, 6 en *dž*, au
-  moins 118 noms bulgares à retranscrire depuis le cyrillique), produites par
-  `build_stats.py`.
-- **Nord du Kosovo** : quatre municipalités de Kosovo i Metohija portent leur forme
-  albanaise (Leposaviq, Shtërpca, Zveçan).
-- **Cyrillique confédéral** : adoption, avec la règle bulgare *лю* → *ļu*. Cette règle
-  vient de `v1.md` ; la saisie actuelle du parcours citoyen donne *lju*.
+## Points alors ouverts (tous réglés le 2026-10-25)
+- **Portée du yat dans les noms de lieux** : option 1 retenue (ADR
+  2026-10-25-toponymie-v3-cyrillique.md), précisée le même jour : les noms ekaviens n'ont pas
+  de yat (ADR 2026-10-25-ekavien-sans-yat.md). Cinq chefs-lieux changent : Rěka, Běļina,
+  Široki Brěg, Osěk, Sloveñ Gradec ; Beli Manastir et Sremska Mitrovica gardent leur forme
+  officielle.
+- **Municipalités** : formes v3 produites par `scripts/toponymie_v3.py`, appelé par
+  `build_stats.py` (`opstine.json` v 2, nom officiel en alias).
+- **Nord du Kosovo** : formes serbes (Leposavić, Štrpce, Zvečan), forme albanaise en alias
+  (`docs/alfabet/toponymes-v3.csv`).
+- **Cyrillique confédéral** : adopté, avec *лю* → *ļu* et *ja* écrit ја
+  (`docs/alfabet/cyrillique-confederal.md`).

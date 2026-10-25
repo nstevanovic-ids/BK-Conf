@@ -91,14 +91,14 @@ Confederal law governs the declaration of citizenship, the keeping of the regist
 citizens, the issue of the citizen card and the situation of minors. The register of
 citizens is kept separately from the national registers.
 
-## Points ouverts
-- **Brčko et Mostar** : rattachement possible, mais aucune circonscription du Kongres
-  (art. 103 : « chaque État constitue une circonscription ») — à fixer par la loi.
-- **Communautés non constitutives** (albanaise, turque, hongroise, slovaque) : aucun
-  registre au Narodni Sabor ; question constitutionnelle hors de ce chantier.
-- **Libellés** des standards occidental et oriental : provisoires, à valider dans le
-  workstream Alphabet.
-- **Mineurs** : hors du parcours actuel.
+## Points alors ouverts
+- **Brčko et Mostar** : réglé. Chacune forme une circonscription du Kongres et élit au moins
+  un délégué (art. 103, v4.7).
+- **Communautés non constitutives** (albanaise, turque, hongroise, slovaque) : réglé par le
+  Veće Zajednica (art. 1 octies, v4.4) ; pas de registre au Narodni Sabor.
+- **Libellés** des standards occidental et oriental : validés le 2026-10-24 (ADR
+  2026-10-24-alphabet-transition-libelles.md).
+- **Mineurs** : traités à part (chantier ouvert le 2026-10-25).
 
 ## Propagation
 - Portail : parcours `#/register` (5 étapes), carte `#/citizen` (recto, verso, export PNG),

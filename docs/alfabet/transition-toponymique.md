@@ -101,7 +101,7 @@ Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1.
 Les corrections de la Constitution et de la page Institutions passent par la branche de la
 Constitution, pour ne pas régénérer `constitution.json` dans deux PR à la fois.
 
-### b. Chefs-lieux non convertis (à trancher)
+### b. Chefs-lieux non convertis (réglé le 2026-10-25)
 
 La graphie de Srěmska Mitrovica montre que la règle a été appliquée aux chefs-lieux, mais
 elle ne l'a pas été partout :
@@ -119,7 +119,10 @@ Sloveñ Gradec est une application directe de la règle graphique. En slovène, 
 prononce [n], mais ñ ne prescrit aucune prononciation. Les cinq autres dépendent de la
 portée donnée au yat.
 
-### c. Municipalités du parcours citoyen (`opstine.json`, à trancher)
+**Réglé** : Sloveñ Gradec, Běļina, Rěka, Široki Brěg et Osěk sont convertis. Beli Manastir
+garde sa forme officielle, comme tout nom ekavien (ADR 2026-10-25-ekavien-sans-yat.md).
+
+### c. Municipalités du parcours citoyen (`opstine.json`, réglé le 2026-10-25)
 
 Les 1 461 municipalités portent leur nom officiel national, sans conversion. La carte
 citoyenne imprime donc « Trebinje » comme commune d'origine, alors que la fiche de l'État
@@ -138,6 +141,9 @@ donc pas réversible : il faut repartir des noms cyrilliques (NSI ou GADM, champ
 `NL_NAME`). Pour les noms en *ekavien* (Serbie), le yat ne se voit pas dans la forme
 officielle (Bela Palanka ← *bělъ*). Il faudrait une liste de racines à yat.
 
+**Réglé** : toutes les municipalités sont converties par `scripts/toponymie_v3.py` (section 4).
+La liste de racines est abandonnée : les noms ekaviens gardent *e*.
+
 ## 4. Options
 
 **Décision du 2026-10-25 : option 1, appliquée** (ADR 2026-10-25-toponymie-v3-cyrillique.md).
@@ -146,7 +152,7 @@ officielle (Bela Palanka ← *bělъ*). Il faudrait une liste de racines à yat.
 - Les formes validées qui ne découlent pas des substitutions graphiques sont dans
   `docs/alfabet/toponymes-v3.csv`.
 - Le cyrillique bulgare des 265 communes est dans `docs/alfabet/toponymes-bg.csv`.
-- Les six chefs-lieux sont convertis.
+- Cinq des six chefs-lieux sont convertis ; Beli Manastir garde sa forme (ligne suivante).
 - Les noms ekaviens n'ont pas de yat et gardent *e* (décision du 2026-10-25, ADR
   2026-10-25-ekavien-sans-yat.md). Beli Manastir et Sremska Mitrovica gardent donc leur
   forme officielle, et 342 communes changent au total.
@@ -160,7 +166,7 @@ Confédération.**
   - restauré dans les noms d'États, de chefs-lieux et d'entités ;
   - restauré dans les noms de municipalités dont la forme officielle montre le réflexe
     (*ije*, *je*) ;
-  - les noms ekaviens attendent une liste de racines validée.
+  - les noms ekaviens gardent *e* (précision du 2026-10-25, voir plus haut).
 - **Exception** : Beograd seul.
 - **Recherche** : le nom officiel national reste un alias, et le parcours citoyen accepte
   déjà toutes les graphies.
