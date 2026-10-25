@@ -57,7 +57,7 @@ Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1.
 | PO-26 | Podunavlje | **Podunavļe** | ļ |
 | SI-31 | Istočni Srem | **Istočni Srěm** | ě |
 | SZ-38 | Zapadni Srijem | **Zapadni Srěm** | ě |
-| TR-41 | Severna Trakija (Северна Тракия) | **Sěverna Trakija** | ě |
+| TR-41 | Severna Trakija (Северна Тракия) | **Severna Trakija** | aucune (yat retiré le 2026-10-25, nom ekavien) |
 | DJ-09 | Južna Dobrudža (Южна Добруджа) | **Južna Dobruxa** | x (v1) |
 | RS-30 | Raška Sandžak | **Raška Sanxak** | x (v1) |
 | SX-37 | Strandža (Странджа) | **Stranxa** | x (v1) |

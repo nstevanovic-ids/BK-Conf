@@ -26,6 +26,9 @@ confédéraux du canon v3 (annexe C de la Constitution). Ils ne sont pas des nom
 ekaviens et gardent leur graphie. Pour les aligner sur cette règle, il faudrait une décision
 distincte, qui se propagerait aux codes, aux données, à la Constitution et au portail.
 
+**Réglé le même jour** (ADR 2026-10-25-noms-etats-yat.md) : Istočni Srěm et Zapadni Srěm
+gardent le yat ; Sěverna Trakija devient Severna Trakija.
+
 ## Propagation
 - `docs/alfabet/toponymes-v3.csv` : trois lignes retirées.
 - `opstine.json` : 342 communes en forme v3.
