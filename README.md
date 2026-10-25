@@ -45,6 +45,7 @@ scripts/
   gen_geo.py               geo.json (couverture unique pour d3-geo)
   encode_drapeaux.py       Drapeaux → state_flags.json (MAPPING à reconstruire)
   encode_video.py          Films d'États : boucle sans couture, 720p + 480p, poster
+  encode_blason.py         Blasons d'États : fond détouré → images/coa-<code>.webp
   gen_favicon.py           Favicon et apple-touch-icon depuis le lion ailé
   toponymie_v3.py          Forme v3 des noms de communes (appelé par build_stats.py)
 images-sources/            Uploads bruts, jamais modifiés
