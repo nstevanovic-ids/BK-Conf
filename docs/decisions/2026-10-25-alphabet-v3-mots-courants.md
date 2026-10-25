@@ -27,13 +27,16 @@ Il restait des écarts :
 | Avant | v3 | Où |
 |---|---|---|
 | Državljanska izkaznica / karta | **Državļanska izkaznica / karta** | carte, pass Google Wallet, interface |
-| Datum rođenja · Datum izdavanja | **Datum rođeña · Datum izdavaña** | carte (srediñi) |
+| Datum rođenja · Datum izdavanja | **Datum rođeña · Datum izdavaña** | carte (središñi) |
 | Velja do · Izdajatelj | **Veļa do · Izdajateļ** | carte (zapadni) |
 | Konfederalni registar državljana | **Konfederalni registar državļana** | carte, e-mails, expéditeur du registre |
 | Srpkinja · Bošñakinja | **Srpkiña · Bošñakiña** | carte (narodnost), `peuples.json`, canon |
-| središnji standard | **srediñi standard** | Constitution art. 128, portail, interface |
+| središnji standard | **središñi standard** | Constitution art. 128, portail, interface |
 | ljiljan(i) · Miljacka · Turopolje | **ļiļan(i) · Miļacka · Turopoļe** | notes de drapeaux, canon des États |
 | V tozi brauzãr njama karta | **… ñama karta** | interface (bulgare ня → ña) |
+
+Précision du même jour : *središñi* et non *srediñi* (« Sredñi ou Središñi mais pas
+Srediñi ») ; la v3 ne touche que *nj* et garde le *š* de *središnji*.
 
 ## Propagation
 - Constitution v4.11 (`v4.md`, `v4.en.md`, annexe R) ; `constitution.json` régénéré.

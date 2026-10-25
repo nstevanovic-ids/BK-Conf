@@ -139,7 +139,7 @@ celle de l'association.
 
 ## 7. Configuration de l'organisation
 
-- **Langue** : anglais à l'ouverture. Les trois standards (zapadni, srediñi, istočni)
+- **Langue** : anglais à l'ouverture. Les trois standards (zapadni, središñi, istočni)
   viendront comme locales personnalisées avec l'interface multilingue (B10, reportée).
 - **Périmètres** : types « State » (49) et « Confederal municipality » (2), avec les codes
   d'État comme codes de périmètre (`BA-01` … `MO-96`).

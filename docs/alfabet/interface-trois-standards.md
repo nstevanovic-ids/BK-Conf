@@ -17,10 +17,10 @@ mémorisé dans le navigateur. La source de vérité est `portail/data/i18n.json
    Registracija, Sigurnost, Karta, Konfederacija. C'est la règle des noms d'organes.
 2. **Sinon, la forme propre à chaque standard** :
    - zapadni : base slovène ;
-   - srediñi : base štokavienne ;
+   - središñi : base štokavienne ;
    - istočni : base bulgare, dans la ligne des libellés de la carte citoyenne (Graždanska
      karta, Obština na proizhod).
-3. **Au srediñi, on évite les mots qui séparent le serbe et le croate.** On choisit alors
+3. **Au središñi, on évite les mots qui séparent le serbe et le croate.** On choisit alors
    un internationalisme ou une tournure commune : *Participacija* plutôt que *učešće* ou
    *sudjelovanje*, *Uključite se* plutôt que *učestvujte* ou *sudjelujte*. Quand aucune
    solution neutre n'existe, on suit la ligne de la carte citoyenne (*Izdavač*, *Važi do*,
@@ -87,7 +87,7 @@ Le texte courant reste en anglais ; la note sous l'en-tête le dit désormais (�
 traduits »).
 
 **Choix notables** :
-- **Au srediñi, des tournures communes** quand le serbe et le croate divergent :
+- **Au središñi, des tournures communes** quand le serbe et le croate divergent :
   - *Izbori i imenovanja* pour « Who elects whom » (*ko / tko*) ;
   - *250 delegata Kongresa* (*mesta / mjesta*) ;
   - *Način rada* ;
@@ -97,19 +97,19 @@ traduits »).
   - *Građanska inicijativa*, qui évite *narodna*, réservé aux peuples.
 - **Repli sur la ligne de la carte** quand aucun neutre n'existe : *Neposredna demokratija*,
   *U vanrednom stañu* (comme la Konfederalna Agencija za Vanredne Situacije).
-- **Yat au srediñi, là où aucun mot sans yat n'existe** : *Děca*, *Prijava děteta*,
+- **Yat au središñi, là où aucun mot sans yat n'existe** : *Děca*, *Prijava děteta*,
   *Predsědništvo*, *Punolětnost*, *Izměnite prijavu*. Au zapadni et à l'istočni, le réflexe
   s'écrit *e* (règle 4).
 - **Alphabet v3 appliqué à toutes les chaînes de l'interface** (règle 5) : *Državļanstvo*,
   *Spremiñañe ustave*, *U vanrednom stañu*, *Temeļni zakon*. Corrections de la phase 1 :
   *Sodelovañe*, *Iskañe*, *kretañe*, *Ukļučite se*, *državļan(in)*, *Državļanska
   izkaznica / karta*, *Otvori meñuto* (bulgare ню → ñu), *V tozi brauzãr ñama karta* (ня → ña).
-  Le standard central s'écrit *srediñi standard* (Constitution v4.11, art. 128).
+  Le standard central s'écrit *središñi standard* (Constitution v4.11, art. 128).
 - **Istočni** : bulgare retranscrit (*Sãjuzãt*, *Izpãlnitelna vlast*, *Pãlnoletie*), sans
   *j* parasite dans les mots savants (*Graždanska iniciativa*, *institucii*).
 
 **Point réglé le 2026-10-25** (« Ok pour tout ») : les libellés de la carte (*Državļanska
-karta*, *Datum izdavaña*, *Konfederalni registar državļana*) et la Constitution (*srediñi
+karta*, *Datum izdavaña*, *Konfederalni registar državļana*) et la Constitution (*središñi
 standard*) suivent la règle 5 (ADR 2026-10-25-alphabet-v3-mots-courants.md).
 
 ### Titres

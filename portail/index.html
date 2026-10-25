@@ -1582,7 +1582,7 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 
 const JOURNAL=[
  {d:'2026-10-25',cat:'Identity',t:'The unified alphabet on the card and in the Constitution',
-  s:'The letters ñ and ļ now apply to every official word, not only to place names: the card reads Državļanska karta, Datum rođeña and Konfederalni registar državļana, the feminine forms are Srpkiña and Bošñakiña, and the central standard is the srediñi standard (Constitution v4.11, Art. 128). Names of persons are never rewritten.'},
+  s:'The letters ñ and ļ now apply to every official word, not only to place names: the card reads Državļanska karta, Datum rođeña and Konfederalni registar državļana, the feminine forms are Srpkiña and Bošñakiña, and the central standard is the središñi standard (Constitution v4.11, Art. 128). Names of persons are never rewritten.'},
  {d:'2026-10-25',cat:'Identity',t:'Severna Trakija, without the yat',
   s:'The Bulgarian State of Northern Thrace (TR-41) is now written Severna Trakija: a purely Bulgarian name, with the ekavian reflex, takes no yat. The two Srěm States keep it, since the Croatian form Srijem shows the reflex. Constitution v4.10.'},
  {d:'2026-10-25',cat:'Law',t:'Constitution v4.9: the double key',
@@ -3252,7 +3252,7 @@ const CARD_EN={doc:'Citizen card',sur:'Surname',giv:'Given names',sex:'Sex',
  dob:'Date of birth',nat:'Nation',st:'State',num:'Card no.',exp:'Date of expiry',
  iss:'Date of issue',ori:'Municipality of origin',auth:'Authority'};
 const STD_NAME={western:['Western standard','zapadni standard','Slovene-based'],
- central:['Central standard','srediñi standard','Štokavian-based'],
+ central:['Central standard','središñi standard','Štokavian-based'],
  eastern:['Eastern standard','istočni standard','Bulgarian-Macedonian-based']};
 const CARD_AUTH='Konfederalni registar državļana · Zagreb';
 const natForm=c=>{const p=PEUPLES[c.people];
@@ -5231,7 +5231,7 @@ async function loadData(){
   ]);
   PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; REGISTRE={...REGISTRE,...rg};
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
-  STD={western:'Standard occidental (zapadni)',central:'Standard central (srediñi)',eastern:'Standard oriental (istočni)'};
+  STD={western:'Standard occidental (zapadni)',central:'Standard central (središñi)',eastern:'Standard oriental (istočni)'};
 }
 loadData().then(()=>{ render(); }).catch(e=>{
   document.getElementById('app').innerHTML='<p style="padding:40px">Erreur de chargement des données : '+e+'</p>';

@@ -3,7 +3,7 @@
   "langs": {
     "en":  {"lab": "EN",  "html": "en",      "name": "English"},
     "zap": {"lab": "ZAP", "html": "sl",      "name": "zapadni standard"},
-    "sre": {"lab": "SRE", "html": "sh",      "name": "srediñi standard"},
+    "sre": {"lab": "SRE", "html": "sh",      "name": "središñi standard"},
     "ist": {"lab": "IST", "html": "bg-Latn", "name": "istočni standard"}
   },
   "t": {
