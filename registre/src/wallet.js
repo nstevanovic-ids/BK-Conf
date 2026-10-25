@@ -78,7 +78,7 @@ async function gcall(env, method, path, body) {
 const classId = env => `${env.GOOGLE_WALLET_ISSUER_ID}.bk_citizen_card`;
 const objectId = (env, c) => `${env.GOOGLE_WALLET_ISSUER_ID}.${c.id.replace(/[^A-Za-z0-9._-]/g, '')}`;
 const loc = v => ({ defaultValue: { language: 'en', value: v } });
-const DOC = { western: 'Državljanska izkaznica', central: 'Državljanska karta', eastern: 'Graždanska karta' };
+const DOC = { western: 'Državļanska izkaznica', central: 'Državļanska karta', eastern: 'Graždanska karta' };
 
 let CLASS_OK = false;
 async function ensureClass(env) {

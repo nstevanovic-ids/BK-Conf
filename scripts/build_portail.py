@@ -63,7 +63,7 @@ def build_inline() -> int:
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
-        "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
+        "STD={western:'Standard occidental (zapadni)',central:'Standard central (središñi)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )
     # Swap the loadData().then(...) call for the inline assignment + render.
