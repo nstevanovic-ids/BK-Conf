@@ -1,7 +1,7 @@
 # Cyrillique confédéral — proposition
 
-**Statut : proposition, à valider.** Ce document n'est pas canonique tant qu'aucune ADR ne
-l'a adopté.
+**Statut : adopté le 2026-10-25** (ADR 2026-10-25-toponymie-v3-cyrillique.md). Le son *ja*
+s'écrit ја, en deux lettres (voir « Le son ja »).
 
 ## Objet
 
@@ -71,6 +71,20 @@ dans les deux sens, sans dictionnaire.
 | Bošñaci | Бошњаци |
 | Opština porěkla | Општина порѣкла |
 
+## Le son ja
+
+Le latin v3 écrit *ja* en deux lettres, j + a. Le cyrillique confédéral fait de même : ја,
+à la serbe et à la macédonienne.
+
+| | ја (retenu) | я (écarté) |
+|---|---|---|
+| Correspondance avec le latin | une lettre pour une lettre, sans exception | я vaudrait deux lettres latines, et ju, je, jo réclameraient ю, є, ё |
+| Lecture | serbe, macédonienne | bulgare, russe |
+| Conversion | réversible sans contexte | réversible seulement si я est toujours employé pour *ja* |
+
+Le bulgare garde я dans son usage propre (art. 129 et 130). À la saisie, я et ја donnent
+tous deux *ja* (*ļa* et *ña* après л et н).
+
 ## Sens inverse (saisie)
 
 La saisie d'un nom en cyrillique dans le parcours citoyen suit déjà
@@ -79,10 +93,9 @@ Le cyrillique confédéral en est l'inverse exact sur les 32 lettres. Les lettre
 bulgare et au macédonien (ѓ, ќ, ѕ, щ, ю, я, й, ь) sont acceptées en entrée, mais ne sont
 jamais produites en sortie.
 
-Une divergence est à régler en même temps que l'adoption. La saisie traite ю comme *ju*
-partout, alors que `v1.md` note *лю* par la latérale palatale (*любов* → *ļubov*). La
-proposition retient la règle de `v1.md` : ль, лю, ля donnent ļ, ļu, ļa, et нь, ню, ня
-donnent ñ, ñu, ña.
+La règle de `v1.md` est retenue pour le bulgare : ль, лю, ля donnent ļ, ļu, ļa, et нь,
+ню, ня donnent ñ, ñu, ña (*любов* → *ļubov*, Смолян → *Smoļan*). La saisie du parcours
+citoyen et `scripts/toponymie_v3.py` l'appliquent.
 
 ## Usage prévu
 

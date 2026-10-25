@@ -1,0 +1,269 @@
+# Communes bulgares : nom du recensement (NSI, translittération officielle simplifiée) et forme
+# cyrillique officielle, source de la forme v3 (scripts/toponymie_v3.py). Cyrillique : GADM
+# (NL_NAME_2) pour 182 communes, saisie et contrôlée pour les autres le 2026-10-25.
+name,cyrillic
+Aksakovo,Аксаково
+Alfatar,Алфатар
+Anton,Антон
+Antonovo,Антоново
+Apriltsi,Априлци
+Ardino,Ардино
+Asenovgrad,Асеновград
+Avren,Аврен
+Aytos,Айтос
+Balchik,Балчик
+Banite,Баните
+Bansko,Банско
+Batak,Батак
+Belene,Белене
+Belitsa,Белица
+Belogradchik,Белоградчик
+Beloslav,Белослав
+Belovo,Белово
+Berkovitsa,Берковица
+Blagoevgrad,Благоевград
+Boboshevo,Бобошево
+Bobovdol,Бобов дол
+Bolyarovo,Болярово
+Borino,Борино
+Borovan,Борован
+Borovo,Борово
+Botevgrad,Ботевград
+Boychinovtsi,Бойчиновци
+Boynitsa,Бойница
+Bozhurishte,Божурище
+Bratsigovo,Брацигово
+Bratya Daskalovi,Братя Даскалови
+Bregovo,Брегово
+Breznik,Брезник
+Brezovo,Брезово
+Brusartsi,Брусарци
+Burgas,Бургас
+Byala (Ruse),Бяла (Русе)
+Byala (Varna),Бяла (Варна)
+Byala Slatina,Бяла Слатина
+Chavdar,Чавдар
+Chelopech,Челопеч
+Chepelare,Чепеларе
+Chernoochene,Черноочене
+Cherven Bryag,Червен бряг
+Chiprovtsi,Чипровци
+Chirpan,Чирпан
+Chuprene,Чупрене
+Dalgopol,Дългопол
+Devin,Девин
+Devnya,Девня
+Dimitrovgrad,Димитровград
+Dimovo,Димово
+Dobrich,Добрич
+Dobrich - selska,Добрич-селска
+Dolna Banya,Долна баня
+Dolna Mitropolia,Долна Митрополия
+Dolni Chiflik,Долни чифлик
+Dolni Dabnik,Долни Дъбник
+Dospat,Доспат
+Dragoman,Драгоман
+Dryanovo,Дряново
+Dulovo,Дулово
+Dupnitsa,Дупница
+Dve Mogili,Две могили
+Dzhebel,Джебел
+Elena,Елена
+Elhovo,Елхово
+Elin Pelin,Елин Пелин
+Etropole,Етрополе
+Gabrovo,Габрово
+Galabovo,Гълъбово
+Garmen,Гърмен
+General Toshevo,Генерал Тошево
+Georgi Damyanovo,Георги Дамяново
+Glavinitsa,Главиница
+Godech,Годеч
+Gorna Malina,Горна Малина
+Gorna Oryahovitsa,Горна Оряховица
+Gotse Delchev,Гоце Делчев
+Gramada,Грамада
+Gulyantsi,Гулянци
+Gurkovo,Гурково
+Hadzhidimovo,Хаджидимово
+Harmanli,Харманли
+Haskovo,Хасково
+Hayredin,Хайредин
+Hisarya,Хисаря
+Hitrino,Хитрино
+Ihtiman,Ихтиман
+Iskar,Искър
+Isperih,Исперих
+Ivanovo,Иваново
+Ivaylovgrad,Ивайловград
+Kaloyanovo,Калояново
+Kameno,Камено
+Kaolinovo,Каолиново
+Kardzhali,Кърджали
+Karlovo,Карлово
+Karnobat,Карнобат
+Kaspichan,Каспичан
+Kavarna,Каварна
+Kaynardzha,Кайнарджа
+Kazanlak,Казанлък
+Kirkovo,Кирково
+Knezha,Кнежа
+Kocherinovo,Кочериново
+Koprivshtitsa,Копривщица
+Kostenets,Костенец
+Kostinbrod,Костинброд
+Kotel,Котел
+Kovachevtsi,Ковачевци
+Kozloduy,Козлодуй
+Kresna,Кресна
+Krichim,Кричим
+Krivodol,Криводол
+Krumovgrad,Крумовград
+Krushari,Крушари
+Kubrat,Кубрат
+Kuklen,Куклен
+Kula,Кула
+Kyustendil,Кюстендил
+Laki,Лъки
+Lesichovo,Лесичово
+Letnitsa,Летница
+Levski,Левски
+Lom,Лом
+Lovech,Ловеч
+Loznitsa,Лозница
+Lukovit,Луковит
+Lyaskovets,Лясковец
+Lyubimets,Любимец
+Madan,Мадан
+Madzharovo,Маджарово
+Maglizh,Мъглиж
+Makresh,Макреш
+Malko Tarnovo,Малко Търново
+Maritsa,Марица
+Medkovets,Медковец
+Mezdra,Мездра
+Mineralni Bani,Минерални бани
+Mirkovo,Мирково
+Mizia,Мизия
+Momchilgrad,Момчилград
+Montana,Монтана
+Nedelino,Неделино
+Nesebar,Несебър
+Nevestino,Невестино
+Nikola Kozlevo,Никола Козлево
+Nikolaevo,Николаево
+Nikopol,Никопол
+Nova Zagora,Нова Загора
+Novi Pazar,Нови пазар
+Novo Selo,Ново село
+Omurtag,Омуртаг
+Opaka,Опака
+Opan,Опан
+Oryahovo,Оряхово
+Panagyurishte,Панагюрище
+Parvomay,Първомай
+Pavel Banya,Павел Баня
+Pavlikeni,Павликени
+Pazardzhik,Пазарджик
+Pernik,Перник
+Perushtitsa,Перущица
+Peshtera,Пещера
+Petrich,Петрич
+Pirdop,Пирдоп
+Pleven,Плевен
+Plovdiv,Пловдив
+Polski Trambesh,Полски Тръмбеш
+Pomorie,Поморие
+Popovo,Попово
+Pordim,Пордим
+Pravets,Правец
+Primorsko,Приморско
+Provadia,Провадия
+Radnevo,Раднево
+Radomir,Радомир
+Rakitovo,Ракитово
+Rakovski,Раковски
+Razgrad,Разград
+Razlog,Разлог
+Rila,Рила
+Rodopi,Родопи
+Roman,Роман
+Rudozem,Рудозем
+Ruen,Руен
+Ruse,Русе
+Ruzhintsi,Ружинци
+Sadovo,Садово
+Saedinenie,Съединение
+Samokov,Самоков
+Samuil,Самуил
+Sandanski,Сандански
+Sapareva Banya,Сапарева баня
+Sarnitsa,Сърница
+Satovcha,Сатовча
+Septemvri,Септември
+Sevlievo,Севлиево
+Shabla,Шабла
+Shumen,Шумен
+Silistra,Силистра
+Simeonovgrad,Симеоновград
+Simitli,Симитли
+Sitovo,Ситово
+Sliven,Сливен
+Slivnitsa,Сливница
+Slivo Pole,Сливо поле
+Smolyan,Смолян
+Smyadovo,Смядово
+Sopot,Сопот
+Sozopol,Созопол
+Sredets,Средец
+Stamboliyski,Стамболийски
+Stambolovo,Стамболово
+Stara Zagora,Стара Загора
+Stolichna,Столична
+Straldzha,Стралджа
+Strazhitsa,Стражица
+Strelcha,Стрелча
+Strumyani,Струмяни
+Suhindol,Сухиндол
+Sungurlare,Сунгурларе
+Suvorovo,Суворово
+Svilengrad,Свиленград
+Svishtov,Свищов
+Svoge,Своге
+Targovishte,Търговище
+Tervel,Тервел
+Teteven,Тетевен
+Topolovgrad,Тополовград
+Tran,Трън
+Treklyano,Трекляно
+Troyan,Троян
+Tryavna,Трявна
+Tsar Kaloyan,Цар Калоян
+Tsarevo,Царево
+Tsenovo,Ценово
+Tundzha,Тунджа
+Tutrakan,Тутракан
+Tvarditsa,Твърдица
+Ugarchin,Угърчин
+Valchedram,Вълчедръм
+Valchi Dol,Вълчи дол
+Varbitsa,Върбица
+Varna,Варна
+Varshets,Вършец
+Veliki Preslav,Велики Преслав
+Veliko Tarnovo,Велико Търново
+Velingrad,Велинград
+Venets,Венец
+Vetovo,Ветово
+Vetrino,Ветрино
+Vidin,Видин
+Vratsa,Враца
+Yablanitsa,Ябланица
+Yakimovo,Якимово
+Yakoruda,Якоруда
+Yambol,Ямбол
+Zavet,Завет
+Zemen,Земен
+Zlataritsa,Златарица
+Zlatitsa,Златица
+Zlatograd,Златоград

@@ -28,3 +28,13 @@ Principe fondateur 2 de la spec alphabet : « base gajica + traits aréaux balka
 
 ## Exception déclarée
 - **Beograd** : exception à la règle toponymique v3 (graphie maintenue)
+
+## Noms sud-slaves des organes (ADR 2026-10-25-noms-sud-slaves-organes.md)
+Forme commune aux trois standards, sinon forme centrale avec yat ; organes en majuscules,
+fonctions en minuscules.
+- Konfederalna Kancelarija (*kancelar Konfederacije*) · Konfederalni Sud · Konfederalno
+  Tužilaštvo · Konfederalni Računski Sud · Konfederalna Centralna Banka · Konfederalni
+  Institut za Jezik · Konfederalna Biblioteka i Arhiv · Veće Zajednica · *generalni inspektor
+  sigurnosnih snaga* · Komisija za Nadzor Sigurnosti · Konfederalna Agencija za Vanredne
+  Situacije (ACGUB) · Konfederalne Oružane Snage (armée de terre : *vojska*)
+- Écartés : *narodna banka* (narodni = des peuples), *armija* (JNA, Armija RBiH)

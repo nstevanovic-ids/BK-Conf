@@ -30,10 +30,14 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (*Savezno Veće* abandonné : *savezni* = échelon fédéral yougoslave ;
   cf. ADR docs/decisions/2026-10-13-constitution-v4.md)
 - Autres organes (v4.4) : Chancellerie confédérale (Sarajevo), Cour confédérale de justice et
-  Parquet confédéral (Zagreb), Banque centrale (Beograd), Cour des comptes (Ljubljana),
-  Institut confédéral de la langue (Ohrid), Bibliothèque et Archives (Cetinje), Conseil des
+  Parquet confédéral (Zagreb), Banque centrale (Beograd), Cour des comptes (Ļubļana),
+  Institut confédéral de la langue (Ohrid), Bibliothèque et Archives (Cetiñe), Conseil des
   communautés (albanaise, hongroise, slovaque, turque), Konfederalna Obavěštajna Agencija
-  (renseignement, Sarajevo, sans pouvoir de police) ; coalitions d'États (initiative,
+  (renseignement, Sarajevo, sans pouvoir de police) ; noms sud-slaves (Konfederalna
+  Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud,
+  Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i
+  Arhiv, Veće Zajednica, Konfederalne Oružane Snage), ADR 2026-10-25-noms-sud-slaves-organes ;
+  coalitions d'États (initiative,
   référendum) : la moitié au plus d'un même peuple ; cf. ADR
   docs/decisions/2026-10-22-constitution-v4-4-institutions.md
 - 24 entités autonomes (docs/canon/entites-autonomes.md)
@@ -61,14 +65,20 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - **32 lettres** (7 voyelles + 25 consonnes), base gajica + traits aréaux balkaniques
 - ě restauré (jat' illyrien), ñ pour /ɲ/, ļ pour /ʎ/, ã schwa bulgare
 - ç éliminé (réservé aux noms propres albanais/turcs)
-- Règle toponymique v3 : њ→ñ, љ→ļ, sinon latin inchangé. Beograd = exception déclarée.
+- Règle toponymique v3 (option 1, ADR 2026-10-25-toponymie-v3-cyrillique.md) : њ→ñ, љ→ļ,
+  џ/дж→x, ъ→ã, noms bulgares retranscrits du cyrillique ; yat restauré pour les réflexes
+  ijekaviens et la racine Srěm (Rěka, Běļina, Osěk) ; noms ekaviens en attente
+  (docs/alfabet/yat-racines.md) ; sinon latin inchangé. Beograd = exception déclarée.
+  Communes : scripts/toponymie_v3.py (opstine.json v 2, nom officiel en alias)
+- Cyrillique confédéral (docs/alfabet/cyrillique-confederal.md) : une lettre pour chacune des
+  32 (ě→ѣ, ã→ъ, ñ→њ, ļ→љ, x→џ, ja = ја) ; bulgare лю/ля → ļu/ļa
 
 ## Workstreams (jamais mélanger dans une même session)
 - Constitution → docs/constitution/ (texte de travail en vigueur : **v4.md**, français ;
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.7 : texte intégral, 192 articles en dix titres. Titres 1 à 3 (texte de base, art. 1
+  Version 4.8 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
@@ -156,7 +166,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Proportionnalité démographique : ratio État/peuple surveillé (HHI ≈ 0.034)
 
 ## Ne pas faire
-- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-14)
+- Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-13)
 - Ne pas confondre identité « Balkan » et identité linguistique « sud-slave »
 - Ne pas proposer d'étoile rouge à 5 branches
 - Ne pas appliquer l'écriture inclusive

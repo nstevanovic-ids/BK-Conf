@@ -12,7 +12,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | BA-01 | Bosanska Krajina | Bosniaks | Bihać |
 | BC-02 | Bačka | Serbs | Novi Sad |
 | BN-03 | Banat | Serbs | Zreñanin |
-| BR-04 | Baraña | Croats | Beli Manastir |
+| BR-04 | Baraña | Croats | Běli Manastir |
 | BZ-05 | Zapadna Bosna | Serbs | Baña Luka |
 | CG-06 | Crna Gora | Montenegrins | Podgorica |
 | CM-07 | Černomorska | Bulgarians | Varna |
@@ -21,12 +21,12 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | DR-10 | Dubrovačka Republika | Croats | Dubrovnik |
 | GV-11 | Vzhodna Goriška | Slovenes | Nova Gorica |
 | HI-12 | Istočna Hercegovina | Serbs | Trebiñe |
-| HZ-13 | Zapadna Hercegovina | Croats | Široki Brijeg |
+| HZ-13 | Zapadna Hercegovina | Croats | Široki Brěg |
 | IS-14 | Istra | Croats | Pula |
-| KJ-15 | Južna Koroška | Slovenes | Slovenj Gradec |
+| KJ-15 | Južna Koroška | Slovenes | Sloveñ Gradec |
 | KM-16 | Kosovo i Metohija | Serbs | Priština |
 | KR-17 | Krañska | Slovenes | Ļubļana |
-| KV-18 | Kvarner | Croats | Rijeka |
+| KV-18 | Kvarner | Croats | Rěka |
 | LG-19 | Ludogorje | Bulgarians | Razgrad |
 | LK-20 | Lika | Croats | Gospić |
 | LV-21 | Lašva | Bosniaks | Travnik |
@@ -36,11 +36,11 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | PM-25 | Prekmurje | Slovenes | Murska Sobota |
 | PO-26 | Podunavļe | Serbs | Smederevo |
 | PR-27 | Pirin | Bulgarians | Blagoevgrad |
-| PZ-28 | Zapadno Podriñe | Serbs | Bijeljina |
+| PZ-28 | Zapadno Podriñe | Serbs | Běļina |
 | RO-29 | Rodopi | Bulgarians | Plovdiv |
 | RS-30 | Raška Sanxak | Serbs | Novi Pazar |
 | SI-31 | Istočni Srěm | Serbs | Srěmska Mitrovica |
-| SL-32 | Slavonija | Croats | Osijek |
+| SL-32 | Slavonija | Croats | Osěk |
 | SO-33 | Soli | Bosniaks | Tuzla |
 | SP-34 | Šopluk | Bulgarians | Pernik |
 | ST-35 | Štajerska | Slovenes | Maribor |

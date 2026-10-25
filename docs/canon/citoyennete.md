@@ -42,10 +42,12 @@ Trois bases, dans cet ordre :
 - Résidence déclarée : dans la Confédération ou à l'étranger. Le citoyen établi à
   l'étranger vote dans son État de rattachement.
 - L'index des communes est `portail/data/opstine.json`, généré par
-  `scripts/build_stats.py` : 1 461 entrées `[nom du recensement, ISO, code d'État, nom GADM
-  si différent]`. Il couvre les communes des 45 États territoriaux, les gradske opštine de
-  Beograd, Stolichna (Sofija), les neuf communes de Sarajevo, Zagreb et le Turopolje, Brčko
-  et Mostar.
+  `scripts/build_stats.py` : 1 461 entrées `[nom v3, ISO, code d'État, nom du recensement ou
+  "" s'il est identique, nom GADM si différent]`. Le nom affiché et imprimé sur la carte est
+  la forme v3 (`scripts/toponymie_v3.py`, ADR 2026-10-25-toponymie-v3-option-1.md) ; les noms
+  officiels restent cherchables. Il couvre les communes des 45 États territoriaux, les
+  gradske opštine de Beograd, Stolična (Sofija), les neuf communes de Sarajevo, Zagreb et le
+  Turopolje, Brčko et Mostar.
 - **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, et
   chacune forme sa propre circonscription pour le Kongres, avec au moins un délégué
   (art. 39 et 103, v4.4).

@@ -24,7 +24,10 @@ docs/
     routes.md              Classification des routes (Bk-N, Xx-N)
   constitution/            v4.md (texte de travail, FR) et v4.en.md (texte publié, EN) ;
                            v1 et v2 archivées
-  alfabet/                 Spécification de l'alphabet sud-slave latin unifié (v3)
+  alfabet/                 Alphabet v3, transition toponymique, cyrillique confédéral,
+                           tables de toponymes (formes v3, cyrillique bulgare)
+  plateforme/              Déploiement de la plateforme participative (Decidim)
+  communication/           Lancement sur X puis Instagram
   data/                    Recensements et PIB régional (sources de stats.json)
   decisions/               Journal des décisions (ADR), un fichier daté par décision
 portail/
@@ -43,6 +46,7 @@ scripts/
   encode_drapeaux.py       Drapeaux → state_flags.json (MAPPING à reconstruire)
   encode_video.py          Films d'États : boucle sans couture, 720p + 480p, poster
   gen_favicon.py           Favicon et apple-touch-icon depuis le lion ailé
+  toponymie_v3.py          Forme v3 des noms de communes (appelé par build_stats.py)
 images-sources/            Uploads bruts, jamais modifiés
 ```
 
@@ -79,23 +83,28 @@ explicite, et elle se propage partout : canon, constitution, données, portail.
   - 24 entités autonomes ;
   - carte en globe d3-geo, avec des chiffres clés par État (population, superficie, PIB
     par habitant).
-- **Constitution v4.6** : 174 articles, en français et en anglais. Elle comprend :
-  - les institutions (Kongres, Narodni Sabor, Konfederalno Veće, Ustavni Sud) et les
-    organes de la v4.4 ;
+- **Constitution v4.8** : 192 articles en dix titres, en français et en anglais. Elle
+  comprend :
+  - les institutions (Kongres de 250 délégués, Narodni Sabor, Konfederalno Veće, Ustavni
+    Sud) et leurs organes, avec leurs noms sud-slaves ;
+  - le régime des finances sur le modèle suisse, la famille et la natalité, l'immigration
+    et le contrôle des frontières ;
   - la sécurité et la défense (titre 7) ;
   - les registres nationaux (période probatoire de trois ans, verrou de quinze ans) ;
-  - les immunités, la conciliation, l'exécution confédérale et les symboles.
-- **Alphabet** : v3 spécifié (32 lettres).
+  - la révision avec garanties renforcées (titre 8) et les dispositions finales (titre 9).
+- **Alphabet** : v3 (32 lettres) ; règle toponymique appliquée aux 1 461 communes ;
+  cyrillique confédéral adopté.
 - **Portail** :
   - fiches d'États, dont 7 avec un film ;
-  - page Institutions (qui élit qui, simulateur de loi, autres organes), page Security and
-    Defence ;
+  - page Institutions (qui élit qui, 250 sièges du Kongres, simulateur de loi, révision,
+    autres organes), page Security and Defence ;
   - lecteur de la Constitution et Journal officiel ;
   - parcours citoyen et carte TD1.
 - **En cours ou en attente** :
-  - Constitution : révision et dispositions finales, régime fiscal ;
-  - noms sud-slaves des nouveaux organes, cyrillique confédéral ;
+  - alphabet : yat des noms ekaviens (`docs/alfabet/yat-racines.md`, à valider) ;
   - symboles : hymne, animal totem, lettre-emblème, logos des services ;
-  - portail : interface multilingue (ZAP, SRE, IST) ;
-  - plateforme Decidim ;
-  - films et armoiries des États restants.
+  - portail : interface dans les trois standards (ZAP, SRE, IST), pages des départements et
+    de la présidence, script des drapeaux ;
+  - équilibre États / peuples ;
+  - plateforme Decidim et lancement sur les réseaux ;
+  - films, armoiries et photos des États et des services.
