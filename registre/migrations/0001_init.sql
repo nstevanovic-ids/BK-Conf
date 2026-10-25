@@ -4,7 +4,9 @@
 
 CREATE TABLE citizens (
   id           TEXT PRIMARY KEY,
-  email        TEXT NOT NULL UNIQUE,          -- minuscules
+  email        TEXT UNIQUE,                   -- minuscules ; NULL pour un mineur déclaré par un parent
+  guardian_id  TEXT REFERENCES citizens(id) ON DELETE CASCADE,  -- parent déclarant (mineurs)
+  handover_email TEXT,                        -- adresse du jeune majeur en attente de confirmation
   verified_at  TEXT,                          -- NULL tant que l'adresse n'est pas confirmée
   surname      TEXT NOT NULL,
   given        TEXT NOT NULL,
@@ -13,7 +15,7 @@ CREATE TABLE citizens (
   origin_name  TEXT NOT NULL,                 -- commune (opstine.json)
   origin_iso   TEXT NOT NULL,
   state        TEXT NOT NULL,                 -- code d'État dérivé de la commune, jamais saisi
-  basis        TEXT NOT NULL CHECK (basis IN ('own','ancestry','residence')),
+  basis        TEXT NOT NULL CHECK (basis IN ('own','ancestry','residence','filiation')),
   abroad       INTEGER NOT NULL DEFAULT 0,
   std          TEXT NOT NULL CHECK (std IN ('western','central','eastern')),
   show_nat     INTEGER NOT NULL DEFAULT 0,
@@ -25,9 +27,11 @@ CREATE TABLE citizens (
   mail_count   INTEGER NOT NULL DEFAULT 0,
   last_mail_at TEXT,
   created_at   TEXT NOT NULL,
-  updated_at   TEXT NOT NULL
+  updated_at   TEXT NOT NULL,
+  CHECK (email IS NOT NULL OR guardian_id IS NOT NULL)
 );
 CREATE INDEX citizens_verified ON citizens(verified_at);
+CREATE INDEX citizens_guardian ON citizens(guardian_id);
 CREATE INDEX citizens_state ON citizens(state);
 
 -- Art. 102 : une ligne par citoyen inscrit au moins une fois. Après un retrait, le registre
@@ -48,7 +52,7 @@ CREATE INDEX national_register_people ON national_register(people);
 CREATE TABLE tokens (
   hash        TEXT PRIMARY KEY,               -- SHA-256(pepper:jeton), le jeton n'est jamais stocké
   citizen_id  TEXT NOT NULL REFERENCES citizens(id) ON DELETE CASCADE,
-  kind        TEXT NOT NULL CHECK (kind IN ('confirm','access')),
+  kind        TEXT NOT NULL CHECK (kind IN ('confirm','access','handover')),
   created_at  TEXT NOT NULL,
   expires_at  TEXT NOT NULL,
   used_at     TEXT

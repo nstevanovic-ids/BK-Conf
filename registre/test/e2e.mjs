@@ -2,6 +2,7 @@
 // Google Wallet est simulé sur le port 8788 (test/google-mock.mjs, clé de test/setup-dev.mjs).
 import { readFileSync } from 'node:fs';
 import crypto from 'node:crypto';
+import { execSync } from 'node:child_process';
 import { startGoogleMock } from './google-mock.mjs';
 const API = process.env.API || 'http://127.0.0.1:8787';
 const PUB = readFileSync(new URL('./keys/test-sa.pub.pem', import.meta.url), 'utf8');
@@ -106,27 +107,63 @@ ok(google.state.objects[oid].textModulesData.find(t => t.id === 'num').body === 
 r = await call('POST', '/v1/card/mail', { front: PNG, back: PNG }, auth); ok(r.s === 202, 'card mailed with attachments');
 r = await call('POST', '/v1/card/mail', { front: 'PHN2Zz4=' }, auth); ok(r.s === 422, 'non-image attachment refused');
 
+// Mineurs (art. 38 a) : déclaration par un parent, carte de cinq ans, sans registre, passation à 18 ans.
+const kid = { surname: 'Stevanović', given: 'Mila', sex: 'F', dob: '2015-06-01', std: 'central', consent: { declaration: true } };
+r = await call('POST', '/v1/card/minors', { ...kid, dob: '2000-01-01' }, auth); ok(r.s === 422 && r.j.field === 'dob', 'minor: an adult cannot be declared');
+r = await call('POST', '/v1/card/minors', { ...kid, consent: {} }, auth); ok(r.s === 422 && r.j.field === 'consent_declaration', 'minor: declaration required');
+r = await call('POST', '/v1/card/minors', kid);  ok(r.s === 401, 'minor: parent access link required');
+r = await call('POST', '/v1/card/minors', kid, auth);
+const mi = r.j && r.j.card && r.j.card.minors && r.j.card.minors[0];
+ok(r.s === 201 && mi && mi.minor && mi.num.startsWith('BK-DR-') && mi.people === 'none' && mi.basis === 'filiation' && mi.origin.c === 'DR-10'
+   && mi.expiry.slice(0, 4) - mi.issued.slice(0, 4) === 5 && !mi.emailHint, 'minor declared: same state as the parent, no register, five-year card');
+r = await call('GET', '/v1/verify/' + mi.num); ok(r.j.status === 'valid', 'minor card verifies');
+r = await call('PATCH', '/v1/card/minors/' + mi.num, { ...kid, given: 'Mila Ana' }, auth);
+ok(r.s === 200 && r.j.card.minors[0].given === 'Mila Ana' && r.j.card.minors[0].card === 2, 'minor amended: issue 2');
+r = await call('POST', '/v1/card/minors/' + mi.num + '/handover', { email: 'mila@example.org' }, auth);
+ok(r.s === 422 && r.j.field === 'dob', 'handover refused before 18');
+execSync(`npx wrangler d1 execute bk-registre --local --command "UPDATE citizens SET dob='2000-01-01' WHERE num='${mi.num}'"`, { stdio: 'ignore' });
+r = await call('POST', '/v1/card/minors/' + mi.num + '/handover', { email: 'mila@example.org' }, auth);
+ok(r.s === 202 && r.j.devToken, 'handover at 18: confirmation sent to the young adult');
+r = await call('POST', '/v1/confirm', { token: r.j.devToken });
+ok(r.s === 200 && r.j.handover && r.j.accessToken && r.j.card.num === mi.num && !r.j.card.minor && r.j.card.basis === 'ancestry'
+   && r.j.card.emailHint === 'm•••@example.org', 'handover confirmed: same number, own access, basis ancestry');
+const accMila = r.j.accessToken;
+r = await call('GET', '/v1/card', undefined, auth); ok(r.j.card.minors.length === 0, 'parent no longer holds the card');
+r = await call('PATCH', '/v1/card/minors/' + mi.num, kid, auth); ok(r.s === 404, 'parent cannot amend it any more');
+r = await call('PATCH', '/v1/card', { ...base, surname: 'Stevanović', given: 'Mila Ana', sex: 'F', dob: '2000-01-01', people: 'srb', basis: 'ancestry',
+  origin: { n: 'Dubrovnik', iso: 'HRV' }, res: 'in' }, { Authorization: 'Bearer ' + accMila });
+ok(r.s === 200 && r.j.card.people === 'srb' && r.j.card.reg.prob, 'young adult enrols in a register (first, probationary)');
+r = await call('POST', '/v1/card/minors', { ...kid, given: 'Luka', sex: 'M' }, auth);
+const mi2 = r.j.card.minors[0];
+r = await call('DELETE', '/v1/card/minors/' + mi2.num, undefined, auth);
+ok(r.s === 200 && r.j.card.minors.length === 0, 'minor card deleted by the parent');
+r = await call('GET', '/v1/verify/' + mi2.num); ok(r.j.status === 'revoked', 'deleted minor card is revoked');
+
 r = await call('POST', '/v1/registrations', { ...base, email: 'ana@example.org', given: 'Ana', sex: 'F', basis: 'own', origin: { n: 'Dubrovnik', iso: 'HRV' }, res: 'in', people: 'hrv' });
 const t3 = r.j.devToken;
-r = await call('POST', '/v1/confirm', { token: t3 }); ok(r.s === 200 && r.j.card.num === 'BK-DR-000002', 'sequence per state: BK-DR-000002');
+r = await call('POST', '/v1/confirm', { token: t3 }); ok(r.s === 200 && r.j.card.num === 'BK-DR-000004', 'sequence per state, shared with minors: BK-DR-000004');
 const acc2 = r.j.accessToken;
 
 r = await call('GET', '/v1/stats');
-ok(r.s === 200 && r.j.total === 2 && r.j.states['DR-10'] === 2 && r.j.peoples.hrv === 1 && r.j.peoples.srb === 0 && r.j.peoples.cng === 0 && r.j.peoples.none === 1 && r.j.statesRepresented === 1, 'stats: 2 citizens, DR-10, hrv 1, withdrawn counted as none');
-ok(Array.isArray(r.j.daily) && r.j.daily.length >= 1 && r.j.last30 === 2, 'stats: daily series and last 30 days');
+ok(r.s === 200 && r.j.total === 3 && r.j.minors === 0 && r.j.states['DR-10'] === 3 && r.j.peoples.hrv === 1 && r.j.peoples.srb === 1 && r.j.peoples.cng === 0 && r.j.peoples.none === 1 && r.j.statesRepresented === 1, 'stats: 3 citizens, DR-10, hrv 1, srb 1, withdrawn counted as none');
+ok(Array.isArray(r.j.daily) && r.j.daily.length >= 1 && r.j.last30 === 3, 'stats: daily series and last 30 days');
 
 r = await call('POST', '/v1/access', { email: 'ana@example.org', turnstile: 'dev' }); ok(r.s === 202 && r.j.devAccess, 'access link for a citizen');
 r = await call('POST', '/v1/access', { email: 'nobody@example.org', turnstile: 'dev' }); ok(r.s === 202 && r.j.status === 'sent' && !r.j.devAccess, 'unknown address: same answer, nothing sent');
 
+r = await call('POST', '/v1/card/minors', { ...kid, surname: 'Horvat', given: 'Iva' }, { Authorization: 'Bearer ' + acc2 });
+const anaKid = r.j.card.minors[0].num;
+r = await call('GET', '/v1/stats'); ok(r.j.minors === 1 && r.j.total === 4 && r.j.peoples.none === 1, 'stats: minors counted apart, not as \"no register\"');
 r = await call('POST', '/v1/card/wallet/google', {}, { Authorization: 'Bearer ' + acc2 });
 const oid2 = jwtPayload(r.j.url).p.payload.genericObjects[0].id;
 r = await call('DELETE', '/v1/card', undefined, { Authorization: 'Bearer ' + acc2 }); ok(r.s === 204, 'deletion (204)');
 await sleep(700);
 const ob2 = google.state.objects[oid2];
 ok(ob2.state === 'INACTIVE' && ob2.header.defaultValue.value === 'Card cancelled' && !JSON.stringify(ob2).includes('Ana'), 'Google Wallet: pass cancelled and emptied on deletion');
-r = await call('GET', '/v1/verify/BK-DR-000002'); ok(r.j.status === 'revoked', 'verify: deleted citizen\'s number is revoked');
+r = await call('GET', '/v1/verify/BK-DR-000004'); ok(r.j.status === 'revoked', 'verify: deleted citizen\'s number is revoked');
 r = await call('GET', '/v1/card', undefined, { Authorization: 'Bearer ' + acc2 }); ok(r.s === 401, 'deleted citizen: access link dead');
-r = await call('GET', '/v1/stats'); ok(r.j.total === 1 && r.j.peoples.hrv === 0, 'stats follow deletion');
+r = await call('GET', '/v1/verify/' + anaKid); ok(r.j.status === 'revoked', 'children\'s cards are cancelled with the parent\'s');
+r = await call('GET', '/v1/stats'); ok(r.j.total === 2 && r.j.minors === 0 && r.j.peoples.hrv === 0, 'stats follow deletion');
 
 r = await call('GET', '/v1/health', undefined, { Origin: 'https://evil.example' }); ok(r.s === 403, 'foreign origin refused');
 r = await call('GET', '/v1/health', undefined, { Origin: 'http://localhost:8000' }); ok(r.h.get('access-control-allow-origin') === 'http://localhost:8000', 'allowed origin gets CORS header');

@@ -66,6 +66,16 @@ export function mailCard({ to, given, surname, num, stateName, stateCode, expiry
     attachments);
 }
 
+export function mailHandover({ to, given, surname, num, link }) {
+  return build(to, `${given} ${surname}`, `Your citizen card ${num} · Balkan Confederation`,
+    'Take over your citizen card',
+    [`Dear ${esc(given)},`,
+     `Your parent or legal guardian declared you a citizen of the Balkan Confederation when you were a minor. Your card number is <b>${esc(num)}</b>.`,
+     'Now that you are of age, confirm this address to manage the card yourself. From then on, only you can amend or delete it, and you may enrol in a national register (Art. 102). The link is valid for 48 hours.'],
+    { href: link, label: 'Take over my card' },
+    'If you did not expect this message, ignore it: nothing changes.');
+}
+
 export function mailAccess({ to, given, surname, num, link, reason }) {
   const intro = reason === 'again'
     ? 'Someone, perhaps you, tried to register again with this address. You are already a citizen: here is the link to your card.'

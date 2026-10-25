@@ -14,8 +14,8 @@ droits politiques, citoyens établis à l'étranger), qui reprennent le projet d
   à la délivrance de la carte citoyenne (Préambule : « une maison où l'on entre par choix »).
 - La carte est délivrée après **confirmation de l'adresse e-mail** (double opt-in) et
   envoyée à cette adresse ; une adresse = un citoyen.
-- Inscription en ligne ouverte à partir de **18 ans**, âge du vote (art. 104). Les mineurs
-  sont hors du parcours actuel.
+- Inscription en ligne ouverte à partir de **18 ans**, âge du vote (art. 104). Un mineur est
+  déclaré par un parent titulaire d'une carte (section « Mineurs »).
 - Trois choix **indépendants** : l'État de rattachement, le registre national, le standard
   linguistique du document.
 
@@ -55,6 +55,35 @@ Trois bases, dans cet ordre :
 - **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, et
   chacune forme sa propre circonscription pour le Kongres, avec au moins un délégué
   (art. 39 et 103, v4.4).
+
+## Mineurs
+
+Décision : ADR `docs/decisions/2026-10-25-mineurs.md` (art. 38 a, rattachement des mineurs par
+filiation et par adoption).
+
+- **Déclaration** : un parent ou un représentant légal (filiation ou adoption) **titulaire
+  d'une carte** déclare son enfant de moins de 18 ans, depuis sa propre carte (`#/citizen`,
+  « Declare a child » ; route `#/minor`). La déclaration du parent tient lieu de celle de
+  l'enfant (art. 37).
+- **Rattachement par filiation** : l'enfant prend la commune d'origine et l'État du parent
+  déclarant ; c'est le parent qui déclare qui fixe le rattachement, jamais un libre choix.
+  Base `filiation`. Quand le parent change d'État, l'amendement suivant de la carte de
+  l'enfant le suit, avec un nouveau numéro.
+- **Pas de registre national avant 18 ans** (art. 102) : narodnost « — » ; pas de droits
+  politiques (art. 104).
+- **Carte** : même dessin et même zone de lecture automatique ; numéro dans la séquence de
+  l'État ; validité **cinq ans** ; langue choisie par le parent (par défaut, celle de sa
+  carte).
+- **Gestion** : le parent amende ou supprime la carte ; au plus douze enfants par carte. La
+  suppression de la carte du parent emporte celles des enfants qu'il a déclarés.
+- **Passation à 18 ans** : le parent indique l'adresse e-mail du jeune majeur, qui la
+  confirme. La carte garde son numéro ; le jeune citoyen la gère seul, le parent n'y a plus
+  accès. La base `filiation` devient `ancestry` (commune d'un parent), ou `residence` si le
+  parent était rattaché par sa résidence. Il peut alors s'inscrire à un registre national :
+  c'est une première inscription, probatoire.
+- **Prototype** : les cartes des enfants sont gardées dans l'enregistrement du parent
+  (`minors`) ; à 18 ans, le jeune s'inscrit lui-même dans son navigateur, en attendant
+  l'ouverture du registre.
 
 ## Registre national
 
