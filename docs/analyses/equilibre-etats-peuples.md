@@ -6,7 +6,8 @@ sorties (ADR `docs/decisions/2026-10-25-double-cle.md`) :
 - **les frontières des États sont fixées à la fondation** : aucun redécoupage ;
 - **la double clé** est adoptée (Constitution v4.9, art. 110, 111 et 115 bis).
 
-La pondération des voix d'États (section 5) reste une proposition.
+La pondération des voix d'États (section 5) est mise de côté le 2026-10-25 ; les deux
+variantes restent documentées pour une reprise éventuelle.
 
 ## 1. Méthode
 
@@ -72,7 +73,7 @@ Le nombre idéal est calculé au plus fort reste ; le quota exact est entre pare
 - **Perception** : un peuple qui se compte peut se sentir lésé, même quand l'effet réel est
   faible.
 
-## 5. Pondération des voix d'États (proposition, non décidée)
+## 5. Pondération des voix d'États (mise de côté le 2026-10-25)
 
 Pour les votations, chaque État recevrait un poids fixé par une formule, à la place d'une
 voix égale. Les villes-États gardent un poids de 1. Le total reste 49 et la majorité, plus de
