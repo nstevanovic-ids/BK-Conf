@@ -12,7 +12,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | BA-01 | Bosanska Krajina | Bosniaks | Bihać |
 | BC-02 | Bačka | Serbs | Novi Sad |
 | BN-03 | Banat | Serbs | Zreñanin |
-| BR-04 | Baraña | Croats | Běli Manastir |
+| BR-04 | Baraña | Croats | Beli Manastir |
 | BZ-05 | Zapadna Bosna | Serbs | Baña Luka |
 | CG-06 | Crna Gora | Montenegrins | Podgorica |
 | CM-07 | Černomorska | Bulgarians | Varna |
@@ -39,7 +39,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | PZ-28 | Zapadno Podriñe | Serbs | Běļina |
 | RO-29 | Rodopi | Bulgarians | Plovdiv |
 | RS-30 | Raška Sanxak | Serbs | Novi Pazar |
-| SI-31 | Istočni Srěm | Serbs | Srěmska Mitrovica |
+| SI-31 | Istočni Srěm | Serbs | Sremska Mitrovica |
 | SL-32 | Slavonija | Croats | Osěk |
 | SO-33 | Soli | Bosniaks | Tuzla |
 | SP-34 | Šopluk | Bulgarians | Pernik |

@@ -66,9 +66,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - ě restauré (jat' illyrien), ñ pour /ɲ/, ļ pour /ʎ/, ã schwa bulgare
 - ç éliminé (réservé aux noms propres albanais/turcs)
 - Règle toponymique v3 (option 1, ADR 2026-10-25-toponymie-v3-cyrillique.md) : њ→ñ, љ→ļ,
-  џ/дж→x, ъ→ã, noms bulgares retranscrits du cyrillique ; yat restauré pour les réflexes
-  ijekaviens et la racine Srěm (Rěka, Běļina, Osěk) ; noms ekaviens en attente
-  (docs/alfabet/yat-racines.md) ; sinon latin inchangé. Beograd = exception déclarée.
+  џ/дж→x, ъ→ã, noms bulgares retranscrits du cyrillique ; yat restauré pour les seuls
+  réflexes ijekaviens (Rěka, Běļina, Osěk) ; les noms ekaviens n'ont pas de yat et gardent e
+  (Beli Manastir, Sremska Mitrovica ; ADR 2026-10-25-ekavien-sans-yat.md) ; sinon latin
+  inchangé. Beograd = exception déclarée.
   Communes : scripts/toponymie_v3.py (opstine.json v 2, nom officiel en alias)
 - Cyrillique confédéral (docs/alfabet/cyrillique-confederal.md) : une lettre pour chacune des
   32 (ě→ѣ, ã→ъ, ñ→њ, ļ→љ, x→џ, ja = ја) ; bulgare лю/ля → ļu/ļa
