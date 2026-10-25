@@ -11,14 +11,15 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Termes de nationalité genrés en sud-slave (Crnogorka/Crnogorac, Srpkinja/Srbin)
 
 ## Distinction de nommage critique
-- Entité fédérale = **Balkan** (géographique, inclut les communautés autonomes
+- Entité confédérale = **Balkan** (géographique, inclut les communautés autonomes
   non-sud-slaves : albanaise, hongroise, turque, slovaque)
 - **Sud-slave / južnoslovenski** décrit UNIQUEMENT : la langue (*južnoslovenski jezik*),
   l'alphabet unifié, et les 7 peuples constitutifs — JAMAIS la confédération
 - Le projet est sud-slave **+ balkanique**, explicitement PAS pan-slave
 
 ## Composition (source : docs/canon/etats.md)
-- **49 États** : 45 territoriaux + 4 villes-États + 2 municipalités fédérales
+- **49 États** : 45 territoriaux + 4 villes-États (territoires confédéraux) ; plus 2 municipalités
+  confédérales autonomes (Brčko, Mostar), qui ne sont pas des États
   (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
   alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md ;
   Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md)

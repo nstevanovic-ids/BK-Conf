@@ -865,7 +865,7 @@ button.sr-bar:hover{background:var(--sr-hi)}
     background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent) no-repeat;
     background-size:30% 100%;background-position:-50% 0;animation:srSweep 6s ease-in-out infinite 1s}
   .sr-open{background-size:180% 100%;animation:srDrift 6s ease-in-out infinite alternate}
-  /* radar ping on the federal capitals */
+  /* radar ping on the confederal capitals */
   .sr-ping circle{transform-box:fill-box;transform-origin:center;
     animation:srPing 3.6s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:calc(var(--i)*.6s)}
 }
@@ -1489,7 +1489,7 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__PEUPLES__*/
 /*__STD__*/
 
-/* type: T=territorial state, F=federal city, M=autonomous federal municipality */
+/* type: T=territorial state, F=confederal territory, M=confederal autonomous municipality */
 /*__STATES__*/
 /*__AUT__*/
 /*__ALPHA__*/
@@ -1515,7 +1515,7 @@ const JOURNAL=[
   s:'Titles I bis, IV, V and VI, institutions, languages, financial equalisation.'},
  {d:'2026-04-30',cat:'Finance',t:'Confederal financial equalisation formula',
   s:'Article 132, objective indicators, 85% floor of fiscal capacity per capita.'},
- {d:'2026-04-08',cat:'Institutions',t:'Designation of the four federal capitals',
+ {d:'2026-04-08',cat:'Institutions',t:'Designation of the four confederal capitals',
   s:'Article 1 ter, Sarajevo, Beograd, Zagreb and Sofija.'}
 ];
 
@@ -1647,7 +1647,7 @@ function vHome(){
     <div class="figs" style="margin-top:28px">
       <div class="fig"><b>49</b><span>Confederated states</span></div>
       <div class="fig"><b>7</b><span>Constituent peoples</span></div>
-      <div class="fig"><b>4</b><span>Federal capitals</span></div>
+      <div class="fig"><b>4</b><span>Confederal capitals</span></div>
       <div class="fig"><b>24</b><span>Autonomous communities</span></div>
     </div>
   </section>
@@ -1680,10 +1680,10 @@ function vHome(){
       <div class="feat-img">${imgSlot('home-assembly')}</div>
       <div>
         <div class="eyebrow">The institutions</div>
-        <h2>Four federal institutions</h2>
+        <h2>Four confederal institutions</h2>
         <p class="lead">The Kongres legislates, the Narodni Sabor guards the equality of
         nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the
-        Constitution, seated across the four federal capitals.</p>
+        Constitution, seated across the four confederal capitals.</p>
         <a class="btn btn-ghost" style="margin-top:20px" href="#/institutions">The institutions →</a>
       </div>
     </div>
@@ -1705,7 +1705,7 @@ function vHome(){
     <div class="h2row"><h2>Explore the portal</h2></div>
     <div class="cards">
       ${[
-       ['Territory','States &amp; territories','The 49 states, federal cities and autonomous federal municipalities.','#/states'],
+       ['Territory','States &amp; territories','The 49 states, confederal territories and confederal autonomous municipalities.','#/states'],
        ['Geography','Interactive map','Municipal boundaries, demographic and economic indicators by state.','#/map'],
        ['Government','Institutions','The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.','#/institutions'],
        ['Law','Constitution','The consolidated text of the Confederal Constitution and its titles.','#/constitution'],
@@ -1763,8 +1763,8 @@ function vStates(){
   <section class="section pagehead reveal">
     <div class="eyebrow">Directory</div>
     <h1>States &amp; territories</h1>
-    <p class="lead">Forty-five territorial states, four federal cities and two autonomous
-    federal municipalities. Filter by constituent people or search by name, code or seat.</p>
+    <p class="lead">Forty-five territorial states, four confederal territories and two confederal
+    autonomous municipalities. Filter by constituent people or search by name, code or seat.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="toolbar">
@@ -1772,7 +1772,7 @@ function vStates(){
       <button class="chip${curF==='all'?' on':''}" data-p="all" onclick="setF(this)">All</button>
       ${Object.entries(PEUPLES).map(([k,p])=>
         `<button class="chip${curF===k?' on':''}" data-p="${k}" onclick="setF(this)">${p.en}</button>`).join('')}
-      <button class="chip${curF==='fed'?' on':''}" data-p="fed" onclick="setF(this)">Federal</button>
+      <button class="chip${curF==='fed'?' on':''}" data-p="fed" onclick="setF(this)">Confederal</button>
     </div>
     <div class="sgrid" id="grid"></div>
     <div class="notice">Autonomous communities within the states are listed on the
@@ -1792,7 +1792,7 @@ function renderGrid(){
   const g=document.getElementById('grid'); if(!g)return;
   if(!list.length){g.innerHTML='<p class="note">No result.</p>';return;}
   g.innerHTML=list.map(s=>{
-    const pu=s.p==='fed'?{en:s.t==='F'?'Federal city':'Federal municipality'}:PEUPLES[s.p];
+    const pu=s.p==='fed'?{en:s.t==='F'?'Confederal territory':'Confederal municipality'}:PEUPLES[s.p];
     const vd=VIDEOS[s.c];
     return `<a class="scard ${s.t==='M'?'muni':''}" href="#/state/${s.c}">
       <div class="flagwrap">${flagSVG(s)}${vd?`<img class="vposter" src="${vd.poster}" alt="" loading="lazy">`:''}</div>
@@ -1806,10 +1806,10 @@ function vState(code){
   if(!s)return crumb([['Home','#/home'],['States','#/states'],['Not found']])+
     '<section class="section"><p class="lead">State not found.</p></section>';
   const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p], auts=autOf(code);
-  const typeLabel={T:'Territorial state',F:'Federal city',M:'Autonomous federal municipality'}[s.t];
+  const typeLabel={T:'Territorial state',F:'Confederal territory',M:'Confederal autonomous municipality'}[s.t];
   const note=FLAGNOTE[s.k]||(fed
-    ?(s.t==='F'?'Confederal state flag, flown by federal institutions seated in this city. A badge bears the city code.'
-      :'Civil flag of the Confederation under direct federal jurisdiction, dashed border marks the autonomous municipal status.')
+    ?(s.t==='F'?'Confederal state flag, flown by confederal institutions seated in this city. A badge bears the city code.'
+      :'Civil flag of the Confederation under direct confederal jurisdiction, dashed border marks the autonomous municipal status.')
     :'Provisional systemic flag, pan-colours of the constituent people, pending the dedicated heraldic design.');
   let rows=`<tr><td>Official code</td><td class="mono">${s.c}</td></tr>
     <tr><td>Status</td><td>${typeLabel}</td></tr>`;
@@ -1949,7 +1949,7 @@ function vMap(){
     </div>
     <div class="sr-top">
       <div class="sr-title"><h1>Map of the Confederation</h1>
-        <p>45 states, 4 federal cities and 2 federal municipalities</p></div>
+        <p>45 states, 4 confederal territories and 2 confederal municipalities</p></div>
       <div class="sr-seg" role="group" aria-label="Colour the states by">
         ${[['states','States'],['gdp','GDP per capita'],['dens','Density'],['peoples','Peoples']].map(([m,l])=>
           `<button data-m="${m}" class="${SR.mode===m?'on':''}" aria-pressed="${SR.mode===m}"
@@ -1967,14 +1967,14 @@ function vMap(){
       <div class="sr-card">
         <div class="sr-k">Population</div>
         <div class="sr-big"><span data-count="${T.pop}">${fmtN(T.pop)}</span></div>
-        <div class="sr-split" role="img" aria-label="Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, federal cities ${Math.round(100*T.by.F[1]/T.pop)}%, federal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%">
+        <div class="sr-split" role="img" aria-label="Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, confederal territories ${Math.round(100*T.by.F[1]/T.pop)}%, confederal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%">
           <i style="flex:${T.by.T[1]};background:linear-gradient(90deg,#2a3f9e,#4f7dff)"></i>
           <i style="flex:${T.by.F[1]};background:linear-gradient(90deg,#f08a3a,#f5b54a)"></i>
           <i style="flex:${T.by.M[1]};background:#ffe7a3"></i></div>
         <dl class="sr-rows">
           <dt>${T.by.T[0]} territorial states</dt><dd>${fmtN(T.by.T[1])}</dd>
-          <dt>${T.by.F[0]} federal cities</dt><dd>${fmtN(T.by.F[1])}</dd>
-          <dt>${T.by.M[0]} federal municipalities</dt><dd>${fmtN(T.by.M[1])}</dd>
+          <dt>${T.by.F[0]} confederal territories</dt><dd>${fmtN(T.by.F[1])}</dd>
+          <dt>${T.by.M[0]} confederal municipalities</dt><dd>${fmtN(T.by.M[1])}</dd>
         </dl>
         <div class="sr-sub">Latest census or population register of each country</div>
       </div>
@@ -2589,7 +2589,7 @@ function vSymbols(){
           <div class="symhead">State Flag <span class="symtag">Official use</span></div>
           <div class="symbody"><img src="${STATE_FLAG_DATA}" alt="State flag of the Balkan Confederation" /></div>
           <div class="symcap">
-            <p>The state flag is flown by all federal institutions, military formations,
+            <p>The state flag is flown by all confederal institutions, military formations,
             embassies and seats of state. Vertical red hoist bearing the radiant sun
             charged with the lion gules; horizontal field of azure, argent and azure,
             the central white band bordered by friezes inspired by Balkan textile
@@ -2626,14 +2626,14 @@ function vSymbols(){
 
   <section class="section reveal">
     <div class="h2row"><h2>State flags</h2><a class="seeall" href="#/states">All states &rarr;</a></div>
-    ${[['T','Territorial states'],['F','Federal cities'],['M','Federal municipalities']].map(([t,label])=>{
+    ${[['T','Territorial states'],['F','Confederal territories'],['M','Confederal municipalities']].map(([t,label])=>{
       const list=STATES.filter(s=>s.t===t);
       return `<h3 class="flaggroup">${label} <span>${list.length}</span></h3>
       <div class="sgrid">${list.map(s=>`<a class="scard" href="#/state/${s.c}">
         <div class="flagwrap">${flagSVG(s)}</div>
         <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3></div></a>`).join('')}</div>`;}).join('')}
-    <div class="notice">All 51 entities have their own flag: 45 territorial states, 4 federal
-    cities and 2 federal municipalities. Select a flag to open the state page and its description.</div>
+    <div class="notice">All 51 entities have their own flag: 45 territorial states, 4 confederal
+    territories and 2 confederal autonomous municipalities. Select a flag to open the state page and its description.</div>
   </section>`;
 }
 
@@ -2659,7 +2659,7 @@ function vAutonomy(){
       </ul>`).join('')}
   </section>
   <section class="section reveal"><div class="panel">
-    <div class="subhead">Autonomous federal municipalities</div>
+    <div class="subhead">Confederal autonomous municipalities</div>
     <p class="note" style="margin-bottom:14px">Brčko and Mostar fall directly under
     confederal jurisdiction and belong to no state. Their municipal council is elected
     by direct suffrage and guarantees the fair representation of all resident
@@ -2668,7 +2668,7 @@ function vAutonomy(){
       ${STATES.filter(s=>s.t==='M').map(s=>`<a class="scard muni" href="#/state/${s.c}">
         <div class="flagwrap">${flagSVG(s)}</div>
         <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3>
-        <div class="speu">Autonomous federal municipality</div></div></a>`).join('')}
+        <div class="speu">Confederal autonomous municipality</div></div></a>`).join('')}
     </div>
   </div></section>`;
 }
@@ -3600,7 +3600,7 @@ const SB_PAGES=[
  ['States & territories','Directory of the 49 states','#/states'],
  ['Autonomous communities','24 recognised minority communities','#/autonomy'],
  ['Interactive map','Globe of the Confederation, key figures by state','#/map'],
- ['Institutions','The four federal institutions','#/institutions'],
+ ['Institutions','The four confederal institutions','#/institutions'],
  ['Security and Defence','Gendarmerie, Bureau of Investigation, intelligence, armed forces','#/security'],
  ['Constitution','Constitutional corpus','#/constitution'],
  ['Official journal','Latest confederal decisions','#/journal'],
@@ -3619,7 +3619,7 @@ function buildIndex(){
   const idx=[];
   STATES.forEach(s=>{
     const fed=s.p==='fed', pu=fed?null:PEUPLES[s.p];
-    const sub=fed?({F:'Federal city',M:'Autonomous federal municipality'}[s.t])
+    const sub=fed?({F:'Confederal territory',M:'Confederal autonomous municipality'}[s.t])
                  :((pu?pu.en:'')+' state · seat '+s.ch);
     idx.push({type:'States',label:s.n,sub,code:s.c,hash:'#/state/'+s.c,
       hay:(s.n+' '+s.c+' '+s.k+' '+s.ch+' '+(pu?pu.en:'')).toLowerCase(),icon:flagSVG(s)});
@@ -3975,7 +3975,7 @@ function srSelHTML(code,rise){
       <p class="sr-hint">Hover a state or a column to see its figures, click to pin it.</p>`;
   }
   const st=STATS[s.c]||{}, fed=s.t!=='T';
-  const who=fed?(s.t==='F'?'Federal city':'Federal municipality'):PEUPLES[s.p].en;
+  const who=fed?(s.t==='F'?'Confederal territory':'Confederal municipality'):PEUPLES[s.p].en;
   const dens=st.population&&st.area?Math.round(st.population/st.area):null;
   const eu=st.gdp_eu, scale=160, d=srDist(m,s.c,30);
   return `<div class="sr-selhead"><div class="fl">${flagSVG(s)}</div>
@@ -3999,7 +3999,7 @@ function srPeoplesHTML(){
   STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
   const opt=SR.mode==='peoples';   // colours only when the people option is on
   const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):'#4f7dff',sum[k]||0]);
-  rows.push(['fed','Federal entities',opt?SR_FED:'#f5b54a',fedSum]);
+  rows.push(['fed','Confederal entities',opt?SR_FED:'#f5b54a',fedSum]);
   const max=Math.max(...rows.map(r=>r[3]));
   return `<div class="sr-cardhead"><div class="sr-k">Population by constituent people</div>
       ${SR.filter?`<button onclick="srFilter(null)">Show all</button>`:''}</div>
@@ -4014,10 +4014,10 @@ function srLegendHTML(){
   let h='';
   if(SR.mode==='states'){
     h=`<span><i style="background:${SR_STATE};box-shadow:inset 0 0 0 1px rgba(150,172,255,.7)"></i>Territorial states</span>`+
-      `<span><i style="background:radial-gradient(circle at 35% 35%,#ffe7a3,#f08a3a 60%,#99402f)"></i>Federal cities and municipalities</span>`;
+      `<span><i style="background:radial-gradient(circle at 35% 35%,#ffe7a3,#f08a3a 60%,#99402f)"></i>Confederal territories and municipalities</span>`;
   }else if(SR.mode==='peoples'){
     h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${p.en}</span>`).join('')+
-      `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Federal entities</span>`;
+      `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>Confederal entities</span>`;
   }else{
     const S=SR_SCALE[SR.mode],r=srRange(SR.mode);
     h=`<span style="color:var(--sr-ink)">${S.title}</span>
@@ -4079,7 +4079,7 @@ function initMap(){
   const clipPath=svg.querySelector('#srClipPath');
   el.limb=mk('path','sr-limb',svg);
   const hov=mk('path','sr-hover',over), pin=mk('path','sr-pin',over);
-  // federal capitals: a slow radar ping under each label
+  // confederal capitals: a slow radar ping under each label
   const pings=F.fed.map((f,i)=>{const g=mk('g','sr-ping',over);
     mk('circle','',g,{r:'14',style:`--i:${i}`});mk('circle','',g,{r:'14',style:`--i:${i+.5}`});
     return [g,GEO.pts[f.properties.c]];});
