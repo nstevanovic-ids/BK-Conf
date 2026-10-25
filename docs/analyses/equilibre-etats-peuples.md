@@ -1,114 +1,119 @@
 # Équilibre entre États et peuples
 
 **Analyse du 2026-10-25, à la demande de l'utilisateur** (« équilibre Croates, Macédoniens,
-intéressant à creuser »). C'est une base de décision, pas une décision.
+intéressant à creuser »). Révisée le même jour après discussion. Deux décisions en sont
+sorties (ADR `docs/decisions/2026-10-25-double-cle.md`) :
+- **les frontières des États sont fixées à la fondation** : aucun redécoupage ;
+- **la double clé** est adoptée (Constitution v4.9, art. 110, 111 et 115 bis).
 
-## Ce qui compte, et ce qui ne compte pas
+La pondération des voix d'États (section 5) reste une proposition.
 
-Le nombre d'États par peuple pèse là où chaque État vaut une voix :
-- la **double majorité** des votations (art. 123 et 124) ;
-- les **coalitions d'États** pour l'initiative législative (8 États) et le référendum
-  (12 États, art. 106 bis et 122) ;
-- le **plancher de deux sièges** au Kongres.
+## 1. Méthode
 
-Il ne pèse **pas** sur la composition des institutions :
-- au Kongres, Sainte-Laguë répartit les sièges en proportion de la population. La part de
-  sièges croates parmi les sièges des États territoriaux, 15,9 %, correspond à leur part de
-  population, 15,8 % ;
-- au Narodni Sabor et au Konfederalno Veće, la parité est stricte.
-
-**Méthode.**
-- La population d'un peuple est celle des États qui lui sont rattachés (`etats.json`,
-  `stats.json`), et non un décompte ethnique.
-- Les quatre territoires confédéraux votent comme des États (art. 124). Ils sont rattachés
-  au peuple majoritaire : Beograd aux Serbes, Zagreb aux Croates, Sofija aux Bulgares,
-  Sarajevo aux Bosniaques.
+- La population d'un peuple est celle des **États territoriaux** qui lui sont rattachés
+  (`etats.json`, `stats.json`). Ce n'est pas un décompte ethnique.
+- Une commune peuplée d'une autre communauté reste comptée avec son État. Les communautés
+  minoritaires ont leurs associations de municipalités (entités autonomes) : les communes
+  bosniaques du Sandžak restent dans la population serbe, comme les communes serbes de la
+  Lika restent dans la population croate.
+- Les **quatre villes-États** sont **neutres** : elles votent comme des États (art. 124), mais
+  ne sont rattachées à aucun peuple.
 - Brčko et Mostar ne sont pas des États.
 - Le **rapport** se calcule ainsi : part des voix d'États ÷ part de la population. À 1, la
   représentation est exacte ; au-dessus de 1, le peuple est surreprésenté.
 
-## Situation actuelle (49 États, majorité à 25)
+## 2. Ce qui compte, et ce qui ne compte pas
 
-| Peuple | Voix d'États | Part des voix | Part de la population | Rapport | Population moyenne par État territorial |
-|---|---|---|---|---|---|
-| Slovènes | 5 | 10,2 % | 8,6 % | 1,19 | 427 000 |
-| Croates | 11 | 22,4 % | 16,5 % | **1,36** | 328 000 |
-| Serbes | 14 | 28,6 % | 32,7 % | 0,87 | 499 000 |
-| Bosniaques | 5 | 10,2 % | 7,2 % | **1,43** | 343 000 |
-| Monténégrins | 1 | 2,0 % | 2,0 % | 1,04 | 491 000 |
-| Macédoniens | 2 | 4,1 % | 7,4 % | **0,55** | 918 000 |
-| Bulgares | 11 | 22,4 % | 25,7 % | 0,87 | 512 000 |
+Le nombre d'États par peuple pèse là où chaque État vaut une voix :
+- la **double majorité** des votations (art. 123 et 124) ;
+- les **coalitions d'États** pour l'initiative législative (8 États) et le référendum
+  (12 États, art. 106 bis et 122), plafonnées à la moitié d'un même peuple ;
+- le **plancher de deux sièges** au Kongres.
+
+Il ne pèse **pas** sur la composition des institutions :
+- au Kongres, Sainte-Laguë répartit les sièges en proportion de la population ;
+- au Narodni Sabor et au Konfederalno Veće, la parité est stricte.
+
+## 3. Situation (45 États territoriaux)
+
+| Peuple | États | Part des États | Part de la population | Rapport | Population moyenne par État | Nombre idéal sur 45 |
+|---|---|---|---|---|---|---|
+| Slovènes | 5 | 11,1 % | 10,3 % | 1,08 | 427 000 | 5 (4,64) |
+| Croates | 10 | 22,2 % | 15,8 % | **1,40** | 328 000 | 7 (7,13) |
+| Serbes | 13 | 28,9 % | 31,3 % | 0,92 | 499 000 | 14 (14,08) |
+| Bosniaques | 4 | 8,9 % | 6,6 % | **1,34** | 343 000 | 3 (2,98) |
+| Monténégrins | 1 | 2,2 % | 2,4 % | 0,94 | 491 000 | 1 (1,07) |
+| Macédoniens | 2 | 4,4 % | 8,9 % | **0,50** | 918 000 | 4 (3,99) |
+| Bulgares | 10 | 22,2 % | 24,7 % | 0,90 | 512 000 | 11 (11,12) |
+
+Le nombre idéal est calculé au plus fort reste ; le quota exact est entre parenthèses.
 
 **Constats** :
 - **Les Macédoniens sont le seul peuple fortement sous-représenté.** Leurs deux États
   comptent en moyenne 918 000 habitants, presque le double des autres.
-- **Les Croates sont surreprésentés à cause de leurs micro-États** : Baraña (29 000),
+- **Les Croates sont surreprésentés** à cause de leurs petits États : Baraña (29 000),
   Dubrovačka Republika (70 000) et Zapadni Srěm (133 000).
-- **Les Bosniaques le sont aussi (1,43), mais par Sarajevo.** Pour le plus petit des grands
-  peuples, ce n'est pas forcément un défaut.
-- **Deux blocs suffisent à la majorité des États** : Serbes et Bulgares font 25 voix, tout
-  comme Serbes et Croates. Le consentement du Narodni Sabor reste le vrai garde-fou des
-  peuples.
-- **Huit États ont moins de 150 000 habitants** :
-  - Stranxa (27 000), Baraña (29 000), Kosovo i Metohija (35 000), Južna Koroška (37 000) ;
-  - Dubrovačka Republika (70 000), Prekmurje (76 000) ;
-  - Istočna Hercegovina (106 000), Zapadni Srěm (133 000).
+- **Les Bosniaques le sont aussi** (1,34). Pour un petit peuple, ce n'est pas forcément un
+  défaut.
+- **Serbes et Bulgares** sont légèrement sous-représentés (0,92 et 0,90).
+- **Huit États ont moins de 150 000 habitants** : Stranxa (27 000), Baraña (29 000), Kosovo
+  i Metohija (35 000, recensement boycotté), Južna Koroška (37 000), Dubrovačka Republika
+  (70 000), Prekmurje (76 000), Istočna Hercegovina (106 000), Zapadni Srěm (133 000).
 
-  Le chiffre de Kosovo i Metohija vient d'un recensement boycotté.
+## 4. Pourquoi l'écart compte
 
-## Scénarios
+- **Votations** : avec les villes-États, la majorité est de 25 États sur 49. Serbes et
+  Bulgares (23 États) l'atteignent avec Beograd et Sofija. Les cinq autres peuples
+  (22 États) ne l'atteignent pas, même avec Zagreb et Sarajevo.
+- **Narodni Sabor et Konfederalno Veće** : la parité donnait le pouvoir à cinq peuples sur
+  sept, quelle que soit leur taille. Les cinq autres peuples, environ 44 % de la population,
+  pouvaient décider contre les Serbes et les Bulgares, qui en forment environ 56 %.
+  **Réglé par la double clé** (v4.9).
+- **Perception** : un peuple qui se compte peut se sentir lésé, même quand l'effet réel est
+  faible.
 
-| | S0 actuel | S1 Macédoine en 4 | S2 = S1 + fusions croates | S3 demi-voix (< 150 000) |
+## 5. Pondération des voix d'États (proposition, non décidée)
+
+Pour les votations, chaque État recevrait un poids fixé par une formule, à la place d'une
+voix égale. Les villes-États gardent un poids de 1. Le total reste 49 et la majorité, plus de
+24,5. Les poids sont recalculés à chaque recensement ; aucune frontière ne change.
+
+| Peuple | Poids par État, proportionnel | Poids du peuple | Poids par État, Penrose | Poids du peuple |
 |---|---|---|---|---|
-| États (majorité) | 49 (25) | 51 (26) | 49 (25) | 49 (23 voix sur 45) |
-| Slovènes | 1,19 | 1,15 | 1,19 | 1,04 |
-| Croates | 1,36 | 1,31 | **1,11** | 1,28 |
-| Serbes | 0,87 | 0,84 | 0,87 | 0,88 |
-| Bosniaques | 1,43 | 1,37 | 1,43 | 1,55 |
-| Monténégrins | 1,04 | 1,00 | 1,04 | 1,13 |
-| Macédoniens | **0,55** | **1,07** | **1,11** | 0,60 |
-| Bulgares | 0,87 | 0,84 | 0,87 | 0,91 |
+| Slovènes | 0,93 | 4,64 | 1,16 | 5,81 |
+| Croates | 0,71 | 7,13 | 0,72 | 7,21 |
+| Serbes | 1,08 | 14,08 | 0,78 | 10,13 |
+| Bosniaques | 0,75 | 2,98 | 1,17 | 4,66 |
+| Monténégrins | 1,07 | 1,07 | 2,79 | 2,79 |
+| Macédoniens | 1,99 | 3,99 | 2,70 | 5,39 |
+| Bulgares | 1,11 | 11,12 | 0,90 | 9,00 |
 
-**S1 : la Macédoine en quatre États**, d'après les régions statistiques (recensement 2021),
-sans nom de ville (règle d'or) :
+- **Proportionnel** : poids d'un État = 45 × part du peuple dans la population ÷ nombre
+  d'États du peuple. Chaque peuple pèse exactement sa part de population. Les rapports
+  passent tous à 1,00.
+  - Limite : la clé des États reproduit alors la population, et ne protège plus les petits
+    peuples mieux que le vote populaire.
+  - Serbes et Bulgares (25,2) atteignent seuls la majorité, sans les villes-États.
+- **Penrose (racine carrée)** : le poids d'un peuple est proportionnel à la racine carrée de
+  sa population, puis réparti également entre ses États. C'est la règle qui égalise
+  l'influence de chaque citoyen dans un vote à deux niveaux.
+  - Les petits peuples pèsent plus que leur part de population, les grands moins.
+  - Serbes et Bulgares (19,1) n'atteignent plus seuls la majorité, même avec Beograd et
+    Sofija (21,1).
 
-| État proposé | Régions | Population |
-|---|---|---|
-| Zapaden Vardar (réduit) | Polog et Sud-Ouest : Tetovo, Gostivar, Ohrid, Struga, Kičevo, Debar | 428 950 |
-| Pelagonija | Pelagonie et Vardar : Bitola, Prilep, Veles, Kavadarci | 349 153 |
-| Gorni Vardar | Skopje et Nord-Est : Kumanovo, Kriva Palanka | 759 989 |
-| Istočen Vardar (réduit) | Est et Sud-Est : Štip, Kočani, Strumica, Gevgelija | 298 621 |
+Dans les deux cas, il faut modifier l'art. 124, donc un vote du peuple et des États avec le
+consentement du Narodni Sabor.
 
-La moyenne passe à 459 000 habitants par État, au niveau des Serbes et des Bulgares. Les
-entités albanaises (UKSVL, BKSVP) et turque gardent leur périmètre, à rattacher aux nouveaux
-États.
+## 6. Scénarios écartés
 
-**S2 : S1, plus deux fusions croates.** Baraña rejoint Slavonija et Dubrovačka Republika
-rejoint Dalmacija. C'est le meilleur équilibre : tous les rapports se situent entre 0,87 et
-1,19, sauf celui des Bosniaques. Mais deux États disparaissent, dont Baraña, qui a déjà son
-film.
+- **Redécoupage** :
+  - partage de la Macédoine en quatre États ;
+  - fusions croates (Baraña avec Slavonija, Dubrovačka Republika avec Dalmacija).
 
-**S3 : demi-voix pour les États de moins de 150 000 habitants**, sur le modèle des
-demi-cantons suisses. Ce scénario ne touche pas au territoire, mais il ne règle pas le cas
-macédonien et accentue la surreprésentation bosniaque.
-
-## Coûts
-
-- **S1 et S2 changent la composition des États.** Il faut une ADR et une modification de
-  l'art. 1 bis, donc un vote du peuple et des États avec le consentement du Narodni Sabor.
-  La règle d'or impose ensuite de renuméroter les codes par ordre alphabétique, ce qui
-  touche tous les codes situés après les nouveaux États. Il faut aussi reprendre :
-  - les données ;
-  - les contours (`raccord_contours.py`, `gen_geo.py`) ;
-  - les drapeaux et les films ;
-  - le parcours citoyen.
-- **S3 demande seulement de modifier l'art. 124.**
-
-## Recommandation
-
-**S1.**
-- Il corrige le seul vrai déséquilibre (Macédoniens de 0,55 à 1,07) sans supprimer aucun
-  État existant.
-- Les fusions croates de S2 peuvent attendre : la surreprésentation croate (1,31) reste dans
-  la marge des Slovènes et des Bosniaques.
-- S3 est à écarter.
+  Écartés le 2026-10-25 : « On crée des États au début, on ne va pas changer des limites
+  administratives tous les quatre matins. »
+- **Demi-voix pour les États de moins de 150 000 habitants** (modèle des demi-cantons) : ne
+  règle pas le cas macédonien et accentue la surreprésentation bosniaque.
+- **Réaffectation de populations entre peuples** (communes bosniaques du Sandžak comptées
+  comme bosniaques, par exemple) : contraire au rattachement par État et au rôle des
+  associations de municipalités.
