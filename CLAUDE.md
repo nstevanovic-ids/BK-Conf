@@ -78,7 +78,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.8 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes). Titres 1 à 3 (texte de base, art. 1
+  Version 4.9 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
@@ -91,6 +92,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   confédérale, symboles (art. 7 bis, 50 bis, 101 bis, 110 ter), cf. ADR
   2026-10-23-constitution-v4-6.md ; registres nationaux : période probatoire de
   trois ans, verrou de quinze ans (art. 102), cf. ADR 2026-10-22-verrou-registre-national.md
+  ; double clé (v4.9) : partout où cinq des sept délégations sont requises, elles représentent
+  aussi la majorité des inscrits aux registres nationaux (art. 110) ; Konfederalno Veće sans
+  consensus : quatre conseillers représentant cette majorité, ou cinq (art. 111) ; relevé
+  annuel au 1er janvier (art. 115 bis) ; cf. ADR 2026-10-25-double-cle.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
 - Plateforme participative (Decidim, e-Konfederacija) → docs/plateforme/ ; lancement sur les
@@ -165,6 +170,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   l'ordre alphabétique des codes d'État. Toujours vérifier visuellement le contenu.
 
 ## Règles d'or (irrévocables sans ADR dans docs/decisions/)
+- Frontières des États fixées à la fondation : jamais de redécoupage pour corriger un
+  équilibre ; l'équilibre se règle par des mécanismes de vote (ADR 2026-10-25-double-cle.md)
 - Aucun État ne porte le nom d'une ville (sauf les 4 villes-États)
 - Renumérotation des codes strictement alphabétique
 - Décisions gelées propagées partout, immédiatement et de façon cohérente

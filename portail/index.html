@@ -1533,6 +1533,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-25',cat:'Law',t:'Constitution v4.9: the double key',
+  s:'Wherever five of the seven national delegations must approve, those five must also represent a majority of the citizens enrolled in the national registers. In the Konfederalno Veće, a decision without consensus needs four councillors whose peoples hold that majority, or five councillors. No coalition of small peoples can decide against the two largest together, and the borders of the States stay as founded.'},
  {d:'2026-10-25',cat:'Identity',t:'Place names in the unified alphabet',
   s:'The rule of the v3 alphabet now covers every municipality: ñ, ļ and x everywhere, Bulgarian names written from the Cyrillic, and the yat restored where the official name shows it, as in Rěka, Běļina, Bělo Poļe and Osěk. Official names remain searchable. The confederal Cyrillic, one letter for each of the 32, is adopted.'},
  {d:'2026-10-25',cat:'Law',t:'Constitution v4.8: South Slavic names of the confederal bodies',
@@ -2088,14 +2090,14 @@ const INS_NODES={
    a:[103,104,105,106,'106 bis']},
  ns:{t:'Narodni Sabor',r:'Assembly of Nations',
    m:['7 national delegations of 10 members'],mt:['7 delegations','of 10 members'],
-   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent. It must decide within 90 days, or its consent is deemed given. On any other law, two-thirds of one delegation can raise the alarm.',
+   d:'One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent: five of the seven delegations, which must also represent a majority of enrolled citizens (six delegations for the Constitution). It must decide within 90 days, or its consent is deemed given. On any other law, two-thirds of one delegation can raise the alarm.',
    a:[107,108,109,110,'110 bis']},
  joint:{t:'Confederal Assembly',r:'',m:[],
    d:'The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm each of the seven councillors of the Konfederalno Veće by a separate vote. A rejected delegation nominates a new candidate within 30 days; after a second rejection it presents three, and the Assembly elects one of them. The Assembly also elects the Chancellor of the Confederation.',
    a:[105,112,'115 bis']},
  kv:{t:'Konfederalno Veće',r:'Executive council',
    m:['7 councillors, one per people'],
-   d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by majority; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
+   d:'A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by four councillors whose peoples hold a majority of enrolled citizens, or by five; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.',
    a:[111,112,'112 bis',113,114,115]},
  us:{t:'Ustavni Sud',r:'Constitutional court, Zagreb',
    m:['14 judges, two per people'],
@@ -2196,7 +2198,7 @@ const LAW={
    ['pass','The law enters into force. The Ustavni Sud can still review its conformity with the Constitution.',[118]]]},
  consent:{n:'Law on languages',o:'In force, with the consent of the peoples.',s:[
    ['pass','Adopted by a simple majority of the delegates present.',[106]],
-   ['pass','The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations.',[109,110,'110 bis']],
+   ['pass','The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations, which together represent a majority of enrolled citizens.',[109,110,'110 bis']],
    ['pass','Published in the Official Journal. A 100-day window opens for a referendum request.',[122]],
    ['skip','No request is filed within 100 days.',[122]],
    ['pass','The law enters into force. Without the consent of the Narodni Sabor it could not have done so.',[109]]]},
@@ -2418,7 +2420,7 @@ function vCouncil(){
    ['Sarajevo','Konfederalna Kancelarija','The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.',[],['115 bis']]];
   const rules=[
    ['One people, one councillor','Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.',[112]],
-   ['Consensus first','Decisions are taken by consensus, otherwise by majority, with the president\'s casting vote in a tie.',[111]],
+   ['Consensus first, then a double key','Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.',[110,111]],
    ['Thirty days to listen','A decision taken against three councillors or more is suspended for thirty days while the delegations of their peoples are heard, then reconsidered.',[111]],
    ['Departments change hands','The council shares out the departments; no people heads the same one for two terms in a row.',[114]],
    ['Full time','Councillors hold no other office, seat or paid activity. Four-year term, renewable once.',[112,115]],
