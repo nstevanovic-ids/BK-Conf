@@ -195,6 +195,15 @@ standard*) suivent la règle 5 (ADR 2026-10-25-alphabet-v3-mots-courants.md).
 | Amend your registration | Spremenite prijavo | Izměnite prijavu | Promenete zajavkata si |
 | Child's card | Izkaznica otroka | Karta děteta | Karta na deteto |
 
+## Cyrillique (2026-10-25)
+
+ADR 2026-10-25-portail-cyrillique.md. Le SRE et l'IST s'affichent aussi en cyrillique (bascule
+Lat / Ћир, Lat / Кир), dérivé des chaînes latines :
+- **central** : cyrillique confédéral lu en ekavien (ě → е), formes droites usuelles ;
+- **oriental** : conventions bulgares (я, ю, щ, дж, й, ьо).
+
+Le zapadni reste en latin.
+
 ## Suite (phase 2, étapes suivantes)
 
 - Traduire le texte des pages, standard par standard.

@@ -8,6 +8,7 @@
   },
   "t": {
     "topline":        {"en": "Official portal of the Balkan Confederation", "zap": "Uradni portal Balkanske konfederacije", "sre": "Službeni portal Balkanske konfederacije", "ist": "Oficialen portal na Balkanskata konfederacija"},
+    "brand":          {"en": "Balkanska Konfederacija", "zap": "Balkanska Konfederacija", "sre": "Balkanska Konfederacija", "ist": "Balkanska Konfederacija"},
     "brand_sub":      {"en": "Balkan Confederation", "zap": "Naš dom", "sre": "Naš dom", "ist": "Naš dom"},
     "nav_home":       {"en": "Home", "zap": "Domov", "sre": "Početna", "ist": "Načalo"},
     "nav_states":     {"en": "States", "zap": "Države", "sre": "Države", "ist": "Dãržavi"},

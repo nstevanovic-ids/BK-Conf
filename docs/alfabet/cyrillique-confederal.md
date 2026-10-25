@@ -97,6 +97,25 @@ La règle de `v1.md` est retenue pour le bulgare : ль, лю, ля donnent ļ, 
 ню, ня donnent ñ, ñu, ña (*любов* → *ļubov*, Смолян → *Smoļan*). La saisie du parcours
 citoyen et `scripts/toponymie_v3.py` l'appliquent.
 
+## Portail : cyrillique central et oriental (2026-10-25)
+
+ADR 2026-10-25-portail-cyrillique.md. Le portail dérive son cyrillique des libellés latins v3.
+
+| | Central (SRE) | Oriental (IST) |
+|---|---|---|
+| Base | cyrillique confédéral | conventions bulgares |
+| Yat | lu en ekavien : ě → е, jamais ѣ | sans objet (ekavien) |
+| ja, ju | ја, ју | я, ю |
+| št | шт | щ |
+| x | џ | дж |
+| ñ, ļ | њ, љ | ня, ню, нь ; ля, лю, ль |
+| j final ou devant consonne | ј | й |
+| Exemples | Службени портал Балканске конфедерације · Деца млађа од 18 година | Официален портал на Балканската конфедерация · Съюзът · Проверете пощата си |
+
+**Un texte cyrillique lu en ekavien n'a pas de yat** (décision du 2026-10-25). La lettre ѣ
+reste celle des textes confédéraux unifiés : insignes, édition cyrillique du Journal
+officiel.
+
 ## Usage prévu
 
 - **Inscriptions bilingues** : latin en haut, cyrillique en bas, sur une même hauteur de
