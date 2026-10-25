@@ -1557,6 +1557,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="fbottom"><div class="wrap">
     <span>Balkanska Konfederacija · <i data-i18n="f_portal">digital portal</i> · Sarajevo · Beograd · Zagreb · Sofija</span>
     <span>Portal shell · Stage 1</span>
+    <span id="gcNote" hidden data-i18n="f_stats">Visits are counted anonymously, without cookies (GoatCounter).</span>
   </div></div>
 </footer>
 
@@ -4135,9 +4136,10 @@ let _shown=null, _from=null;   // dernière route rendue, route qu'on quitte
 let _gridY=null;                  // position dans la grille des États au départ vers une fiche
 let _chrome=false;
 function render(){
-  if(!_chrome){_chrome=true;applyChrome();}
+  if(!_chrome){_chrome=true;applyChrome();gcInit();}
   toggleMenu(false);
   const h=location.hash||'#/home', prev=_shown;
+  gcCount(h);
   _shown=h; _from=prev;
   const pa=prev===null?null:routePlace(prev), pb=routePlace(h);
   const d=pa?placeCmp(pa,pb):0;
@@ -5012,12 +5014,42 @@ function miniGeo(code){
 }
 
 /* ============ BOOTSTRAP : chargement des données ============ */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''}, SITE={};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
+/* Mesure d'audience sans cookie (GoatCounter ; ADR 2026-10-25-mesure-audience.md).
+   Inactive tant que data/site.json ne donne pas de code, et hors HTTPS (file://, localhost).
+   Seule la route est comptée (#/state/TR-41 → /state/TR-41) : jamais de saisie ni de paramètre.
+   Le premier affichage prend sa provenance dans ?ref= ou ?utm_source=, sinon le Referer. */
+let _gcOn=false,_gcLast='',_gcFirst=true;
+function gcInit(){
+  const code=(SITE&&SITE.goatcounter||'').trim();
+  if(!code||location.protocol!=='https:'||!/^[a-z0-9-]+$/.test(code))return;
+  _gcOn=true;
+  const n=document.getElementById('gcNote'); if(n)n.hidden=false;
+  window.goatcounter={no_onload:true};
+  const s=document.createElement('script');
+  s.async=true; s.src='https://gc.zgo.at/count.js';
+  s.dataset.goatcounter='https://'+code+'.goatcounter.com/count';
+  s.onload=()=>{_gcLast='';gcCount(location.hash||'#/home');};
+  document.head.appendChild(s);
+}
+function gcPath(h){
+  const seg=h.replace(/^#\/?/,'').split(/[?&]/)[0].split('/').filter(Boolean);
+  if(seg[0]==='state'&&/^[A-Z]{2}-\d{2}$/.test(seg[1]||''))return '/state/'+seg[1];
+  return '/'+(ROUTES[seg[0]]?seg[0]:'home');
+}
+function gcCount(h){
+  if(!_gcOn||!window.goatcounter||!window.goatcounter.count)return;
+  const p=gcPath(h); if(p===_gcLast)return; _gcLast=p;
+  const q=new URLSearchParams(location.search);
+  const ref=_gcFirst?(q.get('ref')||q.get('utm_source')||document.referrer||''):'';
+  _gcFirst=false;
+  window.goatcounter.count({path:p,referrer:ref,title:document.title});
+}
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg,si]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -5032,8 +5064,9 @@ async function loadData(){
     fetch(base+'videos.json').then(r=>r.ok?r.json():{}).catch(()=>({})),   // optionnel
     fetch(base+'i18n.json').then(r=>r.ok?r.json():I18N).catch(()=>I18N),
     fetch(base+'registre.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
+    fetch(base+'site.json').then(r=>r.ok?r.json():{}).catch(()=>({})),     // optionnel
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; REGISTRE={...REGISTRE,...rg};
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; REGISTRE={...REGISTRE,...rg}; SITE=si;
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};
 }

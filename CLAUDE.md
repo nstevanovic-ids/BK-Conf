@@ -164,6 +164,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Carte : dessin CNI / carte suisse en Arimo, vérification publique `#/verify` (QR au verso),
   pass Google Wallet générique (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ;
   jamais de date de naissance ni de narodnost sur un pass
+- Mesure d'audience : GoatCounter sans cookie, activé par le code de `portail/data/site.json`
+  (vide = inactif ; jamais en file:// ni en local) ; seule la route est comptée, provenance par
+  `?utm_source=` (ADR 2026-10-25-mesure-audience.md)
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
