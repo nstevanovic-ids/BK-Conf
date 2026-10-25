@@ -158,6 +158,14 @@ infrastructure numérique). Haute exigence de cohérence interne.
   en-tête, navigation, recherche, pied de page, fil d'Ariane ; contenu des pages en anglais ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središnji, ni serbe ni croate quand un neutre existe)
+- Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et
+  2026-10-25-registre-phase-0.md) : `registre/` (Cloudflare Worker + D1 UE + Brevo + Turnstile),
+  déployé par `.github/workflows/registre.yml` ; le portail l'appelle si
+  `portail/data/registre.json` a une `api`, sinon mode prototype ; art. 102 appliqué côté
+  serveur (probation, verrou, retrait, effet différé). Mise en service : registre/README.md
+- Carte : dessin CNI / carte suisse en Arimo, vérification publique `#/verify` (QR au verso),
+  pass Google Wallet générique (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ;
+  jamais de date de naissance ni de narodnost sur un pass
 - `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
