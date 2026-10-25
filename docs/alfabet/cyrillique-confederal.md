@@ -65,7 +65,7 @@ dans les deux sens, sans dictionnaire.
 | Konfederalna Žandarmerija | Конфедерална Жандармерија |
 | Konfederalna Obavěštajna Agencija | Конфедерална Обавѣштајна Агенција |
 | Ļubļana | Љубљана |
-| Sěverna Trakija | Сѣверна Тракија |
+| Istočni Srěm | Источни Срѣм |
 | Južna Dobruxa | Јужна Добруџа |
 | Bãlgari | Българи |
 | Bošñaci | Бошњаци |

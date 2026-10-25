@@ -68,7 +68,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Règle toponymique v3 (option 1, ADR 2026-10-25-toponymie-v3-cyrillique.md) : њ→ñ, љ→ļ,
   џ/дж→x, ъ→ã, noms bulgares retranscrits du cyrillique ; yat restauré pour les seuls
   réflexes ijekaviens (Rěka, Běļina, Osěk) ; les noms ekaviens n'ont pas de yat et gardent e
-  (Beli Manastir, Sremska Mitrovica ; ADR 2026-10-25-ekavien-sans-yat.md) ; sinon latin
+  (Beli Manastir, Sremska Mitrovica ; ADR 2026-10-25-ekavien-sans-yat.md) ; noms d'États :
+  Istočni et Zapadni Srěm gardent le yat (Srijem), Severna Trakija sans yat (ADR
+  2026-10-25-noms-etats-yat.md) ; sinon latin
   inchangé. Beograd = exception déclarée.
   Communes : scripts/toponymie_v3.py (opstine.json v 2, nom officiel en alias)
 - Cyrillique confédéral (docs/alfabet/cyrillique-confederal.md) : une lettre pour chacune des
@@ -79,8 +81,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.9 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas). Titres 1 à 3 (texte de base, art. 1
+  Version 4.10 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
