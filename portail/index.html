@@ -1717,7 +1717,7 @@ const CRUMB_KEYS={'Home':'nav_home','States':'nav_states','Map':'nav_map','Insti
 function applyChrome(){
   if(!(I18N.langs||{})[LANG])LANG='en';
   document.documentElement.lang=I18N.langs[LANG].html||'en';
-  document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=T(el.dataset.i18n);});
+  i18nApply(document);
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',T(el.dataset.i18nAria)));
   document.querySelectorAll('[data-i18n-title]').forEach(el=>el.setAttribute('title',T(el.dataset.i18nTitle)));
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.setAttribute('placeholder',T(el.dataset.i18nPh)));
@@ -1726,6 +1726,22 @@ function applyChrome(){
   const n=document.getElementById('langNote');
   if(n){n.hidden=LANG==='en';n.textContent=LANG==='en'?'':T('note_en');}
   citHeader();
+}
+/* Titles and intertitles of the pages (phase 2, step 1): the English stays in the template,
+   data-i18n names the key; data-i18n-html for the rare title with markup (<br>). */
+function i18nApply(root){
+  const one=el=>{if(el.dataset.i18n)el.textContent=T(el.dataset.i18n);
+    else if(el.dataset.i18nHtml)el.innerHTML=T(el.dataset.i18nHtml);};
+  if(root.dataset)one(root);
+  root.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(one);
+}
+/* Pages and their later mounts (wizard steps, dashboard, card forms) are translated as they
+   are inserted, so no view has to remember to call i18nApply. */
+function i18nWatch(){
+  const app=document.getElementById('app');if(!app)return;
+  new MutationObserver(ms=>{if(LANG==='en')return;
+    for(const m of ms)for(const n of m.addedNodes)if(n.nodeType===1)i18nApply(n);
+  }).observe(app,{childList:true,subtree:true});
 }
 function crumb(parts){
   const k=p=>CRUMB_KEYS[p]?` data-i18n="${CRUMB_KEYS[p]}"`:'';
@@ -1741,8 +1757,8 @@ function vHome(){
     <div class="hero-bg" data-parallax="0.12">${imgSlot('home-hero','fill')}</div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
-      <div class="eyebrow">Official portal</div>
-      <h1>The Balkan<br>Confederation</h1>
+      <div class="eyebrow" data-i18n="h_official_portal">Official portal</div>
+      <h1 data-i18n-html="h_hero">The Balkan<br>Confederation</h1>
       <p class="lead">A confederation of forty-nine states and seven constituent South Slavic
       peoples, united in a Balkan union founded on the equality of states and on direct
       democracy.</p>
@@ -1758,8 +1774,8 @@ function vHome(){
   </section>
 
   <section class="section io" style="padding-top:56px">
-    <div class="eyebrow">The union</div>
-    <h2 style="font-size:2rem;max-width:20ch">A confederation of states, a home for peoples.</h2>
+    <div class="eyebrow" data-i18n="h_union">The union</div>
+    <h2 style="font-size:2rem;max-width:20ch" data-i18n="h_union_t">A confederation of states, a home for peoples.</h2>
     <p class="lead" style="margin-top:12px">Balkan by territory, South Slavic by language and
     kinship: forty-nine states govern themselves within a single confederal order founded
     on equality and direct democracy.</p>
@@ -1775,7 +1791,7 @@ function vHome(){
     <div class="band-bg" data-parallax="0.20">${imgSlot('home-adriatic','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner">
-      <div class="eyebrow">The land</div>
+      <div class="eyebrow" data-i18n="h_land">The land</div>
       <div class="band-q">From the Adriatic shore to the Black Sea, one confederal space.</div>
     </div>
   </section>
@@ -1784,8 +1800,8 @@ function vHome(){
     <div class="feat">
       <div class="feat-img">${peopleGallery()}</div>
       <div>
-        <div class="eyebrow">The peoples</div>
-        <h2>Seven peoples, one home</h2>
+        <div class="eyebrow" data-i18n="h_peoples">The peoples</div>
+        <h2 data-i18n="h_peoples_t">Seven peoples, one home</h2>
         <p class="lead">Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and
         Bulgarians share a unified South Slavic language and alphabet, alongside recognised
         Albanian, Hungarian, Turkish and Slovak communities.</p>
@@ -1798,8 +1814,8 @@ function vHome(){
     <div class="feat rev">
       <div class="feat-img">${imgSlot('home-assembly')}</div>
       <div>
-        <div class="eyebrow">The institutions</div>
-        <h2>Four confederal institutions</h2>
+        <div class="eyebrow" data-i18n="h_institutions">The institutions</div>
+        <h2 data-i18n="h_institutions_t">Four confederal institutions</h2>
         <p class="lead">The Kongres legislates, the Narodni Sabor guards the equality of
         nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the
         Constitution, seated across the four confederal capitals.</p>
@@ -1812,7 +1828,7 @@ function vHome(){
     <div class="band-bg" data-parallax="0.18">${imgSlot('home-citizen','fill')}</div>
     <div class="band-scrim"></div>
     <div class="band-inner">
-      <div class="eyebrow">Citizenship</div>
+      <div class="eyebrow" data-i18n="h_citizenship">Citizenship</div>
       <div class="band-q">Your state elects the Kongres. Your people elect the Narodni Sabor.</div>
       <p class="band-sub">Confederal digital citizenship opens the participatory platform:
       consultations, debates, proposals and votes.</p>
@@ -1821,7 +1837,7 @@ function vHome(){
   </section>
 
   <section class="section io">
-    <div class="h2row"><h2>Explore the portal</h2></div>
+    <div class="h2row"><h2 data-i18n="h_explore">Explore the portal</h2></div>
     <div class="cards">
       ${[
        ['Territory','States &amp; territories','The 49 states, confederal territories and confederal autonomous municipalities.','#/states'],
@@ -1841,7 +1857,7 @@ function vHome(){
   <section class="section reveal">
     <div class="split-32">
       <div>
-        <div class="h2row"><h2>Official Journal</h2><a class="seeall" href="#/journal">All records →</a></div>
+        <div class="h2row"><h2 data-i18n="l_journal">Official Journal</h2><a class="seeall" href="#/journal">All records →</a></div>
         <div class="jlist">
           ${JOURNAL.map(j=>`<a class="jrow" href="#/journal">
             <span class="jd">${j.d}</span>
@@ -1850,9 +1866,9 @@ function vHome(){
         </div>
       </div>
       <div>
-        <div class="h2row"><h2>Membership</h2></div>
+        <div class="h2row"><h2 data-i18n="h_membership">Membership</h2></div>
         <div class="panel">
-          <div class="eyebrow">Confederal digital citizenship</div>
+          <div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
           <p class="note" style="margin-bottom:14px">Registered citizens elect the Kongres
           in their state; those enrolled in a national register also elect the Narodni
           Sabor. The live counter activates with the participatory platform.</p>
@@ -1880,8 +1896,8 @@ function vHome(){
 function vStates(){
   return crumb([['Home','#/home'],['States']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Directory</div>
-    <h1>States &amp; territories</h1>
+    <div class="eyebrow" data-i18n="h_directory">Directory</div>
+    <h1 data-i18n="l_states">States &amp; territories</h1>
     <p class="lead">Forty-five territorial states, four confederal territories and two confederal
     autonomous municipalities. Filter by constituent people or search by name, code or seat.</p>
   </section>
@@ -2067,7 +2083,7 @@ function vMap(){
       <div class="sr-tip" id="srTip"></div>
     </div>
     <div class="sr-top">
-      <div class="sr-title"><h1>Map of the Confederation</h1>
+      <div class="sr-title"><h1 data-i18n="h_map">Map of the Confederation</h1>
         <p>45 states, 4 confederal territories and 2 confederal municipalities</p></div>
       <div class="sr-seg" role="group" aria-label="Colour the states by">
         ${[['states','States'],['gdp','GDP per capita'],['dens','Density'],['peoples','Peoples']].map(([m,l])=>
@@ -2364,8 +2380,8 @@ function insMount(){
 function vInstitutions(){
   return crumb([['Home','#/home'],['Institutions']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Confederal architecture</div>
-    <h1>Institutions of the Confederation</h1>
+    <div class="eyebrow" data-i18n="h_architecture">Confederal architecture</div>
+    <h1 data-i18n="h_institutions_h1">Institutions of the Confederation</h1>
     <p class="lead">Two chambers, one elected by the States and one by the peoples, choose a
     collegial executive and the judges of the constitutional court. The legislative, executive
     and judicial functions are separated, and no one may sit in more than one confederal organ
@@ -2378,41 +2394,41 @@ function vInstitutions(){
       Seated across Sarajevo, Beograd, Zagreb and Sofija.</div></div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Who elects whom</h2></div>
+    <div class="h2row"><h2 data-i18n="h_who_elects">Who elects whom</h2></div>
     <p class="lead">Citizens elect both chambers. The chambers then form the executive and the
     court, so that every people takes part in each of them.</p>
     <div class="isc-wrap">${insSVG('wide')}${insSVG('tall')}</div>
     <div class="isc-detail" id="iscDetail" aria-live="polite"></div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>The 250 seats of the Kongres</h2></div>
+    <div class="h2row"><h2 data-i18n="h_seats">The 250 seats of the Kongres</h2></div>
     <p class="lead" style="margin-bottom:18px">Every State is a constituency. Seats follow the population,
     so that a delegate represents roughly the same number of inhabitants everywhere, within a floor that
     keeps the smallest States in the chamber.</p>
     ${seatsHTML()}
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>How a confederal law is made</h2></div>
+    <div class="h2row"><h2 data-i18n="h_law">How a confederal law is made</h2></div>
     <p class="lead" style="margin-bottom:18px">Every confederal law passes the Kongres. The
     Narodni Sabor guards the matters that touch the peoples, and the citizens keep the last
     word through the referendum. Choose a case to follow it step by step.</p>
     ${lawHTML()}
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Direct democracy</h2></div>
+    <div class="h2row"><h2 data-i18n="h_direct">Direct democracy</h2></div>
     <div class="split2">
-      <div class="panel"><div class="eyebrow">Popular initiative</div>
+      <div class="panel"><div class="eyebrow" data-i18n="h_initiative">Popular initiative</div>
         <p class="note">300,000 citizens may propose a total or partial revision of the Constitution
         within 18 months. A partial revision is adopted by the double majority of the people and of the
         States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).</p></div>
-      <div class="panel"><div class="eyebrow">Optional referendum</div>
+      <div class="panel"><div class="eyebrow" data-i18n="h_referendum">Optional referendum</div>
         <p class="note">150,000 citizens, or 12 States of which no more than half belong to the
         same people, may submit any confederal law to a popular vote within 100 days of its
         publication (Art. 122).</p></div>
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Revising the Constitution</h2></div>
+    <div class="h2row"><h2 data-i18n="h_revision">Revising the Constitution</h2></div>
     <p class="lead" style="margin-bottom:18px">Any part of the Constitution can be revised, by the
     chambers or by the citizens, and every revision goes to the people and the States. Five guarantees,
     on which the union of the peoples rests, can be revised only if each of the seven national delegations
@@ -2428,7 +2444,7 @@ function vInstitutions(){
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Other confederal bodies</h2></div>
+    <div class="h2row"><h2 data-i18n="h_bodies">Other confederal bodies</h2></div>
     <p class="lead" style="margin-bottom:18px">Around the four institutions, independent bodies run
     the elections, try and prosecute, audit the accounts, keep the currency, the language and the
     archives, and give a voice to the communities outside the seven peoples.</p>
@@ -2475,14 +2491,14 @@ function vCouncil(){
    ['Accounts to the Kongres','The yearly report counts, department by department, the decisions taken by consensus and by majority.',[111]]];
   return crumb([['Home','#/home'],['Institutions','#/institutions'],['Konfederalno Veće']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Confederal Council · Sarajevo</div>
+    <div class="eyebrow" data-i18n="h_council_eye">Confederal Council · Sarajevo</div>
     <h1>Konfederalno Veće</h1>
     <p class="lead">Seven councillors, one for each constituent people, govern the Confederation
     together. Each heads a department seated in one of the four capitals, and the presidency passes
     from one to the next every year. No one governs alone (${arts([111,113,114])}).</p>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>The presidency</h2></div>
+    <div class="h2row"><h2 data-i18n="h_presidency">The presidency</h2></div>
     <p class="lead" style="margin-bottom:18px">The president chairs the council and represents the
     Confederation abroad, with no other power than a casting vote. The office rotates every year in a
     fixed order, and no one holds it twice in a row; the first cycle begins with the Slovene councillor
@@ -2491,7 +2507,7 @@ function vCouncil(){
       return `<li><div class="ry">Year ${i+1}</div><b>${esc(p.en||k)}</b><span>${esc(p.name||'')}</span></li>`;}).join('')}</ol>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Seven departments</h2></div>
+    <div class="h2row"><h2 data-i18n="h_departments">Seven departments</h2></div>
     <p class="lead" style="margin-bottom:18px">Each councillor directs his department from its seat;
     the council meets in Sarajevo, served by the Konfederalna Kancelarija (${arts([114,'115 bis'])}).</p>
     <div class="cards c4">
@@ -2501,7 +2517,7 @@ function vCouncil(){
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>How the council works</h2></div>
+    <div class="h2row"><h2 data-i18n="h_council_works">How the council works</h2></div>
     <div class="steps">
       ${rules.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${g[0]}</h4>
         <p>${g[1]}</p><span class="sa">${arts(g[2])}</span></div>`).join('')}
@@ -2548,15 +2564,15 @@ function vSecurity(){
    ['A door for complaints','Any person may apply to the Inspector General; his findings can be challenged before the Court of Justice.',['138 bis']]];
   return crumb([['Home','#/home'],['Security and Defence']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Confederal security</div>
-    <h1>Security and Defence</h1>
+    <div class="eyebrow" data-i18n="h_security_eye">Confederal security</div>
+    <h1 data-i18n="l_security">Security and Defence</h1>
     <p class="lead">Public security belongs first to the States, the confederal territories
     included: each has its own police. The Confederation keeps only the powers the Constitution
     lists, through services placed under different masters and answerable to the judges and to
     both chambers. None may be used to watch the political life of citizens (Art. 137).</p>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Four services</h2></div>
+    <div class="h2row"><h2 data-i18n="h_services">Four services</h2></div>
     <div class="secgrid">
       ${forces.map(f=>`<article class="secard">
         <div class="secimg">${imgSlot(f.img)}</div>
@@ -2571,14 +2587,14 @@ function vSecurity(){
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Safeguards</h2></div>
+    <div class="h2row"><h2 data-i18n="h_safeguards">Safeguards</h2></div>
     <div class="steps">
       ${guards.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${g[0]}</h4>
         <p>${g[1]}</p><span class="sa">${arts(g[2])}</span></div>`).join('')}
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>In a state of emergency</h2></div>
+    <div class="h2row"><h2 data-i18n="h_emergency">In a state of emergency</h2></div>
     <div class="panel">
       <p class="note" style="margin:0">Once both chambers confirm a state of emergency, an ordinance
       may send the Gendarmerie into a State without its request, for a set area and period and with
@@ -2640,15 +2656,15 @@ function vConstitution(){
   if(!cur){
     return crumb([['Home','#/home'],['Constitution']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Fundamental law</div>
-    <h1>Constitution of the Balkan Confederation</h1>
+    <div class="eyebrow" data-i18n="h_fundamental">Fundamental law</div>
+    <h1 data-i18n="h_constitution_h1">Constitution of the Balkan Confederation</h1>
     <p class="lead">Consolidated text, version ${esc(C.version.replace('v',''))} of
     ${esc(C.date)}: a preamble and ${nArt} articles in ${T.length} titles. Official acts
     are published in the unified South Slavic Latin alphabet and in the three regional
     standards; this is the English text.</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
-    <div class="h2row"><h2>Titles</h2><a class="seeall" href="#/journal">Official Journal →</a></div>
+    <div class="h2row"><h2 data-i18n="h_titles">Titles</h2><a class="seeall" href="#/journal">Official Journal →</a></div>
     <div class="jlist">
       ${T.map(t=>`<a class="jrow" href="#/constitution/${t.id}">
         <span class="jd">${esc(t.num)}</span>
@@ -2657,7 +2673,7 @@ function vConstitution(){
     </div>
   </section>
   <section class="section reveal" style="animation-delay:.1s">
-    <div class="eyebrow">Preamble</div>
+    <div class="eyebrow" data-i18n="h_preamble">Preamble</div>
     <div class="cpre">
       ${C.preamble.paras.map((p,i)=>`<p${i===C.preamble.paras.length-1?' class="cfin"':''}>${cInline(p)}</p>`).join('')}
       <p class="cmotto">${cInline(C.preamble.motto)}</p>
@@ -2705,8 +2721,8 @@ function vConstitution(){
 function vJournal(){
   return crumb([['Home','#/home'],['Official Journal']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Records</div>
-    <h1>Official Journal</h1>
+    <div class="eyebrow" data-i18n="h_records">Records</div>
+    <h1 data-i18n="l_journal">Official Journal</h1>
     <p class="lead">The chronological record of confederal acts, constitutional drafts,
     laws, regulations and institutional decisions.</p>
   </section>
@@ -2723,8 +2739,8 @@ function vJournal(){
 function vIdentity(){
   return crumb([['Home','#/home'],['Identity']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Identity of the union</div>
-    <h1>Language, alphabet &amp; symbols</h1>
+    <div class="eyebrow" data-i18n="h_identity_eye">Identity of the union</div>
+    <h1 data-i18n="h_identity_h1">Language, alphabet &amp; symbols</h1>
     <p class="lead">The Confederation is anchored in the Balkan linguistic area. Its
     written identity rests on a unified Latin alphabet; its institutional identity on a
     shared system of symbols and heraldry.</p>
@@ -2738,21 +2754,21 @@ function vIdentity(){
   <section class="section reveal" style="animation-delay:.05s">
     <div class="cards">
       <a class="pcard" href="#/alphabet"><div class="pc-eye">Writing</div>
-        <h3>Unified alphabet</h3>
+        <h3 data-i18n="l_alphabet">Unified alphabet</h3>
         <p>The South Slavic Latin alphabet, 32 letters, version 3.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/symbols"><div class="pc-eye">Heraldry</div>
-        <h3>Symbols &amp; heraldry</h3>
+        <h3 data-i18n="l_symbols">Symbols &amp; heraldry</h3>
         <p>The coat of arms, the state flag and the civil flag of the Confederation.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
       <a class="pcard" href="#/autonomy"><div class="pc-eye">Communities</div>
-        <h3>Autonomous communities</h3>
+        <h3 data-i18n="l_autonomy">Autonomous communities</h3>
         <p>Twenty-four communities with cultural and municipal powers.</p>
         <div class="arrow">Open <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></a>
     </div>
   </section>
   <section class="section reveal">
-    <div class="h2row"><h2>Seven constituent peoples</h2></div>
+    <div class="h2row"><h2 data-i18n="h_seven_peoples">Seven constituent peoples</h2></div>
     <div class="peoples">
       ${Object.values(PEUPLES).map(p=>`<div class="pp">
         <b>${p.name}</b><span>${p.en}</span></div>`).join('')}
@@ -2763,8 +2779,8 @@ function vIdentity(){
 function vAlphabet(){
   return crumb([['Home','#/home'],['Identity','#/identity'],['Alphabet']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Linguistic identity</div>
-    <h1>South Slavic Latin alphabet, v3</h1>
+    <div class="eyebrow" data-i18n="h_ling_eye">Linguistic identity</div>
+    <h1 data-i18n="h_alphabet_h1">South Slavic Latin alphabet, v3</h1>
     <p class="lead">Thirty-two letters, 7 vowels and 25 consonants, based on the
     gajica and on areal Balkan features (schwa <b>ã</b>, tilde <b>ñ</b>, cedilla
     <b>ļ</b>, jat’ <b>ě</b>). The letter <b>ç</b> is reserved for proper names
@@ -2781,7 +2797,7 @@ function vAlphabet(){
     </div>
   </section>
   <section class="section reveal"><div class="panel">
-    <h3 style="font-size:1.15rem;margin-bottom:8px">Three regional standards, one language</h3>
+    <h3 style="font-size:1.15rem;margin-bottom:8px" data-i18n="h_standards">Three regional standards, one language</h3>
     <p class="note">The national language is the <b>južnoslovenski jezik</b>, expressed
     through three standards of equal standing: western (Slovene speech), central
     (Štokavian speech) and eastern (Bulgaro-Macedonian speech). The jat’ <b>ě</b> is
@@ -2793,8 +2809,8 @@ function vAlphabet(){
 function vSymbols(){
   return crumb([['Home','#/home'],['Identity','#/identity'],['Symbols']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Heraldry</div>
-    <h1>Symbols &amp; heraldry of the Confederation</h1>
+    <div class="eyebrow" data-i18n="h_heraldry">Heraldry</div>
+    <h1 data-i18n="h_symbols_h1">Symbols &amp; heraldry of the Confederation</h1>
     <p class="lead">The Confederation bears three official symbols: the coat of arms,
     the state flag and the civil flag. Each state in turn adopts its own flag, arms
     and anthem (Art. 126).</p>
@@ -2842,7 +2858,7 @@ function vSymbols(){
   </section>
 
   <section class="section reveal">
-    <div class="h2row"><h2>The confederal palette</h2></div>
+    <div class="h2row"><h2 data-i18n="h_palette">The confederal palette</h2></div>
     <div class="palrow">
       <div class="swatch"><div class="sw" style="background:#c90505"></div>
         <b>Red</b><span class="mono">#C90505</span><em>Hoist · sovereignty</em></div>
@@ -2856,7 +2872,7 @@ function vSymbols(){
   </section>
 
   <section class="section reveal">
-    <div class="h2row"><h2>State flags</h2><a class="seeall" href="#/states">All states &rarr;</a></div>
+    <div class="h2row"><h2 data-i18n="h_state_flags">State flags</h2><a class="seeall" href="#/states">All states &rarr;</a></div>
     ${[['T','Territorial states'],['F','Confederal territories'],['M','Confederal municipalities']].map(([t,label])=>{
       const list=STATES.filter(s=>s.t===t);
       return `<h3 class="flaggroup">${label} <span>${list.length}</span></h3>
@@ -2872,8 +2888,8 @@ function vAutonomy(){
   const groups=[...new Set(AUT.map(a=>a.com))];
   return crumb([['Home','#/home'],['Autonomous communities']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Communities</div>
-    <h1>Autonomous communities</h1>
+    <div class="eyebrow" data-i18n="h_communities">Communities</div>
+    <h1 data-i18n="l_autonomy">Autonomous communities</h1>
     <p class="lead">Twenty-four autonomous communities guarantee the cultural,
     educational and municipal rights of minority communities (Art. 1 quater to
     1 sexies). They hold no legislative power of their own, but a right of consultation
@@ -2908,8 +2924,8 @@ function vParticipation(){
   const cur=citLoad();
   return crumb([['Home','#/home'],['Participation']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Civic life</div>
-    <h1>Confederal digital citizenship</h1>
+    <div class="eyebrow" data-i18n="h_civic">Civic life</div>
+    <h1 data-i18n="h_digital">Confederal digital citizenship</h1>
     <p class="lead">The Balkan Confederation is a house one enters by choice and remains in by
     consent. Confederal citizenship is declarative: it is requested online in five steps and takes
     effect when the citizen card is issued (Art. 37). It opens the right to take part in confederal
@@ -2922,28 +2938,28 @@ function vParticipation(){
       One state for the Kongres, one people for the Narodni Sabor.</div></div>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
-    <div class="h2row"><h2>Registration in five steps</h2></div>
+    <div class="h2row"><h2 data-i18n="h_five_steps">Registration in five steps</h2></div>
     <div class="steps s5">
       <div class="step"><div class="sn">1</div>
-        <h4>Identity</h4>
+        <h4 data-i18n="h_step_identity">Identity</h4>
         <p>Name, sex and date of birth, as on the card. Cyrillic names are transcribed into the
         unified Latin alphabet. Open from the age of 18.</p></div>
       <div class="step"><div class="sn">2</div>
-        <h4>State of attachment</h4>
+        <h4 data-i18n="h_step_state">State of attachment</h4>
         <p>Set by the municipality of origin, one's own or a parent's or grandparent's for the
         diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice (Art. 38).</p></div>
       <div class="step"><div class="sn">3</div>
-        <h4>National register</h4>
+        <h4 data-i18n="h_step_register">National register</h4>
         <p>A personal and voluntary choice among the seven peoples, or none. A first enrolment
         may be rectified once within three years, then another register only after fifteen years;
         withdrawal is free. Counts for the Narodni Sabor from the first election held more than a
         year later (Art. 102, 108).</p></div>
       <div class="step"><div class="sn">4</div>
-        <h4>Document language</h4>
+        <h4 data-i18n="h_step_language">Document language</h4>
         <p>Western, central or eastern standard for the wording of the card. Language belongs to
         the document, not to its holder.</p></div>
       <div class="step"><div class="sn">5</div>
-        <h4>Declaration</h4>
+        <h4 data-i18n="h_step_declaration">Declaration</h4>
         <p>Review, declaration of free accession and issue of the citizen card.</p></div>
     </div>
     <div class="cert" style="margin-top:16px">
@@ -3029,12 +3045,12 @@ async function dashMount(){
       <div class="kpi"><div class="kn">${Object.keys(S.states).filter(c=>(byCode(c)||{}).t!=='M').length}<small> / ${STATES.filter(s=>s.t!=='M').length}</small></div><div class="kl">States represented</div></div>
       <div class="kpi"><div class="kn">${S.total?Math.round(100*S.abroad/S.total):0}<small> %</small></div><div class="kl">Registered from abroad</div></div>
     </div>
-    <section class="section"><div class="h2row"><h2>Confirmed registrations, last 90 days</h2></div>
+    <section class="section"><div class="h2row"><h2 data-i18n="h_daily">Confirmed registrations, last 90 days</h2></div>
       <div class="panel vpanel">${vizDaily(S.daily||[])}</div></section>
     <section class="section"><div class="split2">
-      <div><div class="h2row"><h2>By national register</h2></div><div class="panel">${vizBars(peo,pmax)}</div>
+      <div><div class="h2row"><h2 data-i18n="h_by_register">By national register</h2></div><div class="panel">${vizBars(peo,pmax)}</div>
         <p class="note" style="margin-top:8px">Enrolment is voluntary (Art. 102); citizens without a register vote for the Kongres only.</p></div>
-      <div><div class="h2row"><h2>By state of attachment</h2></div><div class="panel">${st.length?vizBars(st.map(r=>[r[0],r[1],r[2]]),smax):'<p class="note">No registration yet.</p>'}</div></div>
+      <div><div class="h2row"><h2 data-i18n="h_by_state">By state of attachment</h2></div><div class="panel">${st.length?vizBars(st.map(r=>[r[0],r[1],r[2]]),smax):'<p class="note">No registration yet.</p>'}</div></div>
     </div>
     <details class="vtable"><summary>Show the figures as a table</summary>
       <table class="dtable"><tr><td>Total</td><td>${fmtN(S.total)}</td></tr>
@@ -3055,8 +3071,8 @@ async function homeCount(){
 function vDashboard(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Dashboard']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Transparency</div>
-    <h1>Membership dashboard</h1>
+    <div class="eyebrow" data-i18n="h_transparency">Transparency</div>
+    <h1 data-i18n="l_dashboard">Membership dashboard</h1>
     <p class="lead">A public view of confederal digital citizenship: confirmed registrations by
     national register and by state, with the daily series. Totals only, never individual records.</p>
   </section>
@@ -3502,7 +3518,7 @@ function regAttachCard(o){
     :s.t==='M'?'Confederal municipality, not a state: its own Kongres constituency (Art. 103)'
     :`State of the ${p?p.en:''}${s.ch?' · chef-lieu '+esc(s.ch):''}`;
   return `<div class="attach"><div class="af">${flagSVG(s)}</div><div>
-    <div class="eyebrow" style="margin:0 0 2px">Your state of attachment</div>
+    <div class="eyebrow" style="margin:0 0 2px" data-i18n="h_your_state">Your state of attachment</div>
     <b>${esc(s.n)} <span class="mono" style="color:var(--ink-3);font-weight:600">${esc(s.c)}</span></b>
     <span>${esc(o.n)} → ${esc(s.n)}. ${kind}.</span></div></div>`;
 }
@@ -3535,7 +3551,7 @@ function regStepHTML(i){
   if(i===0){
     const prev=(hasCyr(R.surname)||hasCyr(R.given))
       ?`Card spelling: <b>${esc(cleanName(R.surname).toUpperCase())}</b> · <b>${esc(cleanName(R.given).toUpperCase())}</b>`:'';
-    return `<h2>Identity</h2>
+    return `<h2 data-i18n="h_step_identity">Identity</h2>
     <p class="lead">As it will appear on your card. Names written in Cyrillic are transcribed
     into the unified Latin alphabet; Latin names are kept exactly as typed.</p>
     <div class="frow">
@@ -3559,7 +3575,7 @@ function regStepHTML(i){
     </div>`;
   }
   if(i===1){
-    return `<h2>State of attachment</h2>
+    return `<h2 data-i18n="h_step_state">State of attachment</h2>
     <p class="lead">Your state follows from your municipality of origin, in the manner of a
     Swiss <i>lieu d'origine</i>. It is your constituency for the Kongres and the state whose
     referendums you vote in. It is not a free choice (Art. 38, 39).</p>
@@ -3586,7 +3602,7 @@ function regStepHTML(i){
   if(i===2){
     const sx=R.sex==='F'?'f':'m',L=regRule(citLoad()),lk=!!L&&L.mode==='lock';
     const Ln=L&&PEUPLES[L.p]?esc(PEUPLES[L.p].en):'';
-    return `<h2>National register</h2>
+    return `<h2 data-i18n="h_step_register">National register</h2>
     <p class="lead">Every citizen may enrol in the register of the constituent people of his
     choice. The choice is personal and voluntary and need not match the people of your state.
     A first enrolment is probationary for three years and may be rectified once; after that,
@@ -3616,7 +3632,7 @@ function regStepHTML(i){
   }
   if(i===3){
     const ex=k=>{const L=CARD_L[k];return `${L.sur} · ${L.dob} · ${L.exp}`;};
-    return `<h2>Language of the document</h2>
+    return `<h2 data-i18n="h_step_language">Language of the document</h2>
     <p class="lead">Language is an attribute of the document, not of its holder. The standard you
     choose sets the wording of your card; it is not recorded as a personal characteristic and does
     not limit the standard you use anywhere else (Art. 128, 130).</p>
@@ -3648,7 +3664,7 @@ function regStepHTML(i){
     ?`Your number ${esc(cur.num)} is kept; a new card is issued.`
     :`Your state of attachment changes: a new number is issued and ${esc(cur.num)} is retired.`):'';
   const row=(k,v,st)=>`<tr><td>${k}</td><td>${v} <a class="seeall" style="margin-left:8px" href="javascript:regGo(${st})">Edit</a></td></tr>`;
-  return `<h2>Declaration</h2>
+  return `<h2 data-i18n="h_step_declaration">Declaration</h2>
     <p class="lead">Check your details, then confirm that you join of your own free will.</p>
     <table class="dtable">
       ${row('Name',`<b>${esc(cleanName(R.surname).toUpperCase())}</b> ${esc(cleanName(R.given))}`,0)}
@@ -3691,7 +3707,7 @@ function regRender(){
     ${k<i&&!REG.sent?`<a href="javascript:regGo(${k})">${s[0]}</a>`:s[0]}<small>${s[1]}</small></li>`).join('');
   if(REG.sent){
     pan.innerHTML=`<div class="regcount">Registration sent</div>
-      <h2>Check your inbox</h2>
+      <h2 data-i18n="h_inbox">Check your inbox</h2>
       <p class="lead">We sent a confirmation link to <b>${esc(REG.sent)}</b>. Open it within 48 hours:
       your citizen card is issued the moment you confirm, and sent to the same address.</p>
       <div class="notice">Nothing after a few minutes? Look in your spam folder. If the address was wrong,
@@ -3834,19 +3850,19 @@ async function regSubmit(){
 
 function vConfirm(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Confirmation']])+`
-  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Confirming your registration</h1></section>
+  <section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="h_confirming">Confirming your registration</h1></section>
   <section class="section"><div class="pending-box" id="cfBox">
     <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
-    <h4>Issuing your citizen card…</h4><p>This takes a few seconds.</p></div></section>`;
+    <h4 data-i18n="h_issuing">Issuing your citizen card…</h4><p>This takes a few seconds.</p></div></section>`;
 }
 function vCardLink(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
-  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Opening your citizen card</h1></section>
+  <section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="h_opening">Opening your citizen card</h1></section>
   <section class="section"><div class="pending-box" id="cfBox">
     <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
-    <h4>Retrieving your card from the confederal register…</h4></div></section>`;
+    <h4 data-i18n="h_retrieving">Retrieving your card from the confederal register…</h4></div></section>`;
 }
 function linkFail(title,msg){
   const b=document.getElementById('cfBox');if(!b)return;
@@ -3891,8 +3907,8 @@ async function cardMail(first){
 }
 function vVerify(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Verify a card']])+`
-  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Verify a citizen card</h1>
+  <section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="h_verify">Verify a citizen card</h1>
     <p class="lead">Enter the number printed on the card, or scan the QR code on its back. The confederal
     register answers with the status of the card only, never with personal data.</p></section>
   <section class="section" style="padding-top:8px"><div class="panel regpanel" style="max-width:640px">
@@ -3931,8 +3947,8 @@ function verifyMount(){
 let ACC={ts:'',sent:'',err:'',busy:false};
 function vAccess(){
   return crumb([['Home','#/home'],['Participation','#/participation'],['Access to your card']])+`
-  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Access to your card</h1>
+  <section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="h_access">Access to your card</h1>
     <p class="lead">Already a citizen? Enter the address you registered with: we send you a new link
     to your card. It opens the card on any device and lets you amend or delete your registration.</p></section>
   <section class="section" style="padding-top:8px"><div class="panel regpanel" id="accPanel" style="max-width:640px"></div></section>`;
@@ -3940,7 +3956,7 @@ function vAccess(){
 function accRender(){
   const el=document.getElementById('accPanel');if(!el)return;
   if(!apiOn()){el.innerHTML='<p class="note">The confederal register is not open on this portal yet: cards are held in the browser that issued them.</p>';return;}
-  if(ACC.sent){el.innerHTML=`<h2>Check your inbox</h2><p class="lead">If <b>${esc(ACC.sent)}</b> belongs to a citizen, a new link
+  if(ACC.sent){el.innerHTML=`<h2 data-i18n="h_inbox">Check your inbox</h2><p class="lead">If <b>${esc(ACC.sent)}</b> belongs to a citizen, a new link
     to the card is on its way. It may take a few minutes.</p><a class="btn btn-ghost" href="#/home">Back to the portal</a>`;return;}
   el.innerHTML=`<div class="fld"><label class="fl" for="aMail">E-mail address</label>
     <input id="aMail" type="email" autocomplete="email" inputmode="email" spellcheck="false"></div>
@@ -3965,8 +3981,8 @@ function vRegister(){
   if(!REG)REG=cur?regFromCitizen(cur):regBlank();
   return crumb([['Home','#/home'],['Participation','#/participation'],['Registration']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Confederal digital citizenship</div>
-    <h1>${cur?'Amend your registration':'Become a citizen'}</h1>
+    <div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="${cur?'h_amend':'l_become'}">${cur?'Amend your registration':'Become a citizen'}</h1>
     <p class="lead">Five steps, a few minutes. Your state, your national register and the language
     of your card are three independent choices. The language may be changed at any time; a first
     national register may be rectified once within three years, otherwise another register only
@@ -4014,7 +4030,7 @@ function minSection(c){
   const rows=kids.map(m=>`<tr><td>${esc(m.given)} ${esc(m.surname.toUpperCase())}</td>
     <td>${esc(m.num)} · born ${esc(dmy(m.dob))} · valid until ${esc(dmy(m.expiry))}${minAdult(m)?' · <b>now of age</b>':''}</td>
     <td><a href="#/minor/${esc(m.num)}">Open card</a></td></tr>`).join('');
-  return `<div class="h2row" style="margin-top:34px"><h2>Children under 18</h2></div>
+  return `<div class="h2row" style="margin-top:34px"><h2 data-i18n="h_children">Children under 18</h2></div>
   <div class="panel">
     <p class="note" style="margin-top:0">A parent or legal guardian who holds a card may declare his child a citizen
     (Art. 38 a, filiation or adoption). The child takes your state of attachment, ${esc(c.origin.n)};
@@ -4026,26 +4042,26 @@ function minSection(c){
 function vMinor(){
   const p=citLoad(),seg=location.hash.replace(/^#\/minor\/?/,'').split('/');
   const head=t=>crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card','#/citizen'],[t]]);
-  if(!p||p.minor)return head('Child')+`<section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Declare a child</h1></section><section class="section"><div class="pending-box">
-    <h4>A card is needed first</h4><p>A child under 18 is declared by a parent or legal guardian who holds a citizen card.</p>
+  if(!p||p.minor)return head('Child')+`<section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="h_declare_child">Declare a child</h1></section><section class="section"><div class="pending-box">
+    <h4 data-i18n="h_card_first">A card is needed first</h4><p>A child under 18 is declared by a parent or legal guardian who holds a citizen card.</p>
     <a class="btn btn-primary" style="margin-top:16px" href="#/register">Become a citizen</a></div></section>`;
   const edit=seg[0]==='new'||seg[1]==='edit';
   const m=seg[0]&&seg[0]!=='new'?minFind(seg[0]):null;
-  if(seg[0]&&seg[0]!=='new'&&!m)return head('Child')+`<section class="section pagehead reveal"><h1>Card not found</h1>
+  if(seg[0]&&seg[0]!=='new'&&!m)return head('Child')+`<section class="section pagehead reveal"><h1 data-i18n="h_card_not_found">Card not found</h1>
     <p class="lead">This card is not among the children declared from your card.</p>
     <a class="btn btn-ghost" href="#/citizen">Back to my card</a></section>`;
   if(edit){
     if(!MIN||MIN.num!==(m?m.num:null))MIN=m?minFrom(m):minBlank(p);
     return head(m?'Amend':'Declare a child')+`<section class="section pagehead reveal">
-      <div class="eyebrow">Confederal digital citizenship · Art. 38 a</div>
-      <h1>${m?'Amend the card of '+esc(m.given):'Declare a child'}</h1>
+      <div class="eyebrow"><span data-i18n="h_digital">Confederal digital citizenship</span> · Art. 38 a</div>
+      <h1${m?'':' data-i18n="h_declare_child"'}>${m?'Amend the card of '+esc(m.given):'Declare a child'}</h1>
       <p class="lead">The child takes your state of attachment, ${esc(byCode(p.origin.c)?byCode(p.origin.c).n:p.origin.n)}
       (${esc(p.origin.c)}), through your municipality of origin, ${esc(p.origin.n)}. No national register is recorded before 18.</p>
     </section><section class="section"><div id="minForm"></div></section>`;
   }
   const s=byCode(m.origin.c)||{n:m.origin.n,c:m.origin.c},rc=remoteCit();
-  const hand=minAdult(m)?(rc?`<div class="panel" style="margin-top:22px"><div class="eyebrow">Now of age</div>
+  const hand=minAdult(m)?(rc?`<div class="panel" style="margin-top:22px"><div class="eyebrow" data-i18n="h_of_age">Now of age</div>
       <p>${esc(m.given)} is 18. Give his e-mail address: he confirms it and manages his card himself from then on, with
       the same number. You will no longer have access to it.</p>
       ${m.handover?`<p class="note">A confirmation was sent to ${esc(m.handover)}.</p>`:''}
@@ -4055,7 +4071,7 @@ function vMinor(){
     :`<div class="notice">${esc(m.given)} is now of age. When the confederal register opens, he takes over his card with
       his own e-mail address; until then he may register himself in his own browser.</div>`):'';
   return head(m.given)+`<section class="section pagehead reveal">
-    <div class="eyebrow">Confederal digital citizenship · Child's card</div>
+    <div class="eyebrow"><span data-i18n="h_digital">Confederal digital citizenship</span> · <span data-i18n="h_child_card">Child's card</span></div>
     <h1>${esc(m.given)} ${esc(m.surname.toUpperCase())}</h1>
     <p class="lead">${esc(m.num)} · issued ${esc(dmy(m.issued))} · valid until ${esc(dmy(m.expiry))} ·
     attached to ${esc(s.n)} (${esc(s.c)}) by filiation. No national register before 18 (Art. 102).</p>
@@ -4153,11 +4169,11 @@ async function minHandover(num){
 function vCitizen(){
   const c=citLoad();
   if(!c)return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
-  <section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Citizen card</h1></section>
+  <section class="section pagehead reveal"><div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="l_card">Citizen card</h1></section>
   <section class="section"><div class="pending-box">
     <svg class="pb-emb" viewBox="0 0 100 100" id="certEmblem"></svg>
-    <h4>No card in this browser</h4>
+    <h4 data-i18n="h_no_card">No card in this browser</h4>
     <p>${apiOn()?'Registration takes five steps; your card is sent to you by e-mail. Already a citizen? Open the link from your card e-mail, or ask for a new one.'
       :'Registration takes five steps. The card is kept on this device until the confederal register opens.'}</p>
     <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
@@ -4169,8 +4185,8 @@ function vCitizen(){
     :` <span class="note">Another register from ${esc(dmy(L.until))} (Art. 102).</span>`;
   return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">Confederal digital citizenship</div>
-    <h1>Citizen card</h1>
+    <div class="eyebrow" data-i18n="h_digital">Confederal digital citizenship</div>
+    <h1 data-i18n="l_card">Citizen card</h1>
     <p class="lead">${esc(c.num)} · issued ${esc(dmy(c.issued))} · valid until ${esc(dmy(c.expiry))}.
     The front is your badge for social networks; the back carries the machine-readable zone
     (ICAO 9303, TD1).</p>
@@ -4192,14 +4208,14 @@ function vCitizen(){
     </div>
   </section>
   <section class="section"><div class="split2">
-    <div class="panel"><div class="eyebrow">Your civic rights</div>
+    <div class="panel"><div class="eyebrow" data-i18n="h_rights">Your civic rights</div>
       <table class="dtable">
         <tr><td>Kongres</td><td>Constituency of ${esc(s.n)} (${esc(s.c)})${c.abroad?' · voting from abroad':''}</td></tr>
         <tr><td>Narodni Sabor</td><td>${p?`Register of the ${esc(p.en)} (${esc(p.name)}) since ${esc(dmy(r?r.since:c.issued))} · one constituency for the whole Confederation · counts from the first election held after ${esc(dmy(r?r.eff:addYears(c.issued,1)))}.`:'Not enrolled · no vote for the Narodni Sabor (Art. 102).'}${lockTxt}</td></tr>
         <tr><td>Referendums</td><td>Confederal votes, and the votes of ${esc(s.n)}${s.t==='M'?' as set by confederal law':''}</td></tr>
         <tr><td>Initiative</td><td>Constitutional initiative (300,000 citizens) and optional referendum (150,000 citizens)</td></tr>
       </table></div>
-    <div class="panel"><div class="eyebrow">Your record</div>
+    <div class="panel"><div class="eyebrow" data-i18n="h_record">Your record</div>
       <table class="dtable">
         <tr><td>Municipality</td><td>${esc(c.origin.n)} <span class="note">(${{own:'own origin',ancestry:'family origin',residence:'residence',filiation:'filiation'}[c.basis]||''})</span></td></tr>
         <tr><td>Nation on card</td><td>${c.showNat?esc(natForm(c)):'Not printed'}</td></tr>
@@ -4310,7 +4326,7 @@ let _shown=null, _from=null;   // dernière route rendue, route qu'on quitte
 let _gridY=null;                  // position dans la grille des États au départ vers une fiche
 let _chrome=false;
 function render(){
-  if(!_chrome){_chrome=true;applyChrome();}
+  if(!_chrome){_chrome=true;applyChrome();i18nWatch();}
   toggleMenu(false);
   const h=location.hash||'#/home', prev=_shown;
   _shown=h; _from=prev;

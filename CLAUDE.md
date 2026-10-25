@@ -152,8 +152,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md)
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
-- Interface dans les trois standards (phase 1) : `portail/data/i18n.json` (en, zap, sre, ist) ;
-  en-tête, navigation, recherche, pied de page, fil d'Ariane ; contenu des pages en anglais ;
+- Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
+  en-tête, navigation, recherche, pied de page, fil d'Ariane ; phase 2, étape 1 : titres et
+  intertitres des pages (`data-i18n`, observateur sur #app, ADR 2026-10-25-interface-phase-2-titres.md) ;
+  texte courant en anglais ; alphabet v3 (ñ, ļ) dans toutes les chaînes ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središnji, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et
