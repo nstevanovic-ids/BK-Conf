@@ -9,8 +9,14 @@ bloc A (« Ok pour le point A ») :
 - A3, régime fiscal sur le modèle suisse ;
 - A4, Kongres de 250 délégués.
 
-A5, le statut des mineurs, est reporté (priorité basse). Constitution portée en version 4.7
-(annexe N) : seize articles nouveaux, soit 190 articles en dix titres.
+A5, le statut des mineurs, est reporté (priorité basse).
+
+Après une comparaison avec la Suisse et la région, l'utilisateur a validé le 24 octobre des
+ajustements pour attirer les capitaux. Il a demandé en outre « un contrôle des frontières
+strict et un encouragement à la natalité pour dynamiser le marché intérieur » (section 5).
+
+Constitution portée en version 4.7 (annexe N) : dix-huit articles nouveaux, soit 192 articles
+en dix titres.
 
 ## Constat
 - **Finances** : seuls les droits de douane, l'impôt sur les carburants et la surtaxe sur
@@ -144,11 +150,66 @@ second tableau à maintenir.
   - première formule de péréquation dans les deux ans ;
   - les monnaies existantes ont cours jusqu'au dinar.
 
+### 5. Investissement, famille, immigration et frontières
+
+**Investissement** (art. 99 quater, 99 quinquies, 99 septies) :
+- **Impôt complémentaire** : il porte les grands groupes (chiffre d'affaires d'au moins
+  750 M€) au minimum international de 15 % ; trois quarts au moins de son produit reviennent
+  à l'État où le bénéfice est réalisé, comme en Suisse.
+  - Sans cet impôt, l'écart jusqu'à 15 % serait perçu dans le pays de la maison mère.
+  - L'impôt total visé est d'environ 13 à 15 % : 8 % confédéral plus l'impôt de l'État,
+    soit la moyenne suisse (14,4 % en 2026).
+- **Recherche et innovation** : la loi d'harmonisation peut prévoir des allègements, comme
+  le fait la Suisse depuis 2020.
+- **Titres** : ni droit d'émission ni droit de négociation. Le droit d'émission suisse est
+  un frein connu au financement en fonds propres. Seul subsiste le timbre sur les primes
+  d'assurance.
+- **Impôt anticipé** : 15 % au plus, et les intérêts d'obligations en sont exonérés. Le
+  taux suisse de 35 % dissuade les investisseurs étrangers.
+
+**Famille et natalité** (art. 98 bis). Les données de départ :
+- La fécondité de la région est déjà parmi les plus hautes d'Europe en 2024 : Monténégro
+  1,8 ; Bulgarie 1,72 ; Serbie 1,64 ; Slovénie 1,52 ; moyenne de l'UE 1,34.
+- Le déficit vient surtout de l'émigration : 47 % des Bosniens et 45 % des Monténégrins
+  vivent à l'étranger (Banque mondiale).
+- Les primes en argent ont un effet passager : en Hongrie, la fécondité est passée de 1,23
+  en 2011 à 1,61 en 2021, puis est retombée à 1,38 en 2024.
+
+L'article privilégie donc ce qui agit durablement :
+- une allocation par enfant, majorée dès le troisième ;
+- un congé parental d'un an à 80 % au moins, avec une part réservée à chaque parent ;
+- une place d'accueil garantie dès un an ;
+- le logement des jeunes familles ;
+- une déduction fiscale par enfant.
+
+Aucune prestation ne dépend de l'appartenance nationale, du registre ou de la religion :
+dans une confédération de sept peuples, une natalité ciblée ferait de la démographie une
+arme entre les peuples. Le retour de la diaspora, plus rapide que la natalité pour le
+marché intérieur, est encouragé (art. 99, art. 99 quater).
+
+**Immigration** (art. 99), sur le modèle suisse de l'art. 121a :
+- l'immigration est gérée de façon autonome ;
+- la loi fixe des contingents annuels de permis de travail selon les besoins de
+  l'économie ;
+- à qualification égale, les citoyens ont la priorité, diaspora comprise ;
+- l'asile est examiné à la frontière dans un délai fixé par la loi ;
+- les personnes déboutées sont renvoyées, sous réserve de l'art. 26 (non-refoulement), qui
+  reste intact.
+
+**Frontières** (art. 139 bis) :
+- la Granična Straža contrôle systématiquement toute personne à l'entrée et à la sortie ;
+- les entrées et les sorties des étrangers sont enregistrées ;
+- les frontières sont surveillées entre les points de passage ;
+- la Confédération conclut des accords de réadmission ;
+- aucun contrôle n'a lieu entre les États : le marché intérieur reste sans frontières.
+
 ## Propagation
 - `docs/constitution/v4.md` et `v4.en.md` : version 4.7 et annexe N. Articles 103, 110,
   118 j et 121 modifiés. *Ļubļana* à l'art. 1 ter, selon la règle toponymique v3 (ADR
   2026-10-24-alphabet-transition-libelles.md).
-- `portail/data/constitution.json` régénéré : 10 titres, 190 articles.
+- `portail/data/constitution.json` régénéré : 10 titres, 192 articles.
+- Page Security and Defence : Granična Straža (contrôle à l'entrée et à la sortie, art. 139
+  bis).
 - Portail, page Institutions :
   - nouvelle section « The 250 seats of the Kongres », dont la répartition est calculée en
     direct ;

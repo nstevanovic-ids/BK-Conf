@@ -67,7 +67,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
   fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
-  Version 4.7 : texte intégral, 190 articles en dix titres. Titres 1 à 3 (texte de base, art. 1
+  Version 4.7 : texte intégral, 192 articles en dix titres. Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
