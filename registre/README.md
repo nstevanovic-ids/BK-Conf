@@ -111,11 +111,15 @@ En mode dev sans `BREVO_API_KEY`, l'API renvoie les jetons dans ses réponses
 | GET | `/v1/stats` | totaux publics (par État, par registre, série quotidienne) |
 | GET | `/v1/verify/BK-XX-NNNNNN?issue=n` | statut public d'une carte : valid, superseded, expired, revoked, unknown (aucune donnée personnelle) |
 | POST | `/v1/registrations` | inscription ; envoie le lien de confirmation (réponse 202 identique dans tous les cas) |
-| POST | `/v1/confirm` | confirme l'adresse, attribue le numéro, renvoie la carte et le jeton d'accès |
+| POST | `/v1/confirm` | confirme l'adresse, attribue le numéro, renvoie la carte et le jeton d'accès ; confirme aussi la passation d'une carte de mineur à 18 ans |
 | POST | `/v1/access` | renvoie un lien d'accès à un citoyen (réponse identique dans tous les cas) |
-| GET | `/v1/card` | carte du titulaire (`Authorization: Bearer <jeton>`) |
-| PATCH | `/v1/card` | amendement ; nouvel État = nouveau numéro |
-| DELETE | `/v1/card` | suppression immédiate et définitive |
+| GET | `/v1/card` | carte du titulaire (`Authorization: Bearer <jeton>`), avec les cartes des mineurs qu'il a déclarés (`minors`) |
+| PATCH | `/v1/card` | amendement ; nouvel État = nouveau numéro ; art. 102 appliqué (422 `people` si le verrou s'y oppose) |
+| DELETE | `/v1/card` | suppression immédiate et définitive, cartes des mineurs déclarés comprises |
+| POST | `/v1/card/minors` | déclare un enfant de moins de 18 ans (art. 38 a) : rattachement du parent, sans registre, carte de cinq ans |
+| PATCH | `/v1/card/minors/BK-XX-NNNNNN` | amende la carte d'un mineur ; le rattachement suit celui du parent |
+| DELETE | `/v1/card/minors/BK-XX-NNNNNN` | supprime la carte d'un mineur |
+| POST | `/v1/card/minors/BK-XX-NNNNNN/handover` | à 18 ans, envoie au jeune majeur le lien qui lui transmet sa carte (même numéro) |
 | POST | `/v1/card/mail` | envoie la carte par e-mail (recto et verso joints), 5 fois par jour au plus |
 | POST | `/v1/card/wallet/google` | crée ou met à jour le pass Google Wallet, renvoie le lien d'ajout |
 

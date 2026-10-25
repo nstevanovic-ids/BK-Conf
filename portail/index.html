@@ -3468,7 +3468,7 @@ function regErrors(i){
     if(!R.sex)e.sex='Choose the sex shown on the card.';
     if(!/^\d{4}-\d{2}-\d{2}$/.test(R.dob))e.dob='Enter your date of birth.';
     else if(R.dob>isoToday()||+R.dob.slice(0,4)<1900)e.dob='Enter a valid date of birth.';
-    else if(ageOn(R.dob,isoToday())<18)e.dob='Online registration is open from the age of 18 (Art. 104).';
+    else if(ageOn(R.dob,isoToday())<18)e.dob='Registration is open from the age of 18 (Art. 104). Under 18, a parent who holds a card declares the child from his own card.';
   }
   if(i===1){
     if(!R.basis)e.basis='Choose the basis of your attachment.';
@@ -3555,7 +3555,7 @@ function regStepHTML(i){
       <div class="fld"><label class="fl" for="rDob">Date of birth</label>
         <input id="rDob" type="date" max="${isoToday()}" min="1900-01-01" value="${esc(R.dob)}"
           oninput="regSet('dob',this.value)" onchange="regSet('dob',this.value)">
-        <div class="hint">Registration is open from the age of 18, the age of the vote (Art. 104).</div>${regErr('dob')}</div>
+        <div class="hint">Registration is open from the age of 18, the age of the vote (Art. 104). A child under 18 is declared by a parent from his own card.</div>${regErr('dob')}</div>
     </div>`;
   }
   if(i===1){
@@ -3807,7 +3807,7 @@ async function regIssue(){
     surname:cleanName(REG.surname),given:cleanName(REG.given),sex:REG.sex,dob:REG.dob,
     origin:REG.origin,basis:REG.basis,abroad:REG.res==='abroad',
     people:REG.people,reg,showNat:REG.people!=='none'&&REG.showNat,std:REG.std,
-    email:String(REG.email||'').trim()||undefined};
+    email:String(REG.email||'').trim()||undefined,minors:cur&&cur.minors||undefined};
   citSave(c);REG=null;go('#/citizen');
 }
 async function regSubmit(){
@@ -3977,6 +3977,179 @@ function vRegister(){
     <div class="panel regpanel" id="regPanel"></div>
   </div></section>`;
 }
+/* --- minors (Art. 38 a) ------------------------------------------------
+   A citizen holding a card declares his child under 18 (filiation or adoption). The child
+   takes the declaring parent's attachment (municipality and state); no national register
+   before 18 (Art. 102), no vote (Art. 104); the card is valid five years. From 18 the young
+   citizen takes over his card with his own e-mail address (confederal register), and the
+   parent loses access. Prototype: the children's cards are kept in the parent's record. */
+const MINOR_YEARS=5;
+let MIN=null;
+const minList=p=>p&&Array.isArray(p.minors)?p.minors:[];
+const minFind=num=>minList(citLoad()).find(m=>m.num===num)||null;
+const minAdult=m=>ageOn(m.dob,isoToday())>=18;
+function minBlank(p){return{surname:p?p.surname:'',given:'',sex:'',dob:'',std:p?p.std:'central',decl:false,err:{},busy:false,num:null,mail:''};}
+function minFrom(m){return{surname:m.surname,given:m.given,sex:m.sex,dob:m.dob,std:m.std,decl:false,err:{},busy:false,num:m.num,mail:''};}
+function minSet(f,v,re){MIN[f]=v;if(MIN.err[f])delete MIN.err[f];if(re)minRender();}
+const minErr=k=>MIN.err[k]?`<div class="err" role="alert">${esc(MIN.err[k])}</div>`:'';
+function minOpt(field,val,title,sub){
+  const on=MIN[field]===val;
+  return `<label class="opt${on?' on':''}"><input type="radio" name="m_${field}" value="${esc(val)}"${on?' checked':''}
+    onchange="minSet('${field}',this.value,true)"><div><b>${title}</b>${sub?`<span>${sub}</span>`:''}</div></label>`;
+}
+function minErrors(){
+  const e={},M=MIN,t=isoToday();
+  if(!cleanName(M.surname))e.surname='Enter the surname.';
+  if(!cleanName(M.given))e.given='Enter the given name or names.';
+  if(!M.sex)e.sex='Choose the sex shown on the card.';
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(M.dob||'')||M.dob>t)e.dob='Enter a valid date of birth.';
+  else if(ageOn(M.dob,t)>=18)e.dob='From the age of 18, a citizen registers himself.';
+  if(!M.std)e.std='Choose the language of the card.';
+  if(!M.decl)e.decl='The declaration of the parent or legal guardian is required.';
+  return e;
+}
+function minSection(c){
+  if(c.minor)return '';
+  const kids=minList(c);
+  const rows=kids.map(m=>`<tr><td>${esc(m.given)} ${esc(m.surname.toUpperCase())}</td>
+    <td>${esc(m.num)} · born ${esc(dmy(m.dob))} · valid until ${esc(dmy(m.expiry))}${minAdult(m)?' · <b>now of age</b>':''}</td>
+    <td><a href="#/minor/${esc(m.num)}">Open card</a></td></tr>`).join('');
+  return `<div class="h2row" style="margin-top:34px"><h2>Children under 18</h2></div>
+  <div class="panel">
+    <p class="note" style="margin-top:0">A parent or legal guardian who holds a card may declare his child a citizen
+    (Art. 38 a, filiation or adoption). The child takes your state of attachment, ${esc(c.origin.n)};
+    he has no national register and no vote before 18 (Art. 102, 104). His card is valid five years.
+    From 18 he takes over his card with his own e-mail address.</p>
+    ${kids.length?`<table class="dtable">${rows}</table>`:''}
+    <a class="btn btn-ghost" style="margin-top:14px" href="#/minor/new">Declare a child</a></div>`;
+}
+function vMinor(){
+  const p=citLoad(),seg=location.hash.replace(/^#\/minor\/?/,'').split('/');
+  const head=t=>crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card','#/citizen'],[t]]);
+  if(!p||p.minor)return head('Child')+`<section class="section pagehead reveal"><div class="eyebrow">Confederal digital citizenship</div>
+    <h1>Declare a child</h1></section><section class="section"><div class="pending-box">
+    <h4>A card is needed first</h4><p>A child under 18 is declared by a parent or legal guardian who holds a citizen card.</p>
+    <a class="btn btn-primary" style="margin-top:16px" href="#/register">Become a citizen</a></div></section>`;
+  const edit=seg[0]==='new'||seg[1]==='edit';
+  const m=seg[0]&&seg[0]!=='new'?minFind(seg[0]):null;
+  if(seg[0]&&seg[0]!=='new'&&!m)return head('Child')+`<section class="section pagehead reveal"><h1>Card not found</h1>
+    <p class="lead">This card is not among the children declared from your card.</p>
+    <a class="btn btn-ghost" href="#/citizen">Back to my card</a></section>`;
+  if(edit){
+    if(!MIN||MIN.num!==(m?m.num:null))MIN=m?minFrom(m):minBlank(p);
+    return head(m?'Amend':'Declare a child')+`<section class="section pagehead reveal">
+      <div class="eyebrow">Confederal digital citizenship · Art. 38 a</div>
+      <h1>${m?'Amend the card of '+esc(m.given):'Declare a child'}</h1>
+      <p class="lead">The child takes your state of attachment, ${esc(byCode(p.origin.c)?byCode(p.origin.c).n:p.origin.n)}
+      (${esc(p.origin.c)}), through your municipality of origin, ${esc(p.origin.n)}. No national register is recorded before 18.</p>
+    </section><section class="section"><div id="minForm"></div></section>`;
+  }
+  const s=byCode(m.origin.c)||{n:m.origin.n,c:m.origin.c},rc=remoteCit();
+  const hand=minAdult(m)?(rc?`<div class="panel" style="margin-top:22px"><div class="eyebrow">Now of age</div>
+      <p>${esc(m.given)} is 18. Give his e-mail address: he confirms it and manages his card himself from then on, with
+      the same number. You will no longer have access to it.</p>
+      ${m.handover?`<p class="note">A confirmation was sent to ${esc(m.handover)}.</p>`:''}
+      <div class="frow"><div class="fld"><label class="fl" for="mMail">His e-mail address</label>
+        <input id="mMail" type="email" autocomplete="off" value="" oninput="MIN=MIN||minFrom(minFind('${esc(m.num)}'));MIN.mail=this.value"></div></div>
+      <button class="btn btn-primary" onclick="minHandover('${esc(m.num)}')">Hand over the card</button></div>`
+    :`<div class="notice">${esc(m.given)} is now of age. When the confederal register opens, he takes over his card with
+      his own e-mail address; until then he may register himself in his own browser.</div>`):'';
+  return head(m.given)+`<section class="section pagehead reveal">
+    <div class="eyebrow">Confederal digital citizenship · Child's card</div>
+    <h1>${esc(m.given)} ${esc(m.surname.toUpperCase())}</h1>
+    <p class="lead">${esc(m.num)} · issued ${esc(dmy(m.issued))} · valid until ${esc(dmy(m.expiry))} ·
+    attached to ${esc(s.n)} (${esc(s.c)}) by filiation. No national register before 18 (Art. 102).</p>
+  </section>
+  <section class="section" style="padding-top:8px">
+    <div class="idcards">
+      <figure class="idcard" data-tilt>${cardFront(m)}<span class="holo" aria-hidden="true"></span></figure>
+      <figure class="idcard" data-tilt>${cardBack(m)}<span class="holo" aria-hidden="true"></span></figure>
+    </div>
+    <div class="idactions">
+      <button class="btn btn-primary" onclick="cardPNG('front','${esc(m.num)}')">Download front (PNG)</button>
+      <button class="btn btn-ghost" onclick="cardPNG('back','${esc(m.num)}')">Download back (PNG)</button>
+      <a class="btn btn-ghost" href="#/minor/${esc(m.num)}/edit">Amend</a>
+      <button class="btn btn-ghost" onclick="minDelete('${esc(m.num)}')">Delete this card</button>
+      <a class="btn btn-ghost" href="#/citizen">Back to my card</a>
+    </div>${hand}
+  </section>`;
+}
+function minRender(){
+  const el=document.getElementById('minForm');if(!el||!MIN)return;
+  const M=MIN,opts=['western','central','eastern'].map(k=>minOpt('std',k,STD_NAME[k][0],STD_NAME[k][1])).join('');
+  el.innerHTML=`<div class="panel">
+    <div class="frow">
+      <div class="fld"><label class="fl" for="mSur">Surname</label>
+        <input id="mSur" type="text" spellcheck="false" value="${esc(M.surname)}" oninput="minSet('surname',this.value)">${minErr('surname')}</div>
+      <div class="fld"><label class="fl" for="mGiv">Given names</label>
+        <input id="mGiv" type="text" spellcheck="false" value="${esc(M.given)}" oninput="minSet('given',this.value)">${minErr('given')}</div>
+    </div>
+    <div class="frow">
+      <div class="fld"><span class="fl">Sex</span><div class="opts cols2">${minOpt('sex','F','Female','Ž · F')}${minOpt('sex','M','Male','M · M')}</div>${minErr('sex')}</div>
+      <div class="fld"><label class="fl" for="mDob">Date of birth</label>
+        <input id="mDob" type="date" max="${isoToday()}" min="${addYears(isoToday(),-18)}" value="${esc(M.dob)}"
+          oninput="minSet('dob',this.value)" onchange="minSet('dob',this.value)">
+        <div class="hint">Under 18 on the day of the declaration.</div>${minErr('dob')}</div>
+    </div>
+    <div class="fld"><span class="fl">Language of the card</span><div class="opts">${opts}</div>${minErr('std')}</div>
+    <label class="opt${M.decl?' on':''}" style="margin-top:6px"><input type="checkbox"${M.decl?' checked':''} onchange="minSet('decl',this.checked,true)">
+      <div><b>Declaration</b><span>As the child's parent or legal guardian (by filiation or adoption), I declare that he becomes
+      a citizen of the Balkan Confederation (Art. 37, 38). I may amend or withdraw this declaration at any time.</span></div></label>
+    ${minErr('decl')}${M.api?`<div class="err" role="alert">${esc(M.api)}</div>`:''}
+    <div class="idactions" style="margin-top:18px">
+      <button class="btn btn-primary" onclick="minSubmit()"${M.busy?' disabled':''}>${M.num?'Issue the amended card':'Issue the card'}</button>
+      <a class="btn btn-ghost" href="${M.num?'#/minor/'+esc(M.num):'#/citizen'}">Cancel</a></div></div>`;
+}
+async function minSubmit(){
+  if(!MIN||MIN.busy)return;
+  MIN.err=minErrors();MIN.api='';
+  if(Object.keys(MIN.err).length){minRender();return;}
+  const p=citLoad(),rc=remoteCit(),M=MIN;
+  const body={surname:cleanName(M.surname),given:cleanName(M.given),sex:M.sex,dob:M.dob,std:M.std,consent:{declaration:true}};
+  let num;
+  if(rc){
+    M.busy=true;minRender();
+    const r=M.num?await api('PATCH','/v1/card/minors/'+M.num,body,rc.access):await api('POST','/v1/card/minors',body,rc.access);
+    M.busy=false;
+    if(!r.ok){const f=r.data&&r.data.field;
+      if(f&&f!=='minor')M.err={[f]:r.data.message};else M.api=(r.data&&r.data.message)||'The card could not be issued. Please try again.';
+      minRender();return;}
+    citSave({...r.data.card,access:rc.access});
+    const kids=minList(r.data.card);
+    num=M.num&&kids.find(k=>k.num===M.num)?M.num:(kids.find(k=>k.given===body.given&&k.dob===body.dob)||kids[kids.length-1]).num;
+  }else{
+    const today=isoToday(),s=byCode(p.origin.c),kids=minList(p).slice(),cur=M.num?kids.find(k=>k.num===M.num):null;
+    const same=cur&&cur.origin.c===p.origin.c;
+    const k={v:1,num:same?cur.num:citNumber(s.k,[body.surname,body.given,body.dob,p.origin.c,Date.now()].join('|')),
+      card:same?(cur.card||1)+1:1,issued:today,expiry:addYears(today,MINOR_YEARS),...body,consent:undefined,
+      origin:p.origin,basis:'filiation',abroad:p.abroad,people:'none',reg:null,showNat:false,minor:true};
+    delete k.consent;
+    if(cur)kids[kids.indexOf(cur)]=k;else kids.push(k);
+    citSave({...p,minors:kids});num=k.num;
+  }
+  MIN=null;go('#/minor/'+num);
+  setTimeout(()=>toast(M.num?'The card has been amended.':'The card has been issued.'),400);
+}
+async function minDelete(num){
+  const m=minFind(num);if(!m)return;
+  if(!confirm(`Delete the card of ${m.given}? Its number ${m.num} is cancelled.`))return;
+  const rc=remoteCit();
+  if(rc){const r=await api('DELETE','/v1/card/minors/'+num,undefined,rc.access);
+    if(!r.ok){toast((r.data&&r.data.message)||'The deletion failed. Please try again.');return;}
+    citSave({...r.data.card,access:rc.access});}
+  else{const p=citLoad();citSave({...p,minors:minList(p).filter(k=>k.num!==num)});}
+  go('#/citizen');setTimeout(()=>toast('The card has been deleted.'),400);
+}
+async function minHandover(num){
+  const rc=remoteCit(),em=String((MIN&&MIN.mail)||'').trim();
+  if(!rc)return;
+  if(!EMAIL_RE.test(em)){toast('Enter a valid e-mail address.');return;}
+  const r=await api('POST','/v1/card/minors/'+num+'/handover',{email:em},rc.access);
+  if(!r.ok){toast((r.data&&r.data.message)||'The request failed. Please try again.');return;}
+  MIN=null;toast(`A confirmation has been sent to ${r.data.emailHint||em}.`);
+  const s=await api('GET','/v1/card',undefined,rc.access);
+  if(s.ok){citSave({...s.data.card,access:rc.access});render();}
+}
 function vCitizen(){
   const c=citLoad();
   if(!c)return crumb([['Home','#/home'],['Participation','#/participation'],['Citizen card']])+`
@@ -4028,7 +4201,7 @@ function vCitizen(){
       </table></div>
     <div class="panel"><div class="eyebrow">Your record</div>
       <table class="dtable">
-        <tr><td>Municipality</td><td>${esc(c.origin.n)} <span class="note">(${{own:'own origin',ancestry:'family origin',residence:'residence'}[c.basis]||''})</span></td></tr>
+        <tr><td>Municipality</td><td>${esc(c.origin.n)} <span class="note">(${{own:'own origin',ancestry:'family origin',residence:'residence',filiation:'filiation'}[c.basis]||''})</span></td></tr>
         <tr><td>Nation on card</td><td>${c.showNat?esc(natForm(c)):'Not printed'}</td></tr>
         <tr><td>Card language</td><td>${esc((STD_NAME[c.std]||STD_NAME.central)[0])}</td></tr>
         <tr><td>Card issue</td><td>Issue ${c.card||1} under number ${esc(c.num)}</td></tr>
@@ -4036,6 +4209,7 @@ function vCitizen(){
       </table>
       <button class="btn btn-ghost" style="margin-top:16px" onclick="citDelete()">Delete my registration</button></div>
   </div>
+  ${minSection(c)}
   ${c.remote?`<div class="notice">Your card is recorded in the confederal register. The link in your card e-mail
   opens it on any device; keep that e-mail and do not forward it.</div><div id="citSync"></div>`
   :`<div class="notice">Prototype: this card is held only in this browser and its number is provisional.
@@ -4043,8 +4217,9 @@ function vCitizen(){
 }
 async function citDelete(){
   const rc=remoteCit();
-  if(!confirm(rc?'Delete your registration from the confederal register? Your card and its number are cancelled. This cannot be undone.'
-    :'Delete the registration held in this browser? The card and its number are removed from this device.'))return;
+  const kids=minList(citLoad()).length?` The cards of the ${minList(citLoad()).length===1?'child':'children'} you declared are cancelled with it.`:'';
+  if(!confirm((rc?'Delete your registration from the confederal register? Your card and its number are cancelled. This cannot be undone.'
+    :'Delete the registration held in this browser? The card and its number are removed from this device.')+kids))return;
   if(rc){const r=await api('DELETE','/v1/card',undefined,rc.access);
     if(!r.ok&&r.status!==401){toast(r.data.message||'The deletion failed. Please try again.');return;}}
   citClear();REG=null;citHeader();render();
@@ -4087,8 +4262,8 @@ function citMount(){
     el.addEventListener('pointerleave',()=>{el.style.transform='';});
   });
 }
-async function cardPNG(side){
-  const c=citLoad();if(!c)return;
+async function cardPNG(side,num){
+  const c=num?minFind(num):citLoad();if(!c)return;
   const cv=await cardImage(c,side);
   cv.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);
     a.download=`${c.num}-${side}.png`;document.body.appendChild(a);a.click();
@@ -4113,7 +4288,7 @@ const ROUTES={
  'dashboard':[vDashboard,'#/participation'],'register':[vRegister,'#/participation'],
  'citizen':[vCitizen,'#/participation'],'confirm':[vConfirm,'#/participation'],
  'card':[vCardLink,'#/participation'],'access':[vAccess,'#/participation'],
- 'verify':[vVerify,'#/participation']
+ 'verify':[vVerify,'#/participation'],'minor':[vMinor,'#/participation']
 };
 /* Place d'une route dans le fil du portail, comme sur une one page :
    [rang dans la navigation, rang de la route, rang fin (code d'État, titre de
@@ -4193,6 +4368,7 @@ function renderNow(){
   if(h.startsWith('#/access')){ACC={ts:'',sent:'',err:'',busy:false};accRender();}
   if(h.startsWith('#/dashboard'))dashMount();
   if(h.startsWith('#/verify'))verifyMount();
+  if(h.startsWith('#/minor/'))minRender();
   if(h==='#/home'||h==='#/'||h==='')homeCount();
   citHeader();
   setHdr();

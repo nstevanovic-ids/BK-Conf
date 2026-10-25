@@ -14,7 +14,7 @@
 import OPSTINE from '../../portail/data/opstine.json';
 import ETATS from '../../portail/data/etats.json';
 import PEUPLES from '../../portail/data/peuples.json';
-import { mailConfirm, mailCard, mailAccess } from './mail.js';
+import { mailConfirm, mailCard, mailAccess, mailHandover } from './mail.js';
 import { walletConfigured, googleSaveUrl, googleRefresh, googleRevoke } from './wallet.js';
 
 // opstine.json v 2 : [nom v3, ISO, code d'État, nom officiel ou "", nom GADM]. Le nom v3 fait
@@ -28,6 +28,7 @@ const CONFIRM_TTL = 2 * DAY;
 const ACCESS_TTL = 400 * DAY;
 const PENDING_TTL = 7 * DAY;
 const REG_LOCK = 15, REG_PROB = 3;      // art. 102 : verrou, période probatoire (années)
+const MINOR_YEARS = 5, MAX_MINORS = 12;  // carte d'un mineur : validité ; mineurs par parent
 
 class HttpError extends Error {
   constructor(status, code, message, field) { super(message); this.status = status; this.code = code; this.field = field; }
@@ -44,7 +45,7 @@ const isDev = env => env.DEV === '1';
 const devLeak = env => isDev(env) && !env.BREVO_API_KEY;
 const portal = env => (env.PORTAL_URL || '').replace(/\/?$/, '/');
 const verifyUrl = (env, c) => portal(env) + '#/verify/' + c.num + '.' + c.card;
-function hint(email) { const [u, d] = email.split('@'); return u.slice(0, 1) + '•••@' + d; }
+function hint(email) { if (!email) return null; const [u, d] = email.split('@'); return u.slice(0, 1) + '•••@' + d; }
 
 function json(data, status = 200, headers = {}) {
   return new Response(data === null ? null : JSON.stringify(data), {
@@ -232,14 +233,111 @@ async function regNext(env, c, people) {
   if (today < until) bad('people', `Another register is open to you from ${dmy(until)}, fifteen years after your enrolment (Art. 102).`);
   return { people, p: people, since: today, prob: null, eff };
 }
-async function cardOf(env, c) {
-  return {
+async function cardOf(env, c, nested) {
+  const card = {
     v: 1, num: c.num, card: c.card, issued: c.issued, expiry: c.expiry,
     surname: c.surname, given: c.given, sex: c.sex, dob: c.dob,
     origin: { n: c.origin_name, iso: c.origin_iso, c: c.state },
     basis: c.basis, abroad: !!c.abroad, people: c.people || 'none', reg: await regOf(env, c),
     showNat: !!c.show_nat, std: c.std, emailHint: hint(c.email), remote: true,
   };
+  if (c.guardian_id) { card.minor = true; card.handover = hint(c.handover_email); }
+  else if (!nested) {
+    const rows = await env.DB.prepare(`SELECT c.*, NULL AS people FROM citizens c WHERE c.guardian_id = ?1 ORDER BY c.created_at`)
+      .bind(c.id).all();
+    card.minors = await Promise.all(rows.results.map(m => cardOf(env, m, true)));
+  }
+  return card;
+}
+
+/* ---------- mineurs (art. 38 a : rattachement par filiation ou adoption) ----------
+   Un citoyen titulaire d'une carte déclare son enfant de moins de 18 ans. L'enfant prend le
+   rattachement du parent déclarant (commune et État) ; il n'a ni registre national (art. 102)
+   ni droits politiques (art. 104) ; sa carte vaut cinq ans. À 18 ans, il reprend sa carte
+   avec sa propre adresse (passation), et le parent n'y a plus accès. */
+function validateMinor(b) {
+  const d = {};
+  d.surname = vName(b.surname, 'surname');
+  d.given = vName(b.given, 'given');
+  if (!['F', 'M'].includes(b.sex)) bad('sex', 'Choose the sex shown on the card.');
+  d.sex = b.sex;
+  const dob = String(b.dob ?? ''), today = todayIso();
+  const dt = new Date(dob + 'T00:00:00Z');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dob) || isNaN(dt) || dt.toISOString().slice(0, 10) !== dob || dob > today) bad('dob', 'Enter a valid date of birth.');
+  if (ageOn(dob, today) >= 18) bad('dob', 'From the age of 18, a citizen registers himself.');
+  d.dob = dob;
+  if (!['western', 'central', 'eastern'].includes(b.std)) bad('std', 'Choose the language of the card.');
+  d.std = b.std;
+  if (!b.consent || b.consent.declaration !== true) bad('consent_declaration', 'The declaration of the parent or legal guardian is required.');
+  return d;
+}
+async function minorOf(env, parent, num) {
+  const m = await env.DB.prepare('SELECT * FROM citizens WHERE num = ?1 AND guardian_id = ?2').bind(num, parent.id).first();
+  if (!m) throw new HttpError(404, 'not_found', 'No such card among your children.');
+  return m;
+}
+async function addMinor(req, env, parent, url) {
+  if (parent.guardian_id) throw new HttpError(403, 'forbidden', 'A minor cannot declare a child.');
+  const b = await readJson(req, 8192);
+  await limit(env, 'minor:' + parent.id, 10, DAY);
+  const d = validateMinor(b);
+  const n = await env.DB.prepare('SELECT COUNT(*) AS n FROM citizens WHERE guardian_id = ?1').bind(parent.id).first();
+  if (n.n >= MAX_MINORS) bad('minor', `No more than ${MAX_MINORS} children can be declared from one card.`);
+  const t = nowIso(), issued = t.slice(0, 10);
+  const num = await nextNumber(env, STATE.get(parent.state).k);
+  await env.DB.prepare(`INSERT INTO citizens(id,guardian_id,surname,given,sex,dob,origin_name,origin_iso,state,basis,abroad,std,show_nat,
+      verified_at,num,card,issued,expiry,created_at,updated_at)
+    VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,'filiation',?10,?11,0,?12,?13,1,?14,?15,?12,?12)`)
+    .bind(crypto.randomUUID(), parent.id, d.surname, d.given, d.sex, d.dob, parent.origin_name, parent.origin_iso,
+      parent.state, parent.abroad, d.std, t, num, issued, addYears(issued, MINOR_YEARS)).run();
+  await dropStatsCache(url);
+  return json({ card: await cardOf(env, await citizen(env, parent.id)) }, 201);
+}
+async function amendMinor(req, env, parent, num, url) {
+  const m = await minorOf(env, parent, num);
+  const b = await readJson(req, 8192);
+  await limit(env, 'minor:' + parent.id, 10, DAY);
+  const d = validateMinor(b);
+  // Le rattachement suit celui du parent déclarant : un changement d'État donne un nouveau numéro.
+  const moved = parent.state !== m.state, t = nowIso(), issued = t.slice(0, 10);
+  const nnum = moved ? await nextNumber(env, STATE.get(parent.state).k) : m.num;
+  await env.DB.prepare(`UPDATE citizens SET surname=?2, given=?3, sex=?4, dob=?5, std=?6, origin_name=?7, origin_iso=?8, state=?9,
+      abroad=?10, num=?11, card=?12, issued=?13, expiry=?14, updated_at=?15 WHERE id=?1`)
+    .bind(m.id, d.surname, d.given, d.sex, d.dob, d.std, parent.origin_name, parent.origin_iso, parent.state, parent.abroad,
+      nnum, moved ? 1 : m.card + 1, issued, addYears(issued, MINOR_YEARS), t).run();
+  await dropStatsCache(url);
+  return json({ card: await cardOf(env, await citizen(env, parent.id)) });
+}
+async function deleteMinor(env, parent, num, url) {
+  const m = await minorOf(env, parent, num);
+  await env.DB.batch([
+    env.DB.prepare('DELETE FROM tokens WHERE citizen_id = ?1').bind(m.id),
+    env.DB.prepare('DELETE FROM citizens WHERE id = ?1').bind(m.id),
+  ]);
+  await dropStatsCache(url);
+  return json({ card: await cardOf(env, await citizen(env, parent.id)) });
+}
+// Passation à 18 ans : le parent indique l'adresse du jeune majeur, qui la confirme.
+async function handover(req, env, parent, num, ip) {
+  const m = await minorOf(env, parent, num);
+  if (ageOn(m.dob, todayIso()) < 18) bad('dob', 'The card can be handed over from the age of 18.');
+  const b = await readJson(req, 4096);
+  await limit(env, 'handover:' + parent.id, 5, DAY);
+  const email = String(b.email ?? '').trim().toLowerCase();
+  if (email.length > 254 || !EMAIL_RE.test(email)) bad('email', 'Enter a valid e-mail address.');
+  await limit(env, 'reg-mail:' + email, 3, 3600e3);
+  const out = { status: 'sent', emailHint: hint(email) };
+  const taken = await env.DB.prepare('SELECT id FROM citizens WHERE email = ?1').bind(email).first();
+  if (!taken) {                                   // adresse déjà prise : même réponse, rien n'est envoyé
+    await env.DB.batch([
+      env.DB.prepare('UPDATE citizens SET handover_email = ?2, updated_at = ?3 WHERE id = ?1').bind(m.id, email, nowIso()),
+      env.DB.prepare(`DELETE FROM tokens WHERE citizen_id = ?1 AND kind = 'handover'`).bind(m.id),
+    ]);
+    const tok = await newToken(env, m.id, 'handover', CONFIRM_TTL);
+    await send(env, mailHandover({ to: email, given: m.given, surname: m.surname, num: m.num, link: portal(env) + '#/confirm/' + tok }));
+    if (devLeak(env)) out.devToken = tok;
+  }
+  return json(out, 202);
 }
 async function auth(req, env) {
   const m = /^Bearer\s+([A-Za-z0-9_-]{43})$/.exec(req.headers.get('Authorization') || '');
@@ -308,7 +406,7 @@ async function confirm(req, env, ip, url) {
   const tok = String(b.token || '');
   if (!TOKEN_RE.test(tok)) throw new HttpError(404, 'invalid_token', 'This link is invalid or has expired.');
   const h = await tokenHash(env, tok);
-  const row = await env.DB.prepare(`SELECT citizen_id, expires_at, used_at FROM tokens WHERE hash = ?1 AND kind = 'confirm'`).bind(h).first();
+  const row = await env.DB.prepare(`SELECT citizen_id, kind, expires_at, used_at FROM tokens WHERE hash = ?1 AND kind IN ('confirm','handover')`).bind(h).first();
   if (!row) throw new HttpError(404, 'invalid_token', 'This link is invalid or has expired.');
   if (row.used_at) throw new HttpError(409, 'already_confirmed', 'This registration is already confirmed. Open your card from the e-mail you received, or request a new link.');
   if (row.expires_at < nowIso()) throw new HttpError(410, 'expired', 'This link has expired. Register again to receive a new one.');
@@ -316,6 +414,25 @@ async function confirm(req, env, ip, url) {
   const claim = await env.DB.prepare('UPDATE tokens SET used_at = ?2 WHERE hash = ?1 AND used_at IS NULL').bind(h, t).run();
   if (!claim.meta.changes) throw new HttpError(409, 'already_confirmed', 'This registration is already confirmed.');
   const c = await citizen(env, row.citizen_id);
+  if (!c) throw new HttpError(404, 'invalid_token', 'This link is invalid or has expired.');
+  if (row.kind === 'handover') {                  // le jeune majeur reprend sa carte
+    if (!c.guardian_id || !c.handover_email) throw new HttpError(409, 'already_confirmed', 'This card has already been taken over.');
+    if (await env.DB.prepare('SELECT id FROM citizens WHERE email = ?1').bind(c.handover_email).first())
+      throw new HttpError(409, 'email_taken', 'This address is already used by another citizen.');
+    // La filiation devient la base « commune d'un parent » (ou la résidence, si le parent
+    // était rattaché par sa résidence) : le jeune majeur amende ensuite sa carte lui-même.
+    const g = await env.DB.prepare('SELECT basis FROM citizens WHERE id = ?1').bind(c.guardian_id).first();
+    const basis = g && g.basis === 'residence' ? 'residence' : 'ancestry';
+    const acc = randomToken();
+    await env.DB.batch([
+      env.DB.prepare(`UPDATE citizens SET email = handover_email, handover_email = NULL, guardian_id = NULL, basis = ?3, updated_at = ?2
+        WHERE id = ?1`).bind(c.id, t, basis),
+      env.DB.prepare(`INSERT INTO tokens(hash,citizen_id,kind,created_at,expires_at) VALUES(?1,?2,'access',?3,?4)`)
+        .bind(await tokenHash(env, acc), c.id, t, later(ACCESS_TTL)),
+    ]);
+    await dropStatsCache(url);
+    return json({ accessToken: acc, handover: true, card: await cardOf(env, await citizen(env, c.id)) });
+  }
   if (c.verified_at) throw new HttpError(409, 'already_confirmed', 'This registration is already confirmed.');
   const num = await nextNumber(env, STATE.get(c.state).k);
   const issued = t.slice(0, 10);
@@ -355,9 +472,10 @@ async function amend(req, env, c, url, ctx) {
 async function removeCitizen(env, c, url, ctx) {
   if (c.wallet_google && walletConfigured(env))
     ctx.waitUntil(googleRevoke(env, c).catch(e => console.error('wallet revoke', e.message)));
-  await env.DB.batch([
-    env.DB.prepare('DELETE FROM tokens WHERE citizen_id = ?1').bind(c.id),
+  await env.DB.batch([            // les cartes des mineurs déclarés partent avec celle du parent
+    env.DB.prepare('DELETE FROM tokens WHERE citizen_id = ?1 OR citizen_id IN (SELECT id FROM citizens WHERE guardian_id = ?1)').bind(c.id),
     env.DB.prepare('DELETE FROM national_register WHERE citizen_id = ?1').bind(c.id),
+    env.DB.prepare('DELETE FROM citizens WHERE guardian_id = ?1').bind(c.id),
     env.DB.prepare('DELETE FROM citizens WHERE id = ?1').bind(c.id),
   ]);
   await dropStatsCache(url);
@@ -414,7 +532,7 @@ async function stats(env, ctx, url) {
   const key = new Request(new URL('/v1/stats', url).toString());
   try { const hit = await caches.default.match(key); if (hit) return new Response(hit.body, hit); } catch (e) { /* sans cache */ }
   const since = later(-30 * DAY);
-  const [tot, rec, abr, st, pe, days] = await env.DB.batch([
+  const [tot, rec, abr, st, pe, days, mi] = await env.DB.batch([
     env.DB.prepare('SELECT COUNT(*) AS n FROM citizens WHERE verified_at IS NOT NULL'),
     env.DB.prepare('SELECT COUNT(*) AS n FROM citizens WHERE verified_at >= ?1').bind(since),
     env.DB.prepare('SELECT COUNT(*) AS n FROM citizens WHERE verified_at IS NOT NULL AND abroad = 1'),
@@ -423,14 +541,16 @@ async function stats(env, ctx, url) {
                     WHERE c.verified_at IS NOT NULL AND r.people IS NOT NULL GROUP BY r.people`),
     env.DB.prepare(`SELECT substr(verified_at,1,10) AS d, COUNT(*) AS n FROM citizens WHERE verified_at >= ?1 GROUP BY d ORDER BY d`)
       .bind(later(-90 * DAY)),
+    env.DB.prepare('SELECT COUNT(*) AS n FROM citizens WHERE verified_at IS NOT NULL AND guardian_id IS NOT NULL'),
   ]);
   const total = tot.results[0].n;
   const states = Object.fromEntries(st.results.map(r => [r.state, r.n]));
   const peoples = Object.fromEntries(PEOPLE.map(k => [k, 0]));
   for (const r of pe.results) peoples[r.people] = r.n;
-  peoples.none = total - pe.results.reduce((a, r) => a + r.n, 0);
+  const minors = mi.results[0].n;
+  peoples.none = total - minors - pe.results.reduce((a, r) => a + r.n, 0);
   const data = {
-    total, last30: rec.results[0].n, abroad: abr.results[0].n,
+    total, minors, last30: rec.results[0].n, abroad: abr.results[0].n,
     statesRepresented: Object.keys(states).length, states, peoples,
     daily: days.results.map(r => [r.d, r.n]), updated: nowIso(),
   };
@@ -490,6 +610,15 @@ async function route(req, env, ctx, url) {
   if (p === '/v1/registrations' && m === 'POST') return register(req, env, ip);
   if (p === '/v1/confirm' && m === 'POST') return confirm(req, env, ip, url);
   if (p === '/v1/access' && m === 'POST') return access(req, env, ip);
+  const mm = /^\/v1\/card\/minors(?:\/(BK-[A-Z]{2}-\d{6})(\/handover)?)?$/.exec(p);
+  if (mm) {
+    const c = await auth(req, env);
+    if (!mm[1] && m === 'POST') return addMinor(req, env, c, url);
+    if (mm[1] && mm[2] && m === 'POST') return handover(req, env, c, mm[1], ip);
+    if (mm[1] && !mm[2] && m === 'PATCH') return amendMinor(req, env, c, mm[1], url);
+    if (mm[1] && !mm[2] && m === 'DELETE') return deleteMinor(env, c, mm[1], url);
+    throw new HttpError(405, 'method', 'Method not allowed');
+  }
   if (p === '/v1/card' || p === '/v1/card/mail' || p === '/v1/card/wallet/google') {
     const c = await auth(req, env);
     if (p === '/v1/card/wallet/google' && m === 'POST') return wallet(env, c);

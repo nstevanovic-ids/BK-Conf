@@ -161,6 +161,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   déployé par `.github/workflows/registre.yml` ; le portail l'appelle si
   `portail/data/registre.json` a une `api`, sinon mode prototype ; art. 102 appliqué côté
   serveur (probation, verrou, retrait, effet différé). Mise en service : registre/README.md
+- Mineurs (ADR 2026-10-25-mineurs.md) : déclarés par un parent titulaire d'une carte (`#/minor`),
+  rattachement par filiation (commune et État du parent), sans registre national ni vote,
+  carte de cinq ans ; passation à 18 ans par e-mail, même numéro
 - Carte : dessin CNI / carte suisse en Arimo, vérification publique `#/verify` (QR au verso),
   pass Google Wallet générique (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ;
   jamais de date de naissance ni de narodnost sur un pass
