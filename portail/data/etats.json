@@ -41,7 +41,7 @@
   "n": "Baraña",
   "p": "hrv",
   "t": "T",
-  "ch": "Beli Manastir",
+  "ch": "Běli Manastir",
   "g": [
    6,
    2
@@ -149,7 +149,7 @@
   "n": "Zapadna Hercegovina",
   "p": "hrv",
   "t": "T",
-  "ch": "Široki Brijeg",
+  "ch": "Široki Brěg",
   "g": [
    3,
    6
@@ -173,7 +173,7 @@
   "n": "Južna Koroška",
   "p": "slo",
   "t": "T",
-  "ch": "Slovenj Gradec",
+  "ch": "Sloveñ Gradec",
   "g": [
    2,
    1
@@ -209,7 +209,7 @@
   "n": "Kvarner",
   "p": "hrv",
   "t": "T",
-  "ch": "Rijeka",
+  "ch": "Rěka",
   "g": [
    1,
    4
@@ -329,7 +329,7 @@
   "n": "Zapadno Podriñe",
   "p": "srb",
   "t": "T",
-  "ch": "Bijeljina",
+  "ch": "Běļina",
   "g": [
    5,
    5
@@ -377,7 +377,7 @@
   "n": "Slavonija",
   "p": "hrv",
   "t": "T",
-  "ch": "Osijek",
+  "ch": "Osěk",
   "g": [
    5,
    3

@@ -140,7 +140,16 @@ officielle (Bela Palanka ← *bělъ*). Il faudrait une liste de racines à yat.
 
 ## 4. Options
 
-**Option 1 (recommandée) : la règle s'applique à tout nom slave affiché par la
+**Décision du 2026-10-25 : option 1, appliquée** (ADR 2026-10-25-toponymie-v3-cyrillique.md).
+- `scripts/toponymie_v3.py` produit la forme v3 des 1 461 communes, dont 345 changent : 211
+  hors de Bulgarie et 134 en Bulgarie.
+- Les formes validées qui ne découlent pas des substitutions graphiques sont dans
+  `docs/alfabet/toponymes-v3.csv`.
+- Le cyrillique bulgare des 265 communes est dans `docs/alfabet/toponymes-bg.csv`.
+- Les six chefs-lieux sont convertis.
+- Les noms ekaviens attendent la liste de racines `docs/alfabet/yat-racines.md`.
+
+**Option 1 (retenue) : la règle s'applique à tout nom slave affiché par la
 Confédération.**
 - **Substitutions graphiques** :
   - ñ, ļ, x et ã s'appliquent partout, aux municipalités comme aux chefs-lieux ;

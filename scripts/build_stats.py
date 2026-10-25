@@ -16,7 +16,8 @@ Pour chaque État :
 
 Sorties annexes : portail/data/lights.json (une lumière par commune, carte #/map) et
 portail/data/opstine.json (index commune → État du parcours citoyen #/register :
-[nom du recensement, ISO, code d'État, nom GADM si différent]).
+[nom v3, ISO, code d'État, nom du recensement ou "" s'il est identique, nom GADM si
+différent] ; forme v3 calculée par scripts/toponymie_v3.py).
 
 Entrées :
   portail/data/<CODE>.geojson         contours communaux par État (GADM)
@@ -695,7 +696,11 @@ def main() -> int:
             add_opstina(s["n"], "BKC", s["c"])
     rows = sorted(([n, iso, c] + ([a] if a else []) for (n, iso), (c, a) in opstine.items()),
                   key=lambda r: (norm(r[0]), r[1]))
-    OUT_OPSTINE.write_text(json.dumps({"v": 1, "m": rows}, ensure_ascii=False,
+    # Forme v3 des noms (règle toponymique, option 1) ; le nom officiel reste un alias.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from toponymie_v3 import rows_v3
+    rows = rows_v3(rows)
+    OUT_OPSTINE.write_text(json.dumps({"v": 2, "m": rows}, ensure_ascii=False,
                                       separators=(",", ":")), encoding="utf-8")
     print(f"→ {OUT_OPSTINE.relative_to(ROOT)} : {len(rows)} communes "
           f"({OUT_OPSTINE.stat().st_size // 1024} kB)")

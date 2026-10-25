@@ -1270,6 +1270,9 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   white-space:nowrap;align-self:center}
 .opt.on{border-color:var(--indigo);background:var(--surface-2);box-shadow:inset 3px 0 0 var(--gold)}
 .opt.off{opacity:.45;cursor:not-allowed}
+/* South Slavic name above, English name below */
+.pcard h3 .ssn{display:block;font-family:var(--font);font-size:.8rem;font-weight:500;
+  letter-spacing:0;color:var(--ink-3);margin-top:3px}
 /* ---------- Kongres seats ---------- */
 .seatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px;
   border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
@@ -1509,6 +1512,10 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /*__ALPHA__*/
 
 const JOURNAL=[
+ {d:'2026-10-25',cat:'Identity',t:'Place names in the unified alphabet',
+  s:'The rule of the v3 alphabet now covers every municipality: ñ, ļ and x everywhere, Bulgarian names written from the Cyrillic, and the yat restored where the official name shows it, as in Rěka, Běļina, Bělo Poļe and Osěk. Official names remain searchable. The confederal Cyrillic, one letter for each of the 32, is adopted.'},
+ {d:'2026-10-25',cat:'Law',t:'Constitution v4.8: South Slavic names of the confederal bodies',
+  s:'Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.'},
  {d:'2026-10-24',cat:'Law',t:'Constitution v4.7: finances, the Kongres, revision and final provisions',
   s:'A financial regime on the Swiss model: a debt brake, a capped confederal income tax shared with the States, a top-up tax to the global minimum for large groups, no duty on issuing or trading securities, and an exclusive value added tax; family allowances, a year of parental leave and a childcare place for every child; annual quotas for work permits and systematic checks at the external borders; a Kongres of 250 delegates shared out by the Sainte-Laguë method; total and partial revision, with five entrenched guarantees that only all seven national delegations can revise; entry into force and first elections. 192 articles in ten titles.'},
  {d:'2026-10-23',cat:'Law',t:'Constitution v4.6: immunities, conciliation, treaties, enforcement and symbols',
@@ -2331,13 +2338,13 @@ function vInstitutions(){
     archives, and give a voice to the communities outside the seven peoples.</p>
     <div class="cards">
       ${[
-       ['Sarajevo','Confederal Chancellery','Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.',['115 bis']],
-       ['Zagreb','Court of Justice and Prosecutor\'s Office','The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.',['119 bis','119 ter']],
-       ['Beograd','Confederal Central Bank','Issues the dinar. Five governors for seven years, no more than two from the same people.',['97 bis']],
-       ['Ļubļana','Confederal Court of Audit','Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.',['136 bis',133]],
-       ['Ohrid · Cetinje','Language Institute · Library and Archives','The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.',['130 bis',74]],
-       ['Advisory','Council of Communities','The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.',['1 octies']]
-      ].map(c=>`<div class="pcard"><div class="pc-eye">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p>
+       ['Sarajevo','Confederal Chancellery','Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.',['115 bis'],'Konfederalna Kancelarija'],
+       ['Zagreb','Court of Justice and Prosecutor\'s Office','The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.',['119 bis','119 ter'],'Konfederalni Sud · Konfederalno Tužilaštvo'],
+       ['Beograd','Confederal Central Bank','Issues the dinar. Five governors for seven years, no more than two from the same people.',['97 bis'],'Konfederalna Centralna Banka'],
+       ['Ļubļana','Confederal Court of Audit','Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.',['136 bis',133],'Konfederalni Računski Sud'],
+       ['Ohrid · Cetiñe','Language Institute · Library and Archives','The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.',['130 bis',74],'Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv'],
+       ['Advisory','Council of Communities','The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.',['1 octies'],'Veće Zajednica']
+      ].map(c=>`<div class="pcard"><div class="pc-eye">${c[0]}</div><h3>${c[4]}<span class="ssn">${c[1]}</span></h3><p>${c[2]}</p>
         <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
     <a class="btn btn-ghost" style="margin-top:20px" href="#/security">Security and Defence →</a>
@@ -2368,7 +2375,7 @@ function vSecurity(){
           ['Command','A director and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.'],
           ['Limits','No police powers; every intrusive measure on the territory needs the special chamber; data destroyed once no longer needed.']],
     a:['145 bis','145 ter']},
-   {img:'security-armed-forces',eye:'Department of Defence and Security · Sofija',n:'Confederal Armed Forces',en:'A militia army',
+   {img:'security-armed-forces',eye:'Department of Defence and Security · Sofija',n:'Konfederalne Oružane Snage',en:'Confederal Armed Forces, a militia army',
     lead:'They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.',
     rows:[['Service','Compulsory for men, with a civilian alternative; voluntary for all.'],
           ['Command','The Chief of the General Staff (načelnik Generalštaba), confirmed by two thirds of the Kongres and five delegations, for four years, renewable once.'],
@@ -2860,10 +2867,14 @@ function citClear(){CIT_MEM=null;try{localStorage.removeItem(CIT_KEY);}catch(e){
 const CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','ѓ':'đ','е':'e','ж':'ž','з':'z',
  'ѕ':'dz','и':'i','ѝ':'i','й':'j','ј':'j','к':'k','л':'l','љ':'ļ','м':'m','н':'n','њ':'ñ',
  'о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','ќ':'ć','у':'u','ф':'f','х':'h','ц':'c',
- 'ч':'č','џ':'x','ш':'š','щ':'št','ъ':'ã','ь':'j','ю':'ju','я':'ja'};
-/* Cyrillic -> unified Latin v3 (њ→ñ, љ→ļ, џ/дж→x, ъ→ã). Latin input is kept as typed. */
+ 'ч':'č','џ':'x','ш':'š','щ':'št','ъ':'ã','ь':'j','ю':'ju','я':'ja','ѣ':'ě'};
+/* Cyrillic -> unified Latin v3 (њ→ñ, љ→ļ, џ/дж→x, ъ→ã ; Bulgarian ль/лю/ля → ļ/ļu/ļa and
+   нь/ню/ня → ñ/ñu/ña). Latin input is kept as typed. */
 function cyr2lat(s){
-  return String(s).replace(/дж/g,'x').replace(/Дж|ДЖ/g,'X').replace(/[Ѐ-ӿ]/g,ch=>{
+  return String(s).replace(/дж/g,'x').replace(/Дж|ДЖ/g,'X')
+   .replace(/([ЛлНн])([ьЬюЮяЯ])/g,(m,c,v)=>{const p={'л':'ļ','н':'ñ'}[c.toLowerCase()];
+     return (c===c.toLowerCase()?p:p.toUpperCase())+({'ь':'','ю':'u','я':'a'}[v.toLowerCase()]);})
+   .replace(/[Ѐ-ӿ]/g,ch=>{
     const lo=ch.toLowerCase(),t=CYR[lo];
     if(t===undefined)return ch;
     return ch===lo?t:t.charAt(0).toUpperCase()+t.slice(1);
@@ -2919,8 +2930,10 @@ const cleanName=s=>cyr2lat(String(s||'').replace(/\s+/g,' ').trim());
 /* --- municipality of origin index (portail/data/opstine.json) --- */
 let OPX=null;
 function opIndex(){
-  if(!OPX)OPX=OPSTINE.map(r=>({n:r[0],iso:r[1],c:r[2],alt:r[3]||'',
-    k:fold(r[0]),ka:r[3]?fold(r[3]):''}));
+  /* [v3 name, ISO, state, official name or "", GADM name] : the official and GADM
+     names stay searchable, so Trebinje finds Trebiñe */
+  if(!OPX)OPX=OPSTINE.map(r=>{const al=r.slice(3).filter(Boolean);
+    return {n:r[0],iso:r[1],c:r[2],alt:al[0]||'',k:fold(r[0]),ka:al.map(fold)};});
   return OPX;
 }
 function opSearch(q){
@@ -2932,10 +2945,10 @@ function opSearch(q){
   for(const o of opIndex()){
     let sc=-1;
     for(const x of qs){
-      if(o.k===x||o.ka===x)sc=Math.max(sc,3);
-      else if(o.k.startsWith(x)||o.ka.startsWith(x))sc=Math.max(sc,2);
+      if(o.k===x||o.ka.includes(x))sc=Math.max(sc,3);
+      else if(o.k.startsWith(x)||o.ka.some(a=>a.startsWith(x)))sc=Math.max(sc,2);
     }
-    if(sc<0&&toks.some(ts=>wordHit(o.k,ts)||(o.ka&&wordHit(o.ka,ts))))sc=1;
+    if(sc<0&&toks.some(ts=>wordHit(o.k,ts)||o.ka.some(a=>wordHit(a,ts))))sc=1;
     if(sc>=0)out.push([sc,o]);
   }
   out.sort((a,b)=>b[0]-a[0]||a[1].k.localeCompare(b[1].k));
@@ -3179,7 +3192,7 @@ function regStepHTML(i){
     <div class="fld"><label class="fl" for="rMun">Municipality</label>
       <div class="ac"><input id="rMun" type="search" autocomplete="off" spellcheck="false" role="combobox"
         aria-expanded="false" aria-controls="rMunList" aria-autocomplete="list"
-        placeholder="e.g. Kragujevac, Trebinje, Ohrid, Plovdiv" value="${esc(R.origin?R.origin.n:'')}"
+        placeholder="e.g. Kragujevac, Trebiñe, Ohrid, Plovdiv" value="${esc(R.origin?R.origin.n:'')}"
         oninput="regSearch(this.value)" onkeydown="regSearchKey(event)" onfocus="regSearch(this.value)">
       <div class="aclist" id="rMunList" role="listbox" hidden></div></div>
       <div class="hint">${OPSTINE.length.toLocaleString('en')} municipalities of the 49 states and the two confederal
