@@ -45,6 +45,7 @@ def build_inline() -> int:
     i18n = json.loads((DATA / "i18n.json").read_text(encoding="utf-8"))
     vfile = DATA / "videos.json"
     videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
+    registre = json.loads((DATA / "registre.json").read_text(encoding="utf-8"))
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -61,6 +62,7 @@ def build_inline() -> int:
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
         "STD={western:'Standard occidental (zapadni)',central:'Standard central (središnji)',eastern:'Standard oriental (istočni)'};\n"
         "render();\n"
     )
@@ -72,8 +74,8 @@ def build_inline() -> int:
         src,
         count=1,
     )
-    # Inline the vendored libraries (d3-geo for the map).
-    for lib in ("d3-array.min.js", "d3-geo.min.js"):
+    # Inline the vendored libraries (d3-geo for the map, qrcode for the citizen card).
+    for lib in ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js"):
         tag = f'<script src="vendor/{lib}"></script>'
         if tag not in src:
             sys.exit(f"balise absente du template : {tag}")
@@ -108,7 +110,7 @@ def build_linked() -> int:
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
                     "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
                     "constitution.json", "stats.json", "lights.json", "opstine.json",
-                    "i18n.json")
+                    "i18n.json", "registre.json")
         if not (DATA / f).exists()
     ]
     if missing:

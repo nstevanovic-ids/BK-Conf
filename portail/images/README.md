@@ -21,6 +21,11 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1600×900 | Page Security and Defence — encart Obavěštajna Agencija |
 | `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1600×900 | Page Security and Defence — encart forces armées |
 
+Images générées (ne pas remplacer à la main) : `wallet-logo.png` (660×660) et
+`wallet-hero.png` (1032×336), logo et bandeau du pass Google Wallet de la carte citoyenne,
+produits par `scripts/gen_wallet_images.py` et référencés par leur URL publique par le
+registre (`registre/src/wallet.js`).
+
 Cadrage : les images sont affichées en `object-fit: cover` (recadrées au
 besoin) ; garde le sujet vers le centre. Les emplacements sont définis dans
 `portail/index.html` (objet `SLOTS`) — pour en ajouter/retirer, éditer cet objet.

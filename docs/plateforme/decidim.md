@@ -10,14 +10,15 @@ vérification `bk_citizenship`.
 |---|---|---|
 | Fonction | Vitrine : États, Constitution, institutions, Journal | Comptes, registre, consultations, initiatives, votes |
 | Comptes | Aucun | Oui |
-| Données personnelles | Aucune (la carte prototype reste dans le navigateur) | Registre des citoyens et registres nationaux |
+| Données personnelles | Aucune ; le parcours appelle le registre confédéral (`registre/`) | Comptes, signatures, votes ; registre consulté, jamais recopié |
 | Adresse proposée | `www.<domaine>` | `e.<domaine>` (e-Konfederacija) |
 
 Le bouton « Register » du portail renverra vers la plateforme dès son ouverture.
 
-Le parcours actuel (`#/register`, `#/citizen`) devient une démonstration. Ses numéros sont
-provisoires : ils sont calculés dans le navigateur (FNV-1a) et ne sont donc pas reconnus. La
-carte est réémise à l'ouverture.
+Le registre confédéral (`registre/`, ADR 2026-10-25-registre-phase-0.md) ouvre avant la
+plateforme. Dès sa mise en service, le parcours `#/register` délivre des numéros définitifs ;
+d'ici là, il reste une démonstration dont les numéros, calculés dans le navigateur (FNV-1a),
+sont provisoires, et la carte est réémise à l'ouverture du registre.
 
 ## 2. Version et modules
 
@@ -46,17 +47,20 @@ carte est réémise à l'ouverture.
 
 ## 3. Registre et vérification
 
-**Phase 1 : le registre est un module de la plateforme** (`decidim-bk_registry`).
-- Les cinq étapes de l'inscription deviennent le formulaire de l'autorisation
-  `bk_citizenship`, en workflow direct.
-- Le module émet la carte et le numéro **BK-XX-NNNNNN**, en séquence par État, sans jamais
+**Le registre reste un service distinct** (`registre/`, Cloudflare Worker + D1 UE ; décision
+du 2026-10-25, ADR 2026-10-25-registre-phase-0.md). Il ouvre avant Decidim, et Decidim s'y
+branche au lieu de le reproduire ; le module `decidim-bk_registry` envisagé le 2026-10-24
+n'est plus nécessaire.
+- Le registre émet la carte et le numéro **BK-XX-NNNNNN**, en séquence par État, sans jamais
   réattribuer un numéro.
+- L'autorisation `bk_citizenship` est un formulaire (`BkCitizenshipAuthorizationHandler`)
+  qui contrôle auprès du registre le numéro de carte et la date de naissance.
 - `unique_id` est l'empreinte du numéro : une carte, un compte.
 - `metadata` contient l'État de rattachement, la date d'inscription et la date d'effet.
 - Le registre national est conservé à part (art. 115 bis c, « séparément du registre des
   citoyens ») ; seule sa référence figure dans l'autorisation.
-- Les règles de l'art. 102 sont appliquées côté serveur : période probatoire, rectification
-  unique, verrou de quinze ans, retrait libre, effet différé.
+- Les règles de l'art. 102 sont appliquées par le registre : période probatoire,
+  rectification unique, verrou de quinze ans, retrait libre, effet différé.
 
 **Assurance d'identité.** Une inscription en ligne reste déclarative.
 - Au départ, il faut un compte confirmé par courriel et un **code SMS** (workflow `sms`
@@ -67,9 +71,8 @@ carte est réémise à l'ouverture.
 - Une vérification forte (eID, vidéo) n'est pas prévue tant que les votes restent
   consultatifs.
 
-**Phase 2, si le volume l'exige** : le registre devient un service distinct, et
-`BkCitizenshipAuthorizationHandler` le consulte, comme le prévoit le canon (contrôle du
-numéro et de la date de naissance).
+**Si le volume l'exige**, le registre quitte Cloudflare pour l'hébergement de la plateforme
+(§ 6) ; son API ne change pas.
 
 ## 4. Protection des données
 
