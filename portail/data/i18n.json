@@ -1,5 +1,5 @@
 {
-  "_": "Libellés de l'interface dans les trois standards régionaux (alphabet v3). Source de vérité ; règles et choix : docs/alfabet/interface-trois-standards.md. Titres et intertitres des pages traduits (phase 2, étape 1) ; le texte courant reste en anglais.",
+  "_": "Libellés de l'interface dans les trois standards régionaux (alphabet v3) : en-tête, navigation, pied de page, titres et intertitres (clés data-i18n). Le texte des pages est dans textes.json (ADR 2026-10-26-traduction-pages.md). Règles et choix : docs/alfabet/interface-trois-standards.md.",
   "langs": {
     "en":  {"lab": "EN",  "html": "en",      "name": "English"},
     "zap": {"lab": "ZAP", "html": "sl",      "name": "zapadni standard"},
@@ -42,7 +42,8 @@
     "l_card":         {"en": "Citizen card", "zap": "Državļanska izkaznica", "sre": "Državļanska karta", "ist": "Graždanska karta"},
     "l_dashboard":    {"en": "Membership dashboard", "zap": "Pregled članstva", "sre": "Pregled članstva", "ist": "Pregled na členstvoto"},
     "f_portal":       {"en": "digital portal", "zap": "digitalni portal", "sre": "digitalni portal", "ist": "digitalen portal"},
-    "note_en":        {"en": "", "zap": "Besedilo strani je za zdaj v angleščini; naslovi so prevedeni.", "sre": "Sadržaj stranica je zasad na engleskom; naslovi su prevedeni.", "ist": "Tekstãt na stranicite zasega e na anglijski; zaglavijata sa prevedeni."},
+    "f_capitals":     {"en": "Sarajevo · Beograd · Zagreb · Sofija", "zap": "Sarajevo · Beograd · Zagreb · Sofija", "sre": "Sarajevo · Beograd · Zagreb · Sofija", "ist": "Sarajevo · Beograd · Zagreb · Sofija"},
+    "f_stage":        {"en": "Portal shell · Stage 1", "zap": "Ogrodje portala · 1. faza", "sre": "Okvir portala · 1. faza", "ist": "Ramka na portala · etap 1"},
     "h_official_portal": {"en": "Official portal", "zap": "Uradni portal", "sre": "Službeni portal", "ist": "Oficialen portal"},
     "h_hero":         {"en": "The Balkan<br>Confederation", "zap": "Balkanska<br>konfederacija", "sre": "Balkanska<br>konfederacija", "ist": "Balkanskata<br>konfederacija"},
     "h_union":        {"en": "The union", "zap": "Zveza", "sre": "Savez", "ist": "Sãjuzãt"},

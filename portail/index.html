@@ -1293,10 +1293,6 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 @media(max-width:860px){.rota{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .depsec{font-size:.78rem;color:var(--ink-3);margin-top:8px;line-height:1.5}
 .depsec b{color:var(--ink-2);font-weight:600}
-/* ---------- interface language : note under the header ---------- */
-.langnote{background:var(--surface-3);color:var(--ink-2);font-size:.78rem;text-align:center;
-  padding:7px 16px;border-bottom:1px solid var(--line-2)}
-.langnote[hidden]{display:none}
 .sb-foot i{font-style:normal}
 /* ---------- Kongres seats ---------- */
 .seatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:14px;
@@ -1454,13 +1450,13 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   <div class="utility">
     <div class="wrap">
       <span class="crumbtag" data-i18n="topline">Official portal of the Balkan Confederation</span>
-      <div class="langsel" id="langsel">
+      <div class="langsel" id="langsel" translate="no">
         <button class="on" data-l="en">EN</button>
         <button data-l="zap">ZAP</button>
         <button data-l="sre">SRE</button>
         <button data-l="ist">IST</button>
       </div>
-      <div class="langsel scriptsel" id="scriptsel" hidden>
+      <div class="langsel scriptsel" id="scriptsel" translate="no" hidden>
         <button data-s="lat" aria-label="Latin">Lat</button>
         <button data-s="cyr" aria-label="Cyrillic">Ћир</button>
       </div>
@@ -1508,7 +1504,6 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     <a href="#/participation" data-i18n="nav_participation">Participation</a>
   </div></nav>
 </header>
-<div class="langnote" id="langNote" hidden></div>
 
 <main id="app"></main>
 
@@ -1536,7 +1531,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 <footer>
   <div class="fmain">
     <div class="fbrand">
-      <b>Balkanska Konfederacija</b>
+      <b data-i18n="brand">Balkanska Konfederacija</b>
       <p data-i18n="f_tag">The official digital portal of the Balkan Confederation, a confederation of
       49 states and seven constituent peoples. Documentary reference and
       participatory infrastructure.</p>
@@ -1564,8 +1559,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     </div>
   </div>
   <div class="fbottom"><div class="wrap">
-    <span>Balkanska Konfederacija · <i data-i18n="f_portal">digital portal</i> · Sarajevo · Beograd · Zagreb · Sofija</span>
-    <span>Portal shell · Stage 1</span>
+    <span><i data-i18n="brand">Balkanska Konfederacija</i> · <i data-i18n="f_portal">digital portal</i> · <i data-i18n="f_capitals">Sarajevo · Beograd · Zagreb · Sofija</i></span>
+    <span data-i18n="f_stage">Portal shell · Stage 1</span>
   </div></div>
 </footer>
 
@@ -1757,11 +1752,107 @@ function cyrWord(w,std){
   if(w.length>1&&w===w.toUpperCase()&&w!==w.toLowerCase())return out.toUpperCase();
   return w[0]!==w[0].toLowerCase()?out[0].toUpperCase()+out.slice(1):out;
 }
+/* Left in Latin inside Cyrillic text (ADR 2026-10-26-traduction-pages.md):
+   - e-mail addresses, links and domain names;
+   - any word with a letter outside the unified alphabet (Sainte-Laguë, Belediyeler, Közösség);
+   - the whole name of a community written in its own non-Slavic language (Bashkimi i Komunave
+     Shqiptare të Vardarit Perëndimor), and the names in LAT_KEEP (brands, sources, acronyms). */
+const LAT_FOREIGN=/[qwyäëöüéèêàâçşğıőűôõåøæßáíóúý]/i;
+const LAT_KEEP=['Eurostat','Google Wallet','Google','Brevo','Cloudflare','Turnstile','GitHub','Decidim',
+  'GADM','geoBoundaries','Natural Earth','ICAO','MRZ','PPS','EU-27','PDF','QR','HTML','CSS'];
+let _latRe=null;
+function latRe(){
+  if(_latRe)return _latRe;
+  const names=AUT.map(a=>a.n).filter(n=>LAT_FOREIGN.test(n)).concat(LAT_KEEP)
+    .sort((a,b)=>b.length-a.length).map(n=>n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  return _latRe=new RegExp('[^\\s@<>()]+@[^\\s@<>()]+|\\b(?:https?:\\/\\/|www\\.)\\S+|[\\w.-]+\\.(?:io|com|org|net|eu|app|dev)\\b'
+    +(names.length?'|(?<![\\p{L}\\p{M}])(?:'+names.join('|')+')(?![\\p{L}\\p{M}])':''),'gu');
+}
+/* Roman numerals stay Latin (Glava III, Title I bis): any of two letters or more; a single I, V
+   or X only after a word, so that the conjunction I opening a sentence is still converted. */
+const ROMAN=/^(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})$/;
+function cyrPlain(t,std){
+  return t.replace(/[\p{L}\p{M}\d]+(?:['’-][\p{L}\p{M}\d]+)*/gu,(tok,at,all)=>
+    LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/[\p{L}\d]\s+$/u.test(all.slice(0,at))))?tok
+    :tok.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std)));
+}
+function cyrText(t,std){
+  let out='',i=0;
+  for(const m of String(t).matchAll(latRe())){out+=cyrPlain(t.slice(i,m.index),std)+m[0];i=m.index+m[0].length;}
+  return out+cyrPlain(String(t).slice(i),std);
+}
 function toCyr(s,std){
   return String(s).split(/(<[^>]*>|&[a-z#0-9]+;)/i).map(part=>part[0]==='<'||part[0]==='&'?part
-    :part.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std))).join('');
+    :cyrText(part,std)).join('');
 }
 function T(k){const e=(I18N.t||{})[k];const s=e?(e[LANG]||e.en):k;return cyrOn()&&e?toCyr(s,LANG):s;}
+
+/* Page text in the three standards (ADR 2026-10-26-traduction-pages.md). The English stays in
+   the template and is the key: L`text ${x}` for template text, L(s) for a string held in data,
+   L('… {0} …',x) for a string with variables. data/textes.json gives each key (whitespace
+   collapsed, variables written {0}, {1}…) in zap, sre and ist; a missing translation falls back
+   on the English and is recorded in L_MISS. In a translation, {0#one:…;few:…;other:…} picks the
+   plural form for the number {0} (categories of Intl.PluralRules: sl one/two/few/other,
+   hr one/few/other, bg one/other). */
+let TX={t:{}};
+const L_MISS=new Set();
+const L_LOC={en:'en-GB',zap:'sl-SI',sre:'hr-HR',ist:'bg-BG'};
+const LKEY=s=>String(s).replace(/\s+/g,' ').trim();
+const _lpr={};
+function lPlural(n,spec){
+  const loc=L_LOC[LANG]||'en-GB', pr=_lpr[loc]||(_lpr[loc]=new Intl.PluralRules(loc)), f={};
+  spec.split(';').forEach(x=>{const i=x.indexOf(':');if(i>0)f[x.slice(0,i).trim()]=x.slice(i+1);});
+  const v=Number(String(n).replace(/\D/g,''));   // counts are integers, whatever the grouping
+  return f[pr.select(v)]??f.other??'';
+}
+function L(s,...a){
+  const tagged=Array.isArray(s)&&Array.isArray(s.raw);
+  if(LANG!=='en'){
+    const key=LKEY(tagged?s.reduce((k,p,i)=>k+(i?'{'+(i-1)+'}':'')+p,''):s);
+    const e=(TX.t||{})[key], tr=e&&e[LANG];
+    if(tr!=null)return tr.replace(/\{(\d+)#([^}]*)\}/g,(m,i,spec)=>lPlural(a[i],spec))
+      .replace(/\{(\d+)\}/g,(m,i)=>a[i]??'');
+    if(key&&/[A-Za-z]/.test(key))L_MISS.add(key);
+  }
+  if(tagged)return s.reduce((o,p,i)=>o+(i?a[i-1]:'')+p,'');
+  return a.length?String(s).replace(/\{(\d+)\}/g,(m,i)=>a[i]??''):s;
+}
+/* No-op marker for English held in code tables (JOURNAL, diagrams…): the string is translated
+   where it is displayed, with L(x); N() only lets scripts/textes.py find it. */
+const N=s=>s;
+/* An English gloss beside a South Slavic name (Bosniaks · Bošñaci) is only for English readers;
+   the standards show the name in their own form. */
+const gloss=(en,name)=>LANG==='en'?en+' · '+name:L(en);
+/* Long dates: English 25 October 2026; zapadni 25. oktober 2026; središñi 25. 10. 2026. (the month
+   names divide Serbian and Croatian); istočni 25 oktomvri 2026 g. */
+const MONTHS={zap:['januar','februar','marec','april','maj','junij','julij','avgust','september','oktober','november','december'],
+  ist:['januari','fevruari','mart','april','maj','juni','juli','avgust','septemvri','oktomvri','noemvri','dekemvri']};
+function fmtD(iso){
+  const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso||''));if(!m)return iso||'';
+  const y=m[1],mo=+m[2],d=+m[3];
+  if(LANG==='zap')return `${d}. ${MONTHS.zap[mo-1]} ${y}`;
+  if(LANG==='sre')return `${d}. ${mo}. ${y}.`;
+  if(LANG==='ist')return `${d} ${MONTHS.ist[mo-1]} ${y} g.`;
+  return new Date(Date.UTC(+y,mo-1,d)).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+}
+
+/* Cyrillic display of everything on screen: text nodes and the title, aria-label, placeholder
+   and alt attributes are converted as they are inserted. Skipped: translate="no" (letters of the
+   Latin alphabet, IPA, codes, the citizen card, the language buttons), code, .mono, inputs. */
+const CYR_ATTRS=['title','aria-label','placeholder','alt'];
+const cyrSkip=el=>!!el.closest('[translate="no"],script,style,textarea,code,.mono');
+function cyrApply(n){
+  if(!cyrOn()||!n)return;
+  if(n.nodeType===3){if(n.parentElement&&!cyrSkip(n.parentElement))n.data=cyrText(n.data,LANG);return;}
+  if(n.nodeType!==1||cyrSkip(n))return;
+  const w=document.createTreeWalker(n,NodeFilter.SHOW_TEXT);
+  for(let t=w.nextNode();t;t=w.nextNode())
+    if(/\p{L}/u.test(t.data)&&!cyrSkip(t.parentElement))t.data=cyrText(t.data,LANG);
+  [n,...n.querySelectorAll('[title],[aria-label],[placeholder],[alt]')].forEach(el=>{
+    if(cyrSkip(el))return;
+    CYR_ATTRS.forEach(a=>{const v=el.getAttribute(a);if(v)el.setAttribute(a,cyrText(v,LANG));});
+  });
+}
 /* breadcrumb labels that are navigation labels follow the language */
 const CRUMB_KEYS={'Home':'nav_home','States':'nav_states','Map':'nav_map','Institutions':'nav_institutions',
   'Security and Defence':'l_security','Constitution':'nav_constitution','Identity':'nav_identity',
@@ -1780,8 +1871,6 @@ function applyChrome(){
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.setAttribute('placeholder',T(el.dataset.i18nPh)));
   document.querySelectorAll('#langsel button').forEach(b=>{const on=b.dataset.l===LANG;
     b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
-  const n=document.getElementById('langNote');
-  if(n){n.hidden=LANG==='en';n.textContent=LANG==='en'?'':T('note_en');}
   citHeader();
 }
 /* Titles and intertitles of the pages (phase 2, step 1): the English stays in the template,
@@ -1795,10 +1884,15 @@ function i18nApply(root){
 /* Pages and their later mounts (wizard steps, dashboard, card forms) are translated as they
    are inserted, so no view has to remember to call i18nApply. */
 function i18nWatch(){
-  const app=document.getElementById('app');if(!app)return;
   new MutationObserver(ms=>{if(LANG==='en')return;
-    for(const m of ms)for(const n of m.addedNodes)if(n.nodeType===1)i18nApply(n);
-  }).observe(app,{childList:true,subtree:true});
+    for(const m of ms)for(const n of m.addedNodes){if(n.nodeType===1)i18nApply(n);cyrApply(n);}
+  }).observe(document.body,{childList:true,subtree:true});
+}
+/* A change of language or script redraws the page where it stands. */
+function rerender(){
+  const y=window.scrollY;
+  renderNow();
+  window.scrollTo({top:y,behavior:'instant'});
 }
 function crumb(parts){
   const k=p=>CRUMB_KEYS[p]?` data-i18n="${CRUMB_KEYS[p]}"`:'';
@@ -4484,13 +4578,13 @@ document.getElementById('langsel').addEventListener('click',e=>{
   if(b.dataset.l===LANG)return;
   LANG=b.dataset.l;
   try{localStorage.setItem('bk-lang',LANG);}catch(err){}
-  applyChrome();   // breadcrumbs carry data-i18n too
+  applyChrome();rerender();
 });
 document.getElementById('scriptsel').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b||b.dataset.s===SCRIPT)return;
   SCRIPT=b.dataset.s==='cyr'?'cyr':'lat';
   try{localStorage.setItem('bk-script',SCRIPT);}catch(err){}
-  applyChrome();
+  applyChrome();rerender();
 });
 window.addEventListener('hashchange',render);
 /* le portail place lui-même la page (haut de page, article, retour à la grille) :
@@ -4558,7 +4652,7 @@ const SB_PAGES=[
  ['Verify a card','Check the status of a citizen card','#/verify'],
  ['Dashboard','Confederal indicators','#/dashboard'],
 ];
-function fmtN(n){return Number(n).toLocaleString('en-GB');}
+function fmtN(n){return Number(n).toLocaleString(L_LOC[LANG]||'en-GB');}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function buildIndex(){
@@ -5272,7 +5366,7 @@ const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg,tx]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -5287,10 +5381,11 @@ async function loadData(){
     fetch(base+'videos.json').then(r=>r.ok?r.json():{}).catch(()=>({})),   // optionnel
     fetch(base+'i18n.json').then(r=>r.ok?r.json():I18N).catch(()=>I18N),
     fetch(base+'registre.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
+    fetch(base+'textes.json').then(r=>r.ok?r.json():TX).catch(()=>TX),
   ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; REGISTRE={...REGISTRE,...rg};
+  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; TX=tx; REGISTRE={...REGISTRE,...rg};
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
-  STD={western:'Standard occidental (zapadni)',central:'Standard central (središñi)',eastern:'Standard oriental (istočni)'};
+  STD={western:'Western standard (zapadni)',central:'Central standard (središñi)',eastern:'Eastern standard (istočni)'};
 }
 loadData().then(()=>{ render(); }).catch(e=>{
   document.getElementById('app').innerHTML='<p style="padding:40px">Erreur de chargement des données : '+e+'</p>';
