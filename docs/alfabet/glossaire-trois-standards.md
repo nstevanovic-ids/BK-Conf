@@ -48,7 +48,7 @@ les règles de choix des mots de `interface-trois-standards.md`, qui restent en 
 | capital | prestolnica | glavni grad | stolica (столица) |
 | autonomous community | avtonomna skupnost | autonomna zajednica | avtonomna obštnost (автономна общност) |
 | autonomous entity | avtonomna entiteta | autonomni entitet | avtonomno obrazuvanie (автономно образувание) |
-| confederated States | konfederirane države | konfederirane države | konfederiranite dãržavi (конфедерираните държави) |
+| confederated States | konfederirane države | države članice (ni *konfederisane* ni *konfederirane*) | konfederiranite dãržavi (конфедерираните държави) |
 | national (of the whole country) | nacionalni | nacionalni | nacionalen (национален) ; *narodni* / *naroden* reste réservé aux peuples constitutifs |
 | occupied territories | zasedena ozemļa | okupirane teritorije | okupirani teritorii (окупирани територии) |
 | border | meja | granica | granica (граница) |
