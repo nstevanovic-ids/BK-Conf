@@ -390,6 +390,8 @@ def check_one(key, lang, tr):
         for m in re.finditer(r"(?i)\b\w*(?:lj|nj|dž)\w*", plain):
             if not V3_OK.search(m.group(0)):
                 warns.append(f"v3 ? {m.group(0)}")
+    if re.search(r"(?i)[ñļ]j", plain):
+        errs.append("ñj / ļj (la lettre v3 remplace déjà nj, lj)")
     if lang in ("zap", "ist") and "ě" in plain.lower():
         errs.append("yat hors du središñi")
     if lang == "ist" and re.search(r"(?i)[ćđ]", plain):
