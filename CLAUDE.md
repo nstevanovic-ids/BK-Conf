@@ -82,9 +82,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
 
 ## Workstreams (jamais mélanger dans une même session)
 - Constitution → docs/constitution/ (texte de travail en vigueur : **v4.md**, français ;
-  texte publié : **v4.en.md**, anglais ; v1 et v2 archivées). Toute modification de
-  fond se fait dans les deux fichiers, puis `python scripts/build_constitution.py`
-  régénère `portail/data/constitution.json` (lecteur #/constitution du portail).
+  texte publié : **v4.en.md**, anglais ; versions officielles des trois standards, qui font
+  également foi (art. 151) : **v4.zap.md**, **v4.sre.md**, **v4.ist.md**, alphabet v3, mêmes
+  préfixes de structure anglais et même structure que v4.en.md, ADR
+  2026-10-26-constitution-trois-standards.md ; v1 et v2 archivées). Toute modification de
+  fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
+  régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
+  #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
   Version 4.11 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
   4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le

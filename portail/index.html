@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-10-26',cat:N('Law'),t:N('The Constitution in the three standards'),
+  s:N('The zapadni, središñi and istočni texts of the Constitution are published and are equally authentic with the English text (Art. 151). The reader follows the chosen standard, in Latin or in Cyrillic, with the same 192 articles and cross-references.')},
  {d:'2026-10-26',cat:N('Identity'),t:N('The whole portal in the three standards'),
   s:N('Every page can now be read in the three standards (zapadni, središñi, istočni), and the central and eastern standards also in Cyrillic: the state pages, the institutions, security, the Official Journal, the alphabet and symbols, the citizen\'s journey and the search. Numbers and dates follow the language; a glossary fixes the shared terms.')},
  {d:'2026-10-25',cat:N('Identity'),t:N('The portal in Cyrillic'),
@@ -1774,13 +1776,15 @@ function latRe(){
 }
 /* Roman numerals stay Latin (Glava III, Title I bis): any of two letters or more; a single I, V
    or X only after a word or in a list of numerals (IV, V), so that the conjunction I opening a
-   sentence is still converted.
+   sentence is still converted. A letter a to h after a number (Article 109 a) stays Latin, like
+   the letters of the lists it points to.
    In a hyphenated token with a digit, only a lower-case ending is converted (49-te → 49-те):
    codes stay whole (BA-01, Bk-12, EU-27, TD1). */
 const ROMAN=/^(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})$/;
 function cyrPlain(t,std){
   return t.replace(/[\p{L}\p{M}\d]+(?:['’-][\p{L}\p{M}\d]+)*/gu,(tok,at,all)=>{
-    if(LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/(?:[\p{L}\d]|\b[IVXL]+,)\s+$/u.test(all.slice(0,at)))))return tok;
+    if(LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/(?:[\p{L}\d]|\b[IVXL]+,)\s+$/u.test(all.slice(0,at))))
+      ||(/^[a-h]$/.test(tok)&&/\d\s+$/.test(all.slice(0,at))))return tok;
     if(/\d/.test(tok))return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>/^[\p{Ll}\p{M}]+$/u.test(w)?cyrWord(w,std):w);
     return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std));
   });
@@ -2775,6 +2779,24 @@ function vSecurity(){
    CONSTITUTION READER, data: portail/data/constitution.json
    (generated from docs/constitution/v4.en.md by scripts/build_constitution.py)
    ============================================================ */
+/* Official versions (Art. 151): constitution.json in English and constitution.<std>.json for each
+   standard, same ids and structure; the reader follows the language (ADR
+   2026-10-26-constitution-trois-standards.md). The data keep the English structural prefixes
+   (Title IV bis, Chapter 3, Section 2, Article 12): cNum shows them in the reader's language. */
+let CONS_TR={};
+const cDoc=()=>LANG!=='en'&&CONS_TR[LANG]&&(CONS_TR[LANG].titles||[]).length?CONS_TR[LANG]:CONSTITUTION;
+function cNum(num,abbr){
+  const m=/^(Title|Chapter|Section|Article) (.+)$/.exec(String(num||''));
+  if(!m)return num||'';
+  if(m[1]==='Title')return L`Title ${m[2]}`;
+  if(m[1]==='Chapter')return L`Chapter ${m[2]}`;
+  if(m[1]==='Section')return L`Section ${m[2]}`;
+  return abbr?L`Art. ${m[2]}`:L`Article ${m[2]}`;
+}
+/* Cross-references made into links: Article 109 in English; člen, član, čl. (declined) in the standards. */
+const CREF_SUF='(?: (?:bis|ter|quater|quinquies|sexies|septies|octies)(?![\\p{L}]))?';
+const CREF={en:new RegExp('\\b(Articles?) (\\d+'+CREF_SUF+')','gu'),
+  std:new RegExp('(?<![\\p{L}])([Čč]l(?:\\.|an|en)\\p{L}*) (\\d+'+CREF_SUF+')','gu')};
 function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
 function cIndex(){
   if(cIndex.m)return cIndex.m;
@@ -2783,13 +2805,13 @@ function cIndex(){
   return cIndex.m=m;
 }
 function cRange(t){const a=cArticles(t);
-  return a.length===1?a[0].num:a[0].num+' – '+a[a.length-1].num.replace('Article ','');}
+  return a.length===1?cNum(a[0].num):cNum(a[0].num)+' – '+a[a.length-1].num.replace(/^Article /,'');}
 function cInline(x,links){
   let h=esc(x).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
               .replace(/\*([^*]+)\*/g,'<em>$1</em>');
   if(!links)return h;
   const idx=cIndex();
-  h=h.replace(/\b(Articles?) (\d+(?: (?:bis|ter|quater|quinquies|sexies|septies|octies)\b)?)/g,(m,w,n)=>{
+  h=h.replace(LANG==='en'?CREF.en:CREF.std,(m,w,n)=>{
     const id='art-'+n.replace(' ',''), t=idx[id];
     return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
   h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
@@ -2801,7 +2823,7 @@ function cBlock(b){
   if(b.t==='h')return `<div class="csub">${cInline(b.x)}</div>`;
   if(b.t==='ul')return `<ul class="cul">${b.items.map(i=>`<li>${cInline(i,true)}</li>`).join('')}</ul>`;
   if(b.t==='ll')return `<ol class="cll">${b.items.map(i=>
-    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
+    `<li><span class="cmk" translate="no">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
   if(b.t==='ol')return `<ol class="col${b.items.length>12?' ccols':''}">${b.items.map(i=>
     `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
   return '';
@@ -2815,7 +2837,7 @@ function cJump(id,now){
   return false;
 }
 function vConstitution(){
-  const C=CONSTITUTION, T=C.titles||[];
+  const C=cDoc(), T=C.titles||[], CD=esc(C.iso?fmtD(C.iso):C.date);
   const parts=(location.hash||'').replace(/^#\//,'').split('/');
   const cur=T.find(t=>t.id===parts[1]);
   const nArt=T.reduce((n,t)=>n+cArticles(t).length,0);
@@ -2824,16 +2846,19 @@ function vConstitution(){
   <section class="section pagehead reveal">
     <div class="eyebrow" data-i18n="h_fundamental">Fundamental law</div>
     <h1 data-i18n="h_constitution_h1">Constitution of the Balkan Confederation</h1>
-    <p class="lead">${L`Consolidated text, version ${esc(C.version.replace('v',''))} of
-    ${esc(C.date)}: a preamble and ${fmtN(nArt)} articles in ${fmtN(T.length)} titles. Official acts
+    <p class="lead">${LANG==='en'?L`Consolidated text, version ${esc(C.version.replace('v',''))} of
+    ${CD}: a preamble and ${fmtN(nArt)} articles in ${fmtN(T.length)} titles. Official acts
     are published in the unified South Slavic Latin alphabet and in the three regional
-    standards; this is the English text.`}</p>
+    standards; this is the English text.`
+    :L`Consolidated text, version ${esc(C.version.replace('v',''))} of ${CD}: a preamble and
+    ${fmtN(nArt)} articles in ${fmtN(T.length)} titles. The texts in the three regional standards
+    are equally authentic (Art. 151); this is the official text in this standard.`}</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="h2row"><h2 data-i18n="h_titles">Titles</h2><a class="seeall" href="#/journal">${L`Official Journal`} →</a></div>
     <div class="jlist">
       ${T.map(t=>`<a class="jrow" href="#/constitution/${t.id}">
-        <span class="jd">${esc(t.num)}</span>
+        <span class="jd">${esc(cNum(t.num))}</span>
         <span class="jt">${esc(t.name)}<span>${esc(cRange(t))} · ${L`${fmtN(cArticles(t).length)} articles`}</span></span>
         <span class="jcat">${L`Read`} →</span></a>`).join('')}
     </div>
@@ -2845,39 +2870,39 @@ function vConstitution(){
       <p class="cmotto">${cInline(C.preamble.motto)}</p>
     </div>
     <div class="cpager"><span></span>
-      <a href="#/constitution/${T[0].id}"><small>${L`Begin reading`}</small>${esc(T[0].num)} · ${esc(T[0].name)} →</a></div>
+      <a href="#/constitution/${T[0].id}"><small>${L`Begin reading`}</small>${esc(cNum(T[0].num))} · ${esc(T[0].name)} →</a></div>
   </section>`;
   }
   const i=T.indexOf(cur), prev=T[i-1], next=T[i+1];
   const toc=cur.chapters.map(ch=>`
-      ${ch.num?`<div class="cch">${esc(ch.num)}<span>${esc(ch.name)}</span></div>`:''}
-      ${ch.articles.map(a=>`${a.sec?`<div class="csec">${esc(a.sec.num)}<span>${esc(a.sec.name)}</span></div>`:''}<a href="#/constitution/${cur.id}/${a.id}"
-        onclick="return cJump('${a.id}')"><b>${esc(a.num.replace('Article ','Art. '))}</b>${esc(a.name)}</a>`).join('')}`).join('');
+      ${ch.num?`<div class="cch">${esc(cNum(ch.num))}<span>${esc(ch.name)}</span></div>`:''}
+      ${ch.articles.map(a=>`${a.sec?`<div class="csec">${esc(cNum(a.sec.num))}<span>${esc(a.sec.name)}</span></div>`:''}<a href="#/constitution/${cur.id}/${a.id}"
+        onclick="return cJump('${a.id}')"><b>${esc(cNum(a.num,true))}</b>${esc(a.name)}</a>`).join('')}`).join('');
   const body=cur.chapters.map(ch=>`
-      ${ch.num?`<h2 class="cchap">${esc(ch.num)} · ${esc(ch.name)}</h2>`:''}
-      ${ch.articles.map(a=>`${a.sec?`<h3 class="csech">${esc(a.sec.num)} · ${esc(a.sec.name)}</h3>`:''}<article class="cart" id="${a.id}">
-        <div class="cnum">${esc(a.num)}</div>
+      ${ch.num?`<h2 class="cchap">${esc(cNum(ch.num))} · ${esc(ch.name)}</h2>`:''}
+      ${ch.articles.map(a=>`${a.sec?`<h3 class="csech">${esc(cNum(a.sec.num))} · ${esc(a.sec.name)}</h3>`:''}<article class="cart" id="${a.id}">
+        <div class="cnum">${esc(cNum(a.num))}</div>
         <h3>${esc(a.name)}</h3>
         ${a.body.map(cBlock).join('')}
       </article>`).join('')}`).join('');
-  return crumb([['Home','#/home'],['Constitution','#/constitution'],[cur.num]])+`
+  return crumb([['Home','#/home'],['Constitution','#/constitution'],[cNum(cur.num)]])+`
   <section class="section pagehead reveal">
-    <div class="eyebrow">${L`Constitution`} · ${esc(cur.num)}</div>
+    <div class="eyebrow">${L`Constitution`} · ${esc(cNum(cur.num))}</div>
     <h1>${esc(cur.name)}</h1>
     <p class="lead">${esc(cRange(cur))} · ${L`${fmtN(cArticles(cur).length)} articles`}.
-    ${L`Consolidated text, version ${esc(C.version.replace('v',''))} of ${esc(C.date)}.`}</p>
+    ${L`Consolidated text, version ${esc(C.version.replace('v',''))} of ${CD}.`}</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
     <div class="creader">
-      <nav class="ctoc" aria-label="${esc(L`Articles of ${cur.num}`)}">
-        <div class="ctoc-h">${esc(cur.num)}</div>${toc}
-        <div class="ctoc-t">${T.map(t=>`<a class="${t===cur?'on':''}" href="#/constitution/${t.id}">${esc(t.num)}</a>`).join('')}</div>
+      <nav class="ctoc" aria-label="${esc(L`Articles of ${cNum(cur.num)}`)}">
+        <div class="ctoc-h">${esc(cNum(cur.num))}</div>${toc}
+        <div class="ctoc-t">${T.map(t=>`<a class="${t===cur?'on':''}" href="#/constitution/${t.id}">${esc(cNum(t.num))}</a>`).join('')}</div>
       </nav>
       <div class="cbody">${body}
         <div class="cpager">
-          ${prev?`<a href="#/constitution/${prev.id}"><small>← ${L`Previous`}</small>${esc(prev.num)} · ${esc(prev.name)}</a>`
+          ${prev?`<a href="#/constitution/${prev.id}"><small>← ${L`Previous`}</small>${esc(cNum(prev.num))} · ${esc(prev.name)}</a>`
                 :`<a href="#/constitution"><small>← ${L`Back`}</small>${L`Preamble and table of titles`}</a>`}
-          ${next?`<a class="nx" href="#/constitution/${next.id}"><small>${L`Next`} →</small>${esc(next.num)} · ${esc(next.name)}</a>`:'<span></span>'}
+          ${next?`<a class="nx" href="#/constitution/${next.id}"><small>${L`Next`} →</small>${esc(cNum(next.num))} · ${esc(next.name)}</a>`:'<span></span>'}
         </div>
       </div>
     </div>
@@ -4720,11 +4745,11 @@ function buildIndex(){
   ALPHA.forEach(a=>{
     idx.push({type:N('Alphabet'),label:a[0],sub:L`IPA ${a[1]}`,hash:'#/alphabet',
       hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0],lat:true});});
-  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{
+  (cDoc().titles||[]).forEach(t=>cArticles(t).forEach(a=>{
     const txt=a.body.map(b=>b.x||(b.items||[]).map(i=>Array.isArray(i)?i[1]:i).join(' ')).join(' ');
-    idx.push({type:N('Constitution'),label:a.num+' · '+a.name,sub:t.num+' · '+t.name,
+    idx.push({type:N('Constitution'),label:cNum(a.num)+' · '+a.name,sub:cNum(t.num)+' · '+t.name,
       hash:'#/constitution/'+t.id+'/'+a.id,
-      hay:(a.num+' '+a.name+' '+t.name+' '+txt).toLowerCase(),iconText:'§'});}));
+      hay:(a.num+' '+cNum(a.num)+' '+a.name+' '+t.name+' '+txt).toLowerCase(),iconText:'§'});}));
   SB_PAGES.forEach(p=>{
     idx.push({type:N('Pages'),label:L(p[0]),sub:L(p[1]),hash:p[2],
       hay:(p[0]+' '+p[1]+tr(p[0])+tr(p[1])).toLowerCase(),iconText:'§'});});
@@ -5426,7 +5451,7 @@ const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 async function loadData(){
   const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg,tx]=await Promise.all([
+  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg,tx,...ctr]=await Promise.all([
     fetch(base+'peuples.json').then(r=>r.json()),
     fetch(base+'etats.json').then(r=>r.json()),
     fetch(base+'entites-autonomes.json').then(r=>r.json()),
@@ -5442,8 +5467,10 @@ async function loadData(){
     fetch(base+'i18n.json').then(r=>r.ok?r.json():I18N).catch(()=>I18N),
     fetch(base+'registre.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
     fetch(base+'textes.json').then(r=>r.ok?r.json():TX).catch(()=>TX),
+    ...['zap','sre','ist'].map(s=>fetch(base+'constitution.'+s+'.json').then(r=>r.ok?r.json():null).catch(()=>null)),
   ]);
   PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; TX=tx; REGISTRE={...REGISTRE,...rg};
+  ['zap','sre','ist'].forEach((s,i)=>{if(ctr[i])CONS_TR[s]=ctr[i];});
   AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
   STD={western:N('Western standard (zapadni)'),central:N('Central standard (središñi)'),eastern:N('Eastern standard (istočni)')};
 }

@@ -346,6 +346,8 @@ ROMAN = re.compile(r"(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})")
 def keep_latin(tok, before):
     if LAT_FOREIGN.search(tok):
         return True
+    if re.fullmatch(r"[a-h]", tok) and re.search(r"\d\s+$", before):
+        return True
     return bool(tok) and ROMAN.fullmatch(tok) and (len(tok) > 1 or re.search(r"(?:[^\W_]|\b[IVXL]+,)\s+$", before))
 
 
