@@ -42,7 +42,6 @@ première : le texte des pages. La Constitution suit (ADR 2026-10-26-constitutio
   vérifiée par aller-retour : le cyrillique du portail redonne le bulgare d'origine.
 - **Carte de citoyen** : non traduite. C'est un document dont la langue est celle choisie
   par le titulaire (attribut du document, pas du porteur).
-
 - **Volume** : 906 phrases et libellés (environ 10 000 mots anglais), chacun dans les trois
   standards.
 - **Gloses anglaises** sous un nom officiel (services de sécurité, organes confédéraux,
