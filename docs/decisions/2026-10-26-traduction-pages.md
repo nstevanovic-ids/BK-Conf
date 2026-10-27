@@ -43,14 +43,40 @@ première : le texte des pages. La Constitution suit (ADR 2026-10-26-constitutio
 - **Carte de citoyen** : non traduite. C'est un document dont la langue est celle choisie
   par le titulaire (attribut du document, pas du porteur).
 
+- **Volume** : 906 phrases et libellés (environ 10 000 mots anglais), chacun dans les trois
+  standards.
+- **Gloses anglaises** sous un nom officiel (services de sécurité, organes confédéraux,
+  peuples) : affichées seulement en anglais, pour ne pas répéter le nom dans les standards.
+- **Noms de personnes saisis** (récapitulatif, mineurs) : laissés tels qu'écrits, aussi en
+  cyrillique.
+
 ## Corrections faites au passage
 - Les noms des standards de la fiche d'État étaient en français (« Standard central
   (središñi) ») : ils sont en anglais dans le gabarit (« Central standard (središñi) ») et
   traduits.
 - Le message d'erreur de chargement, en français, est en anglais et traduit.
+- Les emplacements d'images manquantes affichaient au public les notes internes en français
+  (« Paysage · Panorama balkanique… ») : libellés anglais, traduits.
+- Note de drapeau de Ludogorie : « ЛUDOGOPIE » (latin et cyrillique mêlés) devient « ЛУДОГОРИЕ ».
+- Zapadni : le titre « Seven departments » devient *Sedem resorjev* (glossaire : *resor*).
+
+## Vérifications
+- Rendu anglais identique avant et après l'extraction (85 routes).
+- `scripts/textes.py check` : 906 clés, aucune traduction manquante, aucune erreur.
+- Parcours Playwright de toutes les routes (49 fiches d'États, parcours d'inscription,
+  recherche) en zapadni, središñi et istočni, en latin et en cyrillique, sur ordinateur et à
+  390 px : aucune clé manquante, aucune phrase anglaise hors du texte de la Constitution,
+  aucune erreur JS, aucun débordement horizontal.
+
+## Limites
+- Le texte de la Constitution reste en anglais dans le lecteur jusqu'à la deuxième PR.
+- Les messages renvoyés par le registre (Worker) restent en anglais quand ils ne
+  correspondent pas à un message du portail.
 
 ## Propagation
 - `portail/index.html`, `portail/data/textes.json` (nouveau), `portail/data/i18n.json`
-  (note supprimée, pied de page), `scripts/build_portail.py`, `scripts/textes.py` (nouveau).
+  (note supprimée, pied de page, libellés aria), `portail/data/flagnotes.json`,
+  `scripts/build_portail.py`, `scripts/textes.py` (nouveau), `.github/workflows/pages.yml`
+  (contrôle des traductions, en avertissement).
 - `docs/alfabet/glossaire-trois-standards.md` (nouveau), `interface-trois-standards.md`,
   `CLAUDE.md`, Journal officiel.
