@@ -1826,6 +1826,8 @@ const N=s=>s;
 /* An English gloss beside a South Slavic name (Bosniaks · Bošñaci) is only for English readers;
    the standards show the name in their own form. */
 const gloss=(en,name)=>LANG==='en'?en+' · '+name:L(en);
+/* A person's name stays as written, also in Cyrillic (names of persons are never rewritten). */
+const nm=s=>'<span translate="no">'+esc(s)+'</span>';
 /* Long dates: English 25 October 2026; zapadni 25. oktober 2026; središñi 25. 10. 2026. (the month
    names divide Serbian and Croatian); istočni 25 oktomvri 2026 g. */
 const MONTHS={zap:['januar','februar','marec','april','maj','junij','julij','avgust','september','oktober','november','december'],
@@ -3836,7 +3838,7 @@ function regStepHTML(i){
   return `<h2 data-i18n="h_step_declaration">Declaration</h2>
     <p class="lead">${L`Check your details, then confirm that you join of your own free will.`}</p>
     <table class="dtable">
-      ${row(L`Name`,`<b>${esc(cleanName(R.surname).toUpperCase())}</b> ${esc(cleanName(R.given))}`,0)}
+      ${row(L`Name`,`<span translate="no"><b>${esc(cleanName(R.surname).toUpperCase())}</b> ${esc(cleanName(R.given))}</span>`,0)}
       ${row(L`Sex · born`,`${R.sex==='F'?L`Female`:L`Male`} · ${esc(dmy(R.dob))}`,0)}
       ${row(L`Municipality`,`${esc(R.origin?R.origin.n:'')} <span class="note">(${{own:L`own origin`,ancestry:L`family origin`,residence:L`residence`}[R.basis]||''})</span>`,1)}
       ${row(L`State of attachment`,s?`${esc(s.n)} · ${esc(s.c)}`:'',1)}
@@ -4197,7 +4199,7 @@ function minErrors(){
 function minSection(c){
   if(c.minor)return '';
   const kids=minList(c);
-  const rows=kids.map(m=>`<tr><td>${esc(m.given)} ${esc(m.surname.toUpperCase())}</td>
+  const rows=kids.map(m=>`<tr><td>${nm(m.given+' '+m.surname.toUpperCase())}</td>
     <td>${minAdult(m)?L`<span translate="no">${esc(m.num)}</span> · born ${esc(dmy(m.dob))} · valid until ${esc(dmy(m.expiry))} · <b>now of age</b>`
       :L`<span translate="no">${esc(m.num)}</span> · born ${esc(dmy(m.dob))} · valid until ${esc(dmy(m.expiry))}`}</td>
     <td><a href="#/minor/${esc(m.num)}">${L`Open card`}</a></td></tr>`).join('');
@@ -4226,24 +4228,24 @@ function vMinor(){
     if(!MIN||MIN.num!==(m?m.num:null))MIN=m?minFrom(m):minBlank(p);
     return head(m?L`Amend`:L`Declare a child`)+`<section class="section pagehead reveal">
       <div class="eyebrow"><span data-i18n="h_digital">Confederal digital citizenship</span> · ${L`Art. 38 a`}</div>
-      <h1${m?'':' data-i18n="h_declare_child"'}>${m?L`Amend the card of ${esc(m.given)}`:'Declare a child'}</h1>
+      <h1${m?'':' data-i18n="h_declare_child"'}>${m?L`Amend the card of ${nm(m.given)}`:'Declare a child'}</h1>
       <p class="lead">${L`The child takes your state of attachment, ${esc(byCode(p.origin.c)?byCode(p.origin.c).n:p.origin.n)}
       (${esc(p.origin.c)}), through your municipality of origin, ${esc(p.origin.n)}. No national register is recorded before 18.`}</p>
     </section><section class="section"><div id="minForm"></div></section>`;
   }
   const s=byCode(m.origin.c)||{n:m.origin.n,c:m.origin.c},rc=remoteCit();
   const hand=minAdult(m)?(rc?`<div class="panel" style="margin-top:22px"><div class="eyebrow" data-i18n="h_of_age">Now of age</div>
-      <p>${L`${esc(m.given)} is 18. Give his e-mail address: he confirms it and manages his card himself from then on, with
+      <p>${L`${nm(m.given)} is 18. Give his e-mail address: he confirms it and manages his card himself from then on, with
       the same number. You will no longer have access to it.`}</p>
       ${m.handover?`<p class="note">${L`A confirmation was sent to ${esc(m.handover)}.`}</p>`:''}
       <div class="frow"><div class="fld"><label class="fl" for="mMail">${L`His e-mail address`}</label>
         <input id="mMail" type="email" autocomplete="off" value="" oninput="MIN=MIN||minFrom(minFind('${esc(m.num)}'));MIN.mail=this.value"></div></div>
       <button class="btn btn-primary" onclick="minHandover('${esc(m.num)}')">${L`Hand over the card`}</button></div>`
-    :`<div class="notice">${L`${esc(m.given)} is now of age. When the confederal register opens, he takes over his card with
+    :`<div class="notice">${L`${nm(m.given)} is now of age. When the confederal register opens, he takes over his card with
       his own e-mail address; until then he may register himself in his own browser.`}</div>`):'';
   return head(m.given)+`<section class="section pagehead reveal">
     <div class="eyebrow"><span data-i18n="h_digital">Confederal digital citizenship</span> · <span data-i18n="h_child_card">Child's card</span></div>
-    <h1>${esc(m.given)} ${esc(m.surname.toUpperCase())}</h1>
+    <h1>${nm(m.given+' '+m.surname.toUpperCase())}</h1>
     <p class="lead">${L`<span translate="no">${esc(m.num)}</span> · issued ${esc(dmy(m.issued))} · valid until ${esc(dmy(m.expiry))} ·
     attached to ${esc(s.n)} (${esc(s.c)}) by filiation. No national register before 18 (Art. 102).`}</p>
   </section>
