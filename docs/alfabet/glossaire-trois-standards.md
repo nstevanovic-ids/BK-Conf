@@ -122,6 +122,8 @@ Oružane Snage*, *Konfederalna Agencija za Vanredne Situacije*.
 | Title (of the Constitution) | poglavje | glava | glava (глава) |
 | Chapter | razdelek | poglavļe | razdel (раздел) |
 | Article / Art. | člen / čl. | član / čl. | člen / čl. (член / чл.) |
+| Section (of a chapter) | oddelek | oděļak | podrazdel (подраздел) |
+| special chamber (Ustavni Sud) | posebni senat | posebno veće | specialnata kamara (специалната камара) |
 | paragraph | odstavek | stav | alineja (алинея) |
 | preamble | preambula | preambula | preambjul (преамбюл) |
 | law / confederal law | zakon / konfederalni zakon | zakon / konfederalni zakon | zakon / konfederalen zakon |

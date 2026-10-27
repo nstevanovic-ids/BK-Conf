@@ -231,5 +231,6 @@ standards, et passe en cyrillique pour le središñi et l'istočni.
 ## Suite (phase 2, étapes suivantes)
 
 - ~~Traduire le texte des pages, standard par standard.~~ Fait le 2026-10-26.
-- Le lecteur de la Constitution attend la version officielle dans les trois standards : selon
-  l'art. 151, elles font également foi.
+- ~~Le lecteur de la Constitution attend la version officielle dans les trois standards.~~ Fait le
+  2026-10-26 (ADR 2026-10-26-constitution-trois-standards.md) : le lecteur suit la langue, avec
+  les libellés *Poglavje / Glava / Glava*, *Člen / Član / Člen*.

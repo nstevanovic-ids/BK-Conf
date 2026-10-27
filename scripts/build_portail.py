@@ -37,6 +37,9 @@ def build_inline() -> int:
     flagnotes = json.loads((DATA / "flagnotes.json").read_text())
     geo = json.loads((DATA / "geo.json").read_text())
     constitution = json.loads((DATA / "constitution.json").read_text(encoding="utf-8"))
+    # Versions officielles des trois standards (art. 151 ; ADR 2026-10-26-constitution-trois-standards.md).
+    cons_tr = {s: json.loads((DATA / f"constitution.{s}.json").read_text(encoding="utf-8"))
+               for s in ("zap", "sre", "ist")}
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
     lights = json.loads((DATA / "lights.json").read_text(encoding="utf-8"))
     opstine = json.loads((DATA / "opstine.json").read_text(encoding="utf-8"))
@@ -59,6 +62,7 @@ def build_inline() -> int:
         f"FLAGNOTE={json.dumps(flagnotes, ensure_ascii=False)};\n"
         f"GEO={json.dumps(geo, ensure_ascii=False)};\n"
         f"CONSTITUTION={json.dumps(constitution, ensure_ascii=False)};\n"
+        f"CONS_TR={json.dumps(cons_tr, ensure_ascii=False, separators=(',', ':'))};\n"
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
         f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
@@ -113,7 +117,8 @@ def build_linked() -> int:
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
                     "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
                     "constitution.json", "stats.json", "lights.json", "opstine.json",
-                    "i18n.json", "registre.json", "textes.json")
+                    "i18n.json", "registre.json", "textes.json", "constitution.zap.json",
+                    "constitution.sre.json", "constitution.ist.json")
         if not (DATA / f).exists()
     ]
     if missing:

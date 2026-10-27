@@ -401,6 +401,11 @@
    "ist": "Člen 132: obektivni pokazateli, dolna granica ot 85% ot fiskalnija kapacitet na čovek ot naselenieto.",
    "zap": "Člen 132: objektivni kazalniki, spodña meja 85 % fiskalne zmogļivosti na prebivalca."
   },
+  "Article {0}": {
+   "zap": "Člen {0}",
+   "sre": "Član {0}",
+   "ist": "Člen {0}"
+  },
   "Articles 102, 108, 112 and 117: enrolment from the age of 18; a first enrolment is probationary for three years and may be rectified once; otherwise another register only after fifteen years; free withdrawal; effect from the first Narodni Sabor election held more than a year later; eight years of enrolment for confederal councillors and constitutional judges.": {
    "sre": "Članovi 102, 108, 112 i 117: upis od navršenih 18 godina; prvi upis ima probni rok od tri godine i može se jednom ispraviti; inače drugi registar tek nakon petnaest godina; slobodno istupañe; upis važi od prvih izbora za Narodni Sabor održanih više od godinu dana kasnije; osam godina upisa za konfederalne većnike i sudije Ustavnog Suda.",
    "ist": "Členove 102, 108, 112 i 117: vpisvane ot navãršeni 18 godini; pãrvoto vpisvane e s izpitatelen srok ot tri godini i može da bãde popraveno vednãž; v protiven slučaj drug registãr — edva sled petnadeset godini; svobodno ottegļane; dejstvie ot pãrvite izbori za Narodni Sabor, provedeni poveče ot edna godina po-kãsno; iziskvane za osem godini vpisvane za konfederalnite sãvetnici i konstitucionnite sãdii.",
@@ -700,6 +705,11 @@
    "sre": "središñi standard",
    "ist": "Centralen standart (središñi)",
    "zap": "Središñi standard"
+  },
+  "Chapter {0}": {
+   "zap": "Razdelek {0}",
+   "sre": "Poglavļe {0}",
+   "ist": "Razdel {0}"
   },
   "Check the status of a citizen card": {
    "zap": "Preverite status državļanske izkaznice",
@@ -1062,14 +1072,19 @@
    "zap": "Prečiščeni osnutek konfederalne Ustave, v2"
   },
   "Consolidated text, version {0} of {1}.": {
-   "sre": "Objediñeni tekst, verzija {0} od {1}.",
-   "ist": "Konsolidiran tekst, versija {0} ot {1}.",
+   "sre": "Objediñeni tekst, verzija {0} od {1}",
+   "ist": "Konsolidiran tekst, versija {0} ot {1}",
    "zap": "Prečiščeno besedilo, različica {0} z dne {1}."
   },
   "Consolidated text, version {0} of {1}: a preamble and {2} articles in {3} titles. Official acts are published in the unified South Slavic Latin alphabet and in the three regional standards; this is the English text.": {
    "sre": "Objediñeni tekst, verzija {0} od {1}: preambula i {2} {2#one:član;few:člana;other:članova} u {3} {3#one:glavi;few:glave;other:glava}. Službeni akti objavļuju se jedinstvenom južnoslovenskom latinicom i u tri regionalna standarda; ovo je tekst na engleskom.",
    "ist": "Konsolidiran tekst, versija {0} ot {1}: preambjul i {2} {2#one:člen;other:člena} v {3} {3#one:glava;other:glavi}. Oficialnite aktove se publikuvat na edinnata južnoslavjanska latinica i v trite regionalni standarta; tova e tekstãt na anglijski ezik.",
    "zap": "Prečiščeno besedilo, različica {0} z dne {1}: preambula in {2} {2#one:člen;two:člena;few:členi;other:členov} v {3} {3#one:poglavju;two:poglavjih;few:poglavjih;other:poglavjih}. Uradni akti se objavļajo v enotni južnoslovanski latinici in v treh regionalnih standardih; to je angleško besedilo."
+  },
+  "Consolidated text, version {0} of {1}: a preamble and {2} articles in {3} titles. The texts in the three regional standards are equally authentic (Art. 151); this is the official text in this standard.": {
+   "zap": "Prečiščeno besedilo, različica {0} z dne {1}: preambula in {2} {2#one:člen;two:člena;few:členi;other:členov} v {3} {3#one:poglavju;two:poglavjih;few:poglavjih;other:poglavjih}. Besedila v treh regionalnih standardih so enako verodostojna (čl. 151); to je uradno besedilo v tem standardu.",
+   "sre": "Objediñeni tekst, verzija {0} od {1}: preambula i {2} {2#one:član;few:člana;other:članova} u {3} {3#one:glavi;few:glave;other:glava}. Tekstovi na tri regionalna standarda jednako su věrodostojni (čl. 151); ovo je službeni tekst na ovom standardu.",
+   "ist": "Konsolidiran tekst, versija {0} ot {1}: preambjul i {2} {2#one:člen;other:člena} v {3} {3#one:glava;other:glavi}. Tekstovete v trite regionalni standarta sa ednakvo avtentični (čl. 151); tova e oficialnijat tekst v tozi standart."
   },
   "Constituencies": {
    "zap": "Volilne enote",
@@ -3181,6 +3196,11 @@
    "sre": "Sa sědištima u Sarajevu, Beogradu, Zagrebu i Sofiji.",
    "ist": "Sãs sedališta v Sarajevo, Beograd, Zagreb i Sofija."
   },
+  "Section {0}": {
+   "zap": "Oddelek {0}",
+   "sre": "Oděļak {0}",
+   "ist": "Podrazdel {0}"
+  },
   "Security": {
    "zap": "Varnost",
    "sre": "Sigurnost",
@@ -3746,6 +3766,11 @@
    "ist": "Konsolidiranijat tekst na Konfederalnata konstitucija i nejnite glavi.",
    "sre": "Objediñeni tekst Ustava Konfederacije i ñegove glave."
   },
+  "The Constitution in the three standards": {
+   "zap": "Ustava v treh standardih",
+   "sre": "Ustav na tri standarda",
+   "ist": "Konstitucijata v trite standarta"
+  },
   "The council shares out the departments; no people heads the same one for two terms in a row.": {
    "zap": "Svet razdeli resorje; noben narod ne vodi istega resorja dva mandata zapored.",
    "ist": "Sãvetãt razpredeļa resorite; nikoj narod ne rãkovodi edin i sãšt resor dva poredni mandata.",
@@ -3986,6 +4011,11 @@
    "ist": "Godišnijat doklad posočva po resori broja na rešenijata, vzeti s konsensus i s mnozinstvo.",
    "sre": "Godišñi izvěštaj navodi, po resorima, broj odluka donesenih konsenzusom i većinom glasova."
   },
+  "The zapadni, središñi and istočni texts of the Constitution are published and are equally authentic with the English text (Art. 151). The reader follows the chosen standard, in Latin or in Cyrillic, with the same 192 articles and cross-references.": {
+   "zap": "Besedila Ustave v zapadnem, središñem in istočnem standardu so objavļena in so enako verodostojna kot angleško besedilo (čl. 151). Bralnik sledi izbranemu standardu, v latinici ali v cirilici, z istimi 192 členi in sklici.",
+   "sre": "Tekstovi Ustava na zapadnom, središñem i istočnom standardu objavļeni su i jednako su věrodostojni kao engleski tekst (čl. 151). Čitač prati izabrani standard, na latinici ili na ćirilici, s istih 192 člana i upućivañima.",
+   "ist": "Tekstovete na Konstitucijata v zapadni, središñi i istočni standard sa publikuvani i sa ednakvo avtentični s anglijskija tekst (čl. 151). Četecãt sledva izbranija standart, na latinica ili na kirilica, sãs sãštite 192 člena i prepratki."
+  },
   "They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.": {
    "zap": "Preprečujejo vojno, branijo deželo in podpirajo civilne oblasti v izrednih razmerah. Za ñihovo uporabo je potrebno dovoļeñe Kongresa.",
    "sre": "Sprěčavaju rat, brane zemļu i pružaju podršku civilnim vlastima u vanrednim situacijama. Za ñihovu upotrebu potrebno je odobreñe Kongresa.",
@@ -4045,6 +4075,11 @@
    "sre": "Glava III, poglavļe 2, članovi 55 do 99: odnosi sa stranim državama, odbrana, obrazovañe, kultura, životna sredina, transport, razvrstavañe puteva, energija, ekonomija i valuta, socijalna sigurnost, građansko i krivično pravo. 153 člana.",
    "ist": "Glava III, razdel 2, členove ot 55 do 99: vãnšni otnošenija, otbrana, obrazovanie, kultura, okolna sreda, transport, klasifikacija na pãtištata, energetika, ikonomika i parična sistema, socialna sigurnost, graždansko i nakazatelno pravo. 153 člena.",
    "zap": "Poglavje III, razdelek 2, členi od 55 do 99: zunañi odnosi, obramba, izobraževañe, kultura, okoļe, promet, kategorizacija cest, energija, gospodarstvo in valuta, socialna varnost, civilno in kazensko pravo. 153 členov."
+  },
+  "Title {0}": {
+   "zap": "Poglavje {0}",
+   "sre": "Glava {0}",
+   "ist": "Glava {0}"
   },
   "Titles I bis, IV, V and VI, institutions, languages, financial equalisation.": {
    "sre": "Glave I bis, IV, V i VI: institucije, jezici, finansijsko izravnañe.",
