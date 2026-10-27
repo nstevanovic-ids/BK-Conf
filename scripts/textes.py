@@ -341,16 +341,22 @@ ROMAN = re.compile(r"(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})")
 
 
 def keep_latin(tok, before):
-    if LAT_FOREIGN.search(tok) or re.search(r"\d", tok):
+    if LAT_FOREIGN.search(tok):
         return True
     return bool(tok) and ROMAN.fullmatch(tok) and (len(tok) > 1 or re.search(r"[^\W_]\s+$", before))
 
 
 def to_cyr(s, std, keep=()):
     def plain(t):
-        return re.sub(r"[^\W_]+(?:['’-][^\W_]+)*",
-                      lambda m: m.group(0) if keep_latin(m.group(0), t[:m.start()]) else
-                      re.sub(r"[^\W_]+", lambda w: cyr_word(w.group(0), std), m.group(0)), t)
+        def tok(m):
+            s = m.group(0)
+            if keep_latin(s, t[:m.start()]):
+                return s
+            if re.search(r"\d", s):   # code : seule une fin en minuscules passe (49-te)
+                return re.sub(r"[^\W_]+", lambda w: cyr_word(w.group(0), std)
+                              if re.fullmatch(r"[^\W\d_]+", w.group(0)) and w.group(0).islower() else w.group(0), s)
+            return re.sub(r"[^\W_]+", lambda w: cyr_word(w.group(0), std), s)
+        return re.sub(r"[^\W_]+(?:['’-][^\W_]+)*", tok, t)
     if keep:
         pat = re.compile("|".join(re.escape(k) for k in sorted(keep, key=len, reverse=True)))
         out, i = [], 0

@@ -1772,12 +1772,15 @@ function latRe(){
 }
 /* Roman numerals stay Latin (Glava III, Title I bis): any of two letters or more; a single I, V
    or X only after a word, so that the conjunction I opening a sentence is still converted.
-   A hyphenated token with a digit is a code and stays whole (BA-01, Bk-12, EU-27). */
+   In a hyphenated token with a digit, only a lower-case ending is converted (49-te → 49-те):
+   codes stay whole (BA-01, Bk-12, EU-27, TD1). */
 const ROMAN=/^(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})$/;
 function cyrPlain(t,std){
-  return t.replace(/[\p{L}\p{M}\d]+(?:['’-][\p{L}\p{M}\d]+)*/gu,(tok,at,all)=>
-    LAT_FOREIGN.test(tok)||/\d/.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/[\p{L}\d]\s+$/u.test(all.slice(0,at))))?tok
-    :tok.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std)));
+  return t.replace(/[\p{L}\p{M}\d]+(?:['’-][\p{L}\p{M}\d]+)*/gu,(tok,at,all)=>{
+    if(LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/[\p{L}\d]\s+$/u.test(all.slice(0,at)))))return tok;
+    if(/\d/.test(tok))return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>/^[\p{Ll}\p{M}]+$/u.test(w)?cyrWord(w,std):w);
+    return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std));
+  });
 }
 function cyrText(t,std){
   let out='',i=0;
