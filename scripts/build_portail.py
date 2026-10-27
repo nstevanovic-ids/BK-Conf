@@ -43,6 +43,8 @@ def build_inline() -> int:
     # Films d'États (scripts/encode_video.py) : manifeste optionnel ; les fichiers
     # vidéo restent liés (videos/…), copiés à côté par le déploiement Pages.
     i18n = json.loads((DATA / "i18n.json").read_text(encoding="utf-8"))
+    # Texte des pages dans les trois standards (ADR 2026-10-26-traduction-pages.md).
+    textes = json.loads((DATA / "textes.json").read_text(encoding="utf-8"))
     vfile = DATA / "videos.json"
     videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
     registre = json.loads((DATA / "registre.json").read_text(encoding="utf-8"))
@@ -62,8 +64,9 @@ def build_inline() -> int:
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"TX={json.dumps(textes, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
-        "STD={western:'Standard occidental (zapadni)',central:'Standard central (središñi)',eastern:'Standard oriental (istočni)'};\n"
+        "STD={western:'Western standard (zapadni)',central:'Central standard (središñi)',eastern:'Eastern standard (istočni)'};\n"
         "render();\n"
     )
     # Swap the loadData().then(...) call for the inline assignment + render.
@@ -110,7 +113,7 @@ def build_linked() -> int:
         f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
                     "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
                     "constitution.json", "stats.json", "lights.json", "opstine.json",
-                    "i18n.json", "registre.json")
+                    "i18n.json", "registre.json", "textes.json")
         if not (DATA / f).exists()
     ]
     if missing:

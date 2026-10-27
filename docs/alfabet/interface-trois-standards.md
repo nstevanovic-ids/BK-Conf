@@ -1,6 +1,6 @@
 # Interface du portail dans les trois standards
 
-**Phase 1, adoptée le 2026-10-25** (ADR 2026-10-25-interface-trois-standards.md). **Phase 2, étape 1** (titres) : voir plus bas.
+**Phase 1, adoptée le 2026-10-25** (ADR 2026-10-25-interface-trois-standards.md). **Phase 2, étape 1** (titres) et **étape 2** (tout le texte, 2026-10-26) : voir plus bas.
 
 Les boutons EN, ZAP, SRE et IST de l'en-tête traduisent désormais :
 - l'en-tête et la navigation ;
@@ -143,7 +143,7 @@ standard*) suivent la règle 5 (ADR 2026-10-25-alphabet-v3-mots-courants.md).
 | Other confederal bodies | Drugi konfederalni organi | Ostali konfederalni organi | Drugi konfederalni organi |
 | Confederal Council · Sarajevo | Izvršna oblast · Sarajevo | Izvršna vlast · Sarajevo | Izpãlnitelna vlast · Sarajevo |
 | The presidency | Predsedstvo | Predsědništvo | Predsedatelstvoto |
-| Seven departments | Sedem oddelkov | Sedam resora | Sedem resora |
+| Seven departments | Sedem resorjev | Sedam resora | Sedem resora |
 | How the council works | Način dela | Način rada | Kak raboti Sãvetãt |
 | Confederal security | Konfederalna varnost | Konfederalna sigurnost | Konfederalna sigurnost |
 | Four services | Štiri službe | Četiri službe | Četiri službi |
@@ -204,8 +204,32 @@ Lat / Ћир, Lat / Кир), dérivé des chaînes latines :
 
 Le zapadni reste en latin.
 
+## Phase 2, étape 2 : tout le texte des pages (2026-10-26)
+
+ADR 2026-10-26-traduction-pages.md. Tout le texte des pages est traduit dans les trois
+standards, et passe en cyrillique pour le središñi et l'istočni.
+
+- **Source** : l'anglais du gabarit sert de clé (`L`, `N`), les traductions sont dans
+  `portail/data/textes.json` ; `scripts/textes.py check` contrôle clés, variables, balises et
+  alphabet v3.
+- **Glossaire** : `glossaire-trois-standards.md`, en plus des règles ci-dessus.
+- **Choix notables** :
+  - au središñi, *države članice* pour « confederated States » (ni *konfederisane* ni
+    *konfederirane*) ; *helvetski* (ni *švajcarski* ni *švicarski*) ; *objediñeni tekst* pour
+    « consolidated » ; *uređaj* pour « browser » ; dates en chiffres, sans noms de mois ;
+  - *nacionalni* pour ce qui touche la nation entière, *narodni* réservé aux peuples
+    constitutifs et aux registres nationaux ;
+  - les trois standards gardent leurs noms officiels invariables (*zapadni standard*…) ;
+  - noms officiels des institutions et organes inchangés ; leur glose anglaise ne s'affiche
+    qu'en anglais ;
+  - l'istočni est rédigé en bulgare cyrillique puis converti en latin v3, avec contrôle par
+    aller-retour.
+- **Restent en latin en cyrillique** : lettres latines et API de l'alphabet, carte de citoyen,
+  noms de personnes saisis, codes avec chiffres, chiffres romains, e-mails et liens, noms des
+  communautés non slaves écrits dans leur langue.
+
 ## Suite (phase 2, étapes suivantes)
 
-- Traduire le texte des pages, standard par standard.
+- ~~Traduire le texte des pages, standard par standard.~~ Fait le 2026-10-26.
 - Le lecteur de la Constitution attend la version officielle dans les trois standards : selon
   l'art. 151, elles font également foi.

@@ -33,6 +33,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check page translations (three standards)
+        run: |
+          # textes.json must carry every page string in zap, sre and ist (ADR 2026-10-26-traduction-pages.md);
+          # a gap does not block the deploy (the page falls back on English) but is flagged.
+          python scripts/textes.py check || echo "::warning::page translations incomplete — run python scripts/textes.py check"
+
       - name: Build self-contained portal
         run: |
           python scripts/build_portail.py --inline
