@@ -2620,7 +2620,7 @@ function vInstitutions(){
        ['Ļubļana',N('Confederal Court of Audit'),N('Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.'),['136 bis',133],'Konfederalni Računski Sud'],
        ['Ohrid · Cetiñe',N('Language Institute · Library and Archives'),N('The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.'),['130 bis',74],'Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv'],
        [N('Advisory'),N('Council of Communities'),N('The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.'),['1 octies'],'Veće Zajednica']
-      ].map(c=>`<div class="pcard"><div class="pc-eye">${L(c[0])}</div><h3>${c[4]}<span class="ssn">${L(c[1])}</span></h3><p>${L(c[2])}</p>
+      ].map(c=>`<div class="pcard"><div class="pc-eye">${L(c[0])}</div><h3>${c[4]}${LANG==='en'?`<span class="ssn">${L(c[1])}</span>`:''}</h3><p>${L(c[2])}</p>
         <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
@@ -2742,7 +2742,7 @@ function vSecurity(){
         <div class="secimg">${imgSlot(f.img)}</div>
         <div class="secbody">
           <div class="eyebrow" style="margin:0">${L(f.eye)}</div>
-          <h3>${f.n}<span>${L(f.en)}</span></h3>
+          <h3>${f.n}${LANG==='en'?`<span>${L(f.en)}</span>`:''}</h3>
           <p class="seclead">${L(f.lead)}</p>
           <table class="dtable">${f.rows.map(r=>`<tr><td>${L(r[0])}</td><td>${L(r[1])}</td></tr>`).join('')}</table>
           <div class="secarts">${arts(f.a)}</div>
