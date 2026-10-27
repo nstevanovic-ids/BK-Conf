@@ -3,7 +3,8 @@
  "t": {
   "14 judges, two per people": {
    "sre": "14 sudija, po dva iz svakog naroda",
-   "ist": "14 sãdii, po dvama ot vseki narod"
+   "ist": "14 sãdii, po dvama ot vseki narod",
+   "zap": "14 sodnikov, po dva za vsak narod"
   },
   "150,000 citizens, or 12 States of which no more than half belong to the same people, may submit any confederal law to a popular vote within 100 days of its publication (Art. 122).": {
    "zap": "150.000 državļanov ali 12 držav, od katerih največ polovica pripada istemu narodu, lahko v 100 dneh po objavi zahteva ļudsko glasovañe o katerem koli konfederalnem zakonu (čl. 122).",
@@ -12,7 +13,8 @@
   },
   "150,000 citizens, or 12 States with no more than half from one people, request a vote within 100 days. The law goes to the people and is rejected if a majority votes against it.": {
    "sre": "150.000 državļana ili 12 država, od kojih najviše polovina pripada istom narodu, traže glasañe u roku od 100 dana. Zakon se stavļa na glasañe građana i odbijen je ako većina glasa protiv.",
-   "ist": "150 000 graždani ili 12 dãržavi, ot koito ne poveče ot polovinata prinadležat kãm edin i sãšt narod, iskat glasuvane v srok ot 100 dni. Zakonãt se podlaga na referendum i se othvãrļa, ako mnozinstvoto glasuva protiv nego."
+   "ist": "150 000 graždani ili 12 dãržavi, ot koito ne poveče ot polovinata prinadležat kãm edin i sãšt narod, iskat glasuvane v srok ot 100 dni. Zakonãt se podlaga na referendum i se othvãrļa, ako mnozinstvoto glasuva protiv nego.",
+   "zap": "150.000 državļanov ali 12 držav, od katerih največ polovica pripada istemu narodu, v 100 dneh zahteva glasovañe. O zakonu odloča ļudstvo; zavrñen je, če večina glasuje proti ñemu."
   },
   "24 recognised minority communities": {
    "zap": "24 priznanih mañšinskih skupnosti",
@@ -21,7 +23,8 @@
   },
   "250 delegates": {
    "sre": "250 delegata",
-   "ist": "250 delegati"
+   "ist": "250 delegati",
+   "zap": "250 delegatov"
   },
   "250 delegates in 51 constituencies": {
    "zap": "250 delegatov v 51 volilnih enotah",
@@ -30,11 +33,13 @@
   },
   "250 delegates, 51 constituencies": {
    "sre": "250 delegata, 51 izborna jedinica",
-   "ist": "250 delegati, 51 izbiratelni rajona"
+   "ist": "250 delegati, 51 izbiratelni rajona",
+   "zap": "250 delegatov, 51 volilnih enot"
   },
   "250 delegates. Each of the 49 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.": {
    "sre": "250 delegata. Svaka od 49 država čini jednu izbornu jedinicu i bira od 2 do 20 delegata; mandati se raspoređuju proporcionalno broju stanovnika metodom Sainte-Laguë; Brčko i Mostar čine po jednu izbornu jedinicu, s najmañe jednim delegatom. Delegati se biraju proporcionalnim glasañem za liste, na četiri godine, i svaki od ñih može predložiti zakon. Kongres donosi zakone i usvaja buxet, potvrđuje međunarodne ugovore, odobrava upotrebu oružanih snaga, bira sudije Ustavnog Suda, nadzire Konfederalno Veće i daje garanciju ustavima država.",
-   "ist": "250 delegati. Vsjaka ot četirideset i devette dãržavi e edin izbiratelen rajon i izbira meždu 2 i 20 delegati, razpredeleni proporcionalno na naselenieto po metoda na Sainte-Laguë; Brčko i Mostar obrazuvat vsjaka po edin izbiratelen rajon s pone edin delegat. Delegatite se izbirat po proporcionalnata sistema s kandidatski listi za četiri godini i vseki ot tjah može da vnese zakonoproekt. Kongres priema zakonite i bjuxeta, ratificira dogovorite, razrešava izpolzvaneto na vãorãženite sili, izbira sãdiite na Ustavni Sud, kontrolira Konfederalno Veće i garantira konstituciite na dãržavite."
+   "ist": "250 delegati. Vsjaka ot četirideset i devette dãržavi e edin izbiratelen rajon i izbira meždu 2 i 20 delegati, razpredeleni proporcionalno na naselenieto po metoda na Sainte-Laguë; Brčko i Mostar obrazuvat vsjaka po edin izbiratelen rajon s pone edin delegat. Delegatite se izbirat po proporcionalnata sistema s kandidatski listi za četiri godini i vseki ot tjah može da vnese zakonoproekt. Kongres priema zakonite i bjuxeta, ratificira dogovorite, razrešava izpolzvaneto na vãorãženite sili, izbira sãdiite na Ustavni Sud, kontrolira Konfederalno Veće i garantira konstituciite na dãržavite.",
+   "zap": "250 delegatov. Vsaka od 49 držav je ena volilna enota in izvoli od 2 do 20 delegatov, ki se razdelijo sorazmerno s prebivalstvom po metodi Sainte-Laguë; Brčko in Mostar tvorita vsak svojo volilno enoto z najmañ enim delegatom. Delegati se za štiri leta volijo po proporcionalnem sistemu s kandidatnimi listami in vsak lahko vloži predlog zakona. Kongres sprejema zakone in proračun, ratificira mednarodne pogodbe, dovoļuje uporabo oboroženih sil, voli sodnike Ustavnega Suda, nadzoruje Konfederalno Veće in podeļuje jamstvo ustavam držav."
   },
   "300,000 citizens may propose a total or partial revision of the Constitution within 18 months. A partial revision is adopted by the double majority of the people and of the States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).": {
    "zap": "300.000 državļanov lahko v 18 mesecih predlaga celovito ali delno spremembo Ustave. Delna sprememba je sprejeta z dvojno večino ļudstva in držav; pri celoviti spremembi ļudstvo najprej odloči, ali naj se postopek nadaļuje (čl. 121, 148, 149).",
@@ -46,19 +51,23 @@
   },
   "51 constituencies": {
    "sre": "51 izborna jedinica",
-   "ist": "51 izbiratelni rajona"
+   "ist": "51 izbiratelni rajona",
+   "zap": "51 volilnih enot"
   },
   "7 councillors, one per people": {
    "sre": "7 većnika, po jedan iz svakog naroda",
-   "ist": "7 sãvetnici, po edin ot vseki narod"
+   "ist": "7 sãvetnici, po edin ot vseki narod",
+   "zap": "7 svetnikov, po en za vsak narod"
   },
   "7 delegations": {
    "sre": "7 delegacija",
-   "ist": "7 delegacii"
+   "ist": "7 delegacii",
+   "zap": "7 delegacij"
   },
   "7 national delegations of 10 members": {
    "sre": "7 narodnih delegacija od po 10 članova",
-   "ist": "7 narodni delegacii ot po 10 členove"
+   "ist": "7 narodni delegacii ot po 10 členove",
+   "zap": "7 narodnih delegacij po 10 članov"
   },
   "<b>Enrolled:</b> you elect the Kongres in your state and the ten delegates of your people to the Narodni Sabor, in one constituency covering the whole Confederation (Art. 108). <b>Not enrolled:</b> you keep all civic rights and vote for the Kongres and in referendums, but not for the Narodni Sabor (Art. 102).": {
    "zap": "<b>Vpisani:</b> v svoji državi volite Kongres, v Narodni Sabor pa deset delegatov svojega naroda, v eni volilni enoti, ki obsega vso Konfederacijo (čl. 108). <b>Nevpisani:</b> ohranite vse državļanske pravice ter volite Kongres in glasujete na referendumih, ne volite pa Narodnega Sabora (čl. 102).",
@@ -67,7 +76,8 @@
   },
   "<b>Or, a winged lion rampant.</b> The emblem joins the two great beasts of Balkan heraldry: the wings of the eagle, borne from the Byzantine double-headed eagle to the eagle of Carniola, and the crowned body of the Bulgarian lion. Neither eagle nor lion alone, it stands for the union of the constituent peoples. It appears in gold, with no shield, on official seals, state correspondence and the state flag.": {
    "sre": "<b>Zlatni propeti krilati lav.</b> Amblem spaja dva velika lika balkanske heraldike: krila orla, kakvog nalazimo od vizantijskog dvoglavog orla do orla Krañske, i okruñeno tělo bugarskog lava. Ni samo orao ni samo lav, on predstavļa savez konstitutivnih naroda. Javļa se u zlatu, bez štita, na službenim pečatima, u državnoj prepisci i na državnoj zastavi.",
-   "ist": "<b>Zlaten izpraven krilat lãv.</b> Emblemata sãčetava dvete veliki figuri na balkanskata heraldika: krilete na orela, kojto prisãstva v gerbovete ot vizantijskija dvuglav orel do orela na Krajna, i koronovanoto tjalo na bãlgarskija lãv. Nito samo orel, nito samo lãv, tja olicetvorjava sãjuza na konstitutivnite narodi. Izobrazjava se v zlato, bez štit, vãrhu oficialnite pečati, dãržavnata korespondencija i dãržavnoto zname."
+   "ist": "<b>Zlaten izpraven krilat lãv.</b> Emblemata sãčetava dvete veliki figuri na balkanskata heraldika: krilete na orela, kojto prisãstva v gerbovete ot vizantijskija dvuglav orel do orela na Krajna, i koronovanoto tjalo na bãlgarskija lãv. Nito samo orel, nito samo lãv, tja olicetvorjava sãjuza na konstitutivnite narodi. Izobrazjava se v zlato, bez štit, vãrhu oficialnite pečati, dãržavnata korespondencija i dãržavnoto zname.",
+   "zap": "<b>Zlati vzpeti krilati lev.</b> Emblem združuje dve veliki živali balkanske heraldike: krila orla, ki ga poznamo od bizantinskega dvoglavega orla do krañskega orla, in kronano telo bolgarskega leva. Ker ni niti samo orel niti samo lev, ponazarja zvezo konstitutivnih narodov. Pojavļa se v zlati barvi, brez ščita, na uradnih pečatih, v državni korespondenci in na državni zastavi."
   },
   "<b>Probationary enrolment until {0}.</b> You enrolled in {1} on {2}. Until then you may rectify it once, to another register; the fifteen-year lock then runs from the rectification (Art. 102).": {
    "zap": "<b>Poskusni vpis do {0}.</b> Dne {2} ste se vpisali v {1}. Do takrat ga lahko enkrat popravite v korist drugega registra; petnajstletni rok nato teče od popravka (čl. 102).",
@@ -99,14 +109,16 @@
   },
   "A card number reads <span translate=\"no\">BK-XX-NNNNNN</span>.": {
    "sre": "Broj karte ima oblik <span translate=\"no\">BK-XX-NNNNNN</span>.",
-   "ist": "Nomerãt na kartata ima vida <span translate=\"no\">BK-XX-NNNNNN</span>."
+   "ist": "Nomerãt na kartata ima vida <span translate=\"no\">BK-XX-NNNNNN</span>.",
+   "zap": "Številka izkaznice ima obliko <span translate=\"no\">BK-XX-NNNNNN</span>."
   },
   "A child under 18 is declared by a parent or legal guardian who holds a citizen card.": {
    "zap": "Otroka, mlajšega od 18 let, prijavi starš ali zakoniti skrbnik, ki ima državļansko izkaznico."
   },
   "A college of seven councillors, one for each constituent people, each nominated by his people's delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by four councillors whose peoples hold a majority of enrolled citizens, or by five; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.": {
    "sre": "Kolegijalni organ od sedam većnika, po jedan iz svakog konstitutivnog naroda; svakog od ñih predlaže delegacija ñegovog naroda u Narodnom Saboru i svaki mora biti upisan u registar tog naroda najmañe osam godina. Odluke se donose konsenzusom, a ako ga nema, glasovima četiri većnika čiji narodi čine većinu upisanih državļana ili glasovima pet većnika; izvršeñe odluke donesene protiv tri ili više većnika obustavļa se na 30 dana, dok se saslušavaju dotične delegacije. Predsědništvo rotira svake godine. Svaki većnik rukovodi jednim od sedam resora sa sědištima u četiri glavna grada. Mandat traje četiri godine i može se jednom obnoviti.",
-   "ist": "Kolegialen organ ot sedem sãvetnici, po edin za vseki konstitutiven narod; vseki sãvetnik e predložen ot delegacijata na svoja narod v Narodni Sabor i e vpisan v registãra na tozi narod ot pone osem godini. Rešenijata se vzemat s konsensus, a inače — ot četirima sãvetnici, čiito narodi sãstavļavat mnozinstvoto ot vpisanite graždani, ili ot petima; rešenie, vzeto protiv trima ili poveče sãvetnici, se spira za 30 dni, dokato bãdat izslušani zasegnatite delegacii. Predsedatelstvoto se reduva vsjaka godina. Vseki sãvetnik rãkovodi edin ot sedemte resora sãs sedališta v četirite stolici. Četirigodišen mandat, kojto može da bãde podnoven vednãž."
+   "ist": "Kolegialen organ ot sedem sãvetnici, po edin za vseki konstitutiven narod; vseki sãvetnik e predložen ot delegacijata na svoja narod v Narodni Sabor i e vpisan v registãra na tozi narod ot pone osem godini. Rešenijata se vzemat s konsensus, a inače — ot četirima sãvetnici, čiito narodi sãstavļavat mnozinstvoto ot vpisanite graždani, ili ot petima; rešenie, vzeto protiv trima ili poveče sãvetnici, se spira za 30 dni, dokato bãdat izslušani zasegnatite delegacii. Predsedatelstvoto se reduva vsjaka godina. Vseki sãvetnik rãkovodi edin ot sedemte resora sãs sedališta v četirite stolici. Četirigodišen mandat, kojto može da bãde podnoven vednãž.",
+   "zap": "Kolegij sedmih svetnikov, po en za vsak konstitutivni narod; vsakega predlaga delegacija ñegovega naroda v Narodnem Saboru, v register tega naroda pa mora biti vpisan vsaj osem let. Odločitve se sprejemajo s soglasjem, sicer z glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali petih svetnikov; odločitev, sprejeta proti trem ali več svetnikom, se za 30 dni zadrži, da se zaslišijo delegacije, ki jih to zadeva. Predsedstvo se izmeñuje vsako leto. Vsak svetnik vodi enega od sedmih resorjev s sedeži v štirih prestolnicah. Štiriletni mandat z možnostjo ene ponovne izvolitve."
   },
   "A commander and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.": {
    "zap": "Poveļnik in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Narodnega Sabora, za sedem let.",
@@ -118,7 +130,8 @@
   },
   "A confirmation has been sent to {0}.": {
    "sre": "Na adresu {0} upućena je potvrda.",
-   "ist": "Izprateno e potvãrždenie na {0}."
+   "ist": "Izprateno e potvãrždenie na {0}.",
+   "zap": "Potrditev je bila poslana na {0}."
   },
   "A confirmation was sent to {0}.": {
    "zap": "Potrditev je bila poslana na {0}."
@@ -143,7 +156,8 @@
   },
   "A financial regime on the Swiss model: a debt brake, a capped confederal income tax shared with the States, a top-up tax to the global minimum for large groups, no duty on issuing or trading securities, and an exclusive value added tax; family allowances, a year of parental leave and a childcare place for every child; annual quotas for work permits and systematic checks at the external borders; a Kongres of 250 delegates shared out by the Sainte-Laguë method; total and partial revision, with five entrenched guarantees that only all seven national delegations can revise; entry into force and first elections. 192 articles in ten titles.": {
    "sre": "Finansijski poredak po helvetskom uzoru: kočnica zaduživaña, ograničeni konfederalni porez na dohodak koji se děli s državama, dopunski porez do globalnog minimuma za velike grupe kompanija, bez dažbine na izdavañe ili trgovañe vrědnosnim papirima, i iskļučivi porez na dodatu vrědnost; porodični dodaci, godina roditeļskog odsustva i město u predškolskoj ustanovi za svako děte; godišñe kvote za dozvole za rad i sistematske kontrole na granicama Konfederacije; Kongres od 250 delegata, s mandatima raspoređenim metodom Sainte-Laguë; potpuna i dělimična revizija, s pet ojačanih garancija koje se mogu revidirati samo odlukom svih sedam narodnih delegacija; stupañe na snagu i prvi izbori. 192 člana u deset glava.",
-   "ist": "Finansov režim po švejcarski model: spiračka na dãlga, konfederalen danãk vãrhu dohodite s tavan, čiito prihodi se podeļat s dãržavite, dopãlnitelen danãk do svetovnija minimum za golemite grupi predprijatija, bez nalog vãrhu izdavaneto na cenni kniža i tãrgovijata s tjah, i izkļučitelen danãk vãrhu dobavenata stojnost; semejni pomošti, ednogodišen roditelski otpusk i mjasto v detsko zavedenie za vsjako dete; godišni kvoti za razrešenijata za rabota i sistematični proverki po vãnšnite granici; Kongres ot 250 delegati, razpredeleni po metoda na Sainte-Laguë; cjalostno i častično izmenenie na Konstitucijata, s pet zasileni garancii, koito mogat da bãdat izmeneni samo ot vsičkite sedem narodni delegacii; vlizane v sila i pãrvi izbori. 192 člena v deset glavi."
+   "ist": "Finansov režim po švejcarski model: spiračka na dãlga, konfederalen danãk vãrhu dohodite s tavan, čiito prihodi se podeļat s dãržavite, dopãlnitelen danãk do svetovnija minimum za golemite grupi predprijatija, bez nalog vãrhu izdavaneto na cenni kniža i tãrgovijata s tjah, i izkļučitelen danãk vãrhu dobavenata stojnost; semejni pomošti, ednogodišen roditelski otpusk i mjasto v detsko zavedenie za vsjako dete; godišni kvoti za razrešenijata za rabota i sistematični proverki po vãnšnite granici; Kongres ot 250 delegati, razpredeleni po metoda na Sainte-Laguë; cjalostno i častično izmenenie na Konstitucijata, s pet zasileni garancii, koito mogat da bãdat izmeneni samo ot vsičkite sedem narodni delegacii; vlizane v sila i pãrvi izbori. 192 člena v deset glavi.",
+   "zap": "Finančna ureditev po švicarskem zgledu: dolžniška zavora, omejen konfederalni davek od dohodka, ki si ga Konfederacija deli z državami, dopolnilni davek do svetovne minimalne obdavčitve za velike skupine podjetij, nobene takse na izdajo vrednostnih papirjev ali trgovañe z ñimi ter izkļučni davek na dodano vrednost; družinski dodatki, eno leto starševskega dopusta in mesto v otroškem varstvu za vsakega otroka; letne kvote za delovna dovoļeña in sistematični nadzor na zunañih mejah; Kongres z 250 delegati, razdeļenimi po metodi Sainte-Laguë; celovita in delna sprememba Ustave s petimi utrjenimi jamstvi, ki jih lahko spremeni samo vseh sedem narodnih delegacij; začetek veļavnosti in prve volitve. 192 členov v desetih poglavjih."
   },
   "A joint committee of fourteen, two per people, oversees all three services with access to classified files.": {
    "zap": "Skupni odbor štirinajstih članov, po dva za vsak narod, nadzoruje vse tri službe in ima dostop do tajnih dokumentov.",
@@ -152,11 +166,13 @@
   },
   "A majority votes no. The law does not enter into force.": {
    "sre": "Većina glasa protiv. Zakon ne stupa na snagu.",
-   "ist": "Mnozinstvoto glasuva „protiv“. Zakonãt ne vliza v sila."
+   "ist": "Mnozinstvoto glasuva „protiv“. Zakonãt ne vliza v sila.",
+   "zap": "Večina glasuje proti. Zakon ne začne veļati."
   },
   "A newer card, issue {0}, exists under this number. This copy is no longer current.": {
    "sre": "Pod ovim brojem postoji novija karta, izdañe br. {0}. Ova karta više ne važi.",
-   "ist": "Pod tozi nomer sãštestvuva po-nova karta, izdanie {0}. Tozi ekzempļar veče ne e aktualen."
+   "ist": "Pod tozi nomer sãštestvuva po-nova karta, izdanie {0}. Tozi ekzempļar veče ne e aktualen.",
+   "zap": "Pod to številko obstaja novejša izkaznica, {0}. izdaja. Ta izvod ni več aktualen."
   },
   "A parent or legal guardian who holds a card may declare his child a citizen (Art. 38 a, filiation or adoption). The child takes your state of attachment, {0}; he has no national register and no vote before 18 (Art. 102, 104). His card is valid five years. From 18 he takes over his card with his own e-mail address.": {
    "zap": "Starš ali zakoniti skrbnik, ki ima izkaznico, lahko svojega otroka prijavi kot državļana (čl. 38 a, poreklo ali posvojitev). Otrok prevzame vašo državo pripadnosti, {0}; do 18. leta nima narodnega registra in ne glasuje (čl. 102, 104). Ñegova izkaznica veļa pet let. Ko dopolni 18 let, izkaznico prevzame s svojim e-poštnim naslovom.",
@@ -188,7 +204,8 @@
   },
   "Absolute and relative immunity and a session guarantee, authorised by the special chamber; a conciliation committee of fourteen, one member per people from each chamber, also when consent is refused; consent of the Narodni Sabor and an optional referendum for treaties; graduated confederal enforcement; the flag, emblem, seal and motto of the Confederation. 174 articles.": {
    "sre": "Apsolutni i relativni imunitet i zaštita za vrěme zasědaña, pod kontrolom posebnog veća Ustavnog Suda; odbor za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma, i u slučaju uskraćenog pristanka; pristanak Narodnog Sabora i fakultativni referendum za međunarodne ugovore; konfederalno izvršeñe u fazama; zastava, amblem, pečat i geslo Konfederacije. 174 člana.",
-   "ist": "Absoļuten i otnositelen imunitet i zaštita po vreme na sesiite, s razrešenie na specialnata kamara; sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, kojato se sezira i pri otkaz na sãglasie; sãglasie na Narodni Sabor i fakultativen referendum za dogovorite; stepenuvano konfederalno prinuditelno izpãlnenie; znameto, emblemata, pečatãt i devizãt na Konfederacijata. 174 člena."
+   "ist": "Absoļuten i otnositelen imunitet i zaštita po vreme na sesiite, s razrešenie na specialnata kamara; sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, kojato se sezira i pri otkaz na sãglasie; sãglasie na Narodni Sabor i fakultativen referendum za dogovorite; stepenuvano konfederalno prinuditelno izpãlnenie; znameto, emblemata, pečatãt i devizãt na Konfederacijata. 174 člena.",
+   "zap": "Absolutna in relativna imuniteta ter jamstvo med zasedañi, pri čemer dovoļeña izdaja posebni senat; usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, tudi ob zavrnitvi soglasja; soglasje Narodnega Sabora in fakultativni referendum za mednarodne pogodbe; stopñevana konfederalna izvršba; zastava, emblem, pečat in geslo Konfederacije. 174 členov."
   },
   "Access to your card": {
    "zap": "Dostop do izkaznice"
@@ -203,11 +220,13 @@
   },
   "Adopted by a simple majority of the delegates present.": {
    "sre": "Usvojen prostom većinom prisutnih delegata.",
-   "ist": "Priet s obiknoveno mnozinstvo ot prisãstvaštite delegati."
+   "ist": "Priet s obiknoveno mnozinstvo ot prisãstvaštite delegati.",
+   "zap": "Sprejet z navadno večino navzočih delegatov."
   },
   "Adopted by a simple majority of the delegates present. The quorum is an absolute majority of all delegates.": {
    "sre": "Usvojen prostom većinom prisutnih delegata. Kvorum čini apsolutna većina svih delegata.",
-   "ist": "Priet s obiknoveno mnozinstvo ot prisãstvaštite delegati. Kvorumãt e absoļutnoto mnozinstvo ot vsički delegati."
+   "ist": "Priet s obiknoveno mnozinstvo ot prisãstvaštite delegati. Kvorumãt e absoļutnoto mnozinstvo ot vsički delegati.",
+   "zap": "Sprejet z navadno večino navzočih delegatov. Za sklepčnost je potrebna navzočnost absolutne večine vseh delegatov."
   },
   "Advisory": {
    "zap": "Posvetovalni organ",
@@ -216,7 +235,8 @@
   },
   "Alarm motion": {
    "sre": "Zahtěv za uzbunu",
-   "ist": "Alarmeno iskane"
+   "ist": "Alarmeno iskane",
+   "zap": "Alarmni predlog"
   },
   "Albanian": {
    "zap": "Albanska",
@@ -225,29 +245,34 @@
   },
   "Albanian communities": {
    "sre": "Albanske zajednice",
-   "ist": "Albanski obštnosti"
+   "ist": "Albanski obštnosti",
+   "zap": "Albanske skupnosti"
   },
   "albanian community": {
    "zap": "albanska skupnost"
   },
   "Albanian community": {
    "sre": "Albanska zajednica",
-   "ist": "Albanska obštnost"
+   "ist": "Albanska obštnost",
+   "zap": "Albanska skupnost"
   },
   "All": {
    "sre": "Sve",
-   "ist": "Vsički"
+   "ist": "Vsički",
+   "zap": "Vse"
   },
   "All 51 entities have their own flag: 45 territorial states, 4 confederal territories and 2 confederal autonomous municipalities. Select a flag to open the state page and its description.": {
    "sre": "Svi entiteti, ukupno 51, imaju svoju zastavu: 45 teritorijalnih država, 4 konfederalne teritorije i 2 konfederalne autonomne opštine. Izaberite zastavu da biste otvorili stranicu države i ñen opis.",
-   "ist": "Vsičkite 51 edinici imat sobstveno zname: 45 teritorialni dãržavi, 4 konfederalni teritorii i 2 konfederalni avtonomni obštini. Izberete zname, za da otvorite stranicata na dãržavata i opisanieto na znameto."
+   "ist": "Vsičkite 51 edinici imat sobstveno zname: 45 teritorialni dãržavi, 4 konfederalni teritorii i 2 konfederalni avtonomni obštini. Izberete zname, za da otvorite stranicata na dãržavata i opisanieto na znameto.",
+   "zap": "Vseh 51 enot ima svojo zastavo: 45 teritorialnih držav, 4 konfederalna ozemļa in 2 konfederalni avtonomni občini. Izberite zastavo, da odprete stran države in opis zastave."
   },
   "All records →": {
    "zap": "Vse objave →"
   },
   "All states": {
    "sre": "Sve države",
-   "ist": "Vsički dãržavi"
+   "ist": "Vsički dãržavi",
+   "zap": "Vse države"
   },
   "Alphabet": {
    "zap": "Abeceda",
@@ -290,7 +315,8 @@
   },
   "Another register is open to you from {0}, fifteen years after your enrolment (Art. 102).": {
    "sre": "Drugi registar dostupan vam je od {0}, petnaest godina nakon vašeg upisa (čl. 102).",
-   "ist": "Drug registãr šte vi bãde dostãpen ot {0}, petnadeset godini sled vpisvaneto vi (čl. 102)."
+   "ist": "Drug registãr šte vi bãde dostãpen ot {0}, petnadeset godini sled vpisvaneto vi (čl. 102).",
+   "zap": "Drug register vam bo dostopen od {0}, petnajst let po vašem vpisu (čl. 102)."
   },
   "Any part of the Constitution can be revised, by the chambers or by the citizens, and every revision goes to the people and the States. Five guarantees, on which the union of the peoples rests, can be revised only if each of the seven national delegations agrees ({0}).": {
    "zap": "Vsak del Ustave je mogoče spremeniti, na pobudo domov ali državļanov, in o vsaki spremembi odločata ļudstvo in države. Pet jamstev, na katerih temeļi zveza narodov, je mogoče spremeniti le, če se s tem striña vsaka od sedmih narodnih delegacij ({0}).",
@@ -324,23 +350,28 @@
   },
   "Art. {0}": {
    "sre": "čl. {0}",
-   "ist": "čl. {0}"
+   "ist": "čl. {0}",
+   "zap": "čl. {0}"
   },
   "Article 1 ter, Sarajevo, Beograd, Zagreb and Sofija.": {
    "sre": "Član 1 ter, Sarajevo, Beograd, Zagreb i Sofija.",
-   "ist": "Člen 1 ter: Sarajevo, Beograd, Zagreb i Sofija."
+   "ist": "Člen 1 ter: Sarajevo, Beograd, Zagreb i Sofija.",
+   "zap": "Člen 1 ter: Sarajevo, Beograd, Zagreb in Sofija."
   },
   "Article 132, objective indicators, 85% floor of fiscal capacity per capita.": {
    "sre": "Član 132, objektivni pokazateļi, doña granica od 85% fiskalnog kapaciteta po stanovniku.",
-   "ist": "Člen 132: obektivni pokazateli, dolna granica ot 85% ot fiskalnija kapacitet na čovek ot naselenieto."
+   "ist": "Člen 132: obektivni pokazateli, dolna granica ot 85% ot fiskalnija kapacitet na čovek ot naselenieto.",
+   "zap": "Člen 132: objektivni kazalniki, spodña meja 85 % fiskalne zmogļivosti na prebivalca."
   },
   "Articles 102, 108, 112 and 117: enrolment from the age of 18; a first enrolment is probationary for three years and may be rectified once; otherwise another register only after fifteen years; free withdrawal; effect from the first Narodni Sabor election held more than a year later; eight years of enrolment for confederal councillors and constitutional judges.": {
    "sre": "Članovi 102, 108, 112 i 117: upis od navršenih 18 godina; prvi upis ima probni rok od tri godine i može se jednom ispraviti; inače drugi registar tek nakon petnaest godina; slobodno istupañe; upis važi od prvih izbora za Narodni Sabor održanih više od godinu dana kasnije; osam godina upisa za konfederalne većnike i sudije Ustavnog Suda.",
-   "ist": "Členove 102, 108, 112 i 117: vpisvane ot navãršeni 18 godini; pãrvoto vpisvane e s izpitatelen srok ot tri godini i može da bãde popraveno vednãž; v protiven slučaj drug registãr — edva sled petnadeset godini; svobodno ottegļane; dejstvie ot pãrvite izbori za Narodni Sabor, provedeni poveče ot edna godina po-kãsno; iziskvane za osem godini vpisvane za konfederalnite sãvetnici i konstitucionnite sãdii."
+   "ist": "Členove 102, 108, 112 i 117: vpisvane ot navãršeni 18 godini; pãrvoto vpisvane e s izpitatelen srok ot tri godini i može da bãde popraveno vednãž; v protiven slučaj drug registãr — edva sled petnadeset godini; svobodno ottegļane; dejstvie ot pãrvite izbori za Narodni Sabor, provedeni poveče ot edna godina po-kãsno; iziskvane za osem godini vpisvane za konfederalnite sãvetnici i konstitucionnite sãdii.",
+   "zap": "Členi 102, 108, 112 in 117: vpis od 18. leta; prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; sicer drug register šele po petnajstih letih; prost izstop; učinek od prvih volitev v Narodni Sabor, ki potekajo več kot eno leto pozneje; osem let vpisa za konfederalne svetnike in ustavne sodnike."
   },
   "Articles of {0}": {
    "sre": "Članovi: {0}",
-   "ist": "Členove na {0}"
+   "ist": "Členove na {0}",
+   "zap": "Členi: {0}"
   },
   "As it will appear on your card. Names written in Cyrillic are transcribed into the unified Latin alphabet; Latin names are kept exactly as typed.": {
    "zap": "Tako, kot bo zapisano na vaši izkaznici. Imena v cirilici se prečrkujejo v enotno latinično abecedo; imena v latinici ostanejo natanko takšna, kot ste jih vnesli.",
@@ -364,7 +395,8 @@
   },
   "Assembly of Nations": {
    "sre": "Skupština naroda",
-   "ist": "Sãbranie na narodite"
+   "ist": "Sãbranie na narodite",
+   "zap": "Skupščina narodov"
   },
   "At home": {
    "zap": "Doma",
@@ -373,7 +405,8 @@
   },
   "Attachment by residence requires living in the Confederation.": {
    "sre": "Pripadnost po prebivalištu moguća je samo uz prebivalište u Konfederaciji.",
-   "ist": "Prinadležnostta po mestoživeene iziskva da živeete v Konfederacijata."
+   "ist": "Prinadležnostta po mestoživeene iziskva da živeete v Konfederacijata.",
+   "zap": "Pripadnost po prebivališču zahteva prebivañe v Konfederaciji."
   },
   "Attacks on the security of the Confederation, terrorism, organised crime across States, corruption of confederal officials, electoral fraud, war crimes and crimes against humanity.": {
    "zap": "Napadi na varnost Konfederacije, terorizem, organizirani kriminal, ki zajema več držav, korupcija konfederalnih uslužbencev, volilne goļufije, vojna hudodelstva in hudodelstva zoper človečnost.",
@@ -390,7 +423,8 @@
   },
   "Autonomous communities within the states are listed on the <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Autonomous communities</a> page.": {
    "sre": "Autonomne zajednice unutar država navedene su na stranici <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Autonomne zajednice</a>.",
-   "ist": "Avtonomnite obštnosti v dãržavite sa izbroeni na stranicata <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Avtonomni obštnosti</a>."
+   "ist": "Avtonomnite obštnosti v dãržavite sa izbroeni na stranicata <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Avtonomni obštnosti</a>.",
+   "zap": "Avtonomne skupnosti v državah so navedene na strani <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Avtonomne skupnosti</a>."
   },
   "Azure and or horizontal; on the chief, three crowned leopard heads, the historic arms of the Kingdom of Dalmatia, surmounted by the radiant sun of the Adriatic.": {
    "zap": "Vodoravno modro in zlato; v zgorñem delu tri kronane leopardje glave, zgodovinski grb Kraļestva Dalmacije, nad ñimi sijoče jadransko sonce."
@@ -403,7 +437,8 @@
   },
   "Back": {
    "sre": "Nazad",
-   "ist": "Nazad"
+   "ist": "Nazad",
+   "zap": "Nazaj"
   },
   "Back to my card": {
    "zap": "Nazaj na mojo izkaznico"
@@ -434,7 +469,8 @@
   },
   "Begin reading": {
    "sre": "Počnite čitati",
-   "ist": "Započnete četeneto"
+   "ist": "Započnete četeneto",
+   "zap": "Začni brati"
   },
   "Begin registration": {
    "zap": "Začni prijavo",
@@ -458,30 +494,36 @@
   },
   "Bosniak communities": {
    "sre": "Bošñačke zajednice",
-   "ist": "Bošñaški obštnosti"
+   "ist": "Bošñaški obštnosti",
+   "zap": "Bošñaške skupnosti"
   },
   "bosniak community": {
    "zap": "bošñaška skupnost"
   },
   "Bosniak community": {
    "sre": "Bošñačka zajednica",
-   "ist": "Bošñaška obštnost"
+   "ist": "Bošñaška obštnost",
+   "zap": "Bošñaška skupnost"
   },
   "Bosniaks": {
    "sre": "Bošñaci",
-   "ist": "Bošñaci"
+   "ist": "Bošñaci",
+   "zap": "Bošñaki"
   },
   "Bosniaks state · seat {0}": {
    "sre": "Država Bošñaka · sědište {0}",
-   "ist": "Dãržava na bošñacite · administrativen centãr {0}"
+   "ist": "Dãržava na bošñacite · administrativen centãr {0}",
+   "zap": "Država Bošñakov · sedež {0}"
   },
   "Boundaries: GADM, geoBoundaries, Natural Earth. Population: national censuses and registers. GDP: Eurostat regional accounts, 2023.": {
    "sre": "Granice: GADM, geoBoundaries, Natural Earth. Stanovništvo: nacionalni popisi i registri stanovništva. BDP: regionalni računi Eurostata, 2023.",
-   "ist": "Granici: GADM, geoBoundaries, Natural Earth. Naselenie: nacionalni prebrojavanija i registri. BVP: regionalni smetki na Eurostat, 2023 g."
+   "ist": "Granici: GADM, geoBoundaries, Natural Earth. Naselenie: nacionalni prebrojavanija i registri. BVP: regionalni smetki na Eurostat, 2023 g.",
+   "zap": "Meje: GADM, geoBoundaries, Natural Earth. Prebivalstvo: nacionalni popisi in registri prebivalstva. BDP: regionalni računi Eurostata, 2023."
   },
   "Brčko and Mostar fall directly under confederal jurisdiction and belong to no state. Their municipal council is elected by direct suffrage and guarantees the fair representation of all resident communities.": {
    "sre": "Brčko i Mostar neposredno su pod konfederalnom jurisdikcijom i ne pripadaju nijednoj državi. Ñihovo opštinsko veće bira se na neposrednim izborima i garantuje pravednu zastupļenost svih zajednica koje u ñima žive.",
-   "ist": "Brčko i Mostar sa pod prjaka konfederalna jurisdikcija i ne prinadležat kãm nikoja dãržava. Obštinskijat im sãvet se izbira črez prjako glasuvane i garantira spravedlivoto predstavitelstvo na vsički obštnosti, koito živejat v tjah."
+   "ist": "Brčko i Mostar sa pod prjaka konfederalna jurisdikcija i ne prinadležat kãm nikoja dãržava. Obštinskijat im sãvet se izbira črez prjako glasuvane i garantira spravedlivoto predstavitelstvo na vsički obštnosti, koito živejat v tjah.",
+   "zap": "Brčko in Mostar sta neposredno pod konfederalno jurisdikcijo in ne pripadata nobeni državi. Ñun občinski svet se voli na neposrednih volitvah in jamči pravično zastopanost vseh skupnosti, ki tam prebivajo."
   },
   "Bulgarian": {
    "zap": "Bolgarska",
@@ -490,14 +532,16 @@
   },
   "Bulgarian communities": {
    "sre": "Bugarske zajednice",
-   "ist": "Bãlgarski obštnosti"
+   "ist": "Bãlgarski obštnosti",
+   "zap": "Bolgarske skupnosti"
   },
   "bulgarian community": {
    "zap": "bolgarska skupnost"
   },
   "Bulgarian community": {
    "sre": "Bugarska zajednica",
-   "ist": "Bãlgarska obštnost"
+   "ist": "Bãlgarska obštnost",
+   "zap": "Bolgarska skupnost"
   },
   "Bulgarian-Macedonian-based": {
    "zap": "Na bolgarsko-makedonski osnovi",
@@ -506,19 +550,23 @@
   },
   "Bulgarians": {
    "sre": "Bugari",
-   "ist": "Bãlgari"
+   "ist": "Bãlgari",
+   "zap": "Bolgari"
   },
   "Bulgarians state · seat {0}": {
    "sre": "Država Bugara · sědište {0}",
-   "ist": "Dãržava na bãlgarite · administrativen centãr {0}"
+   "ist": "Dãržava na bãlgarite · administrativen centãr {0}",
+   "zap": "Država Bolgarov · sedež {0}"
   },
   "by a two-thirds majority": {
    "sre": "dvotrećinskom većinom",
-   "ist": "s mnozinstvo ot dve treti"
+   "ist": "s mnozinstvo ot dve treti",
+   "zap": "z dvotretjinsko večino"
   },
   "by register": {
    "sre": "po registru",
-   "ist": "po registri"
+   "ist": "po registri",
+   "zap": "po registrih"
   },
   "Cancel": {
    "zap": "Prekliči",
@@ -537,7 +585,8 @@
   },
   "Card links are not active": {
    "sre": "Linkovi za kartu nisu aktivni",
-   "ist": "Vrãzkite kãm kartite ne sa aktivni"
+   "ist": "Vrãzkite kãm kartite ne sa aktivni",
+   "zap": "Povezave do izkaznic niso aktivne"
   },
   "Card number": {
    "zap": "Številka izkaznice",
@@ -577,7 +626,8 @@
   },
   "Central standard (središñi)": {
    "sre": "središñi standard",
-   "ist": "Centralen standart (središñi)"
+   "ist": "Centralen standart (središñi)",
+   "zap": "Središñi standard"
   },
   "Check the status of a citizen card": {
    "zap": "Preverite status državļanske izkaznice",
@@ -591,7 +641,8 @@
   },
   "Checking…": {
    "sre": "Kontrola u toku…",
-   "ist": "Proverka…"
+   "ist": "Proverka…",
+   "zap": "Preverjañe…"
   },
   "chef-lieu {0}": {
    "zap": "sedež {0}",
@@ -603,31 +654,38 @@
   },
   "Choose a case": {
    "sre": "Izaberite slučaj",
-   "ist": "Izberete slučaj"
+   "ist": "Izberete slučaj",
+   "zap": "Izberite primer"
   },
   "Choose a municipality from the list.": {
    "sre": "Izaberite opštinu s liste.",
-   "ist": "Izberete obština ot spisãka."
+   "ist": "Izberete obština ot spisãka.",
+   "zap": "Izberite občino s seznama."
   },
   "Choose a register, or no register.": {
    "sre": "Izaberite registar ili opciju „Bez registra“.",
-   "ist": "Izberete registãr ili „Bez registãr“."
+   "ist": "Izberete registãr ili „Bez registãr“.",
+   "zap": "Izberite register ali možnost „Brez registra“."
   },
   "Choose the basis of your attachment.": {
    "sre": "Izaberite osnov pripadnosti.",
-   "ist": "Izberete osnovanieto za prinadležnostta si."
+   "ist": "Izberete osnovanieto za prinadležnostta si.",
+   "zap": "Izberite podlago pripadnosti."
   },
   "Choose the language of the card.": {
    "sre": "Izaberite jezik karte.",
-   "ist": "Izberete ezika na kartata."
+   "ist": "Izberete ezika na kartata.",
+   "zap": "Izberite jezik izkaznice."
   },
   "Choose the language of your card.": {
    "sre": "Izaberite jezik svoje karte.",
-   "ist": "Izberete ezika na kartata si."
+   "ist": "Izberete ezika na kartata si.",
+   "zap": "Izberite jezik izkaznice."
   },
   "Choose the sex shown on the card.": {
    "sre": "Izaberite pol koji se navodi na karti.",
-   "ist": "Izberete pola, kojto da bãde posočen na kartata."
+   "ist": "Izberete pola, kojto da bãde posočen na kartata.",
+   "zap": "Izberite spol, ki bo naveden na izkaznici."
   },
   "Citizen card": {
    "zap": "Državļanska izkaznica",
@@ -641,7 +699,8 @@
   },
   "Citizens": {
    "sre": "Državļani",
-   "ist": "Graždani"
+   "ist": "Graždani",
+   "zap": "Državļani"
   },
   "Citizens elect both chambers. The chambers then form the executive and the court, so that every people takes part in each of them.": {
    "zap": "Državļani volijo oba doma. Doma nato oblikujeta izvršilno oblast in sodišče, tako da vsak narod sodeluje v vsakem od ñiju.",
@@ -661,11 +720,13 @@
   },
   "Civil Flag": {
    "sre": "Građanska zastava",
-   "ist": "Graždansko zname"
+   "ist": "Graždansko zname",
+   "zap": "Civilna zastava"
   },
   "Civil flag of the Balkan Confederation": {
    "sre": "Građanska zastava Balkanske konfederacije",
-   "ist": "Graždansko zname na Balkanskata konfederacija"
+   "ist": "Graždansko zname na Balkanskata konfederacija",
+   "zap": "Civilna zastava Balkanske konfederacije"
   },
   "Civil flag of the Confederation under direct confederal jurisdiction, dashed border marks the autonomous municipal status.": {
    "zap": "Civilna zastava Konfederacije za občino pod neposredno konfederalno jurisdikcijo; črtkana obroba označuje status avtonomne občine."
@@ -678,11 +739,13 @@
   },
   "Coat of Arms": {
    "sre": "Grb",
-   "ist": "Gerb"
+   "ist": "Gerb",
+   "zap": "Grb"
   },
   "Coat of arms of the Balkan Confederation": {
    "sre": "Grb Balkanske konfederacije",
-   "ist": "Gerb na Balkanskata konfederacija"
+   "ist": "Gerb na Balkanskata konfederacija",
+   "zap": "Grb Balkanske konfederacije"
   },
   "Coat of arms of {0}": {
    "zap": "Grb: {0}"
@@ -710,7 +773,8 @@
   },
   "Confederal": {
    "sre": "Konfederalne",
-   "ist": "Konfederalni"
+   "ist": "Konfederalni",
+   "zap": "Konfederalne"
   },
   "Confederal armed forces": {
    "zap": "Konfederalne oborožene sile",
@@ -724,11 +788,13 @@
   },
   "Confederal Assembly": {
    "sre": "Konfederalna skupština",
-   "ist": "Konfederalno sãbranie"
+   "ist": "Konfederalno sãbranie",
+   "zap": "Konfederalna skupščina"
   },
   "Confederal autonomous municipalities": {
    "sre": "Konfederalne autonomne opštine",
-   "ist": "Konfederalni avtonomni obštini"
+   "ist": "Konfederalni avtonomni obštini",
+   "zap": "Konfederalne avtonomne občine"
   },
   "Confederal autonomous municipality": {
    "zap": "Konfederalna avtonomna občina"
@@ -769,11 +835,13 @@
   },
   "Confederal entities": {
    "sre": "Konfederalni entiteti",
-   "ist": "Konfederalni edinici"
+   "ist": "Konfederalni edinici",
+   "zap": "Konfederalne enote"
   },
   "Confederal financial equalisation formula": {
    "sre": "Formula konfederalnog finansijskog izravnaña",
-   "ist": "Formula za konfederalnoto finansovo izravñavane"
+   "ist": "Formula za konfederalnoto finansovo izravñavane",
+   "zap": "Formula konfederalne finančne izravnave"
   },
   "Confederal format, country band <b translate=\"no\">BK</b> followed by the state code.": {
    "zap": "Konfederalni format: pas z oznako Konfederacije <b translate=\"no\">BK</b>, ki mu sledi oznaka države."
@@ -795,7 +863,8 @@
   },
   "Confederal municipalities": {
    "sre": "Konfederalne opštine",
-   "ist": "Konfederalni obštini"
+   "ist": "Konfederalni obštini",
+   "zap": "Konfederalne občine"
   },
   "Confederal municipality": {
    "zap": "Konfederalna občina"
@@ -810,11 +879,13 @@
   },
   "Confederal territories": {
    "sre": "Konfederalne teritorije",
-   "ist": "Konfederalni teritorii"
+   "ist": "Konfederalni teritorii",
+   "zap": "Konfederalna ozemļa"
   },
   "Confederal territories and municipalities": {
    "sre": "Konfederalne teritorije i opštine",
-   "ist": "Konfederalni teritorii i obštini"
+   "ist": "Konfederalni teritorii i obštini",
+   "zap": "Konfederalna ozemļa in občine"
   },
   "Confederal territory": {
    "zap": "Konfederalno ozemļe"
@@ -844,11 +915,13 @@
   },
   "Confirmed registrations only. Updated {0}.": {
    "sre": "Samo potvrđene prijave. Ažurirano {0}.",
-   "ist": "Samo potvãrdeni zajavki. Obnoveno: {0}."
+   "ist": "Samo potvãrdeni zajavki. Obnoveno: {0}.",
+   "zap": "Samo potrjene prijave. Posodobļeno {0}."
   },
   "confirms the college": {
    "sre": "potvrđuje većnike",
-   "ist": "potvãrždava sãvetnicite"
+   "ist": "potvãrždava sãvetnicite",
+   "zap": "potrdi kolegij"
   },
   "Consensus first, then a double key": {
    "zap": "Najprej soglasje, nato dvojni kļuč"
@@ -860,27 +933,33 @@
   },
   "Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations, or within all seven if it touches an entrenched guarantee.": {
    "sre": "Pristanak Narodnog Sabora: dvotrećinska većina na plenarnoj sědnici i većina u najmañe šest od sedam delegacija, odnosno u svih sedam ako amandman zadire u ojačanu garanciju.",
-   "ist": "Sãglasie na Narodni Sabor: dve treti v plenarno zasedanie i mnozinstvo v pone šest ot sedemte delegacii ili vãv vsičkite sedem, ako izmenenieto zasjaga zasilena garancija."
+   "ist": "Sãglasie na Narodni Sabor: dve treti v plenarno zasedanie i mnozinstvo v pone šest ot sedemte delegacii ili vãv vsičkite sedem, ako izmenenieto zasjaga zasilena garancija.",
+   "zap": "Soglasje Narodnega Sabora: dvotretjinska večina v plenarni sestavi in večina v najmañ šestih od sedmih delegacij ali v vseh sedmih, če gre za utrjeno jamstvo."
   },
   "Consent refused": {
    "sre": "Uskraćen pristanak",
-   "ist": "Otkazano sãglasie"
+   "ist": "Otkazano sãglasie",
+   "zap": "Soglasje zavrñeno"
   },
   "Consolidated Constitution of the Balkan Confederation, v4": {
    "sre": "Objediñeni tekst Ustava Balkanske konfederacije, v4",
-   "ist": "Konsolidiran tekst na Konstitucijata na Balkanskata konfederacija, v4"
+   "ist": "Konsolidiran tekst na Konstitucijata na Balkanskata konfederacija, v4",
+   "zap": "Prečiščeno besedilo Ustave Balkanske konfederacije, v4"
   },
   "Consolidated draft of the Confederal Constitution, v2": {
    "sre": "Objediñeni nacrt Ustava Konfederacije, v2",
-   "ist": "Konsolidiran proekt na Konfederalnata konstitucija, v2"
+   "ist": "Konsolidiran proekt na Konfederalnata konstitucija, v2",
+   "zap": "Prečiščeni osnutek konfederalne Ustave, v2"
   },
   "Consolidated text, version {0} of {1}.": {
    "sre": "Objediñeni tekst, verzija {0} od {1}.",
-   "ist": "Konsolidiran tekst, versija {0} ot {1}."
+   "ist": "Konsolidiran tekst, versija {0} ot {1}.",
+   "zap": "Prečiščeno besedilo, različica {0} z dne {1}."
   },
   "Consolidated text, version {0} of {1}: a preamble and {2} articles in {3} titles. Official acts are published in the unified South Slavic Latin alphabet and in the three regional standards; this is the English text.": {
    "sre": "Objediñeni tekst, verzija {0} od {1}: preambula i {2} {2#one:član;few:člana;other:članova} u {3} {3#one:glavi;few:glave;other:glava}. Službeni akti objavļuju se jedinstvenom južnoslovenskom latinicom i u tri regionalna standarda; ovo je tekst na engleskom.",
-   "ist": "Konsolidiran tekst, versija {0} ot {1}: preambjul i {2} {2#one:člen;other:člena} v {3} {3#one:glava;other:glavi}. Oficialnite aktove se publikuvat na edinnata južnoslavjanska latinica i v trite regionalni standarta; tova e tekstãt na anglijski ezik."
+   "ist": "Konsolidiran tekst, versija {0} ot {1}: preambjul i {2} {2#one:člen;other:člena} v {3} {3#one:glava;other:glavi}. Oficialnite aktove se publikuvat na edinnata južnoslavjanska latinica i v trite regionalni standarta; tova e tekstãt na anglijski ezik.",
+   "zap": "Prečiščeno besedilo, različica {0} z dne {1}: preambula in {2} {2#one:člen;two:člena;few:členi;other:členov} v {3} {3#one:poglavju;two:poglavjih;few:poglavjih;other:poglavjih}. Uradni akti se objavļajo v enotni južnoslovanski latinici in v treh regionalnih standardih; to je angleško besedilo."
   },
   "Constituencies": {
    "zap": "Volilne enote"
@@ -906,43 +985,53 @@
   },
   "Constitution of the Balkan Confederation, v4.1: full text": {
    "sre": "Ustav Balkanske konfederacije, v4.1: potpuni tekst",
-   "ist": "Konstitucija na Balkanskata konfederacija, v4.1: pãlen tekst"
+   "ist": "Konstitucija na Balkanskata konfederacija, v4.1: pãlen tekst",
+   "zap": "Ustava Balkanske konfederacije, v4.1: celotno besedilo"
   },
   "Constitution v4.2: powers of the Confederation": {
    "sre": "Ustav v4.2: nadležnosti Konfederacije",
-   "ist": "Konstitucija v4.2: pravomoštija na Konfederacijata"
+   "ist": "Konstitucija v4.2: pravomoštija na Konfederacijata",
+   "zap": "Ustava v4.2: pristojnosti Konfederacije"
   },
   "Constitution v4.3: probation and fifteen-year lock for national registers": {
    "sre": "Ustav v4.3: probni rok i petnaestogodišñe zakļučavañe narodnih registara",
-   "ist": "Konstitucija v4.3: izpitatelen srok i petnadesetgodišna zabrana za smjana na narodnija registãr"
+   "ist": "Konstitucija v4.3: izpitatelen srok i petnadesetgodišna zabrana za smjana na narodnija registãr",
+   "zap": "Ustava v4.3: poskusna doba in petnajstletna zapora za narodne registre"
   },
   "Constitution v4.4: the institutions completed": {
    "sre": "Ustav v4.4: dovršeno uređeñe institucija",
-   "ist": "Konstitucija v4.4: doizgraždane na instituciite"
+   "ist": "Konstitucija v4.4: doizgraždane na instituciite",
+   "zap": "Ustava v4.4: dopolnitev institucij"
   },
   "Constitution v4.5: security and defence": {
    "sre": "Ustav v4.5: sigurnost i odbrana",
-   "ist": "Konstitucija v4.5: sigurnost i otbrana"
+   "ist": "Konstitucija v4.5: sigurnost i otbrana",
+   "zap": "Ustava v4.5: varnost in obramba"
   },
   "Constitution v4.6: immunities, conciliation, treaties, enforcement and symbols": {
    "sre": "Ustav v4.6: imuniteti, usaglašavañe, ugovori, izvršeñe i simboli",
-   "ist": "Konstitucija v4.6: imuniteti, sãglasitelna procedura, dogovori, prinuditelno izpãlnenie i simvoli"
+   "ist": "Konstitucija v4.6: imuniteti, sãglasitelna procedura, dogovori, prinuditelno izpãlnenie i simvoli",
+   "zap": "Ustava v4.6: imunitete, usklajevañe, pogodbe, izvršba in simboli"
   },
   "Constitution v4.7: finances, the Kongres, revision and final provisions": {
    "sre": "Ustav v4.7: finansije, Kongres, revizija i završne odredbe",
-   "ist": "Konstitucija v4.7: finansi, Kongres, izmenenie na Konstitucijata i zakļučitelni razporedbi"
+   "ist": "Konstitucija v4.7: finansi, Kongres, izmenenie na Konstitucijata i zakļučitelni razporedbi",
+   "zap": "Ustava v4.7: finance, Kongres, spremiñañe Ustave in končne določbe"
   },
   "Constitution v4.8: South Slavic names of the confederal bodies": {
    "sre": "Ustav v4.8: južnoslovenski nazivi konfederalnih organa",
-   "ist": "Konstitucija v4.8: južnoslavjanski imena na konfederalnite organi"
+   "ist": "Konstitucija v4.8: južnoslavjanski imena na konfederalnite organi",
+   "zap": "Ustava v4.8: južnoslovanska imena konfederalnih organov"
   },
   "Constitution v4.9: the double key": {
    "sre": "Ustav v4.9: dvostruki kļuč",
-   "ist": "Konstitucija v4.9: dvojnijat kļuč"
+   "ist": "Konstitucija v4.9: dvojnijat kļuč",
+   "zap": "Ustava v4.9: dvojni kļuč"
   },
   "Constitutional amendment": {
    "sre": "Amandman na Ustav",
-   "ist": "Izmenenie na Konstitucijata"
+   "ist": "Izmenenie na Konstitucijata",
+   "zap": "Sprememba Ustave"
   },
   "Constitutional corpus": {
    "zap": "Ustavno besedilo",
@@ -951,7 +1040,8 @@
   },
   "Constitutional court, Zagreb": {
    "sre": "Ustavni sud, Zagreb",
-   "ist": "Konstitucionen sãd, Zagreb"
+   "ist": "Konstitucionen sãd, Zagreb",
+   "zap": "Ustavno sodišče, Zagreb"
   },
   "Constitutional initiative ({0} citizens) and optional referendum ({1} citizens)": {
    "zap": "Ustavna pobuda ({0} državļanov) in fakultativni referendum ({1} državļanov)",
@@ -960,7 +1050,8 @@
   },
   "Contact: <a href=\"mailto:{0}\">{1}</a>.": {
    "sre": "Kontakt: <a href=\"mailto:{0}\">{1}</a>.",
-   "ist": "Za vrãzka: <a href=\"mailto:{0}\">{1}</a>."
+   "ist": "Za vrãzka: <a href=\"mailto:{0}\">{1}</a>.",
+   "zap": "Stik: <a href=\"mailto:{0}\">{1}</a>."
   },
   "Continue →": {
    "zap": "Naprej →"
@@ -972,7 +1063,8 @@
   },
   "Could not load the portal data: {0}": {
    "sre": "Nije moguće učitati podatke portala: {0}",
-   "ist": "Dannite na portala ne možaha da bãdat zaredeni: {0}"
+   "ist": "Dannite na portala ne možaha da bãdat zaredeni: {0}",
+   "zap": "Podatkov portala ni bilo mogoče naložiti: {0}"
   },
   "Council of Communities": {
    "zap": "Svet skupnosti",
@@ -997,22 +1089,26 @@
   },
   "Croat communities": {
    "sre": "Hrvatske zajednice",
-   "ist": "Hãrvatski obštnosti"
+   "ist": "Hãrvatski obštnosti",
+   "zap": "Hrvaške skupnosti"
   },
   "croat community": {
    "zap": "hrvaška skupnost"
   },
   "Croat community": {
    "sre": "Hrvatska zajednica",
-   "ist": "Hãrvatska obštnost"
+   "ist": "Hãrvatska obštnost",
+   "zap": "Hrvaška skupnost"
   },
   "Croats": {
    "sre": "Hrvati",
-   "ist": "Hãrvati"
+   "ist": "Hãrvati",
+   "zap": "Hrvati"
   },
   "Croats state · seat {0}": {
    "sre": "Država Hrvata · sědište {0}",
-   "ist": "Dãržava na hãrvatite · administrativen centãr {0}"
+   "ist": "Dãržava na hãrvatite · administrativen centãr {0}",
+   "zap": "Država Hrvatov · sedež {0}"
   },
   "Daily confirmed registrations over the last 90 days": {
    "zap": "Potrjene prijave po dnevih v zadñih 90 dneh",
@@ -1024,7 +1120,8 @@
   },
   "Data protection notice": {
    "sre": "Napomena o zaštiti podataka",
-   "ist": "Informacija za zaštitata na ličnite danni"
+   "ist": "Informacija za zaštitata na ličnite danni",
+   "zap": "Obvestilo o varstvu osebnih podatkov"
   },
   "Date of birth": {
    "zap": "Datum rojstva",
@@ -1033,7 +1130,8 @@
   },
   "Deadlock rules for the election of councillors and judges, a 90-day limit for the consent of the Narodni Sabor, legislative initiative and promulgation, urgent laws, a state of emergency, half renewal of the Ustavni Sud; new Confederal Chancellery, Court of Justice, Prosecutor's Office, Court of Audit, Language Institute, Library and Archives and Council of Communities. 165 articles.": {
    "sre": "Pravila za slučaj blokade pri izboru većnika i sudija, rok od 90 dana za pristanak Narodnog Sabora, zakonodavna inicijativa i proglašeñe zakona, hitni zakoni, vanredno stañe, obnavļañe polovine sastava Ustavnog Suda; novi organi: Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv i Veće Zajednica. 165 članova.",
-   "ist": "Pravila za preodoļavane na blokaži pri izbora na sãvetnici i sãdii, srok ot 90 dni za sãglasieto na Narodni Sabor, zakonodatelna iniciativa i obnarodvane, spešni zakoni, izvãnredno položenie, obnovjavane na polovinata ot sãstava na Ustavni Sud; sãzdavat se Konfederalnata kancelarija, Konfederalnijat sãd, Konfederalnata prokuratura, Konfederalnata smetna palata, Konfederalnijat institut za ezika, Konfederalnata biblioteka i arhiv i Sãvetãt na obštnostite. 165 člena."
+   "ist": "Pravila za preodoļavane na blokaži pri izbora na sãvetnici i sãdii, srok ot 90 dni za sãglasieto na Narodni Sabor, zakonodatelna iniciativa i obnarodvane, spešni zakoni, izvãnredno položenie, obnovjavane na polovinata ot sãstava na Ustavni Sud; sãzdavat se Konfederalnata kancelarija, Konfederalnijat sãd, Konfederalnata prokuratura, Konfederalnata smetna palata, Konfederalnijat institut za ezika, Konfederalnata biblioteka i arhiv i Sãvetãt na obštnostite. 165 člena.",
+   "zap": "Pravila za izhod iz zastoja pri volitvah svetnikov in sodnikov, 90-dnevni rok za soglasje Narodnega Sabora, zakonodajna pobuda in razglasitev zakonov, nujni zakoni, izredno stañe, obnova polovice Ustavnega Suda; novi konfederalni organi: kanclerija, sodišče, tožilstvo, računsko sodišče, inštitut za jezik, kñižnica in arhiv ter Svet skupnosti. 165 členov."
   },
   "Declaration": {
    "zap": "Izjava"
@@ -1045,7 +1143,8 @@
   },
   "Defence &amp; sciences capital": {
    "sre": "Glavni grad odbrane &amp; nauke",
-   "ist": "Stolica na otbranata i naukite"
+   "ist": "Stolica na otbranata i naukite",
+   "zap": "Prestolnica obrambe in znanosti"
   },
   "Defence and Security": {
    "zap": "Obramba in varnost"
@@ -1060,7 +1159,8 @@
   },
   "Delete the card of {0}? Its number {1} is cancelled.": {
    "sre": "Da li želite izbrisati kartu koja glasi na ime {0}? Ñen broj {1} biće poništen.",
-   "ist": "Da se iztrie li kartata na {0}? Nomer {1} šte bãde anuliran."
+   "ist": "Da se iztrie li kartata na {0}? Nomer {1} šte bãde anuliran.",
+   "zap": "Želite izbrisati izkaznico otroka {0}? Ñena številka {1} bo preklicana."
   },
   "Delete the registration held in this browser? The card and its number are removed from this device.": {
    "zap": "Želite izbrisati prijavo, shrañeno v tem brskalniku? Izkaznica in ñena številka bosta odstrañeni iz te naprave.",
@@ -1080,7 +1180,8 @@
   },
   "Density, all {0} entities": {
    "sre": "Gustina naseļenosti, svi entiteti ({0})",
-   "ist": "Gãstota, vsički {0} edinici"
+   "ist": "Gãstota, vsički {0} edinici",
+   "zap": "Gostota, vse enote ({0})"
   },
   "Department of Defence and Security · Sofija": {
    "zap": "Resor za obrambo in varnost · Sofija",
@@ -1097,11 +1198,13 @@
   },
   "Designation of the four confederal capitals": {
    "sre": "Određivañe četiri konfederalna glavna grada",
-   "ist": "Opredeļane na četirite konfederalni stolici"
+   "ist": "Opredeļane na četirite konfederalni stolici",
+   "zap": "Določitev štirih konfederalnih prestolnic"
   },
   "Direct confederal jurisdiction": {
    "sre": "Neposredna konfederalna jurisdikcija",
-   "ist": "Prjaka konfederalna jurisdikcija"
+   "ist": "Prjaka konfederalna jurisdikcija",
+   "zap": "Neposredna konfederalna jurisdikcija"
   },
   "Directory of the 49 states": {
    "zap": "Imenik 49 držav",
@@ -1113,7 +1216,8 @@
   },
   "Double majority: a majority of voters across the Confederation and a majority of the States, 25 of 49. Each State counts as one vote, decided by its own voters.": {
    "sre": "Dvostruka većina: većina birača u čitavoj Konfederaciji i većina država, 25 od 49. Svaka država ima jedan glas, o kojem odlučuju ñeni birači.",
-   "ist": "Dvojno mnozinstvo: mnozinstvo ot glasuvalite v cjalata Konfederacija i mnozinstvo ot dãržavite — 25 ot 49. Vsjaka dãržava se broi za edin glas, kojto se opredeļa ot nejnite sobstveni izbirateli."
+   "ist": "Dvojno mnozinstvo: mnozinstvo ot glasuvalite v cjalata Konfederacija i mnozinstvo ot dãržavite — 25 ot 49. Vsjaka dãržava se broi za edin glas, kojto se opredeļa ot nejnite sobstveni izbirateli.",
+   "zap": "Dvojna večina: večina glasujočih v vsej Konfederaciji in večina držav, 25 od 49. Vsaka država šteje kot en glas, o katerem odločijo ñeni volivci."
   },
   "Download back (PNG)": {
    "zap": "Prenesi zadño stran (PNG)"
@@ -1128,7 +1232,8 @@
   },
   "E-mail address": {
    "sre": "Adresa e-pošte",
-   "ist": "Imejl adres"
+   "ist": "Imejl adres",
+   "zap": "E-poštni naslov"
   },
   "E-mail me my card": {
    "zap": "Pošļi mi izkaznico po e-pošti",
@@ -1142,14 +1247,16 @@
   },
   "Each confederal territory keeps its own police; a command for the Gendarmerie; a Confederal Intelligence Agency without police powers, abroad and against four threats at home; an Inspector General and a joint security committee; a Chief of the General Staff, and a general elected by the Confederal Assembly in wartime. 170 articles.": {
    "sre": "Svaka konfederalna teritorija zadržava svoju policiju; komanda Žandarmerije; Konfederalna Obavěštajna Agencija bez policijskih nadležnosti, koja děluje izvan zemļe i, unutar ñe, protiv četiri prětñe; generalni inspektor i zajednički odbor za sigurnost; načelnik Generalštaba i general kojeg u ratu bira Konfederalna skupština. 170 članova.",
-   "ist": "Vsjaka konfederalna teritorija zapazva sobstvenata si policija; komandvane na Žandarmerijata; Konfederalna agencija za razuznavane bez policejski pravomoštija, kojato dejstva v čužbina i sreštu četiri zaplahi v stranata; glaven inspektor i sãvmestna komisija po sigurnostta; načalnik na Generalnija štab i glavnokomandvašt, izbiran ot Konfederalnoto sãbranie vãv voenno vreme. 170 člena."
+   "ist": "Vsjaka konfederalna teritorija zapazva sobstvenata si policija; komandvane na Žandarmerijata; Konfederalna agencija za razuznavane bez policejski pravomoštija, kojato dejstva v čužbina i sreštu četiri zaplahi v stranata; glaven inspektor i sãvmestna komisija po sigurnostta; načalnik na Generalnija štab i glavnokomandvašt, izbiran ot Konfederalnoto sãbranie vãv voenno vreme. 170 člena.",
+   "zap": "Vsako konfederalno ozemļe ohrani lastno policijo; vodstvo Žandarmerije; Konfederalna obveščevalna agencija brez policijskih pooblastil, ki deluje v tujini, doma pa samo proti štirim grožñam; generalni inšpektor in skupni varnostni odbor; načelnik generalštaba ter general, ki ga v vojnem času izvoli Konfederalna skupščina. 170 členov."
   },
   "Each councillor directs his department from its seat; the council meets in Sarajevo, served by the Konfederalna Kancelarija ({0}).": {
    "zap": "Vsak svetnik vodi svoj resor s sedeža tega resorja; svet se sestaja v Sarajevu, ñegovo delo pa podpira Konfederalna Kancelarija ({0})."
   },
   "each delegation": {
    "sre": "svaka delegacija",
-   "ist": "vsjaka delegacija"
+   "ist": "vsjaka delegacija",
+   "zap": "vsaka delegacija"
   },
   "Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.": {
    "zap": "Vsaka narodna delegacija Narodnega Sabora predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem."
@@ -1164,11 +1271,13 @@
   },
   "Eastern standard (istočni)": {
    "sre": "istočni standard",
-   "ist": "Iztočen standart (istočni)"
+   "ist": "Iztočen standart (istočni)",
+   "zap": "Istočni standard"
   },
   "Economic capital": {
    "sre": "Ekonomski glavni grad",
-   "ist": "Ikonomičeska stolica"
+   "ist": "Ikonomičeska stolica",
+   "zap": "Gospodarska prestolnica"
   },
   "Economy and Infrastructure": {
    "zap": "Gospodarstvo in infrastruktura"
@@ -1183,11 +1292,13 @@
   },
   "elects the judges": {
    "sre": "bira sudije",
-   "ist": "izbira sãdiite"
+   "ist": "izbira sãdiite",
+   "zap": "voli sodnike"
   },
   "elects the judges by ⅔": {
    "sre": "bira sudije većinom od ⅔",
-   "ist": "izbira sãdiite s ⅔"
+   "ist": "izbira sãdiite s ⅔",
+   "zap": "voli sodnike z ⅔"
   },
   "Emblem, flag and palette": {
    "zap": "Emblem, zastava in paleta",
@@ -1201,23 +1312,28 @@
   },
   "Enrolment in a national register can reveal national origin. It is recorded only with your explicit consent and kept apart from the register of citizens; it serves only the election of the Narodni Sabor.": {
    "sre": "Upis u narodni registar može otkriti narodnu pripadnost. Unosi se samo uz vaš izričit pristanak i čuva odvojeno od registra državļana; služi iskļučivo za izbore za Narodni Sabor.",
-   "ist": "Vpisvaneto v naroden registãr može da razkrie narodnostnata prinadležnost. To se zapisva samo s vašeto izrično sãglasie i se sãhrañava otdelno ot registãra na graždanite; izpolzva se edinstveno za izborite za Narodni Sabor."
+   "ist": "Vpisvaneto v naroden registãr može da razkrie narodnostnata prinadležnost. To se zapisva samo s vašeto izrično sãglasie i se sãhrañava otdelno ot registãra na graždanite; izpolzva se edinstveno za izborite za Narodni Sabor.",
+   "zap": "Vpis v narodni register lahko razkrije narodno poreklo. Zabeleži se samo z vašo izrecno privolitvijo in se hrani ločeno od registra državļanov; uporabļa se samo za volitve v Narodni Sabor."
   },
   "Enrolment is voluntary (Art. 102); citizens without a register vote for the Kongres only.": {
    "sre": "Upis je dobrovoļan (čl. 102); državļani bez registra glasaju samo za Kongres.",
-   "ist": "Vpisvaneto e dobrovolno (čl. 102); graždanite bez registãr glasuvat samo za Kongres."
+   "ist": "Vpisvaneto e dobrovolno (čl. 102); graždanite bez registãr glasuvat samo za Kongres.",
+   "zap": "Vpis je prostovoļen (čl. 102); državļani brez registra volijo samo Kongres."
   },
   "Enter a valid date of birth.": {
    "sre": "Unesite ispravan datum rođeña.",
-   "ist": "Vãvedete validna data na raždane."
+   "ist": "Vãvedete validna data na raždane.",
+   "zap": "Vnesite veļaven datum rojstva."
   },
   "Enter a valid e-mail address.": {
    "sre": "Unesite ispravnu adresu e-pošte.",
-   "ist": "Vãvedete validen imejl adres."
+   "ist": "Vãvedete validen imejl adres.",
+   "zap": "Vnesite veļaven e-poštni naslov."
   },
   "Enter the given name or names.": {
    "sre": "Unesite ime ili imena děteta.",
-   "ist": "Vãvedete sobstvenoto ime ili imena."
+   "ist": "Vãvedete sobstvenoto ime ili imena.",
+   "zap": "Vnesite ime ali imena."
   },
   "Enter the number printed on the card, or scan the QR code on its back. The confederal register answers with the status of the card only, never with personal data.": {
    "zap": "Vnesite številko, natisñeno na izkaznici, ali skenirajte kodo QR na hrbtni strani. Konfederalni register sporoči samo status izkaznice, nikoli osebnih podatkov.",
@@ -1226,23 +1342,28 @@
   },
   "Enter the surname.": {
    "sre": "Unesite prezime děteta.",
-   "ist": "Vãvedete familnoto ime."
+   "ist": "Vãvedete familnoto ime.",
+   "zap": "Vnesite priimek."
   },
   "Enter your date of birth.": {
    "sre": "Unesite datum rođeña.",
-   "ist": "Vãvedete datata si na raždane."
+   "ist": "Vãvedete datata si na raždane.",
+   "zap": "Vnesite datum rojstva."
   },
   "Enter your e-mail address: your card is sent there.": {
    "sre": "Unesite adresu e-pošte: na ñu se šaļe vaša karta.",
-   "ist": "Vãvedete imejl adresa si: kartata šte bãde izpratena na nego."
+   "ist": "Vãvedete imejl adresa si: kartata šte bãde izpratena na nego.",
+   "zap": "Vnesite e-poštni naslov: nañ bo poslana vaša izkaznica."
   },
   "Enter your given name or names.": {
    "sre": "Unesite ime ili imena.",
-   "ist": "Vãvedete sobstvenoto si ime ili imena."
+   "ist": "Vãvedete sobstvenoto si ime ili imena.",
+   "zap": "Vnesite ime ali imena."
   },
   "Enter your surname.": {
    "sre": "Unesite prezime.",
-   "ist": "Vãvedete familnoto si ime."
+   "ist": "Vãvedete familnoto si ime.",
+   "zap": "Vnesite priimek."
   },
   "Environment, Territory and Resources": {
    "zap": "Okoļe, prostor in naravni viri"
@@ -1257,7 +1378,8 @@
   },
   "EU = 100": {
    "sre": "EU = 100",
-   "ist": "ES = 100"
+   "ist": "ES = 100",
+   "zap": "EU = 100"
   },
   "Eurostat (BiH) split by entity (FZS · BHAS), 2023": {
    "zap": "Eurostat (BiH), razdelitev po entitetah (FZS · BHAS), 2023"
@@ -1273,7 +1395,8 @@
   },
   "Every citizen aged 18 or over": {
    "sre": "Svaki državļanin s navršenih 18 godina",
-   "ist": "Vseki graždanin, navãršil 18 godini"
+   "ist": "Vseki graždanin, navãršil 18 godini",
+   "zap": "Vsak državļan, star 18 let ali več"
   },
   "Every citizen may enrol in the register of the constituent people of his choice. The choice is personal and voluntary and need not match the people of your state. A first enrolment is probationary for three years and may be rectified once; after that, another register is open only fifteen years after your enrolment. You may withdraw at any time. An enrolment counts for the Narodni Sabor from the first election held more than a year later (Art. 102).": {
    "zap": "Vsak državļan se lahko vpiše v register konstitutivnega naroda po svoji izbiri. Izbira je osebna in prostovoļna; ni nujno, da se ujema z narodom vaše države. Prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; nato je drug register dostopen šele petnajst let po vašem vpisu. Iz registra lahko izstopite kadar koli. Za Narodni Sabor vpis veļa od prvih volitev, ki potekajo več kot leto dni pozneje (čl. 102).",
@@ -1287,7 +1410,8 @@
   },
   "Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.": {
    "sre": "Svake četiri godine, prve neděļe u oktobru, svaki državļanin popuñava dva glasačka listića. Prvim bira Kongres, u državi kojoj pripada. Drugim bira Narodni Sabor, u narodnom registru u koji se odlučio upisati. Prvi upis može se jednom ispraviti u roku od tri godine; nakon toga drugi registar dostupan je tek petnaest godina od upisa. Upis važi od prvih izbora održanih više od godinu dana kasnije. Državļanin koji se ne upiše ni u jedan registar zadržava sva ostala prava: glasa za Kongres i na svim referendumima.",
-   "ist": "Na vseki četiri godini, v pãrvata nedeļa na oktomvri, vseki graždanin glasuva s dve bjuletini. S pãrvata se izbira Kongres, v dãržavata na prinadležnost na graždanina. S vtorata se izbira Narodni Sabor, v narodnija registãr, v kojto graždaninãt e izbral da se vpiše. Pãrvoto vpisvane može da bãde popraveno vednãž v srok ot tri godini; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto. Vpisvaneto poražda dejstvie ot pãrvite izbori, provedeni poveče ot edna godina po-kãsno. Graždanin, kojto ne se vpiše v nikoj registãr, zapazva vsički ostanali prava: toj glasuva za Kongres i na vsički referendumi."
+   "ist": "Na vseki četiri godini, v pãrvata nedeļa na oktomvri, vseki graždanin glasuva s dve bjuletini. S pãrvata se izbira Kongres, v dãržavata na prinadležnost na graždanina. S vtorata se izbira Narodni Sabor, v narodnija registãr, v kojto graždaninãt e izbral da se vpiše. Pãrvoto vpisvane može da bãde popraveno vednãž v srok ot tri godini; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto. Vpisvaneto poražda dejstvie ot pãrvite izbori, provedeni poveče ot edna godina po-kãsno. Graždanin, kojto ne se vpiše v nikoj registãr, zapazva vsički ostanali prava: toj glasuva za Kongres i na vsički referendumi.",
+   "zap": "Vsaka štiri leta, prvo nedeļo v oktobru, odda vsak državļan dve glasovnici. S prvo voli Kongres, v državi, ki ji pripada. Z drugo voli Narodni Sabor, v narodnem registru, v katerega se je odločil vpisati. Prvi vpis je mogoče v treh letih enkrat popraviti; pozneje je drug register dostopen šele petnajst let po vpisu. Vpis veļa od prvih volitev, ki potekajo več kot eno leto pozneje. Državļan, ki se ne vpiše v noben register, ohrani vse druge pravice: voli Kongres in glasuje na vseh referendumih."
   },
   "Every State is a constituency. Seats follow the population, so that a delegate represents roughly the same number of inhabitants everywhere, within a floor that keeps the smallest States in the chamber.": {
    "zap": "Vsaka država je volilna enota. Sedeži sledijo številu prebivalcev, tako da delegat povsod predstavļa približno enako število prebivalcev, ob spodñi meji, ki tudi najmañšim državam zagotavļa mesto v domu.",
@@ -1296,15 +1420,18 @@
   },
   "Everyday use": {
    "sre": "Svakodnevna upotreba",
-   "ist": "Vsekidnevna upotreba"
+   "ist": "Vsekidnevna upotreba",
+   "zap": "Vsakdaña raba"
   },
   "Executive council": {
    "sre": "Izvršna vlast",
-   "ist": "Izpãlnitelen sãvet"
+   "ist": "Izpãlnitelen sãvet",
+   "zap": "Izvršna oblast"
   },
   "Expired": {
    "sre": "Istekla",
-   "ist": "Iztekla"
+   "ist": "Iztekla",
+   "zap": "Potekla"
   },
   "Explore the states": {
    "zap": "Raziščite države"
@@ -1329,7 +1456,8 @@
   },
   "Field · concord": {
    "sre": "Poļe · sloga",
-   "ist": "Pole · razbiratelstvo"
+   "ist": "Pole · razbiratelstvo",
+   "zap": "Poļe · sloga"
   },
   "filiation": {
    "zap": "po starših",
@@ -1338,7 +1466,8 @@
   },
   "Finance": {
    "sre": "Finansije",
-   "ist": "Finansi"
+   "ist": "Finansi",
+   "zap": "Finance"
   },
   "Finance and Treasury": {
    "zap": "Finance in zakladništvo"
@@ -1363,11 +1492,13 @@
   },
   "for each seat": {
    "sre": "za svakog sudiju",
-   "ist": "za vsjako mjasto"
+   "ist": "za vsjako mjasto",
+   "zap": "za vsak sedež"
   },
   "For each seat, the people's delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judge by a two-thirds majority, or after two rounds by an absolute majority of its members. Judges serve one twelve-year term; half of the court, one judge per people, is renewed every six years. The court sits in plenary or in two chambers of seven, one judge per people in each. It reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.": {
    "sre": "Za izbor svakog sudije delegacija naroda u Narodnom Saboru predlaže tri kandidata, upisana u registar tog naroda najmañe osam godina; Kongres bira sudiju dvotrećinskom većinom, a nakon dva kruga apsolutnom većinom svojih članova. Sudije imaju jedan mandat od dvanaest godina; polovina sastava Suda, po jedan sudija iz svakog naroda, obnavļa se svakih šest godina. Sud radi u punom sastavu ili u dva veća od po sedam sudija, s po jednim sudijom iz svakog naroda u svakom veću. Odlučuje o ustavnosti konfederalnih zakona i zakona država, o sukobima nadležnosti i o pojedinačnim žalbama zbog povrede osnovnih prava, i u poslědñoj instanci tumači Ustav.",
-   "ist": "Za vsjako mjasto delegacijata na sãotvetnija narod v Narodni Sabor predlaga trima kandidati, vpisani v registãra na tozi narod ot pone osem godini; Kongres izbira sãdijata s mnozinstvo ot dve treti, a sled dva tura bez rezultat — s absoļutno mnozinstvo ot členovete si. Sãdiite izpãlñavat edin-edinstven dvanadesetgodišen mandat; polovinata ot sãstava na sãda, po edin sãdija ot vseki narod, se obnovjava na vseki šest godini. Sãdãt zasedava v plenum ili v dve kamari ot po sedem sãdii, s po edin sãdija ot vseki narod vãv vsjaka kamara. Toj proverjava konfederalnite zakoni i zakonite na dãržavite, rešava sporovete za kompetentnost, razgležda individualni žalbi za narušeni osnovni prava i ima poslednata duma po vãprosite na Konstitucijata."
+   "ist": "Za vsjako mjasto delegacijata na sãotvetnija narod v Narodni Sabor predlaga trima kandidati, vpisani v registãra na tozi narod ot pone osem godini; Kongres izbira sãdijata s mnozinstvo ot dve treti, a sled dva tura bez rezultat — s absoļutno mnozinstvo ot členovete si. Sãdiite izpãlñavat edin-edinstven dvanadesetgodišen mandat; polovinata ot sãstava na sãda, po edin sãdija ot vseki narod, se obnovjava na vseki šest godini. Sãdãt zasedava v plenum ili v dve kamari ot po sedem sãdii, s po edin sãdija ot vseki narod vãv vsjaka kamara. Toj proverjava konfederalnite zakoni i zakonite na dãržavite, rešava sporovete za kompetentnost, razgležda individualni žalbi za narušeni osnovni prava i ima poslednata duma po vãprosite na Konstitucijata.",
+   "zap": "Za vsak sedež predlaga delegacija naroda v Narodnem Saboru tri kandidate, ki so vsaj osem let vpisani v register tega naroda; Kongres izvoli sodnika z dvotretjinsko večino ali po dveh krogih z absolutno večino svojih članov. Sodniki opravļajo en sam dvanajstletni mandat; polovica sodišča, po en sodnik vsakega naroda, se obnovi vsakih šest let. Sodišče zaseda v plenarni sestavi ali v dveh senatih po sedem sodnikov, z enim sodnikom vsakega naroda v vsakem senatu. Presoja konfederalne in državne zakone, rešuje spore o pristojnosti, odloča o pritožbah posameznikov zaradi kršitev temeļnih pravic in ima zadño besedo o Ustavi."
   },
   "For residents with no origin in the Confederation": {
    "zap": "Za prebivalce brez porekla v Konfederaciji",
@@ -1384,7 +1515,8 @@
   },
   "Forty-five territorial states, four confederal territories and two confederal autonomous municipalities. Filter by constituent people or search by name, code or seat.": {
    "sre": "Četrdeset pet teritorijalnih država, četiri konfederalne teritorije i dvě konfederalne autonomne opštine. Filtrirajte po konstitutivnom narodu ili tražite po nazivu, kodu ili sědištu.",
-   "ist": "Četirideset i pet teritorialni dãržavi, četiri konfederalni teritorii i dve konfederalni avtonomni obštini. Filtrirajte po konstitutiven narod ili tãrsete po ime, kod ili administrativen centãr."
+   "ist": "Četirideset i pet teritorialni dãržavi, četiri konfederalni teritorii i dve konfederalni avtonomni obštini. Filtrirajte po konstitutiven narod ili tãrsete po ime, kod ili administrativen centãr.",
+   "zap": "Petinštirideset teritorialnih držav, štiri konfederalna ozemļa in dve konfederalni avtonomni občini. Filtrirajte po konstitutivnem narodu ali iščite po imenu, oznaki ali sedežu."
   },
   "Free choice of a national register, no compulsion to declare one, and the right to join none.": {
    "zap": "Svobodna izbira narodnega registra, brez prisile k izjavi in s pravico ostati zunaj vseh registrov.",
@@ -1401,7 +1533,8 @@
   },
   "From the age of 18, a citizen registers himself.": {
    "sre": "Od navršenih 18 godina državļanin se prijavļuje sam.",
-   "ist": "Sled navãršvane na 18 godini graždaninãt se registrira sam."
+   "ist": "Sled navãršvane na 18 godini graždaninãt se registrira sam.",
+   "zap": "Od 18. leta se državļan prijavi sam."
   },
   "Full time": {
    "zap": "Polni delovni čas"
@@ -1422,7 +1555,8 @@
   },
   "GDP per capita, all {0} entities": {
    "sre": "BDP po stanovniku, svi entiteti ({0})",
-   "ist": "BVP na čovek, vsički {0} edinici"
+   "ist": "BVP na čovek, vsički {0} edinici",
+   "zap": "BDP na prebivalca, vse enote ({0})"
   },
   "GDP per capita, PPS, 2023": {
    "zap": "BDP na prebivalca, SKM, 2023"
@@ -1445,7 +1579,8 @@
   },
   "Get a new link": {
    "sre": "Zatražite novi link",
-   "ist": "Poiskajte nova vrãzka"
+   "ist": "Poiskajte nova vrãzka",
+   "zap": "Pridobi novo povezavo"
   },
   "Given names": {
    "zap": "Ime",
@@ -1459,7 +1594,8 @@
   },
   "Gold": {
    "sre": "Zlatna",
-   "ist": "Zlatno"
+   "ist": "Zlatno",
+   "zap": "Zlata"
   },
   "Google Wallet could not be reached. Please try again later.": {
    "zap": "Storitev Google Wallet ni dosegļiva. Poskusite znova pozneje."
@@ -1512,7 +1648,8 @@
   },
   "Hoist · sovereignty": {
    "sre": "Traka uz kopļe · suverenitet",
-   "ist": "Ivica otkãm drevkata · suverenitet"
+   "ist": "Ivica otkãm drevkata · suverenitet",
+   "zap": "Pas ob drogu · suverenost"
   },
   "Home": {
    "zap": "Domov",
@@ -1521,7 +1658,8 @@
   },
   "Hover a state or a column to see its figures, click to pin it.": {
    "sre": "Pređite pokazivačem preko države ili trake grafikona za prikaz ñenih podataka, a klikom je fiksirajte.",
-   "ist": "Posočete dãržava ili stãlbče, za da vidite dannite; štraknete, za da gi zakrepite."
+   "ist": "Posočete dãržava ili stãlbče, za da vidite dannite; štraknete, za da gi zakrepite.",
+   "zap": "Pomaknite kazalec nad državo ali stolpec, da vidite ñene podatke; s klikom jo pripnete."
   },
   "How the confederal institutions are elected": {
    "zap": "Kako se volijo konfederalne institucije"
@@ -1538,14 +1676,16 @@
   },
   "Hungarian communities": {
    "sre": "Mađarske zajednice",
-   "ist": "Ungarski obštnosti"
+   "ist": "Ungarski obštnosti",
+   "zap": "Maxarske skupnosti"
   },
   "hungarian community": {
    "zap": "maxarska skupnost"
   },
   "Hungarian community": {
    "sre": "Mađarska zajednica",
-   "ist": "Ungarska obštnost"
+   "ist": "Ungarska obštnost",
+   "zap": "Maxarska skupnost"
   },
   "I consent to the processing of these data by the confederal register, for the purposes set out below.": {
    "zap": "Privolim, da konfederalni register te podatke obdeluje za spodaj navedene namene.",
@@ -1569,7 +1709,8 @@
   },
   "Identity": {
    "sre": "Identitet",
-   "ist": "Identičnost"
+   "ist": "Identičnost",
+   "zap": "Identiteta"
   },
   "Identity &amp; alphabet": {
    "zap": "Identiteta in abeceda"
@@ -1584,19 +1725,23 @@
   },
   "In force, after a two-thirds vote.": {
    "sre": "Na snazi, nakon glasaña dvotrećinskom većinom.",
-   "ist": "V sila sled glasuvane s mnozinstvo ot dve treti."
+   "ist": "V sila sled glasuvane s mnozinstvo ot dve treti.",
+   "zap": "V veļavi po dvotretjinskem glasovañu."
   },
   "In force, after conciliation.": {
    "sre": "Na snazi, nakon usaglašavaña.",
-   "ist": "V sila sled sãglasitelna procedura."
+   "ist": "V sila sled sãglasitelna procedura.",
+   "zap": "V veļavi po usklajevañu."
   },
   "In force, with the consent of the peoples.": {
    "sre": "Na snazi, uz pristanak naroda.",
-   "ist": "V sila, sãs sãglasieto na narodite."
+   "ist": "V sila, sãs sãglasieto na narodite.",
+   "zap": "V veļavi, s soglasjem narodov."
   },
   "In force.": {
    "sre": "Na snazi.",
-   "ist": "V sila."
+   "ist": "V sila.",
+   "zap": "V veļavi."
   },
   "In the Confederation": {
    "zap": "V Konfederaciji",
@@ -1608,7 +1753,8 @@
   },
   "in their State": {
    "sre": "u svojoj državi",
-   "ist": "v svojata dãržava"
+   "ist": "v svojata dãržava",
+   "zap": "v svoji državi"
   },
   "In wartime": {
    "zap": "V vojnem času",
@@ -1628,7 +1774,8 @@
   },
   "Institutions": {
    "sre": "Institucije",
-   "ist": "Institucii"
+   "ist": "Institucii",
+   "zap": "Institucije"
   },
   "Interactive map": {
    "zap": "Interaktivni zemļevid"
@@ -1640,7 +1787,8 @@
   },
   "IPA {0}": {
    "sre": "IPA {0}",
-   "ist": "MFA {0}"
+   "ist": "MFA {0}",
+   "zap": "IPA {0}"
   },
   "Issue my citizen card": {
    "zap": "Izdaj državļansko izkaznico"
@@ -1678,7 +1826,8 @@
   },
   "Judicial capital": {
    "sre": "Pravosudni glavni grad",
-   "ist": "Sãdebna stolica"
+   "ist": "Sãdebna stolica",
+   "zap": "Sodna prestolnica"
   },
   "Justice and Fundamental Rights": {
    "zap": "Pravosodje in temeļne pravice"
@@ -1696,7 +1845,8 @@
   },
   "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.": {
    "sre": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
-   "ist": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage."
+   "ist": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
+   "zap": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica in Konfederalne Oružane Snage."
   },
   "Konfederalna Obavěštajna Agencija · intelligence": {
    "zap": "Konfederalna Obavěštajna Agencija · obveščevalna dejavnost",
@@ -1784,15 +1934,18 @@
   },
   "Law": {
    "sre": "Pravo",
-   "ist": "Pravo"
+   "ist": "Pravo",
+   "zap": "Pravo"
   },
   "Law on languages": {
    "sre": "Zakon o jezicima",
-   "ist": "Zakon za ezicite"
+   "ist": "Zakon za ezicite",
+   "zap": "Zakon o jezikih"
   },
   "Legislature": {
    "sre": "Zakonodavna vlast",
-   "ist": "Zakonodatelna vlast"
+   "ist": "Zakonodatelna vlast",
+   "zap": "Zakonodajna oblast"
   },
   "Licence plate": {
    "zap": "Registrska tablica"
@@ -1821,11 +1974,13 @@
   },
   "Macedonians": {
    "sre": "Makedonci",
-   "ist": "Makedonci"
+   "ist": "Makedonci",
+   "zap": "Makedonci"
   },
   "Macedonians state · seat {0}": {
    "sre": "Država Makedonaca · sědište {0}",
-   "ist": "Dãržava na makedoncite · administrativen centãr {0}"
+   "ist": "Dãržava na makedoncite · administrativen centãr {0}",
+   "zap": "Država Makedoncev · sedež {0}"
   },
   "Male": {
    "zap": "Moški",
@@ -1848,11 +2003,13 @@
   },
   "Montenegrins": {
    "sre": "Crnogorci",
-   "ist": "Černogorci"
+   "ist": "Černogorci",
+   "zap": "Črnogorci"
   },
   "Montenegrins state · seat {0}": {
    "sre": "Država Crnogoraca · sědište {0}",
-   "ist": "Dãržava na černogorcite · administrativen centãr {0}"
+   "ist": "Dãržava na černogorcite · administrativen centãr {0}",
+   "zap": "Država Črnogorcev · sedež {0}"
   },
   "Municipal boundaries, demographic and economic indicators by state.": {
    "zap": "Meje občin ter demografski in gospodarski kazalniki po državah."
@@ -1911,7 +2068,8 @@
   },
   "Navy": {
    "sre": "Tamnoplava",
-   "ist": "Tãmnosiño"
+   "ist": "Tãmnosiño",
+   "zap": "Temnomodra"
   },
   "Navy and white horizontal stripes; quartered shield, cross, mullet and anchor for the Danube heritage; on argent, the tower-on-bridge of historic Osěk; on gules, the otter of Baraña’s wetlands.": {
    "zap": "Temnomodri in beli vodoravni pasovi; razčetrten ščit s križem, zvezdo in sidrom za podonavsko dediščino; v srebrnem poļu stolp na mostu zgodovinskega Osěka; v rdečem poļu vidra iz mokrišč Barañe."
@@ -1926,15 +2084,18 @@
   },
   "Next": {
    "sre": "Naredna",
-   "ist": "Sledvašta"
+   "ist": "Sledvašta",
+   "zap": "Nasledñe"
   },
   "No card has been issued under this number.": {
    "sre": "Nijedna karta nema ovaj broj.",
-   "ist": "Pod tozi nomer ne e izdavana karta."
+   "ist": "Pod tozi nomer ne e izdavana karta.",
+   "zap": "Pod to številko ni bila izdana nobena izkaznica."
   },
   "No card link": {
    "sre": "Nema linka za kartu",
-   "ist": "Lipsva vrãzka kãm kartata"
+   "ist": "Lipsva vrãzka kãm kartata",
+   "zap": "Ni povezave do izkaznice"
   },
   "No confirmation link": {
    "zap": "Ni povezave za potrditev",
@@ -1943,15 +2104,18 @@
   },
   "No consent is needed and no alarm is raised.": {
    "sre": "Pristanak nije potreban i postupak uzbune se ne pokreće.",
-   "ist": "Ne e neobhodimo sãglasie i ne e zadejstvan alarmen zvãnec."
+   "ist": "Ne e neobhodimo sãglasie i ne e zadejstvan alarmen zvãnec.",
+   "zap": "Soglasje ni potrebno in postopek alarmnega zvonca ni sprožen."
   },
   "No consent is needed. For 30 days any national delegation may raise the alarm; none does.": {
    "sre": "Pristanak nije potreban. U roku od 30 dana svaka narodna delegacija može pokrenuti postupak uzbune; nijedna to ne čini.",
-   "ist": "Ne e neobhodimo sãglasie. V prodãlženie na 30 dni vsjaka narodna delegacija može da zadejstva alarmenija zvãnec; nikoja ne go pravi."
+   "ist": "Ne e neobhodimo sãglasie. V prodãlženie na 30 dni vsjaka narodna delegacija može da zadejstva alarmenija zvãnec; nikoja ne go pravi.",
+   "zap": "Soglasje ni potrebno. Vsaka narodna delegacija lahko 30 dni sproži postopek alarmnega zvonca; nobena tega ne stori."
   },
   "No longer valid": {
    "sre": "Više ne važi",
-   "ist": "Veče ne e validna"
+   "ist": "Veče ne e validna",
+   "zap": "Ni več veļavna"
   },
   "No match.": {
    "zap": "Ni zadetkov.",
@@ -1980,23 +2144,28 @@
   },
   "No referendum request is filed within 100 days.": {
    "sre": "U roku od 100 dana ne podnosi se nijedan zahtěv za referendum.",
-   "ist": "V srok ot 100 dni ne e podadeno iskane za referendum."
+   "ist": "V srok ot 100 dni ne e podadeno iskane za referendum.",
+   "zap": "V 100 dneh ni vložena nobena zahteva po referendumu."
   },
   "No register": {
    "sre": "Bez registra",
-   "ist": "Bez registãr"
+   "ist": "Bez registãr",
+   "zap": "Brez registra"
   },
   "No registration yet.": {
    "sre": "Još nema prijava.",
-   "ist": "Vse ošte ñama zajavki."
+   "ist": "Vse ošte ñama zajavki.",
+   "zap": "Prijav še ni."
   },
   "No request is filed within 100 days, so there is no vote.": {
    "sre": "U roku od 100 dana ne podnosi se nijedan zahtěv, pa nema glasaña.",
-   "ist": "V srok ot 100 dni ne e podadeno iskane, zatova glasuvane ñama."
+   "ist": "V srok ot 100 dni ne e podadeno iskane, zatova glasuvane ñama.",
+   "zap": "V 100 dneh ni vložena nobena zahteva, zato glasovaña ni."
   },
   "No request is filed within 100 days.": {
    "sre": "U roku od 100 dana ne podnosi se nijedan zahtěv.",
-   "ist": "V srok ot 100 dni ne e podadeno iskane."
+   "ist": "V srok ot 100 dni ne e podadeno iskane.",
+   "zap": "V 100 dneh ni vložena nobena zahteva."
   },
   "No result.": {
    "zap": "Ni zadetkov."
@@ -2008,11 +2177,13 @@
   },
   "nominates one councillor": {
    "sre": "predlaže jednog većnika",
-   "ist": "predlaga edin sãvetnik"
+   "ist": "predlaga edin sãvetnik",
+   "zap": "predlaga enega svetnika"
   },
   "nominates one councillor each": {
    "sre": "svaka predlaže jednog većnika",
-   "ist": "vsjaka predlaga edin sãvetnik"
+   "ist": "vsjaka predlaga edin sãvetnik",
+   "zap": "vsaka predlaga enega svetnika"
   },
   "None": {
    "zap": "Nobene"
@@ -2043,11 +2214,13 @@
   },
   "Occupied territories": {
    "sre": "Okupirane teritorije",
-   "ist": "Okupirani teritorii"
+   "ist": "Okupirani teritorii",
+   "zap": "Zasedena ozemļa"
   },
   "of 10 members": {
    "sre": "od po 10 članova",
-   "ist": "ot po 10 členove"
+   "ist": "ot po 10 členove",
+   "zap": "po 10 članov"
   },
   "Offences": {
    "zap": "Kazniva dejaña",
@@ -2094,11 +2267,13 @@
   },
   "Official Journal": {
    "sre": "Službeni glasnik",
-   "ist": "Dãržaven vestnik"
+   "ist": "Dãržaven vestnik",
+   "zap": "Uradni list"
   },
   "Official use": {
    "sre": "Službena upotreba",
-   "ist": "Oficialna upotreba"
+   "ist": "Oficialna upotreba",
+   "zap": "Uradna raba"
   },
   "Ohrid · Cetiñe": {
    "zap": "Ohrid · Cetiñe",
@@ -2112,7 +2287,8 @@
   },
   "One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people's national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent: five of the seven delegations, which must also represent a majority of enrolled citizens (six delegations for the Constitution). It must decide within 90 days, or its consent is deemed given. On any other law, two-thirds of one delegation can raise the alarm.": {
    "sre": "Po jedna delegacija od deset članova za svaki od sedam konstitutivnih naroda. Svaku delegaciju biraju državļani upisani u narodni registar tog naroda, koji glasaju kao jedna izborna jedinica u čitavoj Konfederaciji; birani mogu biti samo državļani upisani u registar. Za zakone o jezicima, obrazovañu, kulturi, simbolima, granicama država, autonomnim entitetima, pravima naroda, finansijskom izravnañu i Ustavu potreban je pristanak Narodnog Sabora: pet od sedam delegacija, koje moraju predstavļati i većinu upisanih državļana (šest delegacija za Ustav). Narodni Sabor mora odlučiti u roku od 90 dana; u suprotnom se smatra da je pristanak dat. Za svaki drugi zakon dvotrećinska većina jedne delegacije može pokrenuti postupak uzbune.",
-   "ist": "Po edna delegacija ot deset členove za vseki ot sedemte konstitutivni naroda. Vsjaka delegacija se izbira ot graždanite, vpisani v narodnija registãr na sãotvetnija narod, koito glasuvat kato edin izbiratelen rajon v cjalata Konfederacija; kandidati mogat da bãdat samo graždanite, vpisani v registãra. Zakonite za ezicite, obrazovanieto, kulturata, simvolite, granicite na dãržavite, avtonomnite obrazuvanija, pravata na narodite, finansovoto izravñavane i Konstitucijata iziskvat negovoto sãglasie: pet ot sedemte delegacii, koito trjabva da predstavļavat i mnozinstvoto ot vpisanite graždani (šest delegacii za Konstitucijata). Toj trjabva da se proiznese v srok ot 90 dni, inače sãglasieto mu se smjata za dadeno. Pri vseki drug zakon dve treti ot členovete na edna delegacija mogat da zadejstvat alarmenija zvãnec."
+   "ist": "Po edna delegacija ot deset členove za vseki ot sedemte konstitutivni naroda. Vsjaka delegacija se izbira ot graždanite, vpisani v narodnija registãr na sãotvetnija narod, koito glasuvat kato edin izbiratelen rajon v cjalata Konfederacija; kandidati mogat da bãdat samo graždanite, vpisani v registãra. Zakonite za ezicite, obrazovanieto, kulturata, simvolite, granicite na dãržavite, avtonomnite obrazuvanija, pravata na narodite, finansovoto izravñavane i Konstitucijata iziskvat negovoto sãglasie: pet ot sedemte delegacii, koito trjabva da predstavļavat i mnozinstvoto ot vpisanite graždani (šest delegacii za Konstitucijata). Toj trjabva da se proiznese v srok ot 90 dni, inače sãglasieto mu se smjata za dadeno. Pri vseki drug zakon dve treti ot členovete na edna delegacija mogat da zadejstvat alarmenija zvãnec.",
+   "zap": "Po ena desetčlanska delegacija za vsakega od sedmih konstitutivnih narodov. Vsako delegacijo izvolijo državļani, vpisani v narodni register tega naroda, ki glasujejo v eni volilni enoti za vso Konfederacijo; kandidirajo lahko samo državļani, vpisani v ta register. Zakoni o jezikih, izobraževañu, kulturi, simbolih, mejah držav, avtonomnih entitetah, pravicah narodov, finančni izravnavi in Ustavi potrebujejo ñegovo soglasje: soglasje petih od sedmih delegacij, ki morajo predstavļati tudi večino vpisanih državļanov (za Ustavo šestih delegacij). Odločiti mora v 90 dneh, sicer se šteje, da je soglasje dano. Pri vsakem drugem zakonu lahko dve tretjini članov ene delegacije sprožita postopek alarmnega zvonca."
   },
   "One language, seven peoples, a living tongue.": {
    "zap": "En jezik, sedem narodov, živa govorica.",
@@ -2121,7 +2297,8 @@
   },
   "One light per municipality": {
    "sre": "Jedno světlo po opštini",
-   "ist": "Po edna svetlina za vsjaka obština"
+   "ist": "Po edna svetlina za vsjaka obština",
+   "zap": "Ena luč za vsako občino"
   },
   "One light per municipality, brighter with population": {
    "zap": "Ena luč za vsako občino, svetlejša pri večjem številu prebivalcev"
@@ -2136,7 +2313,8 @@
   },
   "Only four of the seven delegations approve: consent is refused. A conciliation committee of fourteen, one member per people from each chamber, drafts a single compromise on the disputed provisions; both chambers adopt it without amendment, the Narodni Sabor with five delegations.": {
    "sre": "Samo četiri od sedam delegacija glasaju za: pristanak je uskraćen. Odbor za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma, sastavļa jedinstven kompromisni tekst o spornim odredbama; oba doma ga usvajaju bez amandmana, Narodni Sabor većinom u pet delegacija.",
-   "ist": "Samo četiri ot sedemte delegacii odobrjavat zakona: sãglasieto e otkazano. Sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, izgotvja edinen kompromisen tekst za spornite razporedbi; dvete kamari go priemat bez izmenenija, a Narodni Sabor — s mnozinstvo v pet delegacii."
+   "ist": "Samo četiri ot sedemte delegacii odobrjavat zakona: sãglasieto e otkazano. Sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, izgotvja edinen kompromisen tekst za spornite razporedbi; dvete kamari go priemat bez izmenenija, a Narodni Sabor — s mnozinstvo v pet delegacii.",
+   "zap": "Zakon odobrijo samo štiri od sedmih delegacij: soglasje je zavrñeno. Usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, pripravi eno samo kompromisno besedilo o spornih določbah; oba doma ga sprejmeta brez amandmajev, Narodni Sabor s petimi delegacijami."
   },
   "Open": {
    "zap": "Odpri"
@@ -2148,11 +2326,13 @@
   },
   "Open state page": {
    "sre": "Otvorite stranicu države",
-   "ist": "Otvorete stranicata na dãržavata"
+   "ist": "Otvorete stranicata na dãržavata",
+   "zap": "Odpri stran države"
   },
   "Open the link from your card e-mail, or ask for a new one.": {
    "sre": "Otvorite link iz e-poruke s kartom ili zatražite novi.",
-   "ist": "Otvorete vrãzkata ot imejla s kartata ili poiskajte nova."
+   "ist": "Otvorete vrãzkata ot imejla s kartata ili poiskajte nova.",
+   "zap": "Odprite povezavo iz e-poštnega sporočila z izkaznico ali zaprosite za novo."
   },
   "Open the link from your confirmation e-mail. It can be used once.": {
    "zap": "Odprite povezavo iz potrditvenega e-poštnega sporočila. Uporabite jo lahko samo enkrat.",
@@ -2167,7 +2347,8 @@
   },
   "Ordinary law": {
    "sre": "Obični zakon",
-   "ist": "Obiknoven zakon"
+   "ist": "Obiknoven zakon",
+   "zap": "Navadni zakon"
   },
   "Our home.": {
    "zap": "Geslo Konfederacije."
@@ -2179,7 +2360,8 @@
   },
   "oversight": {
    "sre": "nadzor",
-   "ist": "kontrol"
+   "ist": "kontrol",
+   "zap": "nadzor"
   },
   "Overview of the Confederation": {
    "zap": "Pregled Konfederacije",
@@ -2193,7 +2375,8 @@
   },
   "Pages": {
    "sre": "Stranice",
-   "ist": "Stranici"
+   "ist": "Stranici",
+   "zap": "Strani"
   },
   "Parity of the peoples": {
    "zap": "Enaka zastopanost narodov",
@@ -2202,18 +2385,21 @@
   },
   "Part of the Constitution.": {
    "sre": "Unesen u Ustav.",
-   "ist": "Čast ot Konstitucijata."
+   "ist": "Čast ot Konstitucijata.",
+   "zap": "Del Ustave."
   },
   "Participation": {
    "zap": "Sodelovañe"
   },
   "Peace · unity": {
    "sre": "Mir · jedinstvo",
-   "ist": "Mir · edinstvo"
+   "ist": "Mir · edinstvo",
+   "zap": "Mir · enotnost"
   },
   "pending": {
    "sre": "u pripremi",
-   "ist": "očakva se"
+   "ist": "očakva se",
+   "zap": "v pripravi"
   },
   "Pending census data": {
    "zap": "Podatki popisa še niso na voļo"
@@ -2245,14 +2431,16 @@
   },
   "Place names in the unified alphabet": {
    "sre": "Toponimi u jedinstvenoj abecedi",
-   "ist": "Toponimite v edinnata azbuka"
+   "ist": "Toponimite v edinnata azbuka",
+   "zap": "Zemļepisna imena v enotni abecedi"
   },
   "Plain horizontal tricolour of celeste, gules and argent, pan-Slovenian banner of the trans-Mura territory, of solid stripe without charge.": {
    "zap": "Preprosta vodoravna trobojnica nebesno modre, rdeče in srebrne barve, vseslovenski prapor Prekmurja, dežele onkraj Mure, s polnimi pasovi brez heraldičnih likov."
   },
   "Please complete the anti-robot check.": {
    "sre": "Potvrdite da niste robot.",
-   "ist": "Moļa, preminete proverkata sreštu roboti."
+   "ist": "Moļa, preminete proverkata sreštu roboti.",
+   "zap": "Opravite preverjañe proti robotom."
   },
   "Please try again.": {
    "zap": "Poskusite znova.",
@@ -2261,7 +2449,8 @@
   },
   "Political capital": {
    "sre": "Politički glavni grad",
-   "ist": "Političeska stolica"
+   "ist": "Političeska stolica",
+   "zap": "Politična prestolnica"
   },
   "Politics": {
    "zap": "Politika",
@@ -2273,7 +2462,8 @@
   },
   "Population by constituent people": {
    "sre": "Stanovništvo po konstitutivnim narodima",
-   "ist": "Naselenie po konstitutivni narodi"
+   "ist": "Naselenie po konstitutivni narodi",
+   "zap": "Prebivalstvo po konstitutivnih narodih"
   },
   "Population density": {
    "zap": "Gostota prebivalstva"
@@ -2283,15 +2473,18 @@
   },
   "Population, all {0} entities": {
    "sre": "Stanovništvo, svi entiteti ({0})",
-   "ist": "Naselenie, vsički {0} edinici"
+   "ist": "Naselenie, vsički {0} edinici",
+   "zap": "Prebivalstvo, vse enote ({0})"
   },
   "Preamble and table of titles": {
    "sre": "Preambula i pregled glava",
-   "ist": "Preambjul i spisãk na glavite"
+   "ist": "Preambjul i spisãk na glavite",
+   "zap": "Preambula in seznam poglavij"
   },
   "Preamble and Titles I bis, IV, V, VI and VII, 53 articles, published in full.": {
    "sre": "Preambula i glave I bis, IV, V, VI i VII (53 člana), objavļene u potpunosti.",
-   "ist": "Preambjul i glavi I bis, IV, V, VI i VII, 53 člena, publikuvani izcjalo."
+   "ist": "Preambjul i glavi I bis, IV, V, VI i VII, 53 člena, publikuvani izcjalo.",
+   "zap": "Preambula in poglavja I bis, IV, V, VI in VII, 53 členi, objavļeni v celoti."
   },
   "Presidency, seven departments and how the council decides": {
    "zap": "Predsedstvo, sedem resorjev in način odločaña sveta",
@@ -2300,7 +2493,8 @@
   },
   "Previous": {
    "sre": "Prethodna",
-   "ist": "Predišna"
+   "ist": "Predišna",
+   "zap": "Prejšñe"
   },
   "Print my nation on the card": {
    "zap": "Izpiši mojo narodnost na izkaznici",
@@ -2319,15 +2513,18 @@
   },
   "Promulgated by the President of the Confederation and published in the Official Journal within 30 days. A 100-day window opens for a referendum request.": {
    "sre": "Predsědnik Konfederacije proglašava zakon, koji se objavļuje u Službenom glasniku u roku od 30 dana. Otvara se rok od 100 dana za zahtěv za referendum.",
-   "ist": "Obnarodvan ot predsedateļa na Konfederacijata i publikuvan v Dãržaven vestnik v srok ot 30 dni. Započva srok ot 100 dni za iskane na referendum."
+   "ist": "Obnarodvan ot predsedateļa na Konfederacijata i publikuvan v Dãržaven vestnik v srok ot 30 dni. Započva srok ot 100 dni za iskane na referendum.",
+   "zap": "Zakon razglasi predsednik Konfederacije, v Uradnem listu pa se objavi v 30 dneh. Začne teči 100-dnevni rok za zahtevo po referendumu."
   },
   "proposes three candidates": {
    "sre": "predlaže tri kandidata",
-   "ist": "predlaga trima kandidati"
+   "ist": "predlaga trima kandidati",
+   "zap": "predlaga tri kandidate"
   },
   "proposes three per seat": {
    "sre": "predlaže po tri kandidata",
-   "ist": "po trima kandidati za mjasto"
+   "ist": "po trima kandidati za mjasto",
+   "zap": "predlaga tri za vsak sedež"
   },
   "Prototype: the card is issued in this browser with a provisional number and stays on this device. When the confederal register opens, it confirms each card, assigns its definitive number and sends it by e-mail.": {
    "zap": "Prototip: izkaznica se izda v tem brskalniku z začasno številko in ostane v tej napravi. Ko bo konfederalni register začel delovati, bo vsako izkaznico potrdil, ji dodelil dokončno številko in jo poslal po e-pošti.",
@@ -2359,34 +2556,41 @@
   },
   "Published in the Official Journal in its compromise version. A 100-day window opens for a referendum request.": {
    "sre": "Objavļen u Službenom glasniku u kompromisnom tekstu. Otvara se rok od 100 dana za zahtěv za referendum.",
-   "ist": "Publikuvan v Dãržaven vestnik v kompromisnata si redakcija. Započva srok ot 100 dni za iskane na referendum."
+   "ist": "Publikuvan v Dãržaven vestnik v kompromisnata si redakcija. Započva srok ot 100 dni za iskane na referendum.",
+   "zap": "Objavļen v Uradnem listu v kompromisni različici. Začne teči 100-dnevni rok za zahtevo po referendumu."
   },
   "Published in the Official Journal. A 100-day window opens for a referendum request.": {
    "sre": "Objavļen u Službenom glasniku. Otvara se rok od 100 dana za zahtěv za referendum.",
-   "ist": "Publikuvan v Dãržaven vestnik. Započva srok ot 100 dni za iskane na referendum."
+   "ist": "Publikuvan v Dãržaven vestnik. Započva srok ot 100 dni za iskane na referendum.",
+   "zap": "Objavļen v Uradnem listu. Začne teči 100-dnevni rok za zahtevo po referendumu."
   },
   "Published in the Official Journal. A 100-day window opens.": {
    "sre": "Objavļen u Službenom glasniku. Otvara se rok od 100 dana.",
-   "ist": "Publikuvan v Dãržaven vestnik. Započva srok ot 100 dni."
+   "ist": "Publikuvan v Dãržaven vestnik. Započva srok ot 100 dni.",
+   "zap": "Objavļen v Uradnem listu. Začne teči 100-dnevni rok."
   },
   "Published, then put to a mandatory vote of the people and the States.": {
    "sre": "Objavļuje se, a zatim se obavezno stavļa na glasañe građana i država.",
-   "ist": "Publikuva se, sled koeto se podlaga na zadãlžitelno glasuvane ot izbiratelite i ot dãržavite."
+   "ist": "Publikuva se, sled koeto se podlaga na zadãlžitelno glasuvane ot izbiratelite i ot dãržavite.",
+   "zap": "Objavļena, nato predložena obveznemu glasovañu ļudstva in držav."
   },
   "Quartered gules and azure with sable cross overall; central shield gules, the rampant Thracian lion or; above the cross, a small sun in gold, heraldic continuity of the historic Bulgarian Trakija.": {
    "zap": "Razčetrteno rdeče in modro s črnim križem čez vse; rdeč osredñi ščit z vzpetim zlatim trakijskim levom; nad križem majhno zlato sonce, heraldična kontinuiteta zgodovinske bolgarske Trakije."
   },
   "Rank {0} of {1}": {
    "sre": "Rang {0} od {1}",
-   "ist": "Mjasto {0} ot {1}"
+   "ist": "Mjasto {0} ot {1}",
+   "zap": "{0}. mesto od {1}"
   },
   "Read": {
    "sre": "Pročitajte",
-   "ist": "Pročetete"
+   "ist": "Pročetete",
+   "zap": "Preberi"
   },
   "Red": {
    "sre": "Crvena",
-   "ist": "Červeno"
+   "ist": "Červeno",
+   "zap": "Rdeča"
   },
   "Red, blue and green horizontal tricolour; shield with the golden Nemanjić lion ascending fortified walls, beneath sun and crescent, the Danube and Tisa rivers, and the Serbian cross.": {
    "zap": "Rdeče-modro-zelena vodoravna trobojnica; ščit z zlatim levom dinastije Nemanjić, ki se vzpeña po utrjenem obzidju pod soncem in polmesecem, z rekama Donavo in Tiso ter s srbskim križem."
@@ -2399,7 +2603,8 @@
   },
   "Referendum": {
    "sre": "Referendum",
-   "ist": "Referendum"
+   "ist": "Referendum",
+   "zap": "Referendum"
   },
   "Referendums": {
    "zap": "Referendumi",
@@ -2411,7 +2616,8 @@
   },
   "Register": {
    "sre": "Registracija",
-   "ist": "Registracija"
+   "ist": "Registracija",
+   "zap": "Registracija"
   },
   "Register and take part": {
    "zap": "Prijavite se in sodelujte",
@@ -2464,14 +2670,16 @@
   },
   "Registered from abroad": {
    "sre": "Prijavļeni izvan Konfederacije",
-   "ist": "Registrirani ot čužbina"
+   "ist": "Registrirani ot čužbina",
+   "zap": "Prijavļeni iz tujine"
   },
   "Registration": {
    "zap": "Prijava"
   },
   "Registration is open from the age of 18 (Art. 104). Under 18, a parent who holds a card declares the child from his own card.": {
    "sre": "Prijava je moguća od navršenih 18 godina (čl. 104). Děte mlađe od 18 godina prijavļuje roditeļ koji ima kartu, sa svoje karte.",
-   "ist": "Registracijata e vãzmožna ot navãršeni 18 godini (čl. 104). Za lice pod 18 godini roditel, kojto pritežava karta, deklarira deteto črez sobstvenata si karta."
+   "ist": "Registracijata e vãzmožna ot navãršeni 18 godini (čl. 104). Za lice pod 18 godini roditel, kojto pritežava karta, deklarira deteto črez sobstvenata si karta.",
+   "zap": "Prijava je mogoča od 18. leta (čl. 104). Otroka, mlajšega od 18 let, prijavi eden od staršev, ki ima izkaznico, s svojo izkaznico."
   },
   "Registration is open from the age of 18, the age of the vote (Art. 104). A child under 18 is declared by a parent from his own card.": {
    "zap": "Prijava je mogoča od 18. leta, ko se pridobi volilna pravica (čl. 104). Otroka, mlajšega od 18 let, prijavi eden od staršev s svojo izkaznico.",
@@ -2511,11 +2719,13 @@
   },
   "Registrations · last 30 days": {
    "sre": "Prijave · zadñih 30 dana",
-   "ist": "Zajavki · poslednite 30 dni"
+   "ist": "Zajavki · poslednite 30 dni",
+   "zap": "Prijave · zadñih 30 dni"
   },
   "Rejected by the people.": {
    "sre": "Odbijen na glasañu građana.",
-   "ist": "Othvãrlen ot izbiratelite."
+   "ist": "Othvãrlen ot izbiratelite.",
+   "zap": "Zavrñen na ļudskem glasovañu."
   },
   "Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.": {
    "zap": "Odnosi s tujimi državami, mednarodne pogodbe in predstavništva Konfederacije v tujini. Države ohranijo lastne odnose v okviru svojih pristojnosti."
@@ -2563,7 +2773,8 @@
   },
   "Search a state, a code, a seat…": {
    "sre": "Tražite državu, kod, sědište…",
-   "ist": "Tãrsete dãržava, kod, administrativen centãr…"
+   "ist": "Tãrsete dãržava, kod, administrativen centãr…",
+   "zap": "Iščite državo, oznako, sedež…"
   },
   "Seat": {
    "zap": "Sedež"
@@ -2612,14 +2823,16 @@
   },
   "Serb communities": {
    "sre": "Srpske zajednice",
-   "ist": "Srãbski obštnosti"
+   "ist": "Srãbski obštnosti",
+   "zap": "Srbske skupnosti"
   },
   "serb community": {
    "zap": "srbska skupnost"
   },
   "Serb community": {
    "sre": "Srpska zajednica",
-   "ist": "Srãbska obštnost"
+   "ist": "Srãbska obštnost",
+   "zap": "Srbska skupnost"
   },
   "Serbian pan-colours, gules-azure-argent horizontal; on the central red shield, the sable boar’s head pierced by a sable arrow, the white Serbian cross with four firesteels at the base, totem of the Šumadija oak forests.": {
    "zap": "Srbske narodne barve, vodoravno rdeče-modro-srebrno; na osredñem rdečem ščitu črna merjaščeva glava, prebodena s črno puščico, v vznožju beli srbski križ s štirimi kresili, totem šumadijskih hrastovih gozdov."
@@ -2629,11 +2842,13 @@
   },
   "Serbs": {
    "sre": "Srbi",
-   "ist": "Sãrbi"
+   "ist": "Sãrbi",
+   "zap": "Srbi"
   },
   "Serbs state · seat {0}": {
    "sre": "Država Srba · sědište {0}",
-   "ist": "Dãržava na sãrbite · administrativen centãr {0}"
+   "ist": "Dãržava na sãrbite · administrativen centãr {0}",
+   "zap": "Država Srbov · sedež {0}"
   },
   "Service": {
    "zap": "Služba",
@@ -2658,7 +2873,8 @@
   },
   "Severna Trakija, without the yat": {
    "sre": "Severna Trakija, bez jata",
-   "ist": "Severna Trakija, bez jat"
+   "ist": "Severna Trakija, bez jat",
+   "zap": "Severna Trakija brez jata"
   },
   "Sex": {
    "zap": "Spol",
@@ -2675,7 +2891,8 @@
   },
   "Show all": {
    "sre": "Prikažite sve",
-   "ist": "Pokažete vsički"
+   "ist": "Pokažete vsički",
+   "zap": "Prikaži vse"
   },
   "Show only the bosniaks on the map": {
    "zap": "Na zemļevidu prikaži samo Bošñake"
@@ -2703,7 +2920,8 @@
   },
   "Show the figures as a table": {
    "sre": "Prikažite podatke u tabeli",
-   "ist": "Pokažete dannite v tablica"
+   "ist": "Pokažete dannite v tablica",
+   "zap": "Prikaži podatke v tabeli"
   },
   "Sky-blue and maroon horizontal; a white seven-pointed mullet above; below, a sheaf of wheat, the grain wealth of southern Dobruja.": {
    "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe."
@@ -2715,14 +2933,16 @@
   },
   "Slovak communities": {
    "sre": "Slovačke zajednice",
-   "ist": "Slovaški obštnosti"
+   "ist": "Slovaški obštnosti",
+   "zap": "Slovaške skupnosti"
   },
   "slovak community": {
    "zap": "slovaška skupnost"
   },
   "Slovak community": {
    "sre": "Slovačka zajednica",
-   "ist": "Slovaška obštnost"
+   "ist": "Slovaška obštnost",
+   "zap": "Slovaška skupnost"
   },
   "Slovene-based": {
    "zap": "Na slovenski osnovi",
@@ -2731,11 +2951,13 @@
   },
   "Slovenes": {
    "sre": "Slovenci",
-   "ist": "Slovenci"
+   "ist": "Slovenci",
+   "zap": "Slovenci"
   },
   "Slovenes state · seat {0}": {
    "sre": "Država Slovenaca · sědište {0}",
-   "ist": "Dãržava na slovencite · administrativen centãr {0}"
+   "ist": "Dãržava na slovencite · administrativen centãr {0}",
+   "zap": "Država Slovencev · sedež {0}"
   },
   "Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and Bulgarians share a unified South Slavic language and alphabet, alongside recognised Albanian, Hungarian, Turkish and Slovak communities.": {
    "zap": "Slovenci, Hrvati, Srbi, Bošñaki, Črnogorci, Makedonci in Bolgari si delijo enoten južnoslovanski jezik in abecedo, ob ñih pa živijo tudi priznane skupnosti: albanska, maxarska, turška in slovaška."
@@ -2747,7 +2969,8 @@
   },
   "Sources": {
    "sre": "Izvori",
-   "ist": "Iztočnici"
+   "ist": "Iztočnici",
+   "zap": "Viri"
   },
   "Special": {
    "zap": "Posebna",
@@ -2756,26 +2979,31 @@
   },
   "Special communities": {
    "sre": "Posebne zajednice",
-   "ist": "Obštnosti s osoben statut"
+   "ist": "Obštnosti s osoben statut",
+   "zap": "Posebne skupnosti"
   },
   "special community": {
    "zap": "posebna skupnost"
   },
   "Special community": {
    "sre": "Posebna zajednica",
-   "ist": "Obštnost s osoben statut"
+   "ist": "Obštnost s osoben statut",
+   "zap": "Posebna skupnost"
   },
   "Specification of the Unified South Slavic Latin Alphabet, v3.0": {
    "sre": "Specifikacija jedinstvene južnoslovenske latinice, v3.0",
-   "ist": "Specifikacija na edinnata južnoslavjanska latinica, v3.0"
+   "ist": "Specifikacija na edinnata južnoslavjanska latinica, v3.0",
+   "zap": "Specifikacija enotne južnoslovanske latinice, v3.0"
   },
   "State Flag": {
    "sre": "Državna zastava",
-   "ist": "Dãržavno zname"
+   "ist": "Dãržavno zname",
+   "zap": "Državna zastava"
   },
   "State flag of the Balkan Confederation": {
    "sre": "Državna zastava Balkanske konfederacije",
-   "ist": "Dãržavno zname na Balkanskata konfederacija"
+   "ist": "Dãržavno zname na Balkanskata konfederacija",
+   "zap": "Državna zastava Balkanske konfederacije"
   },
   "State not found.": {
    "zap": "Države ni mogoče najti."
@@ -2785,7 +3013,8 @@
   },
   "State of attachment {0} ({1}) · card issue {2} · valid until {3}.": {
    "sre": "Država pripadnosti {0} ({1}) · izdañe karte br. {2} · važi do {3}.",
-   "ist": "Dãržava na prinadležnost {0} ({1}) · izdanie na kartata {2} · validna do {3}."
+   "ist": "Dãržava na prinadležnost {0} ({1}) · izdanie na kartata {2} · validna do {3}.",
+   "zap": "Država pripadnosti {0} ({1}) · {2}. izdaja izkaznice · veļa do {3}."
   },
   "State of the Bosniaks": {
    "zap": "Država Bošñakov"
@@ -2826,7 +3055,8 @@
   },
   "States represented": {
    "sre": "Zastupļene države",
-   "ist": "Predstaveni dãržavi"
+   "ist": "Predstaveni dãržavi",
+   "zap": "Zastopane države"
   },
   "Status": {
    "zap": "Status"
@@ -2836,7 +3066,8 @@
   },
   "Superseded": {
    "sre": "Zaměñena",
-   "ist": "Zamenena"
+   "ist": "Zamenena",
+   "zap": "Nadomeščena"
   },
   "Surname": {
    "zap": "Priimek",
@@ -2848,11 +3079,13 @@
   },
   "Symbols": {
    "sre": "Simboli",
-   "ist": "Simvoli"
+   "ist": "Simvoli",
+   "zap": "Simboli"
   },
   "Tell us where you live.": {
    "sre": "Navedite svoje prebivalište.",
-   "ist": "Posočete kãde živeete."
+   "ist": "Posočete kãde živeete.",
+   "zap": "Navedite, kje prebivate."
   },
   "Ten members per people in the Narodni Sabor, one councillor per people in the Konfederalno Veće.": {
    "zap": "Po deset članov za vsak narod v Narodnem Saboru, po en svetnik za vsak narod v Konfederalnem Veću.",
@@ -2864,7 +3097,8 @@
   },
   "Territorial states": {
    "sre": "Teritorijalne države",
-   "ist": "Teritorialni dãržavi"
+   "ist": "Teritorialni dãržavi",
+   "zap": "Teritorialne države"
   },
   "Territory": {
    "zap": "Ozemļe"
@@ -2879,7 +3113,8 @@
   },
   "The amendment enters the Constitution.": {
    "sre": "Amandman se unosi u Ustav.",
-   "ist": "Izmenenieto stava čast ot Konstitucijata."
+   "ist": "Izmenenieto stava čast ot Konstitucijata.",
+   "zap": "Sprememba postane del Ustave."
   },
   "The anti-robot check could not load. Check your connection or allow challenges.cloudflare.com for this page.": {
    "zap": "Preverjaña proti robotom ni bilo mogoče naložiti. Preverite povezavo ali za to stran dovolite challenges.cloudflare.com."
@@ -2897,7 +3132,8 @@
   },
   "The Bulgarian State of Northern Thrace (TR-41) is now written <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: a purely Bulgarian name, with the ekavian reflex, takes no yat. The two <span translate=\"no\" style=\"display:inline\">Srěm</span> States keep it, since the Croatian form <span translate=\"no\" style=\"display:inline\">Srijem</span> shows the reflex. Constitution v4.10.": {
    "sre": "Naziv bugarske države (TR-41) sada se piše <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: čisto bugarski naziv, s ekavskim refleksom, nema jat. Dvě države čiji naziv sadrži <span translate=\"no\" style=\"display:inline\">Srěm</span> zadržavaju jat, jer hrvatski oblik <span translate=\"no\" style=\"display:inline\">Srijem</span> pokazuje ñegov refleks. Ustav v4.10.",
-   "ist": "Bãlgarskata dãržava Severna Trakija (TR-41) veče se izpisva <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: čisto bãlgarsko ime s ekavski refleks ne polučava jat. Dvete dãržavi s <span translate=\"no\" style=\"display:inline\">Srěm</span> v imeto si go zapazvat, tãj kato hãrvatskata forma <span translate=\"no\" style=\"display:inline\">Srijem</span> pokazva refleksa. Konstitucija v4.10."
+   "ist": "Bãlgarskata dãržava Severna Trakija (TR-41) veče se izpisva <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: čisto bãlgarsko ime s ekavski refleks ne polučava jat. Dvete dãržavi s <span translate=\"no\" style=\"display:inline\">Srěm</span> v imeto si go zapazvat, tãj kato hãrvatskata forma <span translate=\"no\" style=\"display:inline\">Srijem</span> pokazva refleksa. Konstitucija v4.10.",
+   "zap": "Ime bolgarske države TR-41 se zdaj piše <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: povsem bolgarsko ime z ekavskim refleksom se piše brez jata. Obe državi s <span translate=\"no\" style=\"display:inline\">Srěm</span> v imenu ga ohranita, ker hrvaška oblika <span translate=\"no\" style=\"display:inline\">Srijem</span> izkazuje refleks. Ustava v4.10."
   },
   "The card could not be issued. Please try again.": {
    "zap": "Izkaznice ni bilo mogoče izdati. Poskusite znova.",
@@ -2916,7 +3152,8 @@
   },
   "The card has been deleted.": {
    "sre": "Karta je izbrisana.",
-   "ist": "Kartata e iztrita."
+   "ist": "Kartata e iztrita.",
+   "zap": "Izkaznica je izbrisana."
   },
   "The card has been issued.": {
    "zap": "Izkaznica je izdana.",
@@ -2925,7 +3162,8 @@
   },
   "The card will be e-mailed when the confederal register opens; until then it stays in this browser.": {
    "sre": "Kartu ćete dobiti e-poštom kad se otvori konfederalni registar; do tada ostaje na ovom uređaju.",
-   "ist": "Kartata šte vi bãde izpratena po imejl s otkrivaneto na konfederalnija registãr; dotogava tja ostava v tozi brauzãr."
+   "ist": "Kartata šte vi bãde izpratena po imejl s otkrivaneto na konfederalnija registãr; dotogava tja ostava v tozi brauzãr.",
+   "zap": "Izkaznica vam bo poslana po e-pošti, ko bo konfederalni register začel delovati; do takrat ostane v tem brskalniku."
   },
   "The cards of the child you declared are cancelled with it.": {
    "zap": "S tem se prekličejo tudi izkaznice otroka, ki ste ga prijavili.",
@@ -2939,7 +3177,8 @@
   },
   "The central and eastern standards can now be read in Cyrillic: <span translate=\"no\" style=\"display:inline\">Lat / Ћир</span> beside the languages. The central standard uses the confederal Cyrillic read in its ekavian form, without the yat; the eastern standard follows Bulgarian conventions. The Latin of the unified alphabet remains the source.": {
    "sre": "Središñi i istočni standard sada se mogu čitati i na ćirilici, preko prekidača <span translate=\"no\" style=\"display:inline\">Lat / Ћир</span> pored izbora jezika. Središñi standard upotrebļava konfederalnu ćirilicu u ekavskom čitañu, bez jata; istočni standard poštuje bugarske konvencije. Izvor ostaje latinica jedinstvene abecede.",
-   "ist": "Centralnijat i iztočnijat standart veče mogat da se četat i na kirilica: butonãt <span translate=\"no\" style=\"display:inline\">Lat</span> / Kir e do izbora na ezik. Centralnijat standart izpolzva konfederalnata kirilica v ekavski pročit, bez jat; iztočnijat standart sledva bãlgarskite pravopisni normi. Izhodnijat tekst ostava na latinicata na edinnata azbuka."
+   "ist": "Centralnijat i iztočnijat standart veče mogat da se četat i na kirilica: butonãt <span translate=\"no\" style=\"display:inline\">Lat</span> / Kir e do izbora na ezik. Centralnijat standart izpolzva konfederalnata kirilica v ekavski pročit, bez jat; iztočnijat standart sledva bãlgarskite pravopisni normi. Izhodnijat tekst ostava na latinicata na edinnata azbuka.",
+   "zap": "Središñi in istočni standard je zdaj mogoče brati tudi v cirilici: stikalo <span translate=\"no\" style=\"display:inline\">Lat / Ћир</span> je ob izbiri jezikov. Središñi standard uporabļa konfederalno cirilico v ekavskem brañu, brez jata; istočni standard sledi bolgarskim pravopisnim pravilom. Izhodišče ostaja latinica enotne abecede."
   },
   "The Chief of the General Staff (načelnik Generalštaba), confirmed by two thirds of the Kongres and five delegations, for four years, renewable once.": {
    "zap": "Načelnik generalštaba, potrjen z dvotretjinsko večino Kongresa in s petimi delegacijami, za štiri leta, z možnostjo enkratnega ponovnega imenovaña.",
@@ -2954,7 +3193,8 @@
   },
   "The civil flag is the flag of the people of the Confederation. It is flown by citizens, civil associations and on public buildings under municipal authority. Vertical red hoist; horizontal field of azure, argent and azure, the unadorned base of the state flag.": {
    "sre": "Građanska zastava je zastava državļana Konfederacije. Ističu je državļani i organizacije civilnog društva, a ističe se i na javnim zgradama pod opštinskom upravom. Vertikalna crvena traka uz kopļe; horizontalno poļe plavo, srebrno i plavo, osnova državne zastave bez ukrasa.",
-   "ist": "Graždanskoto zname e znameto na vsički žiteli na Konfederacijata. Izdiga se ot graždanite i ot graždanskite sdruženija, kakto i na obštestvenite sgradi, podčineni na obštinskata vlast. Vertikalna červena ivica otkãm drevkata; horizontalno pole v siño, srebãrno i siño — neukrasenata osnova na dãržavnoto zname."
+   "ist": "Graždanskoto zname e znameto na vsički žiteli na Konfederacijata. Izdiga se ot graždanite i ot graždanskite sdruženija, kakto i na obštestvenite sgradi, podčineni na obštinskata vlast. Vertikalna červena ivica otkãm drevkata; horizontalno pole v siño, srebãrno i siño — neukrasenata osnova na dãržavnoto zname.",
+   "zap": "Civilna zastava je zastava ļudstva Konfederacije. Izobešajo jo državļani in civilna združeña, izobešena pa je tudi na javnih stavbah pod občinsko upravo. Navpični rdeči pas ob drogu; vodoravno poļe modre, srebrne in modre barve, neokrašena osnova državne zastave."
   },
   "The coat of arms, the state flag and the civil flag of the Confederation.": {
    "zap": "Grb, državna zastava in civilna zastava Konfederacije.",
@@ -2963,14 +3203,16 @@
   },
   "The compromise version enters into force. Had conciliation failed, the law would have been abandoned.": {
    "sre": "Kompromisni tekst stupa na snagu. Da je usaglašavañe propalo, zakon bi bio odbačen.",
-   "ist": "Kompromisnata redakcija vliza v sila. Ako sãglasitelnata procedura beše zavãršila bez uspeh, zakonãt šteše da otpadne."
+   "ist": "Kompromisnata redakcija vliza v sila. Ako sãglasitelnata procedura beše zavãršila bez uspeh, zakonãt šteše da otpadne.",
+   "zap": "Kompromisna različica začne veļati. Če usklajevañe ne bi uspelo, bi zakon propadel."
   },
   "The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.": {
    "zap": "Konfederalni proračun v mejah dolžniške zavore, konfederalni davki in letno poročilo o finančnih tokovih med Konfederacijo in državami."
   },
   "The confederal register cannot be reached at the moment.": {
    "sre": "Konfederalni registar trenutno nije dostupan.",
-   "ist": "V momenta ñama vrãzka s konfederalnija registãr."
+   "ist": "V momenta ñama vrãzka s konfederalnija registãr.",
+   "zap": "Konfederalni register trenutno ni dosegļiv."
   },
   "The confederal register cannot be reached. Check your connection and try again.": {
    "zap": "Konfederalni register ni dosegļiv. Preverite povezavo in poskusite znova."
@@ -2990,11 +3232,13 @@
   },
   "The confederal register records what you enter in this form: e-mail address, name, sex, date of birth, municipality and state of attachment, residence, card language and, if you choose one, your national register. They serve only to issue your citizen card, to send it to you and to count registrations; published figures are totals, never individual records.": {
    "sre": "Konfederalni registar čuva podatke koje unesete u ovaj obrazac: adresu e-pošte, ime i prezime, pol, datum rođeña, opštinu i državu pripadnosti, prebivalište, jezik karte i, ako ga izaberete, vaš narodni registar. Ti podaci služe samo za izdavañe i slañe vaše državļanske karte i za prebrojavañe prijava; objavļuju se samo zbirni podaci, nikad pojedinačni zapisi.",
-   "ist": "Konfederalnijat registãr zapisva dannite, koito vãveždate v tozi formuļar: imejl adres, ime, pol, data na raždane, obština i dãržava na prinadležnost, mestoživeene, ezik na kartata i, ako ste izbrali takãv, vašija naroden registãr. Te služat edinstveno za izdavaneto i izpraštaneto na graždanskata vi karta i za prebrojavaneto na zajavkite; publikuvanite danni sa samo obobšteni, nikoga individualni zapisi."
+   "ist": "Konfederalnijat registãr zapisva dannite, koito vãveždate v tozi formuļar: imejl adres, ime, pol, data na raždane, obština i dãržava na prinadležnost, mestoživeene, ezik na kartata i, ako ste izbrali takãv, vašija naroden registãr. Te služat edinstveno za izdavaneto i izpraštaneto na graždanskata vi karta i za prebrojavaneto na zajavkite; publikuvanite danni sa samo obobšteni, nikoga individualni zapisi.",
+   "zap": "Konfederalni register zabeleži podatke, ki jih vnesete v ta obrazec: e-poštni naslov, ime in priimek, spol, datum rojstva, občino in državo pripadnosti, prebivališče, jezik izkaznice in, če ga izberete, narodni register. Uporabļajo se samo za izdajo vaše državļanske izkaznice, za ñeno pošiļañe in za štetje prijav; objavļeni podatki so skupna števila, nikoli posamezni zapisi."
   },
   "The Confederation bears three official symbols: the coat of arms, the state flag and the civil flag. Each state in turn adopts its own flag, arms and anthem (Art. 126).": {
    "sre": "Konfederacija ima tri službena simbola: grb, državnu zastavu i građansku zastavu. Svaka država sa svoje strane usvaja svoju zastavu, svoj grb i svoju himnu (čl. 126).",
-   "ist": "Konfederacijata ima tri oficialni simvola: gerba, dãržavnoto zname i graždanskoto zname. Vsjaka dãržava na svoj red priema sobstveno zname, gerb i himn (čl. 126)."
+   "ist": "Konfederacijata ima tri oficialni simvola: gerba, dãržavnoto zname i graždanskoto zname. Vsjaka dãržava na svoj red priema sobstveno zname, gerb i himn (čl. 126).",
+   "zap": "Konfederacija ima tri uradne simbole: grb, državno zastavo in civilno zastavo. Vsaka država pa sprejme svojo zastavo, grb in himno (čl. 126)."
   },
   "The Confederation is anchored in the Balkan linguistic area. Its written identity rests on a unified Latin alphabet; its institutional identity on a shared system of symbols and heraldry.": {
    "zap": "Konfederacija je zasidrana v balkanskem jezikovnem prostoru. Ñena pisna identiteta temeļi na enotni latinični abecedi, institucionalna pa na skupnem sistemu simbolov in heraldike.",
@@ -3014,23 +3258,28 @@
   },
   "The dashboard activates when the confederal register opens. Figures will be published per state and per people, updated every minute.": {
    "sre": "Pregled članstva počiñe raditi kad se otvori konfederalni registar. Podaci će se objavļivati po državama i po narodima i ažurirati svakih 60 sekundi.",
-   "ist": "Tabloto šte zaraboti s otkrivaneto na konfederalnija registãr. Dannite šte se publikuvat po dãržavi i po narodi i šte se obnovjavat vsjaka minuta."
+   "ist": "Tabloto šte zaraboti s otkrivaneto na konfederalnija registãr. Dannite šte se publikuvat po dãržavi i po narodi i šte se obnovjavat vsjaka minuta.",
+   "zap": "Pregled se vkļuči, ko začne delovati konfederalni register. Podatki bodo objavļeni po državah in po narodih ter posodobļeni vsako minuto."
   },
   "The data are stored by Cloudflare in the European Union and e-mails are sent through Brevo (France). Nothing is sold or shared. Unconfirmed registrations are deleted after seven days. You can view, amend or delete your registration at any time from the link in your card e-mail; deletion is immediate and final.": {
    "sre": "Podatke čuva Cloudflare u Evropskoj uniji, a e-poruke se šaļu preko servisa Brevo (Francuska). Ništa se ne prodaje niti ustupa drugima. Nepotvrđene prijave brišu se nakon sedam dana. Svoju prijavu možete u svakom trenutku pregledati, izměniti ili izbrisati preko linka iz e-poruke s kartom; brisañe je trenutno i konačno.",
-   "ist": "Dannite se sãhrañavat ot Cloudflare v Evropejskija sãjuz, a imejlite se izpraštat črez Brevo (Francija). Ništo ne se prodava i ne se predostavja na treti lica. Nepotvãrdenite zajavki se iztrivat sled sedem dni. Možete po vsjako vreme da pregledate, promenite ili iztriete zajavkata si črez vrãzkata v imejla s kartata; iztrivaneto e nezabavno i okončatelno."
+   "ist": "Dannite se sãhrañavat ot Cloudflare v Evropejskija sãjuz, a imejlite se izpraštat črez Brevo (Francija). Ništo ne se prodava i ne se predostavja na treti lica. Nepotvãrdenite zajavki se iztrivat sled sedem dni. Možete po vsjako vreme da pregledate, promenite ili iztriete zajavkata si črez vrãzkata v imejla s kartata; iztrivaneto e nezabavno i okončatelno.",
+   "zap": "Podatke hrani Cloudflare v Evropski uniji, e-poštna sporočila pa se pošiļajo prek storitve Brevo (Francija). Nič se ne prodaja in ne deli z drugimi. Nepotrjene prijave se izbrišejo po sedmih dneh. Svojo prijavo lahko kadar koli pregledate, spremenite ali izbrišete prek povezave v e-poštnem sporočilu z izkaznico; izbris je takojšen in dokončen."
   },
   "The declaration is required to issue the card.": {
    "sre": "Za izdavañe karte potrebna je izjava.",
-   "ist": "Deklaracijata e zadãlžitelna za izdavaneto na kartata."
+   "ist": "Deklaracijata e zadãlžitelna za izdavaneto na kartata.",
+   "zap": "Za izdajo izkaznice je potrebna izjava."
   },
   "The declaration of the parent or legal guardian is required.": {
    "sre": "Potrebna je izjava roditeļa ili zakonskog zastupnika.",
-   "ist": "Deklaracijata na roditeļa ili nastojnika e zadãlžitelna."
+   "ist": "Deklaracijata na roditeļa ili nastojnika e zadãlžitelna.",
+   "zap": "Potrebna je izjava starša ali zakonitega skrbnika."
   },
   "The deletion failed. Please try again.": {
    "sre": "Brisañe nije izvršeno. Pokušajte još jednom.",
-   "ist": "Iztrivaneto ne beše uspešno. Moļa, opitajte otnovo."
+   "ist": "Iztrivaneto ne beše uspešno. Moļa, opitajte otnovo.",
+   "zap": "Brisañe ni uspelo. Poskusite znova."
   },
   "The four confederal institutions": {
    "zap": "Štiri konfederalne institucije",
@@ -3060,15 +3309,18 @@
   },
   "The Kongres adopts the amendment.": {
    "sre": "Kongres usvaja amandman.",
-   "ist": "Kongres priema izmenenieto."
+   "ist": "Kongres priema izmenenieto.",
+   "zap": "Kongres sprejme spremembo."
   },
   "The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm each of the seven councillors of the Konfederalno Veće by a separate vote. A rejected delegation nominates a new candidate within 30 days; after a second rejection it presents three, and the Assembly elects one of them. The Assembly also elects the Chancellor of the Confederation.": {
    "sre": "Kongres i Narodni Sabor sastaju se zajedno kao Konfederalna skupština i posebnim glasañem potvrđuju svakog od sedam većnika Konfederalnog Veća. Delegacija čiji je kandidat odbijen predlaže novog kandidata u roku od 30 dana; nakon drugog odbijaña predlaže tri kandidata, a Skupština bira jednog od ñih. Skupština bira i kancelara Konfederacije.",
-   "ist": "Kongres i Narodni Sabor zasedavat zaedno kato Konfederalno sãbranie, za da potvãrdjat s otdelno glasuvane vseki ot sedemte sãvetnici na Konfederalno Veće. Delegacija, čijto kandidat e othvãrlen, predlaga nov kandidat v srok ot 30 dni; sled vtoro othvãrļane tja predstavja trima kandidati, a Sãbranieto izbira edin ot tjah. Sãbranieto izbira i kanclera na Konfederacijata."
+   "ist": "Kongres i Narodni Sabor zasedavat zaedno kato Konfederalno sãbranie, za da potvãrdjat s otdelno glasuvane vseki ot sedemte sãvetnici na Konfederalno Veće. Delegacija, čijto kandidat e othvãrlen, predlaga nov kandidat v srok ot 30 dni; sled vtoro othvãrļane tja predstavja trima kandidati, a Sãbranieto izbira edin ot tjah. Sãbranieto izbira i kanclera na Konfederacijata.",
+   "zap": "Kongres in Narodni Sabor zasedata skupaj kot Konfederalna skupščina, ki z ločenim glasovañem potrdi vsakega od sedmih svetnikov Konfederalnega Veća. Delegacija, katere kandidat je zavrñen, v 30 dneh predlaga novega; po drugi zavrnitvi predlaga tri, skupščina pa izvoli enega od ñih. Skupščina voli tudi kanclerja Konfederacije."
   },
   "The Kongres can now adopt the law only by a two-thirds majority. It does so, and the law is published.": {
    "sre": "Kongres sada može usvojiti zakon samo dvotrećinskom većinom. To i čini, i zakon se objavļuje.",
-   "ist": "Sega Kongres može da prieme zakona samo s mnozinstvo ot dve treti. Toj go priema i zakonãt se publikuva."
+   "ist": "Sega Kongres može da prieme zakona samo s mnozinstvo ot dve treti. Toj go priema i zakonãt se publikuva.",
+   "zap": "Kongres lahko zakon zdaj sprejme samo z dvotretjinsko večino. To stori in zakon je objavļen."
   },
   "The Kongres legislates, the Narodni Sabor guards the equality of nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the Constitution, seated across the four confederal capitals.": {
    "zap": "Kongres sprejema zakone, Narodni Sabor varuje enakopravnost narodov, Konfederalno Veće vlada s soglasjem, Ustavni Sud pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah."
@@ -3078,23 +3330,28 @@
   },
   "The law enters into force.": {
    "sre": "Zakon stupa na snagu.",
-   "ist": "Zakonãt vliza v sila."
+   "ist": "Zakonãt vliza v sila.",
+   "zap": "Zakon začne veļati."
   },
   "The law enters into force. The Ustavni Sud can still review its conformity with the Constitution.": {
    "sre": "Zakon stupa na snagu. Ustavni Sud i daļe može odlučivati o ñegovoj usklađenosti s Ustavom.",
-   "ist": "Zakonãt vliza v sila. Ustavni Sud vse ošte može da proveri sãotvetstvieto mu s Konstitucijata."
+   "ist": "Zakonãt vliza v sila. Ustavni Sud vse ošte može da proveri sãotvetstvieto mu s Konstitucijata.",
+   "zap": "Zakon začne veļati. Ustavni Sud lahko še vedno presodi ñegovo skladnost z Ustavo."
   },
   "The law enters into force. Without the consent of the Narodni Sabor it could not have done so.": {
    "sre": "Zakon stupa na snagu. Bez pristanka Narodnog Sabora to ne bi bilo moguće.",
-   "ist": "Zakonãt vliza v sila. Bez sãglasieto na Narodni Sabor tova ne bi bilo vãzmožno."
+   "ist": "Zakonãt vliza v sila. Bez sãglasieto na Narodni Sabor tova ne bi bilo vãzmožno.",
+   "zap": "Zakon začne veļati. Brez soglasja Narodnega Sabora ne bi mogel začeti veļati."
   },
   "The letters <span translate=\"no\" style=\"display:inline\">ñ</span> and <span translate=\"no\" style=\"display:inline\">ļ</span> now apply to every official word, not only to place names: the card reads <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> and <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, the feminine forms are <span translate=\"no\" style=\"display:inline\">Srpkiña</span> and <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, and the central standard is the <span translate=\"no\" style=\"display:inline\">središñi</span> standard (Constitution v4.11, Art. 128). Names of persons are never rewritten.": {
    "sre": "Slova <span translate=\"no\" style=\"display:inline\">ñ</span> i <span translate=\"no\" style=\"display:inline\">ļ</span> sada važe za svaku službenu rěč, a ne samo za toponime: na karti stoji <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> i <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, ženski oblici su <span translate=\"no\" style=\"display:inline\">Srpkiña</span> i <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, a naziv standarda piše se <span translate=\"no\" style=\"display:inline\">središñi</span> standard (Ustav v4.11, čl. 128). Imena osoba nikad se ne měñaju.",
-   "ist": "Bukvite <span translate=\"no\" style=\"display:inline\">ñ</span> i <span translate=\"no\" style=\"display:inline\">ļ</span> veče se prilagat vãv vsjaka oficialna duma, a ne samo v imenata na mesta: na kartata piše <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> i <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, ženskite formi sa <span translate=\"no\" style=\"display:inline\">Srpkiña</span> i <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, a centralnijat standart se nariča <span translate=\"no\" style=\"display:inline\">središñi</span> standart (Konstitucija v4.11, čl. 128). Imenata na licata nikoga ne se promeñat."
+   "ist": "Bukvite <span translate=\"no\" style=\"display:inline\">ñ</span> i <span translate=\"no\" style=\"display:inline\">ļ</span> veče se prilagat vãv vsjaka oficialna duma, a ne samo v imenata na mesta: na kartata piše <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> i <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, ženskite formi sa <span translate=\"no\" style=\"display:inline\">Srpkiña</span> i <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, a centralnijat standart se nariča <span translate=\"no\" style=\"display:inline\">središñi</span> standart (Konstitucija v4.11, čl. 128). Imenata na licata nikoga ne se promeñat.",
+   "zap": "Črki <span translate=\"no\" style=\"display:inline\">ñ</span> in <span translate=\"no\" style=\"display:inline\">ļ</span> zdaj veļata za vse uradne besede, ne le za zemļepisna imena: na izkaznici piše <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> in <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, ženski obliki sta <span translate=\"no\" style=\"display:inline\">Srpkiña</span> in <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, ime središñega standarda pa se piše <span translate=\"no\" style=\"display:inline\">središñi</span> (Ustava v4.11, čl. 128). Osebna imena se nikoli ne prepisujejo."
   },
   "The lion · honour": {
    "sre": "Lav · čast",
-   "ist": "Lãvãt · čest"
+   "ist": "Lãvãt · čest",
+   "zap": "Lev · čast"
   },
   "The living language · portraits": {
    "zap": "Živi jezik · portreti",
@@ -3108,18 +3365,21 @@
   },
   "The portal in Cyrillic": {
    "sre": "Portal na ćirilici",
-   "ist": "Portalãt na kirilica"
+   "ist": "Portalãt na kirilica",
+   "zap": "Portal v cirilici"
   },
   "The president chairs the council and represents the Confederation abroad, with no other power than a casting vote. The office rotates every year in a fixed order, and no one holds it twice in a row; the first cycle begins with the Slovene councillor ({0}).": {
    "zap": "Predsednik predseduje svetu in zastopa Konfederacijo v tujini; razen odločilnega glasu nima nobenih drugih pooblastil. Funkcija vsako leto kroži po določenem vrstnem redu in nihče je ne opravļa dvakrat zapored; prvi krog se začne s slovenskim svetnikom ({0})."
   },
   "The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations, which together represent a majority of enrolled citizens.": {
    "sre": "Predsědnik Kongresa označava da zakon podleže pristanku; nijedna delegacija to ne osporava. Narodni Sabor daje pristanak u roku od 90 dana: većinom na plenarnoj sědnici i većinom u najmañe pet od sedam delegacija, koje zajedno predstavļaju većinu upisanih državļana.",
-   "ist": "Predsedateļat na Kongres otbeļazva, če zakonãt iziskva sãglasie; nikoja delegacija ne osporva tova. Narodni Sabor dava sãglasieto si v srok ot 90 dni: mnozinstvo v plenarno zasedanie i mnozinstvo v pone pet ot sedemte delegacii, koito zaedno predstavļavat mnozinstvoto ot vpisanite graždani."
+   "ist": "Predsedateļat na Kongres otbeļazva, če zakonãt iziskva sãglasie; nikoja delegacija ne osporva tova. Narodni Sabor dava sãglasieto si v srok ot 90 dni: mnozinstvo v plenarno zasedanie i mnozinstvo v pone pet ot sedemte delegacii, koito zaedno predstavļavat mnozinstvoto ot vpisanite graždani.",
+   "zap": "Predsednik Kongresa navede, da za zakon veļa pravica obveznega soglasja; nobena delegacija tega ne izpodbija. Narodni Sabor da soglasje v 90 dneh: z večino v plenarni sestavi in z večino v najmañ petih od sedmih delegacij, ki skupaj predstavļajo večino vpisanih državļanov."
   },
   "The register cannot be reached.": {
    "sre": "Registar nije dostupan.",
-   "ist": "Ñama vrãzka s registãra."
+   "ist": "Ñama vrãzka s registãra.",
+   "zap": "Register ni dosegļiv."
   },
   "the register of the Bosniaks": {
    "zap": "register Bošñakov"
@@ -3149,11 +3409,13 @@
   },
   "The request failed. Please try again.": {
    "sre": "Zahtěv nije izvršen. Pokušajte još jednom.",
-   "ist": "Iskaneto ne beše uspešno. Moļa, opitajte otnovo."
+   "ist": "Iskaneto ne beše uspešno. Moļa, opitajte otnovo.",
+   "zap": "Zahteva ni uspela. Poskusite znova."
   },
   "The rule of the v3 alphabet now covers every municipality: <span translate=\"no\" style=\"display:inline\">ñ</span>, <span translate=\"no\" style=\"display:inline\">ļ</span> and <span translate=\"no\" style=\"display:inline\">x</span> everywhere, Bulgarian names written from the Cyrillic, and the yat restored where the official name shows it, as in <span translate=\"no\" style=\"display:inline\">Rěka</span>, <span translate=\"no\" style=\"display:inline\">Běļina</span>, <span translate=\"no\" style=\"display:inline\">Bělo Poļe</span> and <span translate=\"no\" style=\"display:inline\">Osěk</span>. Official names remain searchable. The confederal Cyrillic, one letter for each of the 32, is adopted.": {
    "sre": "Pravilo abecede v3 sada važi za sve opštine: <span translate=\"no\" style=\"display:inline\">ñ</span>, <span translate=\"no\" style=\"display:inline\">ļ</span> i <span translate=\"no\" style=\"display:inline\">x</span> svuda, bugarski nazivi preneseni s ćirilice i jat vraćen u nazive čiji ga službeni oblik pokazuje, kao u <span translate=\"no\" style=\"display:inline\">Rěka</span>, <span translate=\"no\" style=\"display:inline\">Běļina</span>, <span translate=\"no\" style=\"display:inline\">Bělo Poļe</span> i <span translate=\"no\" style=\"display:inline\">Osěk</span>. Službeni nazivi i daļe se mogu pretraživati. Usvojena je konfederalna ćirilica: po jedno slovo za svako od 32.",
-   "ist": "Praviloto na azbukata v3 veče obhvašta vsjaka obština: <span translate=\"no\" style=\"display:inline\">ñ</span>, <span translate=\"no\" style=\"display:inline\">ļ</span> i <span translate=\"no\" style=\"display:inline\">x</span> navsjakãde, bãlgarskite imena se predavat ot kirilicata, a jatãt se vãzstanovjava tam, kãdeto oficialnoto ime go pokazva, kakto v <span translate=\"no\" style=\"display:inline\">Rěka</span>, <span translate=\"no\" style=\"display:inline\">Běļina</span>, <span translate=\"no\" style=\"display:inline\">Bělo Poļe</span> i <span translate=\"no\" style=\"display:inline\">Osěk</span>. Oficialnite imena ostavat dostãpni za tãrsene. Prieta e konfederalnata kirilica, s po edna bukva za vsjaka ot trideset i dvete bukvi."
+   "ist": "Praviloto na azbukata v3 veče obhvašta vsjaka obština: <span translate=\"no\" style=\"display:inline\">ñ</span>, <span translate=\"no\" style=\"display:inline\">ļ</span> i <span translate=\"no\" style=\"display:inline\">x</span> navsjakãde, bãlgarskite imena se predavat ot kirilicata, a jatãt se vãzstanovjava tam, kãdeto oficialnoto ime go pokazva, kakto v <span translate=\"no\" style=\"display:inline\">Rěka</span>, <span translate=\"no\" style=\"display:inline\">Běļina</span>, <span translate=\"no\" style=\"display:inline\">Bělo Poļe</span> i <span translate=\"no\" style=\"display:inline\">Osěk</span>. Oficialnite imena ostavat dostãpni za tãrsene. Prieta e konfederalnata kirilica, s po edna bukva za vsjaka ot trideset i dvete bukvi.",
+   "zap": "Pravilo abecede v3 zdaj zajema vse občine: povsod <span translate=\"no\" style=\"display:inline\">ñ</span>, <span translate=\"no\" style=\"display:inline\">ļ</span> in <span translate=\"no\" style=\"display:inline\">x</span>, bolgarska imena, zapisana na podlagi cirilice, in jat, obnovļen tam, kjer ga kaže uradno ime, kot v imenih <span translate=\"no\" style=\"display:inline\">Rěka</span>, <span translate=\"no\" style=\"display:inline\">Běļina</span>, <span translate=\"no\" style=\"display:inline\">Bělo Poļe</span> in <span translate=\"no\" style=\"display:inline\">Osěk</span>. Po uradnih imenih je še vedno mogoče iskati. Sprejeta je konfederalna cirilica z eno črko za vsako od 32 črk."
   },
   "The rule that protects these four cannot be lifted by a smaller majority.": {
    "zap": "Pravila, ki varuje ta štiri jamstva, ni mogoče odpraviti z mañšo večino.",
@@ -3175,7 +3437,8 @@
   },
   "The state flag is flown by all confederal institutions, military formations, embassies and seats of state. Vertical red hoist bearing the radiant sun charged with the lion gules; horizontal field of azure, argent and azure, the central white band bordered by friezes inspired by Balkan textile traditions.": {
    "sre": "Državnu zastavu ističu sve konfederalne institucije, vojne jedinice, diplomatska predstavništva i sědišta državnih organa. Vertikalna crvena traka uz kopļe nosi zrakasto sunce na kojem je crveni lav; horizontalno poļe plavo, srebrno i plavo, a središña běla traka obrubļena je frizovima nadahnutim balkanskom tekstilnom tradicijom.",
-   "ist": "Dãržavnoto zname se izdiga ot vsički konfederalni institucii, voenni formirovanija i posolstva i na sedalištata na dãržavnata vlast. Vertikalna červena ivica otkãm drevkata sãs sijaešto slãnce, natovareno s červenija lãv; horizontalno pole v siño, srebãrno i siño, kato srednata bjala ivica e obramčena s frizove, vdãhnoveni ot balkanskite tãkačni tradicii."
+   "ist": "Dãržavnoto zname se izdiga ot vsički konfederalni institucii, voenni formirovanija i posolstva i na sedalištata na dãržavnata vlast. Vertikalna červena ivica otkãm drevkata sãs sijaešto slãnce, natovareno s červenija lãv; horizontalno pole v siño, srebãrno i siño, kato srednata bjala ivica e obramčena s frizove, vdãhnoveni ot balkanskite tãkačni tradicii.",
+   "zap": "Državno zastavo izobešajo vse konfederalne institucije, vojaške enote, veleposlaništva in sedeži državnih organov. Navpični rdeči pas ob drogu nosi sijoče sonce z naloženim rdečim levom; vodoravno poļe je modro, srebrno in modro, osredñi beli pas pa obrobļajo frizi, navdihñeni z balkanskimi tekstilnimi tradicijami."
   },
   "The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.": {
    "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega Istražnega Ureda privede pred sodišče.",
@@ -3184,7 +3447,8 @@
   },
   "The unified alphabet on the card and in the Constitution": {
    "sre": "Jedinstvena abeceda na karti i u Ustavu",
-   "ist": "Edinnata azbuka vãrhu kartata i v Konstitucijata"
+   "ist": "Edinnata azbuka vãrhu kartata i v Konstitucijata",
+   "zap": "Enotna abeceda na izkaznici in v Ustavi"
   },
   "The unified Latin alphabet, the symbols and heraldry of the union.": {
    "zap": "Enotna latinična abeceda ter simboli in heraldika zveze."
@@ -3207,11 +3471,13 @@
   },
   "Thirty-two letters; restoration of the jat’ (<span translate=\"no\" style=\"display:inline\">ě</span>); areal Balkan diacritics.": {
    "sre": "Trideset dva slova; obnova jata (<span translate=\"no\" style=\"display:inline\">ě</span>); arealni balkanski dijakritički znaci.",
-   "ist": "Trideset i dve bukvi; vãzstanovjavane na jata (<span translate=\"no\" style=\"display:inline\">ě</span>); arealni balkanski diakritični znaci."
+   "ist": "Trideset i dve bukvi; vãzstanovjavane na jata (<span translate=\"no\" style=\"display:inline\">ě</span>); arealni balkanski diakritični znaci.",
+   "zap": "Dvaintrideset črk; obnovitev jata (<span translate=\"no\" style=\"display:inline\">ě</span>); arealna balkanska diakritična znameña."
   },
   "This card expired on {0}.": {
    "sre": "Ova karta važila je do {0}.",
-   "ist": "Validnostta na tazi karta e iztekla na {0}."
+   "ist": "Validnostta na tazi karta e iztekla na {0}.",
+   "zap": "Veļavnost te izkaznice je potekla {0}."
   },
   "This card is not among the children declared from your card.": {
    "zap": "Ta izkaznica ni med izkaznicami otrok, prijavļenih z vašo izkaznico."
@@ -3233,7 +3499,8 @@
   },
   "This number was issued, then cancelled by its holder or replaced after a change of state.": {
    "sre": "Ovaj broj je postojao, ali ga je vlasnik poništio ili je zaměñen novim nakon proměne države pripadnosti.",
-   "ist": "Tozi nomer e bil izdaden, a sled tova anuliran ot pritežateļa si ili zamenen sled smjana na dãržavata."
+   "ist": "Tozi nomer e bil izdaden, a sled tova anuliran ot pritežateļa si ili zamenen sled smjana na dãržavata.",
+   "zap": "Ta številka je bila izdana, nato pa jo je imetnik preklical ali pa je bila po spremembi države zameñana."
   },
   "This takes a few seconds.": {
    "zap": "To traja nekaj sekund.",
@@ -3242,19 +3509,23 @@
   },
   "Title III, Chapter 2, Articles 55 to 99: foreign relations, defence, education, culture, environment, transport, road classification, energy, economy and currency, social security, civil and criminal law. 153 articles.": {
    "sre": "Glava III, poglavļe 2, članovi 55 do 99: odnosi sa stranim državama, odbrana, obrazovañe, kultura, životna sredina, transport, razvrstavañe puteva, energija, ekonomija i valuta, socijalna sigurnost, građansko i krivično pravo. 153 člana.",
-   "ist": "Glava III, razdel 2, členove ot 55 do 99: vãnšni otnošenija, otbrana, obrazovanie, kultura, okolna sreda, transport, klasifikacija na pãtištata, energetika, ikonomika i parična sistema, socialna sigurnost, graždansko i nakazatelno pravo. 153 člena."
+   "ist": "Glava III, razdel 2, členove ot 55 do 99: vãnšni otnošenija, otbrana, obrazovanie, kultura, okolna sreda, transport, klasifikacija na pãtištata, energetika, ikonomika i parična sistema, socialna sigurnost, graždansko i nakazatelno pravo. 153 člena.",
+   "zap": "Poglavje III, razdelek 2, členi od 55 do 99: zunañi odnosi, obramba, izobraževañe, kultura, okoļe, promet, kategorizacija cest, energija, gospodarstvo in valuta, socialna varnost, civilno in kazensko pravo. 153 členov."
   },
   "Titles I bis, IV, V and VI, institutions, languages, financial equalisation.": {
    "sre": "Glave I bis, IV, V i VI: institucije, jezici, finansijsko izravnañe.",
-   "ist": "Glavi I bis, IV, V i VI: institucii, ezici, finansovo izravñavane."
+   "ist": "Glavi I bis, IV, V i VI: institucii, ezici, finansovo izravñavane.",
+   "zap": "Poglavja I bis, IV, V in VI: institucije, jeziki, finančna izravnava."
   },
   "Titles I, II and III restored: general provisions, fundamental rights, citizenship, social goals, the States and the municipalities. 106 articles in eight titles.": {
    "sre": "Vraćene su glave I, II i III: opšte odredbe, osnovna prava, državļanstvo, socijalni ciļevi, države i opštine. 106 članova u osam glava.",
-   "ist": "Vãzstanoveni sa glavi I, II i III: obšti razporedbi, osnovni prava, graždanstvo, socialni celi, dãržavite i obštinite. 106 člena v osem glavi."
+   "ist": "Vãzstanoveni sa glavi I, II i III: obšti razporedbi, osnovni prava, graždanstvo, socialni celi, dãržavite i obštinite. 106 člena v osem glavi.",
+   "zap": "Obnovļena poglavja I, II in III: splošne določbe, temeļne pravice, državļanstvo, socialni ciļi, države in občine. 106 členov v osmih poglavjih."
   },
   "Total": {
    "sre": "Ukupno",
-   "ist": "Obšto"
+   "ist": "Obšto",
+   "zap": "Skupaj"
   },
   "Total and partial revision, entrenched guarantees": {
    "zap": "Celovita in delna sprememba, utrjena jamstva",
@@ -3268,18 +3539,21 @@
   },
   "Turkish communities": {
    "sre": "Turske zajednice",
-   "ist": "Turski obštnosti"
+   "ist": "Turski obštnosti",
+   "zap": "Turške skupnosti"
   },
   "turkish community": {
    "zap": "turška skupnost"
   },
   "Turkish community": {
    "sre": "Turska zajednica",
-   "ist": "Turska obštnost"
+   "ist": "Turska obštnost",
+   "zap": "Turška skupnost"
   },
   "Twenty-four autonomous communities guarantee the cultural, educational and municipal rights of minority communities (Art. 1 quater to 1 sexies). They hold no legislative power of their own, but a right of consultation and of petition.": {
    "sre": "Dvadeset četiri autonomne zajednice garantuju kulturna, obrazovna i opštinska prava mañinskih zajednica (čl. 1 quater do 1 sexies). Nemaju zakonodavnu vlast, ali imaju pravo na konsultacije i pravo peticije.",
-   "ist": "Dvadeset i četiri avtonomni obštnosti garantirat kulturnite, obrazovatelnite i obštinskite prava na malcinstvenite obštnosti (čl. ot 1 quater do 1 sexies). Te ñamat sobstvena zakonodatelna vlast, no imat pravo na konsultacija i na peticija."
+   "ist": "Dvadeset i četiri avtonomni obštnosti garantirat kulturnite, obrazovatelnite i obštinskite prava na malcinstvenite obštnosti (čl. ot 1 quater do 1 sexies). Te ñamat sobstvena zakonodatelna vlast, no imat pravo na konsultacija i na peticija.",
+   "zap": "Štiriindvajset avtonomnih skupnosti jamči kulturne, izobraževalne in občinske pravice mañšinskih skupnosti (čl. 1 quater do 1 sexies). Nimajo lastne zakonodajne oblasti, imajo pa pravico do posvetovaña in peticije."
   },
   "Twenty-four communities with cultural and municipal powers.": {
    "zap": "Štiriindvajset skupnosti s kulturnimi in občinskimi pristojnostmi.",
@@ -3288,7 +3562,8 @@
   },
   "Two ballots on the same day": {
    "sre": "Dva glasačka listića istog dana",
-   "ist": "Dve bjuletini v edin i sãšti den"
+   "ist": "Dve bjuletini v edin i sãšti den",
+   "zap": "Dve glasovnici na isti dan"
   },
   "Two chambers watching": {
    "zap": "Nadzor obeh domov",
@@ -3302,7 +3577,8 @@
   },
   "Two-thirds of one national delegation vote an alarm motion within 30 days. The law is suspended and sent to the conciliation committee, fourteen members, one per people from each chamber, for 60 days. No compromise wins the vote of the delegation that raised the alarm.": {
    "sre": "Dvě trećine članova jedne narodne delegacije izglasaju zahtěv za uzbunu u roku od 30 dana. Zakon se obustavļa i na 60 dana upućuje odboru za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma. Delegacija koja je pokrenula uzbunu ne podržava nijedan kompromis.",
-   "ist": "Dve treti ot členovete na edna narodna delegacija glasuvat alarmeno iskane v srok ot 30 dni. Zakonãt se spira i se izprašta za 60 dni na sãglasitelnata komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara. Nito edin kompromisen tekst ne polučava glasa na delegacijata, zadejstvala alarmenija zvãnec."
+   "ist": "Dve treti ot členovete na edna narodna delegacija glasuvat alarmeno iskane v srok ot 30 dni. Zakonãt se spira i se izprašta za 60 dni na sãglasitelnata komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara. Nito edin kompromisen tekst ne polučava glasa na delegacijata, zadejstvala alarmenija zvãnec.",
+   "zap": "Dve tretjini članov ene narodne delegacije v 30 dneh izglasujeta alarmni predlog. Zakon se zadrži in za 60 dni predloži usklajevalnemu odboru štirinajstih članov, po enem za vsak narod iz vsakega doma. Noben kompromis ne dobi glasu delegacije, ki je vložila alarmni predlog."
   },
   "Under 18 on the day of the declaration.": {
    "zap": "Na dan prijave mlajši od 18 let.",
@@ -3316,7 +3592,8 @@
   },
   "Unknown number": {
    "sre": "Nepoznat broj",
-   "ist": "Neizvesten nomer"
+   "ist": "Neizvesten nomer",
+   "zap": "Neznana številka"
   },
   "Update my card": {
    "zap": "Posodobi izkaznico"
@@ -3328,11 +3605,13 @@
   },
   "Valid card": {
    "sre": "Važeća karta",
-   "ist": "Validna karta"
+   "ist": "Validna karta",
+   "zap": "Veļavna izkaznica"
   },
   "Verification opens with the confederal register.": {
    "sre": "Kontrola će biti dostupna kad se otvori konfederalni registar.",
-   "ist": "Proverkata šte stane dostãpna s otkrivaneto na konfederalnija registãr."
+   "ist": "Proverkata šte stane dostãpna s otkrivaneto na konfederalnija registãr.",
+   "zap": "Preverjañe bo mogoče, ko bo konfederalni register začel delovati."
   },
   "Verify": {
    "zap": "Preveri",
@@ -3358,11 +3637,13 @@
   },
   "vote by national register": {
    "sre": "glasaju po narodnom registru",
-   "ist": "glasuvat po narodni registri"
+   "ist": "glasuvat po narodni registri",
+   "zap": "volijo po narodnih registrih"
   },
   "vote in their State": {
    "sre": "glasaju u svojoj državi",
-   "ist": "glasuvat v svojata dãržava"
+   "ist": "glasuvat v svojata dãržava",
+   "zap": "volijo v svoji državi"
   },
   "Vowel": {
    "zap": "Samoglasnik",
@@ -3384,7 +3665,8 @@
   },
   "Western standard (zapadni)": {
    "sre": "zapadni standard",
-   "ist": "Zapaden standart (zapadni)"
+   "ist": "Zapaden standart (zapadni)",
+   "zap": "Zapadni standard"
   },
   "Western, central or eastern standard for the wording of the card. Language belongs to the document, not to its holder.": {
    "zap": "Zapadni, središñi ali istočni standard za besedilo izkaznice. Jezik pripada dokumentu, ne ñegovemu imetniku.",
@@ -3403,18 +3685,21 @@
   },
   "Wherever five of the seven national delegations must approve, those five must also represent a majority of the citizens enrolled in the national registers. In the Konfederalno Veće, a decision without consensus needs four councillors whose peoples hold that majority, or five councillors. No coalition of small peoples can decide against the two largest together, and the borders of the States stay as founded.": {
    "sre": "Kad god je potrebno odobreñe pet od sedam narodnih delegacija, tih pet mora predstavļati i većinu državļana upisanih u narodne registre. U Konfederalnom Veću za odluku bez konsenzusa potrebni su glasovi četiri većnika čiji narodi čine tu većinu ili glasovi pet većnika. Nijedna koalicija malih naroda ne može odlučivati protiv dva najveća naroda zajedno, a granice država ostaju onakve kakve su utvrđene pri osnivañu.",
-   "ist": "Navsjakãde, kãdeto e neobhodimo odobrenieto na pet ot sedemte narodni delegacii, tezi pet delegacii trjabva da predstavļavat i mnozinstvoto ot graždanite, vpisani v narodnite registri. V Konfederalno Veće rešenie bez konsensus iziskva četirima sãvetnici, čiito narodi sãstavļavat tova mnozinstvo, ili petima sãvetnici. Nikoja koalicija ot malki narodi ne može da rešava sreštu dvata naj-golemi naroda zaedno, a granicite na dãržavite ostavat takiva, kakvito sa opredeleni pri osnovavaneto."
+   "ist": "Navsjakãde, kãdeto e neobhodimo odobrenieto na pet ot sedemte narodni delegacii, tezi pet delegacii trjabva da predstavļavat i mnozinstvoto ot graždanite, vpisani v narodnite registri. V Konfederalno Veće rešenie bez konsensus iziskva četirima sãvetnici, čiito narodi sãstavļavat tova mnozinstvo, ili petima sãvetnici. Nikoja koalicija ot malki narodi ne može da rešava sreštu dvata naj-golemi naroda zaedno, a granicite na dãržavite ostavat takiva, kakvito sa opredeleni pri osnovavaneto.",
+   "zap": "Kadar mora odločitev odobriti pet od sedmih narodnih delegacij, mora teh pet predstavļati tudi večino državļanov, vpisanih v narodne registre. V Konfederalnem Veću so za odločitev brez soglasja potrebni štirje svetniki, katerih narodi predstavļajo to večino, ali pet svetnikov. Nobena koalicija mañših narodov ne more odločati proti dvema največjima skupaj, meje držav pa ostanejo takšne, kot so bile določene ob ustanovitvi."
   },
   "White": {
    "sre": "Běla",
-   "ist": "Bjalo"
+   "ist": "Bjalo",
+   "zap": "Bela"
   },
   "White, navy and white horizontal Adriatic stripes; on the central shield, the tower-on-bridge of the historic Gulf cities and the Kvarner pine marten at base.": {
    "zap": "Beli, temnomodri in beli vodoravni jadranski pasovi; na osredñem ščitu stolp na mostu zgodovinskih mest Kvarnerskega zaliva, v vznožju kvarnerska kuna zlatica."
   },
   "within <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>": {
    "sre": "u državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",
-   "ist": "v ramkite na <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>"
+   "ist": "v ramkite na <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",
+   "zap": "v državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>"
   },
   "Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.": {
    "zap": "Brez soglasja so za odločitev potrebni glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali glasovi petih svetnikov."
@@ -3460,7 +3745,8 @@
   },
   "Your citizen card is sent to this address once you confirm it. It is used for nothing else and never published.": {
    "sre": "Vaša državļanska karta šaļe se na ovu adresu kad je potvrdite. Adresa se ne koristi ni u koju drugu svrhu i nikad se ne objavļuje.",
-   "ist": "Graždanskata vi karta se izprašta na tozi adres, sled kato go potvãrdite. Toj ne se izpolzva za ništo drugo i nikoga ne se publikuva."
+   "ist": "Graždanskata vi karta se izprašta na tozi adres, sled kato go potvãrdite. Toj ne se izpolzva za ništo drugo i nikoga ne se publikuva.",
+   "zap": "Ko naslov potrdite, vam nañ pošļemo državļansko izkaznico. Naslov se ne uporabļa za nič drugega in se nikoli ne objavi."
   },
   "Your confederal citizen card": {
    "zap": "Vaša konfederalna državļanska izkaznica",
@@ -3469,7 +3755,8 @@
   },
   "Your consent to the processing of your data is required.": {
    "sre": "Potreban je vaš pristanak na obradu podataka.",
-   "ist": "Neobhodimo e sãglasieto vi za obrabotvaneto na vašite danni."
+   "ist": "Neobhodimo e sãglasieto vi za obrabotvaneto na vašite danni.",
+   "zap": "Potrebna je vaša privolitev v obdelavo podatkov."
   },
   "Your enrolment in {0} counts for the Narodni Sabor from the first election held after {1}. It is probationary until {2}: you may rectify it once, to another register. Otherwise another register will be open to you from {3} (Art. 102).": {
    "zap": "Vaš vpis v {0} veļa za Narodni Sabor od prvih volitev po {1}. Do {2} je poskusen: enkrat ga lahko popravite v korist drugega registra. Sicer vam bo drug register dostopen od {3} (čl. 102).",
@@ -3488,7 +3775,8 @@
   },
   "Your explicit consent is required to record your national register.": {
    "sre": "Za unos vašeg narodnog registra potreban je vaš izričit pristanak.",
-   "ist": "Neobhodimo e izričnoto vi sãglasie, za da bãde zapisan narodnijat vi registãr."
+   "ist": "Neobhodimo e izričnoto vi sãglasie, za da bãde zapisan narodnijat vi registãr.",
+   "zap": "Za zabeležbo vašega narodnega registra je potrebna vaša izrecna privolitev."
   },
   "Your number {0} is kept; a new card is issued.": {
    "zap": "Vaša številka {0} se ohrani; izda se nova izkaznica.",
@@ -3502,7 +3790,8 @@
   },
   "Your registration stays attached to this address. To use another one, delete your registration and register again.": {
    "sre": "Vaša prijava ostaje vezana za ovu adresu. Da biste koristili drugu, izbrišite prijavu i prijavite se iznova.",
-   "ist": "Zajavkata vi ostava svãrzana s tozi adres. Za da izpolzvate drug, iztrijte zajavkata si i se registrirajte otnovo."
+   "ist": "Zajavkata vi ostava svãrzana s tozi adres. Za da izpolzvate drug, iztrijte zajavkata si i se registrirajte otnovo.",
+   "zap": "Vaša prijava ostane vezana na ta naslov. Če želite uporabiti drugega, izbrišite prijavo in se prijavite znova."
   },
   "Your return to {0} counts for the Narodni Sabor from the first election held after {1}. Your enrolment date of {2} is kept (Art. 102).": {
    "zap": "Vaša vrnitev v {0} veļa za Narodni Sabor od prvih volitev po {1}. Datum vašega vpisa, {2}, se ohrani (čl. 102).",
@@ -3535,11 +3824,13 @@
   },
   "{0} / km²": {
    "sre": "{0} / km²",
-   "ist": "{0} / km²"
+   "ist": "{0} / km²",
+   "zap": "{0} / km²"
   },
   "{0} articles": {
    "sre": "{0} {0#one:član;few:člana;other:članova}",
-   "ist": "{0} {0#one:člen;other:člena}"
+   "ist": "{0} {0#one:člen;other:člena}",
+   "zap": "{0} {0#one:člen;two:člena;few:členi;other:členov}"
   },
   "{0} confederal municipalities": {
    "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}"
@@ -3590,7 +3881,8 @@
   },
   "{0} PPS per inhabitant": {
    "sre": "{0} SKM po stanovniku",
-   "ist": "{0} SPS na čovek"
+   "ist": "{0} SPS na čovek",
+   "zap": "{0} SKM na prebivalca"
   },
   "{0} since {1} · one constituency for the whole Confederation · counts from the first election held after {2}.": {
    "zap": "{0} od {1} · ena volilna enota za vso Konfederacijo · veļa od prvih volitev po {2}.",
