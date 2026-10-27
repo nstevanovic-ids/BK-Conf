@@ -161,10 +161,18 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
   en-tête, navigation, recherche, pied de page, fil d'Ariane ; phase 2, étape 1 : titres et
   intertitres des pages (`data-i18n`, observateur sur #app, ADR 2026-10-25-interface-phase-2-titres.md) ;
-  texte courant en anglais ; alphabet v3 (ñ, ļ) dans toutes les chaînes ; cyrillique dérivé
-  à l'affichage pour SRE et IST (bascule Lat / Ћир) : central = cyrillique confédéral lu en
-  ekavien (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ;
-  ADR 2026-10-25-portail-cyrillique.md ;
+  phase 2, étape 2 : **tout le texte des pages** traduit (ADR 2026-10-26-traduction-pages.md) :
+  l'anglais du gabarit sert de clé, `L`…`` (littéral étiqueté), `L(x)` (données), `N('…')`
+  (tables de code) ; traductions dans `portail/data/textes.json` ; `scripts/textes.py`
+  (extract, check, merge ; istočni rédigé en bulgare cyrillique puis converti en latin v3,
+  vérifié par aller-retour) ; nombres et dates selon la langue (`fmtN`, `fmtD`) ; tout texte
+  nouveau ou modifié dans le gabarit doit passer par `L` et recevoir ses trois traductions
+  (`textes.py check` échoue sinon) ; glossaire docs/alfabet/glossaire-trois-standards.md ;
+  alphabet v3 (ñ, ļ) dans toutes les chaînes ; cyrillique dérivé à l'affichage pour SRE et
+  IST (bascule Lat / Ћир), sur tout le texte : central = cyrillique confédéral lu en ekavien
+  (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
+  `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
+  romains, e-mails, liens, noms des communautés non slaves ; ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et

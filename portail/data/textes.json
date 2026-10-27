@@ -1413,6 +1413,11 @@
    "ist": "Na vseki četiri godini, v pãrvata nedeļa na oktomvri, vseki graždanin glasuva s dve bjuletini. S pãrvata se izbira Kongres, v dãržavata na prinadležnost na graždanina. S vtorata se izbira Narodni Sabor, v narodnija registãr, v kojto graždaninãt e izbral da se vpiše. Pãrvoto vpisvane može da bãde popraveno vednãž v srok ot tri godini; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto. Vpisvaneto poražda dejstvie ot pãrvite izbori, provedeni poveče ot edna godina po-kãsno. Graždanin, kojto ne se vpiše v nikoj registãr, zapazva vsički ostanali prava: toj glasuva za Kongres i na vsički referendumi.",
    "zap": "Vsaka štiri leta, prvo nedeļo v oktobru, odda vsak državļan dve glasovnici. S prvo voli Kongres, v državi, ki ji pripada. Z drugo voli Narodni Sabor, v narodnem registru, v katerega se je odločil vpisati. Prvi vpis je mogoče v treh letih enkrat popraviti; pozneje je drug register dostopen šele petnajst let po vpisu. Vpis veļa od prvih volitev, ki potekajo več kot eno leto pozneje. Državļan, ki se ne vpiše v noben register, ohrani vse druge pravice: voli Kongres in glasuje na vseh referendumih."
   },
+  "Every page can now be read in the three standards (zapadni, središñi, istočni), and the central and eastern standards also in Cyrillic: the state pages, the institutions, security, the Official Journal, the alphabet and symbols, the citizen's journey and the search. Numbers and dates follow the language; a glossary fixes the shared terms.": {
+   "zap": "Vse strani je zdaj mogoče brati v treh standardih (zapadni, središñi, istočni), središñi in istočni standard pa tudi v cirilici: strani držav, institucije, varnost, Uradni list, abecedo in simbole, pot do državļanstva in iskañe. Števila in datumi sledijo jeziku, skupne izraze pa določa glosar.",
+   "sre": "Sve stranice sada se mogu čitati na tri standarda (zapadni, središñi, istočni), a središñi i istočni standard i na ćirilici: stranice država, institucije, sigurnost, Službeni glasnik, abeceda i simboli, put do državļanstva i pretraga. Brojevi i datumi prate jezik, a zajedničke izraze utvrđuje glosar.",
+   "ist": "Vsički stranici veče mogat da se četat v trite standarta (zapadni, središñi, istočni), a središñi i istočni standard – i na kirilica: stranicite na dãržavite, instituciite, sigurnostta, „Dãržaven vestnik“, azbukata i simvolite, pãtjat kãm graždanstvoto i tãrseneto. Čislata i datite sledvat ezika, a obštite termini se opredeļat ot rečnik."
+  },
   "Every State is a constituency. Seats follow the population, so that a delegate represents roughly the same number of inhabitants everywhere, within a floor that keeps the smallest States in the chamber.": {
    "zap": "Vsaka država je volilna enota. Sedeži sledijo številu prebivalcev, tako da delegat povsod predstavļa približno enako število prebivalcev, ob spodñi meji, ki tudi najmañšim državam zagotavļa mesto v domu.",
    "sre": "Svaka država je izborna jedinica. Broj mandata prati broj stanovnika, tako da delegat svuda predstavļa približno isti broj stanovnika, uz doñu granicu koja i najmañim državama osigurava zastupļenost u domu.",
@@ -3452,6 +3457,11 @@
   },
   "The unified Latin alphabet, the symbols and heraldry of the union.": {
    "zap": "Enotna latinična abeceda ter simboli in heraldika zveze."
+  },
+  "The whole portal in the three standards": {
+   "zap": "Ves portal v treh standardih",
+   "sre": "Čitav portal na tri standarda",
+   "ist": "Celijat portal v trite standarta"
   },
   "The yearly report counts, department by department, the decisions taken by consensus and by majority.": {
    "zap": "Letno poročilo po resorjih navaja število odločitev, sprejetih s soglasjem in z večino."
