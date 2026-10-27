@@ -228,7 +228,13 @@ JSON_SOURCES = [
     ("stats.json", lambda d: [v[k] for v in d.values() for k in ("source", "gdp_source") if v.get(k)]),
     ("peuples.json", lambda d: [v["en"] for v in d.values()]),
     ("entites-autonomes.json", lambda d: sorted({a["com"] for a in d})),
+    ("etats.json", lambda d: [s["ch"] for s in d if s["p"] == "fed"]),
 ]
+
+# Noms propres qui passent par L() à l'affichage (colonnes mêlant noms et libellés) : ils se
+# disent pareil dans les trois standards ; textes.json les porte tels quels.
+NAMES = ["Kongres", "Narodni Sabor", "Konfederalno Veće", "Ustavni Sud", "Konfederalna Kancelarija",
+         "Sarajevo", "Beograd", "Zagreb", "Sofija", "Ļubļana", "Ohrid · Cetiñe"]
 
 
 def extract():
@@ -247,6 +253,8 @@ def extract():
         tag = f"{func_at(src, pos)}:{line}"
         if tag not in e["ctx"]:
             e["ctx"].append(tag)
+    for k in NAMES:
+        cat.setdefault(k, {"ctx": ["NAMES"]})
     for fname, get in JSON_SOURCES:
         d = json.loads((DATA / fname).read_text(encoding="utf-8"))
         for v in get(d):
@@ -333,7 +341,7 @@ ROMAN = re.compile(r"(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})")
 
 
 def keep_latin(tok, before):
-    if LAT_FOREIGN.search(tok):
+    if LAT_FOREIGN.search(tok) or re.search(r"\d", tok):
         return True
     return bool(tok) and ROMAN.fullmatch(tok) and (len(tok) > 1 or re.search(r"[^\W_]\s+$", before))
 
@@ -462,6 +470,8 @@ def cmd_merge(lang, files):
                     print(f"aller-retour ≠ : {v[:60]!r} → {lat[:60]!r} → {back[:60]!r}")
                 v = lat
             t.setdefault(k, {})[lang] = v
+    for k in NAMES:
+        t.setdefault(k, {})[lang] = k
     save_textes(d)
     print(f"{lang} : fusion faite ({bad} écart(s) d'aller-retour)")
 
