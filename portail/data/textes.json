@@ -47,7 +47,8 @@
    "ist": "300 000 graždani mogat da predložat cjalostno ili častično izmenenie na Konstitucijata v srok ot 18 meseca. Častičnoto izmenenie se priema s dvojno mnozinstvo na naroda i na dãržavite; pri cjalostno izmenenie narodãt pãrvo rešava dali to da bãde predprieto (čl. 121, 148, 149)."
   },
   "45 states, 4 confederal territories and 2 confederal municipalities": {
-   "zap": "45 držav, 4 konfederalna ozemļa in 2 konfederalni občini"
+   "zap": "45 držav, 4 konfederalna ozemļa in 2 konfederalni občini",
+   "ist": "45 dãržavi, 4 konfederalni teritorii i 2 konfederalni obštini"
   },
   "51 constituencies": {
    "sre": "51 izborna jedinica",
@@ -100,7 +101,8 @@
    "ist": "<span translate=\"no\">{0}</span> · roden na {1} · validna do {2} · <b>veče pãlnoleten</b>"
   },
   "<span translate=\"no\">{0}</span> · issued {1} · valid until {2} · attached to {3} ({4}) by filiation. No national register before 18 (Art. 102).": {
-   "zap": "<span translate=\"no\">{0}</span> · izdana {1} · veļa do {2} · pripadnost po starših: {3} ({4}). Do 18. leta brez narodnega registra (čl. 102)."
+   "zap": "<span translate=\"no\">{0}</span> · izdana {1} · veļa do {2} · pripadnost po starših: {3} ({4}). Do 18. leta brez narodnega registra (čl. 102).",
+   "ist": "<span translate=\"no\">{0}</span> · izdadena na {1} · validna do {2} · prinadležnost kãm {3} ({4}) po proizhod ot roditel. Bez naroden registãr predi 18 godini (čl. 102)."
   },
   "<span translate=\"no\">{0}</span> · issued {1} · valid until {2}. The front is your badge for social networks; the back carries the machine-readable zone (ICAO 9303, TD1).": {
    "zap": "<span translate=\"no\">{0}</span> · izdana {1} · veļa do {2}. Spredña stran je vaša značka za družbena omrežja; na hrbtni strani je strojno berļivo območje (ICAO 9303, TD1).",
@@ -113,7 +115,8 @@
    "zap": "Številka izkaznice ima obliko <span translate=\"no\">BK-XX-NNNNNN</span>."
   },
   "A child under 18 is declared by a parent or legal guardian who holds a citizen card.": {
-   "zap": "Otroka, mlajšega od 18 let, prijavi starš ali zakoniti skrbnik, ki ima državļansko izkaznico."
+   "zap": "Otroka, mlajšega od 18 let, prijavi starš ali zakoniti skrbnik, ki ima državļansko izkaznico.",
+   "ist": "Dete pod 18 godini se deklarira ot roditel ili zakonen nastojnik, kojto pritežava graždanska karta."
   },
   "A college of seven councillors, one for each constituent people, each nominated by his people's delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by four councillors whose peoples hold a majority of enrolled citizens, or by five; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.": {
    "sre": "Kolegijalni organ od sedam većnika, po jedan iz svakog konstitutivnog naroda; svakog od ñih predlaže delegacija ñegovog naroda u Narodnom Saboru i svaki mora biti upisan u registar tog naroda najmañe osam godina. Odluke se donose konsenzusom, a ako ga nema, glasovima četiri većnika čiji narodi čine većinu upisanih državļana ili glasovima pet većnika; izvršeñe odluke donesene protiv tri ili više većnika obustavļa se na 30 dana, dok se saslušavaju dotične delegacije. Predsědništvo rotira svake godine. Svaki većnik rukovodi jednim od sedam resora sa sědištima u četiri glavna grada. Mandat traje četiri godine i može se jednom obnoviti.",
@@ -126,7 +129,8 @@
    "ist": "Komandir i dvama zamestnici, utvãrdeni s mnozinstvo ot dve treti v Kongres i ot pet delegacii na Narodni Sabor, za srok ot sedem godini."
   },
   "A confederation of forty-nine states and seven constituent South Slavic peoples, united in a Balkan union founded on the equality of states and on direct democracy.": {
-   "zap": "Konfederacija devetinštiridesetih držav in sedmih konstitutivnih južnoslovanskih narodov, združenih v balkansko zvezo, ki temeļi na enakopravnosti držav in neposredni demokraciji."
+   "zap": "Konfederacija devetinštiridesetih držav in sedmih konstitutivnih južnoslovanskih narodov, združenih v balkansko zvezo, ki temeļi na enakopravnosti držav in neposredni demokraciji.",
+   "ist": "Konfederacija ot četirideset i devet dãržavi i sedem konstitutivni južnoslavjanski naroda, obedineni v balkanski sãjuz, osnovan na ravnopravieto na dãržavite i na prjakata demokracija."
   },
   "A confirmation has been sent to {0}.": {
    "sre": "Na adresu {0} upućena je potvrda.",
@@ -134,10 +138,12 @@
    "zap": "Potrditev je bila poslana na {0}."
   },
   "A confirmation was sent to {0}.": {
-   "zap": "Potrditev je bila poslana na {0}."
+   "zap": "Potrditev je bila poslana na {0}.",
+   "ist": "Beše izprateno potvãrždenie na {0}."
   },
   "A decision taken against three councillors or more is suspended for thirty days while the delegations of their peoples are heard, then reconsidered.": {
-   "zap": "Odločitev, sprejeta proti glasovom treh ali več svetnikov, se za trideset dni zadrži, da se zaslišijo delegacije ñihovih narodov, nato pa se ponovno obravnava."
+   "zap": "Odločitev, sprejeta proti glasovom treh ali več svetnikov, se za trideset dni zadrži, da se zaslišijo delegacije ñihovih narodov, nato pa se ponovno obravnava.",
+   "ist": "Rešenie, vzeto protiv trima ili poveče sãvetnici, se spira za trideset dni, dokato bãdat izslušani delegaciite na tehnite narodi, i sled tova se razgležda otnovo."
   },
   "A director and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.": {
    "zap": "Direktor in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Narodnega Sabora, za sedem let.",
@@ -190,7 +196,8 @@
    "ist": "Ličen i dobrovolen izbor meždu sedemte naroda ili nikoj ot tjah. Pãrvoto vpisvane može da bãde popraveno vednãž v ramkite na tri godini, a sled tova drug registãr e vãzmožen edva sled petnadeset godini; ottegļaneto e svobodno. Važi za Narodni Sabor ot pãrvite izbori, provedeni poveče ot godina po-kãsno (čl. 102, 108)."
   },
   "A public view of confederal digital citizenship: confirmed registrations by national register and by state, with the daily series. Totals only, never individual records.": {
-   "zap": "Javni pregled konfederalnega digitalnega državļanstva: potrjene prijave po narodnih registrih in po državah, z dnevnimi podatki. Samo skupna števila, nikoli posamezni vpisi."
+   "zap": "Javni pregled konfederalnega digitalnega državļanstva: potrjene prijave po narodnih registrih in po državah, z dnevnimi podatki. Samo skupna števila, nikoli posamezni vpisi.",
+   "ist": "Publičen pregled na konfederalnoto digitalno graždanstvo: potvãrdeni zajavki po narodni registri i po dãržavi, s dnevni danni. Samo obobšteni stojnosti, nikoga individualni zapisi."
   },
   "A territorial force with military status. Its Granična Straža checks everyone who crosses the external borders and runs the customs; a special unit handles counter-terrorism and hostage rescue.": {
    "zap": "Teritorialna sila z vojaškim statusom. Ñena Granična Straža nadzoruje vse, ki prečkajo zunañe meje, in upravļa carino; posebna enota skrbi za boj proti terorizmu in reševañe talcev.",
@@ -208,10 +215,12 @@
    "zap": "Absolutna in relativna imuniteta ter jamstvo med zasedañi, pri čemer dovoļeña izdaja posebni senat; usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, tudi ob zavrnitvi soglasja; soglasje Narodnega Sabora in fakultativni referendum za mednarodne pogodbe; stopñevana konfederalna izvršba; zastava, emblem, pečat in geslo Konfederacije. 174 členov."
   },
   "Access to your card": {
-   "zap": "Dostop do izkaznice"
+   "zap": "Dostop do izkaznice",
+   "ist": "Dostãp do kartata"
   },
   "Accounts to the Kongres": {
-   "zap": "Poročilo Kongresu"
+   "zap": "Poročilo Kongresu",
+   "ist": "Otčet pred Kongres"
   },
   "Add to Google Wallet": {
    "zap": "Dodaj v Google Wallet",
@@ -249,7 +258,8 @@
    "zap": "Albanske skupnosti"
   },
   "albanian community": {
-   "zap": "albanska skupnost"
+   "zap": "albanska skupnost",
+   "ist": "albanska obštnost"
   },
   "Albanian community": {
    "sre": "Albanska zajednica",
@@ -267,7 +277,8 @@
    "zap": "Vseh 51 enot ima svojo zastavo: 45 teritorialnih držav, 4 konfederalna ozemļa in 2 konfederalni avtonomni občini. Izberite zastavo, da odprete stran države in opis zastave."
   },
   "All records →": {
-   "zap": "Vse objave →"
+   "zap": "Vse objave →",
+   "ist": "Vsički publikacii →"
   },
   "All states": {
    "sre": "Sve države",
@@ -280,7 +291,8 @@
    "ist": "Azbuka"
   },
   "Already a citizen? Enter the address you registered with: we send you a new link to your card. It opens the card on any device and lets you amend or delete your registration.": {
-   "zap": "Ste že državļan? Vnesite naslov, s katerim ste se prijavili, in poslali vam bomo novo povezavo do izkaznice. Z ño lahko izkaznico odprete na kateri koli napravi ter spremenite ali izbrišete svojo prijavo."
+   "zap": "Ste že državļan? Vnesite naslov, s katerim ste se prijavili, in poslali vam bomo novo povezavo do izkaznice. Z ño lahko izkaznico odprete na kateri koli napravi ter spremenite ali izbrišete svojo prijavo.",
+   "ist": "Veče ste graždanin? Vãvedete adresa, s kojto ste se registrirali, i šte vi izpratim nova vrãzka kãm kartata vi. Tja otvarja kartata na vsjako ustrojstvo i vi pozvoļava da promenite ili iztriete zajavkata si."
   },
   "Already a citizen? Get a link to your card": {
    "zap": "Ste že državļan? Pridobite povezavo do izkaznice",
@@ -293,7 +305,8 @@
    "ist": "Veče e potvãrdeno"
   },
   "Amend": {
-   "zap": "Spremeni"
+   "zap": "Spremeni",
+   "ist": "Promjana"
   },
   "Amend my registration": {
    "zap": "Spremeni prijavo",
@@ -301,7 +314,8 @@
    "ist": "Promjana na zajavkata mi"
   },
   "Amend the card of {0}": {
-   "zap": "Sprememba izkaznice: {0}"
+   "zap": "Sprememba izkaznice: {0}",
+   "ist": "Promjana na kartata na {0}"
   },
   "An investigative agency for six offences only, with no patrols and no community policing. The Confederal Prosecutor's Office decides whether to prosecute.": {
    "zap": "Preiskovalna agencija, pristojna samo za šest kaznivih dejañ, brez patruļ in brez policijskega dela v skupnosti. O pregonu odloča Konfederalno tožilstvo.",
@@ -329,16 +343,20 @@
    "ist": "Vsjako lice može da se obãrne kãm glavnija inspektor; konstataciite mu mogat da bãdat obžalvani pred Konfederalnija sãd."
   },
   "Area": {
-   "zap": "Površina"
+   "zap": "Površina",
+   "ist": "Plošt"
   },
   "Argent and gules horizontal; provincial shield with the chequy gules-argent of Croatia and the golden Ragusan lion on azure, surmounted by the mural crown of the Republic of Ragusa.": {
-   "zap": "Vodoravno srebrno in rdeče; pokrajinski ščit z rdeče-srebrno šahovnico Hrvaške in zlatim dubrovniškim levom na modrem, nad ščitom zidna krona Dubrovniške republike."
+   "zap": "Vodoravno srebrno in rdeče; pokrajinski ščit z rdeče-srebrno šahovnico Hrvaške in zlatim dubrovniškim levom na modrem, nad ščitom zidna krona Dubrovniške republike.",
+   "ist": "Horizontalno srebãrno i červeno; provincialen štit s červeno-srebãrnata šahmatna šarka na Hãrvatija i zlatnija dubrovniški lãv na siño pole, uvenčan ot stennata korona na Dubrovniškata republika."
   },
   "Argent and vert bipartite; on the central shield, the rampant Styrian panther in argent on a green field, the head crested with red flames; above, the imperial sun-crown, direct continuity of the historic arms of the Duchy of Styria.": {
-   "zap": "Dvodelno srebrno in zeleno; na osredñem ščitu vzpeti srebrni štajerski panter v zelenem poļu, z rdečimi plameni na glavi; nad ñim cesarska sončna krona, neposredno nadaļevañe zgodovinskega grba vojvodine Štajerske."
+   "zap": "Dvodelno srebrno in zeleno; na osredñem ščitu vzpeti srebrni štajerski panter v zelenem poļu, z rdečimi plameni na glavi; nad ñim cesarska sončna krona, neposredno nadaļevañe zgodovinskega grba vojvodine Štajerske.",
+   "ist": "Razdeleno na dve poleta, srebãrno i zeleno; vãrhu centralnija štit — izpravena srebãrna štirijska pantera na zeleno pole, s červeni plamãci nad glavata; otgore — imperatorskata slãnčeva korona, prjako prodãlženie na istoričeskija gerb na hercogstvo Štirija."
   },
   "Argent field; saltire of vert and gules interlaced; central shield argent with two lions rampant affrontés, surmounted by the sable kalpak of the Bulgarian voivodes, badged with a small or lion and pierced by a sword erect, heraldry of the haidouk liberation of the western Mizija.": {
-   "zap": "Srebrno poļe; prepleten zeleno-rdeč poševni križ; srebrn osredñi ščit z dvema vzpetima levoma, obrñenima drug proti drugemu, nad ñim črn kalpak bolgarskih vojvod z majhnim zlatim levom kot značko, preboden s pokončnim mečem; heraldika hajduške osvoboditve zahodne Mizije."
+   "zap": "Srebrno poļe; prepleten zeleno-rdeč poševni križ; srebrn osredñi ščit z dvema vzpetima levoma, obrñenima drug proti drugemu, nad ñim črn kalpak bolgarskih vojvod z majhnim zlatim levom kot značko, preboden s pokončnim mečem; heraldika hajduške osvoboditve zahodne Mizije.",
+   "ist": "Srebãrno pole; prepleten zeleno-červen andreevski krãst; srebãren centralen štit s dva izpraveni lãva, obãrnati edin sreštu drug, uvenčan ot černija kalpak na bãlgarskite vojvodi, kojto nosi značka s malãk zlaten lãv i e pronizan ot izpraven meč; heraldika na hajduškoto osvoboždenie na Zapadna Mizija."
   },
   "Around the four institutions, independent bodies run the elections, try and prosecute, audit the accounts, keep the currency, the language and the archives, and give a voice to the communities outside the seven peoples.": {
    "zap": "Ob štirih institucijah neodvisni organi izvajajo volitve, sodijo in pregañajo, revidirajo račune, skrbijo za valuto, jezik in arhive ter dajejo glas skupnostim zunaj sedmih narodov.",
@@ -346,7 +364,8 @@
    "ist": "Okolo četirite institucii nezavisimi organi organizirat izborite, pravorazdavat i poddãržat obvinenieto, proverjavat smetkite, pazjat valutata, ezika i arhivite i davat glas na obštnostite izvãn sedemte naroda."
   },
   "Art. 38 a": {
-   "zap": "čl. 38 a"
+   "zap": "čl. 38 a",
+   "ist": "čl. 38 a"
   },
   "Art. {0}": {
    "sre": "čl. {0}",
@@ -419,7 +438,8 @@
    "ist": "Proverjava konfederalnite smetki i zaverjava godišnija doklad za izravñavaneto i za finansovite potoci meždu Konfederacijata i dãržavite."
   },
   "Autonomous communities": {
-   "zap": "Avtonomne skupnosti"
+   "zap": "Avtonomne skupnosti",
+   "ist": "Avtonomni obštnosti"
   },
   "Autonomous communities within the states are listed on the <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Autonomous communities</a> page.": {
    "sre": "Autonomne zajednice unutar država navedene su na stranici <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Autonomne zajednice</a>.",
@@ -427,13 +447,16 @@
    "zap": "Avtonomne skupnosti v državah so navedene na strani <a href=\"#/autonomy\" style=\"font-weight:600;color:var(--gold)\">Avtonomne skupnosti</a>."
   },
   "Azure and or horizontal; on the chief, three crowned leopard heads, the historic arms of the Kingdom of Dalmatia, surmounted by the radiant sun of the Adriatic.": {
-   "zap": "Vodoravno modro in zlato; v zgorñem delu tri kronane leopardje glave, zgodovinski grb Kraļestva Dalmacije, nad ñimi sijoče jadransko sonce."
+   "zap": "Vodoravno modro in zlato; v zgorñem delu tri kronane leopardje glave, zgodovinski grb Kraļestva Dalmacije, nad ñimi sijoče jadransko sonce.",
+   "ist": "Horizontalno siño i zlatno; v gornata čast — tri koronovani leopardovi glavi, istoričeskijat gerb na Kralstvo Dalmacija, uvenčani ot sijaeštoto slãnce na Adriatika."
   },
   "Azure field on a green ground; the venerable patron of Bačka, robed in red, bearing the sword and the gospel.": {
-   "zap": "Modro poļe nad zelenimi tlemi; častitļivi zavetnik Bačke v rdečem oblačilu, z mečem in evangelijem."
+   "zap": "Modro poļe nad zelenimi tlemi; častitļivi zavetnik Bačke v rdečem oblačilu, z mečem in evangelijem.",
+   "ist": "Siño pole nad zelena osnova; počitaemijat pokrovitel na Bačka v červeni odeždi, s meč i Evangelie."
   },
   "Azure, argent, gules, argent, azure, five horizontal stripes; on the gules band, the Srěm marten running passant in proper colour; in chief, a golden eleven-pointed mullet on the azure of the heavens.": {
-   "zap": "Pet vodoravnih pasov: modri, srebrni, rdeči, srebrni in modri; na rdečem pasu tekoča sremska kuna v naravnih barvah; zgoraj zlata enajstkraka zvezda na nebesni modrini."
+   "zap": "Pet vodoravnih pasov: modri, srebrni, rdeči, srebrni in modri; na rdečem pasu tekoča sremska kuna v naravnih barvah; zgoraj zlata enajstkraka zvezda na nebesni modrini.",
+   "ist": "Pet horizontalni ivici: siña, srebãrna, červena, srebãrna i siña; vãrhu červenata ivica — tičašta sremska kunica v estestveni cvetove; v gornata čast — zlatna edinadesetlãčeva zvezda v nebesnata sineva."
   },
   "Back": {
    "sre": "Nazad",
@@ -441,13 +464,16 @@
    "zap": "Nazaj"
   },
   "Back to my card": {
-   "zap": "Nazaj na mojo izkaznico"
+   "zap": "Nazaj na mojo izkaznico",
+   "ist": "Obratno kãm mojata karta"
   },
   "Back to the portal": {
-   "zap": "Nazaj na portal"
+   "zap": "Nazaj na portal",
+   "ist": "Obratno kãm portala"
   },
   "Balkan by territory, South Slavic by language and kinship: forty-nine states govern themselves within a single confederal order founded on equality and direct democracy.": {
-   "zap": "Po ozemļu balkanska, po jeziku in sorodstvu južnoslovanska: devetinštirideset držav se samostojno upravļa v enotnem konfederalnem redu, ki temeļi na enakopravnosti in neposredni demokraciji."
+   "zap": "Po ozemļu balkanska, po jeziku in sorodstvu južnoslovanska: devetinštirideset držav se samostojno upravļa v enotnem konfederalnem redu, ki temeļi na enakopravnosti in neposredni demokraciji.",
+   "ist": "Balkanska po teritorija, južnoslavjanska po ezik i rodstvo, Konfederacijata obediñava četirideset i devet dãržavi, koito se samoupravļavat v edinen konfederalen red, osnovan na ravnopravieto i prjakata demokracija."
   },
   "Balkan panorama / Adriatic coast": {
    "zap": "Balkanska panorama / jadranska obala",
@@ -460,7 +486,8 @@
    "ist": "Osnovanie za prinadležnost"
   },
   "Become a citizen": {
-   "zap": "Postanite državļan"
+   "zap": "Postanite državļan",
+   "ist": "Stanete graždanin"
   },
   "Become a citizen in five steps": {
    "zap": "Postanite državļan v petih korakih",
@@ -498,7 +525,8 @@
    "zap": "Bošñaške skupnosti"
   },
   "bosniak community": {
-   "zap": "bošñaška skupnost"
+   "zap": "bošñaška skupnost",
+   "ist": "bošñaška obštnost"
   },
   "Bosniak community": {
    "sre": "Bošñačka zajednica",
@@ -536,7 +564,8 @@
    "zap": "Bolgarske skupnosti"
   },
   "bulgarian community": {
-   "zap": "bolgarska skupnost"
+   "zap": "bolgarska skupnost",
+   "ist": "bãlgarska obštnost"
   },
   "Bulgarian community": {
    "sre": "Bugarska zajednica",
@@ -599,25 +628,32 @@
    "ist": "Izpisvane na kartata: <b translate=\"no\">{0}</b> · <b translate=\"no\">{1}</b>"
   },
   "Carmine, gold and azure horizontal tricolour, Carniolan and pan-Slovenian tradition, of solid stripe without charge.": {
-   "zap": "Karminsko-zlato-modra vodoravna trobojnica po krañski in vseslovenski tradiciji, s polnimi pasovi brez heraldičnih likov."
+   "zap": "Karminsko-zlato-modra vodoravna trobojnica po krañski in vseslovenski tradiciji, s polnimi pasovi brez heraldičnih likov.",
+   "ist": "Karmineno-zlatno-sin horizontalen trikoļor po krajnskata i obštoslovenskata tradicija, s plãtni ivici bez figuri."
   },
   "Census 2011": {
-   "zap": "Popis 2011"
+   "zap": "Popis 2011",
+   "ist": "Prebrojavane 2011"
   },
   "Census 2013": {
-   "zap": "Popis 2013"
+   "zap": "Popis 2013",
+   "ist": "Prebrojavane 2013"
   },
   "Census 2021": {
-   "zap": "Popis 2021"
+   "zap": "Popis 2021",
+   "ist": "Prebrojavane 2021"
   },
   "Census 2022 (first results)": {
-   "zap": "Popis 2022 (prvi rezultati)"
+   "zap": "Popis 2022 (prvi rezultati)",
+   "ist": "Prebrojavane 2022 (pãrvi rezultati)"
   },
   "Census 2022 (first results) · Census 2023": {
-   "zap": "Popis 2022 (prvi rezultati) · Popis 2023"
+   "zap": "Popis 2022 (prvi rezultati) · Popis 2023",
+   "ist": "Prebrojavane 2022 (pãrvi rezultati) · Prebrojavane 2023"
   },
   "Census 2023": {
-   "zap": "Popis 2023"
+   "zap": "Popis 2023",
+   "ist": "Prebrojavane 2023"
   },
   "Central standard": {
    "zap": "Središñi standard",
@@ -650,7 +686,8 @@
    "ist": "administrativen centãr {0}"
   },
   "Child": {
-   "zap": "Otrok"
+   "zap": "Otrok",
+   "ist": "Dete"
   },
   "Choose a case": {
    "sre": "Izaberite slučaj",
@@ -713,10 +750,12 @@
    "ist": "Graždani · ploštad"
   },
   "Civic life": {
-   "zap": "Državļansko živļeñe"
+   "zap": "Državļansko živļeñe",
+   "ist": "Graždanski život"
   },
   "Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.": {
-   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni Istražni Ured za šest konfederalnih kaznivih dejañ."
+   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni Istražni Ured za šest konfederalnih kaznivih dejañ.",
+   "ist": "Graždansko i nakazatelno pravo, registãr na graždanite i Bjuro za razsledvane za šestte konfederalni prestãplenija."
   },
   "Civil Flag": {
    "sre": "Građanska zastava",
@@ -729,13 +768,16 @@
    "zap": "Civilna zastava Balkanske konfederacije"
   },
   "Civil flag of the Confederation under direct confederal jurisdiction, dashed border marks the autonomous municipal status.": {
-   "zap": "Civilna zastava Konfederacije za občino pod neposredno konfederalno jurisdikcijo; črtkana obroba označuje status avtonomne občine."
+   "zap": "Civilna zastava Konfederacije za občino pod neposredno konfederalno jurisdikcijo; črtkana obroba označuje status avtonomne občine.",
+   "ist": "Graždanskoto zname na Konfederacijata za obština pod prjaka konfederalna jurisdikcija; punktirnata ramka oboznačava statuta na avtonomna obština."
   },
   "Close menu": {
-   "zap": "Zapri meni"
+   "zap": "Zapri meni",
+   "ist": "Zatvori meñuto"
   },
   "Coat of arms": {
-   "zap": "Grb"
+   "zap": "Grb",
+   "ist": "Gerb"
   },
   "Coat of Arms": {
    "sre": "Grb",
@@ -748,10 +790,12 @@
    "zap": "Grb Balkanske konfederacije"
   },
   "Coat of arms of {0}": {
-   "zap": "Grb: {0}"
+   "zap": "Grb: {0}",
+   "ist": "Gerb na {0}"
   },
   "Colour the states by": {
-   "zap": "Barvañe držav po"
+   "zap": "Barvañe držav po",
+   "ist": "Ocvetjavane na dãržavite po"
   },
   "Command": {
    "zap": "Vodstvo",
@@ -764,7 +808,8 @@
    "ist": "Obštnosti"
   },
   "Communities holding their own powers in education, culture and municipal affairs (Art. 1 quater).": {
-   "zap": "Skupnosti z lastnimi pristojnostmi na področju izobraževaña, kulture in občinskih zadev (čl. 1 quater)."
+   "zap": "Skupnosti z lastnimi pristojnostmi na področju izobraževaña, kulture in občinskih zadev (čl. 1 quater).",
+   "ist": "Obštnosti sãs sobstveni pravomoštija v oblastta na obrazovanieto, kulturata i obštinskite dela (čl. 1 quater)."
   },
   "Compulsory for men, with a civilian alternative; voluntary for all.": {
    "zap": "Obvezna za moške, z možnostjo civilne službe; prostovoļna za vse.",
@@ -797,7 +842,8 @@
    "zap": "Konfederalne avtonomne občine"
   },
   "Confederal autonomous municipality": {
-   "zap": "Konfederalna avtonomna občina"
+   "zap": "Konfederalna avtonomna občina",
+   "ist": "Konfederalna avtonomna obština"
   },
   "Confederal Bureau of Investigation": {
    "zap": "Konfederalni preiskovalni urad",
@@ -805,7 +851,8 @@
    "ist": "Konfederalno bjuro za razsledvane"
   },
   "Confederal capitals": {
-   "zap": "Konfederalne prestolnice"
+   "zap": "Konfederalne prestolnice",
+   "ist": "Konfederalni stolici"
   },
   "Confederal Central Bank": {
    "zap": "Konfederalna centralna banka",
@@ -828,10 +875,12 @@
    "ist": "Konfederalna smetna palata"
   },
   "Confederal digital citizenship and the participatory platform.": {
-   "zap": "Konfederalno digitalno državļanstvo in platforma za sodelovañe."
+   "zap": "Konfederalno digitalno državļanstvo in platforma za sodelovañe.",
+   "ist": "Konfederalnoto digitalno graždanstvo i platformata za učastie."
   },
   "Confederal digital citizenship opens the participatory platform: consultations, debates, proposals and votes.": {
-   "zap": "Konfederalno digitalno državļanstvo odpira pot do platforme za sodelovañe: posvetovaña, razprave, predlogi in glasovaña."
+   "zap": "Konfederalno digitalno državļanstvo odpira pot do platforme za sodelovañe: posvetovaña, razprave, predlogi in glasovaña.",
+   "ist": "Konfederalnoto digitalno graždanstvo otvarja dostãp do platformata za učastie: dopitvanija, debati, predloženija i glasuvanija."
   },
   "Confederal entities": {
    "sre": "Konfederalni entiteti",
@@ -844,7 +893,8 @@
    "zap": "Formula konfederalne finančne izravnave"
   },
   "Confederal format, country band <b translate=\"no\">BK</b> followed by the state code.": {
-   "zap": "Konfederalni format: pas z oznako Konfederacije <b translate=\"no\">BK</b>, ki mu sledi oznaka države."
+   "zap": "Konfederalni format: pas z oznako Konfederacije <b translate=\"no\">BK</b>, ki mu sledi oznaka države.",
+   "ist": "Konfederalen format: lenta s označenieto na Konfederacijata <b translate=\"no\">BK</b>, sledvano ot koda na dãržavata."
   },
   "Confederal Gendarmerie": {
    "zap": "Konfederalna žandarmerija",
@@ -867,7 +917,8 @@
    "zap": "Konfederalne občine"
   },
   "Confederal municipality": {
-   "zap": "Konfederalna občina"
+   "zap": "Konfederalna občina",
+   "ist": "Konfederalna obština"
   },
   "Confederal municipality, not a state: its own Kongres constituency (Art. 103)": {
    "zap": "Konfederalna občina, ki ni država: lastna volilna enota za Kongres (čl. 103)",
@@ -875,7 +926,8 @@
    "ist": "Konfederalna obština, kojato ne e dãržava: sobstven izbiratelen rajon za Kongres (čl. 103)"
   },
   "Confederal state flag, flown by confederal institutions seated in this city. A badge bears the city code.": {
-   "zap": "Državna zastava Konfederacije, ki jo izobešajo konfederalne institucije s sedežem v tem mestu. Na znački je oznaka mesta."
+   "zap": "Državna zastava Konfederacije, ki jo izobešajo konfederalne institucije s sedežem v tem mestu. Na znački je oznaka mesta.",
+   "ist": "Dãržavnoto zname na Konfederacijata, koeto se izdiga ot konfederalnite institucii sãs sedalište v tozi grad. Kodãt na grada e izpisan vãrhu značka."
   },
   "Confederal territories": {
    "sre": "Konfederalne teritorije",
@@ -888,7 +940,8 @@
    "zap": "Konfederalna ozemļa in občine"
   },
   "Confederal territory": {
-   "zap": "Konfederalno ozemļe"
+   "zap": "Konfederalno ozemļe",
+   "ist": "Konfederalna teritorija"
   },
   "Confederal territory, counts as a state": {
    "zap": "Konfederalno ozemļe, šteje kot država",
@@ -906,7 +959,8 @@
    "ist": "Konfederalnite glasuvanija i glasuvanijata v {0} sãglasno konfederalnija zakon"
   },
   "Confederated states": {
-   "zap": "Konfederirane države"
+   "zap": "Konfederirane države",
+   "ist": "Konfederirani dãržavi"
   },
   "Confirmation": {
    "zap": "Potrditev",
@@ -924,7 +978,8 @@
    "zap": "potrdi kolegij"
   },
   "Consensus first, then a double key": {
-   "zap": "Najprej soglasje, nato dvojni kļuč"
+   "zap": "Najprej soglasje, nato dvojni kļuč",
+   "ist": "Pãrvo konsensus, sled tova dvoen kļuč"
   },
   "Consent and alarm": {
    "zap": "Soglasje in alarmni zvonec",
@@ -962,7 +1017,8 @@
    "zap": "Prečiščeno besedilo, različica {0} z dne {1}: preambula in {2} {2#one:člen;two:člena;few:členi;other:členov} v {3} {3#one:poglavju;two:poglavjih;few:poglavjih;other:poglavjih}. Uradni akti se objavļajo v enotni južnoslovanski latinici in v treh regionalnih standardih; to je angleško besedilo."
   },
   "Constituencies": {
-   "zap": "Volilne enote"
+   "zap": "Volilne enote",
+   "ist": "Izbiratelni rajoni"
   },
   "Constituency of {0} ({1})": {
    "zap": "Volilna enota {0} ({1})",
@@ -975,13 +1031,16 @@
    "ist": "Izbiratelen rajon na {0} ({1}) · glasuvane ot čužbina"
   },
   "Constituent people": {
-   "zap": "Konstitutivni narod"
+   "zap": "Konstitutivni narod",
+   "ist": "Konstitutiven narod"
   },
   "Constituent peoples": {
-   "zap": "Konstitutivni narodi"
+   "zap": "Konstitutivni narodi",
+   "ist": "Konstitutivni narodi"
   },
   "Constitution": {
-   "zap": "Ustava"
+   "zap": "Ustava",
+   "ist": "Konstitucija"
   },
   "Constitution of the Balkan Confederation, v4.1: full text": {
    "sre": "Ustav Balkanske konfederacije, v4.1: potpuni tekst",
@@ -1054,7 +1113,8 @@
    "zap": "Stik: <a href=\"mailto:{0}\">{1}</a>."
   },
   "Continue →": {
-   "zap": "Naprej →"
+   "zap": "Naprej →",
+   "ist": "Napred →"
   },
   "Core rights": {
    "zap": "Temeļne pravice",
@@ -1072,7 +1132,8 @@
    "ist": "Sãvet na obštnostite"
   },
   "Councillors hold no other office, seat or paid activity. Four-year term, renewable once.": {
-   "zap": "Svetniki nimajo nobene druge funkcije, nobenega sedeža v drugem organu in nobene plačane dejavnosti. Štiriletni mandat z možnostjo ene ponovne izvolitve."
+   "zap": "Svetniki nimajo nobene druge funkcije, nobenega sedeža v drugem organu in nobene plačane dejavnosti. Štiriletni mandat z možnostjo ene ponovne izvolitve.",
+   "ist": "Sãvetnicite ne zaemat nikakva druga dlãžnost ili mjasto v drug organ i ne upražñavat platena dejnost. Četirigodišen mandat, kojto može da bãde podnoven vednãž."
   },
   "Court of Justice and Prosecutor's Office": {
    "zap": "Sodišče in tožilstvo",
@@ -1080,7 +1141,8 @@
    "ist": "Konfederalen sãd i Konfederalna prokuratura"
   },
   "Crimson field with the golden double-headed eagle of the Nemanjić dynasty bearing the imperial monogram, historic ensign of the Petrović-Njegoš.": {
-   "zap": "Škrlatno poļe z zlatim dvoglavim orlom dinastije Nemanjić s cesarskim monogramom, zgodovinski prapor rodbine Petrović-Njegoš."
+   "zap": "Škrlatno poļe z zlatim dvoglavim orlom dinastije Nemanjić s cesarskim monogramom, zgodovinski prapor rodbine Petrović-Njegoš.",
+   "ist": "Purpurnočerveno pole sãs zlatnija dvuglav orel na dinastijata Nemanjić s imperatorskija monogram — istoričeskoto zname na roda Petrović-Njegoš."
   },
   "Croat": {
    "zap": "Hrvaška",
@@ -1093,7 +1155,8 @@
    "zap": "Hrvaške skupnosti"
   },
   "croat community": {
-   "zap": "hrvaška skupnost"
+   "zap": "hrvaška skupnost",
+   "ist": "hãrvatska obštnost"
   },
   "Croat community": {
    "sre": "Hrvatska zajednica",
@@ -1116,7 +1179,8 @@
    "ist": "Potvãrdeni zajavki na den za poslednite 90 dni"
   },
   "Dashboard": {
-   "zap": "Pregled"
+   "zap": "Pregled",
+   "ist": "Tablo"
   },
   "Data protection notice": {
    "sre": "Napomena o zaštiti podataka",
@@ -1134,7 +1198,8 @@
    "zap": "Pravila za izhod iz zastoja pri volitvah svetnikov in sodnikov, 90-dnevni rok za soglasje Narodnega Sabora, zakonodajna pobuda in razglasitev zakonov, nujni zakoni, izredno stañe, obnova polovice Ustavnega Suda; novi konfederalni organi: kanclerija, sodišče, tožilstvo, računsko sodišče, inštitut za jezik, kñižnica in arhiv ter Svet skupnosti. 165 členov."
   },
   "Declaration": {
-   "zap": "Izjava"
+   "zap": "Izjava",
+   "ist": "Deklaracija"
   },
   "Declare a child": {
    "zap": "Prijava otroka",
@@ -1147,10 +1212,12 @@
    "zap": "Prestolnica obrambe in znanosti"
   },
   "Defence and Security": {
-   "zap": "Obramba in varnost"
+   "zap": "Obramba in varnost",
+   "ist": "Otbrana i sigurnost"
   },
   "Delegates": {
-   "zap": "Delegati"
+   "zap": "Delegati",
+   "ist": "Delegati"
   },
   "Delete my registration": {
    "zap": "Izbriši prijavo",
@@ -1168,7 +1235,8 @@
    "ist": "Da se iztrie li zajavkata, sãhrañavana v tozi brauzãr? Kartata i nejnijat nomer se premahvat ot tova ustrojstvo."
   },
   "Delete this card": {
-   "zap": "Izbriši to izkaznico"
+   "zap": "Izbriši to izkaznico",
+   "ist": "Iztrivane na tazi karta"
   },
   "Delete your registration from the confederal register? Your card and its number are cancelled. This cannot be undone.": {
    "zap": "Želite izbrisati svojo prijavo iz konfederalnega registra? Izkaznica in ñena številka bosta preklicani. Tega ni mogoče razveļaviti.",
@@ -1176,7 +1244,8 @@
    "ist": "Da se iztrie li zajavkata vi ot konfederalnija registãr? Kartata vi i nejnijat nomer se anulirat. Tova dejstvie e neobratimo."
   },
   "Density": {
-   "zap": "Gostota"
+   "zap": "Gostota",
+   "ist": "Gãstota"
   },
   "Density, all {0} entities": {
    "sre": "Gustina naseļenosti, svi entiteti ({0})",
@@ -1194,7 +1263,8 @@
    "ist": "Resor po pravosãdieto i osnovnite prava · Zagreb"
   },
   "Departments change hands": {
-   "zap": "Resorji krožijo"
+   "zap": "Resorji krožijo",
+   "ist": "Rotacija na resorite"
   },
   "Designation of the four confederal capitals": {
    "sre": "Određivañe četiri konfederalna glavna grada",
@@ -1212,7 +1282,8 @@
    "ist": "Ukazatel na vsičkite 49 dãržavi"
   },
   "Document language": {
-   "zap": "Jezik dokumenta"
+   "zap": "Jezik dokumenta",
+   "ist": "Ezik na dokumenta"
   },
   "Double majority: a majority of voters across the Confederation and a majority of the States, 25 of 49. Each State counts as one vote, decided by its own voters.": {
    "sre": "Dvostruka većina: većina birača u čitavoj Konfederaciji i većina država, 25 od 49. Svaka država ima jedan glas, o kojem odlučuju ñeni birači.",
@@ -1220,10 +1291,12 @@
    "zap": "Dvojna večina: večina glasujočih v vsej Konfederaciji in večina držav, 25 od 49. Vsaka država šteje kot en glas, o katerem odločijo ñeni volivci."
   },
   "Download back (PNG)": {
-   "zap": "Prenesi zadño stran (PNG)"
+   "zap": "Prenesi zadño stran (PNG)",
+   "ist": "Iztegļane na obratnata strana (PNG)"
   },
   "Download front (PNG)": {
-   "zap": "Prenesi spredño stran (PNG)"
+   "zap": "Prenesi spredño stran (PNG)",
+   "ist": "Iztegļane na licevata strana (PNG)"
   },
   "E-mail": {
    "zap": "E-pošta",
@@ -1251,7 +1324,8 @@
    "zap": "Vsako konfederalno ozemļe ohrani lastno policijo; vodstvo Žandarmerije; Konfederalna obveščevalna agencija brez policijskih pooblastil, ki deluje v tujini, doma pa samo proti štirim grožñam; generalni inšpektor in skupni varnostni odbor; načelnik generalštaba ter general, ki ga v vojnem času izvoli Konfederalna skupščina. 170 členov."
   },
   "Each councillor directs his department from its seat; the council meets in Sarajevo, served by the Konfederalna Kancelarija ({0}).": {
-   "zap": "Vsak svetnik vodi svoj resor s sedeža tega resorja; svet se sestaja v Sarajevu, ñegovo delo pa podpira Konfederalna Kancelarija ({0})."
+   "zap": "Vsak svetnik vodi svoj resor s sedeža tega resorja; svet se sestaja v Sarajevu, ñegovo delo pa podpira Konfederalna Kancelarija ({0}).",
+   "ist": "Vseki sãvetnik rãkovodi svoja resor ot negovoto sedalište; sãvetãt zasedava v Sarajevo, podpomagan ot Konfederalna Kancelarija ({0})."
   },
   "each delegation": {
    "sre": "svaka delegacija",
@@ -1259,10 +1333,12 @@
    "zap": "vsaka delegacija"
   },
   "Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.": {
-   "zap": "Vsaka narodna delegacija Narodnega Sabora predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem."
+   "zap": "Vsaka narodna delegacija Narodnega Sabora predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem.",
+   "ist": "Vsjaka narodna delegacija v Narodni Sabor predlaga svoja sãvetnik, vpisan v registãra na nejnija narod ot pone osem godini; Konfederalnoto sãbranie potvãrždava vseki ot tjah s otdelno glasuvane."
   },
   "Each population is divided by a common divisor, here {0}, and rounded to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the Konfederalno Veće confirms the distribution after each census ({1}).": {
-   "zap": "Prebivalstvo vsake volilne enote se deli s skupnim deliteļem, tu {0}, in zaokroži na najbližje celo število; deliteļ je izbran tako, da je zasedenih vseh 250 sedežev, z najmañ 2 in največ 20 sedeži na državo ter najmañ 1 za Brčko in Mostar. Podatki popisa so isti kot na straneh držav; Konfederalno Veće razdelitev potrdi po vsakem popisu ({1})."
+   "zap": "Prebivalstvo vsake volilne enote se deli s skupnim deliteļem, tu {0}, in zaokroži na najbližje celo število; deliteļ je izbran tako, da je zasedenih vseh 250 sedežev, z najmañ 2 in največ 20 sedeži na državo ter najmañ 1 za Brčko in Mostar. Podatki popisa so isti kot na straneh držav; Konfederalno Veće razdelitev potrdi po vsakem popisu ({1}).",
+   "ist": "Naselenieto na vseki izbiratelen rajon se deli na obšt delitel, tuk {0}, i se zakrãgļava do naj-blizkoto cjalo čislo; deliteļat se izbira taka, če da bãdat zaeti vsičkite 250 mesta, kato vsjaka dãržava polučava naj-malko 2 i naj-mnogo 20 mesta, a Brčko i Mostar — naj-malko po 1. Dannite ot prebrojavanijata sa sãštite kato na stranicite na dãržavite; Konfederalno Veće potvãrždava razpredelenieto sled vsjako prebrojavane ({1})."
   },
   "Eastern standard": {
    "zap": "Istočni standard",
@@ -1280,7 +1356,8 @@
    "zap": "Gospodarska prestolnica"
   },
   "Economy and Infrastructure": {
-   "zap": "Gospodarstvo in infrastruktura"
+   "zap": "Gospodarstvo in infrastruktura",
+   "ist": "Ikonomika i infrastruktura"
   },
   "Edit": {
    "zap": "Uredi",
@@ -1288,7 +1365,8 @@
    "ist": "Promjana"
   },
   "Education, Culture and Science": {
-   "zap": "Izobraževañe, kultura in znanost"
+   "zap": "Izobraževañe, kultura in znanost",
+   "ist": "Obrazovanie, kultura i nauka"
   },
   "elects the judges": {
    "sre": "bira sudije",
@@ -1366,7 +1444,8 @@
    "zap": "Vnesite priimek."
   },
   "Environment, Territory and Resources": {
-   "zap": "Okoļe, prostor in naravni viri"
+   "zap": "Okoļe, prostor in naravni viri",
+   "ist": "Okolna sreda, teritorija i resursi"
   },
   "Espionage and foreign interference, terrorism, proliferation of weapons of mass destruction, attacks on critical infrastructure and information systems.": {
    "zap": "Vohunstvo in tuje vmešavañe, terorizem, širjeñe orožja za množično uničevañe, napadi na kritično infrastrukturo in informacijske sisteme.",
@@ -1374,7 +1453,8 @@
    "ist": "Špionaž i čuždestranna namesa, terorizãm, razprostranenie na orãžija za masovo uništoženie, ataki sreštu kritičnata infrastruktura i informacionnite sistemi."
   },
   "Estimate from World Bank PPP, 2023": {
-   "zap": "Ocena na podlagi PKM Svetovne banke, 2023"
+   "zap": "Ocena na podlagi PKM Svetovne banke, 2023",
+   "ist": "Ocenka po PPS na Svetovnata banka, 2023 g."
   },
   "EU = 100": {
    "sre": "EU = 100",
@@ -1382,16 +1462,20 @@
    "zap": "EU = 100"
   },
   "Eurostat (BiH) split by entity (FZS · BHAS), 2023": {
-   "zap": "Eurostat (BiH), razdelitev po entitetah (FZS · BHAS), 2023"
+   "zap": "Eurostat (BiH), razdelitev po entitetah (FZS · BHAS), 2023",
+   "ist": "Eurostat (Bosna i Hercegovina), razpredelenie po entiteti (FZS · BHAS), 2023 g."
   },
   "Eurostat NUTS 3, 2023": {
-   "zap": "Eurostat NUTS 3, 2023"
+   "zap": "Eurostat NUTS 3, 2023",
+   "ist": "Eurostat NUTS 3, 2023"
   },
   "Eurostat NUTS 3, 2023 (estimate)": {
-   "zap": "Eurostat NUTS 3, 2023 (ocena)"
+   "zap": "Eurostat NUTS 3, 2023 (ocena)",
+   "ist": "Eurostat NUTS 3, 2023 (ocenka)"
   },
   "Eurostat NUTS 3, 2023 (provisional)": {
-   "zap": "Eurostat NUTS 3, 2023 (začasni podatki)"
+   "zap": "Eurostat NUTS 3, 2023 (začasni podatki)",
+   "ist": "Eurostat NUTS 3, 2023 (predvaritelni danni)"
   },
   "Every citizen aged 18 or over": {
    "sre": "Svaki državļanin s navršenih 18 godina",
@@ -1439,7 +1523,8 @@
    "zap": "Potekla"
   },
   "Explore the states": {
-   "zap": "Raziščite države"
+   "zap": "Raziščite države",
+   "ist": "Razgledajte dãržavite"
   },
   "Faces of the seven peoples": {
    "zap": "Obrazi sedmih narodov",
@@ -1457,7 +1542,8 @@
    "ist": "Žena"
   },
   "Field of kilim crimson; in the canton, the ridgeline of the Stara Planina in gold; in the upper fly, the Serbian cross with four firesteels in gold; in base, a wavy bar of slate blue fimbriated gold for the Nišava; a gold triangle in each corner, after the corner motifs of the Pirot kilim.": {
-   "zap": "Poļe v škrlatni barvi kilima; v kantonu zlat greben Stare Planine; zgoraj na vihrajoči strani zlat srbski križ s štirimi kresili; v vznožju valovita skrilasto modra prečka z zlato obrobo za Nišavo; v vsakem kotu zlat trikotnik po vzoru kotnih motivov pirotskega kilima."
+   "zap": "Poļe v škrlatni barvi kilima; v kantonu zlat greben Stare Planine; zgoraj na vihrajoči strani zlat srbski križ s štirimi kresili; v vznožju valovita skrilasto modra prečka z zlato obrobo za Nišavo; v vsakem kotu zlat trikotnik po vzoru kotnih motivov pirotskega kilima.",
+   "ist": "Pole v purpurnočervenija cvjat na kilimite; v kantona — zlatnoto bilo na Stara planina; gore otkãm svobodnija kraj — zlaten srãbski krãst s četiri ogniva; v dolnata čast — vãlnoobrazna sivo-siña ivica sãs zlaten kant, znak na Nišava; vãv vseki ãgãl — zlaten triãgãlnik po obrazeca na ãglovite motivi na pirotskija kilim."
   },
   "Field · concord": {
    "sre": "Poļe · sloga",
@@ -1475,25 +1561,32 @@
    "zap": "Finance"
   },
   "Finance and Treasury": {
-   "zap": "Finance in zakladništvo"
+   "zap": "Finance in zakladništvo",
+   "ist": "Finansi i hazna"
   },
   "Fit": {
-   "zap": "Prilagodi"
+   "zap": "Prilagodi",
+   "ist": "Cjal izgled"
   },
   "Five horizontal stripes of gules and argent; from the hoist, a vert triangular pall charged with a golden radiant sun, Strandja highlands at the gates of Anatolia.": {
-   "zap": "Pet vodoravnih pasov rdeče in srebrne barve; od droga zelen trikotnik z zlatim sijočim soncem; višavje Stranxe na vratih Anatolije."
+   "zap": "Pet vodoravnih pasov rdeče in srebrne barve; od droga zelen trikotnik z zlatim sijočim soncem; višavje Stranxe na vratih Anatolije.",
+   "ist": "Pet horizontalni ivici v červeno i srebãrno; otkãm drevkata — zelen triãgãlnik sãs zlatno sijaešto slãnce; Stranxa, planinata pred portite na Anadola."
   },
   "Five horizontal stripes of gules and or alternating, pan-colours of the Šopski region.": {
-   "zap": "Pet izmeničnih vodoravnih pasov rdeče in zlate barve, barve šopske pokrajine."
+   "zap": "Pet izmeničnih vodoravnih pasov rdeče in zlate barve, barve šopske pokrajine.",
+   "ist": "Pet horizontalni ivici, reduvašti se v červeno i zlatno — cvetovete na šopskija kraj."
   },
   "Five horizontal stripes of or and argent; on the central shield with wavy water in chief, a stag couchant beside an oak tree, all azure-argent-vert, heraldry of the Western Sirmian plain.": {
-   "zap": "Pet vodoravnih pasov zlate in srebrne barve; na osredñem ščitu z valovito vodo v zgorñem delu ležeč jelen ob hrastu, vse v modri, srebrni in zeleni barvi; heraldika zahodne sremske ravnine."
+   "zap": "Pet vodoravnih pasov zlate in srebrne barve; na osredñem ščitu z valovito vodo v zgorñem delu ležeč jelen ob hrastu, vse v modri, srebrni in zeleni barvi; heraldika zahodne sremske ravnine.",
+   "ist": "Pet horizontalni ivici v zlatno i srebãrno; vãrhu centralnija štit s vãlnoobrazna voda v gornata čast — ležašt elen do dãb, vsičko v siño, srebãrno i zeleno; heraldika na zapadnata sremska ravnina."
   },
   "Five horizontal stripes of or and gules alternating, pan-colours of the historic Kingdom of Slavonia, of solid stripe.": {
-   "zap": "Pet izmeničnih vodoravnih pasov zlate in rdeče barve, barve zgodovinskega Kraļestva Slavonije, s polnimi pasovi."
+   "zap": "Pet izmeničnih vodoravnih pasov zlate in rdeče barve, barve zgodovinskega Kraļestva Slavonije, s polnimi pasovi.",
+   "ist": "Pet plãtni horizontalni ivici, reduvašti se v zlatno i červeno — cvetovete na istoričeskoto Kralstvo Slavonija."
   },
   "Five steps, a few minutes. Your state, your national register and the language of your card are three independent choices. The language may be changed at any time; a first national register may be rectified once within three years, otherwise another register only fifteen years after your enrolment (Art. 102).": {
-   "zap": "Pet korakov, nekaj minut. Vaša država, vaš narodni register in jezik vaše izkaznice so tri neodvisne izbire. Jezik lahko spremenite kadar koli; prvi narodni register lahko v treh letih enkrat popravite, sicer se lahko v drug register vpišete šele petnajst let po vpisu (čl. 102)."
+   "zap": "Pet korakov, nekaj minut. Vaša država, vaš narodni register in jezik vaše izkaznice so tri neodvisne izbire. Jezik lahko spremenite kadar koli; prvi narodni register lahko v treh letih enkrat popravite, sicer se lahko v drug register vpišete šele petnajst let po vpisu (čl. 102).",
+   "ist": "Pet stãpki, ñakolko minuti. Vašata dãržava, vašijat naroden registãr i ezikãt na kartata vi sa tri nezavisimi izbora. Ezikãt može da bãde promeñan po vsjako vreme; pãrvijat naroden registãr može da bãde popraven vednãž v srok ot tri godini, a inače drug registãr e vãzmožen edva petnadeset godini sled vpisvaneto vi (čl. 102)."
   },
   "for each seat": {
    "sre": "za svakog sudiju",
@@ -1516,7 +1609,8 @@
    "ist": "Za diasporata, do vtoro pokolenie"
   },
   "Foreign Affairs": {
-   "zap": "Zunañe zadeve"
+   "zap": "Zunañe zadeve",
+   "ist": "Vãnšni raboti"
   },
   "Forty-five territorial states, four confederal territories and two confederal autonomous municipalities. Filter by constituent people or search by name, code or seat.": {
    "sre": "Četrdeset pet teritorijalnih država, četiri konfederalne teritorije i dvě konfederalne autonomne opštine. Filtrirajte po konstitutivnom narodu ili tražite po nazivu, kodu ili sědištu.",
@@ -1534,7 +1628,8 @@
    "ist": "Svobodno vpisvane"
   },
   "From the Adriatic shore to the Black Sea, one confederal space.": {
-   "zap": "Od jadranske obale do Črnega morja en sam konfederalni prostor."
+   "zap": "Od jadranske obale do Črnega morja en sam konfederalni prostor.",
+   "ist": "Ot Adriatičeskoto krajbrežie do Černo more — edno konfederalno prostranstvo."
   },
   "From the age of 18, a citizen registers himself.": {
    "sre": "Od navršenih 18 godina državļanin se prijavļuje sam.",
@@ -1542,10 +1637,12 @@
    "zap": "Od 18. leta se državļan prijavi sam."
   },
   "Full time": {
-   "zap": "Polni delovni čas"
+   "zap": "Polni delovni čas",
+   "ist": "Pãlno rabotno vreme"
   },
   "Function": {
-   "zap": "Funkcija"
+   "zap": "Funkcija",
+   "ist": "Funkcija"
   },
   "Gathers intelligence abroad through its external branch; at home, its internal branch acts only against four threats. It answers to the whole council, never to one councillor.": {
    "zap": "V tujini zbira obveščevalne podatke prek zunañega oddelka; doma ñen notrañi oddelek ukrepa samo proti štirim grožñam. Odgovarja celotnemu svetu, nikoli posameznemu svetniku.",
@@ -1553,10 +1650,12 @@
    "ist": "Sãbira razuznavatelna informacija v čužbina črez vãnšnija si otdel; v stranata vãtrešnijat otdel dejstva samo sreštu četiri zaplahi. Agencijata se otčita pred celija sãvet, nikoga pred otdelen sãvetnik."
   },
   "GDP per capita": {
-   "zap": "BDP na prebivalca"
+   "zap": "BDP na prebivalca",
+   "ist": "BVP na čovek"
   },
   "GDP per capita (PPS, est.)": {
-   "zap": "BDP na prebivalca (SKM, ocena)"
+   "zap": "BDP na prebivalca (SKM, ocena)",
+   "ist": "BVP na čovek (SPS, ocenka)"
   },
   "GDP per capita, all {0} entities": {
    "sre": "BDP po stanovniku, svi entiteti ({0})",
@@ -1564,7 +1663,8 @@
    "zap": "BDP na prebivalca, vse enote ({0})"
   },
   "GDP per capita, PPS, 2023": {
-   "zap": "BDP na prebivalca, SKM, 2023"
+   "zap": "BDP na prebivalca, SKM, 2023",
+   "ist": "BVP na čovek, SPS, 2023 g."
   },
   "Gendarmerie, Bureau of Investigation, intelligence, armed forces": {
    "zap": "Žandarmerija, preiskovalni urad, obveščevalna dejavnost, oborožene sile",
@@ -1572,10 +1672,12 @@
    "ist": "Žandarmerija, Bjuro za razsledvane, razuznavane, vãorãženi sili"
   },
   "Geographic position of the seat on the Balkan peninsula.": {
-   "zap": "Geografska lega sedeža na Balkanskem polotoku."
+   "zap": "Geografska lega sedeža na Balkanskem polotoku.",
+   "ist": "Geografsko položenie na administrativnija centãr na Balkanskija poluostrov."
   },
   "Geography": {
-   "zap": "Geografija"
+   "zap": "Geografija",
+   "ist": "Geografija"
   },
   "Get a link to my card": {
    "zap": "Pridobi povezavo do izkaznice",
@@ -1603,37 +1705,48 @@
    "zap": "Zlata"
   },
   "Google Wallet could not be reached. Please try again later.": {
-   "zap": "Storitev Google Wallet ni dosegļiva. Poskusite znova pozneje."
+   "zap": "Storitev Google Wallet ni dosegļiva. Poskusite znova pozneje.",
+   "ist": "Ñama vrãzka s Google Wallet. Moļa, opitajte otnovo po-kãsno."
   },
   "Government": {
-   "zap": "Oblast"
+   "zap": "Oblast",
+   "ist": "Upravlenie"
   },
   "Green, blue and white horizontal stripes; shield bearing the silhouette of a fortified Bosnian town (mosque, churches) above the Vrbas, with a golden fleur-de-lys.": {
-   "zap": "Zeleni, modri in beli vodoravni pasovi; ščit z obrisom utrjenega bosanskega mesta (mošeja, cerkve) nad Vrbasom in z zlato lilijo."
+   "zap": "Zeleni, modri in beli vodoravni pasovi; ščit z obrisom utrjenega bosanskega mesta (mošeja, cerkve) nad Vrbasom in z zlato lilijo.",
+   "ist": "Horizontalni ivici v zeleno, siño i bjalo; štit sãs silueta na ukrepen bosnenski grad (xamija, cãrkvi) nad reka Vrbas i sãs zlatna lilija."
   },
   "Gules field radiated by a yellow Vergina-style sun; over all, the golden crowned Macedonian lion rampant, heraldic continuity of the Kruševo Republic and the medieval Macedonian crown.": {
-   "zap": "Rdeče poļe z žarki rumenega sonca po vzoru Vergine; čez vse zlati kronani vzpeti makedonski lev, heraldična kontinuiteta Kruševske republike in sredñeveške makedonske krone."
+   "zap": "Rdeče poļe z žarki rumenega sonca po vzoru Vergine; čez vse zlati kronani vzpeti makedonski lev, heraldična kontinuiteta Kruševske republike in sredñeveške makedonske krone.",
+   "ist": "Červeno pole, ozareno ot žãlto slãnce po obrazeca na slãnceto ot Vergina; vãrhu vsičko — izpraven zlaten koronovan makedonski lãv, heraldičeska priemstvenost na Kruševskata republika i na srednovekovnata makedonska korona."
   },
   "Gules field with the white crowned Serbian double-headed eagle bearing the Cross with four firesteels; in base, wavy bands of azure and argent, the Drina, root of the toponym Podriñe.": {
-   "zap": "Rdeče poļe z belim kronanim srbskim dvoglavim orlom, ki nosi križ s štirimi kresili; v vznožju valoviti modri in srebrni pasovi, Drina, iz katere izhaja ime Podriñe."
+   "zap": "Rdeče poļe z belim kronanim srbskim dvoglavim orlom, ki nosi križ s štirimi kresili; v vznožju valoviti modri in srebrni pasovi, Drina, iz katere izhaja ime Podriñe.",
+   "ist": "Červeno pole s bjal koronovan srãbski dvuglav orel, kojto nosi krãsta s četirite ogniva; v dolnata čast — vãlnoobrazni sini i srebãrni ivici, reka Drina, ot kojato proizliza toponimãt Podriñe."
   },
   "Gules with a chequy band of gules and argent at the hoist; three crowned lion heads argent, two and one: the arms granted to the County of Zagorje by the Counts of Ceļe (Ceļski), Counts of Zagorje, in the early 15th century, after the device of Louis I of Anjou for the Croatian lands.": {
-   "zap": "Rdeče poļe s pasom rdeče-srebrne šahovnice ob drogu; tri srebrne kronane levje glave, dve in ena: grb, ki so ga v začetku 15. stoletja Zagorski grofiji podelili Ceļski grofje, grofje Zagorja, po znaku Ludvika I. Anžujskega za hrvaške dežele."
+   "zap": "Rdeče poļe s pasom rdeče-srebrne šahovnice ob drogu; tri srebrne kronane levje glave, dve in ena: grb, ki so ga v začetku 15. stoletja Zagorski grofiji podelili Ceļski grofje, grofje Zagorja, po znaku Ludvika I. Anžujskega za hrvaške dežele.",
+   "ist": "Červeno pole s ivica v červeno-srebãrna šahmatna šarka otkãm drevkata; tri srebãrni koronovani lãvski glavi, razpoloženi dve i edna: gerbãt, daden na grafstvo Zagorje ot grafovete na Ceļe (Ceļski), grafove na Zagorje, v načaloto na XV vek po obrazeca na znaka na Lajoš I Anžujski za hãrvatskite zemi."
   },
   "Gules with two argent crosses, the Tirolean-Friulian heritage of the Goriška marches.": {
-   "zap": "Rdeče poļe z dvema srebrnima križema, tirolsko-furlanska dediščina goriške krajine."
+   "zap": "Rdeče poļe z dvema srebrnima križema, tirolsko-furlanska dediščina goriške krajine.",
+   "ist": "Červeno pole s dva srebãrni krãsta — tirolsko-friulskoto nasledstvo na graničnata oblast Goriška."
   },
   "Gules, azure and argent horizontal, Serbian pan-colours; central shield divided per bend, vert with three argent crescents (Ottoman heritage), azure with three golden fleurs-de-lys (Bosnian-style continuity for the Pomak community).": {
-   "zap": "Vodoravno rdeče, modro in srebrno, srbske narodne barve; poševno deļen osredñi ščit: zeleno poļe s tremi srebrnimi polmeseci (osmanska dediščina) in modro poļe s tremi zlatimi lilijami (kontinuiteta bosanskega sloga za pomaško skupnost)."
+   "zap": "Vodoravno rdeče, modro in srebrno, srbske narodne barve; poševno deļen osredñi ščit: zeleno poļe s tremi srebrnimi polmeseci (osmanska dediščina) in modro poļe s tremi zlatimi lilijami (kontinuiteta bosanskega sloga za pomaško skupnost).",
+   "ist": "Horizontalno červeno, siño i srebãrno, srãbskite narodni cvetove; centralen štit, razdelen diagonalno: zeleno pole s tri srebãrni polumeseca (osmansko nasledstvo) i siño pole s tri zlatni lilii (priemstvenost v bosnenski stil za pomaškata obštnost)."
   },
   "Gules, sable and gules horizontal, broad sable middle band; on the sable, the golden Byzantine double-headed eagle displayed, charged on its breast with the kolovrat sun-wheel and holding sceptre and orb, Byzantino-Slavic heritage of the Vardar marches.": {
-   "zap": "Vodoravno rdeče, črno in rdeče, s širokim črnim sredñim pasom; na črnem zlati bizantinski dvoglavi orel z razprtimi krili, s sončnim kolesom kolovratom na prsih ter z žezlom in državnim jabolkom, bizantinsko-slovanska dediščina vardarskih obmejnih pokrajin."
+   "zap": "Vodoravno rdeče, črno in rdeče, s širokim črnim sredñim pasom; na črnem zlati bizantinski dvoglavi orel z razprtimi krili, s sončnim kolesom kolovratom na prsih ter z žezlom in državnim jabolkom, bizantinsko-slovanska dediščina vardarskih obmejnih pokrajin.",
+   "ist": "Horizontalno červeno, černo i červeno, s široka černa sredna ivica; vãrhu černoto — zlaten vizantijski dvuglav orel s razpereni krile, sãs slãnčevoto kolelo kolovrat na gãrdite, dãržašt skiptãr i kãlbo — vizantijsko-slavjansko nasledstvo na vardarskite granični zemi."
   },
   "Gules; at the centre, the arms of insurgent Serbia (First Serbian Uprising, 1804–1813): two baroque cartouches bearing the Serbian cross with four firesteels and, on azure, the Triballian boar's head pierced by an arrow, ensigned with a crown between two crowned helms and two arms brandishing sabres, over a trophy of banners, muskets, drum and cannon.": {
-   "zap": "Rdeče poļe; v sredini grb uporniške Srbije (prva srbska vstaja, 1804–1813): dve baročni kartuši s srbskim križem s štirimi kresili in, na modrem, s tribalsko merjaščevo glavo, prebodeno s puščico; nad ñima krona med dvema kronanima čeladama in dvema rokama, ki vihtita sabļi, vse na trofeji iz praporov, mušket, bobna in topa."
+   "zap": "Rdeče poļe; v sredini grb uporniške Srbije (prva srbska vstaja, 1804–1813): dve baročni kartuši s srbskim križem s štirimi kresili in, na modrem, s tribalsko merjaščevo glavo, prebodeno s puščico; nad ñima krona med dvema kronanima čeladama in dvema rokama, ki vihtita sabļi, vse na trofeji iz praporov, mušket, bobna in topa.",
+   "ist": "Červeno pole; v sredata — gerbãt na vãstaničeska Sãrbija (Pãrvoto srãbsko vãstanie, 1804–1813): dva barokovi kartuša sãs srãbskija krãst s četiri ogniva i, na siño pole, s tribalskata glava na gligan, pronizana ot strela; nad tjah — korona meždu dva šlema s koroni i dve rãce, razmahvašti sabi, vsičko vãrhu trofej ot znamena, musketi, baraban i orãdie."
   },
   "Hand over the card": {
-   "zap": "Predaj izkaznico"
+   "zap": "Predaj izkaznico",
+   "ist": "Predavane na kartata"
   },
   "Heraldry": {
    "zap": "Heraldika",
@@ -1641,10 +1754,12 @@
    "ist": "Heraldika"
   },
   "Highest, {0}": {
-   "zap": "Najvišji: {0}"
+   "zap": "Najvišji: {0}",
+   "ist": "Naj-visok: {0}"
   },
   "His e-mail address": {
-   "zap": "Ñegov e-poštni naslov"
+   "zap": "Ñegov e-poštni naslov",
+   "ist": "Negovijat imejl adres"
   },
   "Historic town at dusk": {
    "zap": "Zgodovinsko mesto v mraku",
@@ -1667,7 +1782,8 @@
    "zap": "Pomaknite kazalec nad državo ali stolpec, da vidite ñene podatke; s klikom jo pripnete."
   },
   "How the confederal institutions are elected": {
-   "zap": "Kako se volijo konfederalne institucije"
+   "zap": "Kako se volijo konfederalne institucije",
+   "ist": "Kak se izbirat konfederalnite institucii"
   },
   "Human dignity, equality, the right to life and personal liberty.": {
    "zap": "Človekovo dostojanstvo, enakost, pravica do živļeña in osebne svobode.",
@@ -1685,7 +1801,8 @@
    "zap": "Maxarske skupnosti"
   },
   "hungarian community": {
-   "zap": "maxarska skupnost"
+   "zap": "maxarska skupnost",
+   "ist": "ungarska obštnost"
   },
   "Hungarian community": {
    "sre": "Mađarska zajednica",
@@ -1718,10 +1835,12 @@
    "zap": "Identiteta"
   },
   "Identity &amp; alphabet": {
-   "zap": "Identiteta in abeceda"
+   "zap": "Identiteta in abeceda",
+   "ist": "Identičnost i azbuka"
   },
   "If <b>{0}</b> belongs to a citizen, a new link to the card is on its way. It may take a few minutes.": {
-   "zap": "Če <b>{0}</b> pripada državļanu, je nova povezava do izkaznice že na poti. To lahko traja nekaj minut."
+   "zap": "Če <b>{0}</b> pripada državļanu, je nova povezava do izkaznice že na poti. To lahko traja nekaj minut.",
+   "ist": "Ako <b>{0}</b> prinadleži na graždanin, veče e izpratena nova vrãzka kãm kartata. Polučavaneto može da otneme ñakolko minuti."
   },
   "Image": {
    "zap": "Slika",
@@ -1754,7 +1873,8 @@
    "ist": "V Konfederacijata"
   },
   "In the Constitution": {
-   "zap": "V Ustavi"
+   "zap": "V Ustavi",
+   "ist": "V Konstitucijata"
   },
   "in their State": {
    "sre": "u svojoj državi",
@@ -1767,10 +1887,12 @@
    "ist": "Vãv voenno vreme"
   },
   "Inhabitants per delegate, on average": {
-   "zap": "Povprečno število prebivalcev na delegata"
+   "zap": "Povprečno število prebivalcev na delegata",
+   "ist": "Sreden broj žiteli na delegat"
   },
   "Inhabitants per km²": {
-   "zap": "Prebivalci na km²"
+   "zap": "Prebivalci na km²",
+   "ist": "Žiteli na km²"
   },
   "Initiative": {
    "zap": "Pobuda",
@@ -1783,7 +1905,8 @@
    "zap": "Institucije"
   },
   "Interactive map": {
-   "zap": "Interaktivni zemļevid"
+   "zap": "Interaktivni zemļevid",
+   "ist": "Interaktivna karta"
   },
   "Investigations of elected officials, judges or State powers need the prior authorisation of the special chamber; no files on nationality, religion, politics or union membership.": {
    "zap": "Preiskave v zvezi z izvoļenimi funkcionarji, sodniki ali državnimi oblastmi zahtevajo predhodno dovoļeñe posebnega senata; nobenih evidenc o narodnosti, veri, političnem prepričañu ali sindikalnem članstvu.",
@@ -1796,7 +1919,8 @@
    "zap": "IPA {0}"
   },
   "Issue my citizen card": {
-   "zap": "Izdaj državļansko izkaznico"
+   "zap": "Izdaj državļansko izkaznico",
+   "ist": "Izdavane na graždanskata mi karta"
   },
   "Issue the amended card": {
    "zap": "Izdaj spremeñeno izkaznico",
@@ -1819,10 +1943,12 @@
    "ist": "Emitira dinara. Petima upraviteli za sedem godini, ne poveče ot dvama ot edin i sãšt narod."
   },
   "joint sitting": {
-   "zap": "skupna seja"
+   "zap": "skupna seja",
+   "ist": "sãvmestno zasedanie"
   },
   "Joint sitting of the two chambers": {
-   "zap": "Skupna seja obeh domov"
+   "zap": "Skupna seja obeh domov",
+   "ist": "Sãvmestno zasedanie na dvete kamari"
   },
   "Judges before intrusion": {
    "zap": "Sodniki pred posegom",
@@ -1835,13 +1961,16 @@
    "zap": "Sodna prestolnica"
   },
   "Justice and Fundamental Rights": {
-   "zap": "Pravosodje in temeļne pravice"
+   "zap": "Pravosodje in temeļne pravice",
+   "ist": "Pravosãdie i osnovni prava"
   },
   "Key data": {
-   "zap": "Kļučni podatki"
+   "zap": "Kļučni podatki",
+   "ist": "Osnovni danni"
   },
   "Key data are aggregated from the state's municipalities: population from each country's latest census or population register, area from municipal boundaries, GDP per capita from Eurostat regional accounts (2023, purchasing power standards) averaged by population. In Bosnia and Herzegovina, regional GDP is only published by entity.": {
-   "zap": "Kļučni podatki so seštevek podatkov občin države: prebivalstvo po zadñem popisu ali registru prebivalstva posamezne države, površina po mejah občin, BDP na prebivalca po regionalnih računih Eurostata (2023, standardi kupne moči) kot povprečje, tehtano s prebivalstvom. V Bosni in Hercegovini se regionalni BDP objavļa samo po entitetah."
+   "zap": "Kļučni podatki so seštevek podatkov občin države: prebivalstvo po zadñem popisu ali registru prebivalstva posamezne države, površina po mejah občin, BDP na prebivalca po regionalnih računih Eurostata (2023, standardi kupne moči) kot povprečje, tehtano s prebivalstvom. V Bosni in Hercegovini se regionalni BDP objavļa samo po entitetah.",
+   "ist": "Osnovnite danni sa obobšteni ot obštinite na dãržavata: naselenieto — po poslednoto prebrojavane ili registãr na naselenieto na sãotvetnata strana, ploštta — po granicite na obštinite, BVP na čovek — po regionalnite smetki na Eurostat (2023 g., v standarti na pokupatelnata sposobnost), osrednen spored naselenieto. V Bosna i Hercegovina regionalnijat BVP se publikuva samo po entiteti."
   },
   "Konfederalna Kancelarija": {
    "zap": "Konfederalna Kancelarija",
@@ -1904,10 +2033,12 @@
    "ist": "Pejzaž"
   },
   "Language": {
-   "zap": "Jezik"
+   "zap": "Jezik",
+   "ist": "Ezik"
   },
   "Language &amp; identity →": {
-   "zap": "Jezik in identiteta →"
+   "zap": "Jezik in identiteta →",
+   "ist": "Ezik i identičnost →"
   },
   "Language Institute · Library and Archives": {
    "zap": "Inštitut za jezik · Kñižnica in arhiv",
@@ -1930,7 +2061,8 @@
    "ist": "Ezik, azbuka i simvoli"
   },
   "Latest census or population register of each country": {
-   "zap": "Zadñi popis ali register prebivalstva posamezne države"
+   "zap": "Zadñi popis ali register prebivalstva posamezne države",
+   "ist": "Posledno prebrojavane ili registãr na naselenieto na vsjaka strana"
   },
   "Latest confederal decisions": {
    "zap": "Najnovejše konfederalne odločitve",
@@ -1953,10 +2085,12 @@
    "zap": "Zakonodajna oblast"
   },
   "Licence plate": {
-   "zap": "Registrska tablica"
+   "zap": "Registrska tablica",
+   "ist": "Registracionen nomer"
   },
   "Lights": {
-   "zap": "Luči"
+   "zap": "Luči",
+   "ist": "Svetlini"
   },
   "Limits": {
    "zap": "Omejitve",
@@ -1964,10 +2098,12 @@
    "ist": "Ograničenija"
   },
   "Loading the figures…": {
-   "zap": "Nalagañe podatkov…"
+   "zap": "Nalagañe podatkov…",
+   "ist": "Zareždane na dannite…"
   },
   "Location": {
-   "zap": "Lega"
+   "zap": "Lega",
+   "ist": "Mestopoloženie"
   },
   "Location of {0} in the Confederation": {
    "zap": "{0}: lega v Konfederaciji",
@@ -1975,7 +2111,8 @@
    "ist": "Mestopoloženie na {0} v Konfederacijata"
   },
   "Lowest, {0}": {
-   "zap": "Najnižji: {0}"
+   "zap": "Najnižji: {0}",
+   "ist": "Naj-nisãk: {0}"
   },
   "Macedonians": {
    "sre": "Makedonci",
@@ -1993,13 +2130,16 @@
    "ist": "Mãž"
   },
   "Map of the Confederation": {
-   "zap": "Zemļevid Konfederacije"
+   "zap": "Zemļevid Konfederacije",
+   "ist": "Karta na Konfederacijata"
   },
   "Map of the Confederation. Drag to move, scroll or press plus and minus to zoom, 0 to fit.": {
-   "zap": "Zemļevid Konfederacije. Povlecite za premik, za povečavo uporabite kolesce ali pritisnite plus in minus, za prilagoditev pa 0."
+   "zap": "Zemļevid Konfederacije. Povlecite za premik, za povečavo uporabite kolesce ali pritisnite plus in minus, za prilagoditev pa 0.",
+   "ist": "Karta na Konfederacijata. Plãznete, za da premestite izgleda; prevãrtete ili natisnete pļus i minus, za da promenite maštaba, i 0 za cjal izgled."
   },
   "Membership dashboard": {
-   "zap": "Pregled članstva"
+   "zap": "Pregled članstva",
+   "ist": "Pregled na členstvoto"
   },
   "Missions": {
    "zap": "Naloge",
@@ -2017,10 +2157,12 @@
    "zap": "Država Črnogorcev · sedež {0}"
   },
   "Municipal boundaries, demographic and economic indicators by state.": {
-   "zap": "Meje občin ter demografski in gospodarski kazalniki po državah."
+   "zap": "Meje občin ter demografski in gospodarski kazalniki po državah.",
+   "ist": "Granici na obštinite, demografski i ikonomičeski pokazateli po dãržavi."
   },
   "Municipalities": {
-   "zap": "Občine"
+   "zap": "Občine",
+   "ist": "Obštini"
   },
   "Municipality": {
    "zap": "Občina",
@@ -2028,7 +2170,8 @@
    "ist": "Obština"
   },
   "Municipality of origin": {
-   "zap": "Domovinska občina"
+   "zap": "Domovinska občina",
+   "ist": "Obština na proizhod"
   },
   "My citizen card": {
    "zap": "Moja državļanska izkaznica",
@@ -2056,7 +2199,8 @@
    "ist": "Ime, pol i data na raždane, kakto na kartata. Imenata na kirilica se transkribirat v edinnata latinska azbuka. Vãzmožno sled navãršvane na 18 godini."
   },
   "Name, sex, date of birth": {
-   "zap": "Ime, spol, datum rojstva"
+   "zap": "Ime, spol, datum rojstva",
+   "ist": "Ime, pol, data na raždane"
   },
   "Narodni Sabor": {
    "zap": "Narodni Sabor",
@@ -2069,7 +2213,8 @@
    "ist": "Narodnost na kartata"
   },
   "National register": {
-   "zap": "Narodni register"
+   "zap": "Narodni register",
+   "ist": "Naroden registãr"
   },
   "Navy": {
    "sre": "Tamnoplava",
@@ -2077,10 +2222,12 @@
    "zap": "Temnomodra"
   },
   "Navy and white horizontal stripes; quartered shield, cross, mullet and anchor for the Danube heritage; on argent, the tower-on-bridge of historic Osěk; on gules, the otter of Baraña’s wetlands.": {
-   "zap": "Temnomodri in beli vodoravni pasovi; razčetrten ščit s križem, zvezdo in sidrom za podonavsko dediščino; v srebrnem poļu stolp na mostu zgodovinskega Osěka; v rdečem poļu vidra iz mokrišč Barañe."
+   "zap": "Temnomodri in beli vodoravni pasovi; razčetrten ščit s križem, zvezdo in sidrom za podonavsko dediščino; v srebrnem poļu stolp na mostu zgodovinskega Osěka; v rdečem poļu vidra iz mokrišč Barañe.",
+   "ist": "Horizontalni ivici v tãmnosiño i bjalo; štit, razdelen na četiri poleta, s krãst, zvezda i kotva za dunavskoto nasledstvo; v srebãrnoto pole — kulata na mosta na istoričeskija Osěk; v červenoto pole — vidrata ot vlažnite zoni na Baraña."
   },
   "Navy field charged with the golden roundel of the Republic of Western Herzegovina, the Croatian chequy gules-argent within a laurel wreath, with the legend REPUBLIKA ZAPADNA HERCEGOVINA in capitals of gold.": {
-   "zap": "Temnomodro poļe z zlatim medaļonom Republike Zapadne Hercegovine: hrvaška rdeče-srebrna šahovnica v lovorovem vencu z napisom REPUBLIKA ZAPADNA HERCEGOVINA v zlatih velikih črkah."
+   "zap": "Temnomodro poļe z zlatim medaļonom Republike Zapadne Hercegovine: hrvaška rdeče-srebrna šahovnica v lovorovem vencu z napisom REPUBLIKA ZAPADNA HERCEGOVINA v zlatih velikih črkah.",
+   "ist": "Tãmnosiño pole sãs zlatnija krãgãl medaļon na Republika Zapadna Hercegovina: hãrvatskata červeno-srebãrna šahmatna šarka v lavrov venec i nadpis REPUBLIKA ZAPADNA HERCEGOVINA sãs zlatni glavni bukvi."
   },
   "New in v3 (<span translate=\"no\">ě, ñ, ļ</span>)": {
    "zap": "Novost različice v3 (<span translate=\"no\">ě, ñ, ļ</span>)",
@@ -2173,7 +2320,8 @@
    "zap": "V 100 dneh ni vložena nobena zahteva."
   },
   "No result.": {
-   "zap": "Ni zadetkov."
+   "zap": "Ni zadetkov.",
+   "ist": "Ñama rezultati."
   },
   "No surveillance of lawful political, associative or union life; no files on nationality, religion or politics.": {
    "zap": "Brez nadzora nad zakonitim političnim, društvenim ali sindikalnim živļeñem; brez evidenc o narodnosti, veri ali političnem prepričañu.",
@@ -2191,7 +2339,8 @@
    "zap": "vsaka predlaga enega svetnika"
   },
   "None": {
-   "zap": "Nobene"
+   "zap": "Nobene",
+   "ist": "Ñama"
   },
   "Not enrolled · no vote for the Narodni Sabor (Art. 102).": {
    "zap": "Niste vpisani · ne volite Narodnega Sabora (čl. 102).",
@@ -2199,7 +2348,8 @@
    "ist": "Bez vpisvane · bez pravo na glas za Narodni Sabor (čl. 102)."
   },
   "Not found": {
-   "zap": "Ni najdeno"
+   "zap": "Ni najdeno",
+   "ist": "Ne e namereno"
   },
   "not printed": {
    "zap": "ni izpisano",
@@ -2212,10 +2362,12 @@
    "ist": "Ne se izpisva"
   },
   "Nothing after a few minutes? Look in your spam folder. If the address was wrong, go back to the form, correct it and send it again.": {
-   "zap": "Po nekaj minutah še nič? Poglejte v mapo z neželeno pošto. Če je bil naslov napačen, se vrnite na obrazec, ga popravite in prijavo pošļite znova."
+   "zap": "Po nekaj minutah še nič? Poglejte v mapo z neželeno pošto. Če je bil naslov napačen, se vrnite na obrazec, ga popravite in prijavo pošļite znova.",
+   "ist": "Ne ste polučili ništo sled ñakolko minuti? Proverete papkata za neželana pošta. Ako adresãt e grešen, vãrnete se kãm formuļara, popravete go i izpratete zajavkata otnovo."
   },
   "NSI estimate, 31 Dec 2025": {
-   "zap": "Ocena NSI, 31. 12. 2025"
+   "zap": "Ocena NSI, 31. 12. 2025",
+   "ist": "Ocenka na NSI, 31.12.2025 g."
   },
   "Occupied territories": {
    "sre": "Okupirane teritorije",
@@ -2233,37 +2385,48 @@
    "ist": "Prestãplenija"
   },
   "Official code": {
-   "zap": "Uradna oznaka"
+   "zap": "Uradna oznaka",
+   "ist": "Oficialen kod"
   },
   "Official flag of Beograd: azure over gules, the white fortress of Kalemegdan above the confluence of the Sava and the Danube in argent and gules, with a golden ancient ship. Economic capital of the Confederation.": {
-   "zap": "Uradna zastava Beograda: modro nad rdečim, bela trdñava Kalemegdan nad sotočjem Save in Donave v srebrni in rdeči barvi, z zlato antično ladjo. Gospodarska prestolnica Konfederacije."
+   "zap": "Uradna zastava Beograda: modro nad rdečim, bela trdñava Kalemegdan nad sotočjem Save in Donave v srebrni in rdeči barvi, z zlato antično ladjo. Gospodarska prestolnica Konfederacije.",
+   "ist": "Oficialnoto zname na Beograd: siño nad červeno, bjalata krepost Kalemegdan nad slivaneto na Sava i Dunav v srebãrno i červeno, sãs zlaten antičen korab. Ikonomičeska stolica na Konfederacijata."
   },
   "Official flag of Brčko: an azure field with an offset cross of gules, argent and vert and a golden triangle in the canton. Autonomous municipality under direct confederal jurisdiction.": {
-   "zap": "Uradna zastava Brčkega: modro poļe s premakñenim rdeče-srebrno-zelenim križem in zlatim trikotnikom v kantonu. Avtonomna občina pod neposredno konfederalno jurisdikcijo."
+   "zap": "Uradna zastava Brčkega: modro poļe s premakñenim rdeče-srebrno-zelenim križem in zlatim trikotnikom v kantonu. Avtonomna občina pod neposredno konfederalno jurisdikcijo.",
+   "ist": "Oficialnoto zname na Brčko: siño pole s izmesten krãst v červeno, srebãrno i zeleno i zlaten triãgãlnik v kantona. Avtonomna obština pod prjaka konfederalna jurisdikcija."
   },
   "Official flag of Lašva: an azure field within a gold border, charged in chief with the golden Bosnian lily (ļiļan) above a silver tower, for the fortified Lašva valley of central Bosnia.": {
-   "zap": "Uradna zastava Lašve: modro poļe z zlato obrobo, zgoraj zlata bosanska lilija (ļiļan) nad srebrnim stolpom, za utrjeno dolino Lašve v osredñi Bosni."
+   "zap": "Uradna zastava Lašve: modro poļe z zlato obrobo, zgoraj zlata bosanska lilija (ļiļan) nad srebrnim stolpom, za utrjeno dolino Lašve v osredñi Bosni.",
+   "ist": "Oficialnoto zname na Lašva: siño pole sãs zlaten bordjur, v gornata čast — zlatna bosnenska lilija (ļiļan) nad srebãrna kula, znak na ukrepenata dolina na Lašva v Centralna Bosna."
   },
   "Official flag of Lika: a red band bearing the Croatian šahovnica at the hoist; azure field of the Velebit sky; a snow-capped massif; the grey wolf of Lika on the summit. A Croat state whose wolf and Velebit carry the Lika identity, the chequy anchoring Croat belonging.": {
-   "zap": "Uradna zastava Like: ob drogu rdeč pas s hrvaško šahovnico; modro poļe velebitskega neba; zasneženo pogorje; na vrhu sivi liški volk. Država hrvaškega naroda, v kateri volk in Velebit izražata identiteto Like, šahovnica pa zasidra hrvaško pripadnost."
+   "zap": "Uradna zastava Like: ob drogu rdeč pas s hrvaško šahovnico; modro poļe velebitskega neba; zasneženo pogorje; na vrhu sivi liški volk. Država hrvaškega naroda, v kateri volk in Velebit izražata identiteto Like, šahovnica pa zasidra hrvaško pripadnost.",
+   "ist": "Oficialnoto zname na Lika: otkãm drevkata — červena ivica s hãrvatskata šahovnica; siño pole — nebeto nad Velebit; zasnežen masiv; na vãrha — sivijat vãlk na Lika. Dãržava na hãrvatite, v kojato vãlkãt i Velebit izrazjavat identičnostta na Lika, a šahovnicata zatvãrždava hãrvatskata prinadležnost."
   },
   "Official flag of Mostar: argent charged with a grey bend and the blue shield of the city, a rising sun above the arch of the Old Bridge over the Neretva. Autonomous municipality under direct confederal jurisdiction.": {
-   "zap": "Uradna zastava Mostarja: srebrno poļe s sivo poševnico in modrim mestnim ščitom, na katerem je vzhajajoče sonce nad lokom Starega mosta čez Neretvo. Avtonomna občina pod neposredno konfederalno jurisdikcijo."
+   "zap": "Uradna zastava Mostarja: srebrno poļe s sivo poševnico in modrim mestnim ščitom, na katerem je vzhajajoče sonce nad lokom Starega mosta čez Neretvo. Avtonomna občina pod neposredno konfederalno jurisdikcijo.",
+   "ist": "Oficialnoto zname na Mostar: srebãrno pole sãs siva naklonena ivica i sinija gradski štit — izgrjavašto slãnce nad arkata na Starija most nad Neretva. Avtonomna obština pod prjaka konfederalna jurisdikcija."
   },
   "Official flag of Sarajevo: on a sky-blue field, the city shield with the green peaks of the surrounding mountains above a black fortress gate and the Miļacka river in azure. Political capital of the Confederation.": {
-   "zap": "Uradna zastava Sarajeva: na nebesno modrem poļu mestni ščit z zelenimi vrhovi okoliških gora nad črnimi vrati trdñave in reko Miļacko v modri barvi. Politična prestolnica Konfederacije."
+   "zap": "Uradna zastava Sarajeva: na nebesno modrem poļu mestni ščit z zelenimi vrhovi okoliških gora nad črnimi vrati trdñave in reko Miļacko v modri barvi. Politična prestolnica Konfederacije.",
+   "ist": "Oficialnoto zname na Sarajevo: vãrhu nebesnosiño pole — gradskijat štit sãs zelenite vãrhove na okolnite planini nad černa krepostna porta i reka Miļacka v siño. Političeska stolica na Konfederacijata."
   },
   "Official flag of Sofia: on a light-blue field, the quartered city arms (the goddess of Serdica, the rotunda of St George, the lion, Mount Vitosha and the mineral springs) beneath a mural crown, with the motto Raste no ne staree (it grows but does not age). Defence and sciences capital of the Confederation.": {
-   "zap": "Uradna zastava Sofije: na svetlo modrem poļu razčetrten mestni grb (bogiña Serdike, rotunda svetega Jurija, lev, gora Vitoša in mineralni izviri) pod zidno krono, z geslom Raste no ne staree (raste, a se ne stara). Prestolnica obrambe in znanosti Konfederacije."
+   "zap": "Uradna zastava Sofije: na svetlo modrem poļu razčetrten mestni grb (bogiña Serdike, rotunda svetega Jurija, lev, gora Vitoša in mineralni izviri) pod zidno krono, z geslom Raste no ne staree (raste, a se ne stara). Prestolnica obrambe in znanosti Konfederacije.",
+   "ist": "Oficialnoto zname na Sofija: vãrhu svetlosiño pole — gradskijat gerb, razdelen na četiri poleta (bogiñata na Serdika, rotondata „Sveti Georgi“, lãvãt, planinata Vitoša i mineralnite izvori), pod stenna korona, s deviza „Raste, no ne staree“. Stolica na otbranata i naukite na Konfederacijata."
   },
   "Official flag of Soli: argent with a blue fess charged with the golden Bosnian lily (ļiļan), for the salt land of Soli around Tuzla.": {
-   "zap": "Uradna zastava Soli: srebrno poļe z modrim pasom, na katerem je zlata bosanska lilija (ļiļan), za solno deželo Soli okoli Tuzle."
+   "zap": "Uradna zastava Soli: srebrno poļe z modrim pasom, na katerem je zlata bosanska lilija (ļiļan), za solno deželo Soli okoli Tuzle.",
+   "ist": "Oficialnoto zname na Soli: srebãrno pole sãs sin pojas, vãrhu kojto e zlatnata bosnenska lilija (ļiļan), znak na solnata zemja Soli okolo Tuzla."
   },
   "Official flag of Vrhbosna: per bend, azure with three golden Bosnian lilies (ļiļani) and barry of gules and argent, in heraldic descent from the medieval Kingdom of Bosnia of the Kotromanić dynasty.": {
-   "zap": "Uradna zastava Vrhbosne: poševno deļeno, modro poļe s tremi zlatimi bosanskimi lilijami (ļiļani) ter rdeče-srebrno vodoravno progasto poļe, v heraldičnem nasledstvu sredñeveškega Bosanskega kraļestva dinastije Kotromanić."
+   "zap": "Uradna zastava Vrhbosne: poševno deļeno, modro poļe s tremi zlatimi bosanskimi lilijami (ļiļani) ter rdeče-srebrno vodoravno progasto poļe, v heraldičnem nasledstvu sredñeveškega Bosanskega kraļestva dinastije Kotromanić.",
+   "ist": "Oficialnoto zname na Vrhbosna: razdeleno diagonalno na siño pole s tri zlatni bosnenski lilii (ļiļani) i pole s horizontalni červeni i srebãrni ivici, v heraldičeska priemstvenost ot srednovekovnoto Kralstvo Bosna na dinastijata Kotromanić."
   },
   "Official flag of Zagreb: on an azure field, the white walled castle with three towers and a golden gate upon a green mound, accompanied by a gold star and a silver crescent. Judicial capital of the Confederation.": {
-   "zap": "Uradna zastava Zagreba: na modrem poļu bel obzidan grad s tremi stolpi in zlatimi vrati na zelenem griču, ob ñem zlata zvezda in srebrn polmesec. Sodna prestolnica Konfederacije."
+   "zap": "Uradna zastava Zagreba: na modrem poļu bel obzidan grad s tremi stolpi in zlatimi vrati na zelenem griču, ob ñem zlata zvezda in srebrn polmesec. Sodna prestolnica Konfederacije.",
+   "ist": "Oficialnoto zname na Zagreb: vãrhu siño pole — bjal ukrepen zamãk s tri kuli i zlatna porta na zelen hãlm, pridružen ot zlatna zvezda i srebãren polumesec. Sãdebna stolica na Konfederacijata."
   },
   "Official journal": {
    "zap": "Uradni list",
@@ -2306,10 +2469,12 @@
    "zap": "Ena luč za vsako občino"
   },
   "One light per municipality, brighter with population": {
-   "zap": "Ena luč za vsako občino, svetlejša pri večjem številu prebivalcev"
+   "zap": "Ena luč za vsako občino, svetlejša pri večjem številu prebivalcev",
+   "ist": "Po edna svetlina za vsjaka obština, po-jarka pri po-goļamo naselenie"
   },
   "One people, one councillor": {
-   "zap": "En narod, en svetnik"
+   "zap": "En narod, en svetnik",
+   "ist": "Edin narod, edin sãvetnik"
   },
   "One state for the Kongres, one people for the Narodni Sabor.": {
    "zap": "Ena država za Kongres, en narod za Narodni Sabor.",
@@ -2322,7 +2487,8 @@
    "zap": "Zakon odobrijo samo štiri od sedmih delegacij: soglasje je zavrñeno. Usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, pripravi eno samo kompromisno besedilo o spornih določbah; oba doma ga sprejmeta brez amandmajev, Narodni Sabor s petimi delegacijami."
   },
   "Open": {
-   "zap": "Odpri"
+   "zap": "Odpri",
+   "ist": "Otvorete"
   },
   "Open card": {
    "zap": "Odpri izkaznico",
@@ -2345,10 +2511,12 @@
    "ist": "Otvorete vrãzkata ot imejla za potvãrždenie. Tja može da se izpolzva samo vednãž."
   },
   "Or field; on it, the red double-headed eagle, direct descent from the historic arms of the Duchy of Carinthia (Slovene Koroška).": {
-   "zap": "Zlato poļe; na ñem rdeči dvoglavi orel, neposredni naslednik zgodovinskega grba vojvodine Koroške."
+   "zap": "Zlato poļe; na ñem rdeči dvoglavi orel, neposredni naslednik zgodovinskega grba vojvodine Koroške.",
+   "ist": "Zlatno pole s červen dvuglav orel, prjak naslednik na istoričeskija gerb na hercogstvo Karintija (na slovenski Koroška)."
   },
   "Or, gules and argent horizontal; central shield with the Veronese chequy and the golden Istrian lion on azure, Adriatic provincial heraldry.": {
-   "zap": "Vodoravno zlato, rdeče in srebrno; osredñi ščit z veronsko šahovnico in zlatim istrskim levom na modrem, jadranska pokrajinska heraldika."
+   "zap": "Vodoravno zlato, rdeče in srebrno; osredñi ščit z veronsko šahovnico in zlatim istrskim levom na modrem, jadranska pokrajinska heraldika.",
+   "ist": "Horizontalno zlatno, červeno i srebãrno; centralen štit s veronskata šahmatna šarka i zlatnija istrijski lãv na siño pole — adriatičeska provincialna heraldika."
   },
   "Ordinary law": {
    "sre": "Obični zakon",
@@ -2356,7 +2524,8 @@
    "zap": "Navadni zakon"
   },
   "Our home.": {
-   "zap": "Geslo Konfederacije."
+   "zap": "Geslo Konfederacije.",
+   "ist": "Devizãt na Konfederacijata."
   },
   "Outcome": {
    "zap": "Izid",
@@ -2394,7 +2563,8 @@
    "zap": "Del Ustave."
   },
   "Participation": {
-   "zap": "Sodelovañe"
+   "zap": "Sodelovañe",
+   "ist": "Učastie"
   },
   "Peace · unity": {
    "sre": "Mir · jedinstvo",
@@ -2407,10 +2577,12 @@
    "zap": "v pripravi"
   },
   "Pending census data": {
-   "zap": "Podatki popisa še niso na voļo"
+   "zap": "Podatki popisa še niso na voļo",
+   "ist": "Očakvat se danni ot prebrojavane"
   },
   "Pending regional accounts": {
-   "zap": "Regionalni računi še niso na voļo"
+   "zap": "Regionalni računi še niso na voļo",
+   "ist": "Očakvat se regionalnite smetki"
   },
   "People": {
    "zap": "Ļudje",
@@ -2423,16 +2595,20 @@
    "ist": "Narod i dãržavi"
   },
   "Peoples": {
-   "zap": "Narodi"
+   "zap": "Narodi",
+   "ist": "Narodi"
   },
   "Per fess azure and vert; on a silver shield, the golden ibex of the Herzegovinian highlands, with horns banded gules; the sun radiant in chief.": {
-   "zap": "Vodoravno deļeno modro in zeleno; na srebrnem ščitu zlati kozorog hercegovskega višavja z rdeče obročkanimi rogovi; zgoraj sijoče sonce."
+   "zap": "Vodoravno deļeno modro in zeleno; na srebrnem ščitu zlati kozorog hercegovskega višavja z rdeče obročkanimi rogovi; zgoraj sijoče sonce.",
+   "ist": "Horizontalno razdeleno na siño i zeleno; vãrhu srebãren štit — zlatnijat kozirog ot hercegovinskite planini, s roga na červeni prãsteni; v gornata čast — sijaešto slãnce."
   },
   "Per fess sable, argent and azure; on the argent band, the IYI rosette of Pliska, the imperial monogram of the First Bulgarian Empire, in sable on a circular cartouche.": {
-   "zap": "Vodoravno deļeno črno, srebrno in modro; na srebrnem pasu rozeta IYI iz Pliske, cesarski monogram Prvega bolgarskega cesarstva, v črni barvi na okrogli kartuši."
+   "zap": "Vodoravno deļeno črno, srebrno in modro; na srebrnem pasu rozeta IYI iz Pliske, cesarski monogram Prvega bolgarskega cesarstva, v črni barvi na okrogli kartuši.",
+   "ist": "Horizontalno razdeleno na černo, srebãrno i siño; vãrhu srebãrnata ivica — rozetata IYI ot Pliska, vladetelskijat monogram na Pãrvoto bãlgarsko carstvo, v černo vãrhu krãgãl kartuš."
   },
   "per inhabitant in 2023, {0}% of the EU-27 average": {
-   "zap": "na prebivalca v letu 2023, {0} % povprečja EU-27"
+   "zap": "na prebivalca v letu 2023, {0} % povprečja EU-27",
+   "ist": "na čovek prez 2023 g., {0}% ot srednoto za ES (27 dãržavi)"
   },
   "Place names in the unified alphabet": {
    "sre": "Toponimi u jedinstvenoj abecedi",
@@ -2440,7 +2616,8 @@
    "zap": "Zemļepisna imena v enotni abecedi"
   },
   "Plain horizontal tricolour of celeste, gules and argent, pan-Slovenian banner of the trans-Mura territory, of solid stripe without charge.": {
-   "zap": "Preprosta vodoravna trobojnica nebesno modre, rdeče in srebrne barve, vseslovenski prapor Prekmurja, dežele onkraj Mure, s polnimi pasovi brez heraldičnih likov."
+   "zap": "Preprosta vodoravna trobojnica nebesno modre, rdeče in srebrne barve, vseslovenski prapor Prekmurja, dežele onkraj Mure, s polnimi pasovi brez heraldičnih likov.",
+   "ist": "Obiknoven horizontalen trikoļor v nebesnosiño, červeno i srebãrno, obštoslovensko zname na zemite otvãd Mura, s plãtni ivici bez figuri."
   },
   "Please complete the anti-robot check.": {
    "sre": "Potvrdite da niste robot.",
@@ -2463,7 +2640,8 @@
    "ist": "Politika"
   },
   "Population": {
-   "zap": "Prebivalstvo"
+   "zap": "Prebivalstvo",
+   "ist": "Naselenie"
   },
   "Population by constituent people": {
    "sre": "Stanovništvo po konstitutivnim narodima",
@@ -2471,10 +2649,12 @@
    "zap": "Prebivalstvo po konstitutivnih narodih"
   },
   "Population density": {
-   "zap": "Gostota prebivalstva"
+   "zap": "Gostota prebivalstva",
+   "ist": "Gãstota na naselenieto"
   },
   "Population register, 1 Jan 2026": {
-   "zap": "Register prebivalstva, 1. 1. 2026"
+   "zap": "Register prebivalstva, 1. 1. 2026",
+   "ist": "Registãr na naselenieto, 1.01.2026 g."
   },
   "Population, all {0} entities": {
    "sre": "Stanovništvo, svi entiteti ({0})",
@@ -2542,7 +2722,8 @@
    "ist": "Prototip: tazi karta se sãhrañava samo v tozi brauzãr i ima vremenen nomer. Kogato konfederalnijat registãr započne rabota, toj potvãrždava vsjaka karta, opredeļa okončatelnija nomer i ja izprašta po imejl."
   },
   "Provisional systemic flag, pan-colours of the constituent people, pending the dedicated heraldic design.": {
-   "zap": "Začasna sistemska zastava v narodnih barvah konstitutivnega naroda, dokler ne bo izdelana lastna heraldična podoba."
+   "zap": "Začasna sistemska zastava v narodnih barvah konstitutivnega naroda, dokler ne bo izdelana lastna heraldična podoba.",
+   "ist": "Vremenno sistemno zname v cvetovete na konstitutivnija narod, dokato bãde izraboten sobstven heraldičeski proekt."
   },
   "Public security belongs first to the States, the confederal territories included: each has its own police. The Confederation keeps only the powers the Constitution lists, through services placed under different masters and answerable to the judges and to both chambers. None may be used to watch the political life of citizens (Art. 137).": {
    "zap": "Javna varnost je predvsem v pristojnosti držav, vkļučno s konfederalnimi ozemļi: vsaka ima svojo policijo. Konfederacija ima samo pooblastila, ki jih našteva Ustava, in jih izvaja prek služb, ki so podrejene različnim organom ter odgovorne sodnikom in obema domovoma. Nobene od ñih ni dovoļeno uporabiti za nadzor nad političnim živļeñem državļanov (čl. 137).",
@@ -2580,7 +2761,8 @@
    "zap": "Objavļena, nato predložena obveznemu glasovañu ļudstva in držav."
   },
   "Quartered gules and azure with sable cross overall; central shield gules, the rampant Thracian lion or; above the cross, a small sun in gold, heraldic continuity of the historic Bulgarian Trakija.": {
-   "zap": "Razčetrteno rdeče in modro s črnim križem čez vse; rdeč osredñi ščit z vzpetim zlatim trakijskim levom; nad križem majhno zlato sonce, heraldična kontinuiteta zgodovinske bolgarske Trakije."
+   "zap": "Razčetrteno rdeče in modro s črnim križem čez vse; rdeč osredñi ščit z vzpetim zlatim trakijskim levom; nad križem majhno zlato sonce, heraldična kontinuiteta zgodovinske bolgarske Trakije.",
+   "ist": "Razdeleno na četiri poleta v červeno i siño, s čeren krãst vãrhu vsičko; červen centralen štit s izpraven zlaten trakijski lãv; nad krãsta — malko zlatno slãnce, heraldičeska priemstvenost na istoričeskata bãlgarska Trakija."
   },
   "Rank {0} of {1}": {
    "sre": "Rang {0} od {1}",
@@ -2598,13 +2780,16 @@
    "zap": "Rdeča"
   },
   "Red, blue and green horizontal tricolour; shield with the golden Nemanjić lion ascending fortified walls, beneath sun and crescent, the Danube and Tisa rivers, and the Serbian cross.": {
-   "zap": "Rdeče-modro-zelena vodoravna trobojnica; ščit z zlatim levom dinastije Nemanjić, ki se vzpeña po utrjenem obzidju pod soncem in polmesecem, z rekama Donavo in Tiso ter s srbskim križem."
+   "zap": "Rdeče-modro-zelena vodoravna trobojnica; ščit z zlatim levom dinastije Nemanjić, ki se vzpeña po utrjenem obzidju pod soncem in polmesecem, z rekama Donavo in Tiso ter s srbskim križem.",
+   "ist": "Červeno-siño-zelen horizontalen trikoļor; štit sãs zlatnija lãv na dinastijata Nemanjić, kojto se izkačva po krepostni steni, pod slãnce i polumesec, s rekite Dunav i Tisa i sãs srãbskija krãst."
   },
   "Red, vert and argent horizontal; central shield with the rocky peaks of Pirin, an Orthodox church of three domes between mountains, the golden bridge below, and the small Serbian cross-shield in base; scroll “ПОДРИЊЕ”.": {
-   "zap": "Vodoravno rdeče, zeleno in srebrno; osredñi ščit s skalnatimi vrhovi Pirina, pravoslavno cerkvijo s tremi kupolami med gorami, spodaj z zlatim mostom in v vznožju z majhnim ščitom s srbskim križem; trak s cirilskim napisom „PODRIÑE“."
+   "zap": "Vodoravno rdeče, zeleno in srebrno; osredñi ščit s skalnatimi vrhovi Pirina, pravoslavno cerkvijo s tremi kupolami med gorami, spodaj z zlatim mostom in v vznožju z majhnim ščitom s srbskim križem; trak s cirilskim napisom „PODRIÑE“.",
+   "ist": "Horizontalno červeno, zeleno i srebãrno; centralen štit sãs skalistite vãrhove na Pirin, pravoslavna cãrkva s tri kupola meždu planinite, zlaten most otdolu i malãk štit sãs srãbskija krãst v dolnata čast; lenta s nadpis „ПОДРИЊЕ“."
   },
   "Red, white and green horizontal tricolour; shield with the Ottoman crescent, the central Bosnian mountains and waters, and the golden Bosnian fleur-de-lys.": {
-   "zap": "Rdeče-belo-zelena vodoravna trobojnica; ščit z osmanskim polmesecem, gorami in vodami osredñe Bosne ter zlato bosansko lilijo."
+   "zap": "Rdeče-belo-zelena vodoravna trobojnica; ščit z osmanskim polmesecem, gorami in vodami osredñe Bosne ter zlato bosansko lilijo.",
+   "ist": "Červeno-bjalo-zelen horizontalen trikoļor; štit s osmanskija polumesec, planinite i vodite na Centralna Bosna i zlatnata bosnenska lilija."
   },
   "Referendum": {
    "sre": "Referendum",
@@ -2617,7 +2802,8 @@
    "ist": "Referendumi"
   },
   "Regional standard": {
-   "zap": "Regionalni standard"
+   "zap": "Regionalni standard",
+   "ist": "Regionalen standart"
   },
   "Register": {
    "sre": "Registracija",
@@ -2665,13 +2851,16 @@
    "ist": "Registãr na slovencite"
   },
   "Registered citizens": {
-   "zap": "Prijavļeni državļani"
+   "zap": "Prijavļeni državļani",
+   "ist": "Registrirani graždani"
   },
   "Registered citizens elect the Kongres in their state; those enrolled in a national register also elect the Narodni Sabor. The live counter activates with the participatory platform.": {
-   "zap": "Prijavļeni državļani volijo Kongres v svoji državi; tisti, ki so vpisani v narodni register, volijo tudi Narodni Sabor. Števec v živo začne delovati ob zagonu platforme za sodelovañe."
+   "zap": "Prijavļeni državļani volijo Kongres v svoji državi; tisti, ki so vpisani v narodni register, volijo tudi Narodni Sabor. Števec v živo začne delovati ob zagonu platforme za sodelovañe.",
+   "ist": "Registriranite graždani izbirat Kongres v svojata dãržava; vpisanite v naroden registãr izbirat i Narodni Sabor. Brojačãt v realno vreme šte zaraboti s puskaneto na platformata za učastie."
   },
   "Registered citizens · updated every minute": {
-   "zap": "Prijavļeni državļani · posodobitev vsako minuto"
+   "zap": "Prijavļeni državļani · posodobitev vsako minuto",
+   "ist": "Registrirani graždani · obnovjavane vsjaka minuta"
   },
   "Registered from abroad": {
    "sre": "Prijavļeni izvan Konfederacije",
@@ -2679,7 +2868,8 @@
    "zap": "Prijavļeni iz tujine"
   },
   "Registration": {
-   "zap": "Prijava"
+   "zap": "Prijava",
+   "ist": "Zajavka"
   },
   "Registration is open from the age of 18 (Art. 104). Under 18, a parent who holds a card declares the child from his own card.": {
    "sre": "Prijava je moguća od navršenih 18 godina (čl. 104). Děte mlađe od 18 godina prijavļuje roditeļ koji ima kartu, sa svoje karte.",
@@ -2707,10 +2897,12 @@
    "ist": "Vrãzkite za zajavki ne sa aktivni"
   },
   "Registration sent": {
-   "zap": "Prijava poslana"
+   "zap": "Prijava poslana",
+   "ist": "Zajavkata e izpratena"
   },
   "Registration steps": {
-   "zap": "Koraki prijave"
+   "zap": "Koraki prijave",
+   "ist": "Stãpki na zajavkata"
   },
   "Registration takes five steps. The card is kept on this device until the confederal register opens.": {
    "zap": "Prijava poteka v petih korakih. Izkaznica se hrani v tej napravi, dokler konfederalni register ne začne delovati.",
@@ -2733,7 +2925,8 @@
    "zap": "Zavrñen na ļudskem glasovañu."
   },
   "Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.": {
-   "zap": "Odnosi s tujimi državami, mednarodne pogodbe in predstavništva Konfederacije v tujini. Države ohranijo lastne odnose v okviru svojih pristojnosti."
+   "zap": "Odnosi s tujimi državami, mednarodne pogodbe in predstavništva Konfederacije v tujini. Države ohranijo lastne odnose v okviru svojih pristojnosti.",
+   "ist": "Otnošenija s čuždi dãržavi, dogovori i predstavitelstva na Konfederacijata v čužbina. Dãržavite zapazvat sobstvenite si vãnšni otnošenija v ramkite na svoite pravomoštija."
   },
   "Residence": {
    "zap": "Prebivališče",
@@ -2746,7 +2939,8 @@
    "ist": "mestoživeene"
   },
   "Review and issue": {
-   "zap": "Pregled in izdaja"
+   "zap": "Pregled in izdaja",
+   "ist": "Pregled i izdavane"
   },
   "Review, declaration of free accession and issue of the citizen card.": {
    "zap": "Pregled, izjava o svobodnem pristopu in izdaja državļanske izkaznice.",
@@ -2769,7 +2963,8 @@
    "ist": "Sarajevo"
   },
   "Scroll down": {
-   "zap": "Pomaknite se navzdol"
+   "zap": "Pomaknite se navzdol",
+   "ist": "Prevãrtete nadolu"
   },
   "Sea and mountains (parallax band)": {
    "zap": "Morje in gore (paralaksni pas)",
@@ -2782,7 +2977,8 @@
    "zap": "Iščite državo, oznako, sedež…"
   },
   "Seat": {
-   "zap": "Sedež"
+   "zap": "Sedež",
+   "ist": "Administrativen centãr"
   },
   "Seated across Sarajevo, Beograd, Zagreb and Sofija.": {
    "zap": "S sedeži v Sarajevu, Beogradu, Zagrebu in Sofiji.",
@@ -2805,16 +3001,20 @@
    "ist": "Sigurnost i otbrana →"
   },
   "Select an institution in the diagram to see how it is formed and what it does.": {
-   "zap": "Izberite institucijo v diagramu, da vidite, kako je sestavļena in kakšne naloge ima."
+   "zap": "Izberite institucijo v diagramu, da vidite, kako je sestavļena in kakšne naloge ima.",
+   "ist": "Izberete institucija v shemata, za da vidite kak se sãstavja i kakvi funkcii izpãlñava."
   },
   "Send me a new link": {
-   "zap": "Pošļi mi novo povezavo"
+   "zap": "Pošļi mi novo povezavo",
+   "ist": "Izpratete mi nova vrãzka"
   },
   "Send my registration": {
-   "zap": "Pošļi prijavo"
+   "zap": "Pošļi prijavo",
+   "ist": "Izpraštane na zajavkata mi"
   },
   "Sending…": {
-   "zap": "Pošiļañe…"
+   "zap": "Pošiļañe…",
+   "ist": "Izpraštane…"
   },
   "Separate masters": {
    "zap": "Ločeni nadrejeni",
@@ -2832,7 +3032,8 @@
    "zap": "Srbske skupnosti"
   },
   "serb community": {
-   "zap": "srbska skupnost"
+   "zap": "srbska skupnost",
+   "ist": "srãbska obštnost"
   },
   "Serb community": {
    "sre": "Srpska zajednica",
@@ -2840,10 +3041,12 @@
    "zap": "Srbska skupnost"
   },
   "Serbian pan-colours, gules-azure-argent horizontal; on the central red shield, the sable boar’s head pierced by a sable arrow, the white Serbian cross with four firesteels at the base, totem of the Šumadija oak forests.": {
-   "zap": "Srbske narodne barve, vodoravno rdeče-modro-srebrno; na osredñem rdečem ščitu črna merjaščeva glava, prebodena s črno puščico, v vznožju beli srbski križ s štirimi kresili, totem šumadijskih hrastovih gozdov."
+   "zap": "Srbske narodne barve, vodoravno rdeče-modro-srebrno; na osredñem rdečem ščitu črna merjaščeva glava, prebodena s črno puščico, v vznožju beli srbski križ s štirimi kresili, totem šumadijskih hrastovih gozdov.",
+   "ist": "Srãbskite narodni cvetove, horizontalno červeno-siño-srebãrno; vãrhu centralnija červen štit — černa glava na gligan, pronizana ot černa strela, a v dolnata čast — belijat srãbski krãst s četiri ogniva; totem na dãbovite gori na Šumadija."
   },
   "Serbian pan-colours, white-blue-red horizontal; on the central shield, the blue Habsburg-style eagle on argent with golden bend, heraldic continuity of Kosovska Mitrovica.": {
-   "zap": "Srbske narodne barve, vodoravno belo-modro-rdeče; na osredñem ščitu modri orel habsburškega sloga na srebrnem z zlato poševnico, heraldična kontinuiteta Kosovske Mitrovice."
+   "zap": "Srbske narodne barve, vodoravno belo-modro-rdeče; na osredñem ščitu modri orel habsburškega sloga na srebrnem z zlato poševnico, heraldična kontinuiteta Kosovske Mitrovice.",
+   "ist": "Srãbskite narodni cvetove, horizontalno bjalo-siño-červeno; vãrhu centralnija štit — sin orel v habsburgski stil na srebãrno pole sãs zlatna naklonena ivica, heraldičeska priemstvenost na Kosovska Mitrovica."
   },
   "Serbs": {
    "sre": "Srbi",
@@ -2861,7 +3064,8 @@
    "ist": "Voenna služba"
   },
   "Services": {
-   "zap": "Službe"
+   "zap": "Službe",
+   "ist": "Službi"
   },
   "Set by the municipality of origin, one's own or a parent's or grandparent's for the diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice (Art. 38).": {
    "zap": "Določa jo domovinska občina, lastna ali, za diasporo, občina enega od staršev ali starih staršev, sicer prebivališče. Volilna enota za Kongres. Ni predmet svobodne izbire (čl. 38).",
@@ -2874,7 +3078,8 @@
    "ist": "Opredeļa gramatičeskata forma, v kojato narodnostta vi se izpisva na kartata."
   },
   "Seven councillors, one for each constituent people, govern the Confederation together. Each heads a department seated in one of the four capitals, and the presidency passes from one to the next every year. No one governs alone ({0}).": {
-   "zap": "Sedem svetnikov, po eden za vsak konstitutivni narod, skupaj vlada Konfederaciji. Vsak vodi resor s sedežem v eni od štirih prestolnic, predsedstvo pa vsako leto preide z enega na drugega. Nihče ne vlada sam ({0})."
+   "zap": "Sedem svetnikov, po eden za vsak konstitutivni narod, skupaj vlada Konfederaciji. Vsak vodi resor s sedežem v eni od štirih prestolnic, predsedstvo pa vsako leto preide z enega na drugega. Nihče ne vlada sam ({0}).",
+   "ist": "Sedem sãvetnici, po edin za vseki konstitutiven narod, upravļavat zaedno Konfederacijata. Vseki rãkovodi resor sãs sedalište v edna ot četirite stolici, a predsedatelstvoto preminava vsjaka godina ot edin sãvetnik kãm sledvaštija. Nikoj ne upravļava sam ({0})."
   },
   "Severna Trakija, without the yat": {
    "sre": "Severna Trakija, bez jata",
@@ -2892,7 +3097,8 @@
    "ist": "Pol · data na raždane"
   },
   "Share of the population: territorial states {0}%, confederal territories {1}%, confederal municipalities {2}%": {
-   "zap": "Delež prebivalstva: teritorialne države {0} %, konfederalna ozemļa {1} %, konfederalne občine {2} %"
+   "zap": "Delež prebivalstva: teritorialne države {0} %, konfederalna ozemļa {1} %, konfederalne občine {2} %",
+   "ist": "Djal ot naselenieto: teritorialni dãržavi {0}%, konfederalni teritorii {1}%, konfederalni obštini {2}%"
   },
   "Show all": {
    "sre": "Prikažite sve",
@@ -2900,28 +3106,36 @@
    "zap": "Prikaži vse"
   },
   "Show only the bosniaks on the map": {
-   "zap": "Na zemļevidu prikaži samo Bošñake"
+   "zap": "Na zemļevidu prikaži samo Bošñake",
+   "ist": "Pokažete na kartata samo bošñacite"
   },
   "Show only the bulgarians on the map": {
-   "zap": "Na zemļevidu prikaži samo Bolgare"
+   "zap": "Na zemļevidu prikaži samo Bolgare",
+   "ist": "Pokažete na kartata samo bãlgarite"
   },
   "Show only the confederal entities on the map": {
-   "zap": "Na zemļevidu prikaži samo konfederalne enote"
+   "zap": "Na zemļevidu prikaži samo konfederalne enote",
+   "ist": "Pokažete na kartata samo konfederalnite edinici"
   },
   "Show only the croats on the map": {
-   "zap": "Na zemļevidu prikaži samo Hrvate"
+   "zap": "Na zemļevidu prikaži samo Hrvate",
+   "ist": "Pokažete na kartata samo hãrvatite"
   },
   "Show only the macedonians on the map": {
-   "zap": "Na zemļevidu prikaži samo Makedonce"
+   "zap": "Na zemļevidu prikaži samo Makedonce",
+   "ist": "Pokažete na kartata samo makedoncite"
   },
   "Show only the montenegrins on the map": {
-   "zap": "Na zemļevidu prikaži samo Črnogorce"
+   "zap": "Na zemļevidu prikaži samo Črnogorce",
+   "ist": "Pokažete na kartata samo černogorcite"
   },
   "Show only the serbs on the map": {
-   "zap": "Na zemļevidu prikaži samo Srbe"
+   "zap": "Na zemļevidu prikaži samo Srbe",
+   "ist": "Pokažete na kartata samo sãrbite"
   },
   "Show only the slovenes on the map": {
-   "zap": "Na zemļevidu prikaži samo Slovence"
+   "zap": "Na zemļevidu prikaži samo Slovence",
+   "ist": "Pokažete na kartata samo slovencite"
   },
   "Show the figures as a table": {
    "sre": "Prikažite podatke u tabeli",
@@ -2929,7 +3143,8 @@
    "zap": "Prikaži podatke v tabeli"
   },
   "Sky-blue and maroon horizontal; a white seven-pointed mullet above; below, a sheaf of wheat, the grain wealth of southern Dobruja.": {
-   "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe."
+   "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe.",
+   "ist": "Horizontalno nebesnosiño i bordo; gore — bjala sedemlãčeva zvezda; dolu — snop pšenica, žitnoto bogatstvo na Južna Dobruxa."
   },
   "Slovak": {
    "zap": "Slovaška",
@@ -2942,7 +3157,8 @@
    "zap": "Slovaške skupnosti"
   },
   "slovak community": {
-   "zap": "slovaška skupnost"
+   "zap": "slovaška skupnost",
+   "ist": "slovaška obštnost"
   },
   "Slovak community": {
    "sre": "Slovačka zajednica",
@@ -2965,7 +3181,8 @@
    "zap": "Država Slovencev · sedež {0}"
   },
   "Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and Bulgarians share a unified South Slavic language and alphabet, alongside recognised Albanian, Hungarian, Turkish and Slovak communities.": {
-   "zap": "Slovenci, Hrvati, Srbi, Bošñaki, Črnogorci, Makedonci in Bolgari si delijo enoten južnoslovanski jezik in abecedo, ob ñih pa živijo tudi priznane skupnosti: albanska, maxarska, turška in slovaška."
+   "zap": "Slovenci, Hrvati, Srbi, Bošñaki, Črnogorci, Makedonci in Bolgari si delijo enoten južnoslovanski jezik in abecedo, ob ñih pa živijo tudi priznane skupnosti: albanska, maxarska, turška in slovaška.",
+   "ist": "Slovencite, hãrvatite, sãrbite, bošñacite, černogorcite, makedoncite i bãlgarite spodeļat edinen južnoslavjanski ezik i edinna azbuka, a redom s tjah živejat priznatite albanska, ungarska, turska i slovaška obštnost."
   },
   "Sofija": {
    "zap": "Sofija",
@@ -2988,7 +3205,8 @@
    "zap": "Posebne skupnosti"
   },
   "special community": {
-   "zap": "posebna skupnost"
+   "zap": "posebna skupnost",
+   "ist": "obštnost s osoben statut"
   },
   "Special community": {
    "sre": "Posebna zajednica",
@@ -3011,10 +3229,12 @@
    "zap": "Državna zastava Balkanske konfederacije"
   },
   "State not found.": {
-   "zap": "Države ni mogoče najti."
+   "zap": "Države ni mogoče najti.",
+   "ist": "Dãržavata ne e namerena."
   },
   "State of attachment": {
-   "zap": "Država pripadnosti"
+   "zap": "Država pripadnosti",
+   "ist": "Dãržava na prinadležnost"
   },
   "State of attachment {0} ({1}) · card issue {2} · valid until {3}.": {
    "sre": "Država pripadnosti {0} ({1}) · izdañe karte br. {2} · važi do {3}.",
@@ -3022,28 +3242,36 @@
    "zap": "Država pripadnosti {0} ({1}) · {2}. izdaja izkaznice · veļa do {3}."
   },
   "State of the Bosniaks": {
-   "zap": "Država Bošñakov"
+   "zap": "Država Bošñakov",
+   "ist": "Dãržava na bošñacite"
   },
   "State of the Bulgarians": {
-   "zap": "Država Bolgarov"
+   "zap": "Država Bolgarov",
+   "ist": "Dãržava na bãlgarite"
   },
   "State of the Croats": {
-   "zap": "Država Hrvatov"
+   "zap": "Država Hrvatov",
+   "ist": "Dãržava na hãrvatite"
   },
   "State of the Macedonians": {
-   "zap": "Država Makedoncev"
+   "zap": "Država Makedoncev",
+   "ist": "Dãržava na makedoncite"
   },
   "State of the Montenegrins": {
-   "zap": "Država Črnogorcev"
+   "zap": "Država Črnogorcev",
+   "ist": "Dãržava na černogorcite"
   },
   "State of the Serbs": {
-   "zap": "Država Srbov"
+   "zap": "Država Srbov",
+   "ist": "Dãržava na sãrbite"
   },
   "State of the Slovenes": {
-   "zap": "Država Slovencev"
+   "zap": "Država Slovencev",
+   "ist": "Dãržava na slovencite"
   },
   "States": {
-   "zap": "Države"
+   "zap": "Države",
+   "ist": "Dãržavi"
   },
   "States & territories": {
    "zap": "Države in ozemļa",
@@ -3051,7 +3279,8 @@
    "ist": "Dãržavi i teritorii"
   },
   "States &amp; territories": {
-   "zap": "Države in ozemļa"
+   "zap": "Države in ozemļa",
+   "ist": "Dãržavi i teritorii"
   },
   "States first": {
    "zap": "Najprej države",
@@ -3064,10 +3293,12 @@
    "zap": "Zastopane države"
   },
   "Status": {
-   "zap": "Status"
+   "zap": "Status",
+   "ist": "Statut"
   },
   "Step {0} of {1}": {
-   "zap": "Korak {0} od {1}"
+   "zap": "Korak {0} od {1}",
+   "ist": "Stãpka {0} ot {1}"
   },
   "Superseded": {
    "sre": "Zaměñena",
@@ -3080,7 +3311,8 @@
    "ist": "Familija"
   },
   "Sustainable development, spatial planning, water, forests, nature and the protected seas.": {
-   "zap": "Trajnostni razvoj, prostorsko načrtovañe, vode, gozdovi, narava in zavarovana morja."
+   "zap": "Trajnostni razvoj, prostorsko načrtovañe, vode, gozdovi, narava in zavarovana morja.",
+   "ist": "Ustojčivo razvitie, ustrojstvo na teritorijata, vodi, gori, priroda i zaštiteni morski zoni."
   },
   "Symbols": {
    "sre": "Simboli",
@@ -3098,7 +3330,8 @@
    "ist": "Po deset členove ot vseki narod v Narodni Sabor, po edin sãvetnik ot vseki narod v Konfederalno Veće."
   },
   "Territorial state": {
-   "zap": "Teritorialna država"
+   "zap": "Teritorialna država",
+   "ist": "Teritorialna dãržava"
   },
   "Territorial states": {
    "sre": "Teritorijalne države",
@@ -3106,10 +3339,12 @@
    "zap": "Teritorialne države"
   },
   "Territory": {
-   "zap": "Ozemļe"
+   "zap": "Ozemļe",
+   "ist": "Teritorija"
   },
   "The 49 states, confederal territories and confederal autonomous municipalities.": {
-   "zap": "49 držav, konfederalna ozemļa in konfederalne avtonomne občine."
+   "zap": "49 držav, konfederalna ozemļa in konfederalne avtonomne občine.",
+   "ist": "Vsičkite 49 dãržavi, konfederalnite teritorii i konfederalnite avtonomni obštini."
   },
   "The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.": {
    "zap": "Albanska, maxarska, slovaška in turška skupnost, zastopane z enakim številom članov, dajejo mneñe o zakonih, ki zadevajo avtonomne entitete.",
@@ -3122,10 +3357,12 @@
    "zap": "Sprememba postane del Ustave."
   },
   "The anti-robot check could not load. Check your connection or allow challenges.cloudflare.com for this page.": {
-   "zap": "Preverjaña proti robotom ni bilo mogoče naložiti. Preverite povezavo ali za to stran dovolite challenges.cloudflare.com."
+   "zap": "Preverjaña proti robotom ni bilo mogoče naložiti. Preverite povezavo ali za to stran dovolite challenges.cloudflare.com.",
+   "ist": "Proverkata sreštu roboti ne moža da se zaredi. Proverete vrãzkata si ili razrešete challenges.cloudflare.com za tazi stranica."
   },
   "The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.": {
-   "zap": "Oborožene sile in Konfederalna Žandarmerija z Granično Stražo na zunañih mejah ter civilna zaščita."
+   "zap": "Oborožene sile in Konfederalna Žandarmerija z Granično Stražo na zunañih mejah ter civilna zaščita.",
+   "ist": "Vãorãženi sili i Konfederalna Žandarmerija s nejnata Granična Straža po vãnšnite granici, kakto i graždanska zaštita."
   },
   "The Balkan Confederation is a house one enters by choice and remains in by consent. Confederal citizenship is declarative: it is requested online in five steps and takes effect when the citizen card is issued (Art. 37). It opens the right to take part in confederal consultations and votes.": {
    "zap": "Balkanska konfederacija je dom, v katerega se vstopa po izbiri in v katerem se ostaja s soglasjem. Konfederalno državļanstvo je deklarativno: zañ se zaprosi po spletu v petih korakih, veļati pa začne z izdajo državļanske izkaznice (čl. 37). Daje pravico do sodelovaña v konfederalnih posvetovañih in glasovañih.",
@@ -3133,7 +3370,8 @@
    "ist": "Balkanskata konfederacija e dom, v kojto se vliza po izbor i v kojto se ostava po sãglasie. Konfederalnoto graždanstvo e deklarativno: zajavjava se onlajn v pet stãpki i poražda dejstvie s izdavaneto na graždanskata karta (čl. 37). To dava pravo na učastie v konfederalnite dopitvanija i glasuvanija."
   },
   "The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.": {
-   "zap": "Balkanski izobraževalni prostor, univerze, raziskave, šport in konfederalna dediščina; kultura ostaja v pristojnosti držav."
+   "zap": "Balkanski izobraževalni prostor, univerze, raziskave, šport in konfederalna dediščina; kultura ostaja v pristojnosti držav.",
+   "ist": "Balkansko obrazovatelno prostranstvo, universiteti, naučni izsledvanija, sport i konfederalno nasledstvo; kulturata ostava v kompetentnost na dãržavite."
   },
   "The Bulgarian State of Northern Thrace (TR-41) is now written <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: a purely Bulgarian name, with the ekavian reflex, takes no yat. The two <span translate=\"no\" style=\"display:inline\">Srěm</span> States keep it, since the Croatian form <span translate=\"no\" style=\"display:inline\">Srijem</span> shows the reflex. Constitution v4.10.": {
    "sre": "Naziv bugarske države (TR-41) sada se piše <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: čisto bugarski naziv, s ekavskim refleksom, nema jat. Dvě države čiji naziv sadrži <span translate=\"no\" style=\"display:inline\">Srěm</span> zadržavaju jat, jer hrvatski oblik <span translate=\"no\" style=\"display:inline\">Srijem</span> pokazuje ñegov refleks. Ustav v4.10.",
@@ -3191,10 +3429,12 @@
    "ist": "Načalnikãt na Generalnija štab (načelnik Generalštaba), utvãrden s mnozinstvo ot dve treti v Kongres i ot pet delegacii, za četiri godini, s pravo na edno podnovjavane."
   },
   "The child takes your state of attachment, {0} ({1}), through your municipality of origin, {2}. No national register is recorded before 18.": {
-   "zap": "Otrok prevzame vašo državo pripadnosti, {0} ({1}), prek vaše domovinske občine {2}. Do dopolñenega 18. leta se ne vpiše v noben narodni register."
+   "zap": "Otrok prevzame vašo državo pripadnosti, {0} ({1}), prek vaše domovinske občine {2}. Do dopolñenega 18. leta se ne vpiše v noben narodni register.",
+   "ist": "Deteto polučava vašata dãržava na prinadležnost, {0} ({1}), črez obštinata vi na proizhod, {2}. Predi 18 godini ne se zapisva naroden registãr."
   },
   "The chronological record of confederal acts, constitutional drafts, laws, regulations and institutional decisions.": {
-   "zap": "Kronološki zapis konfederalnih aktov, osnutkov ustave, zakonov, uredb in odločitev institucij."
+   "zap": "Kronološki zapis konfederalnih aktov, osnutkov ustave, zakonov, uredb in odločitev institucij.",
+   "ist": "Hronologičen spisãk na konfederalnite aktove, proektite na Konstitucijata, zakonite, podzakonovite normativni aktove i rešenijata na instituciite."
   },
   "The civil flag is the flag of the people of the Confederation. It is flown by citizens, civil associations and on public buildings under municipal authority. Vertical red hoist; horizontal field of azure, argent and azure, the unadorned base of the state flag.": {
    "sre": "Građanska zastava je zastava državļana Konfederacije. Ističu je državļani i organizacije civilnog društva, a ističe se i na javnim zgradama pod opštinskom upravom. Vertikalna crvena traka uz kopļe; horizontalno poļe plavo, srebrno i plavo, osnova državne zastave bez ukrasa.",
@@ -3212,7 +3452,8 @@
    "zap": "Kompromisna različica začne veļati. Če usklajevañe ne bi uspelo, bi zakon propadel."
   },
   "The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.": {
-   "zap": "Konfederalni proračun v mejah dolžniške zavore, konfederalni davki in letno poročilo o finančnih tokovih med Konfederacijo in državami."
+   "zap": "Konfederalni proračun v mejah dolžniške zavore, konfederalni davki in letno poročilo o finančnih tokovih med Konfederacijo in državami.",
+   "ist": "Konfederalen bjuxet v ramkite na spiračkata na dãlga, konfederalni danãci i godišen doklad za finansovite potoci meždu Konfederacijata i dãržavite."
   },
   "The confederal register cannot be reached at the moment.": {
    "sre": "Konfederalni registar trenutno nije dostupan.",
@@ -3220,7 +3461,8 @@
    "zap": "Konfederalni register trenutno ni dosegļiv."
   },
   "The confederal register cannot be reached. Check your connection and try again.": {
-   "zap": "Konfederalni register ni dosegļiv. Preverite povezavo in poskusite znova."
+   "zap": "Konfederalni register ni dosegļiv. Preverite povezavo in poskusite znova.",
+   "ist": "Ñama vrãzka s konfederalnija registãr. Proverete internet vrãzkata si i opitajte otnovo."
   },
   "The confederal register is not open on this portal yet.": {
    "zap": "Konfederalni register na tem portalu še ne deluje.",
@@ -3228,7 +3470,8 @@
    "ist": "Konfederalnijat registãr vse ošte ne raboti na tozi portal."
   },
   "The confederal register is not open on this portal yet: cards are held in the browser that issued them.": {
-   "zap": "Konfederalni register na tem portalu še ne deluje: izkaznice so shrañene v brskalniku, ki jih je izdal."
+   "zap": "Konfederalni register na tem portalu še ne deluje: izkaznice so shrañene v brskalniku, ki jih je izdal.",
+   "ist": "Konfederalnijat registãr vse ošte ne raboti na tozi portal: kartite se sãhrañavat v brauzãra, v kojto sa izdadeni."
   },
   "The confederal register no longer recognises this browser's link: it has expired, or the registration was deleted. The card shown is the copy kept here.": {
    "zap": "Konfederalni register ne prepozna več povezave tega brskalnika: potekla je ali pa je bila prijava izbrisana. Prikazana izkaznica je kopija, shrañena tukaj.",
@@ -3256,10 +3499,12 @@
    "ist": "Sãglasieto na Narodni Sabor, alarmenijat zvãnec i sãglasitelnata procedura."
   },
   "The consolidated text of the Confederal Constitution and its titles.": {
-   "zap": "Prečiščeno besedilo Ustave Konfederacije in ñena poglavja."
+   "zap": "Prečiščeno besedilo Ustave Konfederacije in ñena poglavja.",
+   "ist": "Konsolidiranijat tekst na Konfederalnata konstitucija i nejnite glavi."
   },
   "The council shares out the departments; no people heads the same one for two terms in a row.": {
-   "zap": "Svet razdeli resorje; noben narod ne vodi istega resorja dva mandata zapored."
+   "zap": "Svet razdeli resorje; noben narod ne vodi istega resorja dva mandata zapored.",
+   "ist": "Sãvetãt razpredeļa resorite; nikoj narod ne rãkovodi edin i sãšt resor dva poredni mandata."
   },
   "The dashboard activates when the confederal register opens. Figures will be published per state and per people, updated every minute.": {
    "sre": "Pregled članstva počiñe raditi kad se otvori konfederalni registar. Podaci će se objavļivati po državama i po narodima i ažurirati svakih 60 sekundi.",
@@ -3297,7 +3542,8 @@
    "ist": "Žandarmerijata i Bjuroto nikoga ne sa podčineni na edin i sãšt sãvetnik; Agencijata se otčita pred celija sãvet."
   },
   "The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.": {
-   "zap": "Generalni sekretariat sveta, ki ga vodi kancler: konfederalne volitve in glasovaña, narodni registri in Uradni list."
+   "zap": "Generalni sekretariat sveta, ki ga vodi kancler: konfederalne volitve in glasovaña, narodni registri in Uradni list.",
+   "ist": "Generalnijat sekretariat na sãveta, rãkovoden ot kanclera: konfederalni izbori i glasuvanija, narodnite registri i Dãržaven vestnik."
   },
   "The guarantee itself": {
    "zap": "Jamstvo samo",
@@ -3310,7 +3556,8 @@
    "ist": "Institutãt opisva trite regionalni standarta i podgotvja azbukata i toponimijata; Bibliotekata i arhivãt pazjat pismenoto nasledstvo."
   },
   "The institutions →": {
-   "zap": "Institucije →"
+   "zap": "Institucije →",
+   "ist": "Instituciite →"
   },
   "The Kongres adopts the amendment.": {
    "sre": "Kongres usvaja amandman.",
@@ -3328,10 +3575,12 @@
    "zap": "Kongres lahko zakon zdaj sprejme samo z dvotretjinsko večino. To stori in zakon je objavļen."
   },
   "The Kongres legislates, the Narodni Sabor guards the equality of nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the Constitution, seated across the four confederal capitals.": {
-   "zap": "Kongres sprejema zakone, Narodni Sabor varuje enakopravnost narodov, Konfederalno Veće vlada s soglasjem, Ustavni Sud pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah."
+   "zap": "Kongres sprejema zakone, Narodni Sabor varuje enakopravnost narodov, Konfederalno Veće vlada s soglasjem, Ustavni Sud pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah.",
+   "ist": "Kongres priema zakonite, Narodni Sabor pazi ravnopravieto na narodite, Konfederalno Veće upravļava s konsensus, a Ustavni Sud bdi nad spazvaneto na Konstitucijata; sedalištata im sa v četirite konfederalni stolici."
   },
   "The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.": {
-   "zap": "Kongres, Narodni Sabor, Konfederalno Veće in Ustavni Sud."
+   "zap": "Kongres, Narodni Sabor, Konfederalno Veće in Ustavni Sud.",
+   "ist": "Kongres, Narodni Sabor, Konfederalno Veće i Ustavni Sud."
   },
   "The law enters into force.": {
    "sre": "Zakon stupa na snagu.",
@@ -3374,7 +3623,8 @@
    "zap": "Portal v cirilici"
   },
   "The president chairs the council and represents the Confederation abroad, with no other power than a casting vote. The office rotates every year in a fixed order, and no one holds it twice in a row; the first cycle begins with the Slovene councillor ({0}).": {
-   "zap": "Predsednik predseduje svetu in zastopa Konfederacijo v tujini; razen odločilnega glasu nima nobenih drugih pooblastil. Funkcija vsako leto kroži po določenem vrstnem redu in nihče je ne opravļa dvakrat zapored; prvi krog se začne s slovenskim svetnikom ({0})."
+   "zap": "Predsednik predseduje svetu in zastopa Konfederacijo v tujini; razen odločilnega glasu nima nobenih drugih pooblastil. Funkcija vsako leto kroži po določenem vrstnem redu in nihče je ne opravļa dvakrat zapored; prvi krog se začne s slovenskim svetnikom ({0}).",
+   "ist": "Predsedateļat rãkovodi zasedanijata na sãveta i predstavļava Konfederacijata v čužbina, bez drugi pravomoštija osven rešavaštija glas. Dlãžnostta se reduva vsjaka godina v ustanoven red i nikoj ne ja zaema dva pãti podred; pãrvijat cikãl započva sãs slovenskija sãvetnik ({0})."
   },
   "The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations, which together represent a majority of enrolled citizens.": {
    "sre": "Predsědnik Kongresa označava da zakon podleže pristanku; nijedna delegacija to ne osporava. Narodni Sabor daje pristanak u roku od 90 dana: većinom na plenarnoj sědnici i većinom u najmañe pet od sedam delegacija, koje zajedno predstavļaju većinu upisanih državļana.",
@@ -3387,25 +3637,32 @@
    "zap": "Register ni dosegļiv."
   },
   "the register of the Bosniaks": {
-   "zap": "register Bošñakov"
+   "zap": "register Bošñakov",
+   "ist": "registãra na bošñacite"
   },
   "the register of the Bulgarians": {
-   "zap": "register Bolgarov"
+   "zap": "register Bolgarov",
+   "ist": "registãra na bãlgarite"
   },
   "the register of the Croats": {
-   "zap": "register Hrvatov"
+   "zap": "register Hrvatov",
+   "ist": "registãra na hãrvatite"
   },
   "the register of the Macedonians": {
-   "zap": "register Makedoncev"
+   "zap": "register Makedoncev",
+   "ist": "registãra na makedoncite"
   },
   "the register of the Montenegrins": {
-   "zap": "register Črnogorcev"
+   "zap": "register Črnogorcev",
+   "ist": "registãra na černogorcite"
   },
   "the register of the Serbs": {
-   "zap": "register Srbov"
+   "zap": "register Srbov",
+   "ist": "registãra na sãrbite"
   },
   "the register of the Slovenes": {
-   "zap": "register Slovencev"
+   "zap": "register Slovencev",
+   "ist": "registãra na slovencite"
   },
   "The registration could not be sent. Please try again.": {
    "zap": "Prijave ni bilo mogoče poslati. Poskusite znova.",
@@ -3428,7 +3685,8 @@
    "ist": "Praviloto, koeto zaštitava tezi četiri garancii, ne može da bãde otmeneno s po-malko mnozinstvo."
   },
   "The single economic area, competition, confederal roads, railways, energy and communications.": {
-   "zap": "Enotni gospodarski prostor, konkurenca, konfederalne ceste, železnice, energetika in komunikacije."
+   "zap": "Enotni gospodarski prostor, konkurenca, konfederalne ceste, železnice, energetika in komunikacije.",
+   "ist": "Edinno ikonomičesko prostranstvo, konkurencija, konfederalni pãtišta, železnici, energetika i sãobštenija."
   },
   "The South Slavic Latin alphabet, 32 letters, version 3.": {
    "zap": "Južnoslovanska latinica, 32 črk, različica 3.",
@@ -3456,7 +3714,8 @@
    "zap": "Enotna abeceda na izkaznici in v Ustavi"
   },
   "The unified Latin alphabet, the symbols and heraldry of the union.": {
-   "zap": "Enotna latinična abeceda ter simboli in heraldika zveze."
+   "zap": "Enotna latinična abeceda ter simboli in heraldika zveze.",
+   "ist": "Edinnata latinska azbuka, simvolite i heraldikata na sãjuza."
   },
   "The whole portal in the three standards": {
    "zap": "Ves portal v treh standardih",
@@ -3464,7 +3723,8 @@
    "ist": "Celijat portal v trite standarta"
   },
   "The yearly report counts, department by department, the decisions taken by consensus and by majority.": {
-   "zap": "Letno poročilo po resorjih navaja število odločitev, sprejetih s soglasjem in z večino."
+   "zap": "Letno poročilo po resorjih navaja število odločitev, sprejetih s soglasjem in z večino.",
+   "ist": "Godišnijat doklad posočva po resori broja na rešenijata, vzeti s konsensus i s mnozinstvo."
   },
   "They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.": {
    "zap": "Preprečujejo vojno, branijo deželo in podpirajo civilne oblasti v izrednih razmerah. Za ñihovo uporabo je potrebno dovoļeñe Kongresa.",
@@ -3472,7 +3732,8 @@
    "ist": "Te predotvratjavat vojnata, zaštitavat stranata i podpomagat graždanskite vlasti v izkļučitelni situacii. Izpolzvaneto im iziskva razrešenie ot Kongres."
   },
   "Thirty days to listen": {
-   "zap": "Trideset dni za zaslišañe"
+   "zap": "Trideset dni za zaslišañe",
+   "ist": "Trideset dni za izslušvane"
   },
   "Thirty-two letters, 7 vowels and 25 consonants, based on the gajica and on areal Balkan features (schwa <b translate=\"no\">ã</b>, tilde <b translate=\"no\">ñ</b>, cedilla <b translate=\"no\">ļ</b>, jat’ <b translate=\"no\">ě</b>). The letter <b translate=\"no\">ç</b> is reserved for proper names (Albanian, Turkish) and is not counted among the thirty-two.": {
    "zap": "Dvaintrideset črk, 7 samoglasnikov in 25 soglasnikov, ki temeļijo na gajici in na arealnih balkanskih značilnostih (polglasnik <b translate=\"no\">ã</b>, tilda <b translate=\"no\">ñ</b>, cedila <b translate=\"no\">ļ</b>, jat <b translate=\"no\">ě</b>). Črka <b translate=\"no\">ç</b> je pridržana za lastna imena (albanska, turška) in se ne šteje med dvaintrideset črk.",
@@ -3490,7 +3751,8 @@
    "zap": "Veļavnost te izkaznice je potekla {0}."
   },
   "This card is not among the children declared from your card.": {
-   "zap": "Ta izkaznica ni med izkaznicami otrok, prijavļenih z vašo izkaznico."
+   "zap": "Ta izkaznica ni med izkaznicami otrok, prijavļenih z vašo izkaznico.",
+   "ist": "Tazi karta ne e sred kartite na decata, deklarirani črez vašata karta."
   },
   "This change uses your single rectification. Your enrolment in {0} counts for the Narodni Sabor from the first election held after {1}; another register will be open to you from {2} (Art. 102).": {
    "zap": "S to spremembo porabite svoj edini popravek. Vaš vpis v {0} veļa za Narodni Sabor od prvih volitev po {1}; drug register vam bo dostopen od {2} (čl. 102).",
@@ -3553,7 +3815,8 @@
    "zap": "Turške skupnosti"
   },
   "turkish community": {
-   "zap": "turška skupnost"
+   "zap": "turška skupnost",
+   "ist": "turska obštnost"
   },
   "Turkish community": {
    "sre": "Turska zajednica",
@@ -3606,7 +3869,8 @@
    "zap": "Neznana številka"
   },
   "Update my card": {
-   "zap": "Posodobi izkaznico"
+   "zap": "Posodobi izkaznico",
+   "ist": "Obnovjavane na kartata mi"
   },
   "Ustavni Sud": {
    "zap": "Ustavni Sud",
@@ -3634,16 +3898,20 @@
    "ist": "Proverka na karta"
   },
   "Vert field charged with a radiant sun in or, sixteen-pointed Vergina-style sun, the rising star over the Danubian plain.": {
-   "zap": "Zeleno poļe z zlatim sijočim soncem, šestnajstkrakim soncem po vzoru Vergine, vzhajajočo zvezdo nad podonavsko nižino."
+   "zap": "Zeleno poļe z zlatim sijočim soncem, šestnajstkrakim soncem po vzoru Vergine, vzhajajočo zvezdo nad podonavsko nižino.",
+   "ist": "Zeleno pole sãs zlatno sijaešto slãnce, šestnadesetlãčevo po obrazeca na slãnceto ot Vergina — izgrjavaštata zvezda nad Dunavskata ravnina."
   },
   "Vert, azure and or horizontal; on the chief, the red Serbian cross with four firesteels; central shield with a stag couchant beneath a tree, between wavy bands of argent on azure, Sanxak in its highland forests.": {
-   "zap": "Vodoravno zeleno, modro in zlato; zgoraj rdeči srbski križ s štirimi kresili; osredñi ščit z ležečim jelenom pod drevesom med valovitimi srebrnimi pasovi na modrem, Sanxak v svojih gorskih gozdovih."
+   "zap": "Vodoravno zeleno, modro in zlato; zgoraj rdeči srbski križ s štirimi kresili; osredñi ščit z ležečim jelenom pod drevesom med valovitimi srebrnimi pasovi na modrem, Sanxak v svojih gorskih gozdovih.",
+   "ist": "Horizontalno zeleno, siño i zlatno; v gornata čast — červenijat srãbski krãst s četiri ogniva; centralen štit s ležašt elen pod dãrvo, meždu vãlnoobrazni srebãrni ivici na siño pole — Sanxak sred planinskite si gori."
   },
   "Vert, gules and argent horizontal, Bulgarian-style stripe; from the hoist, a navy triangular pall charged with the Cyrillic letter Ш argent.": {
-   "zap": "Vodoravno zeleno, rdeče in srebrno, pasovi v bolgarskem slogu; od droga temnomodri trikotnik s srebrno cirilsko črko ša."
+   "zap": "Vodoravno zeleno, rdeče in srebrno, pasovi v bolgarskem slogu; od droga temnomodri trikotnik s srebrno cirilsko črko ša.",
+   "ist": "Horizontalno zeleno, červeno i srebãrno, ivici v bãlgarski stil; otkãm drevkata — tãmnosin triãgãlnik sãs srebãrna kirilska bukva Ш."
   },
-  "Vertical bands of vert, gules, argent, gules and vert; central shield of the Bulgarian Krum heritage, mural crown labelled “ЛUDOGOPIE” in Bulgarian Cyrillic, with the leaping Madara horseman.": {
-   "zap": "Navpični pasovi zelene, rdeče, srebrne, rdeče in zelene barve; osredñi ščit bolgarske Krumove dediščine z zidno krono z napisom „LUDOGORIE“ v bolgarski cirilici in z madarskim jezdecem v skoku."
+  "Vertical bands of vert, gules, argent, gules and vert; central shield of the Bulgarian Krum heritage, mural crown labelled “ЛУДОГОРИЕ” in Bulgarian Cyrillic, with the leaping Madara horseman.": {
+   "zap": "Navpični pasovi zelene, rdeče, srebrne, rdeče in zelene barve; osredñi ščit bolgarske Krumove dediščine z zidno krono z napisom „LUDOGORIE“ v bolgarski cirilici in z madarskim jezdecem v skoku.",
+   "ist": "Vertikalni ivici v zeleno, červeno, srebãrno, červeno i zeleno; centralen štit, svãrzan s bãlgarskoto nasledstvo na han Krum, sãs stenna korona s nadpis „LUDOGORIE“ na bãlgarska kirilica i s Madarskija konnik v skok."
   },
   "vote by national register": {
    "sre": "glasaju po narodnom registru",
@@ -3661,7 +3929,8 @@
    "ist": "Glasna"
   },
   "We sent a confirmation link to <b>{0}</b>. Open it within 48 hours: your citizen card is issued the moment you confirm, and sent to the same address.": {
-   "zap": "Na naslov <b>{0}</b> smo poslali povezavo za potrditev. Odprite jo v 48 urah: državļanska izkaznica bo izdana v trenutku, ko potrdite, in poslana na isti naslov."
+   "zap": "Na naslov <b>{0}</b> smo poslali povezavo za potrditev. Odprite jo v 48 urah: državļanska izkaznica bo izdana v trenutku, ko potrdite, in poslana na isti naslov.",
+   "ist": "Izpratihme vrãzka za potvãrždenie na <b>{0}</b>. Otvorete ja v ramkite na 48 časa: graždanskata vi karta se izdava v momenta na potvãrždenieto i se izprašta na sãštija adres."
   },
   "Welcome, citizen. Your card has been sent to {0}.": {
    "zap": "Dobrodošli, državļan. Vaša izkaznica je bila poslana na {0}.",
@@ -3704,7 +3973,8 @@
    "zap": "Bela"
   },
   "White, navy and white horizontal Adriatic stripes; on the central shield, the tower-on-bridge of the historic Gulf cities and the Kvarner pine marten at base.": {
-   "zap": "Beli, temnomodri in beli vodoravni jadranski pasovi; na osredñem ščitu stolp na mostu zgodovinskih mest Kvarnerskega zaliva, v vznožju kvarnerska kuna zlatica."
+   "zap": "Beli, temnomodri in beli vodoravni jadranski pasovi; na osredñem ščitu stolp na mostu zgodovinskih mest Kvarnerskega zaliva, v vznožju kvarnerska kuna zlatica.",
+   "ist": "Horizontalni adriatičeski ivici v bjalo, tãmnosiño i bjalo; vãrhu centralnija štit — kulata na mosta na istoričeskite gradove ot zaliva, a v dolnata čast — kvarnerskata gorska kunica."
   },
   "within <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>": {
    "sre": "u državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",
@@ -3712,7 +3982,8 @@
    "zap": "v državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>"
   },
   "Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.": {
-   "zap": "Brez soglasja so za odločitev potrebni glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali glasovi petih svetnikov."
+   "zap": "Brez soglasja so za odločitev potrebni glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali glasovi petih svetnikov.",
+   "ist": "Bez konsensus rešenieto iziskva četirima sãvetnici, čiito narodi sãstavļavat mnozinstvoto ot vpisanite graždani, ili petima sãvetnici."
   },
   "Writing": {
    "zap": "Pisava",
@@ -3720,13 +3991,16 @@
    "ist": "Pismenost"
   },
   "Year {0}": {
-   "zap": "{0}. leto"
+   "zap": "{0}. leto",
+   "ist": "Godina {0}"
   },
   "Yellow field; on a red escutcheon, the rampant golden lion of Bulgarian heraldic continuity; black and azure stripes at the base recall the Black Sea littoral.": {
-   "zap": "Rumeno poļe; na rdečem srčnem ščitu vzpeti zlati lev kot izraz bolgarske heraldične kontinuitete; črni in modri pasovi v vznožju spomiñajo na črnomorsko obalo."
+   "zap": "Rumeno poļe; na rdečem srčnem ščitu vzpeti zlati lev kot izraz bolgarske heraldične kontinuitete; črni in modri pasovi v vznožju spomiñajo na črnomorsko obalo.",
+   "ist": "Žãlto pole; vãrhu červen štit — izpraven zlaten lãv, znak na bãlgarskata heraldičeska priemstvenost; černite i sinite ivici v dolnata čast napomñat za černomorskoto krajbrežie."
   },
   "Yellow, blue and white horizontal tricolour; the crowned royal shield of the medieval Bosnian Kingdom, fleurs-de-lys and the silver bend, in heraldic descent from the Kotromanić dynasty.": {
-   "zap": "Rumeno-modro-bela vodoravna trobojnica; kronani kraļevi ščit sredñeveškega Bosanskega kraļestva z lilijami in srebrno poševnico, v heraldičnem nasledstvu dinastije Kotromanić."
+   "zap": "Rumeno-modro-bela vodoravna trobojnica; kronani kraļevi ščit sredñeveškega Bosanskega kraļestva z lilijami in srebrno poševnico, v heraldičnem nasledstvu dinastije Kotromanić.",
+   "ist": "Žãlto-siño-bjal horizontalen trikoļor; koronovanijat kralski štit na srednovekovnoto Bosnensko kralstvo s lilii i srebãrna naklonena ivica, v heraldičeska priemstvenost ot dinastijata Kotromanić."
   },
   "You vote in your state of attachment": {
    "zap": "Glasujete v svoji državi pripadnosti",
@@ -3809,7 +4083,8 @@
    "ist": "Vrãštaneto vi v {0} važi za Narodni Sabor ot pãrvite izbori, provedeni sled {1}. Datata na vpisvaneto vi, {2}, se zapazva (čl. 102)."
   },
   "Your state elects the Kongres. Your people elect the Narodni Sabor.": {
-   "zap": "Vaša država voli Kongres. Vaš narod voli Narodni Sabor."
+   "zap": "Vaša država voli Kongres. Vaš narod voli Narodni Sabor.",
+   "ist": "Vašata dãržava izbira Kongres. Vašijat narod izbira Narodni Sabor."
   },
   "Your state follows from your municipality of origin, in the manner of a Swiss <i translate=\"no\">lieu d'origine</i>. It is your constituency for the Kongres and the state whose referendums you vote in. It is not a free choice (Art. 38, 39).": {
    "zap": "Vaša država izhaja iz vaše domovinske občine, po zgledu švicarskega <i translate=\"no\">lieu d'origine</i>. Je vaša volilna enota za Kongres in država, na katere referendumih glasujete. Ni predmet svobodne izbire (čl. 38, 39).",
@@ -3827,10 +4102,12 @@
    "ist": "Zagreb"
   },
   "Zoom in": {
-   "zap": "Povečaj"
+   "zap": "Povečaj",
+   "ist": "Uveličavane"
   },
   "Zoom out": {
-   "zap": "Pomañšaj"
+   "zap": "Pomañšaj",
+   "ist": "Namaļavane"
   },
   "{0} / km²": {
    "sre": "{0} / km²",
@@ -3843,40 +4120,52 @@
    "zap": "{0} {0#one:člen;two:člena;few:členi;other:členov}"
   },
   "{0} confederal municipalities": {
-   "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}"
+   "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}",
+   "ist": "{0} {0#one:konfederalna obština;other:konfederalni obštini}"
   },
   "{0} confederal territories": {
-   "zap": "{0} {0#one:konfederalno ozemļe;two:konfederalni ozemļi;few:konfederalna ozemļa;other:konfederalnih ozemeļ}"
+   "zap": "{0} {0#one:konfederalno ozemļe;two:konfederalni ozemļi;few:konfederalna ozemļa;other:konfederalnih ozemeļ}",
+   "ist": "{0} {0#one:konfederalna teritorija;other:konfederalni teritorii}"
   },
   "{0} entities ranked by gdp per capita, pps, 2023": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po BDP na prebivalca, SKM, 2023"
+   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po BDP na prebivalca, SKM, 2023",
+   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po BVP na čovek, SPS, 2023 g."
   },
   "{0} entities ranked by inhabitants per km²": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po številu prebivalcev na km²"
+   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po številu prebivalcev na km²",
+   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po broj žiteli na km²"
   },
   "{0} entities ranked by population": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po prebivalstvu"
+   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po prebivalstvu",
+   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po naselenie"
   },
   "{0} inhabitants": {
-   "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev}"
+   "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev}",
+   "ist": "{0} {0#one:žitel;other:žiteli}"
   },
   "{0} inhabitants / km²": {
-   "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev} / km²"
+   "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev} / km²",
+   "ist": "{0} {0#one:žitel;other:žiteli} / km²"
   },
   "{0} is 18. Give his e-mail address: he confirms it and manages his card himself from then on, with the same number. You will no longer have access to it.": {
-   "zap": "{0} je dopolnil 18 let. Vnesite ñegov e-poštni naslov: potrdil ga bo sam in odtlej sam upravļal svojo izkaznico z isto številko. Do ñe ne boste imeli več dostopa."
+   "zap": "{0} je dopolnil 18 let. Vnesite ñegov e-poštni naslov: potrdil ga bo sam in odtlej sam upravļal svojo izkaznico z isto številko. Do ñe ne boste imeli več dostopa.",
+   "ist": "{0} veče e na 18 godini. Posočete negovija imejl adres: toj šte go potvãrdi i ottuk natatãk sam šte upravļava kartata si, sãs sãštija nomer. Vie poveče ñama da imate dostãp do neja."
   },
   "{0} is now of age. When the confederal register opens, he takes over his card with his own e-mail address; until then he may register himself in his own browser.": {
-   "zap": "{0} je zdaj polnoleten. Ko bo konfederalni register začel delovati, bo svojo izkaznico prevzel z lastnim e-poštnim naslovom; do takrat se lahko prijavi sam v svojem brskalniku."
+   "zap": "{0} je zdaj polnoleten. Ko bo konfederalni register začel delovati, bo svojo izkaznico prevzel z lastnim e-poštnim naslovom; do takrat se lahko prijavi sam v svojem brskalniku.",
+   "ist": "{0} veče e pãlnoleten. Kogato konfederalnijat registãr započne rabota, toj šte poeme kartata si sãs sobstven imejl adres; dotogava može sam da se registrira v svoja brauzãr."
   },
   "{0} k": {
-   "zap": "{0} tis."
+   "zap": "{0} tis.",
+   "ist": "{0} hil."
   },
   "{0} km²": {
-   "zap": "{0} km²"
+   "zap": "{0} km²",
+   "ist": "{0} km²"
   },
   "{0} M": {
-   "zap": "{0} mio."
+   "zap": "{0} mio.",
+   "ist": "{0} mln."
   },
   "{0} municipalities of the 49 states and the two confederal municipalities. Cyrillic and spellings without diacritics are accepted.": {
    "zap": "Vse občine 49 držav in obe konfederalni občini, skupaj {0}. Sprejemajo se tudi cirilica in zapisi brez diakritičnih znakov.",
@@ -3884,10 +4173,12 @@
    "ist": "{0} obštini ot vsičkite 49 dãržavi i ot dvete konfederalni obštini. Priemat se izpisvanija na kirilica i bez diakritični znaci."
   },
   "{0} of the EU-27 average": {
-   "zap": "{0} povprečja EU-27"
+   "zap": "{0} povprečja EU-27",
+   "ist": "{0} ot srednoto za ES (27 dãržavi)"
   },
   "{0} PPS": {
-   "zap": "{0} SKM"
+   "zap": "{0} SKM",
+   "ist": "{0} SPS"
   },
   "{0} PPS per inhabitant": {
    "sre": "{0} SKM po stanovniku",
@@ -3900,10 +4191,12 @@
    "ist": "{0} ot {1} · edin izbiratelen rajon za cjalata Konfederacija · važi ot pãrvite izbori, provedeni sled {2}."
   },
   "{0} territorial states": {
-   "zap": "{0} {0#one:teritorialna država;two:teritorialni državi;few:teritorialne države;other:teritorialnih držav}"
+   "zap": "{0} {0#one:teritorialna država;two:teritorialni državi;few:teritorialne države;other:teritorialnih držav}",
+   "ist": "{0} {0#one:teritorialna dãržava;other:teritorialni dãržavi}"
   },
   "{0}% of the EU-27 average": {
-   "zap": "{0} % povprečja EU-27"
+   "zap": "{0} % povprečja EU-27",
+   "ist": "{0}% ot srednoto za ES (27 dãržavi)"
   },
   "{0}: {1} registration": {
    "zap": "{0}: {1} prijava",
@@ -3931,13 +4224,16 @@
    "ist": "„Dom, v kojto se vliza po izbor, v kojto se ostava po sãglasie i kojto nikoj ne e prinuden da obitava“ (Preambjul)."
   },
   "“Naš dom” · Our home.": {
-   "zap": "„Naš dom“ · geslo Konfederacije."
+   "zap": "„Naš dom“ · geslo Konfederacije.",
+   "ist": "„Naš dom“ · devizãt na Konfederacijata."
   },
   "← Back": {
-   "zap": "← Nazaj"
+   "zap": "← Nazaj",
+   "ist": "← Nazad"
   },
   "← Back to the form": {
-   "zap": "← Nazaj na obrazec"
+   "zap": "← Nazaj na obrazec",
+   "ist": "← Obratno kãm formuļara"
   }
  }
 }
