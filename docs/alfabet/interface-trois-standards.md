@@ -143,7 +143,7 @@ standard*) suivent la règle 5 (ADR 2026-10-25-alphabet-v3-mots-courants.md).
 | Other confederal bodies | Drugi konfederalni organi | Ostali konfederalni organi | Drugi konfederalni organi |
 | Confederal Council · Sarajevo | Izvršna oblast · Sarajevo | Izvršna vlast · Sarajevo | Izpãlnitelna vlast · Sarajevo |
 | The presidency | Predsedstvo | Predsědništvo | Predsedatelstvoto |
-| Seven departments | Sedem oddelkov | Sedam resora | Sedem resora |
+| Seven departments | Sedem resorjev | Sedam resora | Sedem resora |
 | How the council works | Način dela | Način rada | Kak raboti Sãvetãt |
 | Confederal security | Konfederalna varnost | Konfederalna sigurnost | Konfederalna sigurnost |
 | Four services | Štiri službe | Četiri službe | Četiri službi |

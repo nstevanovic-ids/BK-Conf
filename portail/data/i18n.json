@@ -71,7 +71,7 @@
     "h_bodies":       {"en": "Other confederal bodies", "zap": "Drugi konfederalni organi", "sre": "Ostali konfederalni organi", "ist": "Drugi konfederalni organi"},
     "h_council_eye":  {"en": "Confederal Council · Sarajevo", "zap": "Izvršna oblast · Sarajevo", "sre": "Izvršna vlast · Sarajevo", "ist": "Izpãlnitelna vlast · Sarajevo"},
     "h_presidency":   {"en": "The presidency", "zap": "Predsedstvo", "sre": "Predsědništvo", "ist": "Predsedatelstvoto"},
-    "h_departments":  {"en": "Seven departments", "zap": "Sedem oddelkov", "sre": "Sedam resora", "ist": "Sedem resora"},
+    "h_departments":  {"en": "Seven departments", "zap": "Sedem resorjev", "sre": "Sedam resora", "ist": "Sedem resora"},
     "h_council_works": {"en": "How the council works", "zap": "Način dela", "sre": "Način rada", "ist": "Kak raboti Sãvetãt"},
     "h_security_eye": {"en": "Confederal security", "zap": "Konfederalna varnost", "sre": "Konfederalna sigurnost", "ist": "Konfederalna sigurnost"},
     "h_services":     {"en": "Four services", "zap": "Štiri službe", "sre": "Četiri službe", "ist": "Četiri službi"},
