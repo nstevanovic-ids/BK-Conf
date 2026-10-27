@@ -266,6 +266,8 @@ def extract():
 
 # ---------------------------------------------------------------- bulgare <-> latin v3
 
+CYRIL_W = re.compile("[\u0400-\u04FF]+")
+
 BG = {"а": "a", "б": "b", "в": "v", "г": "g", "д": "d", "е": "e", "ж": "ž", "з": "z", "и": "i",
       "й": "j", "к": "k", "л": "l", "м": "m", "н": "n", "о": "o", "п": "p", "р": "r", "с": "s",
       "т": "t", "у": "u", "ф": "f", "х": "h", "ц": "c", "ч": "č", "ш": "š", "щ": "št", "ъ": "ã",
@@ -295,8 +297,9 @@ def bg_word(w):
     return o
 
 
-def bg2lat(s):
-    return re.sub(r"[Ѐ-ӿ]+", lambda m: bg_word(m.group(0)), s)
+def bg2lat(s, keep=()):
+    """keep : mots cyrilliques laissés tels quels (ceux que la clé anglaise cite déjà, Ћир)."""
+    return CYRIL_W.sub(lambda m: m.group(0) if m.group(0) in keep else bg_word(m.group(0)), s)
 
 
 # Portage Python de toCyr (portail/index.html), pour l'aller-retour.
@@ -343,7 +346,7 @@ ROMAN = re.compile(r"(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})")
 def keep_latin(tok, before):
     if LAT_FOREIGN.search(tok):
         return True
-    return bool(tok) and ROMAN.fullmatch(tok) and (len(tok) > 1 or re.search(r"[^\W_]\s+$", before))
+    return bool(tok) and ROMAN.fullmatch(tok) and (len(tok) > 1 or re.search(r"(?:[^\W_]|\b[IVXL]+,)\s+$", before))
 
 
 def to_cyr(s, std, keep=()):
@@ -397,7 +400,7 @@ def check_one(key, lang, tr):
     for ch in '"<>':
         if tr.count(ch) > key.count(ch) and not (ch in "<>" and TAG.search(tr)):
             errs.append(f"caractère {ch} ajouté")
-    if CYRIL.search(tr):
+    if set(CYRIL_W.findall(tr)) - set(CYRIL_W.findall(key)):
         errs.append("cyrillique dans le latin")
     plain = TAG.sub(" ", tr)
     if lang in ("zap", "sre"):
@@ -468,7 +471,7 @@ def cmd_merge(lang, files):
                 continue
             v = unicodedata.normalize("NFC", v.strip())
             if lang == "ist":
-                lat = bg2lat(v)
+                lat = bg2lat(v, set(CYRIL_W.findall(k)))
                 back = to_cyr(lat, "ist", names)
                 ref = to_cyr(v.replace("ѝ", "и"), "ist", names)
                 if back != ref:

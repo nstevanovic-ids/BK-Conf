@@ -1457,14 +1457,14 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
         <button data-l="ist">IST</button>
       </div>
       <div class="langsel scriptsel" id="scriptsel" translate="no" hidden>
-        <button data-s="lat" aria-label="Latin">Lat</button>
-        <button data-s="cyr" aria-label="Cyrillic">Ћир</button>
+        <button data-s="lat" aria-label="Latin" data-i18n-aria="scr_lat">Lat</button>
+        <button data-s="cyr" aria-label="Cyrillic" data-i18n-aria="scr_cyr">Ћир</button>
       </div>
       <span class="sep"></span>
       <a class="ut" id="utReg" href="#/register">Register</a>
       <span class="sep"></span>
       <button class="themebtn" id="themeBtn" onclick="toggleTheme()"
-        aria-label="Toggle dark mode" title="Toggle light / dark theme" data-i18n-title="theme">
+        aria-label="Toggle dark mode" data-i18n-aria="theme" title="Toggle light / dark theme" data-i18n-title="theme">
         <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1508,14 +1508,14 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 <main id="app"></main>
 
 <div class="scrim" id="searchScrim" onclick="if(event.target===this)closeSearch()">
-  <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search the portal">
+  <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search the portal" data-i18n-aria="search">
     <div class="sb-in">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
-        placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query" data-i18n-ph="search_ph">
+        placeholder="Search states, communities, peoples, letters, pages…" aria-label="Search query" data-i18n-aria="search_q" data-i18n-ph="search_ph">
       <span class="sb-esc">ESC</span>
-      <button class="sb-close" type="button" onclick="closeSearch()" aria-label="Close search">
+      <button class="sb-close" type="button" onclick="closeSearch()" aria-label="Close search" data-i18n-aria="search_x">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
@@ -1771,13 +1771,14 @@ function latRe(){
     +(names.length?'|(?<![\\p{L}\\p{M}])(?:'+names.join('|')+')(?![\\p{L}\\p{M}])':''),'gu');
 }
 /* Roman numerals stay Latin (Glava III, Title I bis): any of two letters or more; a single I, V
-   or X only after a word, so that the conjunction I opening a sentence is still converted.
+   or X only after a word or in a list of numerals (IV, V), so that the conjunction I opening a
+   sentence is still converted.
    In a hyphenated token with a digit, only a lower-case ending is converted (49-te → 49-те):
    codes stay whole (BA-01, Bk-12, EU-27, TD1). */
 const ROMAN=/^(?:XL|L?X{0,3})(?:IX|IV|V?I{0,3})$/;
 function cyrPlain(t,std){
   return t.replace(/[\p{L}\p{M}\d]+(?:['’-][\p{L}\p{M}\d]+)*/gu,(tok,at,all)=>{
-    if(LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/[\p{L}\d]\s+$/u.test(all.slice(0,at)))))return tok;
+    if(LAT_FOREIGN.test(tok)||(ROMAN.test(tok)&&(tok.length>1||/(?:[\p{L}\d]|\b[IVXL]+,)\s+$/u.test(all.slice(0,at)))))return tok;
     if(/\d/.test(tok))return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>/^[\p{Ll}\p{M}]+$/u.test(w)?cyrWord(w,std):w);
     return tok.replace(/[\p{L}\p{M}\d]+/gu,w=>cyrWord(w,std));
   });
