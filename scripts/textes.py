@@ -400,9 +400,9 @@ def check_one(key, lang, tr):
                 warns.append(f"v3 ? {m.group(0)}")
     if re.search(r"(?i)[ñļ]j", plain):
         errs.append("ñj / ļj (la lettre v3 remplace déjà nj, lj)")
-    if lang in ("zap", "ist") and "ě" in plain.lower():
+    if lang in ("zap", "ist") and "ě" in plain.lower() and "ě" not in key.lower():
         errs.append("yat hors du središñi")
-    if lang == "ist" and re.search(r"(?i)[ćđ]", plain):
+    if lang == "ist" and re.search(r"(?i)[ćđ]", plain) and not re.search(r"(?i)[ćđ]", key):
         warns.append("ć/đ à l'istočni (nom propre ?)")
     return errs, warns
 
