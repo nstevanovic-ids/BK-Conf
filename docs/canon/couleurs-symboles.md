@@ -68,7 +68,7 @@ sans, c'est le *civil flag* ».
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
 | Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
-| Forces armées | à choisir | piste : buzdovan et épée |
+| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Loup** (*Canis lupus*) | natif de toute la région ; la meute, image de l'armée de milice ; défend son territoire, comme une armée défensive (art. 59) ; ADR 2026-10-28-loup-forces-armees.md |
 
 Règles communes aux logos des services :
 - une seule famille : même forme (médaillon ou écu), même typographie, nom sud-slave
@@ -79,6 +79,10 @@ Règles communes aux logos des services :
   Kotromanić, lion couronné bulgare, soleil de Vergina, Triglav), étoile à cinq
   branches, soleil à sept rais (réservé au sceau), motifs à sept éléments, œil (contraire
   à l'interdiction de surveillance politique, art. 137 et 145) ;
+- loup des forces armées : tête de profil, gueule fermée, à l'horizontale ; ni loup
+  hurlant, ni croissant, ni geste de la main (emblème des Loups gris turcs) ; ni montagne
+  ni Velebit (loup de Lika, LK-20) ; aucune formation nommée *Vukovi* (unités des guerres
+  des années 1990) ;
 - le lynx **n'est plus** candidat au totem animal de la Confédération : il est attribué
   à la Žandarmerija. Le totem confédéral reste à choisir (workstream des symboles).
 

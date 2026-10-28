@@ -113,7 +113,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   réseaux (X d'abord, puis Instagram) → docs/communication/
 - Symboles confédéraux (animal totem à choisir, lettre-emblème glagolitique/bosančica) → en
   attente ; le lynx est l'emblème de la Žandarmerija, plus un candidat au totem (ADR
-  2026-10-22-emblemes-services-securite.md)
+  2026-10-22-emblemes-services-securite.md) ; le loup est l'animal des Konfederalne Oružane
+  Snage (tête de profil, gueule fermée ; ni loup hurlant ni croissant, ni montagne de Lika ;
+  ADR 2026-10-28-loup-forces-armees.md)
 - Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2

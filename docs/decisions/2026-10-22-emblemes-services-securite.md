@@ -45,6 +45,7 @@ Elles sont consignées dans `docs/canon/couleurs-symboles.md`.
 
 ## Reste ouvert
 - Emblème des forces armées. Pistes : buzdovan et épée, ou épées croisées sous une
-  couronne de chêne avec le lion ailé en petit.
+  couronne de chêne avec le lion ailé en petit. **Réglé le 2026-10-28 : le loup**
+  (ADR 2026-10-28-loup-forces-armees.md).
 - Animal totem de la Confédération.
 - Dessin des logos.
