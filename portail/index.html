@@ -1314,7 +1314,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   display:flex;flex-direction:column;transition:box-shadow .25s ease,transform .25s ease}
 .secard:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
 .secimg{position:relative;overflow:hidden}
-.secimg .imgslot,.secimg .imgslot.miss{aspect-ratio:16/9}
+.secimg .imgslot,.secimg .imgslot.miss{aspect-ratio:3/2}
 .secimg .imgslot img{transition:transform .7s ease}
 .secard:hover .secimg .imgslot img{transform:scale(1.035)}
 .secimg:not(:has(.miss))::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;
@@ -4868,10 +4868,10 @@ const SLOTS={
  'identity-people':{cat:'Humain',lab:N('People'),subj:N('The living language · portraits'),w:1800,h:1000},
  'institutions-hall':{cat:'Politique',lab:N('Politics'),subj:N('Assembly hall / confederal palace'),w:1800,h:1000},
  'participation-crowd':{cat:'Humain',lab:N('People'),subj:N('Citizens · public square'),w:2400,h:1000},
- 'security-zandarmerija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Žandarmerija · Granična Straža'),w:1600,h:900},
- 'security-istrazni-ured':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Ured · investigators'),w:1600,h:900},
- 'security-obavestajna-agencija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Obavěštajna Agencija · intelligence'),w:1600,h:900},
- 'security-armed-forces':{cat:'Sécurité',lab:N('Security'),subj:N('Confederal armed forces'),w:1600,h:900},
+ 'security-zandarmerija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Žandarmerija · Granična Straža'),w:1500,h:1000},
+ 'security-istrazni-ured':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Ured · investigators'),w:1500,h:1000},
+ 'security-obavestajna-agencija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Obavěštajna Agencija · intelligence'),w:1500,h:1000},
+ 'security-armed-forces':{cat:'Sécurité',lab:N('Security'),subj:N('Confederal armed forces'),w:1500,h:1000},
 };
 /* Slot rotation: <id>.jpg, then <id>-2.jpg ... <id>-N.jpg cross-fade in place.
    Add a photo: drop the file and raise the count here. */

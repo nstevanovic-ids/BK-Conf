@@ -16,10 +16,10 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `identity-people.jpg` | Humain | La langue vivante · portraits | 1800×1000 | Page Identity — bande |
 | `institutions-hall.jpg` | Politique | Hémicycle / palais fédéral | 1800×1000 | Page Institutions — bande |
 | `participation-crowd.jpg` | Humain | Citoyens · place publique | 2400×1000 | Page Participation — bande |
-| `security-zandarmerija.jpg` | Sécurité | Konfederalna Žandarmerija · Granična Straža | 1600×900 | Page Security and Defence — encart Žandarmerija |
-| `security-istrazni-ured.jpg` | Sécurité | Konfederalni Istražni Ured · enquêteurs | 1600×900 | Page Security and Defence — encart Istražni Ured |
-| `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1600×900 | Page Security and Defence — encart Obavěštajna Agencija |
-| `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1600×900 | Page Security and Defence — encart forces armées |
+| `security-zandarmerija.jpg` | Sécurité | Konfederalna Žandarmerija · Granična Straža | 1500×1000 | Page Security and Defence — encart Žandarmerija |
+| `security-istrazni-ured.jpg` | Sécurité | Konfederalni Istražni Ured · enquêteurs | 1500×1000 | Page Security and Defence — encart Istražni Ured |
+| `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
+| `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1500×1000 | Page Security and Defence — encart forces armées |
 
 Images générées (ne pas remplacer à la main) : `wallet-logo.png` (660×660) et
 `wallet-hero.png` (1032×336), logo et bandeau du pass Google Wallet de la carte citoyenne,
