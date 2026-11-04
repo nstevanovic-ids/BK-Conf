@@ -1,11 +1,11 @@
 # Liste canonique des États — Balkanska Konfederacija
 
-**45 États territoriaux + 4 territoires confédéraux (villes-États) + 2 municipalités confédérales autonomes.**
+**46 États territoriaux + 4 territoires confédéraux (villes-États) + 2 municipalités confédérales autonomes.**
 Numérotation strictement alphabétique par code. Source de vérité du projet.
 Trois États ajoutés le 2026-06-28 (Lašva, Soli, Vrhbosna) en codes provisoires
 LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
-## États territoriaux (45)
+## États territoriaux (46)
 
 | Code | Nom | Peuple | Chef-lieu |
 |------|-----|--------|-----------|
@@ -30,14 +30,14 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | LG-19 | Ludogorje | Bulgarians | Razgrad |
 | LK-20 | Lika | Croats | Gospić |
 | LV-21 | Lašva | Bosniaks | Travnik |
-| MI-22 | Istočna Mizija | Bulgarians | Ruse |
-| MZ-23 | Zapadna Mizija | Bulgarians | Pleven |
+| MI-22 | Istočna Mizija | Bulgarians | Veliko Tãrnovo |
+| MZ-23 | Zapadna Mizija | Bulgarians | Vraca |
 | PI-24 | Istočno Podriñe | Serbs | Višegrad |
 | PM-25 | Prekmurje | Slovenes | Murska Sobota |
 | PO-26 | Podunavļe | Serbs | Smederevo |
 | PR-27 | Pirin | Bulgarians | Blagoevgrad |
 | PZ-28 | Zapadno Podriñe | Serbs | Běļina |
-| RO-29 | Rodopi | Bulgarians | Plovdiv |
+| RO-29 | Rodopi | Bulgarians | Smoļan |
 | RS-30 | Raška Sanxak | Serbs | Novi Pazar |
 | SI-31 | Istočni Srěm | Serbs | Sremska Mitrovica |
 | SL-32 | Slavonija | Croats | Osěk |
@@ -45,15 +45,16 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | SP-34 | Šopluk | Bulgarians | Pernik |
 | ST-35 | Štajerska | Slovenes | Maribor |
 | SU-36 | Šumadija | Serbs | Kragujevac |
-| SX-37 | Stranxa | Bulgarians | Sliven |
+| SX-37 | Stranxa | Bulgarians | Carevo |
 | SZ-38 | Zapadni Srěm | Croats | Vukovar |
 | TK-39 | Timok | Serbs | Zaječar |
 | TL-40 | Torlak | Serbs | Pirot |
-| TR-41 | Severna Trakija | Bulgarians | Stara Zagora |
-| VB-42 | Vrhbosna | Bosniaks | Zenica |
-| VI-43 | Istočen Vardar | Macedonians | Štip |
-| VZ-44 | Zapaden Vardar | Macedonians | Tetovo |
-| ZA-45 | Zagorje | Croats | Krapina |
+| TR-41 | Trakija | Bulgarians | Plovdiv |
+| TU-42 | Tunxa | Bulgarians | Stara Zagora |
+| VB-43 | Vrhbosna | Bosniaks | Zenica |
+| VI-44 | Istočen Vardar | Macedonians | Štip |
+| VZ-45 | Zapaden Vardar | Macedonians | Tetovo |
+| ZA-46 | Zagorje | Croats | Krapina |
 
 ## Territoires confédéraux, villes-États (4)
 
@@ -94,6 +95,14 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 > 2026-10-15 : chefs-lieux de BA-01 (Bihać) et BZ-05 (Baña Luka) remis dans le bon
 > ordre ; chef-lieu de VB-42 Vrhbosna confirmé : Zenica ; cf. ADR docs/decisions/2026-10-15-chefs-lieux-ba-bz.md.
 
+- 2026-11-04 : redécoupage des États bulgares. La plaine de Plovdiv passe de RO-29 à TR-41,
+  renommé Trakija (Thrace occidentale, chef-lieu Plovdiv) ; nouvel État TU-42 Tunxa (Thrace
+  orientale : oblasts de Stara Zagora, Haskovo, Sliven et Jambol) ; oblast de Ruse de LG-19 à
+  MI-22 ; Ivajlovgrad et Maxarovo de la Thrace à RO-29 ; chefs-lieux de MI-22, MZ-23, RO-29,
+  SX-37 et TR-41 revus, tous dans leur État. Renumérotation alphabétique : VB-42 → VB-43,
+  VI-43 → VI-44, VZ-44 → VZ-45, ZA-45 → ZA-46. Cf. ADR
+  docs/decisions/2026-11-04-redecoupage-bulgare.md.
+
 > L'Article 1 bis de la Constitution v4 (docs/constitution/v4.md) est aligné
-> sur cette liste : 49 États (45 territoriaux + 4 villes-États), plus les
+> sur cette liste : 50 États (46 territoriaux + 4 villes-États), plus les
 > 2 municipalités confédérales autonomes.

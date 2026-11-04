@@ -43,10 +43,11 @@ Précisions :
 
 ## 2. Noms déjà convertis
 
-### États (11)
+### États (12)
 
 Huit noms sont touchés par la v3 (ñ, ļ, ě). Le « 9 » annoncé par `v3.md` comptait Sredña
-Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1.
+Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1 ; Tunxa (TU-42), créé le
+2026-11-04, l'a reçu à sa création.
 
 | Code | Forme antérieure | Forme v3 | Lettre |
 |---|---|---|---|
@@ -57,12 +58,13 @@ Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1.
 | PO-26 | Podunavlje | **Podunavļe** | ļ |
 | SI-31 | Istočni Srem | **Istočni Srěm** | ě |
 | SZ-38 | Zapadni Srijem | **Zapadni Srěm** | ě |
-| TR-41 | Severna Trakija (Северна Тракия) | **Severna Trakija** | aucune (yat retiré le 2026-10-25, nom ekavien) |
+| TR-41 | Severna Trakija (Северна Тракия) | **Trakija** | aucune (yat retiré le 2026-10-25, nom ekavien ; renommé Trakija le 2026-11-04, ADR 2026-11-04-redecoupage-bulgare.md) |
 | DJ-09 | Južna Dobrudža (Южна Добруджа) | **Južna Dobruxa** | x (v1) |
 | RS-30 | Raška Sandžak | **Raška Sanxak** | x (v1) |
 | SX-37 | Strandža (Странджа) | **Stranxa** | x (v1) |
+| TU-42 | Tundža (Тунджа) | **Tunxa** | x (2026-11-04) |
 
-### Chefs-lieux (5)
+### Chefs-lieux (6)
 
 | État | Forme officielle | Forme v3 |
 |---|---|---|
@@ -70,6 +72,7 @@ Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1.
 | BZ-05 | Banja Luka | **Baña Luka** |
 | HI-12 | Trebinje | **Trebiñe** |
 | KR-17 | Ljubljana | **Ļubļana** |
+| RO-29 | Smoljan (Смолян) | **Smoļan** |
 | SI-31 | Sremska Mitrovica | **Srěmska Mitrovica** |
 
 ### Entités autonomes (5 entités, 6 formes)

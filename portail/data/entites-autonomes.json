@@ -33,7 +33,7 @@
   "id": "SSO-ZA",
   "n": "Savez Srpskih Opština Zagorja",
   "com": "Serb",
-  "host": "ZA-45"
+  "host": "ZA-46"
  },
  {
   "id": "SSO-CG",
@@ -81,19 +81,19 @@
   "id": "TBB-VZ",
   "n": "Batı Vardar Türk Belediyeler Birliği",
   "com": "Turkish",
-  "host": "VZ-44"
+  "host": "VZ-45"
  },
  {
   "id": "UKSVL",
   "n": "Unioni i Komunave Shqiptare të Vardarit Lindor",
   "com": "Albanian",
-  "host": "VI-43"
+  "host": "VI-44"
  },
  {
   "id": "BKSVP",
   "n": "Bashkimi i Komunave Shqiptare të Vardarit Perëndimor",
   "com": "Albanian",
-  "host": "VZ-44"
+  "host": "VZ-45"
  },
  {
   "id": "SO-CG",

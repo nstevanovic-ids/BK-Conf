@@ -257,7 +257,7 @@
   "n": "Istočna Mizija",
   "p": "bul",
   "t": "T",
-  "ch": "Ruse",
+  "ch": "Veliko Tãrnovo",
   "g": [
    11,
    3
@@ -269,7 +269,7 @@
   "n": "Zapadna Mizija",
   "p": "bul",
   "t": "T",
-  "ch": "Pleven",
+  "ch": "Vraca",
   "g": [
    10,
    3
@@ -341,7 +341,7 @@
   "n": "Rodopi",
   "p": "bul",
   "t": "T",
-  "ch": "Plovdiv",
+  "ch": "Smoļan",
   "g": [
    11,
    8
@@ -437,7 +437,7 @@
   "n": "Stranxa",
   "p": "bul",
   "t": "T",
-  "ch": "Sliven",
+  "ch": "Carevo",
   "g": [
    13,
    8
@@ -482,17 +482,29 @@
  {
   "c": "TR-41",
   "k": "TR",
-  "n": "Severna Trakija",
+  "n": "Trakija",
   "p": "bul",
   "t": "T",
-  "ch": "Stara Zagora",
+  "ch": "Plovdiv",
   "g": [
    11,
    7
   ]
  },
  {
-  "c": "VB-42",
+  "c": "TU-42",
+  "k": "TU",
+  "n": "Tunxa",
+  "p": "bul",
+  "t": "T",
+  "ch": "Stara Zagora",
+  "g": [
+   12,
+   7
+  ]
+ },
+ {
+  "c": "VB-43",
   "k": "VB",
   "n": "Vrhbosna",
   "p": "bos",
@@ -504,7 +516,7 @@
   ]
  },
  {
-  "c": "VI-43",
+  "c": "VI-44",
   "k": "VI",
   "n": "Istočen Vardar",
   "p": "mkd",
@@ -516,7 +528,7 @@
   ]
  },
  {
-  "c": "VZ-44",
+  "c": "VZ-45",
   "k": "VZ",
   "n": "Zapaden Vardar",
   "p": "mkd",
@@ -528,7 +540,7 @@
   ]
  },
  {
-  "c": "ZA-45",
+  "c": "ZA-46",
   "k": "ZA",
   "n": "Zagorje",
   "p": "hrv",
