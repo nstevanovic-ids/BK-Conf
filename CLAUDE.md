@@ -18,11 +18,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Le projet est sud-slave **+ balkanique**, explicitement PAS pan-slave
 
 ## Composition (source : docs/canon/etats.md)
-- **49 États** : 45 territoriaux + 4 villes-États (territoires confédéraux) ; plus 2 municipalités
+- **50 États** : 46 territoriaux + 4 villes-États (territoires confédéraux) ; plus 2 municipalités
   confédérales autonomes (Brčko, Mostar), qui ne sont pas des États
   (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
   alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md ;
-  Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md)
+  Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md ; bloc bulgare redécoupé le
+  2026-11-04 : Thrace en deux États, Trakija TR-41 et Tunxa TU-42, VB/VI/VZ/ZA renumérotés,
+  ADR 2026-11-04-redecoupage-bulgare.md)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošñaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofija (défense + sciences)
@@ -70,7 +72,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   réflexes ijekaviens (Rěka, Běļina, Osěk) ; les noms ekaviens n'ont pas de yat et gardent e
   (Beli Manastir, Sremska Mitrovica ; ADR 2026-10-25-ekavien-sans-yat.md) ; noms d'États :
   Istočni et Zapadni Srěm gardent le yat (Srijem), Severna Trakija sans yat (ADR
-  2026-10-25-noms-etats-yat.md) ; sinon latin
+  2026-10-25-noms-etats-yat.md ; renommé Trakija le 2026-11-04) ; sinon latin
   inchangé. Beograd = exception déclarée.
   Communes : scripts/toponymie_v3.py (opstine.json v 2, nom officiel en alias)
 - ñ et ļ dans tout mot sud-slave, pas seulement les noms de lieux : carte (Državļanska karta,
@@ -89,8 +91,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
   #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
-  Version 4.11 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard). Titres 1 à 3 (texte de base, art. 1
+  Version 4.12 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare, cinquante États). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties

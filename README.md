@@ -14,7 +14,7 @@ numérique.
 CLAUDE.md                  Bible du projet
 docs/
   canon/                   Décisions gelées (source de vérité)
-    etats.md               49 États (45 territoriaux + 4 territoires confédéraux)
+    etats.md               50 États (46 territoriaux + 4 territoires confédéraux)
                            et 2 municipalités confédérales autonomes
     peuples.md             7 peuples constitutifs
     entites-autonomes.md   24 entités autonomes
@@ -80,7 +80,8 @@ explicite, et elle se propage partout : canon, constitution, données, portail.
 ## État actuel (octobre 2026)
 
 - **Territoire** :
-  - 49 États et 2 municipalités confédérales autonomes, tous avec leur drapeau ;
+  - 50 États et 2 municipalités confédérales autonomes, tous avec leur drapeau sauf Tunxa
+    (TU-42, créé le 2026-11-04) ;
   - 24 entités autonomes ;
   - carte en globe d3-geo, avec des chiffres clés par État (population, superficie, PIB
     par habitant).

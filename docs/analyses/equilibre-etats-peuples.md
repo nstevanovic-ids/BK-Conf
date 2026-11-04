@@ -9,6 +9,11 @@ sorties (ADR `docs/decisions/2026-10-25-double-cle.md`) :
 La pondération des voix d'États (section 5) est mise de côté le 2026-10-25 ; les deux
 variantes restent documentées pour une reprise éventuelle.
 
+> **2026-11-04** : le bloc bulgare est redécoupé (ADR `docs/decisions/2026-11-04-redecoupage-bulgare.md`)
+> pour corriger des erreurs de géographie, non pour l'équilibre. Les Bulgares ont onze États sur
+> quarante-six (rapport 0,97 au lieu de 0,90) ; aux votations, la majorité passe à 26 États sur 50,
+> et les constats de la section 4 restent vrais. Les autres chiffres datent du 2026-10-25.
+
 ## 1. Méthode
 
 - La population d'un peuple est celle des **États territoriaux** qui lui sont rattachés
