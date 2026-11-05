@@ -511,6 +511,11 @@
    "sre": "Balkanska panorama / jadranska obala",
    "ist": "Balkanska panorama / Adriatičesko krajbrežie"
   },
+  "Banner of the arms of Usora: per pale or and gules, a chevron counterchanged charged with three crescents argent, the one at the apex upright and those on the limbs turned towards the apex.": {
+   "zap": "Prapor z grbom Usore: navpično razdeļen na zlato in rdeče, s ševronom v zameñanih barvah, na katerem so trije srebrni polmeseci; tisti na vrhu je pokončen, tista na krakih sta obrñena proti vrhu.",
+   "sre": "Zastava s grbom Usore: polovļeno zlatno i crveno, sa ševronom u zaměñenim bojama, na kome su tri srebrna poluměseca; onaj na vrhu je uspravan, a oni na krakovima okrenuti su prema vrhu.",
+   "ist": "Zname s gerba na Usora: vertikalno razdeleno na zlatno i červeno, s ševron v razmeneni cvetove, vãrhu kojto ima tri srebãrni polumeseca; tozi na vãrha e izpraven, a tezi na ramenata sa obãrnati kãm vãrha."
+  },
   "Basis of attachment": {
    "zap": "Podlaga pripadnosti",
    "sre": "Osnova pripadnosti",
@@ -1915,6 +1920,11 @@
    "zap": "Domov",
    "sre": "Početna",
    "ist": "Načalo"
+  },
+  "Horizontal tricolour of gules, or and argent: the blood given for freedom, the gold of Zlatibor, the “golden pine”, and peace. At the centre, the arms of Zlatibor: a field of gold rising in pine tops into a chief argent charged with the Serbian cross with four firesteels in gold; over the field, the white falcon of Užice.": {
+   "zap": "Vodoravna trobojnica rdeče, zlate in srebrne barve: kri, prelita za svobodo, zlato Zlatibora, »zlatega bora«, in mir. V sredini grb Zlatibora: zlato poļe, ki se z vrhovi borov dviga v srebrno glavo z zlatim srbskim križem s štirimi kresili; na poļu beli užiški sokol.",
+   "sre": "Vodoravna trobojka crvene, zlatne i srebrne boje: krv prolivena za slobodu, zlato Zlatibora, „zlatnog bora“, i mir. U sredini grb Zlatibora: zlatno poļe koje se vrhovima borova uzdiže u srebrnu glavu sa zlatnim srpskim krstom sa četiri ocila; na poļu běli užički soko.",
+   "ist": "Horizontalen trikoļor v červeno, zlatno i srebãrno: krãvta, proļata za svobodata, zlatoto na Zlatibor, „zlatnija bor“, i mirãt. V sredata — gerbãt na Zlatibor: zlatno pole, koeto se izdiga s vãrhove na borove v srebãrna glava sãs zlatnija srãbski krãst s četirite ogniva; vãrhu poleto — belijat sokol na Užice."
   },
   "Hover a state or a column to see its figures, click to pin it.": {
    "sre": "Pređite pokazivačem preko države ili trake grafikona za prikaz ñenih podataka, a klikom je fiksirajte.",

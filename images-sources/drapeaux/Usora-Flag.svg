@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">
+<title>Usora (US-43)</title>
+<rect x="0" y="0" width="750.0" height="1000" fill="#FAC033"/>
+<rect x="750.0" y="0" width="750.0" height="1000" fill="#B63033"/>
+<path d="M 750.0 55.00 L 750.0 415.00 L 285.71 1000 L 0 1000 Z" fill="#B63033"/>
+<path d="M 750.0 55.00 L 1500 1000 L 1214.29 1000 L 750.0 415.00 Z" fill="#FAC033"/>
+<path transform="translate(750.00 279.42) rotate(0.00)" d="M -85.35 -34.21 A 91.95 91.95 0 1 0 85.35 -34.21 A 86.16 86.16 0 0 1 -85.35 -34.21 Z" fill="#FFFFFF"/>
+<path transform="translate(450.00 613.00) rotate(38.44)" d="M -85.35 -34.21 A 91.95 91.95 0 1 0 85.35 -34.21 A 86.16 86.16 0 0 1 -85.35 -34.21 Z" fill="#FFFFFF"/>
+<path transform="translate(1050.00 613.00) rotate(-38.44)" d="M -85.35 -34.21 A 91.95 91.95 0 1 0 85.35 -34.21 A 86.16 86.16 0 0 1 -85.35 -34.21 Z" fill="#FFFFFF"/>
+</svg>
