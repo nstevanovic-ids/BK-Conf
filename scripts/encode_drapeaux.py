@@ -88,6 +88,7 @@ MAPPING = {
     "VB-44": "Vrhbosna-Flag.png",
     "VZ-46": "Flag_of_Zapaden-Vardar.webp",
     "ZA-47": "Zagorje-Flag.webp",
+    "ZL-48": "Zlatibor-Flag.png",
     "BG-91": "Beograd-Flag.png",
     "SA-92": "Sarajevo-Flag.png",
     "SF-93": "Sofia-Flag.webp",
