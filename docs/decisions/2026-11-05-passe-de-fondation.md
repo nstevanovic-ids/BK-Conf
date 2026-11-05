@@ -9,7 +9,9 @@ Accepté le 2026-11-05, en une suite de décisions de l'utilisateur :
   qu'au final ils soient sur représenter, ce n'est pas normal » ;
 - sur la robustesse : « Ok mais tu vas pas me dire dans 2 mois, ah je me suis trompé en fait il
   en faut 5 » ;
-- « Allez go » sur l'ensemble, livré en une seule PR.
+- « Allez go » sur l'ensemble, livré en une seule PR ;
+- sur les États serbes, revus dans une discussion à part : « Pas fan d'ailleurs de Pomoravlje
+  perso », puis « Oui c'est bien zlatibor » ; « Oui » pour Loznica, chef-lieu d'Istočno Podriñe.
 
 Constitution portée en version 4.13 (articles 1 bis, 1 quinquies et 150, annexe T), sans article
 nouveau. Cet ADR modifie la règle d'or des frontières (section « Règle d'or ») : il autorise une
@@ -56,12 +58,13 @@ votations, aux coalitions d'États et au plancher de deux sièges du Kongres.
 | **PA-23 Pajonija** (nouveau) | — | 279 167 | Veles, Gradsko, Konče, Lozovo, Sveti Nikole, Negotino, Kavadarci, Rosoman, Demir Kapija, Gevgelija, Bogdanci, Dojran, Valandovo, Strumica, Bosilovo, Novo Selo, Vasilevo, Radoviš ; chef-lieu Veles |
 | **BE-03 Bregalnica** (nouveau) | — | 150 234 | Štip, Karbinci, Probištip, Zrnovci, Češinovo-Obleševo, Kočani, Vinica, Makedonska Kamenica, Delčevo, Pehčevo, Berovo ; chef-lieu Štip |
 | VI-44 Istočen Vardar | 1 118 947 | — | partagé entre VS-45, PA-23 et BE-03 |
-| SU-36 Šumadija | 986 599 | 517 628 | − Zapadno Pomoravļe ; chef-lieu Kragujevac |
-| **ZP-48 Zapadno Pomoravļe** (nouveau) | — | 468 971 | Čačak, Lučani, Kraļevo, Vrñačka Baña, Trstenik, Kruševac, Aleksandrovac, Brus, Varvarin, Ćićevac ; chef-lieu Kruševac |
+| PI-24 Istočno Podriñe | 562 422 | 424 092 | − Zlatibor ; chef-lieu Loznica (Višegrad, l'ancien chef-lieu, est dans Zapadno Podriñe) |
+| **ZL-48 Zlatibor** (nouveau) | — | 138 330 | Užice (avec Sevojno), Požega, Ariļe, Kosjerić, Čajetina ; chef-lieu Užice |
 | BZ-05 Zapadna Bosna | 827 582 | 566 966 | − Usora ; chef-lieu Baña Luka |
 | **US-43 Usora** (nouveau) | — | 260 616 | Doboj, Teslić, Derventa, Modriča, Brod, Šamac, Pelagićevo, Doñi Žabar, Vukosavļe, Petrovo, Orašje, Oxak, Domaļevac-Šamac ; chef-lieu Doboj |
 
-Zapaden Vardar (VZ-46) reste entier. Les autres États ne changent pas.
+Zapaden Vardar (VZ-46) et Šumadija (SU-36, 986 599 habitants) restent entiers. Les autres États
+ne changent pas.
 
 ### Noms
 - **Severen Vardar** : « Vardar du Nord », en macédonien, sur le modèle de Zapaden Vardar. Il
@@ -69,8 +72,12 @@ Zapaden Vardar (VZ-46) reste entier. Les autres États ne changent pas.
 - **Pajonija** : la Péonie antique, royaume de la moyenne vallée du Vardar et de la Strumica.
   C'est le nom historique le plus juste pour Veles, Kavadarci, Gevgelija et Strumica.
 - **Bregalnica** : la rivière de Štip, Kočani et Delčevo, sur le modèle de Timok et de Tunxa.
-- **Zapadno Pomoravļe** : nom serbe usuel du bassin de la Morava occidentale (*Западно
-  Поморавље*), qui va de Čačak à Kruševac. Graphie v3 : љ → ļ.
+- **Zlatibor** : la montagne et l'okrug d'Užice. Ses cinq communes forment le haut bassin de
+  la Zapadna Morava : la Đetinja naît sur le Zlatibor et forme la Zapadna Morava près de Požega
+  avec la Golijska Moravica. Aucune n'est dans le bassin de la Drina, d'où le détachement
+  d'Istočno Podriñe. Užice parle l'herzégovinien oriental, Šabac et Vaļevo le
+  šumadijsko-vojvođanski. Bajina Bašta, sur la Drina, reste dans Istočno Podriñe. Aucune lettre
+  v3 (*Златибор*).
 - **Usora** : terre médiévale entre la Bosna et l'Usora, autour de Doboj ; les bans Kotromanić
   se titraient bans « de Bosnie, d'Usora et de Soli », et Soli est déjà un État (SO-33).
   *Bosanska Posavina* est écartée : Doboj et Teslić ne sont pas dans la Posavina.
@@ -80,7 +87,7 @@ Zapaden Vardar (VZ-46) reste entier. Les autres États ne changent pas.
 Renumérotation strictement alphabétique : BE-03 s'insère après BC-02 ; BN-03 → **BN-04** ;
 BR-04 et LV-21 disparaissent ; MI-22 → **MI-21**, MZ-23 → **MZ-22** ; PA-23 s'insère ;
 US-43 s'insère après TU-42 ; VB-43 → **VB-44** ; VI-44 disparaît, VS-45 s'insère ;
-VZ-45 → **VZ-46** ; ZA-46 → **ZA-47** ; ZP-48 ferme la liste. Les autres codes ne changent pas.
+VZ-45 → **VZ-46** ; ZA-46 → **ZA-47** ; ZL-48 ferme la liste. Les autres codes ne changent pas.
 La Confédération compte **cinquante-deux États** : quarante-huit territoriaux et quatre
 villes-États, plus Brčko et Mostar.
 
@@ -135,6 +142,15 @@ un mécanisme de vote, jamais pour un redécoupage. Toute modification de territ
 à l'article 54 de la Constitution.
 
 ## Écartés
+- **Zapadno Pomoravļe** (Čačak, Kraļevo et Kruševac détachés de Šumadija, chef-lieu Kruševac) :
+  proposé, puis écarté par l'utilisateur. La Šumadija reste entière, comme il l'avait décidé en
+  mai 2026.
+- **Torlak en deux États** : entre Niš–Pirot et Leskovac–Vrañe, il n'y a pas de limite
+  linguistique (Niš et Vrañe parlent tous deux le prizrensko-južnomoravski) ; entre l'est (Pirot,
+  Svrljig : timočko-lužnički et svrljiško-zaplanjski) et l'ouest, la limite dialectale est
+  réelle, mais elle donne ~95 000 habitants contre ~789 000.
+- **Bačka du Nord-Ouest** (Subotica–Sombor, 317 000 habitants) : pas d'erreur de géographie à
+  corriger, la Bačka est une région historique entière.
 - **Pelagonija** (Bitola, Prilep et le sud-ouest détachés de Zapaden Vardar) : le reste de
   Zapaden Vardar serait devenu un État à 56 % albanais, rattaché au peuple macédonien.
 - **Istočen Vardar en deux États seulement** : rapport macédonien de 0,72, hors bande.
@@ -144,8 +160,8 @@ un mécanisme de vote, jamais pour un redécoupage. Toute modification de territ
 - **Pondération des voix d'États** (analyse du 2026-10-25, section 5) : toujours mise de côté.
 
 ## Conséquences et propagation
-- Données : `etats.json`, GeoJSON d'États (SL-32, VB-VRHBOSNA, SU-35, BZ-06 complétés ou
-  réduits ; VS-45, PA-23, BE-03, ZP-48, US-43 créés ; BR-04, LV-LASVA, VI-41 supprimés),
+- Données : `etats.json`, GeoJSON d'États (SL-32, VB-VRHBOSNA, PI-24, BZ-06 complétés ou
+  réduits ; VS-45, PA-23, BE-03, ZL-48, US-43 créés ; BR-04, LV-LASVA, VI-41 supprimés),
   `stats.json`, `lights.json`, `opstine.json`, `geo.json` (48 États, sans trou ni
   recouvrement), `entites-autonomes.json`, `state_flags.json`, `flagnotes.json`, `videos.json`.
 - Drapeaux : Pajonija reprend le drapeau d'Istočen Vardar (vallée du Vardar) ; les drapeaux de
@@ -161,7 +177,7 @@ un mécanisme de vote, jamais pour un redécoupage. Toute modification de territ
   README, CLAUDE.md.
 
 ## Points ouverts
-- **Drapeaux** de Bregalnica, Severen Vardar, Usora et Zapadno Pomoravļe à créer, comme celui de
+- **Drapeaux** de Bregalnica, Severen Vardar, Usora et Zlatibor à créer, comme celui de
   Tunxa ; le portail affiche en attendant le drapeau provisoire au code de l'État.
 - **Marge croate** : si la population des États croates recule de 6 % de plus que celle des
   autres, le rapport croate dépasse 1,25 (`docs/canon/equilibre.md`, section 5).

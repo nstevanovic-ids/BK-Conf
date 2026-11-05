@@ -17,7 +17,7 @@ variantes restent documentées pour une reprise éventuelle.
 > **2026-11-05** : passe de fondation (ADR `docs/decisions/2026-11-05-passe-de-fondation.md`,
 > Constitution v4.13). Elle reprend les redécoupages écartés en section 6, une seule fois, avant
 > le gel définitif des limites : Baraña fondue dans Slavonija, Lašva dans Vrhbosna, Istočen
-> Vardar partagé en trois États, deux États serbes créés (Zapadno Pomoravļe, Usora). Tous les
+> Vardar partagé en trois États, deux États serbes créés (Zlatibor, Usora). Tous les
 > rapports sont entre 0,88 et 1,18 ; aux votations, la majorité est de 27 États sur 52, et
 > Serbes et Bulgares (26) ne l'atteignent plus seuls. La règle, la méthode et les chiffres à
 > jour sont dans `docs/canon/equilibre.md` ; ce document reste l'analyse d'origine.

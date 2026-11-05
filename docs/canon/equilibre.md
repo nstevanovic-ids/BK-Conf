@@ -52,7 +52,7 @@ Sortie de `python scripts/equilibre.py --md` :
 | Macédoniens | 4 | 8,3 % | 8,9 % | 0,94 | 459 000 | 4 (4,26) |
 | Bulgares | 11 | 22,9 % | 24,7 % | 0,93 | 465 000 | 12 (11,86) |
 
-Population des États territoriaux : 20 717 469. Concentration (HHI) : 0,029 (0,032 en v4.12).
+Population des États territoriaux : 20 717 469. Concentration (HHI) : 0,030 (0,032 en v4.12).
 
 Deux peuples s'écartent d'une unité du nombre idéal : les **Croates** (9 au lieu de 8) et les
 **Bulgares** (11 au lieu de 12). C'est voulu (section 4) : avec un douzième État bulgare, Serbes

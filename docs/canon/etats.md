@@ -35,7 +35,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | MI-21 | Istočna Mizija | Bulgarians | Veliko Tãrnovo |
 | MZ-22 | Zapadna Mizija | Bulgarians | Vraca |
 | PA-23 | Pajonija | Macedonians | Veles |
-| PI-24 | Istočno Podriñe | Serbs | Višegrad |
+| PI-24 | Istočno Podriñe | Serbs | Loznica |
 | PM-25 | Prekmurje | Slovenes | Murska Sobota |
 | PO-26 | Podunavļe | Serbs | Smederevo |
 | PR-27 | Pirin | Bulgarians | Blagoevgrad |
@@ -59,7 +59,7 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | VS-45 | Severen Vardar | Macedonians | Skopje |
 | VZ-46 | Zapaden Vardar | Macedonians | Tetovo |
 | ZA-47 | Zagorje | Croats | Krapina |
-| ZP-48 | Zapadno Pomoravļe | Serbs | Kruševac |
+| ZL-48 | Zlatibor | Serbs | Užice |
 
 ## Territoires confédéraux, villes-États (4)
 
@@ -110,9 +110,9 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
 - 2026-11-05 : passe de fondation (dernier redécoupage). Baraña (BR-04) fondue dans SL-32
   Slavonija ; Lašva (LV-21) fondue dans Vrhbosna ; Istočen Vardar (VI-44) partagé en VS-45
-  Severen Vardar (Skopje), PA-23 Pajonija (Veles) et BE-03 Bregalnica (Štip) ; ZP-48 Zapadno
-  Pomoravļe (Kruševac) détaché de SU-36 Šumadija ; US-43 Usora (Doboj) détachée de BZ-05
-  Zapadna Bosna. Renumérotation alphabétique : BN-03 → BN-04, MI-22 → MI-21, MZ-23 → MZ-22,
+  Severen Vardar (Skopje), PA-23 Pajonija (Veles) et BE-03 Bregalnica (Štip) ; ZL-48 Zlatibor
+  (Užice) détaché de PI-24 Istočno Podriñe, dont le chef-lieu passe de Višegrad (situé dans PZ-28)
+  à Loznica ; US-43 Usora (Doboj) détachée de BZ-05 Zapadna Bosna. Renumérotation alphabétique : BN-03 → BN-04, MI-22 → MI-21, MZ-23 → MZ-22,
   VB-43 → VB-44, VZ-45 → VZ-46, ZA-46 → ZA-47. Cf. ADR
   docs/decisions/2026-11-05-passe-de-fondation.md.
 

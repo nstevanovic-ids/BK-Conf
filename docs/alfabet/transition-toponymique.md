@@ -47,8 +47,9 @@ Précisions :
 
 Huit noms sont touchés par la v3 (ñ, ļ, ě). Le « 9 » annoncé par `v3.md` comptait Sredña
 Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1 ; Tunxa (TU-42), créé le
-2026-11-04, l'a reçu à sa création. Zapadno Pomoravļe (ZP-48), créé le 2026-11-05, a reçu ļ de
-même ; Baraña (BR-04), fondue dans Slavonija le même jour, garde sa graphie comme nom de région.
+2026-11-04, l'a reçu à sa création. Baraña (BR-04), fondue dans Slavonija le 2026-11-05, garde sa
+graphie comme nom de région. Zlatibor (ZL-48), créé le même jour, n'est touché par aucune lettre
+v3 (Златибор).
 
 | Code | Forme antérieure | Forme v3 | Lettre |
 |---|---|---|---|
@@ -64,7 +65,6 @@ même ; Baraña (BR-04), fondue dans Slavonija le même jour, garde sa graphie c
 | RS-30 | Raška Sandžak | **Raška Sanxak** | x (v1) |
 | SX-37 | Strandža (Странджа) | **Stranxa** | x (v1) |
 | TU-42 | Tundža (Тунджа) | **Tunxa** | x (2026-11-04) |
-| ZP-48 | Zapadno Pomoravlje (Западно Поморавље) | **Zapadno Pomoravļe** | ļ (2026-11-05) |
 
 ### Chefs-lieux (6)
 

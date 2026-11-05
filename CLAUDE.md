@@ -26,9 +26,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   2026-11-04 : Thrace en deux États, Trakija TR-41 et Tunxa TU-42, VB/VI/VZ/ZA renumérotés,
   ADR 2026-11-04-redecoupage-bulgare.md ; passe de fondation le 2026-11-05, dernier redécoupage :
   Baraña fondue dans Slavonija, Lašva dans Vrhbosna, Istočen Vardar partagé en Severen Vardar
-  VS-45 (Skopje), Pajonija PA-23 (Veles) et Bregalnica BE-03 (Štip), Zapadno Pomoravļe ZP-48
-  (Kruševac) et Usora US-43 (Doboj) créés, BN/MI/MZ/VB/VZ/ZA renumérotés, SHO-VB, SHO-US et
-  UKSVV, ADR 2026-11-05-passe-de-fondation.md ; limites gelées depuis)
+  VS-45 (Skopje), Pajonija PA-23 (Veles) et Bregalnica BE-03 (Štip), Zlatibor ZL-48
+  (Užice, détaché d'Istočno Podriñe, dont le chef-lieu devient Loznica) et Usora US-43 (Doboj)
+  créés, BN/MI/MZ/VB/VZ/ZA renumérotés, SHO-VB, SHO-US et UKSVV, ADR 2026-11-05-passe-de-fondation.md ; limites gelées depuis)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošñaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofija (défense + sciences)
@@ -222,7 +222,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (ex. Tvrtko I Kotromanić = serbe, couronné à Mileševa)
 - Proportionnalité démographique : rapport États/peuple dans la bande 0,85–1,25, contrôlé par
   `scripts/equilibre.py --check` avant chaque déploiement (docs/canon/equilibre.md ;
-  villes-États neutres ; HHI des populations d'États ≈ 0,029)
+  villes-États neutres ; HHI des populations d'États ≈ 0,030)
 
 ## Ne pas faire
 - Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-13)

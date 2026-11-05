@@ -281,7 +281,7 @@
   "n": "Istočno Podriñe",
   "p": "srb",
   "t": "T",
-  "ch": "Višegrad",
+  "ch": "Loznica",
   "g": [
    5,
    6
@@ -564,15 +564,15 @@
   ]
  },
  {
-  "c": "ZP-48",
-  "k": "ZP",
-  "n": "Zapadno Pomoravļe",
+  "c": "ZL-48",
+  "k": "ZL",
+  "n": "Zlatibor",
   "p": "srb",
   "t": "T",
-  "ch": "Kruševac",
+  "ch": "Užice",
   "g": [
-   7,
-   6
+   6,
+   7
   ]
  },
  {

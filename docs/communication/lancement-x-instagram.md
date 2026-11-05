@@ -17,7 +17,7 @@ Les noms propres gardent leur forme v3 (Krañska, Srěm, Naš dom).
     d'identité trompeuse des plateformes.
   - Cela protège aussi la crédibilité du projet.
 - **Neutralité entre les peuples** :
-  - les séries suivent l'**ordre des codes d'État** (BA-01 → ZP-48, puis les quatre
+  - les séries suivent l'**ordre des codes d'État** (BA-01 → ZL-48, puis les quatre
     territoires confédéraux, Brčko et Mostar), qui est déjà l'ordre neutre du canon ;
   - aucun peuple n'est mis en avant deux fois de suite ;
   - aucun code couleur par peuple ;
