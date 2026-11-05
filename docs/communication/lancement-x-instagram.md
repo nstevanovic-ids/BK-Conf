@@ -17,7 +17,7 @@ Les noms propres gardent leur forme v3 (Krañska, Srěm, Naš dom).
     d'identité trompeuse des plateformes.
   - Cela protège aussi la crédibilité du projet.
 - **Neutralité entre les peuples** :
-  - les séries suivent l'**ordre des codes d'État** (BA-01 → ZA-46, puis les quatre
+  - les séries suivent l'**ordre des codes d'État** (BA-01 → ZL-48, puis les quatre
     territoires confédéraux, Brčko et Mostar), qui est déjà l'ordre neutre du canon ;
   - aucun peuple n'est mis en avant deux fois de suite ;
   - aucun code couleur par peuple ;
@@ -42,7 +42,7 @@ Les noms propres gardent leur forme v3 (Krañska, Srěm, Naš dom).
 
 **Bio** (X, 160 caractères au plus ; elle sert aussi sur Instagram) :
 
-> The seven South Slavic peoples and all who share their land, in one confederation of 49
+> The seven South Slavic peoples and all who share their land, in one confederation of 52
 > States. A civic project. Naš dom, our home.
 
 ## 3. Formats
@@ -68,7 +68,7 @@ Les noms propres gardent leur forme v3 (Krañska, Srěm, Naš dom).
 
 | Série | Contenu | Rythme | Source |
 |---|---|---|---|
-| **50 States** | drapeau, nom, chef-lieu, population, une ligne d'histoire ; le film quand l'État en a un | 1 par jour sur X (52 jours), 3 par semaine sur Instagram | `etats.json`, `stats.json`, `videos.json` |
+| **52 States** | drapeau, nom, chef-lieu, population, une ligne d'histoire ; le film quand l'État en a un | 1 par jour sur X (54 jours), 3 par semaine sur Instagram | `etats.json`, `stats.json`, `videos.json` |
 | **The Constitution, one article** | une citation et ce qu'elle change | 2 par semaine | `v4.en.md` |
 | **32 letters** | une lettre, sa valeur et des exemples (ě, ñ, ļ, ã, x d'abord) | 1 par semaine | `docs/alfabet/v3.md` |
 | **How it works** | qui élit qui, une loi pas à pas, les 250 sièges, les cinq garanties | 1 par semaine | page Institutions |
@@ -80,7 +80,7 @@ Les noms propres gardent leur forme v3 (Krañska, Srěm, Naš dom).
 - créer les comptes (profil, bannière, bio, lien) ;
 - produire les cinq gabarits ;
 - préparer trente publications d'avance ;
-- programmer trois teasers : la silhouette du lion, « Naš dom », « 49 ».
+- programmer trois teasers : la silhouette du lion, « Naš dom », « 52 ».
 
 **Lancement sur X (J)** : un fil épinglé en huit messages (§ 6), puis le premier « State »
 (BA-01 Bosanska Krajina).
@@ -110,7 +110,7 @@ community that shares their land.
 2/8 Not an empire, but its exact opposite: a house one enters by choice, stays in by
 consent, and no one is forced to live in. (Preamble)
 
-3/8 50 States, drawn so that no people rules another. Four capitals share the institutions:
+3/8 52 States, drawn so that no people rules another. Four capitals share the institutions:
 Sarajevo, Beograd, Zagreb and Sofija.
 
 4/8 Two chambers. The Kongres: 250 delegates elected in the States. The Narodni Sabor: ten

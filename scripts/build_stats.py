@@ -190,10 +190,6 @@ NON_MUNICIPAL = {"lake ohrid", "liberland"}
 
 # Communes présentes dans deux fichiers d'État : rattachement retenu (code-lettres).
 ASSIGN = {
-    # Baranja : BR-04 Baraña existe dans la liste canonique ; SL-32 en double.
-    **{g: "BR" for g in ("HRV.11.2_1", "HRV.11.4_1", "HRV.11.6_1", "HRV.11.9_1",
-                         "HRV.11.12_1", "HRV.11.20_1", "HRV.11.28_1", "HRV.11.32_1",
-                         "HRV.11.40_1")},
     # Stranxa : les 4 communes sortent de Černomorska et de Severna Trakija.
     **{g: "SX" for g in ("BGR.2.5_1", "BGR.2.11_1", "BGR.2.13_1", "BGR.28.1_1")},
     # Pojezerje : delta de la Neretva, avec Opuzen, Metković et Ploče.
@@ -203,7 +199,7 @@ ASSIGN = {
 }
 
 # Fichiers d'État au code provisoire (cf. gen_geo.py).
-EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
+EXTRA = {"SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
 
 # Communes serbes de RS-30 identifiées seulement par leur district dans GADM :
 # chef-lieu (lat, lon) des candidates, pour l'attribution géométrique.

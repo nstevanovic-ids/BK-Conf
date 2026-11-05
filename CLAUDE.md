@@ -18,13 +18,17 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Le projet est sud-slave **+ balkanique**, explicitement PAS pan-slave
 
 ## Composition (source : docs/canon/etats.md)
-- **50 États** : 46 territoriaux + 4 villes-États (territoires confédéraux) ; plus 2 municipalités
+- **52 États** : 48 territoriaux + 4 villes-États (territoires confédéraux) ; plus 2 municipalités
   confédérales autonomes (Brčko, Mostar), qui ne sont pas des États
   (cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md ; codes renumérotés
   alphabétiquement le 2026-06-28, ADR …-renumerotation-alphabetique.md ;
   Sredña Bosna supprimé, ADR …-suppression-srednja-bosna.md ; bloc bulgare redécoupé le
   2026-11-04 : Thrace en deux États, Trakija TR-41 et Tunxa TU-42, VB/VI/VZ/ZA renumérotés,
-  ADR 2026-11-04-redecoupage-bulgare.md)
+  ADR 2026-11-04-redecoupage-bulgare.md ; passe de fondation le 2026-11-05, dernier redécoupage :
+  Baraña fondue dans Slavonija, Lašva dans Vrhbosna, Istočen Vardar partagé en Severen Vardar
+  VS-45 (Skopje), Pajonija PA-23 (Veles) et Bregalnica BE-03 (Štip), Zlatibor ZL-48
+  (Užice, détaché d'Istočno Podriñe, dont le chef-lieu devient Loznica) et Usora US-43 (Doboj)
+  créés, BN/MI/MZ/VB/VZ/ZA renumérotés, SHO-VB, SHO-US et UKSVV, ADR 2026-11-05-passe-de-fondation.md ; limites gelées depuis)
 - 7 peuples constitutifs : Slovenci, Hrvati, Srbi, Bošñaci, Crnogorci, Makedonci, Bãlgari
 - 4 capitales : Sarajevo (politique), Beograd (économique), Zagreb (judiciaire),
   Sofija (défense + sciences)
@@ -91,8 +95,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
   #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
-  Version 4.12 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare, cinquante États). Titres 1 à 3 (texte de base, art. 1
+  Version 4.13 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
@@ -208,13 +212,17 @@ infrastructure numérique). Haute exigence de cohérence interne.
 
 ## Règles d'or (irrévocables sans ADR dans docs/decisions/)
 - Frontières des États fixées à la fondation : jamais de redécoupage pour corriger un
-  équilibre ; l'équilibre se règle par des mécanismes de vote (ADR 2026-10-25-double-cle.md)
+  équilibre ; l'équilibre se règle par des mécanismes de vote (ADR 2026-10-25-double-cle.md) ;
+  la passe de fondation du 2026-11-05 est le dernier redécoupage, les limites sont gelées depuis
+  (ADR 2026-11-05-passe-de-fondation.md)
 - Aucun État ne porte le nom d'une ville (sauf les 4 villes-États)
 - Renumérotation des codes strictement alphabétique
 - Décisions gelées propagées partout, immédiatement et de façon cohérente
 - Précision historique : revendications dynastiques exactes
   (ex. Tvrtko I Kotromanić = serbe, couronné à Mileševa)
-- Proportionnalité démographique : ratio État/peuple surveillé (HHI ≈ 0.034)
+- Proportionnalité démographique : rapport États/peuple dans la bande 0,85–1,25, contrôlé par
+  `scripts/equilibre.py --check` avant chaque déploiement (docs/canon/equilibre.md ;
+  villes-États neutres ; HHI des populations d'États ≈ 0,030)
 
 ## Ne pas faire
 - Ne pas réintroduire « Herceg Bosna » (renommé Zapadna Hercegovina, code HZ-13)

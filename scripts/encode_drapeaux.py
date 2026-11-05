@@ -41,13 +41,13 @@ PALETTE_COLORS = 64
 # (écart quadratique moyen sur une vignette 60 × 40) ; le meilleur appariement est à moins
 # de 10, le suivant à plus de 600. `--verify` refait ce contrôle. Le nom de fichier n'est
 # pas la source de vérité : tout ajout se vérifie visuellement, puis par --verify.
-# Sources non utilisées : Flag_of_Srednja_Bosna.png (État supprimé), Lika-Flag.png,
+# Sources non utilisées : Flag_of_Srednja_Bosna.png (État supprimé), Flag_of_Baranja_State_svg.png
+# et Lasva-Flag.webp (États fondus le 2026-11-05), Lika-Flag.png,
 # Zapadna-Mizija-Flag-v2.png et Flag_of_Zapadna-Mizija.svg (versions remplacées).
 MAPPING = {
     "BA-01": "Flag_of_Bosanska-Krajina.png",
     "BC-02": "flag_BC02.png",
-    "BN-03": "flag_BN03.png",
-    "BR-04": "Flag_of_Baranja_State_svg.png",
+    "BN-04": "flag_BN03.png",
     "BZ-05": "Zapadna-Bosna-Flag_3x.png",
     "CG-06": "Flag_of_CG-07_svg.png",
     "CM-07": "SD-Black-Sea-Flag_3x.png",
@@ -64,9 +64,9 @@ MAPPING = {
     "KV-18": "Flag-Kvarner_svg.png",
     "LG-19": "Ludogorie-Flag.png",
     "LK-20": "Lika-Flag-Velebit.webp",
-    "LV-21": "Lasva-Flag.webp",
-    "MI-22": "Istocna-Mizija-Flag.png",
-    "MZ-23": "Zapadna-Mizija-Flag-v3.png",
+    "MI-21": "Istocna-Mizija-Flag.png",
+    "MZ-22": "Zapadna-Mizija-Flag-v3.png",
+    "PA-23": "Istocen-Vardar-Flag.jpg",
     "PI-24": "Istocno-Podrinje-Flag.png",
     "PM-25": "Flag_of_Prekmurje.png",
     "PO-26": "Podunavlje-Flag-V3.png",
@@ -85,10 +85,9 @@ MAPPING = {
     "TK-39": "Timok-Flag.png",
     "TL-40": "Torlak-Flag.png",
     "TR-41": "SD-S_Trakija-Flag_3x.png",
-    "VB-43": "Vrhbosna-Flag.png",
-    "VI-44": "Istocen-Vardar-Flag.jpg",
-    "VZ-45": "Flag_of_Zapaden-Vardar.webp",
-    "ZA-46": "Zagorje-Flag.webp",
+    "VB-44": "Vrhbosna-Flag.png",
+    "VZ-46": "Flag_of_Zapaden-Vardar.webp",
+    "ZA-47": "Zagorje-Flag.webp",
     "BG-91": "Beograd-Flag.png",
     "SA-92": "Sarajevo-Flag.png",
     "SF-93": "Sofia-Flag.webp",

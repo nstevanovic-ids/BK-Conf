@@ -44,8 +44,10 @@ La vidéo brute n'est pas versionnée (≈ 20 Mo pour 15 s) : la conserver hors 
 |------|------|-------|---------|
 | BA-01 Bosanska Krajina | 2026-10-18 (v2), Grok Imagine | 14,4 s | Una (rapides, vue zénithale), village et minaret, rivière, rétroviseur au couchant, fleurs, guitariste en ville, drapeau de Bosanska Krajina au vent sur la vallée |
 | BC-02 Bačka | 2026-10-19, Grok Imagine | 14,4 s | Petrovaradin sur le Danube, salaš dans les vergers, champs de tournesols, place de l'hôtel de ville de Subotica, plaine et canal au couchant, drapeau de Bačka au vent |
-| BN-03 Banat | 2026-10-20, Grok Imagine | 14,4 s | Hôtel de ville à beffroi, lac et plage, rue piétonne fleurie, maison banatienne, collines sableuses, vignobles, drapeau du Banat au vent |
-| BR-04 Baraña | 2026-10-20, Grok Imagine | 14,4 s | Monument de Batina sur le Danube, rues de village, ville au bord du Danube, vignobles à vélo, Kopački rit, drapeau de Baraña au vent |
+| BN-04 Banat | 2026-10-20, Grok Imagine | 14,4 s | Hôtel de ville à beffroi, lac et plage, rue piétonne fleurie, maison banatienne, collines sableuses, vignobles, drapeau du Banat au vent |
 | BZ-05 Zapadna Bosna | 2026-10-21, Grok Imagine | 14,4 s | Cathédrale du Christ-Sauveur (vue zénithale), mosquée Ferhadija, forteresse Kastel sur le Vrbas, rafting dans le canyon du Vrbas, monastère orthodoxe, moulins et cascades de Krupa na Vrbasu, drapeau de Zapadna Bosna au vent |
 | CG-06 Crna Gora | 2026-10-21, Grok Imagine | 14,4 s | Baie de Kotor au crépuscule, village côtier et promenade, vieille ville aux toits rouges vue du ciel, Perast et son campanile, vieille ville de Budva, drapeau de Crna Gora au vent sur les Bouches |
 | CM-07 Černomorska | 2026-10-21, Grok Imagine | 14,7 s | Phare de Varna à l'aube, cathédrale de la Dormition, plage et palmiers, rue de vieille ville aux maisons en bois, salines roses, flamants, crique boisée, drapeau de Černomorska au vent. Fondu de bouclage raccourci à 8 images (`--fade 0.333`) : le drapeau n'entre qu'à 13,8 s |
+
+Le film de Baraña (BR-04, 2026-10-20) est retiré du portail le 2026-11-05 : l'État est fondu dans
+Slavonija (ADR 2026-11-05-passe-de-fondation.md). La vidéo brute reste hors dépôt.

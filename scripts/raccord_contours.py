@@ -38,7 +38,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_stats as B  # noqa: E402  (norm, geoboundaries, ASSIGN, area_km2, level)
 
 DATA = ROOT / "portail" / "data"
-EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
+EXTRA = {"SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
 OCCUPIED = ["KJ-16_Occupied-territories.geojson", "KM-17_Occupied-territories.geojson",
             "Occupied_Beneska-Slovenija_GO-12.geojson"]
 # Villes-États tirées du trou laissé par les États voisins ; contour de référence

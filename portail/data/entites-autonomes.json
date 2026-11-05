@@ -33,7 +33,7 @@
   "id": "SSO-ZA",
   "n": "Savez Srpskih Opština Zagorja",
   "com": "Serb",
-  "host": "ZA-46"
+  "host": "ZA-47"
  },
  {
   "id": "SSO-CG",
@@ -42,16 +42,16 @@
   "host": "CG-06"
  },
  {
-  "id": "SHO-LV",
-  "n": "Savez Hrvatskih Opština Lašve",
+  "id": "SHO-VB",
+  "n": "Savez Hrvatskih Opština Vrhbosne",
   "com": "Croat",
-  "host": "LV-21"
+  "host": "VB-44"
  },
  {
-  "id": "SHO-BZ",
-  "n": "Savez Hrvatskih Opština Zapadne Bosne",
+  "id": "SHO-US",
+  "n": "Savez Hrvatskih Opština Usore",
   "com": "Croat",
-  "host": "BZ-05"
+  "host": "US-43"
  },
  {
   "id": "TBB-RO",
@@ -81,19 +81,19 @@
   "id": "TBB-VZ",
   "n": "Batı Vardar Türk Belediyeler Birliği",
   "com": "Turkish",
-  "host": "VZ-45"
+  "host": "VZ-46"
  },
  {
-  "id": "UKSVL",
-  "n": "Unioni i Komunave Shqiptare të Vardarit Lindor",
+  "id": "UKSVV",
+  "n": "Unioni i Komunave Shqiptare të Vardarit Verior",
   "com": "Albanian",
-  "host": "VI-44"
+  "host": "VS-45"
  },
  {
   "id": "BKSVP",
   "n": "Bashkimi i Komunave Shqiptare të Vardarit Perëndimor",
   "com": "Albanian",
-  "host": "VZ-45"
+  "host": "VZ-46"
  },
  {
   "id": "SO-CG",
@@ -123,7 +123,7 @@
   "id": "SOZ-BN",
   "n": "Samostalna Opština Zavoda Kovačica",
   "com": "Slovak",
-  "host": "BN-03"
+  "host": "BN-04"
  },
  {
   "id": "BAO",
