@@ -43,8 +43,9 @@ PALETTE_COLORS = 64
 # pas la source de vérité : tout ajout se vérifie visuellement, puis par --verify.
 # Sources non utilisées : Flag_of_Srednja_Bosna.png (État supprimé), Flag_of_Baranja_State_svg.png
 # et Lasva-Flag.webp (États fondus le 2026-11-05), Lika-Flag.png,
-# Zapadna-Mizija-Flag-v2.png, Flag_of_Zapadna-Mizija.svg, Timok-Flag.png et Torlak-Flag.png
-# (versions remplacées ; TK-39 et TL-40 pointent sur les v2 affichées depuis le 2026-10-25).
+# Zapadna-Mizija-Flag-v2.png, Flag_of_Zapadna-Mizija.svg, Timok-Flag.png, Torlak-Flag.png et
+# Usora-Flag.svg (versions remplacées ; TK-39 et TL-40 pointent sur les v2 affichées depuis le
+# 2026-10-25, US-43 sur la version byzantine du 2026-11-05).
 MAPPING = {
     "BA-01": "Flag_of_Bosanska-Krajina.png",
     "BC-02": "flag_BC02.png",
@@ -86,7 +87,7 @@ MAPPING = {
     "TK-39": "Timok-Flag-v2.jpg",
     "TL-40": "Torlak-Flag-v2.jpg",
     "TR-41": "SD-S_Trakija-Flag_3x.png",
-    "US-43": "Usora-Flag.svg",
+    "US-43": "Usora-Flag-v2.svg",
     "VB-44": "Vrhbosna-Flag.png",
     "VZ-46": "Flag_of_Zapaden-Vardar.webp",
     "ZA-47": "Zagorje-Flag.webp",

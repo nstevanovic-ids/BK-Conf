@@ -511,11 +511,6 @@
    "sre": "Balkanska panorama / jadranska obala",
    "ist": "Balkanska panorama / Adriatičesko krajbrežie"
   },
-  "Banner of the arms of Usora: per pale or and gules, a chevron counterchanged charged with three crescents argent, the one at the apex upright and those on the limbs turned towards the apex.": {
-   "zap": "Prapor z grbom Usore: navpično razdeļen na zlato in rdeče, s ševronom v zameñanih barvah, na katerem so trije srebrni polmeseci; tisti na vrhu je pokončen, tista na krakih sta obrñena proti vrhu.",
-   "sre": "Zastava s grbom Usore: polovļeno zlatno i crveno, sa ševronom u zaměñenim bojama, na kome su tri srebrna poluměseca; onaj na vrhu je uspravan, a oni na krakovima okrenuti su prema vrhu.",
-   "ist": "Zname s gerba na Usora: vertikalno razdeleno na zlatno i červeno, s ševron v razmeneni cvetove, vãrhu kojto ima tri srebãrni polumeseca; tozi na vãrha e izpraven, a tezi na ramenata sa obãrnati kãm vãrha."
-  },
   "Basis of attachment": {
    "zap": "Podlaga pripadnosti",
    "sre": "Osnova pripadnosti",
@@ -1870,6 +1865,11 @@
    "zap": "Rdeče poļe z dvema srebrnima križema, tirolsko-furlanska dediščina goriške krajine.",
    "ist": "Červeno pole s dva srebãrni krãsta — tirolsko-friulskoto nasledstvo na graničnata oblast Goriška.",
    "sre": "Crveno poļe s dva srebrna krsta, tirolsko-furlansko naslěđe goriških krajina."
+  },
+  "Gules, a cross throughout or between four firesteels or, their backs to the cross: the Serbian cross in the colours of the Palaiologan banner. Usora was held by King Stefan Dragutin from 1284 to 1316.": {
+   "zap": "Rdeče, z zlatim križem do robov in štirimi zlatimi kresili, obrñenimi s hrbtom proti križu: srbski križ v barvah paleološkega prapora. Usora je bila od leta 1284 do 1316 v posesti kraļa Stefana Dragutina.",
+   "sre": "Crveno, sa zlatnim krstom do ivica i četiri zlatna ocila okrenuta leđima ka krstu: srpski krst u bojama paleološke zastave. Usora je od 1284. do 1316. bila posěd kraļa Stefana Dragutina.",
+   "ist": "Červeno, sãs zlaten krãst do kraištata i četiri zlatni ogniva, obãrnati s grãb kãm krãsta: srãbskijat krãst v cvetovete na znameto na Paleolozite. Ot 1284 do 1316 godina Usora e vladenie na kral Stefan Dragutin."
   },
   "Gules, azure and argent horizontal, Serbian pan-colours; central shield divided per bend, vert with three argent crescents (Ottoman heritage), azure with three golden fleurs-de-lys (Bosnian-style continuity for the Pomak community).": {
    "zap": "Vodoravno rdeče, modro in srebrno, srbske narodne barve; poševno deļen osredñi ščit: zeleno poļe s tremi srebrnimi polmeseci (osmanska dediščina) in modro poļe s tremi zlatimi lilijami (kontinuiteta bosanskega sloga za pomaško skupnost).",
