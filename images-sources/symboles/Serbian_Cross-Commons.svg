@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="451px" height="600px">
+<symbol id="elm" viewBox="-52.214 -79.574 104.428 159.147">
+<path fill="#FFF" stroke="#21231E" stroke-width="4" stroke-linejoin="round" d="M50.464,64.955V-64.956 C22.143-72.561-46.82-100.027-50.409-39.811C-52.068-11.976-15.865,6.386-6.102-18.202C-1.481-29.839-6.515-38.08-13.32-40.74 c-7.354-2.87-14.651,3.071-12.701,11.926C-55.336-44.129,0.17-76.65,25.235-34.326C32.533-22.001,12.914-9.151,12.889-0.01 c-0.025,9.142,19.275,22.827,12.346,34.331c-25.378,42.123-80.571,9.809-51.256-5.51c-1.95,8.854,5.346,14.796,12.701,11.924 C-6.514,38.078-1.481,29.836-6.102,18.2c-9.763-24.591-45.965-6.229-44.307,21.607C-46.819,100.027,22.144,72.561,50.464,64.955 L50.464,64.955z"/>
+</symbol>
+<path fill="#C6363C" d="M3.5,3.5v371c0,122.607,99.393,222,222,222c122.607,0,222-99.393,222-222V3.5H3.5z"/>
+<path fill="none" stroke="#21231E" stroke-width="96" d="M4,270.5h443 M225.5,4V594"/>
+<path fill="none" stroke="#FFF" stroke-width="88" d="M4,270.5h443 M225.5,4V594"/>
+<path fill="none" stroke="#21231E" stroke-width="8" d="M3.5,3.5v371c0,122.607,99.393,222,222,222c122.607,0,222-99.393,222-222V3.5H3.5z"/>
+<use xlink:href="#elm" width="104.428" height="159.147" x="-52.214" y="-79.574" transform="matrix(1 0 0 -1 99 121.5)" overflow="visible"/>
+<use xlink:href="#elm" width="104.428" height="159.147" x="-52.214" y="-79.574" transform="matrix(1 0 0 -1 99 419)" overflow="visible"/>
+<use xlink:href="#elm" width="104.428" height="159.147" x="-52.214" y="-79.574" transform="matrix(-1 0 0 -1 352 121.5)" overflow="visible"/>
+<use xlink:href="#elm" width="104.428" height="159.147" x="-52.214" y="-79.574" transform="matrix(-1 0 0 -1 352 419)" overflow="visible"/>
+</svg>

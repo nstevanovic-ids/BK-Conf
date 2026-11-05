@@ -1,7 +1,10 @@
 # ADR 2026-11-05 — Usora (US-43) : drapeau et blason
 
 ## Statut
-Gelé. Le 2026-11-05, l'utilisateur a fourni le blason d'Usora et demandé un drapeau 3:2 ; il a
+**Remplacé** le 2026-11-05 par l'ADR 2026-11-05-usora-byzantin.md (croix d'or et briquets sur
+gueules) : les croissants, sans signe serbe, ne convenaient pas à un État serbe.
+
+Gelé jusque-là. Le 2026-11-05, l'utilisateur a fourni le blason d'Usora et demandé un drapeau 3:2 ; il a
 validé le drapeau (« c'est parfait ») et demandé que le blason soit refait de la même façon.
 Usora a été créée le même jour par la passe de fondation (ADR 2026-11-05-passe-de-fondation.md).
 

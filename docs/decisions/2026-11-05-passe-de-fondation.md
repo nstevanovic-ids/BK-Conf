@@ -179,7 +179,7 @@ un mécanisme de vote, jamais pour un redécoupage. Toute modification de territ
 ## Points ouverts
 - **Drapeaux** de Bregalnica et Severen Vardar à créer, comme celui de Tunxa ; le portail
   affiche en attendant le drapeau provisoire au code de l'État. Zlatibor et Usora ont le leur
-  (ADR 2026-11-05-drapeau-blason-zlatibor.md et 2026-11-05-drapeau-blason-usora.md).
+  (ADR 2026-11-05-drapeau-blason-zlatibor.md et 2026-11-05-usora-byzantin.md).
 - **Marge croate** : si la population des États croates recule de 6 % de plus que celle des
   autres, le rapport croate dépasse 1,25 (`docs/canon/equilibre.md`, section 5).
 - **Usora** : 62,8 % de Serbes au recensement de 2013 (chiffres qui incluent des citoyens
