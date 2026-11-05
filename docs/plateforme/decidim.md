@@ -100,8 +100,8 @@ n'est plus nécessaire.
 
 ## 5. Règles de vote à reproduire
 
-- **Double majorité** (art. 123 et 124) : une votation se tient en **52 élections
-  parallèles**, une par périmètre (50 États, Brčko, Mostar), avec les mêmes questions. Le
+- **Double majorité** (art. 123 et 124) : une votation se tient en **54 élections
+  parallèles**, une par périmètre (52 États, Brčko, Mostar), avec les mêmes questions. Le
   recensement de chacune est formé des citoyens rattachés au périmètre. Un script agrège
   les résultats : majorité des votants, puis majorité des États, Brčko et Mostar votant
   avec le territoire confédéral le plus proche (art. 124).
@@ -141,7 +141,7 @@ celle de l'association.
 
 - **Langue** : anglais à l'ouverture. Les trois standards (zapadni, središñi, istočni)
   viendront comme locales personnalisées avec l'interface multilingue (B10, reportée).
-- **Périmètres** : types « State » (50) et « Confederal municipality » (2), avec les codes
+- **Périmètres** : types « State » (52) et « Confederal municipality » (2), avec les codes
   d'État comme codes de périmètre (`BA-01` … `MO-96`).
 - **Aucune catégorie ni couleur par peuple**, conformément à l'ADR
   2026-10-14-pas-de-code-couleur-peuples.

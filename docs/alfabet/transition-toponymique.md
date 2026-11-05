@@ -47,11 +47,12 @@ Précisions :
 
 Huit noms sont touchés par la v3 (ñ, ļ, ě). Le « 9 » annoncé par `v3.md` comptait Sredña
 Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1 ; Tunxa (TU-42), créé le
-2026-11-04, l'a reçu à sa création.
+2026-11-04, l'a reçu à sa création. Zapadno Pomoravļe (ZP-48), créé le 2026-11-05, a reçu ļ de
+même ; Baraña (BR-04), fondue dans Slavonija le même jour, garde sa graphie comme nom de région.
 
 | Code | Forme antérieure | Forme v3 | Lettre |
 |---|---|---|---|
-| BR-04 | Baranja | **Baraña** | ñ |
+| BR-04 | Baranja | **Baraña** | ñ (État fondu dans SL-32 le 2026-11-05) |
 | KR-17 | Kranjska | **Krañska** | ñ |
 | PI-24 | Istočno Podrinje | **Istočno Podriñe** | ñ |
 | PZ-28 | Zapadno Podrinje | **Zapadno Podriñe** | ñ |
@@ -63,12 +64,13 @@ Bosna, supprimé le 2026-06-28. Trois noms portaient déjà x en v1 ; Tunxa (TU-
 | RS-30 | Raška Sandžak | **Raška Sanxak** | x (v1) |
 | SX-37 | Strandža (Странджа) | **Stranxa** | x (v1) |
 | TU-42 | Tundža (Тунджа) | **Tunxa** | x (2026-11-04) |
+| ZP-48 | Zapadno Pomoravlje (Западно Поморавље) | **Zapadno Pomoravļe** | ļ (2026-11-05) |
 
 ### Chefs-lieux (6)
 
 | État | Forme officielle | Forme v3 |
 |---|---|---|
-| BN-03 | Zrenjanin | **Zreñanin** |
+| BN-04 | Zrenjanin | **Zreñanin** |
 | BZ-05 | Banja Luka | **Baña Luka** |
 | HI-12 | Trebinje | **Trebiñe** |
 | KR-17 | Ljubljana | **Ļubļana** |
@@ -114,7 +116,7 @@ elle ne l'a pas été partout :
 | KJ-15 | Slovenj Gradec | **Sloveñ Gradec** | Словењ Градец (ñ) |
 | PZ-28 | Bijeljina | **Běļina** | Бијељина (ļ) ; *bijel-*, yat |
 | KV-18 | Rijeka | **Rěka** | yat (*rěka*) |
-| BR-04 | Beli Manastir | **Běli Manastir** | yat (*bělъ*) |
+| BR-04 (SL-32 depuis le 2026-11-05) | Beli Manastir | **Běli Manastir** | yat (*bělъ*) |
 | HZ-13 | Široki Brijeg | **Široki Brěg** | yat (*brěgъ*) |
 | SL-32 | Osijek | **Osěk** | yat (*osěkъ*, étymologie à confirmer) |
 

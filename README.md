@@ -14,10 +14,11 @@ numérique.
 CLAUDE.md                  Bible du projet
 docs/
   canon/                   Décisions gelées (source de vérité)
-    etats.md               50 États (46 territoriaux + 4 territoires confédéraux)
+    etats.md               52 États (48 territoriaux + 4 territoires confédéraux)
                            et 2 municipalités confédérales autonomes
     peuples.md             7 peuples constitutifs
     entites-autonomes.md   24 entités autonomes
+    equilibre.md           Équilibre États / peuples : bande 0,85–1,25, limites gelées
     couleurs-symboles.md   Palette, lion ailé, drapeaux, sceau, devise, emblèmes des services
     nominations.md         Règle Balkan / sud-slave / južnoslovenski
     citoyennete.md         Parcours d'inscription, carte citoyenne TD1, registres nationaux
@@ -48,6 +49,7 @@ scripts/
   encode_blason.py         Blasons d'États : fond détouré → images/coa-<code>.webp
   gen_favicon.py           Favicon et apple-touch-icon depuis le lion ailé
   toponymie_v3.py          Forme v3 des noms de communes (appelé par build_stats.py)
+  equilibre.py             Rapports États / peuples, votations ; --check avant déploiement
 images-sources/            Uploads bruts, jamais modifiés
 ```
 
@@ -80,20 +82,22 @@ explicite, et elle se propage partout : canon, constitution, données, portail.
 ## État actuel (octobre 2026)
 
 - **Territoire** :
-  - 50 États et 2 municipalités confédérales autonomes, tous avec leur drapeau sauf Tunxa
-    (TU-42, créé le 2026-11-04) ;
+  - 52 États et 2 municipalités confédérales autonomes, limites gelées depuis la passe de
+    fondation du 2026-11-05 ; tous ont leur drapeau sauf les États créés en novembre 2026
+    (Bregalnica, Tunxa, Usora, Severen Vardar, Zapadno Pomoravļe) ;
   - 24 entités autonomes ;
   - carte en globe d3-geo, avec des chiffres clés par État (population, superficie, PIB
     par habitant).
-- **Constitution v4.8** : 192 articles en dix titres, en français et en anglais. Elle
-  comprend :
+- **Constitution v4.13** : 192 articles en dix titres, en français, en anglais et dans les
+  trois standards. Elle comprend :
   - les institutions (Kongres de 250 délégués, Narodni Sabor, Konfederalno Veće, Ustavni
     Sud) et leurs organes, avec leurs noms sud-slaves ;
   - le régime des finances sur le modèle suisse, la famille et la natalité, l'immigration
     et le contrôle des frontières ;
   - la sécurité et la défense (titre 7) ;
   - les registres nationaux (période probatoire de trois ans, verrou de quinze ans) ;
-  - la révision avec garanties renforcées (titre 8) et les dispositions finales (titre 9).
+  - la révision avec garanties renforcées (titre 8), dont le rattachement de chaque État à
+    son peuple (art. 150 e), et les dispositions finales (titre 9).
 - **Alphabet** : v3 (32 lettres) ; règle toponymique appliquée aux 1 461 communes ;
   cyrillique confédéral adopté.
 - **Portail** :
@@ -107,6 +111,5 @@ explicite, et elle se propage partout : canon, constitution, données, portail.
   - symboles : hymne, animal totem, lettre-emblème, logos des services ;
   - portail : interface dans les trois standards (ZAP, SRE, IST), pages des départements et
     de la présidence, script des drapeaux ;
-  - équilibre États / peuples ;
   - plateforme Decidim et lancement sur les réseaux ;
   - films, armoiries et photos des États et des services.

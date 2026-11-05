@@ -7,6 +7,7 @@ on:
     paths:
       - "portail/**"
       - "scripts/build_portail.py"
+      - "scripts/equilibre.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -32,6 +33,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Check the balance between States and peoples
+        run: |
+          # Each people's share of the territorial States must stay within 0.85–1.25 of its share of
+          # the population (docs/canon/equilibre.md, ADR 2026-11-05-passe-de-fondation.md).
+          # A failure blocks the deploy: the answer is an ADR, never a silent redraw of borders.
+          python scripts/equilibre.py --check
 
       - name: Check page translations (three standards)
         run: |

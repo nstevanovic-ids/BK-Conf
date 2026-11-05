@@ -49,7 +49,7 @@ Trois bases, dans cet ordre :
   `scripts/build_stats.py` : 1 461 entrées `[nom v3, ISO, code d'État, nom du recensement ou
   "" s'il est identique, nom GADM si différent]`. Le nom affiché et imprimé sur la carte est
   la forme v3 (`scripts/toponymie_v3.py`, ADR 2026-10-25-toponymie-v3-option-1.md) ; les noms
-  officiels restent cherchables. Il couvre les communes des 46 États territoriaux, les
+  officiels restent cherchables. Il couvre les communes des 48 États territoriaux, les
   gradske opštine de Beograd, Stolična (Sofija), les neuf communes de Sarajevo, Zagreb et le
   Turopoļe, Brčko et Mostar.
 - **Brčko (BK-95) et Mostar (MO-96)** ne sont pas des États : on peut s'y rattacher, et
@@ -257,7 +257,7 @@ libellés comme aux noms (*Državļanska*, *rođeña*, *izdavaña*, *Veļa do*, 
   qui contrôle numéro de carte et date de naissance auprès du registre.
   `unique_id` = empreinte du numéro (une carte, un compte) ; `metadata` = État de
   rattachement, registre national, résidence.
-- **Périmètres** : types « État » (50) et « Municipalité confédérale » (2) ; chaque espace
+- **Périmètres** : types « État » (52) et « Municipalité confédérale » (2) ; chaque espace
   d'État est rattaché à son périmètre.
 - **Permissions** : options du workflow (`state`, `register`) comparées aux `metadata` par un
   `ActionAuthorizer` dérivé de `Decidim::Verifications::DefaultActionAuthorizer` ; une

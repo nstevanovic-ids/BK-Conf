@@ -1533,7 +1533,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
     <div class="fbrand">
       <b data-i18n="brand">Balkanska Konfederacija</b>
       <p data-i18n="f_tag">The official digital portal of the Balkan Confederation, a confederation of
-      50 states and seven constituent peoples. Documentary reference and
+      52 states and seven constituent peoples. Documentary reference and
       participatory infrastructure.</p>
     </div>
     <div>
@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-05',cat:N('Law'),t:N('Constitution v4.13: the States settled at founding'),
+  s:N('The map of the States is settled at founding, after a last pass that brings the number of each people\'s States into line with its population. Baraña joins Slavonija and Lašva joins Vrhbosna. Istočen Vardar becomes three States: Severen Vardar (VS-45, Skopje), Pajonija (PA-23, Veles) and Bregalnica (BE-03, Štip). Two new Serbian States: Zapadno Pomoravļe (ZP-48, Kruševac), drawn from Šumadija, and Usora (US-43, Doboj), drawn from Zapadna Bosna. The Confederation now counts 52 States, 48 of them territorial; Banat, Istočna Mizija, Zapadna Mizija, Vrhbosna, Zapaden Vardar and Zagorje take the codes BN-04, MI-21, MZ-22, VB-44, VZ-46 and ZA-47. A State\'s attachment to its people becomes an entrenched guarantee (Art. 150), and the borders are now final.')},
  {d:'2026-11-04',cat:N('Law'),t:N('Constitution v4.12: the Bulgarian States redrawn'),
   s:N('The plain of Plovdiv joins Thrace, which two States now share: Trakija (TR-41) in the west, around Plovdiv, and Tunxa (TU-42) in the east, around Stara Zagora, named after its river. The province of Ruse joins Istočna Mizija and the eastern Rhodopes join Rodopi; every Bulgarian State now has its seat within its own borders. The Confederation counts 50 States, 46 of them territorial; Vrhbosna, Istočen Vardar, Zapaden Vardar and Zagorje take the codes VB-43, VI-44, VZ-45 and ZA-46.')},
  {d:'2026-10-26',cat:N('Law'),t:N('The Constitution in the three standards'),
@@ -1927,7 +1929,7 @@ function vHome(){
     <div class="hero-inner">
       <div class="eyebrow" data-i18n="h_official_portal">Official portal</div>
       <h1 data-i18n-html="h_hero">The Balkan<br>Confederation</h1>
-      <p class="lead">${L`A confederation of fifty states and seven constituent South Slavic
+      <p class="lead">${L`A confederation of fifty-two states and seven constituent South Slavic
       peoples, united in a Balkan union founded on the equality of states and on direct
       democracy.`}</p>
       <div class="motto">${L`“Naš dom” · Our home.`}</div>
@@ -1945,10 +1947,10 @@ function vHome(){
     <div class="eyebrow" data-i18n="h_union">The union</div>
     <h2 style="font-size:2rem;max-width:20ch" data-i18n="h_union_t">A confederation of states, a home for peoples.</h2>
     <p class="lead" style="margin-top:12px">${L`Balkan by territory, South Slavic by language and
-    kinship: fifty states govern themselves within a single confederal order founded
+    kinship: fifty-two states govern themselves within a single confederal order founded
     on equality and direct democracy.`}</p>
     <div class="figs" style="margin-top:28px">
-      <div class="fig"><b>49</b><span>${L`Confederated states`}</span></div>
+      <div class="fig"><b>52</b><span>${L`Confederated states`}</span></div>
       <div class="fig"><b>7</b><span>${L`Constituent peoples`}</span></div>
       <div class="fig"><b>4</b><span>${L`Confederal capitals`}</span></div>
       <div class="fig"><b>24</b><span>${L`Autonomous communities`}</span></div>
@@ -2008,7 +2010,7 @@ function vHome(){
     <div class="h2row"><h2 data-i18n="h_explore">Explore the portal</h2></div>
     <div class="cards">
       ${[
-       [N('Territory'),N('States &amp; territories'),N('The 50 states, confederal territories and confederal autonomous municipalities.'),'#/states'],
+       [N('Territory'),N('States &amp; territories'),N('The 52 states, confederal territories and confederal autonomous municipalities.'),'#/states'],
        [N('Geography'),N('Interactive map'),N('Municipal boundaries, demographic and economic indicators by state.'),'#/map'],
        [N('Government'),N('Institutions'),N('The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.'),'#/institutions'],
        [N('Law'),N('Constitution'),N('The consolidated text of the Confederal Constitution and its titles.'),'#/constitution'],
@@ -2066,7 +2068,7 @@ function vStates(){
   <section class="section pagehead reveal">
     <div class="eyebrow" data-i18n="h_directory">Directory</div>
     <h1 data-i18n="l_states">States &amp; territories</h1>
-    <p class="lead">${L`Forty-five territorial states, four confederal territories and two confederal
+    <p class="lead">${L`Forty-eight territorial states, four confederal territories and two confederal
     autonomous municipalities. Filter by constituent people or search by name, code or seat.`}</p>
   </section>
   <section class="section reveal" style="animation-delay:.05s">
@@ -2256,7 +2258,7 @@ function vMap(){
     </div>
     <div class="sr-top">
       <div class="sr-title"><h1 data-i18n="h_map">Map of the Confederation</h1>
-        <p>${L`46 states, 4 confederal territories and 2 confederal municipalities`}</p></div>
+        <p>${L`48 states, 4 confederal territories and 2 confederal municipalities`}</p></div>
       <div class="sr-seg" role="group" aria-label="${L`Colour the states by`}">
         ${[['states',N('States')],['gdp',N('GDP per capita')],['dens',N('Density')],['peoples',N('Peoples')]].map(([m,l])=>
           `<button data-m="${m}" class="${SR.mode===m?'on':''}" aria-pressed="${SR.mode===m}"
@@ -2321,8 +2323,8 @@ const INS_NODES={
    d:N('Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.'),
    a:[37,39,102,104,108]},
  kon:{t:'Kongres',r:N('Legislature'),
-   m:[N('250 delegates, 51 constituencies')],mt:[N('250 delegates'),N('51 constituencies')],
-   d:N('250 delegates. Each of the 50 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.'),
+   m:[N('250 delegates, 54 constituencies')],mt:[N('250 delegates'),N('54 constituencies')],
+   d:N('250 delegates. Each of the 52 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.'),
    a:[103,104,105,106,'106 bis']},
  ns:{t:'Narodni Sabor',r:N('Assembly of Nations'),
    m:[N('7 national delegations of 10 members')],mt:[N('7 delegations'),N('of 10 members')],
@@ -2460,7 +2462,7 @@ const LAW={
    ['pass',N('The Kongres adopts the amendment.'),[105]],
    ['pass',N('Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations, or within all seven if it touches an entrenched guarantee.'),[109,110,150]],
    ['pass',N('Published, then put to a mandatory vote of the people and the States.'),[123]],
-   ['pass',N('Double majority: a majority of voters across the Confederation and a majority of the States, 26 of 50. Each State counts as one vote, decided by its own voters.'),[123,124]],
+   ['pass',N('Double majority: a majority of voters across the Confederation and a majority of the States, 27 of 52. Each State counts as one vote, decided by its own voters.'),[123,124]],
    ['pass',N('The amendment enters the Constitution.'),[123]]]}
 };
 const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
@@ -3072,7 +3074,7 @@ function vSymbols(){
       <div class="sgrid">${list.map(s=>`<a class="scard" href="#/state/${s.c}">
         <div class="flagwrap">${flagSVG(s)}</div>
         <div class="smeta"><div class="scode">${s.c}</div><h3>${s.n}</h3></div></a>`).join('')}</div>`;}).join('')}
-    <div class="notice">${L`52 entities: 46 territorial states, 4 confederal territories and 2 confederal
+    <div class="notice">${L`54 entities: 48 territorial states, 4 confederal territories and 2 confederal
     autonomous municipalities. A flag bearing the state's code is provisional, until the state adopts its own.
     Select a flag to open the state page and its description.`}</div>
   </section>`;
@@ -3796,7 +3798,7 @@ function regStepHTML(i){
         placeholder="${L`e.g. Kragujevac, Trebiñe, Ohrid, Plovdiv`}" value="${esc(R.origin?R.origin.n:'')}"
         oninput="regSearch(this.value)" onkeydown="regSearchKey(event)" onfocus="regSearch(this.value)">
       <div class="aclist" id="rMunList" role="listbox" hidden></div></div>
-      <div class="hint">${L`${fmtN(OPSTINE.length)} municipalities of the 50 states and the two confederal
+      <div class="hint">${L`${fmtN(OPSTINE.length)} municipalities of the 52 states and the two confederal
         municipalities. Cyrillic and spellings without diacritics are accepted.`}</div>${regErr('origin')}
     </div>
     <div id="rAttach">${regAttachCard(R.origin)}</div>
@@ -4697,13 +4699,13 @@ window.addEventListener('resize',setHdr,{passive:true});
 let SIDX=null, sbResults=[], sbSel=0;
 const SB_PAGES=[
  [N('Home'),N('Overview of the Confederation'),'#/home'],
- [N('States & territories'),N('Directory of the 50 states'),'#/states'],
+ [N('States & territories'),N('Directory of the 52 states'),'#/states'],
  [N('Autonomous communities'),N('24 recognised minority communities'),'#/autonomy'],
  [N('Interactive map'),N('Globe of the Confederation, key figures by state'),'#/map'],
  [N('Institutions'),N('The four confederal institutions'),'#/institutions'],
  [N('Security and Defence'),N('Gendarmerie, Bureau of Investigation, intelligence, armed forces'),'#/security'],
  [N('Constitution'),N('Constitutional corpus'),'#/constitution'],
- [N('Kongres seats'),N('250 delegates in 51 constituencies'),'#/institutions'],
+ [N('Kongres seats'),N('250 delegates in 54 constituencies'),'#/institutions'],
  ['Konfederalno Veće',N('Presidency, seven departments and how the council decides'),'#/council'],
  [N('Revising the Constitution'),N('Total and partial revision, entrenched guarantees'),'#/institutions'],
  [N('Official journal'),N('Latest confederal decisions'),'#/journal'],

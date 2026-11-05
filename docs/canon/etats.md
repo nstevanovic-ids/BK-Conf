@@ -1,18 +1,21 @@
 # Liste canonique des États — Balkanska Konfederacija
 
-**46 États territoriaux + 4 territoires confédéraux (villes-États) + 2 municipalités confédérales autonomes.**
+**48 États territoriaux + 4 territoires confédéraux (villes-États) + 2 municipalités confédérales autonomes.**
 Numérotation strictement alphabétique par code. Source de vérité du projet.
+**Limites gelées depuis la passe de fondation du 2026-11-05** : plus de redécoupage pour corriger un
+équilibre (ADR docs/decisions/2026-11-05-passe-de-fondation.md ; contrôle : docs/canon/equilibre.md,
+`scripts/equilibre.py --check`).
 Trois États ajoutés le 2026-06-28 (Lašva, Soli, Vrhbosna) en codes provisoires
 LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 
-## États territoriaux (46)
+## États territoriaux (48)
 
 | Code | Nom | Peuple | Chef-lieu |
 |------|-----|--------|-----------|
 | BA-01 | Bosanska Krajina | Bosniaks | Bihać |
 | BC-02 | Bačka | Serbs | Novi Sad |
-| BN-03 | Banat | Serbs | Zreñanin |
-| BR-04 | Baraña | Croats | Beli Manastir |
+| BE-03 | Bregalnica | Macedonians | Štip |
+| BN-04 | Banat | Serbs | Zreñanin |
 | BZ-05 | Zapadna Bosna | Serbs | Baña Luka |
 | CG-06 | Crna Gora | Montenegrins | Podgorica |
 | CM-07 | Černomorska | Bulgarians | Varna |
@@ -29,9 +32,9 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | KV-18 | Kvarner | Croats | Rěka |
 | LG-19 | Ludogorje | Bulgarians | Razgrad |
 | LK-20 | Lika | Croats | Gospić |
-| LV-21 | Lašva | Bosniaks | Travnik |
-| MI-22 | Istočna Mizija | Bulgarians | Veliko Tãrnovo |
-| MZ-23 | Zapadna Mizija | Bulgarians | Vraca |
+| MI-21 | Istočna Mizija | Bulgarians | Veliko Tãrnovo |
+| MZ-22 | Zapadna Mizija | Bulgarians | Vraca |
+| PA-23 | Pajonija | Macedonians | Veles |
 | PI-24 | Istočno Podriñe | Serbs | Višegrad |
 | PM-25 | Prekmurje | Slovenes | Murska Sobota |
 | PO-26 | Podunavļe | Serbs | Smederevo |
@@ -51,10 +54,12 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
 | TL-40 | Torlak | Serbs | Pirot |
 | TR-41 | Trakija | Bulgarians | Plovdiv |
 | TU-42 | Tunxa | Bulgarians | Stara Zagora |
-| VB-43 | Vrhbosna | Bosniaks | Zenica |
-| VI-44 | Istočen Vardar | Macedonians | Štip |
-| VZ-45 | Zapaden Vardar | Macedonians | Tetovo |
-| ZA-46 | Zagorje | Croats | Krapina |
+| US-43 | Usora | Serbs | Doboj |
+| VB-44 | Vrhbosna | Bosniaks | Zenica |
+| VS-45 | Severen Vardar | Macedonians | Skopje |
+| VZ-46 | Zapaden Vardar | Macedonians | Tetovo |
+| ZA-47 | Zagorje | Croats | Krapina |
+| ZP-48 | Zapadno Pomoravļe | Serbs | Kruševac |
 
 ## Territoires confédéraux, villes-États (4)
 
@@ -103,6 +108,14 @@ LV/SO/VB ; cf. ADR docs/decisions/2026-06-28-trois-etats-lv-so-vb.md.
   VI-43 → VI-44, VZ-44 → VZ-45, ZA-45 → ZA-46. Cf. ADR
   docs/decisions/2026-11-04-redecoupage-bulgare.md.
 
+- 2026-11-05 : passe de fondation (dernier redécoupage). Baraña (BR-04) fondue dans SL-32
+  Slavonija ; Lašva (LV-21) fondue dans Vrhbosna ; Istočen Vardar (VI-44) partagé en VS-45
+  Severen Vardar (Skopje), PA-23 Pajonija (Veles) et BE-03 Bregalnica (Štip) ; ZP-48 Zapadno
+  Pomoravļe (Kruševac) détaché de SU-36 Šumadija ; US-43 Usora (Doboj) détachée de BZ-05
+  Zapadna Bosna. Renumérotation alphabétique : BN-03 → BN-04, MI-22 → MI-21, MZ-23 → MZ-22,
+  VB-43 → VB-44, VZ-45 → VZ-46, ZA-46 → ZA-47. Cf. ADR
+  docs/decisions/2026-11-05-passe-de-fondation.md.
+
 > L'Article 1 bis de la Constitution v4 (docs/constitution/v4.md) est aligné
-> sur cette liste : 50 États (46 territoriaux + 4 villes-États), plus les
+> sur cette liste : 52 États (48 territoriaux + 4 villes-États), plus les
 > 2 municipalités confédérales autonomes.

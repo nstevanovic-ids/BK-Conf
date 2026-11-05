@@ -70,7 +70,7 @@ OCCUPIED = {
     "Occupied_Beneska-Slovenija_GO-12.geojson": "GV",
 }
 # States with a non-numeric provisional code carry their own file name.
-EXTRA = {"LV-LASVA.geojson": "LV", "SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
+EXTRA = {"SO-SOLI.geojson": "SO", "VB-VRHBOSNA.geojson": "VB"}
 
 Q = 1000            # coordinates stored in 1/1000 degree (~80-110 m)
 GAP_PX = 3.0        # coverage_clean : slivers narrower than this (~4 km) are merged
