@@ -37,4 +37,5 @@ rattachement au peuple serbe, comme sur Istočno Podriñe, Šumadija et Torlak.
   affiche la carte « Coat of arms ».
 - `FLAGNOTE.ZL` (`portail/data/flagnotes.json`), traduit dans les trois standards
   (`portail/data/textes.json`).
-- Drapeaux encore à créer : Bregalnica, Severen Vardar, Usora et Tunxa.
+- Drapeaux encore à créer : Bregalnica, Severen Vardar et Tunxa. Usora a reçu le sien le même
+  jour (ADR 2026-11-05-drapeau-blason-usora.md).
