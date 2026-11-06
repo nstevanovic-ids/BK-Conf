@@ -17,9 +17,16 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `institutions-hall.jpg` | Politique | Hémicycle / palais fédéral | 1800×1000 | Page Institutions — bande |
 | `participation-crowd.jpg` | Humain | Citoyens · place publique | 2400×1000 | Page Participation — bande |
 | `security-zandarmerija.jpg` | Sécurité | Konfederalna Žandarmerija · Granična Straža | 1500×1000 | Page Security and Defence — encart Žandarmerija |
+| `security-zandarmerija-sre.jpg` | Sécurité | Écusson en cyrillique central (ЖАНДАРМЕРИЈА) | 1500×1000 | Même encart, en SRE avec le cyrillique actif |
+| `security-zandarmerija-ist.jpg` | Sécurité | Écusson en cyrillique oriental (ЖАНДАРМЕРИЯ) | 1500×1000 | Même encart, en IST avec le cyrillique actif |
 | `security-istrazni-ured.jpg` | Sécurité | Konfederalni Istražni Ured · enquêteurs | 1500×1000 | Page Security and Defence — encart Istražni Ured |
 | `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
 | `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1500×1000 | Page Security and Defence — encart forces armées |
+
+Images qui portent du texte : l'image latine sert par défaut ; une variante
+`<nom>-sre.jpg` (cyrillique central) et `<nom>-ist.jpg` (cyrillique oriental) la remplace
+quand le cyrillique est actif. L'emplacement doit figurer dans `SLOT_CYR`
+(`portail/index.html`).
 
 Images générées (ne pas remplacer à la main) : `wallet-logo.png` (660×660) et
 `wallet-hero.png` (1032×336), logo et bandeau du pass Google Wallet de la carte citoyenne,

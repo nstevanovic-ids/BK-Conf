@@ -61,26 +61,32 @@ sans, c'est le *civil flag* ».
 - Les palettes de drapeau peuvent signaler une autonomie identitaire
   (ex. palette kilim de Torlak vs pan-couleurs serbes)
 
-## Emblèmes des services de sécurité (ADR 2026-10-22-emblemes-services-securite.md)
+## Emblèmes des services de sécurité (ADR 2026-10-22-emblemes-services-securite.md et 2026-11-06-loup-zandarmerija-lion-forces-armees.md)
 | Service | Animal | Motif |
 |---|---|---|
-| Konfederalna Žandarmerija (art. 138 à 140) | **Lynx des Balkans** | aire transfrontalière, comme les missions de la Granična Straža ; espèce menacée que la Žandarmerija protège (art. 139 f) ; revendiqué par aucun peuple |
+| Konfederalna Žandarmerija (art. 138 à 140) | **Loup** (*Canis lupus*), à la place du lynx depuis le 2026-11-06 | natif de toute la région, il ignore les frontières intérieures, comme les missions de la Granična Straža ; vit en meute ; garde son territoire (frontières, axes, infrastructures, art. 139) |
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
 | Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
-| Forces armées | à choisir | piste : buzdovan et épée |
+| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement ; écusson de l'armée de terre : écu kaki très foncé, lion en or vieilli mat, sans texte ni drapeau ; camouflage TAZ 90 suisse |
 
 Règles communes aux logos des services :
 - une seule famille : même forme (médaillon ou écu), même typographie, nom sud-slave
-  en alphabet unifié, dominante prise dans la palette canonique ;
+  en alphabet unifié, dominante prise dans la palette canonique ; exceptions admises pour
+  les insignes basse visibilité : fond noir de l'écusson de la Žandarmerija, fond kaki très
+  foncé de celui de l'armée de terre (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md) ;
 - le lion ailé n'apparaît qu'en petit, comme signe de rattachement, jamais comme motif
-  principal d'un service ;
+  principal d'un service, sauf pour les forces armées, dont il est l'emblème ;
 - interdits : symboles propres à un peuple (aigle bicéphale, šahovnica, lys des
   Kotromanić, lion couronné bulgare, soleil de Vergina, Triglav), étoile à cinq
   branches, soleil à sept rais (réservé au sceau), motifs à sept éléments, œil (contraire
   à l'interdiction de surveillance politique, art. 137 et 145) ;
-- le lynx **n'est plus** candidat au totem animal de la Confédération : il est attribué
-  à la Žandarmerija. Le totem confédéral reste à choisir (workstream des symboles).
+- loup de la Žandarmerija : tête de profil, gueule fermée, à l'horizontale ; ni loup
+  hurlant, ni croissant, ni geste de la main (emblème des Loups gris turcs) ; ni montagne
+  ni Velebit (loup de Lika, LK-20) ; aucune unité nommée *Vukovi* (unités des guerres des
+  années 1990) ;
+- le lynx n'est plus l'emblème d'aucun service et peut redevenir candidat au totem
+  animal de la Confédération, qui reste à choisir (workstream des symboles).
 
 ## Lettre-emblème (workstream en attente)
 - Lettre unique style ß, héritage glagolitique / bosančica

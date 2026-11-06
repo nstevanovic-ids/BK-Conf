@@ -118,8 +118,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Plateforme participative (Decidim, e-Konfederacija) → docs/plateforme/ ; lancement sur les
   réseaux (X d'abord, puis Instagram) → docs/communication/
 - Symboles confédéraux (animal totem à choisir, lettre-emblème glagolitique/bosančica) → en
-  attente ; le lynx est l'emblème de la Žandarmerija, plus un candidat au totem (ADR
-  2026-10-22-emblemes-services-securite.md)
+  attente ; emblèmes des services (ADR 2026-10-22-emblemes-services-securite.md et
+  2026-11-06-loup-zandarmerija-lion-forces-armees.md) : loup pour la Žandarmerija (tête de
+  profil, gueule fermée ; ni loup hurlant ni croissant, ni montagne de Lika ; le lynx est
+  abandonné), cobra pour l'unité d'intervention, poskok pour la KOA, balance et épée pour le
+  KIU, lion ailé tenant un buzdovan pour les forces armées (seule exception au lion « en petit » ;
+  écusson de l'armée de terre kaki très foncé, sans texte ; camouflage TAZ 90 suisse)
 - Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
@@ -182,7 +186,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   IST (bascule Lat / Ћир), sur tout le texte : central = cyrillique confédéral lu en ekavien
   (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
   `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
-  romains, e-mails, liens, noms des communautés non slaves ; ADR 2026-10-25-portail-cyrillique.md ;
+  romains, e-mails, liens, noms des communautés non slaves ; images à texte : variantes
+  `<nom>-sre.jpg` et `<nom>-ist.jpg` (table `SLOT_CYR`) ; ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et

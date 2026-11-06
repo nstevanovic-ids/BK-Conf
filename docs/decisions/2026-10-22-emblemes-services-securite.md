@@ -15,9 +15,11 @@ Ces emblèmes sont la base des futurs logos. Aucun logo n'est encore dessiné.
    - C'est une espèce menacée, et la Žandarmerija protège les espaces naturels d'intérêt
      confédéral (art. 139 f).
    - Aucun peuple ne le revendique dans sa tradition héraldique.
+   - **Remplacé le 2026-11-06 par le loup** (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md).
 2. **Le lynx cesse d'être candidat au totem animal de la Confédération.** Il était
    pressenti dans le chantier des symboles, qui n'est pas encore ouvert. L'utilisateur
    l'attribue à la Žandarmerija seule, et le totem confédéral reste à choisir.
+   **Levé le 2026-11-06** : le lynx n'est plus attribué et peut redevenir candidat.
 3. **Unité d'intervention spécialisée (art. 140 bis) : le cobra.**
    - Il s'inscrit dans la tradition des unités d'intervention : EKO Cobra, unité
      antiterroriste de la police fédérale autrichienne, et les « Kobre », unité spéciale de
@@ -45,6 +47,7 @@ Elles sont consignées dans `docs/canon/couleurs-symboles.md`.
 
 ## Reste ouvert
 - Emblème des forces armées. Pistes : buzdovan et épée, ou épées croisées sous une
-  couronne de chêne avec le lion ailé en petit.
+  couronne de chêne avec le lion ailé en petit. **Réglé le 2026-11-06 : le lion ailé,
+  motif principal** (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md).
 - Animal totem de la Confédération.
 - Dessin des logos.
