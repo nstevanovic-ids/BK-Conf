@@ -49,6 +49,8 @@ PALETTE_COLORS = 64
 # (remplacé le 2026-11-06) et Zapaden-Vardar-Flag-v2-ondule.jpg (original ondulé de la v2,
 # mis à plat dans Zapaden-Vardar-Flag-v2.png : bandes en aplat, écu ramené à quatre couleurs).
 # Severen-Vardar-Flag.png est découpé dans la couverture du Macedonian Herald no 16 (2021).
+# Le 2026-11-06, le drapeau au Ш (fichier Rodopi-Flag-v2.png) passe à Šopluk et les bandes
+# or et gueules (SD-Sopluk-Flag.png) à Rodopi, en attendant un drapeau propre à Rodopi.
 # Tunxa-Flag-genere.jpg : image générée retenue le 2026-11-06 ; Tunxa-Flag.png en est la version
 # à emblème réduit (de 71 % à 50 % de la hauteur), bandes refaites en aplat.
 MAPPING = {
@@ -80,12 +82,12 @@ MAPPING = {
     "PO-26": "Podunavlje-Flag-V3.png",
     "PR-27": "Pirin-Flag.jpg",
     "PZ-28": "Flag-of-Zapadno-Podrinje.png",
-    "RO-29": "Rodopi-Flag-v2.png",
+    "RO-29": "SD-Sopluk-Flag.png",
     "RS-30": "SD-Raska-Sandzak-Flag.png",
     "SI-31": "SD-Istocni-Srem-Flag_4x.png",
     "SL-32": "SD-Slavonia-Flag-Horizontal.png",
     "SO-33": "Soli-Flag.png",
-    "SP-34": "SD-Sopluk-Flag.png",
+    "SP-34": "Rodopi-Flag-v2.png",
     "ST-35": "SD-Stajerska-Flag_3x.png",
     "SU-36": "Sumadija-Flag.png",
     "SX-37": "SD-Strandzha-Flag_3x.png",
