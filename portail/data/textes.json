@@ -2811,6 +2811,11 @@
    "ist": "Horizontalno razdeleno na černo, srebãrno i siño; vãrhu srebãrnata ivica — rozetata IYI ot Pliska, vladetelskijat monogram na Pãrvoto bãlgarsko carstvo, v černo vãrhu krãgãl kartuš.",
    "sre": "Horizontalno poděļeno, crno, srebrno i plavo; na srebrnoj traci rozeta IYI iz Pliske, carski monogram Prvog bugarskog carstva, crne boje, na okrugloj kartuši."
   },
+  "Per fess vert and azure, the forests above the waters of the Arda; overall, a griffon vulture displayed or, ruffed argent, holding in its talons the golden lyre of Orpheus, between two sprays of Orpheus flowers (Haberlea rhodopensis) purpure: the vultures of the Arda and the Thracian singer of the Rhodopes.": {
+   "zap": "Vodoravno deļeno zeleno in modro, gozdovi nad vodami Arde; čez vse zlati razprti beloglavi jastreb s srebrnim ovratnikom, ki v kremļih drži zlato Orfejevo liro, med dvema šopkoma vijoličnih Orfejevih cvetov (Haberlea rhodopensis): jastrebi Arde in tračanski pevec Rodopov.",
+   "sre": "Horizontalno poděļeno, zeleno i plavo, šume iznad voda Arde; preko svega zlatni rašireni běloglavi sup sa srebrnom ogrlicom, koji u kanxama drži zlatnu Orfejevu liru, između dvě grančice ļubičastih Orfejevih cvětova (Haberlea rhodopensis): supovi Arde i trački pěvač Rodopa.",
+   "ist": "Horizontalno razdeleno na zeleno i siño — gorite nad vodite na Arda; vãrhu vsičko — zlaten razperen beloglav lešojad sãs srebãrna jaka, dãržašt v noktite si zlatnata lira na Orfej, meždu dva strãka lilavi Orfeevi cvetja (Haberlea rhodopensis): lešojadite na Arda i trakijskijat pevec na Rodopite."
+  },
   "per inhabitant in 2023, {0}% of the EU-27 average": {
    "zap": "na prebivalca v letu 2023, {0} % povprečja EU-27",
    "ist": "na čovek prez 2023 g., {0}% ot srednoto za ES (27 dãržavi)",
@@ -3385,11 +3390,6 @@
    "sre": "Prikažite podatke u tabeli",
    "ist": "Pokažete dannite v tablica",
    "zap": "Prikaži podatke v tabeli"
-  },
-  "Six horizontal stripes of or and gules alternating.": {
-   "zap": "Šest izmeničnih vodoravnih pasov zlate in rdeče barve.",
-   "sre": "Šest horizontalnih traka, naizměnično zlatnih i crvenih.",
-   "ist": "Šest horizontalni ivici, reduvašti se v zlatno i červeno."
   },
   "Sky-blue and maroon horizontal; a white seven-pointed mullet above; below, a sheaf of wheat, the grain wealth of southern Dobruja.": {
    "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe.",
