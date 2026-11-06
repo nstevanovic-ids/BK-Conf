@@ -45,10 +45,14 @@ PALETTE_COLORS = 64
 # et Lasva-Flag.webp (États fondus le 2026-11-05), Lika-Flag.png,
 # Zapadna-Mizija-Flag-v2.png, Flag_of_Zapadna-Mizija.svg, Timok-Flag.png, Torlak-Flag.png et
 # Usora-Flag.svg (versions remplacées ; TK-39 et TL-40 pointent sur les v2 affichées depuis le
-# 2026-10-25, US-43 sur la version byzantine du 2026-11-05).
+# 2026-10-25, US-43 sur la version byzantine du 2026-11-05) ; Flag_of_Zapaden-Vardar.webp
+# (remplacé le 2026-11-06) et Zapaden-Vardar-Flag-v2-ondule.jpg (original ondulé de la v2,
+# mis à plat dans Zapaden-Vardar-Flag-v2.png : bandes en aplat, écu ramené à quatre couleurs).
+# Severen-Vardar-Flag.png est découpé dans la couverture du Macedonian Herald no 16 (2021).
 MAPPING = {
     "BA-01": "Flag_of_Bosanska-Krajina.png",
     "BC-02": "flag_BC02.png",
+    "BE-03": "Bregalnica-Flag.jpg",
     "BN-04": "flag_BN03.png",
     "BZ-05": "Zapadna-Bosna-Flag_3x.png",
     "CG-06": "Flag_of_CG-07_svg.png",
@@ -89,7 +93,8 @@ MAPPING = {
     "TR-41": "SD-S_Trakija-Flag_3x.png",
     "US-43": "Usora-Flag-v2.svg",
     "VB-44": "Vrhbosna-Flag.png",
-    "VZ-46": "Flag_of_Zapaden-Vardar.webp",
+    "VS-45": "Severen-Vardar-Flag.png",
+    "VZ-46": "Zapaden-Vardar-Flag-v2.png",
     "ZA-47": "Zagorje-Flag.webp",
     "ZL-48": "Zlatibor-Flag.png",
     "BG-91": "Beograd-Flag.png",

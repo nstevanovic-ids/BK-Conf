@@ -1871,15 +1871,20 @@
    "sre": "Horizontalno crveno, plavo i crveno; u sredini srebrni lovorov věnac iznad dva ukrštena mača, koji okružuje krunu i srebrni krst na crvenom poļu, srpska zastava podunavske ravnice.",
    "ist": "Horizontalno červeno, siño i červeno; v sredata — srebãren lavrov venec nad dva krãstosani meča, obgraždašt korona i srebãren krãst na červeno pole — srãbskoto zname na Dunavskata ravnina."
   },
-  "Gules, sable and gules horizontal, broad sable middle band; on the sable, the golden Byzantine double-headed eagle displayed, charged on its breast with the kolovrat sun-wheel and holding sceptre and orb, Byzantino-Slavic heritage of the Vardar marches.": {
-   "zap": "Vodoravno rdeče, črno in rdeče, s širokim črnim sredñim pasom; na črnem zlati bizantinski dvoglavi orel z razprtimi krili, s sončnim kolesom kolovratom na prsih ter z žezlom in državnim jabolkom, bizantinsko-slovanska dediščina vardarskih obmejnih pokrajin.",
-   "ist": "Horizontalno červeno, černo i červeno, s široka černa sredna ivica; vãrhu černoto — zlaten vizantijski dvuglav orel s razpereni krile, sãs slãnčevoto kolelo kolovrat na gãrdite, dãržašt skiptãr i kãlbo — vizantijsko-slavjansko nasledstvo na vardarskite granični zemi.",
-   "sre": "Horizontalno crveno, crno i crveno, sa širokom crnom sredñom trakom; na crnom poļu zlatni vizantijski dvoglavi orao raširenih krila, s kolovratom, sunčanim kolom, na grudima, sa žezlom i vladarskom jabukom, vizantijsko-slovensko naslěđe vardarskih krajina."
+  "Gules, sable and argent horizontal; central shield beneath a golden mural crown, per fess: in chief, the golden Macedonian lion rampant and the black double-headed eagle, each on gules; in base, the radiant golden sun on gules: the Macedonian lion and sun with the Albanian eagle, for the shared land of the western Vardar.": {
+   "zap": "Vodoravno rdeče, črno in srebrno; osredñi ščit pod zlato zidno krono, vodoravno deļen: zgoraj zlati makedonski lev in črni dvoglavi orel, vsak na rdečem, spodaj zlato sijoče sonce na rdečem: makedonski lev in sonce z albanskim orlom, za skupno deželo zahodnega Vardarja.",
+   "sre": "Horizontalno crveno, crno i srebrno; središñi štit pod zlatnom zidnom krunom, horizontalno poděļen: u gorñem dělu zlatni makedonski lav i crni dvoglavi orao, svaki na crvenom poļu, a u doñem dělu zlatno zrakasto sunce na crvenom poļu: makedonski lav i sunce s albanskim orlom, za zajedničku zemļu zapadnog Vardara.",
+   "ist": "Horizontalno červeno, černo i srebãrno; centralen štit pod zlatna stenna korona, razdelen horizontalno: gore — zlatnijat makedonski lãv i černijat dvuglav orel, vseki na červeno pole, dolu — zlatnoto sijaešto slãnce na červeno pole: makedonskite lãv i slãnce s albanskija orel, za obštata zemja na Zapaden Vardar."
   },
   "Gules, vert and argent horizontal; central shield beneath a mural crown, with the green peaks of the Drina valley, an Orthodox church between the mountains, the golden bridge below and the small Serbian cross-shield in base; scroll “ПОДРИЊЕ”.": {
    "zap": "Vodoravno rdeče, zeleno in srebrno; osredñi ščit pod zidno krono, z zelenimi vrhovi doline Drine, pravoslavno cerkvijo med gorami, spodaj z zlatim mostom in v vznožju z majhnim ščitom s srbskim križem; trak s cirilskim napisom „PODRIÑE“.",
    "sre": "Horizontalno crveno, zeleno i srebrno; središñi štit pod zidnom krunom, sa zelenim vrhovima doline Drine, pravoslavnom crkvom između planina, zlatnim mostom ispod ñih i malim štitom sa srpskim krstom u podnožju; traka s ćiriličnim natpisom „PODRIÑE“.",
    "ist": "Horizontalno červeno, zeleno i srebãrno; centralen štit pod stenna korona, sãs zelenite vãrhove na dolinata na Drina, pravoslavna cãrkva meždu planinite, zlaten most otdolu i malãk štit sãs srãbskija krãst v dolnata čast; lenta s nadpis „ПОДРИЊЕ“."
+  },
+  "Gules; at the centre, a sable roundel within a golden ring, charged with the golden sixteen-rayed sun of Vergina.": {
+   "zap": "Rdeče poļe; v sredini črn krog v zlatem obroču z zlatim šestnajstkrakim soncem iz Vergine.",
+   "sre": "Crveno poļe; u sredini crni krug u zlatnom prstenu sa zlatnim šesnaestokrakim suncem iz Vergine.",
+   "ist": "Červeno pole; v sredata — čeren krãg v zlaten prãsten sãs zlatnoto šestnadesetlãčevo slãnce ot Vergina."
   },
   "Gules; at the centre, the arms of insurgent Serbia (First Serbian Uprising, 1804–1813): two baroque cartouches bearing the Serbian cross with four firesteels and, on azure, the Triballian boar's head pierced by an arrow, ensigned with a crown between two crowned helms and two arms brandishing sabres, over a trophy of banners, muskets, drum and cannon.": {
    "zap": "Rdeče poļe; v sredini grb uporniške Srbije (prva srbska vstaja, 1804–1813): dve baročni kartuši s srbskim križem s štirimi kresili in, na modrem, s tribalsko merjaščevo glavo, prebodeno s puščico; nad ñima krona med dvema kronanima čeladama in dvema rokama, ki vihtita sabļi, vse na trofeji iz praporov, mušket, bobna in topa.",
@@ -2795,6 +2800,11 @@
    "zap": "Narodi",
    "ist": "Narodi",
    "sre": "Narodi"
+  },
+  "Per fess gules and sable; overall, the golden double-headed eagle displayed, with three golden six-pointed stars about its heads: after the flag proposed for Macedonia by the Flag Institute in 1995.": {
+   "zap": "Vodoravno deļeno rdeče in črno; čez vse zlati razprti dvoglavi orel s tremi zlatimi šestkrakimi zvezdami ob glavah: po zastavi, ki jo je leta 1995 za Makedonijo predlagal britanski Flag Institute.",
+   "sre": "Horizontalno poděļeno, crveno i crno; preko svega zlatni rašireni dvoglavi orao s tri zlatne šestokrake zvězde oko glava: po zastavi koju je 1995. za Makedoniju predložio britanski Flag Institute.",
+   "ist": "Horizontalno razdeleno na červeno i černo; vãrhu vsičko — zlaten razperen dvuglav orel s tri zlatni šestolãčni zvezdi okolo glavite: po znameto, predloženo za Makedonija ot britanskija Flag Institute prez 1995 g."
   },
   "Per fess sable, argent and azure; on the argent band, the IYI rosette of Pliska, the imperial monogram of the First Bulgarian Empire, in sable on a circular cartouche.": {
    "zap": "Vodoravno deļeno črno, srebrno in modro; na srebrnem pasu rozeta IYI iz Pliske, cesarski monogram Prvega bolgarskega cesarstva, v črni barvi na okrogli kartuši.",
