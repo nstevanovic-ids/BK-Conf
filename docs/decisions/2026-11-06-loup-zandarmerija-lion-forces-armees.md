@@ -74,13 +74,45 @@ Règles de dessin :
 - Mécanisme général pour toute image qui porte du texte : table `SLOT_CYR` du portail,
   fichiers `<nom>-sre.jpg` et `<nom>-ist.jpg`.
 
+### 6. Écusson des forces armées et camouflage
+Retenus le même jour, « pour l'instant » (« ça fera l'affaire pour l'instant, go avec
+ça »), après trois essais :
+- un écusson au drapeau, avec le nom sur un bandeau noir puis sur la bande rouge, a été
+  jugé « trop clair, trop voyant » ;
+- un essai a cassé le drapeau en tricolore horizontal rouge-blanc-bleu, qui se lit comme le
+  drapeau croate.
+
+**Écusson de l'armée de terre (*vojska*)** :
+- écu uni **kaki très foncé**, mat, bord du même ton ;
+- lion ailé au buzdovan brodé en **or vieilli mat** ;
+- ni texte, ni drapeau. Une seule image sert donc pour toutes les langues et les deux
+  alphabets.
+
+**Couleur de fond par composante** : kaki très foncé pour l'armée de terre (décidé). Pour
+les forces aériennes (bleu ardoise foncé) et la marine (bleu marine presque noir), ce sont
+des propositions non décidées ; leurs noms sud-slaves restent à fixer.
+
+**Camouflage : le TAZ 90 suisse** (« il faudrait prendre un motif camo neutre donc partons
+sur le suisse ») :
+- quatre couleurs : vert, brun, beige et noir. Son successeur, le TAZ 16, garde le dessin
+  et remplace le noir par un brun clair ;
+- motif d'un pays neutre, sans lien avec les camouflages des guerres des années 1990 ;
+- dans les visuels, ni drapeau ni croix suisses : l'écusson confédéral est le seul insigne.
+
+Le kaki très foncé sort de la palette du drapeau, comme le noir de l'écusson de la
+Žandarmerija : ce sont deux exceptions admises pour les insignes basse visibilité.
+
+Portail : la photo de l'écusson sur la manche en TAZ 90 occupe l'encart des forces armées
+(`portail/images/security-armed-forces.jpg`).
+
 ## Reste ouvert
-- Écusson et mise en situation de l'emblème des forces armées (par l'utilisateur).
+- Écussons des forces aériennes et de la marine, et leurs noms sud-slaves.
 - Animal totem de la Confédération.
 
 ## Propagation
 - `docs/canon/couleurs-symboles.md` (table des emblèmes, règles communes).
 - ADR 2026-10-22-emblemes-services-securite.md (renvois).
+- `portail/images/security-armed-forces.jpg`.
 - `portail/images/security-zandarmerija.jpg`, `-sre.jpg`, `-ist.jpg` ; `SLOT_CYR` dans
   `portail/index.html` ; `portail/images/README.md`.
 - `CLAUDE.md`.

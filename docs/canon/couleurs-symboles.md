@@ -68,11 +68,13 @@ sans, c'est le *civil flag* ».
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
 | Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
-| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement |
+| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement ; écusson de l'armée de terre : écu kaki très foncé, lion en or vieilli mat, sans texte ni drapeau ; camouflage TAZ 90 suisse |
 
 Règles communes aux logos des services :
 - une seule famille : même forme (médaillon ou écu), même typographie, nom sud-slave
-  en alphabet unifié, dominante prise dans la palette canonique ;
+  en alphabet unifié, dominante prise dans la palette canonique ; exceptions admises pour
+  les insignes basse visibilité : fond noir de l'écusson de la Žandarmerija, fond kaki très
+  foncé de celui de l'armée de terre (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md) ;
 - le lion ailé n'apparaît qu'en petit, comme signe de rattachement, jamais comme motif
   principal d'un service, sauf pour les forces armées, dont il est l'emblème ;
 - interdits : symboles propres à un peuple (aigle bicéphale, šahovnica, lys des

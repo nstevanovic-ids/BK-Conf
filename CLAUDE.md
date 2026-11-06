@@ -122,7 +122,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   2026-11-06-loup-zandarmerija-lion-forces-armees.md) : loup pour la Žandarmerija (tête de
   profil, gueule fermée ; ni loup hurlant ni croissant, ni montagne de Lika ; le lynx est
   abandonné), cobra pour l'unité d'intervention, poskok pour la KOA, balance et épée pour le
-  KIU, lion ailé tenant un buzdovan pour les forces armées (seule exception au lion « en petit »)
+  KIU, lion ailé tenant un buzdovan pour les forces armées (seule exception au lion « en petit » ;
+  écusson de l'armée de terre kaki très foncé, sans texte ; camouflage TAZ 90 suisse)
 - Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
