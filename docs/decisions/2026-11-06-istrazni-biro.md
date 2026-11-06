@@ -51,7 +51,8 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
     échantillonné sur le soleil), à la demande de l'utilisateur (« le jaune est pas le même
     que le jaune de la confédération »).
 - **Contenu** :
-  - sigle **KIB** en lettres très larges et grasses (Unbounded Black) ;
+  - sigle **KIB** en lettres très larges et grasses (Montserrat Black étirée ; le B
+    d'Unbounded, entaillé à gauche, a été écarté) ;
   - drapeau civil étiré sur presque toute la largeur, portant la balance et l'épée en jaune
     (le fléau repose sur une épée verticale, pointe en haut) ;
   - nom sur deux lignes en Sofia Sans Black.
