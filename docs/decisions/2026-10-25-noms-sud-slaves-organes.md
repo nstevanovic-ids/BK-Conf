@@ -9,7 +9,8 @@ article nouveau.
 - On retient la forme commune aux trois standards. À défaut, on prend la forme centrale,
   avec le yat là où il se trouve.
 - Les organes prennent une majuscule à chaque mot, comme Ustavni Sud ou Konfederalni
-  Istražni Ured.
+  Istražni Ured (devenu Konfederalni Istražni Biro le 2026-11-06, ADR
+  2026-11-06-istrazni-biro.md).
 - Les fonctions s'écrivent en minuscules, comme *načelnik Generalštaba*.
 - Le nom sud-slave suit le nom français ou anglais, entre parenthèses, à l'article qui crée
   l'organe.

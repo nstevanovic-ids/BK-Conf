@@ -85,7 +85,7 @@ Noms officiels inchangés : *Kongres*, *Narodni Sabor*, *Konfederalno Veće*, *U
 *Konfederalna Kancelarija*, *Konfederalni Sud*, *Konfederalno Tužilaštvo*, *Konfederalni
 Računski Sud*, *Konfederalna Centralna Banka*, *Konfederalni Institut za Jezik*,
 *Konfederalna Biblioteka i Arhiv*, *Veće Zajednica*, *Konfederalna Žandarmerija*,
-*Konfederalni Istražni Ured*, *Konfederalna Obavěštajna Agencija* (KOA), *Konfederalne
+*Konfederalni Istražni Biro* (KIB, ex-*Ured* : ADR 2026-11-06-istrazni-biro.md), *Konfederalna Obavěštajna Agencija* (KOA), *Konfederalne
 Oružane Snage*, *Konfederalna Agencija za Vanredne Situacije*.
 
 | EN | zapadni | središñi | istočni (bulgare) |

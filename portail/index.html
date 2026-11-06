@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-06',cat:N('Law'),t:N('Constitution v4.14: the Konfederalni Istražni Biro'),
+  s:N('The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.')},
  {d:'2026-11-05',cat:N('Law'),t:N('Constitution v4.13: the States settled at founding'),
   s:N('The map of the States is settled at founding, after a last pass that brings the number of each people\'s States into line with its population. Baraña joins Slavonija and Lašva joins Vrhbosna. Istočen Vardar becomes three States: Severen Vardar (VS-45, Skopje), Pajonija (PA-23, Veles) and Bregalnica (BE-03, Štip). Two new Serbian States: Zlatibor (ZL-48, Užice), drawn from Istočno Podriñe, and Usora (US-43, Doboj), drawn from Zapadna Bosna. The Confederation now counts 52 States, 48 of them territorial; Banat, Istočna Mizija, Zapadna Mizija, Vrhbosna, Zapaden Vardar and Zagorje take the codes BN-04, MI-21, MZ-22, VB-44, VZ-46 and ZA-47. A State\'s attachment to its people becomes an entrenched guarantee (Art. 150), and the borders are now final.')},
  {d:'2026-11-04',cat:N('Law'),t:N('Constitution v4.12: the Bulgarian States redrawn'),
@@ -2625,7 +2627,7 @@ function vInstitutions(){
     <div class="cards">
       ${[
        ['Sarajevo',N('Confederal Chancellery'),N('Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.'),['115 bis'],'Konfederalna Kancelarija'],
-       ['Zagreb',N('Court of Justice and Prosecutor\'s Office'),N('The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.'),['119 bis','119 ter'],'Konfederalni Sud · Konfederalno Tužilaštvo'],
+       ['Zagreb',N('Court of Justice and Prosecutor\'s Office'),N('The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.'),['119 bis','119 ter'],'Konfederalni Sud · Konfederalno Tužilaštvo'],
        ['Beograd',N('Confederal Central Bank'),N('Issues the dinar. Five governors for seven years, no more than two from the same people.'),['97 bis'],'Konfederalna Centralna Banka'],
        ['Ļubļana',N('Confederal Court of Audit'),N('Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.'),['136 bis',133],'Konfederalni Računski Sud'],
        ['Ohrid · Cetiñe',N('Language Institute · Library and Archives'),N('The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.'),['130 bis',74],'Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv'],
@@ -2651,7 +2653,7 @@ function vCouncil(){
    ['Sarajevo',N('Foreign Affairs'),N('Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.'),[],[55,56,57]],
    ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),['Konfederalne Oružane Snage','Konfederalna Žandarmerija','ACGUB'],[59,62,139,140]],
    ['Beograd',N('Finance and Treasury'),N('The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.'),[],['99 bis','99 sexies',133]],
-   ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),['Konfederalni Istražni Ured'],[99,141,143]],
+   ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),['Konfederalni Istražni Biro'],[99,141,143]],
    ['Sofija',N('Education, Culture and Science'),N('The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.'),[],[63,66,67,74]],
    ['Beograd',N('Economy and Infrastructure'),N('The single economic area, competition, confederal roads, railways, energy and communications.'),[],['91 bis',95,96,97]],
    ['Sarajevo',N('Environment, Territory and Resources'),N('Sustainable development, spatial planning, water, forests, nature and the protected seas.'),[],[78,80,83,85]],
@@ -2711,7 +2713,7 @@ function vSecurity(){
           [N('Command'),N('A commander and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.')],
           [N('Limits'),N('No ordinary policing inside a State unless it asks, save under a confirmed state of emergency with five delegations; never against political, associative or trade-union gatherings.')]],
     a:[139,'139 bis',140,'140 bis']},
-   {img:'security-istrazni-ured',eye:N('Department of Justice and Fundamental Rights · Zagreb'),n:'Konfederalni Istražni Ured',en:N('Confederal Bureau of Investigation'),
+   {img:'security-istrazni-biro',eye:N('Department of Justice and Fundamental Rights · Zagreb'),n:'Konfederalni Istražni Biro',en:N('Confederal Bureau of Investigation'),
     lead:N('An investigative agency for six offences only, with no patrols and no community policing. The Confederal Prosecutor\'s Office decides whether to prosecute.'),
     rows:[[N('Offences'),N('Attacks on the security of the Confederation, terrorism, organised crime across States, corruption of confederal officials, electoral fraud, war crimes and crimes against humanity.')],
           [N('Command'),N('A directorate of three, not all of one people; the director-general rotates among the peoples; seven years.')],
@@ -4874,7 +4876,7 @@ const SLOTS={
  'institutions-hall':{cat:'Politique',lab:N('Politics'),subj:N('Assembly hall / confederal palace'),w:1800,h:1000},
  'participation-crowd':{cat:'Humain',lab:N('People'),subj:N('Citizens · public square'),w:2400,h:1000},
  'security-zandarmerija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Žandarmerija · Granična Straža'),w:1500,h:1000},
- 'security-istrazni-ured':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Ured · investigators'),w:1500,h:1000},
+ 'security-istrazni-biro':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Biro · investigators'),w:1500,h:1000},
  'security-obavestajna-agencija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Obavěštajna Agencija · intelligence'),w:1500,h:1000},
  'security-armed-forces':{cat:'Sécurité',lab:N('Security'),subj:N('Confederal armed forces'),w:1500,h:1000},
 };

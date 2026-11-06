@@ -807,9 +807,9 @@
    "sre": "Građanski život"
   },
   "Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.": {
-   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni Istražni Ured za šest konfederalnih kaznivih dejañ.",
+   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni Istražni Biro za šest konfederalnih kaznivih dejañ.",
    "ist": "Graždansko i nakazatelno pravo, registãr na graždanite i Bjuro za razsledvane za šestte konfederalni prestãplenija.",
-   "sre": "Građansko i krivično pravo, registar državļana i Konfederalni Istražni Ured za šest konfederalnih krivičnih děla."
+   "sre": "Građansko i krivično pravo, registar državļana i Konfederalni Istražni Biro za šest konfederalnih krivičnih děla."
   },
   "Civil Flag": {
    "sre": "Građanska zastava",
@@ -908,7 +908,7 @@
   },
   "Confederal Bureau of Investigation": {
    "zap": "Konfederalni preiskovalni urad",
-   "sre": "Konfederalni istražni ured",
+   "sre": "Konfederalni istražni biro",
    "ist": "Konfederalno bjuro za razsledvane"
   },
   "Confederal capitals": {
@@ -1130,6 +1130,16 @@
    "zap": "Ustava v4.12: nove meje bolgarskih držav",
    "sre": "Ustav v4.12: nove granice bugarskih država",
    "ist": "Konstitucija v4.12: novite granici na bãlgarskite dãržavi"
+  },
+  "Constitution v4.14: the Konfederalni Istražni Biro": {
+   "zap": "Ustava v4.14: Konfederalni Istražni Biro",
+   "sre": "Ustav v4.14: Konfederalni Istražni Biro",
+   "ist": "Konstitucija v4.14: Konfederalni Istražni Biro"
+  },
+  "The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.": {
+   "zap": "Konfederalni Istražni Ured postane Konfederalni Istražni Biro (KIB). V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
+   "sre": "Konfederalni Istražni Ured postaje Konfederalni Istražni Biro (KIB). Na bugarskom i makedonskom уред znači uređaj; biro se razumě u sva tri standarda (biro, бюро, биро). Ñegove nadležnosti, sědište u Zagrebu i amblem, vaga i mač, ostaju isti.",
+   "ist": "Konfederalni Istražni Ured stava Konfederalni Istražni Biro (KIB). Na bãlgarski i makedonski уред označava aparat; biro se razbira i v trite standarta (biro, бюро, биро). Kompetenciite mu, sedališteto v Zagreb i emblemata mu — vezni i meč — ne se promeñat."
   },
   "Constitution v4.13: the States settled at founding": {
    "zap": "Ustava v4.13: države, določene ob ustanovitvi",
@@ -1783,7 +1793,7 @@
   },
   "Gendarmerie, Bureau of Investigation, intelligence, armed forces": {
    "zap": "Žandarmerija, preiskovalni urad, obveščevalna dejavnost, oborožene sile",
-   "sre": "Žandarmerija, Istražni ured, obavěštajna služba, oružane snage",
+   "sre": "Žandarmerija, Istražni biro, obavěštajna služba, oružane snage",
    "ist": "Žandarmerija, Bjuro za razsledvane, razuznavane, vãorãženi sili"
   },
   "Geographic position of the seat on the Balkan peninsula.": {
@@ -2161,10 +2171,10 @@
    "sre": "Konfederalna Žandarmerija · Granična Straža",
    "ist": "Konfederalna Žandarmerija · Granična Straža"
   },
-  "Konfederalni Istražni Ured · investigators": {
-   "zap": "Konfederalni Istražni Ured · preiskovalci",
-   "sre": "Konfederalni Istražni Ured · istražiteļi",
-   "ist": "Konfederalni Istražni Ured · sledovateli"
+  "Konfederalni Istražni Biro · investigators": {
+   "zap": "Konfederalni Istražni Biro · preiskovalci",
+   "sre": "Konfederalni Istražni Biro · istražiteļi",
+   "ist": "Konfederalni Istražni Biro · sledovateli"
   },
   "Konfederalno Veće": {
    "zap": "Konfederalno Veće",
@@ -3828,7 +3838,7 @@
   },
   "The Gendarmerie and the Bureau never answer to the same councillor; the Agency answers to the whole council.": {
    "zap": "Žandarmerija in Urad nikoli ne odgovarjata istemu svetniku; Agencija odgovarja celotnemu svetu.",
-   "sre": "Žandarmerija i Istražni ured nikada ne odgovaraju istom većniku; Obavěštajna agencija odgovara Konfederalnom Veću u cělini.",
+   "sre": "Žandarmerija i Istražni biro nikada ne odgovaraju istom većniku; Obavěštajna agencija odgovara Konfederalnom Veću u cělini.",
    "ist": "Žandarmerijata i Bjuroto nikoga ne sa podčineni na edin i sãšt sãvetnik; Agencijata se otčita pred celija sãvet."
   },
   "The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.": {
@@ -4016,10 +4026,10 @@
    "ist": "Dãržavnoto zname se izdiga ot vsički konfederalni institucii, voenni formirovanija i posolstva i na sedalištata na dãržavnata vlast. Vertikalna červena ivica otkãm drevkata sãs sijaešto slãnce, natovareno s červenija lãv; horizontalno pole v siño, srebãrno i siño, kato srednata bjala ivica e obramčena s frizove, vdãhnoveni ot balkanskite tãkačni tradicii.",
    "zap": "Državno zastavo izobešajo vse konfederalne institucije, vojaške enote, veleposlaništva in sedeži državnih organov. Navpični rdeči pas ob drogu nosi sijoče sonce z naloženim rdečim levom; vodoravno poļe je modro, srebrno in modro, osredñi beli pas pa obrobļajo frizi, navdihñeni z balkanskimi tekstilnimi tradicijami."
   },
-  "The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.": {
-   "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega Istražnega Ureda privede pred sodišče.",
-   "sre": "Vrhovni sud za konfederalno pravo i tužilaštvo koje predmete Konfederalnog Istražnog Ureda iznosi pred sud.",
-   "ist": "Vãrhovnijat sãd po konfederalnoto pravo i prokuraturata, kojato vnasja v sãda delata na Konfederalni Istražni Ured."
+  "The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.": {
+   "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega Istražnega Biroja privede pred sodišče.",
+   "sre": "Vrhovni sud za konfederalno pravo i tužilaštvo koje predmete Konfederalnog Istražnog Biroa iznosi pred sud.",
+   "ist": "Vãrhovnijat sãd po konfederalnoto pravo i prokuraturata, kojato vnasja v sãda delata na Konfederalni Istražni Biro."
   },
   "The unified alphabet on the card and in the Constitution": {
    "sre": "Jedinstvena abeceda na karti i u Ustavu",

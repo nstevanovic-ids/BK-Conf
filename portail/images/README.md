@@ -19,7 +19,7 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `security-zandarmerija.jpg` | Sécurité | Konfederalna Žandarmerija · Granična Straža | 1500×1000 | Page Security and Defence — encart Žandarmerija |
 | `security-zandarmerija-sre.jpg` | Sécurité | Écusson en cyrillique central (ЖАНДАРМЕРИЈА) | 1500×1000 | Même encart, en SRE avec le cyrillique actif |
 | `security-zandarmerija-ist.jpg` | Sécurité | Écusson en cyrillique oriental (ЖАНДАРМЕРИЯ) | 1500×1000 | Même encart, en IST avec le cyrillique actif |
-| `security-istrazni-ured.jpg` | Sécurité | Konfederalni Istražni Ured · enquêteurs | 1500×1000 | Page Security and Defence — encart Istražni Ured |
+| `security-istrazni-biro.jpg` | Sécurité | Konfederalni Istražni Biro · enquêteurs | 1500×1000 | Page Security and Defence — encart Istražni Biro |
 | `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
 | `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1500×1000 | Page Security and Defence — encart forces armées |
 
