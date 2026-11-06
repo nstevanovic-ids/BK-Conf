@@ -20,6 +20,7 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `security-zandarmerija-sre.jpg` | Sécurité | Écusson en cyrillique central (ЖАНДАРМЕРИЈА) | 1500×1000 | Même encart, en SRE avec le cyrillique actif |
 | `security-zandarmerija-ist.jpg` | Sécurité | Écusson en cyrillique oriental (ЖАНДАРМЕРИЯ) | 1500×1000 | Même encart, en IST avec le cyrillique actif |
 | `security-istrazni-biro.jpg` | Sécurité | Konfederalni Istražni Biro · enquêteurs | 1500×1000 | Page Security and Defence — encart Istražni Biro |
+| `security-istrazni-biro-zap.jpg` | Sécurité | Gilet zapadni (KPB) | 1500×1000 | Même encart, en ZAP |
 | `security-istrazni-biro-sre.jpg` | Sécurité | Gilet en cyrillique central (КИБ) | 1500×1000 | Même encart, en SRE avec le cyrillique actif |
 | `security-istrazni-biro-ist.jpg` | Sécurité | Gilet istočni (КБР) | 1500×1000 | Même encart, en IST (latin ou cyrillique) |
 | `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |

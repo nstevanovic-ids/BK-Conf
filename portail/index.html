@@ -4903,7 +4903,7 @@ function rotKeyframes(n,name){
    -zap (zapadni), -sre (cyrillique central), -ist (istočni : toujours en cyrillique, même
    quand le portail est affiché en latin, puisque le bulgare et le macédonien ne s'écrivent
    qu'en cyrillique). Une variante absente de la liste laisse l'image de base. */
-const SLOT_VAR={'security-zandarmerija':['sre','ist'],'security-istrazni-biro':['sre','ist']};
+const SLOT_VAR={'security-zandarmerija':['sre','ist'],'security-istrazni-biro':['zap','sre','ist']};
 function slotFile(id){
   const v=SLOT_VAR[id]; if(!v)return id;
   const w=LANG==='zap'?'zap':LANG==='ist'?'ist':LANG==='sre'&&cyrOn()?'sre':'';
