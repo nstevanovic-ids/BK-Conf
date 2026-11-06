@@ -101,7 +101,7 @@ anglais et en français ; zapadni et istočni mettent une majuscule au premier m
 | Conseil des communautés | Veće Zajednica | Svet skupnosti | Sãvet na obštnostite |
 | Gendarmerie | Konfederalna Žandarmerija | Konfederalna žandarmerija | Konfederalna žandarmerija |
 | Garde-frontière | Granična Straža (GS) | Mejna straža (MS) | Granična ohrana (GO) |
-| Bureau d'enquête | Konfederalni Istražni Biro (KIB) | Konfederalni preiskovalni urad (KPU) | Konfederalno bjuro za razsledvane (KBR) |
+| Bureau d'enquête | Konfederalni Istražni Biro (KIB) | Konfederalni preiskovalni biro (KPB) | Konfederalno bjuro za razsledvane (KBR) |
 | Renseignement | Konfederalna Obavěštajna Agencija (KOA) | Konfederalna obveščevalna agencija (KOA) | Konfederalna agencija za razuznavane (KAR) |
 | Forces armées | Konfederalne Oružane Snage | Konfederalne oborožene sile | Konfederalni vãorãženi sili |
 | Situations d'urgence | Konfederalna Agencija za Vanredne Situacije | Konfederalna agencija za izredne razmere | Konfederalna agencija za izvãnredni situacii |

@@ -29,7 +29,8 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
    - *биро* en macédonien.
 2. **Noms par standard** (ADR 2026-11-06-noms-officiels-traduits.md, décidée le même jour) :
    - *Konfederalni Istražni Biro* (KIB) est le nom du središñi et le nom de référence ;
-   - zapadni : *Konfederalni preiskovalni urad* (KPU) ;
+   - zapadni : *Konfederalni preiskovalni biro* (KPB ; KPU désigne déjà les écoles
+     polytechniques, art. 66) ;
    - istočni : *Konfederalno bjuro za razsledvane* (KBR).
 
    En središñi, le nom se décline comme un nom commun : *Konfederalnog Istražnog Biroa*,
@@ -52,7 +53,7 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
     (le fléau repose sur une épée verticale, pointe en haut) ;
   - nom sur deux lignes en Sofia Sans Black.
 - **Versions** : une par standard et par alphabet, puisque les noms se traduisent :
-  - KPU (zapadni) ;
+  - KPB (zapadni) ;
   - KIB et КИБ (središñi) ;
   - КБР (istočni, cyrillique seulement).
 
