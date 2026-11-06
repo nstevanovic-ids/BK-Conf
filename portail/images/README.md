@@ -28,8 +28,8 @@ noms se traduisent dans chaque standard (ADR 2026-11-06-noms-officiels-traduits.
 variantes la remplacent :
 - `<nom>-zap.jpg` (zapadni) ;
 - `<nom>-sre.jpg` (cyrillique central) ;
-- `<nom>-ist-lat.jpg` (istočni en latin) ;
-- `<nom>-ist.jpg` (cyrillique oriental).
+- `<nom>-ist.jpg` (istočni, en cyrillique, quel que soit l'alphabet choisi sur le portail :
+  le bulgare et le macédonien ne s'écrivent qu'en cyrillique).
 
 Chaque variante présente doit figurer dans `SLOT_VAR` (`portail/index.html`) ; sans elle,
 c'est l'image de base qui s'affiche.

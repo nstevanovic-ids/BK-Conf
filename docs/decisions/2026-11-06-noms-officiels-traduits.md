@@ -87,10 +87,12 @@ Une version par standard et par alphabet, quand l'écusson porte le nom :
 | zapadni | KPU / KONFEDERALNI PREISKOVALNI URAD |
 | središñi, latin | KIB / KONFEDERALNI ISTRAŽNI BIRO |
 | središñi, cyrillique | КИБ / КОНФЕДЕРАЛНИ ИСТРАЖНИ БИРО |
-| istočni, latin | KBR / KONFEDERALNO BJURO ZA RAZSLEDVANE |
-| istočni, cyrillique | КБР / КОНФЕДЕРАЛНО БЮРО ЗА РАЗСЛЕДВАНЕ |
+| istočni | КБР / КОНФЕДЕРАЛНО БЮРО ЗА РАЗСЛЕДВАНЕ |
 
 - L'anglais prend la version središñi latine.
+- L'istočni n'a pas de version latine (« il n'y a pas d'écritures latines en bulgare ni en
+  macédonien ») : un objet comme un écusson ne porte pas de translittération. Le portail
+  montre la version cyrillique en istočni, quel que soit l'alphabet choisi.
 - Les deux versions cyrilliques gardent les formes de lettres bulgares, lisibles partout
   (décision du 2026-11-06 sur l'écusson).
 - L'écusson de la Žandarmerija ne change pas : ŽANDARMERIJA, ЖАНДАРМЕРИЈА, ЖАНДАРМЕРИЯ.

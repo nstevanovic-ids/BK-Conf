@@ -4892,12 +4892,13 @@ function rotKeyframes(n,name){
 }
 /* Images qui portent du texte (ADR 2026-11-06-noms-officiels-traduits.md) : l'image de base
    sert à l'anglais et au središñi latin ; les variantes déclarées dans SLOT_VAR la remplacent :
-   -zap (zapadni), -sre (cyrillique central), -ist-lat (istočni latin), -ist (cyrillique
-   oriental). Une variante absente de la liste laisse l'image de base. */
+   -zap (zapadni), -sre (cyrillique central), -ist (istočni : toujours en cyrillique, même
+   quand le portail est affiché en latin, puisque le bulgare et le macédonien ne s'écrivent
+   qu'en cyrillique). Une variante absente de la liste laisse l'image de base. */
 const SLOT_VAR={'security-zandarmerija':['sre','ist']};
 function slotFile(id){
   const v=SLOT_VAR[id]; if(!v)return id;
-  const c=cyrOn(), w=LANG==='zap'?'zap':LANG==='ist'?(c?'ist':'ist-lat'):LANG==='sre'&&c?'sre':'';
+  const w=LANG==='zap'?'zap':LANG==='ist'?'ist':LANG==='sre'&&cyrOn()?'sre':'';
   return w&&v.includes(w)?id+'-'+w:id;
 }
 function imgSlot(id,cls){

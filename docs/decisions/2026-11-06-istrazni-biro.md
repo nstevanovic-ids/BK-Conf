@@ -54,11 +54,11 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
 - **Versions** : une par standard et par alphabet, puisque les noms se traduisent :
   - KPU (zapadni) ;
   - KIB et КИБ (središñi) ;
-  - KBR et КБР (istočni).
+  - КБР (istočni, cyrillique seulement).
 
   Le cyrillique garde les formes de lettres bulgares, « totalement lisible pour un Serbe ».
 - **Sources** : `images-sources/symboles/KIB-ecusson-zap.png`, `-sre-lat.png`,
-  `-sre-cyr.png`, `-ist-lat.png`, `-ist-cyr.png`.
+  `-sre-cyr.png`, `-ist-cyr.png`.
 - **Photo de l'encart du portail** : à produire (`portail/images/security-istrazni-biro.jpg`).
 
 ## Propagation

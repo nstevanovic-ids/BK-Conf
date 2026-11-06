@@ -192,8 +192,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
   `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
   romains, e-mails, liens, noms des communautés non slaves ; images à texte : variantes
-  `<nom>-zap.jpg`, `<nom>-sre.jpg` (cyrillique), `<nom>-ist-lat.jpg`, `<nom>-ist.jpg`
-  (cyrillique), table `SLOT_VAR` ; ADR 2026-10-25-portail-cyrillique.md ;
+  `<nom>-zap.jpg`, `<nom>-sre.jpg` (cyrillique), `<nom>-ist.jpg` (toujours cyrillique : un
+  objet istočni ne porte pas de latin), table `SLOT_VAR` ; ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et
