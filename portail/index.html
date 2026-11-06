@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-06',cat:N('Identity'),t:N('Istočni opens in Cyrillic'),
+  s:N('Bulgarian and Macedonian are written only in Cyrillic: the istočni standard now opens in Cyrillic, with Latin as an option. The središñi still opens in Latin, and each standard remembers its own choice.')},
  {d:'2026-11-06',cat:N('Identity'),t:N('The names of the organs in the three standards'),
   s:N('The official names of the confederal organs are now translated into each standard. The središñi keeps the reference names, also used in English; the zapadni and istočni texts give them in their own language: Skupščina narodov and Sãbranie na narodite for the Narodni Sabor, Konfederalni svet and Konfederalen sãvet for the Konfederalno Veće, Ustavno sodišče and Konstitucionen sãd for the Ustavni Sud. In istočni, Narodno sãbranie, the name of the parliament of Bulgaria, was set aside.')},
  {d:'2026-11-06',cat:N('Law'),t:N('Constitution v4.14: the Konfederalni Istražni Biro'),
@@ -1731,16 +1733,22 @@ function plateSVG(s){
 /* ---------- interface language (portail/data/i18n.json) ----------
    Phase 1 : header, navigation, search, footer and breadcrumbs follow the chosen
    standard (ZAP, SRE, IST) ; page content stays in English. */
-let LANG='en',SCRIPT='lat';
+/* Alphabet par standard (ADR 2026-11-06-istocni-cyrillique.md) : le središñi s'ouvre en latin,
+   l'istočni en cyrillique (le bulgare et le macédonien ne s'écrivent qu'en cyrillique) ;
+   chaque standard garde le choix de son lecteur. */
+let LANG='en';
+const SCRIPTS={sre:'lat',ist:'cyr'};
 try{const l=localStorage.getItem('bk-lang');if(l)LANG=l;}catch(e){}
-try{if(localStorage.getItem('bk-script')==='cyr')SCRIPT='cyr';}catch(e){}
+try{if(localStorage.getItem('bk-script')==='cyr')SCRIPTS.sre='cyr';
+  for(const s of ['sre','ist']){const v=localStorage.getItem('bk-script-'+s);if(v==='lat'||v==='cyr')SCRIPTS[s]=v;}}catch(e){}
+const scriptOf=()=>SCRIPTS[LANG]||'lat';
 /* Cyrillic display of the central and eastern standards (ADR 2026-10-25-portail-cyrillique.md).
    The Latin v3 strings stay the only source; the Cyrillic is derived on the fly:
    - središñi : confederal Cyrillic (ñ њ, ļ љ, x џ, ć ћ, đ ђ, j ј), read ekavian : ě → е ;
    - istočni : Bulgarian conventions (ja я, ju ю, št щ, x дж, ñ/ļ + a, u, o → ня ню ньо, ля лю льо,
      j before a consonant or at the end → й, jo after a consonant → ьо).
    Tokens with digits (v3, TD1) are kept as written. */
-const cyrOn=()=>SCRIPT==='cyr'&&(LANG==='sre'||LANG==='ist');
+const cyrOn=()=>(LANG==='sre'||LANG==='ist')&&SCRIPTS[LANG]==='cyr';
 const CYR_SRE={a:'а',b:'б',c:'ц',č:'ч',ć:'ћ',d:'д',đ:'ђ',e:'е',ě:'е',f:'ф',g:'г',h:'х',i:'и',j:'ј',k:'к',l:'л',
   ļ:'љ',m:'м',n:'н',ñ:'њ',o:'о',p:'п',r:'р',s:'с',š:'ш',t:'т',u:'у',v:'в',x:'џ',z:'з',ž:'ж',ã:'ъ'};
 const CYR_IST={...CYR_SRE,ć:'ћ',đ:'ђ',x:'дж',j:'й',ļ:'ль',ñ:'нь'};
@@ -1886,7 +1894,7 @@ function applyChrome(){
   const ss=document.getElementById('scriptsel');
   if(ss){ss.hidden=!(LANG==='sre'||LANG==='ist');
     ss.querySelector('[data-s="cyr"]').textContent=LANG==='ist'?'Кир':'Ћир';
-    ss.querySelectorAll('button').forEach(b=>{const on=b.dataset.s===SCRIPT;
+    ss.querySelectorAll('button').forEach(b=>{const on=b.dataset.s===scriptOf();
       b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
   i18nApply(document);
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',T(el.dataset.i18nAria)));
@@ -4651,9 +4659,9 @@ document.getElementById('langsel').addEventListener('click',e=>{
   applyChrome();rerender();
 });
 document.getElementById('scriptsel').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b||b.dataset.s===SCRIPT)return;
-  SCRIPT=b.dataset.s==='cyr'?'cyr':'lat';
-  try{localStorage.setItem('bk-script',SCRIPT);}catch(err){}
+  const b=e.target.closest('button'); if(!b||!SCRIPTS[LANG]||b.dataset.s===scriptOf())return;
+  SCRIPTS[LANG]=b.dataset.s==='cyr'?'cyr':'lat';
+  try{localStorage.setItem('bk-script-'+LANG,SCRIPTS[LANG]);}catch(err){}
   applyChrome();rerender();
 });
 window.addEventListener('hashchange',render);

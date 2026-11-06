@@ -601,6 +601,11 @@
    "sre": "Bugarska",
    "ist": "Bãlgarska"
   },
+  "Bulgarian and Macedonian are written only in Cyrillic: the istočni standard now opens in Cyrillic, with Latin as an option. The središñi still opens in Latin, and each standard remembers its own choice.": {
+   "zap": "Bolgarščina in makedonščina se pišeta samo v cirilici: istočni standard se zdaj odpre v cirilici, latinica pa ostane na voļo. Središñi se še naprej odpre v latinici, vsak standard pa si zapomni svojo izbiro.",
+   "sre": "Bugarski i makedonski pišu se samo ćirilicom: istočni standard se sada otvara na ćirilici, a latinica ostaje kao mogućnost. Središñi se i daļe otvara na latinici, a svaki standard pamti svoj izbor.",
+   "ist": "Bãlgarskijat i makedonskijat se pišat samo na kirilica: standartãt istočni veče se otvarja na kirilica, a latinicata ostava kato vãzmožnost. Standartãt središñi prodãlžava da se otvarja na latinica i vseki standart pomni sobstvenija si izbor."
+  },
   "Bulgarian communities": {
    "sre": "Bugarske zajednice",
    "ist": "Bãlgarski obštnosti",
@@ -2110,6 +2115,11 @@
    "zap": "Izdaja dinar. Pet guvernerjev s sedemletnim mandatom, največ dva iz istega naroda.",
    "sre": "Izdaje dinar. Pet guvernera na sedam godina, od kojih najviše dva iz istog naroda.",
    "ist": "Emitira dinara. Petima upraviteli za sedem godini, ne poveče ot dvama ot edin i sãšt narod."
+  },
+  "Istočni opens in Cyrillic": {
+   "zap": "Istočni se odpre v cirilici",
+   "sre": "Istočni se otvara na ćirilici",
+   "ist": "Standartãt istočni se otvarja na kirilica"
   },
   "joint sitting": {
    "zap": "skupna seja",

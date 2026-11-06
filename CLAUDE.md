@@ -188,7 +188,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   nouveau ou modifié dans le gabarit doit passer par `L` et recevoir ses trois traductions
   (`textes.py check` échoue sinon) ; glossaire docs/alfabet/glossaire-trois-standards.md ;
   alphabet v3 (ñ, ļ) dans toutes les chaînes ; cyrillique dérivé à l'affichage pour SRE et
-  IST (bascule Lat / Ћир), sur tout le texte : central = cyrillique confédéral lu en ekavien
+  IST (bascule Lat / Ћир ; l'istočni s'ouvre en cyrillique, le središñi en latin, un choix
+  mémorisé par standard, ADR 2026-11-06-istocni-cyrillique.md), sur tout le texte : central = cyrillique confédéral lu en ekavien
   (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
   `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
   romains, e-mails, liens, noms des communautés non slaves ; images à texte : variantes
