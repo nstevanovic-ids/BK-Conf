@@ -361,10 +361,10 @@
    "ist": "Plošt",
    "sre": "Površina"
   },
-  "Argent and gules horizontal; provincial shield with the chequy gules-argent of Croatia and the golden Ragusan lion on azure, surmounted by the mural crown of the Republic of Ragusa.": {
-   "zap": "Vodoravno srebrno in rdeče; pokrajinski ščit z rdeče-srebrno šahovnico Hrvaške in zlatim dubrovniškim levom na modrem, nad ščitom zidna krona Dubrovniške republike.",
-   "ist": "Horizontalno srebãrno i červeno; provincialen štit s červeno-srebãrnata šahmatna šarka na Hãrvatija i zlatnija dubrovniški lãv na siño pole, uvenčan ot stennata korona na Dubrovniškata republika.",
-   "sre": "Horizontalno srebrno i crveno; pokrajinski štit s crveno-srebrnom šahovnicom Hrvatske i zlatnim dubrovačkim lavom na plavom poļu, a nad štitom zidna kruna Dubrovačke Republike."
+  "Argent and gules horizontal; the crowned shield of the Counts of Gorizia, per bend azure with the golden lion rampant and bendy of argent and gules, heritage of the Goriška marches.": {
+   "zap": "Vodoravno srebrno in rdeče; kronani ščit goriških grofov, poševno deļen, z zlatim levom na modrem in poševnimi srebrnimi in rdečimi pasovi, dediščina goriške krajine.",
+   "sre": "Horizontalno srebrno i crveno; štit goričkih grofova s krunom, koso poděļen, sa zlatnim lavom na plavom poļu i kosim srebrnim i crvenim trakama, naslěđe goriških krajina.",
+   "ist": "Horizontalno srebãrno i červeno; štitãt na goriškite grafove s korona, razdelen diagonalno, sãs zlaten lãv na siño pole i diagonalni srebãrni i červeni ivici — nasledstvoto na graničnata oblast Goriška."
   },
   "Argent and vert bipartite; on the central shield, the rampant Styrian panther in argent on a green field, the head crested with red flames; above, the imperial sun-crown, direct continuity of the historic arms of the Duchy of Styria.": {
    "zap": "Dvodelno srebrno in zeleno; na osredñem ščitu vzpeti srebrni štajerski panter v zelenem poļu, z rdečimi plameni na glavi; nad ñim cesarska sončna krona, neposredno nadaļevañe zgodovinskega grba vojvodine Štajerske.",
@@ -375,6 +375,16 @@
    "zap": "Srebrno poļe; prepleten zeleno-rdeč poševni križ; srebrn osredñi ščit z dvema vzpetima levoma, obrñenima drug proti drugemu, nad ñim črn kalpak bolgarskih vojvod z majhnim zlatim levom kot značko, preboden s pokončnim mečem; heraldika hajduške osvoboditve zahodne Mizije.",
    "ist": "Srebãrno pole; prepleten zeleno-červen andreevski krãst; srebãren centralen štit s dva izpraveni lãva, obãrnati edin sreštu drug, uvenčan ot černija kalpak na bãlgarskite vojvodi, kojto nosi značka s malãk zlaten lãv i e pronizan ot izpraven meč; heraldika na hajduškoto osvoboždenie na Zapadna Mizija.",
    "sre": "Srebrno poļe; isprepleteni zeleni i crveni kosi krst; srebrni središñi štit s dva propeta lava okrenuta jedan prema drugom, nad kojima je crni kalpak bugarskih vojvoda sa značkom u obliku malog zlatnog lava, proboden uspravnim mačem; heraldika hajdučkog oslobođeña zapadne Mizije."
+  },
+  "Argent within a bordure or; Saint Blaise in bishop's vestments, holding his crozier and the model of the city, between the golden letters S and B: the banner of the Republic of Ragusa.": {
+   "zap": "Srebrno poļe z zlato obrobo; sveti Blaž v škofovskem oblačilu, s pastirsko palico in modelom mesta, med zlatima črkama S in B: zastava Dubrovniške republike.",
+   "sre": "Srebrno poļe sa zlatnim obrubom; sveti Vlaho u biskupskom ruhu, s pastirskim štapom i modelom grada, između zlatnih slova S i B: zastava Dubrovačke Republike.",
+   "ist": "Srebãrno pole sãs zlatna bordjura; sveti Vlasij v episkopski odeždi, s žezãl i maket na grada, meždu zlatnite bukvi S i B — znameto na Dubrovniškata republika."
+  },
+  "Argent, azure and gules horizontal, the Slovene colours drawn from the arms of Carniola; on the central shield argent, the crowned blue eagle of Carniola, its breast charged with the chequy crescent of gules and or.": {
+   "zap": "Vodoravno srebrno, modro in rdeče, slovenske barve iz grba Krañske; na osredñem srebrnem ščitu kronani modri krañski orel, na prsih z rdeče-zlato šahiranim polmesecem.",
+   "sre": "Horizontalno srebrno, plavo i crveno, slovenačke boje nastale iz grba Krañske; na središñem srebrnom štitu plavi krañski orao s krunom, na grudima s crveno-zlatnim šahiranim poluměsecom.",
+   "ist": "Horizontalno srebãrno, siño i červeno — slovenskite cvetove, proizlezli ot gerba na Krajna; na centralnija srebãren štit — koronovanijat sin orel na Krajna, na gãrdite s polumesec na červeni i zlatni kvadrati."
   },
   "Around the four institutions, independent bodies run the elections, try and prosecute, audit the accounts, keep the currency, the language and the archives, and give a voice to the communities outside the seven peoples.": {
    "zap": "Ob štirih institucijah neodvisni organi izvajajo volitve, sodijo in pregañajo, revidirajo račune, skrbijo za valuto, jezik in arhive ter dajejo glas skupnostim zunaj sedmih narodov.",
@@ -481,10 +491,10 @@
    "ist": "Siño pole nad zelena osnova; počitaemijat pokrovitel na Bačka v červeni odeždi, s meč i Evangelie.",
    "sre": "Plavo poļe nad zelenim tlom; časni zaštitnik Bačke u crvenom ogrtaču, s mačem i jevanđeļem."
   },
-  "Azure, argent, gules, argent, azure, five horizontal stripes; on the gules band, the Srěm marten running passant in proper colour; in chief, a golden eleven-pointed mullet on the azure of the heavens.": {
-   "zap": "Pet vodoravnih pasov: modri, srebrni, rdeči, srebrni in modri; na rdečem pasu tekoča sremska kuna v naravnih barvah; zgoraj zlata enajstkraka zvezda na nebesni modrini.",
-   "ist": "Pet horizontalni ivici: siña, srebãrna, červena, srebãrna i siña; vãrhu červenata ivica — tičašta sremska kunica v estestveni cvetove; v gornata čast — zlatna edinadesetlãčeva zvezda v nebesnata sineva.",
-   "sre": "Pet horizontalnih traka: plava, srebrna, crvena, srebrna i plava; na crvenoj traci srěmska kuna u trku, u prirodnoj boji; u gorñem dělu zlatna jedanaestokraka zvězda na nebeskom plavetnilu."
+  "Azure, argent, gules, argent, azure, five horizontal stripes; on the gules band, the marten running passant in proper colour, between the Sava and the Drava; in chief, a golden star on the azure of the heavens: the arms of Slavonia.": {
+   "zap": "Pet vodoravnih pasov: modri, srebrni, rdeči, srebrni in modri; na rdečem pasu tekoča kuna v naravnih barvah med Savo in Dravo; zgoraj zlata zvezda na nebesni modrini: grb Slavonije.",
+   "sre": "Pet horizontalnih traka: plava, srebrna, crvena, srebrna i plava; na crvenoj traci kuna u trku, u prirodnoj boji, između Save i Drave; u gorñem dělu zlatna zvězda na nebeskom plavetnilu: grb Slavonije.",
+   "ist": "Pet horizontalni ivici: siña, srebãrna, červena, srebãrna i siña; vãrhu červenata ivica — tičašta kunica v estestveni cvetove meždu Sava i Drava; v gornata čast — zlatna zvezda v nebesnata sineva: gerbãt na Slavonija."
   },
   "Back": {
    "sre": "Nazad",
@@ -660,11 +670,6 @@
    "zap": "Zapis na izkaznici: <b translate=\"no\">{0}</b> · <b translate=\"no\">{1}</b>",
    "sre": "Zapis na karti: <b translate=\"no\">{0}</b> · <b translate=\"no\">{1}</b>",
    "ist": "Izpisvane na kartata: <b translate=\"no\">{0}</b> · <b translate=\"no\">{1}</b>"
-  },
-  "Carmine, gold and azure horizontal tricolour, Carniolan and pan-Slovenian tradition, of solid stripe without charge.": {
-   "zap": "Karminsko-zlato-modra vodoravna trobojnica po krañski in vseslovenski tradiciji, s polnimi pasovi brez heraldičnih likov.",
-   "ist": "Karmineno-zlatno-sin horizontalen trikoļor po krajnskata i obštoslovenskata tradicija, s plãtni ivici bez figuri.",
-   "sre": "Tri horizontalne trake, karminska, zlatna i plava, po krañskoj i sveslovenačkoj tradiciji, čiste trake bez heraldičkih likova."
   },
   "Census 2011": {
    "zap": "Popis 2011",
@@ -1686,21 +1691,6 @@
    "ist": "Pet horizontalni ivici v červeno i srebãrno; otkãm drevkata — zelen triãgãlnik sãs zlatno sijaešto slãnce; Stranxa, planinata pred portite na Anadola.",
    "sre": "Pet horizontalnih traka, crvenih i srebrnih; od kopļa zeleni trougao sa zlatnim zrakastim suncem; planine Stranxe na vratima Anadolije."
   },
-  "Five horizontal stripes of gules and or alternating, pan-colours of the Šopski region.": {
-   "zap": "Pet izmeničnih vodoravnih pasov rdeče in zlate barve, barve šopske pokrajine.",
-   "ist": "Pet horizontalni ivici, reduvašti se v červeno i zlatno — cvetovete na šopskija kraj.",
-   "sre": "Pet horizontalnih traka, naizměnično crvenih i zlatnih, boje šopskog kraja."
-  },
-  "Five horizontal stripes of or and argent; on the central shield with wavy water in chief, a stag couchant beside an oak tree, all azure-argent-vert, heraldry of the Western Sirmian plain.": {
-   "zap": "Pet vodoravnih pasov zlate in srebrne barve; na osredñem ščitu z valovito vodo v zgorñem delu ležeč jelen ob hrastu, vse v modri, srebrni in zeleni barvi; heraldika zahodne sremske ravnine.",
-   "ist": "Pet horizontalni ivici v zlatno i srebãrno; vãrhu centralnija štit s vãlnoobrazna voda v gornata čast — ležašt elen do dãb, vsičko v siño, srebãrno i zeleno; heraldika na zapadnata sremska ravnina.",
-   "sre": "Pet horizontalnih traka, zlatnih i srebrnih; na središñem štitu, s vijugavom vodom u gorñem dělu, jelen koji leži pored hrasta, sve u plavoj, srebrnoj i zelenoj boji; heraldika zapadne srěmske ravnice."
-  },
-  "Five horizontal stripes of or and gules alternating, pan-colours of the historic Kingdom of Slavonia, of solid stripe.": {
-   "zap": "Pet izmeničnih vodoravnih pasov zlate in rdeče barve, barve zgodovinskega Kraļestva Slavonije, s polnimi pasovi.",
-   "ist": "Pet plãtni horizontalni ivici, reduvašti se v zlatno i červeno — cvetovete na istoričeskoto Kralstvo Slavonija.",
-   "sre": "Pet horizontalnih traka, naizměnično zlatnih i crvenih, boje istorijske Kraļevine Slavonije, čiste trake bez likova."
-  },
   "Five steps, a few minutes. Your state, your national register and the language of your card are three independent choices. The language may be changed at any time; a first national register may be rectified once within three years, otherwise another register only fifteen years after your enrolment (Art. 102).": {
    "zap": "Pet korakov, nekaj minut. Vaša država, vaš narodni register in jezik vaše izkaznice so tri neodvisne izbire. Jezik lahko spremenite kadar koli; prvi narodni register lahko v treh letih enkrat popravite, sicer se lahko v drug register vpišete šele petnajst let po vpisu (čl. 102).",
    "ist": "Pet stãpki, ñakolko minuti. Vašata dãržava, vašijat naroden registãr i ezikãt na kartata vi sa tri nezavisimi izbora. Ezikãt može da bãde promeñan po vsjako vreme; pãrvijat naroden registãr može da bãde popraven vednãž v srok ot tri godini, a inače drug registãr e vãzmožen edva petnadeset godini sled vpisvaneto vi (čl. 102).",
@@ -1861,25 +1851,40 @@
    "ist": "Červeno pole s ivica v červeno-srebãrna šahmatna šarka otkãm drevkata; tri srebãrni koronovani lãvski glavi, razpoloženi dve i edna: gerbãt, daden na grafstvo Zagorje ot grafovete na Ceļe (Ceļski), grafove na Zagorje, v načaloto na XV vek po obrazeca na znaka na Lajoš I Anžujski za hãrvatskite zemi.",
    "sre": "Crveno poļe s trakom crveno-srebrne šahovnice uz kopļe; tri srebrne lavļe glave s krunama, raspoređene dvě i jedna: grb koji su Zagorskoj grofoviji početkom 15. věka dodělili grofovi Ceļski, grofovi Zagorja, po uzoru na znak Ludovika I Anžujskog za hrvatske zemļe."
   },
-  "Gules with two argent crosses, the Tirolean-Friulian heritage of the Goriška marches.": {
-   "zap": "Rdeče poļe z dvema srebrnima križema, tirolsko-furlanska dediščina goriške krajine.",
-   "ist": "Červeno pole s dva srebãrni krãsta — tirolsko-friulskoto nasledstvo na graničnata oblast Goriška.",
-   "sre": "Crveno poļe s dva srebrna krsta, tirolsko-furlansko naslěđe goriških krajina."
+  "Gules with two crosses argent, after the banner held by the crest lion of the Kosača arms, Dukes of Saint Sava.": {
+   "zap": "Rdeče poļe z dvema srebrnima križema, po praporu, ki ga drži lev v nakitu grba Kosačev, hercegov svetega Save.",
+   "sre": "Crveno poļe s dva srebrna krsta, po zastavi koju drži lav u nakitu grba Kosača, hercega od Svetog Save.",
+   "ist": "Červeno pole s dva srebãrni krãsta, po znameto, koeto dãrži lãvãt v našlemnika na gerba na Kosača, hercozi na Sveti Sava."
   },
   "Gules, a cross throughout or between four firesteels or, their backs to the cross: the Serbian cross in the colours of the Palaiologan banner. Usora was held by King Stefan Dragutin from 1284 to 1316.": {
    "zap": "Rdeče, z zlatim križem do robov in štirimi zlatimi kresili, obrñenimi s hrbtom proti križu: srbski križ v barvah paleološkega prapora. Usora je bila od leta 1284 do 1316 v posesti kraļa Stefana Dragutina.",
    "sre": "Crveno, sa zlatnim krstom do ivica i četiri zlatna ocila okrenuta leđima ka krstu: srpski krst u bojama paleološke zastave. Usora je od 1284. do 1316. bila posěd kraļa Stefana Dragutina.",
    "ist": "Červeno, sãs zlaten krãst do kraištata i četiri zlatni ogniva, obãrnati s grãb kãm krãsta: srãbskijat krãst v cvetovete na znameto na Paleolozite. Ot 1284 do 1316 godina Usora e vladenie na kral Stefan Dragutin."
   },
-  "Gules, azure and argent horizontal, Serbian pan-colours; central shield divided per bend, vert with three argent crescents (Ottoman heritage), azure with three golden fleurs-de-lys (Bosnian-style continuity for the Pomak community).": {
-   "zap": "Vodoravno rdeče, modro in srebrno, srbske narodne barve; poševno deļen osredñi ščit: zeleno poļe s tremi srebrnimi polmeseci (osmanska dediščina) in modro poļe s tremi zlatimi lilijami (kontinuiteta bosanskega sloga za pomaško skupnost).",
-   "ist": "Horizontalno červeno, siño i srebãrno, srãbskite narodni cvetove; centralen štit, razdelen diagonalno: zeleno pole s tri srebãrni polumeseca (osmansko nasledstvo) i siño pole s tri zlatni lilii (priemstvenost v bosnenski stil za pomaškata obštnost).",
-   "sre": "Horizontalno crveno, plavo i srebrno, srpske narodne boje; koso poděļen središñi štit: zeleno poļe s tri srebrna poluměseca (osmansko naslěđe) i plavo poļe s tri zlatna ļiļana (kontinuitet bosanskog stila za pomačku zajednicu)."
+  "Gules, azure and argent horizontal, Serbian pan-colours; central shield divided per bend, vert with three argent crescents (Ottoman heritage), azure with three golden fleurs-de-lys (Bosnian continuity for the Bosniaks of the Sanxak).": {
+   "zap": "Vodoravno rdeče, modro in srebrno, srbske narodne barve; poševno deļen osredñi ščit: zeleno poļe s tremi srebrnimi polmeseci (osmanska dediščina) in modro poļe s tremi zlatimi lilijami (bosanska kontinuiteta za Bošñake Sanxaka).",
+   "sre": "Horizontalno crveno, plavo i srebrno, srpske narodne boje; koso poděļen središñi štit: zeleno poļe s tri srebrna poluměseca (osmansko naslěđe) i plavo poļe s tri zlatna ļiļana (bosanski kontinuitet za Bošñake Sanxaka).",
+   "ist": "Horizontalno červeno, siño i srebãrno, srãbskite narodni cvetove; centralen štit, razdelen diagonalno: zeleno pole s tri srebãrni polumeseca (osmansko nasledstvo) i siño pole s tri zlatni lilii (bosnenska priemstvenost za bošñacite ot Sanxak)."
   },
-  "Gules, sable and gules horizontal, broad sable middle band; on the sable, the golden Byzantine double-headed eagle displayed, charged on its breast with the kolovrat sun-wheel and holding sceptre and orb, Byzantino-Slavic heritage of the Vardar marches.": {
-   "zap": "Vodoravno rdeče, črno in rdeče, s širokim črnim sredñim pasom; na črnem zlati bizantinski dvoglavi orel z razprtimi krili, s sončnim kolesom kolovratom na prsih ter z žezlom in državnim jabolkom, bizantinsko-slovanska dediščina vardarskih obmejnih pokrajin.",
-   "ist": "Horizontalno červeno, černo i červeno, s široka černa sredna ivica; vãrhu černoto — zlaten vizantijski dvuglav orel s razpereni krile, sãs slãnčevoto kolelo kolovrat na gãrdite, dãržašt skiptãr i kãlbo — vizantijsko-slavjansko nasledstvo na vardarskite granični zemi.",
-   "sre": "Horizontalno crveno, crno i crveno, sa širokom crnom sredñom trakom; na crnom poļu zlatni vizantijski dvoglavi orao raširenih krila, s kolovratom, sunčanim kolom, na grudima, sa žezlom i vladarskom jabukom, vizantijsko-slovensko naslěđe vardarskih krajina."
+  "Gules, azure and gules horizontal; at the centre, a laurel wreath argent over two crossed swords, enclosing a crown and the cross argent on gules, Serbian banner of the Danubian plain.": {
+   "zap": "Vodoravno rdeče, modro in rdeče; v sredini srebrn lovorov venec nad prekrižanima mečema, ki obdaja krono in srebrni križ na rdečem, srbski prapor podonavske nižine.",
+   "sre": "Horizontalno crveno, plavo i crveno; u sredini srebrni lovorov věnac iznad dva ukrštena mača, koji okružuje krunu i srebrni krst na crvenom poļu, srpska zastava podunavske ravnice.",
+   "ist": "Horizontalno červeno, siño i červeno; v sredata — srebãren lavrov venec nad dva krãstosani meča, obgraždašt korona i srebãren krãst na červeno pole — srãbskoto zname na Dunavskata ravnina."
+  },
+  "Gules, sable and argent horizontal; central shield beneath a golden mural crown, per fess: in chief, the golden Macedonian lion rampant and the black double-headed eagle, each on gules; in base, the radiant golden sun on gules: the Macedonian lion and sun with the Albanian eagle, for the shared land of the western Vardar.": {
+   "zap": "Vodoravno rdeče, črno in srebrno; osredñi ščit pod zlato zidno krono, vodoravno deļen: zgoraj zlati makedonski lev in črni dvoglavi orel, vsak na rdečem, spodaj zlato sijoče sonce na rdečem: makedonski lev in sonce z albanskim orlom, za skupno deželo zahodnega Vardarja.",
+   "sre": "Horizontalno crveno, crno i srebrno; središñi štit pod zlatnom zidnom krunom, horizontalno poděļen: u gorñem dělu zlatni makedonski lav i crni dvoglavi orao, svaki na crvenom poļu, a u doñem dělu zlatno zrakasto sunce na crvenom poļu: makedonski lav i sunce s albanskim orlom, za zajedničku zemļu zapadnog Vardara.",
+   "ist": "Horizontalno červeno, černo i srebãrno; centralen štit pod zlatna stenna korona, razdelen horizontalno: gore — zlatnijat makedonski lãv i černijat dvuglav orel, vseki na červeno pole, dolu — zlatnoto sijaešto slãnce na červeno pole: makedonskite lãv i slãnce s albanskija orel, za obštata zemja na Zapaden Vardar."
+  },
+  "Gules, vert and argent horizontal; central shield beneath a mural crown, with the green peaks of the Drina valley, an Orthodox church between the mountains, the golden bridge below and the small Serbian cross-shield in base; scroll “ПОДРИЊЕ”.": {
+   "zap": "Vodoravno rdeče, zeleno in srebrno; osredñi ščit pod zidno krono, z zelenimi vrhovi doline Drine, pravoslavno cerkvijo med gorami, spodaj z zlatim mostom in v vznožju z majhnim ščitom s srbskim križem; trak s cirilskim napisom „PODRIÑE“.",
+   "sre": "Horizontalno crveno, zeleno i srebrno; središñi štit pod zidnom krunom, sa zelenim vrhovima doline Drine, pravoslavnom crkvom između planina, zlatnim mostom ispod ñih i malim štitom sa srpskim krstom u podnožju; traka s ćiriličnim natpisom „PODRIÑE“.",
+   "ist": "Horizontalno červeno, zeleno i srebãrno; centralen štit pod stenna korona, sãs zelenite vãrhove na dolinata na Drina, pravoslavna cãrkva meždu planinite, zlaten most otdolu i malãk štit sãs srãbskija krãst v dolnata čast; lenta s nadpis „ПОДРИЊЕ“."
+  },
+  "Gules; at the centre, a sable roundel within a golden ring, charged with the golden sixteen-rayed sun of Vergina.": {
+   "zap": "Rdeče poļe; v sredini črn krog v zlatem obroču z zlatim šestnajstkrakim soncem iz Vergine.",
+   "sre": "Crveno poļe; u sredini crni krug u zlatnom prstenu sa zlatnim šesnaestokrakim suncem iz Vergine.",
+   "ist": "Červeno pole; v sredata — čeren krãg v zlaten prãsten sãs zlatnoto šestnadesetlãčevo slãnce ot Vergina."
   },
   "Gules; at the centre, the arms of insurgent Serbia (First Serbian Uprising, 1804–1813): two baroque cartouches bearing the Serbian cross with four firesteels and, on azure, the Triballian boar's head pierced by an arrow, ensigned with a crown between two crowned helms and two arms brandishing sabres, over a trophy of banners, muskets, drum and cannon.": {
    "zap": "Rdeče poļe; v sredini grb uporniške Srbije (prva srbska vstaja, 1804–1813): dve baročni kartuši s srbskim križem s štirimi kresili in, na modrem, s tribalsko merjaščevo glavo, prebodeno s puščico; nad ñima krona med dvema kronanima čeladama in dvema rokama, ki vihtita sabļi, vse na trofeji iz praporov, mušket, bobna in topa.",
@@ -2701,15 +2706,15 @@
    "sre": "Otvorite link iz poruke za potvrdu. Može se iskoristiti samo jednom.",
    "ist": "Otvorete vrãzkata ot imejla za potvãrždenie. Tja može da se izpolzva samo vednãž."
   },
-  "Or field; on it, the red double-headed eagle, direct descent from the historic arms of the Duchy of Carinthia (Slovene Koroška).": {
-   "zap": "Zlato poļe; na ñem rdeči dvoglavi orel, neposredni naslednik zgodovinskega grba vojvodine Koroške.",
-   "ist": "Zlatno pole s červen dvuglav orel, prjak naslednik na istoričeskija gerb na hercogstvo Karintija (na slovenski Koroška).",
-   "sre": "Zlatno poļe; na ñemu crveni dvoglavi orao, neposredni naslědnik istorijskog grba Vojvodstva Koruške (na slovenačkom: Koroška)."
+  "Or field charged with the double-headed eagle gules displayed, medieval Serbian heraldry of Kosovo and Metohija.": {
+   "zap": "Zlato poļe z razprtim rdečim dvoglavim orlom, sredñeveška srbska heraldika Kosova in Metohije.",
+   "sre": "Zlatno poļe s raširenim crvenim dvoglavim orlom, sredñověkovna srpska heraldika Kosova i Metohije.",
+   "ist": "Zlatno pole s razperen červen dvuglav orel — srednovekovna srãbska heraldika na Kosovo i Metohija."
   },
-  "Or, gules and argent horizontal; central shield with the Veronese chequy and the golden Istrian lion on azure, Adriatic provincial heraldry.": {
-   "zap": "Vodoravno zlato, rdeče in srebrno; osredñi ščit z veronsko šahovnico in zlatim istrskim levom na modrem, jadranska pokrajinska heraldika.",
-   "ist": "Horizontalno zlatno, červeno i srebãrno; centralen štit s veronskata šahmatna šarka i zlatnija istrijski lãv na siño pole — adriatičeska provincialna heraldika.",
-   "sre": "Horizontalno zlatno, crveno i srebrno; središñi štit s veronskom šahovnicom i zlatnim istarskim lavom na plavom poļu, jadranska pokrajinska heraldika."
+  "Or, gules and argent horizontal, the Carinthian colours; on the central shield argent, the black Carantanian panther breathing flames gules, emblem of the Slovene principality of Carantania.": {
+   "zap": "Vodoravno zlato, rdeče in srebrno, koroške barve; na osredñem srebrnem ščitu črni karantanski panter z rdečimi plameni, simbol slovenske kneževine Karantanije.",
+   "sre": "Horizontalno zlatno, crveno i srebrno, koruške boje; na središñem srebrnom štitu crni karantanski panter s crvenim plamenovima, simbol slovenačke kneževine Karantanije.",
+   "ist": "Horizontalno zlatno, červeno i srebãrno — karintijskite cvetove; na centralnija srebãren štit — černata karantanska pantera s červeni plamãci, simvol na slovenskoto kñažestvo Karantanija."
   },
   "Ordinary law": {
    "sre": "Obični zakon",
@@ -2796,15 +2801,20 @@
    "ist": "Narodi",
    "sre": "Narodi"
   },
-  "Per fess azure and vert; on a silver shield, the golden ibex of the Herzegovinian highlands, with horns banded gules; the sun radiant in chief.": {
-   "zap": "Vodoravno deļeno modro in zeleno; na srebrnem ščitu zlati kozorog hercegovskega višavja z rdeče obročkanimi rogovi; zgoraj sijoče sonce.",
-   "ist": "Horizontalno razdeleno na siño i zeleno; vãrhu srebãren štit — zlatnijat kozirog ot hercegovinskite planini, s roga na červeni prãsteni; v gornata čast — sijaešto slãnce.",
-   "sre": "Horizontalno poděļeno, plavo i zeleno; na srebrnom štitu zlatni kozorog hercegovačkog gorja, s crvenim prstenovima na rogovima; u gorñem dělu zrakasto sunce."
+  "Per fess gules and sable; overall, the golden double-headed eagle displayed, with three golden six-pointed stars about its heads: after the flag proposed for Macedonia by the Flag Institute in 1995.": {
+   "zap": "Vodoravno deļeno rdeče in črno; čez vse zlati razprti dvoglavi orel s tremi zlatimi šestkrakimi zvezdami ob glavah: po zastavi, ki jo je leta 1995 za Makedonijo predlagal britanski Flag Institute.",
+   "sre": "Horizontalno poděļeno, crveno i crno; preko svega zlatni rašireni dvoglavi orao s tri zlatne šestokrake zvězde oko glava: po zastavi koju je 1995. za Makedoniju predložio britanski Flag Institute.",
+   "ist": "Horizontalno razdeleno na červeno i černo; vãrhu vsičko — zlaten razperen dvuglav orel s tri zlatni šestolãčni zvezdi okolo glavite: po znameto, predloženo za Makedonija ot britanskija Flag Institute prez 1995 g."
   },
   "Per fess sable, argent and azure; on the argent band, the IYI rosette of Pliska, the imperial monogram of the First Bulgarian Empire, in sable on a circular cartouche.": {
    "zap": "Vodoravno deļeno črno, srebrno in modro; na srebrnem pasu rozeta IYI iz Pliske, cesarski monogram Prvega bolgarskega cesarstva, v črni barvi na okrogli kartuši.",
    "ist": "Horizontalno razdeleno na černo, srebãrno i siño; vãrhu srebãrnata ivica — rozetata IYI ot Pliska, vladetelskijat monogram na Pãrvoto bãlgarsko carstvo, v černo vãrhu krãgãl kartuš.",
    "sre": "Horizontalno poděļeno, crno, srebrno i plavo; na srebrnoj traci rozeta IYI iz Pliske, carski monogram Prvog bugarskog carstva, crne boje, na okrugloj kartuši."
+  },
+  "Per fess vert and azure, the forests above the waters of the Arda; overall, a griffon vulture displayed or, ruffed argent, holding in its talons the golden lyre of Orpheus, between two sprays of Orpheus flowers (Haberlea rhodopensis) purpure: the vultures of the Arda and the Thracian singer of the Rhodopes.": {
+   "zap": "Vodoravno deļeno zeleno in modro, gozdovi nad vodami Arde; čez vse zlati razprti beloglavi jastreb s srebrnim ovratnikom, ki v kremļih drži zlato Orfejevo liro, med dvema šopkoma vijoličnih Orfejevih cvetov (Haberlea rhodopensis): jastrebi Arde in tračanski pevec Rodopov.",
+   "sre": "Horizontalno poděļeno, zeleno i plavo, šume iznad voda Arde; preko svega zlatni rašireni běloglavi sup sa srebrnom ogrlicom, koji u kanxama drži zlatnu Orfejevu liru, između dvě grančice ļubičastih Orfejevih cvětova (Haberlea rhodopensis): supovi Arde i trački pěvač Rodopa.",
+   "ist": "Horizontalno razdeleno na zeleno i siño — gorite nad vodite na Arda; vãrhu vsičko — zlaten razperen beloglav lešojad sãs srebãrna jaka, dãržašt v noktite si zlatnata lira na Orfej, meždu dva strãka lilavi Orfeevi cvetja (Haberlea rhodopensis): lešojadite na Arda i trakijskijat pevec na Rodopite."
   },
   "per inhabitant in 2023, {0}% of the EU-27 average": {
    "zap": "na prebivalca v letu 2023, {0} % povprečja EU-27",
@@ -2815,6 +2825,11 @@
    "sre": "Toponimi u jedinstvenoj abecedi",
    "ist": "Toponimite v edinnata azbuka",
    "zap": "Zemļepisna imena v enotni abecedi"
+  },
+  "Plain horizontal tricolour of carmine, or and azure, banner of the Kvarner gulf, of solid stripe without charge.": {
+   "zap": "Navadna vodoravna trobojnica karminske, zlate in modre barve, prapor Kvarnerskega zaliva, s polnimi pasovi brez heraldičnih likov.",
+   "sre": "Tri horizontalne trake, karminska, zlatna i plava, zastava Kvarnerskog zaliva, čiste trake bez heraldičkih likova.",
+   "ist": "Karmineno-zlatno-sin horizontalen trikoļor, znameto na Kvarnerskija zaliv, s plãtni ivici bez figuri."
   },
   "Plain horizontal tricolour of celeste, gules and argent, pan-Slovenian banner of the trans-Mura territory, of solid stripe without charge.": {
    "zap": "Preprosta vodoravna trobojnica nebesno modre, rdeče in srebrne barve, vseslovenski prapor Prekmurja, dežele onkraj Mure, s polnimi pasovi brez heraldičnih likov.",
@@ -2990,16 +3005,6 @@
    "zap": "Rdeče-modro-zelena vodoravna trobojnica; ščit z zlatim levom dinastije Nemanjić, ki se vzpeña po utrjenem obzidju pod soncem in polmesecem, z rekama Donavo in Tiso ter s srbskim križem.",
    "ist": "Červeno-siño-zelen horizontalen trikoļor; štit sãs zlatnija lãv na dinastijata Nemanjić, kojto se izkačva po krepostni steni, pod slãnce i polumesec, s rekite Dunav i Tisa i sãs srãbskija krãst.",
    "sre": "Tri horizontalne trake, crvena, plava i zelena; štit sa zlatnim lavom dinastije Nemanjić koji se peñe uz utvrđene bedeme, pod suncem i poluměsecom, s rěkama Dunavom i Tisom i sa srpskim krstom."
-  },
-  "Red, vert and argent horizontal; central shield with the rocky peaks of Pirin, an Orthodox church of three domes between mountains, the golden bridge below, and the small Serbian cross-shield in base; scroll “ПОДРИЊЕ”.": {
-   "zap": "Vodoravno rdeče, zeleno in srebrno; osredñi ščit s skalnatimi vrhovi Pirina, pravoslavno cerkvijo s tremi kupolami med gorami, spodaj z zlatim mostom in v vznožju z majhnim ščitom s srbskim križem; trak s cirilskim napisom „PODRIÑE“.",
-   "ist": "Horizontalno červeno, zeleno i srebãrno; centralen štit sãs skalistite vãrhove na Pirin, pravoslavna cãrkva s tri kupola meždu planinite, zlaten most otdolu i malãk štit sãs srãbskija krãst v dolnata čast; lenta s nadpis „ПОДРИЊЕ“.",
-   "sre": "Horizontalno crveno, zeleno i srebrno; središñi štit s kamenitim vrhovima Pirina, pravoslavnom crkvom s tri kupole između planina, zlatnim mostom ispod ñih i malim štitom sa srpskim krstom u podnožju; traka s ćiriličnim natpisom „PODRIÑE“."
-  },
-  "Red, white and green horizontal tricolour; shield with the Ottoman crescent, the central Bosnian mountains and waters, and the golden Bosnian fleur-de-lys.": {
-   "zap": "Rdeče-belo-zelena vodoravna trobojnica; ščit z osmanskim polmesecem, gorami in vodami osredñe Bosne ter zlato bosansko lilijo.",
-   "ist": "Červeno-bjalo-zelen horizontalen trikoļor; štit s osmanskija polumesec, planinite i vodite na Centralna Bosna i zlatnata bosnenska lilija.",
-   "sre": "Tri horizontalne trake, crvena, běla i zelena; štit s osmanskim poluměsecom, planinama i vodama središñe Bosne i zlatnim bosanskim ļiļanom."
   },
   "Referendum": {
    "sre": "Referendum",
@@ -3276,11 +3281,6 @@
    "ist": "Srãbskite narodni cvetove, horizontalno červeno-siño-srebãrno; vãrhu centralnija červen štit — černa glava na gligan, pronizana ot černa strela, a v dolnata čast — belijat srãbski krãst s četiri ogniva; totem na dãbovite gori na Šumadija.",
    "sre": "Srpske narodne boje, horizontalno crveno, plavo i srebrno; na središñem crvenom štitu crna veprova glava probodena crnom strělom, u podnožju běli srpski krst sa četiri ocila, totem šumadijskih hrastovih šuma."
   },
-  "Serbian pan-colours, white-blue-red horizontal; on the central shield, the blue Habsburg-style eagle on argent with golden bend, heraldic continuity of Kosovska Mitrovica.": {
-   "zap": "Srbske narodne barve, vodoravno belo-modro-rdeče; na osredñem ščitu modri orel habsburškega sloga na srebrnem z zlato poševnico, heraldična kontinuiteta Kosovske Mitrovice.",
-   "ist": "Srãbskite narodni cvetove, horizontalno bjalo-siño-červeno; vãrhu centralnija štit — sin orel v habsburgski stil na srebãrno pole sãs zlatna naklonena ivica, heraldičeska priemstvenost na Kosovska Mitrovica.",
-   "sre": "Srpske narodne boje, horizontalno běla, plava i crvena; na središñem štitu plavi orao u habsburškom stilu na srebrnom poļu sa zlatnom kosom gredom, heraldički kontinuitet Kosovske Mitrovice."
-  },
   "Serbs": {
    "sre": "Srbi",
    "ist": "Sãrbi",
@@ -3315,6 +3315,11 @@
    "zap": "Sedem svetnikov, po eden za vsak konstitutivni narod, skupaj vlada Konfederaciji. Vsak vodi resor s sedežem v eni od štirih prestolnic, predsedstvo pa vsako leto preide z enega na drugega. Nihče ne vlada sam ({0}).",
    "ist": "Sedem sãvetnici, po edin za vseki konstitutiven narod, upravļavat zaedno Konfederacijata. Vseki rãkovodi resor sãs sedalište v edna ot četirite stolici, a predsedatelstvoto preminava vsjaka godina ot edin sãvetnik kãm sledvaštija. Nikoj ne upravļava sam ({0}).",
    "sre": "Sedam većnika, po jedan iz svakog konstitutivnog naroda, zajedno upravļaju Konfederacijom. Svaki rukovodi resorom sa sědištem u jednom od četiri glavna grada, a predsědništvo svake godine prelazi s jednog većnika na drugog. Niko ne upravļa sam ({0})."
+  },
+  "Seven horizontal stripes of or and argent; on the central shield with wavy water in chief, a stag couchant beside an oak tree, all azure-argent-vert, heraldry of the Western Sirmian plain.": {
+   "zap": "Sedem vodoravnih pasov zlate in srebrne barve; na osredñem ščitu z valovito vodo v zgorñem delu ležeč jelen ob hrastu, vse v modri, srebrni in zeleni barvi; heraldika zahodne sremske ravnine.",
+   "sre": "Sedam horizontalnih traka, zlatnih i srebrnih; na središñem štitu, s vijugavom vodom u gorñem dělu, jelen koji leži pored hrasta, sve u plavoj, srebrnoj i zelenoj boji; heraldika zapadne srěmske ravnice.",
+   "ist": "Sedem horizontalni ivici v zlatno i srebãrno; vãrhu centralnija štit s vãlnoobrazna voda v gornata čast — ležašt elen do dãb, vsičko v siño, srebãrno i zeleno; heraldika na zapadnata sremska ravnina."
   },
   "Severna Trakija, without the yat": {
    "sre": "Severna Trakija, bez jata",
@@ -3390,6 +3395,11 @@
    "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe.",
    "ist": "Horizontalno nebesnosiño i bordo; gore — bjala sedemlãčeva zvezda; dolu — snop pšenica, žitnoto bogatstvo na Južna Dobruxa.",
    "sre": "Horizontalno nebeskoplavo i bordo; u gorñem dělu běla sedmokraka zvězda; u doñem dělu snop pšenice, žitno bogatstvo južne Dobruxe."
+  },
+  "Sky-blue and vert horizontal; on the azure shield, the golden Istrian goat with horns and hooves gules, beneath a small radiant sun: the historic arms of Istria.": {
+   "zap": "Vodoravno svetlomodro in zeleno; na modrem ščitu zlata istrska koza z rdečimi rogovi in parkļi, pod majhnim sijočim soncem: zgodovinski grb Istre.",
+   "sre": "Horizontalno světloplavo i zeleno; na plavom štitu zlatna istarska koza s crvenim rogovima i papcima, pod malim zrakastim suncem: istorijski grb Istre.",
+   "ist": "Horizontalno svetlosiño i zeleno; na sinija štit — zlatnata istrijska koza s červeni roga i kopita, pod malko sijaešto slãnce: istoričeskijat gerb na Istrija."
   },
   "Slovak": {
    "zap": "Slovaška",
@@ -4216,20 +4226,25 @@
    "sre": "Kontrola karte",
    "ist": "Proverka na karta"
   },
-  "Vert field charged with a radiant sun in or, sixteen-pointed Vergina-style sun, the rising star over the Danubian plain.": {
-   "zap": "Zeleno poļe z zlatim sijočim soncem, šestnajstkrakim soncem po vzoru Vergine, vzhajajočo zvezdo nad podonavsko nižino.",
-   "ist": "Zeleno pole sãs zlatno sijaešto slãnce, šestnadesetlãčevo po obrazeca na slãnceto ot Vergina — izgrjavaštata zvezda nad Dunavskata ravnina.",
-   "sre": "Zeleno poļe sa zlatnim zrakastim suncem, šesnaestokrakim suncem po uzoru na Verginu, zvězdom koja izlazi nad podunavskom ravnicom."
+  "Vert field charged with a sixteen-rayed sun in or, Vergina style, the sun over the Pirin mountains.": {
+   "zap": "Zeleno poļe z zlatim šestnajstkrakim soncem po vzoru Vergine, sonce nad pirinskim gorovjem.",
+   "sre": "Zeleno poļe sa zlatnim šesnaestokrakim suncem po uzoru na Verginu, sunce nad Pirinom.",
+   "ist": "Zeleno pole sãs zlatno šestnadesetlãčevo slãnce po obrazeca ot Vergina — slãnceto nad Pirin."
   },
-  "Vert, azure and or horizontal; on the chief, the red Serbian cross with four firesteels; central shield with a stag couchant beneath a tree, between wavy bands of argent on azure, Sanxak in its highland forests.": {
-   "zap": "Vodoravno zeleno, modro in zlato; zgoraj rdeči srbski križ s štirimi kresili; osredñi ščit z ležečim jelenom pod drevesom med valovitimi srebrnimi pasovi na modrem, Sanxak v svojih gorskih gozdovih.",
-   "ist": "Horizontalno zeleno, siño i zlatno; v gornata čast — červenijat srãbski krãst s četiri ogniva; centralen štit s ležašt elen pod dãrvo, meždu vãlnoobrazni srebãrni ivici na siño pole — Sanxak sred planinskite si gori.",
-   "sre": "Horizontalno zeleno, plavo i zlatno; u gorñem dělu crveni srpski krst sa četiri ocila; središñi štit s jelenom koji leži pod stablom, između vijugavih srebrnih traka na plavom poļu, Sanxak u svojim planinskim šumama."
+  "Vert, argent and vert horizontal, the white for the Tunxa; overall, the golden oak wreath with acorns of the Thracian king Seuthes III, found near Kazanlak, enclosing a Damask rose gules seeded or, the oil rose of the Kazanlak valley.": {
+   "zap": "Vodoravno zeleno, srebrno in zeleno, belo za Tunxo; čez vse zlati hrastov venec z želodi tračanskega kraļa Sevta III., najden pri Kazanlaku, ki obdaja rdečo damaščansko vrtnico z zlatim srcem, oļno vrtnico kazanlaške doline.",
+   "sre": "Horizontalno zeleno, srebrno i zeleno, bělo za Tunxu; preko svega zlatni hrastov věnac sa žirovima tračkog kraļa Sevta III, pronađen kod Kazanlaka, koji okružuje crvenu damaščansku ružu sa zlatnim srcem, uļanu ružu kazanlačke doline.",
+   "ist": "Horizontalno zeleno, srebãrno i zeleno, bjaloto za Tunxa; vãrhu vsičko — zlatnijat dãbov venec s žãlãdi na trakijskija car Sevt III, nameren kraj Kazanlãk, obgrãštašt červena damaska roza sãs zlatna sreda — maslodajnata roza na Kazanlãškata dolina."
   },
-  "Vert, gules and argent horizontal, Bulgarian-style stripe; from the hoist, a navy triangular pall charged with the Cyrillic letter Ш argent.": {
-   "zap": "Vodoravno zeleno, rdeče in srebrno, pasovi v bolgarskem slogu; od droga temnomodri trikotnik s srebrno cirilsko črko ša.",
-   "ist": "Horizontalno zeleno, červeno i srebãrno, ivici v bãlgarski stil; otkãm drevkata — tãmnosin triãgãlnik sãs srebãrna kirilska bukva Ш.",
-   "sre": "Horizontalno zeleno, crveno i srebrno, trake u bugarskom stilu; od kopļa tamnoplavi trougao sa srebrnim ćiriličnim slovom ša."
+  "Vert, azure and or horizontal; on the chief, the red Serbian cross with four firesteels; central shield with the stag of Srěm couchant beneath a tree, between wavy bands of argent on azure, the Sava and the Danube.": {
+   "zap": "Vodoravno zeleno, modro in zlato; zgoraj rdeči srbski križ s štirimi kresili; osredñi ščit s sremskim jelenom, ležečim pod drevesom, med valovitimi srebrnimi pasovi na modrem, Savo in Donavo.",
+   "sre": "Horizontalno zeleno, plavo i zlatno; u gorñem dělu crveni srpski krst sa četiri ocila; središñi štit sa srěmskim jelenom koji leži pod stablom, između vijugavih srebrnih traka na plavom poļu, Save i Dunava.",
+   "ist": "Horizontalno zeleno, siño i zlatno; v gornata čast — červenijat srãbski krãst s četiri ogniva; centralen štit sãs sremski elen, legnal pod dãrvo, meždu vãlnoobrazni srebãrni ivici na siño pole — Sava i Dunav."
+  },
+  "Vert, gules and argent horizontal, Bulgarian-style stripe; from the hoist, a navy triangular pall charged with the Cyrillic letter Ш argent, initial of the Šopi.": {
+   "zap": "Vodoravno zeleno, rdeče in srebrno, pasovi v bolgarskem slogu; od droga temnomodri trikotnik s srebrno cirilsko črko ša, začetnico Šopov.",
+   "sre": "Horizontalno zeleno, crveno i srebrno, trake u bugarskom stilu; od kopļa tamnoplavi trougao sa srebrnim ćiriličnim slovom ša, početnim slovom Šopa.",
+   "ist": "Horizontalno zeleno, červeno i srebãrno, ivici v bãlgarski stil; otkãm drevkata — tãmnosin triãgãlnik sãs srebãrna kirilska bukva Ш — začalnata bukva na šopite."
   },
   "Vertical bands of vert, gules, argent, gules and vert; central shield of the Bulgarian Krum heritage, mural crown labelled “ЛУДОГОРИЕ” in Bulgarian Cyrillic, with the leaping Madara horseman.": {
    "zap": "Navpični pasovi zelene, rdeče, srebrne, rdeče in zelene barve; osredñi ščit bolgarske Krumove dediščine z zidno krono z napisom „LUDOGORIE“ v bolgarski cirilici in z madarskim jezdecem v skoku.",
@@ -4295,11 +4310,6 @@
    "sre": "Běla",
    "ist": "Bjalo",
    "zap": "Bela"
-  },
-  "White, navy and white horizontal Adriatic stripes; on the central shield, the tower-on-bridge of the historic Gulf cities and the Kvarner pine marten at base.": {
-   "zap": "Beli, temnomodri in beli vodoravni jadranski pasovi; na osredñem ščitu stolp na mostu zgodovinskih mest Kvarnerskega zaliva, v vznožju kvarnerska kuna zlatica.",
-   "ist": "Horizontalni adriatičeski ivici v bjalo, tãmnosiño i bjalo; vãrhu centralnija štit — kulata na mosta na istoričeskite gradove ot zaliva, a v dolnata čast — kvarnerskata gorska kunica.",
-   "sre": "Horizontalne jadranske trake, běla, tamnoplava i běla; na središñem štitu kula na mostu istorijskih gradova Kvarnera, a u podnožju kvarnerska kuna zlatica."
   },
   "within <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>": {
    "sre": "u državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",

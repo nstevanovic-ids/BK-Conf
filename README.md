@@ -83,8 +83,7 @@ explicite, et elle se propage partout : canon, constitution, données, portail.
 
 - **Territoire** :
   - 52 États et 2 municipalités confédérales autonomes, limites gelées depuis la passe de
-    fondation du 2026-11-05 ; tous ont leur drapeau sauf les États créés en novembre 2026
-    (Bregalnica, Tunxa, Severen Vardar) ;
+    fondation du 2026-11-05 ; tous ont leur drapeau ;
   - 24 entités autonomes ;
   - carte en globe d3-geo, avec des chiffres clés par État (population, superficie, PIB
     par habitant).

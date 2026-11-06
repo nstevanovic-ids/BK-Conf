@@ -45,10 +45,20 @@ PALETTE_COLORS = 64
 # et Lasva-Flag.webp (États fondus le 2026-11-05), Lika-Flag.png,
 # Zapadna-Mizija-Flag-v2.png, Flag_of_Zapadna-Mizija.svg, Timok-Flag.png, Torlak-Flag.png et
 # Usora-Flag.svg (versions remplacées ; TK-39 et TL-40 pointent sur les v2 affichées depuis le
-# 2026-10-25, US-43 sur la version byzantine du 2026-11-05).
+# 2026-10-25, US-43 sur la version byzantine du 2026-11-05) ; Flag_of_Zapaden-Vardar.webp
+# (remplacé le 2026-11-06) et Zapaden-Vardar-Flag-v2-ondule.jpg (original ondulé de la v2,
+# mis à plat dans Zapaden-Vardar-Flag-v2.png : bandes en aplat, écu ramené à quatre couleurs).
+# Severen-Vardar-Flag.png est découpé dans la couverture du Macedonian Herald no 16 (2021).
+# Le 2026-11-06, le drapeau au Ш (fichier Rodopi-Flag-v2.png) passe à Šopluk ; les bandes or
+# et gueules (SD-Sopluk-Flag.png), données un moment à Rodopi, ne sont plus utilisées. Rodopi :
+# Rodopi-Flag-v3-genere.png (image générée retenue), Rodopi-Flag-v3.png (emblème réduit de
+# 71 % à 50 % de la hauteur, bandes refaites en aplat).
+# Tunxa-Flag-genere.jpg : image générée retenue le 2026-11-06 ; Tunxa-Flag.png en est la version
+# à emblème réduit (de 71 % à 50 % de la hauteur), bandes refaites en aplat.
 MAPPING = {
     "BA-01": "Flag_of_Bosanska-Krajina.png",
     "BC-02": "flag_BC02.png",
+    "BE-03": "Bregalnica-Flag.jpg",
     "BN-04": "flag_BN03.png",
     "BZ-05": "Zapadna-Bosna-Flag_3x.png",
     "CG-06": "Flag_of_CG-07_svg.png",
@@ -74,12 +84,12 @@ MAPPING = {
     "PO-26": "Podunavlje-Flag-V3.png",
     "PR-27": "Pirin-Flag.jpg",
     "PZ-28": "Flag-of-Zapadno-Podrinje.png",
-    "RO-29": "Rodopi-Flag-v2.png",
+    "RO-29": "Rodopi-Flag-v3.png",
     "RS-30": "SD-Raska-Sandzak-Flag.png",
     "SI-31": "SD-Istocni-Srem-Flag_4x.png",
     "SL-32": "SD-Slavonia-Flag-Horizontal.png",
     "SO-33": "Soli-Flag.png",
-    "SP-34": "SD-Sopluk-Flag.png",
+    "SP-34": "Rodopi-Flag-v2.png",
     "ST-35": "SD-Stajerska-Flag_3x.png",
     "SU-36": "Sumadija-Flag.png",
     "SX-37": "SD-Strandzha-Flag_3x.png",
@@ -87,9 +97,11 @@ MAPPING = {
     "TK-39": "Timok-Flag-v2.jpg",
     "TL-40": "Torlak-Flag-v2.jpg",
     "TR-41": "SD-S_Trakija-Flag_3x.png",
+    "TU-42": "Tunxa-Flag.png",
     "US-43": "Usora-Flag-v2.svg",
     "VB-44": "Vrhbosna-Flag.png",
-    "VZ-46": "Flag_of_Zapaden-Vardar.webp",
+    "VS-45": "Severen-Vardar-Flag.png",
+    "VZ-46": "Zapaden-Vardar-Flag-v2.png",
     "ZA-47": "Zagorje-Flag.webp",
     "ZL-48": "Zlatibor-Flag.png",
     "BG-91": "Beograd-Flag.png",
