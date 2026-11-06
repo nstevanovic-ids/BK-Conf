@@ -39,7 +39,7 @@
   "250 delegates. Each of the 52 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.": {
    "sre": "250 delegata. Svaka od 52 države čini jednu izbornu jedinicu i bira od 2 do 20 delegata; mandati se raspoređuju proporcionalno broju stanovnika metodom Sainte-Laguë; Brčko i Mostar čine po jednu izbornu jedinicu, s najmañe jednim delegatom. Delegati se biraju proporcionalnim glasañem za liste, na četiri godine, i svaki od ñih može predložiti zakon. Kongres donosi zakone i usvaja buxet, potvrđuje međunarodne ugovore, odobrava upotrebu oružanih snaga, bira sudije Ustavnog Suda, nadzire Konfederalno Veće i daje garanciju ustavima država.",
    "ist": "250 delegati. Vsjaka ot petdeset i dvete dãržavi e edin izbiratelen rajon i izbira meždu 2 i 20 delegati, razpredeleni proporcionalno na naselenieto po metoda na Sainte-Laguë; Brčko i Mostar obrazuvat vsjaka po edin izbiratelen rajon s pone edin delegat. Delegatite se izbirat po proporcionalnata sistema s kandidatski listi za četiri godini i vseki ot tjah može da vnese zakonoproekt. Kongres priema zakonite i bjuxeta, ratificira dogovorite, razrešava izpolzvaneto na vãorãženite sili, izbira sãdiite na Ustavni Sud, kontrolira Konfederalno Veće i garantira konstituciite na dãržavite.",
-   "zap": "250 delegatov. Vsaka od 52 držav je ena volilna enota in izvoli od 2 do 20 delegatov, ki se razdelijo sorazmerno s prebivalstvom po metodi Sainte-Laguë; Brčko in Mostar tvorita vsak svojo volilno enoto z najmañ enim delegatom. Delegati se za štiri leta volijo po proporcionalnem sistemu s kandidatnimi listami in vsak lahko vloži predlog zakona. Kongres sprejema zakone in proračun, ratificira mednarodne pogodbe, dovoļuje uporabo oboroženih sil, voli sodnike Ustavnega Suda, nadzoruje Konfederalno Veće in podeļuje jamstvo ustavam držav."
+   "zap": "250 delegatov. Vsaka od 52 držav je ena volilna enota in izvoli od 2 do 20 delegatov, ki se razdelijo sorazmerno s prebivalstvom po metodi Sainte-Laguë; Brčko in Mostar tvorita vsak svojo volilno enoto z najmañ enim delegatom. Delegati se za štiri leta volijo po proporcionalnem sistemu s kandidatnimi listami in vsak lahko vloži predlog zakona. Kongres sprejema zakone in proračun, ratificira mednarodne pogodbe, dovoļuje uporabo oboroženih sil, voli sodnike Ustavnega sodišča, nadzoruje Konfederalni svet in podeļuje jamstvo ustavam držav."
   },
   "300,000 citizens may propose a total or partial revision of the Constitution within 18 months. A partial revision is adopted by the double majority of the people and of the States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).": {
    "zap": "300.000 državļanov lahko v 18 mesecih predlaga celovito ali delno spremembo Ustave. Delna sprememba je sprejeta z dvojno večino ļudstva in držav; pri celoviti spremembi ļudstvo najprej odloči, ali naj se postopek nadaļuje (čl. 121, 148, 149).",
@@ -77,7 +77,7 @@
    "zap": "7 narodnih delegacij po 10 članov"
   },
   "<b>Enrolled:</b> you elect the Kongres in your state and the ten delegates of your people to the Narodni Sabor, in one constituency covering the whole Confederation (Art. 108). <b>Not enrolled:</b> you keep all civic rights and vote for the Kongres and in referendums, but not for the Narodni Sabor (Art. 102).": {
-   "zap": "<b>Vpisani:</b> v svoji državi volite Kongres, v Narodni Sabor pa deset delegatov svojega naroda, v eni volilni enoti, ki obsega vso Konfederacijo (čl. 108). <b>Nevpisani:</b> ohranite vse državļanske pravice ter volite Kongres in glasujete na referendumih, ne volite pa Narodnega Sabora (čl. 102).",
+   "zap": "<b>Vpisani:</b> v svoji državi volite Kongres, v Skupščino narodov pa deset delegatov svojega naroda, v eni volilni enoti, ki obsega vso Konfederacijo (čl. 108). <b>Nevpisani:</b> ohranite vse državļanske pravice ter volite Kongres in glasujete na referendumih, ne volite pa Skupščine narodov (čl. 102).",
    "sre": "<b>Upisani:</b> birate Kongres u svojoj državi i deset delegata svog naroda u Narodni Sabor, u jednoj izbornoj jedinici za cělu Konfederaciju (čl. 108). <b>Neupisani:</b> zadržavate sva građanska prava i glasate za Kongres i na referendumima, ali ne i za Narodni Sabor (čl. 102).",
    "ist": "<b>Vpisani:</b> izbirate Kongres v svojata dãržava i desette delegati na svoja narod v Narodni Sabor, v edin izbiratelen rajon, obhvaštašt cjalata Konfederacija (čl. 108). <b>Nevpisani:</b> zapazvate vsički graždanski prava i glasuvate za Kongres i na referendumite, no ne i za Narodni Sabor (čl. 102)."
   },
@@ -129,10 +129,10 @@
   "A college of seven councillors, one for each constituent people, each nominated by his people's delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by four councillors whose peoples hold a majority of enrolled citizens, or by five; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.": {
    "sre": "Kolegijalni organ od sedam većnika, po jedan iz svakog konstitutivnog naroda; svakog od ñih predlaže delegacija ñegovog naroda u Narodnom Saboru i svaki mora biti upisan u registar tog naroda najmañe osam godina. Odluke se donose konsenzusom, a ako ga nema, glasovima četiri većnika čiji narodi čine većinu upisanih državļana ili glasovima pet većnika; izvršeñe odluke donesene protiv tri ili više većnika obustavļa se na 30 dana, dok se saslušavaju dotične delegacije. Predsědništvo rotira svake godine. Svaki većnik rukovodi jednim od sedam resora sa sědištima u četiri glavna grada. Mandat traje četiri godine i može se jednom obnoviti.",
    "ist": "Kolegialen organ ot sedem sãvetnici, po edin za vseki konstitutiven narod; vseki sãvetnik e predložen ot delegacijata na svoja narod v Narodni Sabor i e vpisan v registãra na tozi narod ot pone osem godini. Rešenijata se vzemat s konsensus, a inače — ot četirima sãvetnici, čiito narodi sãstavļavat mnozinstvoto ot vpisanite graždani, ili ot petima; rešenie, vzeto protiv trima ili poveče sãvetnici, se spira za 30 dni, dokato bãdat izslušani zasegnatite delegacii. Predsedatelstvoto se reduva vsjaka godina. Vseki sãvetnik rãkovodi edin ot sedemte resora sãs sedališta v četirite stolici. Četirigodišen mandat, kojto može da bãde podnoven vednãž.",
-   "zap": "Kolegij sedmih svetnikov, po en za vsak konstitutivni narod; vsakega predlaga delegacija ñegovega naroda v Narodnem Saboru, v register tega naroda pa mora biti vpisan vsaj osem let. Odločitve se sprejemajo s soglasjem, sicer z glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali petih svetnikov; odločitev, sprejeta proti trem ali več svetnikom, se za 30 dni zadrži, da se zaslišijo delegacije, ki jih to zadeva. Predsedstvo se izmeñuje vsako leto. Vsak svetnik vodi enega od sedmih resorjev s sedeži v štirih prestolnicah. Štiriletni mandat z možnostjo ene ponovne izvolitve."
+   "zap": "Kolegij sedmih svetnikov, po en za vsak konstitutivni narod; vsakega predlaga delegacija ñegovega naroda v Skupščini narodov, v register tega naroda pa mora biti vpisan vsaj osem let. Odločitve se sprejemajo s soglasjem, sicer z glasovi štirih svetnikov, katerih narodi predstavļajo večino vpisanih državļanov, ali petih svetnikov; odločitev, sprejeta proti trem ali več svetnikom, se za 30 dni zadrži, da se zaslišijo delegacije, ki jih to zadeva. Predsedstvo se izmeñuje vsako leto. Vsak svetnik vodi enega od sedmih resorjev s sedeži v štirih prestolnicah. Štiriletni mandat z možnostjo ene ponovne izvolitve."
   },
   "A commander and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.": {
-   "zap": "Poveļnik in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Narodnega Sabora, za sedem let.",
+   "zap": "Poveļnik in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Skupščine narodov, za sedem let.",
    "sre": "Komandant i dva zaměnika, koje potvrđuju dvě trećine Kongresa i pet delegacija Narodnog Sabora, na sedam godina.",
    "ist": "Komandir i dvama zamestnici, utvãrdeni s mnozinstvo ot dve treti v Kongres i ot pet delegacii na Narodni Sabor, za srok ot sedem godini."
   },
@@ -157,7 +157,7 @@
    "sre": "Odluka donesena protiv tri ili više većnika obustavļa se na trideset dana, dok se saslušavaju delegacije ñihovih naroda, a zatim se ponovo razmatra."
   },
   "A director and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.": {
-   "zap": "Direktor in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Narodnega Sabora, za sedem let.",
+   "zap": "Direktor in dva namestnika, potrjeni z dvotretjinsko večino Kongresa in s petimi delegacijami Skupščine narodov, za sedem let.",
    "sre": "Direktor i dva zaměnika, koje potvrđuju dvě trećine Kongresa i pet delegacija Narodnog Sabora, na sedam godina.",
    "ist": "Direktor i dvama zamestnici, utvãrdeni s mnozinstvo ot dve treti v Kongres i ot pet delegacii na Narodni Sabor, za srok ot sedem godini."
   },
@@ -202,7 +202,7 @@
    "ist": "Obštinata na proizhod na roditel, djado ili baba"
   },
   "A personal and voluntary choice among the seven peoples, or none. A first enrolment may be rectified once within three years, then another register only after fifteen years; withdrawal is free. Counts for the Narodni Sabor from the first election held more than a year later (Art. 102, 108).": {
-   "zap": "Osebna in prostovoļna izbira med sedmimi narodi ali nobenim. Prvi vpis je mogoče v treh letih enkrat popraviti, nato je drug register mogoč šele po petnajstih letih; izstop je prost. Za Narodni Sabor veļa od prvih volitev, ki potekajo več kot leto dni pozneje (čl. 102, 108).",
+   "zap": "Osebna in prostovoļna izbira med sedmimi narodi ali nobenim. Prvi vpis je mogoče v treh letih enkrat popraviti, nato je drug register mogoč šele po petnajstih letih; izstop je prost. Za Skupščino narodov veļa od prvih volitev, ki potekajo več kot leto dni pozneje (čl. 102, 108).",
    "sre": "Lični i dobrovoļni izbor jednog od sedam naroda ili nijednog. Prvi upis može se jednom ispraviti u roku od tri godine, a upis u drugi registar moguć je tek nakon petnaest godina; istupañe je slobodno. Računa se za Narodni Sabor od prvih izbora održanih više od godinu dana kasnije (čl. 102, 108).",
    "ist": "Ličen i dobrovolen izbor meždu sedemte naroda ili nikoj ot tjah. Pãrvoto vpisvane može da bãde popraveno vednãž v ramkite na tri godini, a sled tova drug registãr e vãzmožen edva sled petnadeset godini; ottegļaneto e svobodno. Važi za Narodni Sabor ot pãrvite izbori, provedeni poveče ot godina po-kãsno (čl. 102, 108)."
   },
@@ -212,7 +212,7 @@
    "sre": "Javni pregled konfederalnog digitalnog državļanstva: potvrđene prijave po narodnim registrima i po državama, s dnevnim podacima. Samo zbirni podaci, nikad pojedinačni zapisi."
   },
   "A territorial force with military status. Its Granična Straža checks everyone who crosses the external borders and runs the customs; a special unit handles counter-terrorism and hostage rescue.": {
-   "zap": "Teritorialna sila z vojaškim statusom. Ñena Granična Straža nadzoruje vse, ki prečkajo zunañe meje, in upravļa carino; posebna enota skrbi za boj proti terorizmu in reševañe talcev.",
+   "zap": "Teritorialna sila z vojaškim statusom. Ñena Mejna straža nadzoruje vse, ki prečkajo zunañe meje, in upravļa carino; posebna enota skrbi za boj proti terorizmu in reševañe talcev.",
    "sre": "Teritorijalna snaga s vojnim statusom. Ñena Granična Straža prověrava svakoga ko prelazi spoļne granice i vodi carinsku službu; posebna jedinica zadužena je za borbu protiv terorizma i oslobađañe talaca.",
    "ist": "Teritorialna sila s voenen statut. Nejnata Granična Straža proverjava vsički, koito presičat vãnšnite granici, i otgovarja za mitnicite; specialno podrazdelenie se zanimava s borbata s terorizma i osvoboždavaneto na založnici."
   },
@@ -224,7 +224,7 @@
   "Absolute and relative immunity and a session guarantee, authorised by the special chamber; a conciliation committee of fourteen, one member per people from each chamber, also when consent is refused; consent of the Narodni Sabor and an optional referendum for treaties; graduated confederal enforcement; the flag, emblem, seal and motto of the Confederation. 174 articles.": {
    "sre": "Apsolutni i relativni imunitet i zaštita za vrěme zasědaña, pod kontrolom posebnog veća Ustavnog Suda; odbor za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma, i u slučaju uskraćenog pristanka; pristanak Narodnog Sabora i fakultativni referendum za međunarodne ugovore; konfederalno izvršeñe u fazama; zastava, amblem, pečat i geslo Konfederacije. 174 člana.",
    "ist": "Absoļuten i otnositelen imunitet i zaštita po vreme na sesiite, s razrešenie na specialnata kamara; sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, kojato se sezira i pri otkaz na sãglasie; sãglasie na Narodni Sabor i fakultativen referendum za dogovorite; stepenuvano konfederalno prinuditelno izpãlnenie; znameto, emblemata, pečatãt i devizãt na Konfederacijata. 174 člena.",
-   "zap": "Absolutna in relativna imuniteta ter jamstvo med zasedañi, pri čemer dovoļeña izdaja posebni senat; usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, tudi ob zavrnitvi soglasja; soglasje Narodnega Sabora in fakultativni referendum za mednarodne pogodbe; stopñevana konfederalna izvršba; zastava, emblem, pečat in geslo Konfederacije. 174 členov."
+   "zap": "Absolutna in relativna imuniteta ter jamstvo med zasedañi, pri čemer dovoļeña izdaja posebni senat; usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, tudi ob zavrnitvi soglasja; soglasje Skupščine narodov in fakultativni referendum za mednarodne pogodbe; stopñevana konfederalna izvršba; zastava, emblem, pečat in geslo Konfederacije. 174 členov."
   },
   "Access to your card": {
    "zap": "Dostop do izkaznice",
@@ -419,7 +419,7 @@
   "Articles 102, 108, 112 and 117: enrolment from the age of 18; a first enrolment is probationary for three years and may be rectified once; otherwise another register only after fifteen years; free withdrawal; effect from the first Narodni Sabor election held more than a year later; eight years of enrolment for confederal councillors and constitutional judges.": {
    "sre": "Članovi 102, 108, 112 i 117: upis od navršenih 18 godina; prvi upis ima probni rok od tri godine i može se jednom ispraviti; inače drugi registar tek nakon petnaest godina; slobodno istupañe; upis važi od prvih izbora za Narodni Sabor održanih više od godinu dana kasnije; osam godina upisa za konfederalne većnike i sudije Ustavnog Suda.",
    "ist": "Členove 102, 108, 112 i 117: vpisvane ot navãršeni 18 godini; pãrvoto vpisvane e s izpitatelen srok ot tri godini i može da bãde popraveno vednãž; v protiven slučaj drug registãr — edva sled petnadeset godini; svobodno ottegļane; dejstvie ot pãrvite izbori za Narodni Sabor, provedeni poveče ot edna godina po-kãsno; iziskvane za osem godini vpisvane za konfederalnite sãvetnici i konstitucionnite sãdii.",
-   "zap": "Členi 102, 108, 112 in 117: vpis od 18. leta; prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; sicer drug register šele po petnajstih letih; prost izstop; učinek od prvih volitev v Narodni Sabor, ki potekajo več kot eno leto pozneje; osem let vpisa za konfederalne svetnike in ustavne sodnike."
+   "zap": "Členi 102, 108, 112 in 117: vpis od 18. leta; prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; sicer drug register šele po petnajstih letih; prost izstop; učinek od prvih volitev v Skupščino narodov, ki potekajo več kot eno leto pozneje; osem let vpisa za konfederalne svetnike in ustavne sodnike."
   },
   "Articles of {0}": {
    "sre": "Članovi: {0}",
@@ -807,7 +807,7 @@
    "sre": "Građanski život"
   },
   "Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.": {
-   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni Istražni Biro za šest konfederalnih kaznivih dejañ.",
+   "zap": "Civilno in kazensko pravo, register državļanov ter Konfederalni preiskovalni urad za šest konfederalnih kaznivih dejañ.",
    "ist": "Graždansko i nakazatelno pravo, registãr na graždanite i Bjuro za razsledvane za šestte konfederalni prestãplenija.",
    "sre": "Građansko i krivično pravo, registar državļana i Konfederalni Istražni Biro za šest konfederalnih krivičnih děla."
   },
@@ -1059,7 +1059,7 @@
   "Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations, or within all seven if it touches an entrenched guarantee.": {
    "sre": "Pristanak Narodnog Sabora: dvotrećinska većina na plenarnoj sědnici i većina u najmañe šest od sedam delegacija, odnosno u svih sedam ako amandman zadire u ojačanu garanciju.",
    "ist": "Sãglasie na Narodni Sabor: dve treti v plenarno zasedanie i mnozinstvo v pone šest ot sedemte delegacii ili vãv vsičkite sedem, ako izmenenieto zasjaga zasilena garancija.",
-   "zap": "Soglasje Narodnega Sabora: dvotretjinska večina v plenarni sestavi in večina v najmañ šestih od sedmih delegacij ali v vseh sedmih, če gre za utrjeno jamstvo."
+   "zap": "Soglasje Skupščine narodov: dvotretjinska večina v plenarni sestavi in večina v najmañ šestih od sedmih delegacij ali v vseh sedmih, če gre za utrjeno jamstvo."
   },
   "Consent refused": {
    "sre": "Uskraćen pristanak",
@@ -1137,7 +1137,7 @@
    "ist": "Konstitucija v4.13: dãržavite, opredeleni pri osnovavaneto"
   },
   "Constitution v4.14: the Konfederalni Istražni Biro": {
-   "zap": "Ustava v4.14: Konfederalni Istražni Biro",
+   "zap": "Ustava v4.14: Konfederalni preiskovalni urad",
    "sre": "Ustav v4.14: Konfederalni Istražni Biro",
    "ist": "Konstitucija v4.14: Konfederalni Istražni Biro"
   },
@@ -1294,7 +1294,7 @@
   "Deadlock rules for the election of councillors and judges, a 90-day limit for the consent of the Narodni Sabor, legislative initiative and promulgation, urgent laws, a state of emergency, half renewal of the Ustavni Sud; new Confederal Chancellery, Court of Justice, Prosecutor's Office, Court of Audit, Language Institute, Library and Archives and Council of Communities. 165 articles.": {
    "sre": "Pravila za slučaj blokade pri izboru većnika i sudija, rok od 90 dana za pristanak Narodnog Sabora, zakonodavna inicijativa i proglašeñe zakona, hitni zakoni, vanredno stañe, obnavļañe polovine sastava Ustavnog Suda; novi organi: Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv i Veće Zajednica. 165 članova.",
    "ist": "Pravila za preodoļavane na blokaži pri izbora na sãvetnici i sãdii, srok ot 90 dni za sãglasieto na Narodni Sabor, zakonodatelna iniciativa i obnarodvane, spešni zakoni, izvãnredno položenie, obnovjavane na polovinata ot sãstava na Ustavni Sud; sãzdavat se Konfederalnata kancelarija, Konfederalnijat sãd, Konfederalnata prokuratura, Konfederalnata smetna palata, Konfederalnijat institut za ezika, Konfederalnata biblioteka i arhiv i Sãvetãt na obštnostite. 165 člena.",
-   "zap": "Pravila za izhod iz zastoja pri volitvah svetnikov in sodnikov, 90-dnevni rok za soglasje Narodnega Sabora, zakonodajna pobuda in razglasitev zakonov, nujni zakoni, izredno stañe, obnova polovice Ustavnega Suda; novi konfederalni organi: kanclerija, sodišče, tožilstvo, računsko sodišče, inštitut za jezik, kñižnica in arhiv ter Svet skupnosti. 165 členov."
+   "zap": "Pravila za izhod iz zastoja pri volitvah svetnikov in sodnikov, 90-dnevni rok za soglasje Skupščine narodov, zakonodajna pobuda in razglasitev zakonov, nujni zakoni, izredno stañe, obnova polovice Ustavnega sodišča; novi konfederalni organi: kanclerija, sodišče, tožilstvo, računsko sodišče, inštitut za jezik, kñižnica in arhiv ter Svet skupnosti. 165 členov."
   },
   "Declaration": {
    "zap": "Izjava",
@@ -1432,7 +1432,7 @@
    "zap": "Vsako konfederalno ozemļe ohrani lastno policijo; vodstvo Žandarmerije; Konfederalna obveščevalna agencija brez policijskih pooblastil, ki deluje v tujini, doma pa samo proti štirim grožñam; generalni inšpektor in skupni varnostni odbor; načelnik generalštaba ter general, ki ga v vojnem času izvoli Konfederalna skupščina. 170 členov."
   },
   "Each councillor directs his department from its seat; the council meets in Sarajevo, served by the Konfederalna Kancelarija ({0}).": {
-   "zap": "Vsak svetnik vodi svoj resor s sedeža tega resorja; svet se sestaja v Sarajevu, ñegovo delo pa podpira Konfederalna Kancelarija ({0}).",
+   "zap": "Vsak svetnik vodi svoj resor s sedeža tega resorja; svet se sestaja v Sarajevu, ñegovo delo pa podpira Konfederalna kanclerija ({0}).",
    "ist": "Vseki sãvetnik rãkovodi svoja resor ot negovoto sedalište; sãvetãt zasedava v Sarajevo, podpomagan ot Konfederalna Kancelarija ({0}).",
    "sre": "Svaki većnik rukovodi svojim resorom iz sědišta tog resora; Veće zasěda u Sarajevu, uz podršku Konfederalne Kancelarije ({0})."
   },
@@ -1442,12 +1442,12 @@
    "zap": "vsaka delegacija"
   },
   "Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.": {
-   "zap": "Vsaka narodna delegacija Narodnega Sabora predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem.",
+   "zap": "Vsaka narodna delegacija Skupščine narodov predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem.",
    "ist": "Vsjaka narodna delegacija v Narodni Sabor predlaga svoja sãvetnik, vpisan v registãra na nejnija narod ot pone osem godini; Konfederalnoto sãbranie potvãrždava vseki ot tjah s otdelno glasuvane.",
    "sre": "Svaka narodna delegacija Narodnog Sabora predlaže svog većnika, koji je najmañe osam godina upisan u registar tog naroda; Konfederalna skupština potvrđuje svakog od ñih posebnim glasañem."
   },
   "Each population is divided by a common divisor, here {0}, and rounded to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the Konfederalno Veće confirms the distribution after each census ({1}).": {
-   "zap": "Prebivalstvo vsake volilne enote se deli s skupnim deliteļem, tu {0}, in zaokroži na najbližje celo število; deliteļ je izbran tako, da je zasedenih vseh 250 sedežev, z najmañ 2 in največ 20 sedeži na državo ter najmañ 1 za Brčko in Mostar. Podatki popisa so isti kot na straneh držav; Konfederalno Veće razdelitev potrdi po vsakem popisu ({1}).",
+   "zap": "Prebivalstvo vsake volilne enote se deli s skupnim deliteļem, tu {0}, in zaokroži na najbližje celo število; deliteļ je izbran tako, da je zasedenih vseh 250 sedežev, z najmañ 2 in največ 20 sedeži na državo ter najmañ 1 za Brčko in Mostar. Podatki popisa so isti kot na straneh držav; Konfederalni svet razdelitev potrdi po vsakem popisu ({1}).",
    "ist": "Naselenieto na vseki izbiratelen rajon se deli na obšt delitel, tuk {0}, i se zakrãgļava do naj-blizkoto cjalo čislo; deliteļat se izbira taka, če da bãdat zaeti vsičkite 250 mesta, kato vsjaka dãržava polučava naj-malko 2 i naj-mnogo 20 mesta, a Brčko i Mostar — naj-malko po 1. Dannite ot prebrojavanijata sa sãštite kato na stranicite na dãržavite; Konfederalno Veće potvãrždava razpredelenieto sled vsjako prebrojavane ({1}).",
    "sre": "Broj stanovnika svake izborne jedinice děli se zajedničkim děliocem, u ovom slučaju {0}, i zaokružuje na najbliži cěli broj; dělilac se bira tako da se popuni svih 250 mandata, s najmañe 2 i najviše 20 mandata po državi i najmañe 1 za Brčko i Mostar. Podaci popisa isti su kao na stranicama država; Konfederalno Veće potvrđuje raspored mandata nakon svakog popisa ({1})."
   },
@@ -1504,7 +1504,7 @@
   "Enrolment in a national register can reveal national origin. It is recorded only with your explicit consent and kept apart from the register of citizens; it serves only the election of the Narodni Sabor.": {
    "sre": "Upis u narodni registar može otkriti narodnu pripadnost. Unosi se samo uz vaš izričit pristanak i čuva odvojeno od registra državļana; služi iskļučivo za izbore za Narodni Sabor.",
    "ist": "Vpisvaneto v naroden registãr može da razkrie narodnostnata prinadležnost. To se zapisva samo s vašeto izrično sãglasie i se sãhrañava otdelno ot registãra na graždanite; izpolzva se edinstveno za izborite za Narodni Sabor.",
-   "zap": "Vpis v narodni register lahko razkrije narodno poreklo. Zabeleži se samo z vašo izrecno privolitvijo in se hrani ločeno od registra državļanov; uporabļa se samo za volitve v Narodni Sabor."
+   "zap": "Vpis v narodni register lahko razkrije narodno poreklo. Zabeleži se samo z vašo izrecno privolitvijo in se hrani ločeno od registra državļanov; uporabļa se samo za volitve v Skupščino narodov."
   },
   "Enrolment is voluntary (Art. 102); citizens without a register vote for the Kongres only.": {
    "sre": "Upis je dobrovoļan (čl. 102); državļani bez registra glasaju samo za Kongres.",
@@ -1602,19 +1602,19 @@
    "zap": "Vsak državļan, star 18 let ali več"
   },
   "Every citizen may enrol in the register of the constituent people of his choice. The choice is personal and voluntary and need not match the people of your state. A first enrolment is probationary for three years and may be rectified once; after that, another register is open only fifteen years after your enrolment. You may withdraw at any time. An enrolment counts for the Narodni Sabor from the first election held more than a year later (Art. 102).": {
-   "zap": "Vsak državļan se lahko vpiše v register konstitutivnega naroda po svoji izbiri. Izbira je osebna in prostovoļna; ni nujno, da se ujema z narodom vaše države. Prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; nato je drug register dostopen šele petnajst let po vašem vpisu. Iz registra lahko izstopite kadar koli. Za Narodni Sabor vpis veļa od prvih volitev, ki potekajo več kot leto dni pozneje (čl. 102).",
+   "zap": "Vsak državļan se lahko vpiše v register konstitutivnega naroda po svoji izbiri. Izbira je osebna in prostovoļna; ni nujno, da se ujema z narodom vaše države. Prvi vpis je tri leta poskusen in ga je mogoče enkrat popraviti; nato je drug register dostopen šele petnajst let po vašem vpisu. Iz registra lahko izstopite kadar koli. Za Skupščino narodov vpis veļa od prvih volitev, ki potekajo več kot leto dni pozneje (čl. 102).",
    "sre": "Svaki državļanin može se upisati u registar konstitutivnog naroda po svom izboru. Izbor je lični i dobrovoļan i ne mora odgovarati narodu vaše države. Prvi upis ima probni rok od tri godine i može se jednom ispraviti; nakon toga upis u drugi registar moguć je tek petnaest godina od vašeg upisa. Iz registra možete istupiti u svako doba. Upis se računa za Narodni Sabor od prvih izbora održanih više od godinu dana kasnije (čl. 102).",
    "ist": "Vseki graždanin može da se vpiše v registãra na konstitutivnija narod po svoj izbor. Izborãt e ličen i dobrovolen i ne e nužno da sãvpada s naroda na vašata dãržava. Pãrvoto vpisvane e s izpitatelen srok ot tri godini i može da bãde popraveno vednãž; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto vi. Možete da se otteglite po vsjako vreme. Vpisvaneto važi za Narodni Sabor ot pãrvite izbori, provedeni poveče ot godina po-kãsno (čl. 102)."
   },
   "Every confederal law passes the Kongres. The Narodni Sabor guards the matters that touch the peoples, and the citizens keep the last word through the referendum. Choose a case to follow it step by step.": {
-   "zap": "Vsak konfederalni zakon gre skozi Kongres. Narodni Sabor bdi nad vprašañi, ki se tičejo narodov, državļani pa imajo z referendumom zadño besedo. Izberite primer in ga spremļajte korak za korakom.",
+   "zap": "Vsak konfederalni zakon gre skozi Kongres. Skupščina narodov bdi nad vprašañi, ki se tičejo narodov, državļani pa imajo z referendumom zadño besedo. Izberite primer in ga spremļajte korak za korakom.",
    "sre": "Svaki konfederalni zakon mora proći kroz Kongres. Narodni Sabor bdi nad pitañima koja se tiču naroda, a građani putem referenduma zadržavaju pravo konačne odluke. Izaberite slučaj i pratite ga korak po korak.",
    "ist": "Vseki konfederalen zakon se priema ot Kongres. Narodni Sabor bdi nad vãprosite, koito zasjagat narodite, a poslednata duma ostava za graždanite črez referenduma. Izberete slučaj, za da go prosledite stãpka po stãpka."
   },
   "Every four years, on the first Sunday of October, each citizen casts two ballots. The first elects the Kongres, in the State to which the citizen is attached. The second elects the Narodni Sabor, in the national register the citizen has chosen to join. A first enrolment may be rectified once within three years; after that, another register is open only fifteen years after enrolment. An enrolment counts from the first election held more than a year later. A citizen who joins no register keeps every other right: he votes for the Kongres and in all referendums.": {
    "sre": "Svake četiri godine, prve neděļe u oktobru, svaki državļanin popuñava dva glasačka listića. Prvim bira Kongres, u državi kojoj pripada. Drugim bira Narodni Sabor, u narodnom registru u koji se odlučio upisati. Prvi upis može se jednom ispraviti u roku od tri godine; nakon toga drugi registar dostupan je tek petnaest godina od upisa. Upis važi od prvih izbora održanih više od godinu dana kasnije. Državļanin koji se ne upiše ni u jedan registar zadržava sva ostala prava: glasa za Kongres i na svim referendumima.",
    "ist": "Na vseki četiri godini, v pãrvata nedeļa na oktomvri, vseki graždanin glasuva s dve bjuletini. S pãrvata se izbira Kongres, v dãržavata na prinadležnost na graždanina. S vtorata se izbira Narodni Sabor, v narodnija registãr, v kojto graždaninãt e izbral da se vpiše. Pãrvoto vpisvane može da bãde popraveno vednãž v srok ot tri godini; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto. Vpisvaneto poražda dejstvie ot pãrvite izbori, provedeni poveče ot edna godina po-kãsno. Graždanin, kojto ne se vpiše v nikoj registãr, zapazva vsički ostanali prava: toj glasuva za Kongres i na vsički referendumi.",
-   "zap": "Vsaka štiri leta, prvo nedeļo v oktobru, odda vsak državļan dve glasovnici. S prvo voli Kongres, v državi, ki ji pripada. Z drugo voli Narodni Sabor, v narodnem registru, v katerega se je odločil vpisati. Prvi vpis je mogoče v treh letih enkrat popraviti; pozneje je drug register dostopen šele petnajst let po vpisu. Vpis veļa od prvih volitev, ki potekajo več kot eno leto pozneje. Državļan, ki se ne vpiše v noben register, ohrani vse druge pravice: voli Kongres in glasuje na vseh referendumih."
+   "zap": "Vsaka štiri leta, prvo nedeļo v oktobru, odda vsak državļan dve glasovnici. S prvo voli Kongres, v državi, ki ji pripada. Z drugo voli Skupščino narodov, v narodnem registru, v katerega se je odločil vpisati. Prvi vpis je mogoče v treh letih enkrat popraviti; pozneje je drug register dostopen šele petnajst let po vpisu. Vpis veļa od prvih volitev, ki potekajo več kot eno leto pozneje. Državļan, ki se ne vpiše v noben register, ohrani vse druge pravice: voli Kongres in glasuje na vseh referendumih."
   },
   "Every page can now be read in the three standards (zapadni, središñi, istočni), and the central and eastern standards also in Cyrillic: the state pages, the institutions, security, the Official Journal, the alphabet and symbols, the citizen's journey and the search. Numbers and dates follow the language; a glossary fixes the shared terms.": {
    "zap": "Vse strani je zdaj mogoče brati v treh standardih (zapadni, središñi, istočni), središñi in istočni standard pa tudi v cirilici: strani držav, institucije, varnost, Uradni list, abecedo in simbole, pot do državļanstva in iskañe. Števila in datumi sledijo jeziku, skupne izraze pa določa glosar.",
@@ -1709,7 +1709,7 @@
   "For each seat, the people's delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judge by a two-thirds majority, or after two rounds by an absolute majority of its members. Judges serve one twelve-year term; half of the court, one judge per people, is renewed every six years. The court sits in plenary or in two chambers of seven, one judge per people in each. It reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.": {
    "sre": "Za izbor svakog sudije delegacija naroda u Narodnom Saboru predlaže tri kandidata, upisana u registar tog naroda najmañe osam godina; Kongres bira sudiju dvotrećinskom većinom, a nakon dva kruga apsolutnom većinom svojih članova. Sudije imaju jedan mandat od dvanaest godina; polovina sastava Suda, po jedan sudija iz svakog naroda, obnavļa se svakih šest godina. Sud radi u punom sastavu ili u dva veća od po sedam sudija, s po jednim sudijom iz svakog naroda u svakom veću. Odlučuje o ustavnosti konfederalnih zakona i zakona država, o sukobima nadležnosti i o pojedinačnim žalbama zbog povrede osnovnih prava, i u poslědñoj instanci tumači Ustav.",
    "ist": "Za vsjako mjasto delegacijata na sãotvetnija narod v Narodni Sabor predlaga trima kandidati, vpisani v registãra na tozi narod ot pone osem godini; Kongres izbira sãdijata s mnozinstvo ot dve treti, a sled dva tura bez rezultat — s absoļutno mnozinstvo ot členovete si. Sãdiite izpãlñavat edin-edinstven dvanadesetgodišen mandat; polovinata ot sãstava na sãda, po edin sãdija ot vseki narod, se obnovjava na vseki šest godini. Sãdãt zasedava v plenum ili v dve kamari ot po sedem sãdii, s po edin sãdija ot vseki narod vãv vsjaka kamara. Toj proverjava konfederalnite zakoni i zakonite na dãržavite, rešava sporovete za kompetentnost, razgležda individualni žalbi za narušeni osnovni prava i ima poslednata duma po vãprosite na Konstitucijata.",
-   "zap": "Za vsak sedež predlaga delegacija naroda v Narodnem Saboru tri kandidate, ki so vsaj osem let vpisani v register tega naroda; Kongres izvoli sodnika z dvotretjinsko večino ali po dveh krogih z absolutno večino svojih članov. Sodniki opravļajo en sam dvanajstletni mandat; polovica sodišča, po en sodnik vsakega naroda, se obnovi vsakih šest let. Sodišče zaseda v plenarni sestavi ali v dveh senatih po sedem sodnikov, z enim sodnikom vsakega naroda v vsakem senatu. Presoja konfederalne in državne zakone, rešuje spore o pristojnosti, odloča o pritožbah posameznikov zaradi kršitev temeļnih pravic in ima zadño besedo o Ustavi."
+   "zap": "Za vsak sedež predlaga delegacija naroda v Skupščini narodov tri kandidate, ki so vsaj osem let vpisani v register tega naroda; Kongres izvoli sodnika z dvotretjinsko večino ali po dveh krogih z absolutno večino svojih članov. Sodniki opravļajo en sam dvanajstletni mandat; polovica sodišča, po en sodnik vsakega naroda, se obnovi vsakih šest let. Sodišče zaseda v plenarni sestavi ali v dveh senatih po sedem sodnikov, z enim sodnikom vsakega naroda v vsakem senatu. Presoja konfederalne in državne zakone, rešuje spore o pristojnosti, odloča o pritožbah posameznikov zaradi kršitev temeļnih pravic in ima zadño besedo o Ustavi."
   },
   "For residents with no origin in the Confederation": {
    "zap": "Za prebivalce brez porekla v Konfederaciji",
@@ -2152,14 +2152,14 @@
    "ist": "Konfederalna centralna banka"
   },
   "Konfederalna Kancelarija": {
-   "zap": "Konfederalna kanclerija",
+   "zap": "Konfederalna Kancelarija",
    "sre": "Konfederalna Kancelarija",
    "ist": "Konfederalna kancelarija"
   },
   "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.": {
    "sre": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
    "ist": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
-   "zap": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica in Konfederalne Oružane Snage."
+   "zap": "Konfederalna kanclerija, Konfederalno sodišče, Konfederalno tožilstvo, Konfederalno računsko sodišče, Konfederalna centralna banka, Konfederalni inštitut za jezik, Konfederalna kñižnica in arhiv, Svet skupnosti in Konfederalne oborožene sile."
   },
   "Konfederalna Obavěštajna Agencija": {
    "zap": "Konfederalna obveščevalna agencija",
@@ -2167,7 +2167,7 @@
    "ist": "Konfederalna agencija za razuznavane"
   },
   "Konfederalna Obavěštajna Agencija · intelligence": {
-   "zap": "Konfederalna Obavěštajna Agencija · obveščevalna dejavnost",
+   "zap": "Konfederalna obveščevalna agencija · obveščevalna dejavnost",
    "sre": "Konfederalna Obavěštajna Agencija · obavěštajna služba",
    "ist": "Konfederalna Obavěštajna Agencija · razuznavane"
   },
@@ -2177,7 +2177,7 @@
    "ist": "Konfederalna žandarmerija"
   },
   "Konfederalna Žandarmerija · Granična Straža": {
-   "zap": "Konfederalna Žandarmerija · Granična Straža",
+   "zap": "Konfederalna žandarmerija · Mejna straža",
    "sre": "Konfederalna Žandarmerija · Granična Straža",
    "ist": "Konfederalna Žandarmerija · Granična Straža"
   },
@@ -2197,7 +2197,7 @@
    "ist": "Konfederalno bjuro za razsledvane"
   },
   "Konfederalni Istražni Biro · investigators": {
-   "zap": "Konfederalni Istražni Biro · preiskovalci",
+   "zap": "Konfederalni preiskovalni urad · preiskovalci",
    "sre": "Konfederalni Istražni Biro · istražiteļi",
    "ist": "Konfederalni Istražni Biro · sledovateli"
   },
@@ -2212,17 +2212,17 @@
    "ist": "Konfederalen sãd · Konfederalna prokuratura"
   },
   "Konfederalno Veće": {
-   "zap": "Konfederalni svet",
+   "zap": "Konfederalno Veće",
    "sre": "Konfederalno Veće",
    "ist": "Konfederalen sãvet"
   },
   "Konfederalno Veće, collegially · Sarajevo": {
-   "zap": "Konfederalno Veće kot kolegij · Sarajevo",
+   "zap": "Konfederalni svet kot kolegij · Sarajevo",
    "sre": "Konfederalno Veće, kolegijalno · Sarajevo",
    "ist": "Konfederalno Veće, kolegialno · Sarajevo"
   },
   "Konfederalno Veće: presidency and departments →": {
-   "zap": "Konfederalno Veće: predsedstvo in resorji →",
+   "zap": "Konfederalni svet: predsedstvo in resorji →",
    "sre": "Konfederalno Veće: predsědništvo i resori →",
    "ist": "Konfederalno Veće: predsedatelstvo i resori →"
   },
@@ -2432,7 +2432,7 @@
    "sre": "Ime, pol, datum rođeña"
   },
   "Narodni Sabor": {
-   "zap": "Skupščina narodov",
+   "zap": "Narodni Sabor",
    "sre": "Narodni Sabor",
    "ist": "Sãbranie na narodite"
   },
@@ -2572,7 +2572,7 @@
    "sre": "Nema"
   },
   "Not enrolled · no vote for the Narodni Sabor (Art. 102).": {
-   "zap": "Niste vpisani · ne volite Narodnega Sabora (čl. 102).",
+   "zap": "Niste vpisani · ne volite Skupščine narodov (čl. 102).",
    "sre": "Niste upisani · nemate pravo glasa za Narodni Sabor (čl. 102).",
    "ist": "Bez vpisvane · bez pravo na glas za Narodni Sabor (čl. 102)."
   },
@@ -2687,7 +2687,7 @@
    "ist": "Ohrid · Cetiñe"
   },
   "Once both chambers confirm a state of emergency, an ordinance may send the Gendarmerie into a State without its request, for a set area and period and with the approval of five delegations of the Narodni Sabor, but never against gatherings. Human dignity, life, the ban on torture, freedom of conscience and the presumption of innocence are never suspended, and the Ustavni Sud reviews every measure ({0}).": {
-   "zap": "Ko oba domova potrdita izredno stañe, lahko uredba napoti Žandarmerijo v državo brez ñene zahteve, za določeno območje in čas ter z odobritvijo petih delegacij Narodnega Sabora, nikoli pa proti zborovañem. Človekovo dostojanstvo, živļeñe, prepoved mučeña, svoboda vesti in domneva nedolžnosti se nikoli ne smejo začasno odpraviti, Ustavni Sud pa preizkusi vsak ukrep ({0}).",
+   "zap": "Ko oba domova potrdita izredno stañe, lahko uredba napoti Žandarmerijo v državo brez ñene zahteve, za določeno območje in čas ter z odobritvijo petih delegacij Skupščine narodov, nikoli pa proti zborovañem. Človekovo dostojanstvo, živļeñe, prepoved mučeña, svoboda vesti in domneva nedolžnosti se nikoli ne smejo začasno odpraviti, Ustavno sodišče pa preizkusi vsak ukrep ({0}).",
    "sre": "Kada oba doma potvrde vanredno stañe, uredbom se Žandarmerija može uputiti u neku državu i bez ñenog zahtěva, za određeno područje i određeni period i uz odobreñe pet delegacija Narodnog Sabora, ali nikada protiv skupova. Ļudsko dostojanstvo, život, zabrana mučeña, sloboda savěsti i pretpostavka nevinosti nikada se ne stavļaju izvan snage, a Ustavni Sud preispituje svaku měru ({0}).",
    "ist": "Sled kato dvete kamari potvãrdjat izvãnrednoto položenie, s naredba Žandarmerijata može da bãde izpratena v dãržava bez nejno iskane, za opredelena teritorija i srok i s odobrenieto na pet delegacii na Narodni Sabor, no nikoga sreštu sãbiranija. Čoveškoto dostojnstvo, životãt, zabranata na iztezanijata, svobodata na sãvestta i prezumpcijata za nevinovnost nikoga ne se suspendirat, a Ustavni Sud proverjava vsjaka mjarka ({0})."
   },
@@ -2717,14 +2717,14 @@
    "sre": "Jedan narod, jedan većnik"
   },
   "One state for the Kongres, one people for the Narodni Sabor.": {
-   "zap": "Ena država za Kongres, en narod za Narodni Sabor.",
+   "zap": "Ena država za Kongres, en narod za Skupščino narodov.",
    "sre": "Jedna država za Kongres, jedan narod za Narodni Sabor.",
    "ist": "Edna dãržava za Kongres, edin narod za Narodni Sabor."
   },
   "Only four of the seven delegations approve: consent is refused. A conciliation committee of fourteen, one member per people from each chamber, drafts a single compromise on the disputed provisions; both chambers adopt it without amendment, the Narodni Sabor with five delegations.": {
    "sre": "Samo četiri od sedam delegacija glasaju za: pristanak je uskraćen. Odbor za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma, sastavļa jedinstven kompromisni tekst o spornim odredbama; oba doma ga usvajaju bez amandmana, Narodni Sabor većinom u pet delegacija.",
    "ist": "Samo četiri ot sedemte delegacii odobrjavat zakona: sãglasieto e otkazano. Sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, izgotvja edinen kompromisen tekst za spornite razporedbi; dvete kamari go priemat bez izmenenija, a Narodni Sabor — s mnozinstvo v pet delegacii.",
-   "zap": "Zakon odobrijo samo štiri od sedmih delegacij: soglasje je zavrñeno. Usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, pripravi eno samo kompromisno besedilo o spornih določbah; oba doma ga sprejmeta brez amandmajev, Narodni Sabor s petimi delegacijami."
+   "zap": "Zakon odobrijo samo štiri od sedmih delegacij: soglasje je zavrñeno. Usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, pripravi eno samo kompromisno besedilo o spornih določbah; oba doma ga sprejmeta brez amandmajev, Skupščina narodov s petimi delegacijami."
   },
   "Open": {
    "zap": "Odpri",
@@ -3117,7 +3117,7 @@
    "sre": "Prijavļeni državļani"
   },
   "Registered citizens elect the Kongres in their state; those enrolled in a national register also elect the Narodni Sabor. The live counter activates with the participatory platform.": {
-   "zap": "Prijavļeni državļani volijo Kongres v svoji državi; tisti, ki so vpisani v narodni register, volijo tudi Narodni Sabor. Števec v živo začne delovati ob zagonu platforme za sodelovañe.",
+   "zap": "Prijavļeni državļani volijo Kongres v svoji državi; tisti, ki so vpisani v narodni register, volijo tudi Skupščino narodov. Števec v živo začne delovati ob zagonu platforme za sodelovañe.",
    "ist": "Registriranite graždani izbirat Kongres v svojata dãržava; vpisanite v naroden registãr izbirat i Narodni Sabor. Brojačãt v realno vreme šte zaraboti s puskaneto na platformata za učastie.",
    "sre": "Prijavļeni državļani biraju Kongres u svojoj državi; oni koji su upisani u narodni registar biraju i Narodni Sabor. Brojač uživo počiñe raditi s pokretañem platforme za participaciju."
   },
@@ -3642,7 +3642,7 @@
    "zap": "Navedite, kje prebivate."
   },
   "Ten members per people in the Narodni Sabor, one councillor per people in the Konfederalno Veće.": {
-   "zap": "Po deset članov za vsak narod v Narodnem Saboru, po en svetnik za vsak narod v Konfederalnem Veću.",
+   "zap": "Po deset članov za vsak narod v Skupščini narodov, po en svetnik za vsak narod v Konfederalnem svetu.",
    "sre": "Po deset članova iz svakog naroda u Narodnom Saboru i po jedan većnik iz svakog naroda u Konfederalnom Veću.",
    "ist": "Po deset členove ot vseki narod v Narodni Sabor, po edin sãvetnik ot vseki narod v Konfederalno Veće."
   },
@@ -3682,7 +3682,7 @@
    "sre": "Zaštita od robota nije se mogla učitati. Prověrite internet vezu ili za ovu stranicu dozvolite challenges.cloudflare.com."
   },
   "The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.": {
-   "zap": "Oborožene sile in Konfederalna Žandarmerija z Granično Stražo na zunañih mejah ter civilna zaščita.",
+   "zap": "Oborožene sile in Konfederalna žandarmerija z Mejno stražo na zunañih mejah ter civilna zaščita.",
    "ist": "Vãorãženi sili i Konfederalna Žandarmerija s nejnata Granična Straža po vãnšnite granici, kakto i graždanska zaštita.",
    "sre": "Oružane snage i Konfederalna Žandarmerija, čija Granična Straža čuva spoļne granice, kao i civilna zaštita."
   },
@@ -3822,7 +3822,7 @@
    "ist": "Konfederacijata e vkorenena v balkanskija ezikov areal. Nejnata pismena identičnost se osnovava na edinna latinska azbuka, a institucionalnata – na obšta sistema ot simvoli i heraldika."
   },
   "The consent of the Narodni Sabor, the alarm bell and conciliation.": {
-   "zap": "Soglasje Narodnega Sabora, alarmni zvonec in usklajevañe.",
+   "zap": "Soglasje Skupščine narodov, alarmni zvonec in usklajevañe.",
    "sre": "Pristanak Narodnog Sabora, postupak uzbune i usaglašavañe.",
    "ist": "Sãglasieto na Narodni Sabor, alarmenijat zvãnec i sãglasitelnata procedura."
   },
@@ -3897,7 +3897,7 @@
    "sre": "Institucije →"
   },
   "The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.": {
-   "zap": "Konfederalni Istražni Ured postane Konfederalni Istražni Biro (KIB). V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
+   "zap": "Konfederalni preiskovalni urad (KPU) se v središñem standardu ne imenuje več ured, temveč biro. V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
    "sre": "Konfederalni Istražni Ured postaje Konfederalni Istražni Biro (KIB). Na bugarskom i makedonskom уред znači uređaj; biro se razumě u sva tri standarda (biro, бюро, биро). Ñegove nadležnosti, sědište u Zagrebu i amblem, vaga i mač, ostaju isti.",
    "ist": "Konfederalni Istražni Ured stava Konfederalni Istražni Biro (KIB). Na bãlgarski i makedonski уред označava aparat; biro se razbira i v trite standarta (biro, бюро, биро). Kompetenciite mu, sedališteto v Zagreb i emblemata mu — vezni i meč — ne se promeñat."
   },
@@ -3909,7 +3909,7 @@
   "The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm each of the seven councillors of the Konfederalno Veće by a separate vote. A rejected delegation nominates a new candidate within 30 days; after a second rejection it presents three, and the Assembly elects one of them. The Assembly also elects the Chancellor of the Confederation.": {
    "sre": "Kongres i Narodni Sabor sastaju se zajedno kao Konfederalna skupština i posebnim glasañem potvrđuju svakog od sedam većnika Konfederalnog Veća. Delegacija čiji je kandidat odbijen predlaže novog kandidata u roku od 30 dana; nakon drugog odbijaña predlaže tri kandidata, a Skupština bira jednog od ñih. Skupština bira i kancelara Konfederacije.",
    "ist": "Kongres i Narodni Sabor zasedavat zaedno kato Konfederalno sãbranie, za da potvãrdjat s otdelno glasuvane vseki ot sedemte sãvetnici na Konfederalno Veće. Delegacija, čijto kandidat e othvãrlen, predlaga nov kandidat v srok ot 30 dni; sled vtoro othvãrļane tja predstavja trima kandidati, a Sãbranieto izbira edin ot tjah. Sãbranieto izbira i kanclera na Konfederacijata.",
-   "zap": "Kongres in Narodni Sabor zasedata skupaj kot Konfederalna skupščina, ki z ločenim glasovañem potrdi vsakega od sedmih svetnikov Konfederalnega Veća. Delegacija, katere kandidat je zavrñen, v 30 dneh predlaga novega; po drugi zavrnitvi predlaga tri, skupščina pa izvoli enega od ñih. Skupščina voli tudi kanclerja Konfederacije."
+   "zap": "Kongres in Skupščina narodov zasedata skupaj kot Konfederalna skupščina, ki z ločenim glasovañem potrdi vsakega od sedmih svetnikov Konfederalnega sveta. Delegacija, katere kandidat je zavrñen, v 30 dneh predlaga novega; po drugi zavrnitvi predlaga tri, Konfederalna skupščina pa izvoli enega od ñih. Voli tudi kanclerja Konfederacije."
   },
   "The Kongres can now adopt the law only by a two-thirds majority. It does so, and the law is published.": {
    "sre": "Kongres sada može usvojiti zakon samo dvotrećinskom većinom. To i čini, i zakon se objavļuje.",
@@ -3917,12 +3917,12 @@
    "zap": "Kongres lahko zakon zdaj sprejme samo z dvotretjinsko večino. To stori in zakon je objavļen."
   },
   "The Kongres legislates, the Narodni Sabor guards the equality of nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the Constitution, seated across the four confederal capitals.": {
-   "zap": "Kongres sprejema zakone, Narodni Sabor varuje enakopravnost narodov, Konfederalno Veće vlada s soglasjem, Ustavni Sud pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah.",
+   "zap": "Kongres sprejema zakone, Skupščina narodov varuje enakopravnost narodov, Konfederalni svet vlada s soglasjem, Ustavno sodišče pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah.",
    "ist": "Kongres priema zakonite, Narodni Sabor pazi ravnopravieto na narodite, Konfederalno Veće upravļava s konsensus, a Ustavni Sud bdi nad spazvaneto na Konstitucijata; sedalištata im sa v četirite konfederalni stolici.",
    "sre": "Kongres donosi zakone, Narodni Sabor čuva ravnopravnost naroda, Konfederalno Veće donosi odluke konsenzusom, a Ustavni Sud štiti Ustav; sědišta institucija nalaze se u četiri konfederalna glavna grada."
   },
   "The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud.": {
-   "zap": "Kongres, Narodni Sabor, Konfederalno Veće in Ustavni Sud.",
+   "zap": "Kongres, Skupščina narodov, Konfederalni svet in Ustavno sodišče.",
    "ist": "Kongres, Narodni Sabor, Konfederalno Veće i Ustavni Sud.",
    "sre": "Kongres, Narodni Sabor, Konfederalno Veće i Ustavni Sud."
   },
@@ -3934,12 +3934,12 @@
   "The law enters into force. The Ustavni Sud can still review its conformity with the Constitution.": {
    "sre": "Zakon stupa na snagu. Ustavni Sud i daļe može odlučivati o ñegovoj usklađenosti s Ustavom.",
    "ist": "Zakonãt vliza v sila. Ustavni Sud vse ošte može da proveri sãotvetstvieto mu s Konstitucijata.",
-   "zap": "Zakon začne veļati. Ustavni Sud lahko še vedno presodi ñegovo skladnost z Ustavo."
+   "zap": "Zakon začne veļati. Ustavno sodišče lahko še vedno presodi ñegovo skladnost z Ustavo."
   },
   "The law enters into force. Without the consent of the Narodni Sabor it could not have done so.": {
    "sre": "Zakon stupa na snagu. Bez pristanka Narodnog Sabora to ne bi bilo moguće.",
    "ist": "Zakonãt vliza v sila. Bez sãglasieto na Narodni Sabor tova ne bi bilo vãzmožno.",
-   "zap": "Zakon začne veļati. Brez soglasja Narodnega Sabora ne bi mogel začeti veļati."
+   "zap": "Zakon začne veļati. Brez soglasja Skupščine narodov ne bi mogel začeti veļati."
   },
   "The letters <span translate=\"no\" style=\"display:inline\">ñ</span> and <span translate=\"no\" style=\"display:inline\">ļ</span> now apply to every official word, not only to place names: the card reads <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> and <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, the feminine forms are <span translate=\"no\" style=\"display:inline\">Srpkiña</span> and <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, and the central standard is the <span translate=\"no\" style=\"display:inline\">središñi</span> standard (Constitution v4.11, Art. 128). Names of persons are never rewritten.": {
    "sre": "Slova <span translate=\"no\" style=\"display:inline\">ñ</span> i <span translate=\"no\" style=\"display:inline\">ļ</span> sada važe za svaku službenu rěč, a ne samo za toponime: na karti stoji <span translate=\"no\" style=\"display:inline\">Državļanska karta</span>, <span translate=\"no\" style=\"display:inline\">Datum rođeña</span> i <span translate=\"no\" style=\"display:inline\">Konfederalni registar državļana</span>, ženski oblici su <span translate=\"no\" style=\"display:inline\">Srpkiña</span> i <span translate=\"no\" style=\"display:inline\">Bošñakiña</span>, a naziv standarda piše se <span translate=\"no\" style=\"display:inline\">središñi</span> standard (Ustav v4.11, čl. 128). Imena osoba nikad se ne měñaju.",
@@ -3994,7 +3994,7 @@
   "The President of the Kongres marks the law as one requiring consent; no delegation contests it. The Narodni Sabor consents within 90 days: a majority in plenary and a majority within at least five of the seven delegations, which together represent a majority of enrolled citizens.": {
    "sre": "Predsědnik Kongresa označava da zakon podleže pristanku; nijedna delegacija to ne osporava. Narodni Sabor daje pristanak u roku od 90 dana: većinom na plenarnoj sědnici i većinom u najmañe pet od sedam delegacija, koje zajedno predstavļaju većinu upisanih državļana.",
    "ist": "Predsedateļat na Kongres otbeļazva, če zakonãt iziskva sãglasie; nikoja delegacija ne osporva tova. Narodni Sabor dava sãglasieto si v srok ot 90 dni: mnozinstvo v plenarno zasedanie i mnozinstvo v pone pet ot sedemte delegacii, koito zaedno predstavļavat mnozinstvoto ot vpisanite graždani.",
-   "zap": "Predsednik Kongresa navede, da za zakon veļa pravica obveznega soglasja; nobena delegacija tega ne izpodbija. Narodni Sabor da soglasje v 90 dneh: z večino v plenarni sestavi in z večino v najmañ petih od sedmih delegacij, ki skupaj predstavļajo večino vpisanih državļanov."
+   "zap": "Predsednik Kongresa navede, da za zakon veļa pravica obveznega soglasja; nobena delegacija tega ne izpodbija. Skupščina narodov da soglasje v 90 dneh: z večino v plenarni sestavi in z večino v najmañ petih od sedmih delegacij, ki skupaj predstavļajo večino vpisanih državļanov."
   },
   "The register cannot be reached.": {
    "sre": "Registar nije dostupan.",
@@ -4067,7 +4067,7 @@
    "ist": "Južnoslavjanskata latinica, 32 bukvi, versija 3."
   },
   "The special chamber of the Ustavni Sud authorises investigations of elected officials and every intrusive intelligence measure.": {
-   "zap": "Posebni senat Ustavnega Suda odobri preiskave v zvezi z izvoļenimi funkcionarji in vsak obveščevalni ukrep, ki posega v zasebnost.",
+   "zap": "Posebni senat Ustavnega sodišča odobri preiskave v zvezi z izvoļenimi funkcionarji in vsak obveščevalni ukrep, ki posega v zasebnost.",
    "sre": "Posebno veće Ustavnog Suda odobrava istrage protiv izabranih predstavnika i svaku obavěštajnu měru koja zadire u privatnost.",
    "ist": "Specialnata kamara na Ustavni Sud razrešava razsledvanijata sreštu izbrani dlãžnostni lica i vsjaka razuznavatelna mjarka za namesa v ličnija život."
   },
@@ -4077,7 +4077,7 @@
    "zap": "Državno zastavo izobešajo vse konfederalne institucije, vojaške enote, veleposlaništva in sedeži državnih organov. Navpični rdeči pas ob drogu nosi sijoče sonce z naloženim rdečim levom; vodoravno poļe je modro, srebrno in modro, osredñi beli pas pa obrobļajo frizi, navdihñeni z balkanskimi tekstilnimi tradicijami."
   },
   "The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.": {
-   "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega Istražnega Biroja privede pred sodišče.",
+   "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega preiskovalnega urada privede pred sodišče.",
    "sre": "Vrhovni sud za konfederalno pravo i tužilaštvo koje predmete Konfederalnog Istražnog Biroa iznosi pred sud.",
    "ist": "Vãrhovnijat sãd po konfederalnoto pravo i prokuraturata, kojato vnasja v sãda delata na Konfederalni Istražni Biro."
   },
@@ -4137,7 +4137,7 @@
    "sre": "Ova karta nije među kartama děce koju ste prijavili sa svoje karte."
   },
   "This change uses your single rectification. Your enrolment in {0} counts for the Narodni Sabor from the first election held after {1}; another register will be open to you from {2} (Art. 102).": {
-   "zap": "S to spremembo porabite svoj edini popravek. Vaš vpis v {0} veļa za Narodni Sabor od prvih volitev po {1}; drug register vam bo dostopen od {2} (čl. 102).",
+   "zap": "S to spremembo porabite svoj edini popravek. Vaš vpis v {0} veļa za Skupščino narodov od prvih volitev po {1}; drug register vam bo dostopen od {2} (čl. 102).",
    "sre": "Ovom proměnom koristite svoju jedinu ispravku. Vaš upis u {0} računa se za Narodni Sabor od prvih izbora održanih nakon {1}; upis u drugi registar moguć vam je od {2} (čl. 102).",
    "ist": "S tazi promjana izpolzvate edinstvenata si popravka. Vpisvaneto vi v {0} važi za Narodni Sabor ot pãrvite izbori, provedeni sled {1}; drug registãr šte vi bãde dostãpen ot {2} (čl. 102)."
   },
@@ -4262,7 +4262,7 @@
    "sre": "Ažurirajte kartu"
   },
   "Ustavni Sud": {
-   "zap": "Ustavno sodišče",
+   "zap": "Ustavni Sud",
    "sre": "Ustavni Sud",
    "ist": "Konstitucionen sãd"
   },
@@ -4369,7 +4369,7 @@
   "Wherever five of the seven national delegations must approve, those five must also represent a majority of the citizens enrolled in the national registers. In the Konfederalno Veće, a decision without consensus needs four councillors whose peoples hold that majority, or five councillors. No coalition of small peoples can decide against the two largest together, and the borders of the States stay as founded.": {
    "sre": "Kad god je potrebno odobreñe pet od sedam narodnih delegacija, tih pet mora predstavļati i većinu državļana upisanih u narodne registre. U Konfederalnom Veću za odluku bez konsenzusa potrebni su glasovi četiri većnika čiji narodi čine tu većinu ili glasovi pet većnika. Nijedna koalicija malih naroda ne može odlučivati protiv dva najveća naroda zajedno, a granice država ostaju onakve kakve su utvrđene pri osnivañu.",
    "ist": "Navsjakãde, kãdeto e neobhodimo odobrenieto na pet ot sedemte narodni delegacii, tezi pet delegacii trjabva da predstavļavat i mnozinstvoto ot graždanite, vpisani v narodnite registri. V Konfederalno Veće rešenie bez konsensus iziskva četirima sãvetnici, čiito narodi sãstavļavat tova mnozinstvo, ili petima sãvetnici. Nikoja koalicija ot malki narodi ne može da rešava sreštu dvata naj-golemi naroda zaedno, a granicite na dãržavite ostavat takiva, kakvito sa opredeleni pri osnovavaneto.",
-   "zap": "Kadar mora odločitev odobriti pet od sedmih narodnih delegacij, mora teh pet predstavļati tudi večino državļanov, vpisanih v narodne registre. V Konfederalnem Veću so za odločitev brez soglasja potrebni štirje svetniki, katerih narodi predstavļajo to večino, ali pet svetnikov. Nobena koalicija mañših narodov ne more odločati proti dvema največjima skupaj, meje držav pa ostanejo takšne, kot so bile določene ob ustanovitvi."
+   "zap": "Kadar mora odločitev odobriti pet od sedmih narodnih delegacij, mora teh pet predstavļati tudi večino državļanov, vpisanih v narodne registre. V Konfederalnem svetu so za odločitev brez soglasja potrebni štirje svetniki, katerih narodi predstavļajo to večino, ali pet svetnikov. Nobena koalicija mañših narodov ne more odločati proti dvema največjima skupaj, meje držav pa ostanejo takšne, kot so bile določene ob ustanovitvi."
   },
   "White": {
    "sre": "Běla",
@@ -4447,12 +4447,12 @@
    "zap": "Potrebna je vaša privolitev v obdelavo podatkov."
   },
   "Your enrolment in {0} counts for the Narodni Sabor from the first election held after {1}. It is probationary until {2}: you may rectify it once, to another register. Otherwise another register will be open to you from {3} (Art. 102).": {
-   "zap": "Vaš vpis v {0} veļa za Narodni Sabor od prvih volitev po {1}. Do {2} je poskusen: enkrat ga lahko popravite v korist drugega registra. Sicer vam bo drug register dostopen od {3} (čl. 102).",
+   "zap": "Vaš vpis v {0} veļa za Skupščino narodov od prvih volitev po {1}. Do {2} je poskusen: enkrat ga lahko popravite v korist drugega registra. Sicer vam bo drug register dostopen od {3} (čl. 102).",
    "sre": "Vaš upis u {0} računa se za Narodni Sabor od prvih izbora održanih nakon {1}. Probni je do {2}: možete ga jednom ispraviti, prelaskom u drugi registar. Inače vam je upis u drugi registar moguć od {3} (čl. 102).",
    "ist": "Vpisvaneto vi v {0} važi za Narodni Sabor ot pãrvite izbori, provedeni sled {1}. To e s izpitatelen srok do {2}: možete da go popravite vednãž v polza na drug registãr. Inače drug registãr šte vi bãde dostãpen ot {3} (čl. 102)."
   },
   "Your enrolment in {0} counts for the Narodni Sabor from the first election held after {1}; another register will be open to you from {2} (Art. 102).": {
-   "zap": "Vaš vpis v {0} veļa za Narodni Sabor od prvih volitev po {1}; drug register vam bo dostopen od {2} (čl. 102).",
+   "zap": "Vaš vpis v {0} veļa za Skupščino narodov od prvih volitev po {1}; drug register vam bo dostopen od {2} (čl. 102).",
    "sre": "Vaš upis u {0} računa se za Narodni Sabor od prvih izbora održanih nakon {1}; upis u drugi registar moguć vam je od {2} (čl. 102).",
    "ist": "Vpisvaneto vi v {0} važi za Narodni Sabor ot pãrvite izbori, provedeni sled {1}; drug registãr šte vi bãde dostãpen ot {2} (čl. 102)."
   },
@@ -4482,12 +4482,12 @@
    "zap": "Vaša prijava ostane vezana na ta naslov. Če želite uporabiti drugega, izbrišite prijavo in se prijavite znova."
   },
   "Your return to {0} counts for the Narodni Sabor from the first election held after {1}. Your enrolment date of {2} is kept (Art. 102).": {
-   "zap": "Vaša vrnitev v {0} veļa za Narodni Sabor od prvih volitev po {1}. Datum vašega vpisa, {2}, se ohrani (čl. 102).",
+   "zap": "Vaša vrnitev v {0} veļa za Skupščino narodov od prvih volitev po {1}. Datum vašega vpisa, {2}, se ohrani (čl. 102).",
    "sre": "Vaš povratak u {0} računa se za Narodni Sabor od prvih izbora održanih nakon {1}. Zadržava se datum vašeg upisa, {2} (čl. 102).",
    "ist": "Vrãštaneto vi v {0} važi za Narodni Sabor ot pãrvite izbori, provedeni sled {1}. Datata na vpisvaneto vi, {2}, se zapazva (čl. 102)."
   },
   "Your state elects the Kongres. Your people elect the Narodni Sabor.": {
-   "zap": "Vaša država voli Kongres. Vaš narod voli Narodni Sabor.",
+   "zap": "Vaša država voli Kongres. Vaš narod voli Skupščino narodov.",
    "ist": "Vašata dãržava izbira Kongres. Vašijat narod izbira Narodni Sabor.",
    "sre": "Vaša država bira Kongres. Vaš narod bira Narodni Sabor."
   },
