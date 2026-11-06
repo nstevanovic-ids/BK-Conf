@@ -43,6 +43,11 @@ infrastructure numérique). Haute exigence de cohérence interne.
   Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud,
   Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i
   Arhiv, Veće Zajednica, Konfederalne Oružane Snage), ADR 2026-10-25-noms-sud-slaves-organes ;
+  ces noms sont ceux du središñi (référence en anglais et en français) : le zapadni et
+  l'istočni les traduisent (Skupščina narodov / Sãbranie na narodite, Konfederalni svet /
+  Konfederalen sãvet, Ustavno sodišče / Konstitucionen sãd…), majuscule au premier mot,
+  article défini en istočni ; table dans docs/alfabet/glossaire-trois-standards.md, ADR
+  2026-11-06-noms-officiels-traduits.md ;
   coalitions d'États (initiative,
   référendum) : la moitié au plus d'un même peuple ; cf. ADR
   docs/decisions/2026-10-22-constitution-v4-4-institutions.md
@@ -96,7 +101,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
   #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
   Version 4.14 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured). Titres 1 à 3 (texte de base, art. 1
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured, et noms des organes traduits en zapadni et en istočni). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
@@ -187,7 +192,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
   `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
   romains, e-mails, liens, noms des communautés non slaves ; images à texte : variantes
-  `<nom>-sre.jpg` et `<nom>-ist.jpg` (table `SLOT_CYR`) ; ADR 2026-10-25-portail-cyrillique.md ;
+  `<nom>-zap.jpg`, `<nom>-sre.jpg` (cyrillique), `<nom>-ist-lat.jpg`, `<nom>-ist.jpg`
+  (cyrillique), table `SLOT_VAR` ; ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et

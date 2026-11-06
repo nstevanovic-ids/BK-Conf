@@ -23,10 +23,16 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
 | `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1500×1000 | Page Security and Defence — encart forces armées |
 
-Images qui portent du texte : l'image latine sert par défaut ; une variante
-`<nom>-sre.jpg` (cyrillique central) et `<nom>-ist.jpg` (cyrillique oriental) la remplace
-quand le cyrillique est actif. L'emplacement doit figurer dans `SLOT_CYR`
-(`portail/index.html`).
+Images qui portent du texte : l'image de base sert à l'anglais et au središñi latin. Les
+noms se traduisent dans chaque standard (ADR 2026-11-06-noms-officiels-traduits.md) ; des
+variantes la remplacent :
+- `<nom>-zap.jpg` (zapadni) ;
+- `<nom>-sre.jpg` (cyrillique central) ;
+- `<nom>-ist-lat.jpg` (istočni en latin) ;
+- `<nom>-ist.jpg` (cyrillique oriental).
+
+Chaque variante présente doit figurer dans `SLOT_VAR` (`portail/index.html`) ; sans elle,
+c'est l'image de base qui s'affiche.
 
 Images générées (ne pas remplacer à la main) : `wallet-logo.png` (660×660) et
 `wallet-hero.png` (1032×336), logo et bandeau du pass Google Wallet de la carte citoyenne,

@@ -14,7 +14,8 @@ mémorisé dans le navigateur. La source de vérité est `portail/data/i18n.json
 ## Règles de choix des mots
 
 1. **Forme commune d'abord.** Quand un même mot sert aux trois standards, on le prend :
-   Registracija, Sigurnost, Karta, Konfederacija. C'est la règle des noms d'organes.
+   Registracija, Sigurnost, Karta, Konfederacija. (Les noms d'organes, eux, se traduisent
+   dans chaque standard depuis le 2026-11-06.)
 2. **Sinon, la forme propre à chaque standard** :
    - zapadni : base slovène ;
    - središñi : base štokavienne ;
@@ -220,8 +221,9 @@ standards, et passe en cyrillique pour le središñi et l'istočni.
   - *nacionalni* pour ce qui touche la nation entière, *narodni* réservé aux peuples
     constitutifs et aux registres nationaux ;
   - les trois standards gardent leurs noms officiels invariables (*zapadni standard*…) ;
-  - noms officiels des institutions et organes inchangés ; leur glose anglaise ne s'affiche
-    qu'en anglais ;
+  - noms officiels des institutions et organes traduits dans chaque standard (ADR
+    2026-11-06-noms-officiels-traduits.md, table dans le glossaire) ; leur glose anglaise ne
+    s'affiche qu'en anglais ;
   - l'istočni est rédigé en bulgare cyrillique puis converti en latin v3, avec contrôle par
     aller-retour.
 - **Restent en latin en cyrillique** : lettres latines et API de l'alphabet, carte de citoyen,

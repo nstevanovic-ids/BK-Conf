@@ -81,12 +81,33 @@ les règles de choix des mots de `interface-trois-standards.md`, qui restent en 
 
 ## Institutions et organes
 
-Noms officiels inchangés : *Kongres*, *Narodni Sabor*, *Konfederalno Veće*, *Ustavni Sud*,
-*Konfederalna Kancelarija*, *Konfederalni Sud*, *Konfederalno Tužilaštvo*, *Konfederalni
-Računski Sud*, *Konfederalna Centralna Banka*, *Konfederalni Institut za Jezik*,
-*Konfederalna Biblioteka i Arhiv*, *Veće Zajednica*, *Konfederalna Žandarmerija*,
-*Konfederalni Istražni Biro* (KIB, ex-*Ured* : ADR 2026-11-06-istrazni-biro.md), *Konfederalna Obavěštajna Agencija* (KOA), *Konfederalne
-Oružane Snage*, *Konfederalna Agencija za Vanredne Situacije*.
+Les noms officiels des organes se traduisent dans chaque standard (ADR
+2026-11-06-noms-officiels-traduits.md). Le središñi garde les noms de référence, cités en
+anglais et en français ; zapadni et istočni mettent une majuscule au premier mot seulement.
+
+| Organe | središñi (référence) | zapadni | istočni |
+|---|---|---|---|
+| Congrès | Kongres | Kongres | Kongres (Конгрес) |
+| Assemblée des peuples | Narodni Sabor | Skupščina narodov | Sãbranie na narodite (Събрание на народите) |
+| Conseil confédéral | Konfederalno Veće | Konfederalni svet | Konfederalen sãvet (Конфедерален съвет) |
+| Cour constitutionnelle | Ustavni Sud | Ustavno sodišče | Konstitucionen sãd (Конституционен съд) |
+| Chancellerie | Konfederalna Kancelarija | Konfederalna kanclerija | Konfederalna kancelarija |
+| Cour de justice | Konfederalni Sud | Konfederalno sodišče | Konfederalen sãd |
+| Parquet | Konfederalno Tužilaštvo | Konfederalno tožilstvo | Konfederalna prokuratura |
+| Cour des comptes | Konfederalni Računski Sud | Konfederalno računsko sodišče | Konfederalna smetna palata |
+| Banque centrale | Konfederalna Centralna Banka | Konfederalna centralna banka | Konfederalna centralna banka |
+| Institut de la langue | Konfederalni Institut za Jezik | Konfederalni inštitut za jezik | Konfederalen institut za ezika |
+| Bibliothèque et Archives | Konfederalna Biblioteka i Arhiv | Konfederalna kñižnica in arhiv | Konfederalna biblioteka i arhiv |
+| Conseil des communautés | Veće Zajednica | Svet skupnosti | Sãvet na obštnostite |
+| Gendarmerie | Konfederalna Žandarmerija | Konfederalna žandarmerija | Konfederalna žandarmerija |
+| Garde-frontière | Granična Straža (GS) | Mejna straža (MS) | Granična ohrana (GO) |
+| Bureau d'enquête | Konfederalni Istražni Biro (KIB) | Konfederalni preiskovalni urad (KPU) | Konfederalno bjuro za razsledvane (KBR) |
+| Renseignement | Konfederalna Obavěštajna Agencija (KOA) | Konfederalna obveščevalna agencija (KOA) | Konfederalna agencija za razuznavane (KAR) |
+| Forces armées | Konfederalne Oružane Snage | Konfederalne oborožene sile | Konfederalni vãorãženi sili |
+| Situations d'urgence | Konfederalna Agencija za Vanredne Situacije | Konfederalna agencija za izredne razmere | Konfederalna agencija za izvãnredni situacii |
+
+En istočni, le texte courant emploie l'article défini (*Sãbranieto na narodite*,
+*Konfederalnijat sãvet* sujet, *Konfederalnija sãvet* ailleurs).
 
 | EN | zapadni | središñi | istočni (bulgare) |
 |---|---|---|---|

@@ -11,6 +11,8 @@ article nouveau.
 - Les organes prennent une majuscule à chaque mot, comme Ustavni Sud ou Konfederalni
   Istražni Ured (devenu Konfederalni Istražni Biro le 2026-11-06, ADR
   2026-11-06-istrazni-biro.md).
+- Depuis le 2026-11-06, ces noms sont ceux du središñi et des textes anglais et français ;
+  le zapadni et l'istočni les traduisent (ADR 2026-11-06-noms-officiels-traduits.md).
 - Les fonctions s'écrivent en minuscules, comme *načelnik Generalštaba*.
 - Le nom sud-slave suit le nom français ou anglais, entre parenthèses, à l'article qui crée
   l'organe.

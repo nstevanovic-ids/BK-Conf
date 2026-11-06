@@ -27,18 +27,13 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
    - *biro* en croate, en serbe et en slovène ;
    - *бюро* en bulgare ;
    - *биро* en macédonien.
-2. Le nom officiel reste le même dans les trois standards. Il se décline comme un nom
-   commun :
+2. **Noms par standard** (ADR 2026-11-06-noms-officiels-traduits.md, décidée le même jour) :
+   - *Konfederalni Istražni Biro* (KIB) est le nom du središñi et le nom de référence ;
+   - zapadni : *Konfederalni preiskovalni urad* (KPU) ;
+   - istočni : *Konfederalno bjuro za razsledvane* (KBR).
 
-   | Standard | Formes |
-   |---|---|
-   | zapadni | *Konfederalni Istražni Biro*, *Konfederalnega Istražnega Biroja*, *Konfederalnemu Istražnemu Biroju* |
-   | središñi | *Konfederalni Istražni Biro*, *Konfederalnog Istražnog Biroa*, *Konfederalnom Istražnom Birou*, *Konfederalnim Istražnim Biroom* |
-   | istočni | *Konfederalni Istražni Biro*, indéclinable |
-
-   Les gloses de traduction ne changent pas : *Bureau confédéral d'enquête*, *Confederal
-   Bureau of Investigation*, *Konfederalni preiskovalni urad* (zapadni), *Konfederalno bjuro
-   za razsledvane* (istočni). Le zapadni garde *Urad* comme renvoi abrégé, l'istočni *Bjuroto*.
+   En središñi, le nom se décline comme un nom commun : *Konfederalnog Istražnog Biroa*,
+   *Konfederalnom Istražnom Birou*, *Konfederalnim Istražnim Biroom*.
 3. Rien d'autre ne change : compétences, organisation (directoire de trois membres),
    siège à Zagreb, emblème (balance et épée).
 
@@ -56,10 +51,14 @@ question « on dit istražni ured en bulgare ? ». Constitution portée en versi
   - drapeau civil étiré sur presque toute la largeur, portant la balance et l'épée en jaune
     (le fléau repose sur une épée verticale, pointe en haut) ;
   - nom sur deux lignes en Sofia Sans Black.
-- **Cyrillique** : une seule version, КИБ / КОНФЕДЕРАЛНИ ИСТРАЖНИ БИРО, aux formes bulgares,
-  « totalement lisible pour un Serbe ». Elle sert pour le cyrillique central comme pour
-  l'oriental.
-- **Sources** : `images-sources/symboles/KIB-ecusson-lat.png` et `KIB-ecusson-cyr.png`.
+- **Versions** : une par standard et par alphabet, puisque les noms se traduisent :
+  - KPU (zapadni) ;
+  - KIB et КИБ (središñi) ;
+  - KBR et КБР (istočni).
+
+  Le cyrillique garde les formes de lettres bulgares, « totalement lisible pour un Serbe ».
+- **Sources** : `images-sources/symboles/KIB-ecusson-zap.png`, `-sre-lat.png`,
+  `-sre-cyr.png`, `-ist-lat.png`, `-ist-cyr.png`.
 - **Photo de l'encart du portail** : à produire (`portail/images/security-istrazni-biro.jpg`).
 
 ## Propagation

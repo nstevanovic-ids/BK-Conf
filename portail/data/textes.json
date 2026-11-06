@@ -1131,20 +1131,15 @@
    "sre": "Ustav v4.12: nove granice bugarskih država",
    "ist": "Konstitucija v4.12: novite granici na bãlgarskite dãržavi"
   },
-  "Constitution v4.14: the Konfederalni Istražni Biro": {
-   "zap": "Ustava v4.14: Konfederalni Istražni Biro",
-   "sre": "Ustav v4.14: Konfederalni Istražni Biro",
-   "ist": "Konstitucija v4.14: Konfederalni Istražni Biro"
-  },
-  "The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.": {
-   "zap": "Konfederalni Istražni Ured postane Konfederalni Istražni Biro (KIB). V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
-   "sre": "Konfederalni Istražni Ured postaje Konfederalni Istražni Biro (KIB). Na bugarskom i makedonskom уред znači uređaj; biro se razumě u sva tri standarda (biro, бюро, биро). Ñegove nadležnosti, sědište u Zagrebu i amblem, vaga i mač, ostaju isti.",
-   "ist": "Konfederalni Istražni Ured stava Konfederalni Istražni Biro (KIB). Na bãlgarski i makedonski уред označava aparat; biro se razbira i v trite standarta (biro, бюро, биро). Kompetenciite mu, sedališteto v Zagreb i emblemata mu — vezni i meč — ne se promeñat."
-  },
   "Constitution v4.13: the States settled at founding": {
    "zap": "Ustava v4.13: države, določene ob ustanovitvi",
    "sre": "Ustav v4.13: države utvrđene pri osnivañu",
    "ist": "Konstitucija v4.13: dãržavite, opredeleni pri osnovavaneto"
+  },
+  "Constitution v4.14: the Konfederalni Istražni Biro": {
+   "zap": "Ustava v4.14: Konfederalni Istražni Biro",
+   "sre": "Ustav v4.14: Konfederalni Istražni Biro",
+   "ist": "Konstitucija v4.14: Konfederalni Istražni Biro"
   },
   "Constitution v4.2: powers of the Confederation": {
    "sre": "Ustav v4.2: nadležnosti Konfederacije",
@@ -2151,35 +2146,75 @@
    "ist": "Osnovnite danni sa obobšteni ot obštinite na dãržavata: naselenieto — po poslednoto prebrojavane ili registãr na naselenieto na sãotvetnata strana, ploštta — po granicite na obštinite, BVP na čovek — po regionalnite smetki na Eurostat (2023 g., v standarti na pokupatelnata sposobnost), osrednen spored naselenieto. V Bosna i Hercegovina regionalnijat BVP se publikuva samo po entiteti.",
    "sre": "Osnovni podaci izračunavaju se iz podataka opština države: stanovništvo prema najnovijem popisu ili registru stanovništva svake zemļe, površina prema granicama opština, BDP po stanovniku prema regionalnim računima Eurostata (2023, standardi kupovne moći), kao prosěk prema broju stanovnika. U Bosni i Hercegovini regionalni BDP objavļuje se samo po entitetima."
   },
+  "Konfederalna Centralna Banka": {
+   "zap": "Konfederalna centralna banka",
+   "sre": "Konfederalna Centralna Banka",
+   "ist": "Konfederalna centralna banka"
+  },
   "Konfederalna Kancelarija": {
-   "zap": "Konfederalna Kancelarija",
+   "zap": "Konfederalna kanclerija",
    "sre": "Konfederalna Kancelarija",
-   "ist": "Konfederalna Kancelarija"
+   "ist": "Konfederalna kancelarija"
   },
   "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.": {
    "sre": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
    "ist": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
    "zap": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica in Konfederalne Oružane Snage."
   },
+  "Konfederalna Obavěštajna Agencija": {
+   "zap": "Konfederalna obveščevalna agencija",
+   "sre": "Konfederalna Obavěštajna Agencija",
+   "ist": "Konfederalna agencija za razuznavane"
+  },
   "Konfederalna Obavěštajna Agencija · intelligence": {
    "zap": "Konfederalna Obavěštajna Agencija · obveščevalna dejavnost",
    "sre": "Konfederalna Obavěštajna Agencija · obavěštajna služba",
    "ist": "Konfederalna Obavěštajna Agencija · razuznavane"
+  },
+  "Konfederalna Žandarmerija": {
+   "zap": "Konfederalna žandarmerija",
+   "sre": "Konfederalna Žandarmerija",
+   "ist": "Konfederalna žandarmerija"
   },
   "Konfederalna Žandarmerija · Granična Straža": {
    "zap": "Konfederalna Žandarmerija · Granična Straža",
    "sre": "Konfederalna Žandarmerija · Granična Straža",
    "ist": "Konfederalna Žandarmerija · Granična Straža"
   },
+  "Konfederalne Oružane Snage": {
+   "zap": "Konfederalne oborožene sile",
+   "sre": "Konfederalne Oružane Snage",
+   "ist": "Konfederalni vãorãženi sili"
+  },
+  "Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv": {
+   "zap": "Konfederalni inštitut za jezik · Konfederalna kñižnica in arhiv",
+   "sre": "Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv",
+   "ist": "Konfederalen institut za ezika · Konfederalna biblioteka i arhiv"
+  },
+  "Konfederalni Istražni Biro": {
+   "zap": "Konfederalni preiskovalni urad",
+   "sre": "Konfederalni Istražni Biro",
+   "ist": "Konfederalno bjuro za razsledvane"
+  },
   "Konfederalni Istražni Biro · investigators": {
    "zap": "Konfederalni Istražni Biro · preiskovalci",
    "sre": "Konfederalni Istražni Biro · istražiteļi",
    "ist": "Konfederalni Istražni Biro · sledovateli"
   },
+  "Konfederalni Računski Sud": {
+   "zap": "Konfederalno računsko sodišče",
+   "sre": "Konfederalni Računski Sud",
+   "ist": "Konfederalna smetna palata"
+  },
+  "Konfederalni Sud · Konfederalno Tužilaštvo": {
+   "zap": "Konfederalno sodišče · Konfederalno tožilstvo",
+   "sre": "Konfederalni Sud · Konfederalno Tužilaštvo",
+   "ist": "Konfederalen sãd · Konfederalna prokuratura"
+  },
   "Konfederalno Veće": {
-   "zap": "Konfederalno Veće",
+   "zap": "Konfederalni svet",
    "sre": "Konfederalno Veće",
-   "ist": "Konfederalno Veće"
+   "ist": "Konfederalen sãvet"
   },
   "Konfederalno Veće, collegially · Sarajevo": {
    "zap": "Konfederalno Veće kot kolegij · Sarajevo",
@@ -2397,9 +2432,9 @@
    "sre": "Ime, pol, datum rođeña"
   },
   "Narodni Sabor": {
-   "zap": "Narodni Sabor",
+   "zap": "Skupščina narodov",
    "sre": "Narodni Sabor",
-   "ist": "Narodni Sabor"
+   "ist": "Sãbranie na narodite"
   },
   "Nation on card": {
    "zap": "Narodnost na izkaznici",
@@ -3861,6 +3896,11 @@
    "ist": "Instituciite →",
    "sre": "Institucije →"
   },
+  "The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.": {
+   "zap": "Konfederalni Istražni Ured postane Konfederalni Istražni Biro (KIB). V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
+   "sre": "Konfederalni Istražni Ured postaje Konfederalni Istražni Biro (KIB). Na bugarskom i makedonskom уред znači uređaj; biro se razumě u sva tri standarda (biro, бюро, биро). Ñegove nadležnosti, sědište u Zagrebu i amblem, vaga i mač, ostaju isti.",
+   "ist": "Konfederalni Istražni Ured stava Konfederalni Istražni Biro (KIB). Na bãlgarski i makedonski уред označava aparat; biro se razbira i v trite standarta (biro, бюро, биро). Kompetenciite mu, sedališteto v Zagreb i emblemata mu — vezni i meč — ne se promeñat."
+  },
   "The Kongres adopts the amendment.": {
    "sre": "Kongres usvaja amandman.",
    "ist": "Kongres priema izmenenieto.",
@@ -3921,10 +3961,20 @@
    "sre": "Karta država utvrđena je pri osnivañu, nakon završnog pregleda kojim se broj država svakog naroda usklađuje s brojem ñegovih stanovnika. Baraña se pripaja Slavoniji, a Lašva Vrhbosni. Istočen Vardar postaje tri države: Severen Vardar (VS-45, Skopje), Pajonija (PA-23, Veles) i Bregalnica (BE-03, Štip). Dvě nove srpske države: Zlatibor (ZL-48, Užice), izdvojen iz Istočnog Podriña, i Usora (US-43, Doboj), izdvojena iz Zapadne Bosne. Konfederaciju sada čine 52 države, od toga 48 teritorijalnih; Banat, Istočna Mizija, Zapadna Mizija, Vrhbosna, Zapaden Vardar i Zagorje sada imaju kodove BN-04, MI-21, MZ-22, VB-44, VZ-46 i ZA-47. Pripadnost države ñenom narodu postaje ojačana garancija (čl. 150), a granice su odsad konačne.",
    "ist": "Kartata na dãržavite e opredelena pri osnovavaneto, sled posleden pregled, kojto sãglasuva broja na dãržavite na vseki narod s negovoto naselenie. Baraña se prisãediñava kãm Slavonija, a Lašva — kãm Vrhbosna. Istočen Vardar stava tri dãržavi: Severen Vardar (VS-45, Skopje), Pajonija (PA-23, Veles) i Bregalnica (BE-03, Štip). Dve novi srãbski dãržavi: Zlatibor (ZL-48, Užice), otdelen ot Istočno Podriñe, i Usora (US-43, Doboj), otdelena ot Zapadna Bosna. Konfederacijata veče se sãstoi ot 52 dãržavi, ot koito 48 teritorialni; Banat, Istočna Mizija, Zapadna Mizija, Vrhbosna, Zapaden Vardar i Zagorje polučavat kodovete BN-04, MI-21, MZ-22, VB-44, VZ-46 i ZA-47. Prinadležnostta na dãržavata kãm nejnija narod stava zasilena garancija (čl. 150), a granicite veče sa okončatelni."
   },
+  "The names of the organs in the three standards": {
+   "zap": "Imena organov v treh standardih",
+   "sre": "Imena organa na tri standarda",
+   "ist": "Imenata na organite v trite standarta"
+  },
   "The national language is the <b>južnoslovenski jezik</b>, expressed through three standards of equal standing: western (Slovene speech), central (Štokavian speech) and eastern (Bulgaro-Macedonian speech). The jat’ <b translate=\"no\">ě</b> is realised freely (e / je / ije / i / ja) according to the reader’s standard. The Cyrillic alphabet remains in free use.": {
    "zap": "Nacionalni jezik je <b>južnoslovanski jezik</b>, ki se izraža v treh enakopravnih standardih: zapadnem (slovenski govori), središñem (štokavski govori) in istočnem (bolgarsko-makedonski govori). Jat <b translate=\"no\">ě</b> se bere prosto (e / je / ije / i / ja), po standardu bralca. Cirilica ostaja v prosti rabi.",
    "sre": "Nacionalni jezik je <b>južnoslovenski jezik</b>, koji se ostvaruje kroz tri ravnopravna standarda: zapadni (slovenački govori), središñi (štokavski govori) i istočni (bugarsko-makedonski govori). Jat <b translate=\"no\">ě</b> ostvaruje se slobodno (e / je / ije / i / ja), u skladu sa standardom u kojem se tekst čita. Ćirilica ostaje u slobodnoj upotrebi.",
    "ist": "Nacionalnijat ezik e <b>južnoslavjanskijat ezik</b>, kojto se izrazjava črez tri ravnopravni standarta: zapaden (slovenski govori), centralen (štokavski govori) i iztočen (bãlgaro-makedonski govori). Jatãt <b translate=\"no\">ě</b> se izgovarja svobodno (e / je / ije / i / ja) spored standarta na čitateļa. Kirilicata ostava v svobodna upotreba."
+  },
+  "The official names of the confederal organs are now translated into each standard. The središñi keeps the reference names, also used in English; the zapadni and istočni texts give them in their own language: Skupščina narodov and Sãbranie na narodite for the Narodni Sabor, Konfederalni svet and Konfederalen sãvet for the Konfederalno Veće, Ustavno sodišče and Konstitucionen sãd for the Ustavni Sud. In istočni, Narodno sãbranie, the name of the parliament of Bulgaria, was set aside.": {
+   "zap": "Uradna imena konfederalnih organov se odslej prevajajo v vsak standard. Središñi ohrani referenčna imena, ki se uporabļajo tudi v angleščini; zapadni in istočni jih navajata v svojem jeziku: Skupščina narodov in Sãbranie na narodite za Narodni Sabor, Konfederalni svet in Konfederalen sãvet za Konfederalno Veće, Ustavno sodišče in Konstitucionen sãd za Ustavni Sud. Za istočni standard ime Narodno sãbranie, ki je ime bolgarskega parlamenta, ni bilo izbrano.",
+   "sre": "Službena imena konfederalnih organa odsad se prevode na svaki standard. Središñi zadržava referentna imena, koja se koriste i na engleskom; zapadni i istočni ih navode na svom jeziku: Skupščina narodov i Sãbranie na narodite za Narodni Sabor, Konfederalni svet i Konfederalen sãvet za Konfederalno Veće, Ustavno sodišče i Konstitucionen sãd za Ustavni Sud. Za istočni nije izabrano ime Narodno sãbranie, naziv parlamenta Bugarske.",
+   "ist": "Oficialnite imena na konfederalnite organi veče se preveždat na vseki standart. Standartãt središñi zapazva referentnite imena, koito se izpolzvat i na anglijski; standartite zapadni i istočni gi davat na svoja ezik: Skupščina narodov i Sãbranie na narodite za Narodni Sabor, Konfederalni svet i Konfederalen sãvet za Konfederalno Veće, Ustavno sodišče i Konstitucionen sãd za Ustavni Sud. Za standarta istočni ne e izbrano imeto Narodno sãbranie, koeto e imeto na parlamenta na Bãlgarija."
   },
   "The plain of Plovdiv joins Thrace, which two States now share: Trakija (TR-41) in the west, around Plovdiv, and Tunxa (TU-42) in the east, around Stara Zagora, named after its river. The province of Ruse joins Istočna Mizija and the eastern Rhodopes join Rodopi; every Bulgarian State now has its seat within its own borders. The Confederation counts 50 States, 46 of them territorial; Vrhbosna, Istočen Vardar, Zapaden Vardar and Zagorje take the codes VB-43, VI-44, VZ-45 and ZA-46.": {
    "zap": "Plovdivska ravnina se pridruži Trakiji, ki si jo zdaj delita dve državi: Trakija (TR-41) na zahodu, okoli Plovdiva, in Tunxa (TU-42) na vzhodu, okoli Stare Zagore, imenovana po svoji reki. Oblast Ruse se pridruži državi Istočna Mizija, vzhodni Rodopi pa državi Rodopi; vsaka bolgarska država ima zdaj sedež znotraj svojih meja. Konfederacijo sestavļa 50 držav, od tega 46 teritorialnih; Vrhbosna, Istočen Vardar, Zapaden Vardar in Zagorje dobijo kode VB-43, VI-44, VZ-45 in ZA-46.",
@@ -4212,9 +4262,9 @@
    "sre": "Ažurirajte kartu"
   },
   "Ustavni Sud": {
-   "zap": "Ustavni Sud",
+   "zap": "Ustavno sodišče",
    "sre": "Ustavni Sud",
-   "ist": "Ustavni Sud"
+   "ist": "Konstitucionen sãd"
   },
   "Valid card": {
    "sre": "Važeća karta",
@@ -4260,6 +4310,11 @@
    "zap": "Navpični pasovi zelene, rdeče, srebrne, rdeče in zelene barve; osredñi ščit bolgarske Krumove dediščine z zidno krono z napisom „LUDOGORIE“ v bolgarski cirilici in z madarskim jezdecem v skoku.",
    "ist": "Vertikalni ivici v zeleno, červeno, srebãrno, červeno i zeleno; centralen štit, svãrzan s bãlgarskoto nasledstvo na han Krum, sãs stenna korona s nadpis „LUDOGORIE“ na bãlgarska kirilica i s Madarskija konnik v skok.",
    "sre": "Vertikalne trake, zelena, crvena, srebrna, crvena i zelena; središñi štit bugarskog Krumovog naslěđa, sa zidnom krunom s natpisom „LUDOGORIE“ na bugarskoj ćirilici i madarskim koñanikom u skoku."
+  },
+  "Veće Zajednica": {
+   "zap": "Svet skupnosti",
+   "sre": "Veće Zajednica",
+   "ist": "Sãvet na obštnostite"
   },
   "vote by national register": {
    "sre": "glasaju po narodnom registru",
