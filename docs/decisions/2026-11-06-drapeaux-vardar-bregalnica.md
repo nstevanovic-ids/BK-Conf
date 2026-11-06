@@ -44,4 +44,4 @@ soleil d'or à seize rais de Vergina.
   `Flag_of_Zapaden-Vardar.webp` est gardé, non utilisé.
 - `scripts/encode_drapeaux.py` : MAPPING `BE-03`, `VS-45`, `VZ-46` ; `--verify` : 53/53.
 - `portail/data/flagnotes.json` : notes BE, VS, VZ, traduites dans les trois standards.
-- Seul Tunxa (TU-42) reste sans drapeau.
+- Tunxa (TU-42) reçoit le sien le même jour (ADR 2026-11-06-drapeau-tunxa.md).

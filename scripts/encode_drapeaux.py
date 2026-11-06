@@ -49,6 +49,8 @@ PALETTE_COLORS = 64
 # (remplacé le 2026-11-06) et Zapaden-Vardar-Flag-v2-ondule.jpg (original ondulé de la v2,
 # mis à plat dans Zapaden-Vardar-Flag-v2.png : bandes en aplat, écu ramené à quatre couleurs).
 # Severen-Vardar-Flag.png est découpé dans la couverture du Macedonian Herald no 16 (2021).
+# Tunxa-Flag-genere.jpg : image générée retenue le 2026-11-06 ; Tunxa-Flag.png en est la version
+# à emblème réduit (de 71 % à 50 % de la hauteur), bandes refaites en aplat.
 MAPPING = {
     "BA-01": "Flag_of_Bosanska-Krajina.png",
     "BC-02": "flag_BC02.png",
@@ -91,6 +93,7 @@ MAPPING = {
     "TK-39": "Timok-Flag-v2.jpg",
     "TL-40": "Torlak-Flag-v2.jpg",
     "TR-41": "SD-S_Trakija-Flag_3x.png",
+    "TU-42": "Tunxa-Flag.png",
     "US-43": "Usora-Flag-v2.svg",
     "VB-44": "Vrhbosna-Flag.png",
     "VS-45": "Severen-Vardar-Flag.png",
