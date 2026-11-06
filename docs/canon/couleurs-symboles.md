@@ -68,7 +68,7 @@ sans, c'est le *civil flag* ».
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
 | Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
-| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; buzdovan, épées croisées ou couronne de chêne possibles en second plan |
+| Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement |
 
 Règles communes aux logos des services :
 - une seule famille : même forme (médaillon ou écu), même typographie, nom sud-slave

@@ -36,10 +36,14 @@ peut redevenir candidat. Le totem reste à choisir.
   d'autres.
 - **Exception à la règle commune** : le lion ailé n'apparaît qu'en petit sur les logos des
   services, sauf pour les forces armées.
-- Le lion est celui du canon : lion rampant aux ailes d'aigle, d'or, sans filiation
-  vénitienne (ni livre, ni auréole).
-- Les pistes du 22 octobre (buzdovan et épée, épées croisées, couronne de chêne) peuvent
-  l'accompagner, en second plan.
+- **Dessin retenu le même jour** (« ce sera ça pour les Oružane Snage ») :
+  - lion ailé d'or, accroupi, tourné vers la droite, gueule ouverte ;
+  - une patte avant levée tient un **buzdovan** (masse d'armes à ailettes, signe du
+    commandement), qui reprend la piste du 22 octobre ;
+  - trait gravé brun sur fond clair.
+- C'est une variante militaire du lion du canon, qui est rampant. Elle reste sans
+  filiation vénitienne : ni livre, ni auréole, ni épée. La posture accroupie rappelle le
+  lion de saint Marc ; le buzdovan l'en distingue.
 
 ### 4. Le loup : associations existantes et règles de dessin
 Le loup porte déjà trois associations dans la région. Elles ne remettent pas le choix en
@@ -64,7 +68,7 @@ Règles de dessin :
   *Security and Defence*, `portail/images/security-zandarmerija.jpg`).
 
 ## Reste ouvert
-- Composition de l'emblème des forces armées.
+- Écusson et mise en situation de l'emblème des forces armées (par l'utilisateur).
 - Animal totem de la Confédération.
 
 ## Propagation
