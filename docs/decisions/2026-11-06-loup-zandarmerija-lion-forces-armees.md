@@ -66,6 +66,13 @@ Règles de dessin :
   - tête de loup noire de profil, gueule fermée.
 - Il remplace la photo de l'écusson au lynx dans l'encart de la Žandarmerija (page
   *Security and Defence*, `portail/images/security-zandarmerija.jpg`).
+- Deux variantes cyrilliques, montrées quand le cyrillique est actif :
+  - **ЖАНДАРМЕРИЈА** (cyrillique central, standard središñi) :
+    `security-zandarmerija-sre.jpg` ;
+  - **ЖАНДАРМЕРИЯ** (cyrillique oriental, conventions bulgares, standard istočni) :
+    `security-zandarmerija-ist.jpg`.
+- Mécanisme général pour toute image qui porte du texte : table `SLOT_CYR` du portail,
+  fichiers `<nom>-sre.jpg` et `<nom>-ist.jpg`.
 
 ## Reste ouvert
 - Écusson et mise en situation de l'emblème des forces armées (par l'utilisateur).
@@ -74,5 +81,6 @@ Règles de dessin :
 ## Propagation
 - `docs/canon/couleurs-symboles.md` (table des emblèmes, règles communes).
 - ADR 2026-10-22-emblemes-services-securite.md (renvois).
-- `portail/images/security-zandarmerija.jpg`.
+- `portail/images/security-zandarmerija.jpg`, `-sre.jpg`, `-ist.jpg` ; `SLOT_CYR` dans
+  `portail/index.html` ; `portail/images/README.md`.
 - `CLAUDE.md`.

@@ -185,7 +185,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   IST (bascule Lat / Ћир), sur tout le texte : central = cyrillique confédéral lu en ekavien
   (ě → е, formes ss01), oriental = conventions bulgares (я ю щ дж й) ; restent en latin
   `translate="no"` (alphabet, carte, noms de personnes), codes avec chiffres, chiffres
-  romains, e-mails, liens, noms des communautés non slaves ; ADR 2026-10-25-portail-cyrillique.md ;
+  romains, e-mails, liens, noms des communautés non slaves ; images à texte : variantes
+  `<nom>-sre.jpg` et `<nom>-ist.jpg` (table `SLOT_CYR`) ; ADR 2026-10-25-portail-cyrillique.md ;
   règles de choix des mots dans docs/alfabet/interface-trois-standards.md (forme commune
   d'abord ; au središñi, ni serbe ni croate quand un neutre existe)
 - Registre confédéral, phase 0 (ADR 2026-10-15-registre-confederal.md et
