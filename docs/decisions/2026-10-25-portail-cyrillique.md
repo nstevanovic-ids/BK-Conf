@@ -33,7 +33,8 @@ Le portail s'affiche en cyrillique pour le središñi standard (SRE) et l'istoč
 - **Interface** :
   - une bascule **Lat / Ћир** (en oriental, **Lat / Кир**) apparaît à côté des langues quand
     SRE ou IST est choisi, dans le menu mobile compris ;
-  - le choix est mémorisé dans le navigateur (`bk-script`) ;
+  - le choix est mémorisé dans le navigateur (`bk-script`) ; depuis le 2026-11-06, un choix
+    par standard, et l'istočni s'ouvre en cyrillique (ADR 2026-11-06-istocni-cyrillique.md) ;
   - `lang` vaut `sh-Cyrl` ou `bg`.
 - **Recherche** : une saisie en cyrillique est cherchée en latin v3 (*Шумадија* trouve
   Šumadija).

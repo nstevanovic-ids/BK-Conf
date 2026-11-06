@@ -32,6 +32,8 @@ texte de travail français faisant foi pour le sens). Suite de l'ADR
   d'article (*član 109 a*) restent latines, comme les chiffres romains.
 - **Istočni** : rédigé en bulgare cyrillique, converti en latin v3 par `scripts/textes.py`,
   vérifié ligne par ligne par aller-retour (aucun écart). Les noms officiels restent en latin.
+  (Remplacé le 2026-11-06 : les noms des organes se traduisent dans chaque standard, ADR
+  2026-11-06-noms-officiels-traduits.md.)
 
 ## Termes harmonisés entre les morceaux
 - Au središñi, *države članice* pour « confederated States » (ni *konfederisane* ni

@@ -10,7 +10,9 @@
 
 > Note : le portail utilise un indigo de chrome `#1f2742` (structurel) distinct
 > du bleu héraldique. Le navy du drapeau (`#0E347F`, échantillonné) n'apparaît
-> que dans les éléments dérivés du drapeau.
+> que dans les éléments dérivés du drapeau. De même, le jaune du soleil du drapeau
+> d'État (`#F4CC21`, échantillonné) sert aux éléments dérivés du drapeau, comme
+> l'écusson du KIB ; l'or confédéral `#DFCC68` reste celui de l'héraldique.
 
 ## Emblème confédéral
 - **Lion ailé d'or** — emblème unique, héraldiquement neutre entre les 7 peuples
@@ -67,7 +69,7 @@ sans, c'est le *civil flag* ».
 | Konfederalna Žandarmerija (art. 138 à 140) | **Loup** (*Canis lupus*), à la place du lynx depuis le 2026-11-06 | natif de toute la région, il ignore les frontières intérieures, comme les missions de la Granična Straža ; vit en meute ; garde son territoire (frontières, axes, infrastructures, art. 139) |
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
 | Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
-| Konfederalni Istražni Ured (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel |
+| Konfederalni Istražni Biro, KIB (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel ; écusson : écu noir bordé de jaune (#F4CC21), sigle KIB en lettres larges, drapeau civil étiré portant la balance et l'épée, nom sur deux lignes ; une version par standard et par alphabet (KPB zapadni, KIB/КИБ središñi, КБР istočni, toujours en cyrillique), cyrillique aux formes bulgares ; sources `images-sources/symboles/KIB-ecusson-*.png` |
 | Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement ; écusson de l'armée de terre : écu kaki très foncé, lion en or vieilli mat, sans texte ni drapeau ; camouflage TAZ 90 suisse |
 
 Règles communes aux logos des services :

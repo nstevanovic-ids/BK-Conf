@@ -1587,6 +1587,12 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-06',cat:N('Identity'),t:N('Istočni opens in Cyrillic'),
+  s:N('Bulgarian and Macedonian are written only in Cyrillic: the istočni standard now opens in Cyrillic, with Latin as an option. The središñi still opens in Latin, and each standard remembers its own choice.')},
+ {d:'2026-11-06',cat:N('Identity'),t:N('The names of the organs in the three standards'),
+  s:N('The official names of the confederal organs are now translated into each standard. The središñi keeps the reference names, also used in English; the zapadni and istočni texts give them in their own language: Skupščina narodov and Sãbranie na narodite for the Narodni Sabor, Konfederalni svet and Konfederalen sãvet for the Konfederalno Veće, Ustavno sodišče and Konstitucionen sãd for the Ustavni Sud. In istočni, Narodno sãbranie, the name of the parliament of Bulgaria, was set aside.')},
+ {d:'2026-11-06',cat:N('Law'),t:N('Constitution v4.14: the Konfederalni Istražni Biro'),
+  s:N('The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.')},
  {d:'2026-11-05',cat:N('Law'),t:N('Constitution v4.13: the States settled at founding'),
   s:N('The map of the States is settled at founding, after a last pass that brings the number of each people\'s States into line with its population. Baraña joins Slavonija and Lašva joins Vrhbosna. Istočen Vardar becomes three States: Severen Vardar (VS-45, Skopje), Pajonija (PA-23, Veles) and Bregalnica (BE-03, Štip). Two new Serbian States: Zlatibor (ZL-48, Užice), drawn from Istočno Podriñe, and Usora (US-43, Doboj), drawn from Zapadna Bosna. The Confederation now counts 52 States, 48 of them territorial; Banat, Istočna Mizija, Zapadna Mizija, Vrhbosna, Zapaden Vardar and Zagorje take the codes BN-04, MI-21, MZ-22, VB-44, VZ-46 and ZA-47. A State\'s attachment to its people becomes an entrenched guarantee (Art. 150), and the borders are now final.')},
  {d:'2026-11-04',cat:N('Law'),t:N('Constitution v4.12: the Bulgarian States redrawn'),
@@ -1727,16 +1733,22 @@ function plateSVG(s){
 /* ---------- interface language (portail/data/i18n.json) ----------
    Phase 1 : header, navigation, search, footer and breadcrumbs follow the chosen
    standard (ZAP, SRE, IST) ; page content stays in English. */
-let LANG='en',SCRIPT='lat';
+/* Alphabet par standard (ADR 2026-11-06-istocni-cyrillique.md) : le središñi s'ouvre en latin,
+   l'istočni en cyrillique (le bulgare et le macédonien ne s'écrivent qu'en cyrillique) ;
+   chaque standard garde le choix de son lecteur. */
+let LANG='en';
+const SCRIPTS={sre:'lat',ist:'cyr'};
 try{const l=localStorage.getItem('bk-lang');if(l)LANG=l;}catch(e){}
-try{if(localStorage.getItem('bk-script')==='cyr')SCRIPT='cyr';}catch(e){}
+try{if(localStorage.getItem('bk-script')==='cyr')SCRIPTS.sre='cyr';
+  for(const s of ['sre','ist']){const v=localStorage.getItem('bk-script-'+s);if(v==='lat'||v==='cyr')SCRIPTS[s]=v;}}catch(e){}
+const scriptOf=()=>SCRIPTS[LANG]||'lat';
 /* Cyrillic display of the central and eastern standards (ADR 2026-10-25-portail-cyrillique.md).
    The Latin v3 strings stay the only source; the Cyrillic is derived on the fly:
    - središñi : confederal Cyrillic (ñ њ, ļ љ, x џ, ć ћ, đ ђ, j ј), read ekavian : ě → е ;
    - istočni : Bulgarian conventions (ja я, ju ю, št щ, x дж, ñ/ļ + a, u, o → ня ню ньо, ля лю льо,
      j before a consonant or at the end → й, jo after a consonant → ьо).
    Tokens with digits (v3, TD1) are kept as written. */
-const cyrOn=()=>SCRIPT==='cyr'&&(LANG==='sre'||LANG==='ist');
+const cyrOn=()=>(LANG==='sre'||LANG==='ist')&&SCRIPTS[LANG]==='cyr';
 const CYR_SRE={a:'а',b:'б',c:'ц',č:'ч',ć:'ћ',d:'д',đ:'ђ',e:'е',ě:'е',f:'ф',g:'г',h:'х',i:'и',j:'ј',k:'к',l:'л',
   ļ:'љ',m:'м',n:'н',ñ:'њ',o:'о',p:'п',r:'р',s:'с',š:'ш',t:'т',u:'у',v:'в',x:'џ',z:'з',ž:'ж',ã:'ъ'};
 const CYR_IST={...CYR_SRE,ć:'ћ',đ:'ђ',x:'дж',j:'й',ļ:'ль',ñ:'нь'};
@@ -1882,7 +1894,7 @@ function applyChrome(){
   const ss=document.getElementById('scriptsel');
   if(ss){ss.hidden=!(LANG==='sre'||LANG==='ist');
     ss.querySelector('[data-s="cyr"]').textContent=LANG==='ist'?'Кир':'Ћир';
-    ss.querySelectorAll('button').forEach(b=>{const on=b.dataset.s===SCRIPT;
+    ss.querySelectorAll('button').forEach(b=>{const on=b.dataset.s===scriptOf();
       b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
   i18nApply(document);
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',T(el.dataset.i18nAria)));
@@ -1915,7 +1927,7 @@ function rerender(){
 }
 function crumb(parts){
   const k=p=>CRUMB_KEYS[p]?` data-i18n="${CRUMB_KEYS[p]}"`:'';
-  const lab=p=>CRUMB_KEYS[p]?T(CRUMB_KEYS[p]):p;
+  const lab=p=>CRUMB_KEYS[p]?T(CRUMB_KEYS[p]):L(p);
   return `<div class="breadcrumb">`+parts.map((p,i)=>i<parts.length-1
     ? `<a href="${p[1]}"${k(p[0])}>${lab(p[0])}</a> &nbsp;›&nbsp; `
     : `<b${k(p[0])}>${lab(p[0])}</b>`).join('')+`</div>`;
@@ -2326,18 +2338,18 @@ const INS_NODES={
    m:[N('250 delegates, 54 constituencies')],mt:[N('250 delegates'),N('54 constituencies')],
    d:N('250 delegates. Each of the 52 States is one constituency and elects between 2 and 20 of them, shared out in proportion to population by the Sainte-Laguë method; Brčko and Mostar form one constituency each, with at least one delegate. Delegates are elected by proportional list vote for four years, and any of them may table a bill. The Kongres votes laws and the budget, ratifies treaties, authorises the deployment of the armed forces, elects the judges of the Ustavni Sud, oversees the Konfederalno Veće and guarantees the constitutions of the States.'),
    a:[103,104,105,106,'106 bis']},
- ns:{t:'Narodni Sabor',r:N('Assembly of Nations'),
+ ns:{t:N('Narodni Sabor'),r:N('Assembly of Nations'),
    m:[N('7 national delegations of 10 members')],mt:[N('7 delegations'),N('of 10 members')],
    d:N('One delegation of ten for each of the seven constituent peoples. Each delegation is elected by the citizens enrolled in that people\'s national register, voting as one constituency across the whole Confederation; only citizens enrolled in the register can stand. Laws on languages, education, culture, symbols, State borders, autonomous entities, the rights of the peoples, financial equalisation and the Constitution need its consent: five of the seven delegations, which must also represent a majority of enrolled citizens (six delegations for the Constitution). It must decide within 90 days, or its consent is deemed given. On any other law, two-thirds of one delegation can raise the alarm.'),
    a:[107,108,109,110,'110 bis']},
  joint:{t:N('Confederal Assembly'),r:'',m:[],
    d:N('The Kongres and the Narodni Sabor sit together as the Confederal Assembly to confirm each of the seven councillors of the Konfederalno Veće by a separate vote. A rejected delegation nominates a new candidate within 30 days; after a second rejection it presents three, and the Assembly elects one of them. The Assembly also elects the Chancellor of the Confederation.'),
    a:[105,112,'115 bis']},
- kv:{t:'Konfederalno Veće',r:N('Executive council'),
+ kv:{t:N('Konfederalno Veće'),r:N('Executive council'),
    m:[N('7 councillors, one per people')],
    d:N('A college of seven councillors, one for each constituent people, each nominated by his people\'s delegation in the Narodni Sabor and enrolled in its register for at least eight years. Decisions are taken by consensus, otherwise by four councillors whose peoples hold a majority of enrolled citizens, or by five; a decision taken against three or more councillors is suspended for 30 days while the delegations concerned are heard. The presidency rotates every year. Each councillor heads one of seven departments seated in the four capitals. Four-year term, renewable once.'),
    a:[111,112,'112 bis',113,114,115]},
- us:{t:'Ustavni Sud',r:N('Constitutional court, Zagreb'),
+ us:{t:N('Ustavni Sud'),r:N('Constitutional court, Zagreb'),
    m:[N('14 judges, two per people')],
    d:N('For each seat, the people\'s delegation in the Narodni Sabor proposes three candidates, enrolled in its register for at least eight years; the Kongres elects the judge by a two-thirds majority, or after two rounds by an absolute majority of its members. Judges serve one twelve-year term; half of the court, one judge per people, is renewed every six years. The court sits in plenary or in two chambers of seven, one judge per people in each. It reviews confederal and State laws, settles conflicts of competence, hears individual appeals on fundamental rights and has the last word on the Constitution.'),
    a:[116,117,118,119]}
@@ -2426,7 +2438,7 @@ function insSelect(k){
   insDetail(k);
 }
 /* ---------- institutions: how a confederal law is made ---------- */
-const LAW_STAGES=['Kongres','Narodni Sabor',N('Publication'),N('People and States'),N('Outcome')];
+const LAW_STAGES=['Kongres',N('Narodni Sabor'),N('Publication'),N('People and States'),N('Outcome')];
 const LAW={
  ordinary:{n:N('Ordinary law'),o:N('In force.'),s:[
    ['pass',N('Adopted by a simple majority of the delegates present. The quorum is an absolute majority of all delegates.'),[106]],
@@ -2624,13 +2636,13 @@ function vInstitutions(){
     archives, and give a voice to the communities outside the seven peoples.`}</p>
     <div class="cards">
       ${[
-       ['Sarajevo',N('Confederal Chancellery'),N('Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.'),['115 bis'],'Konfederalna Kancelarija'],
-       ['Zagreb',N('Court of Justice and Prosecutor\'s Office'),N('The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Ured to trial.'),['119 bis','119 ter'],'Konfederalni Sud · Konfederalno Tužilaštvo'],
-       ['Beograd',N('Confederal Central Bank'),N('Issues the dinar. Five governors for seven years, no more than two from the same people.'),['97 bis'],'Konfederalna Centralna Banka'],
-       ['Ļubļana',N('Confederal Court of Audit'),N('Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.'),['136 bis',133],'Konfederalni Računski Sud'],
-       ['Ohrid · Cetiñe',N('Language Institute · Library and Archives'),N('The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.'),['130 bis',74],'Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv'],
-       [N('Advisory'),N('Council of Communities'),N('The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.'),['1 octies'],'Veće Zajednica']
-      ].map(c=>`<div class="pcard"><div class="pc-eye">${L(c[0])}</div><h3>${c[4]}${LANG==='en'?`<span class="ssn">${L(c[1])}</span>`:''}</h3><p>${L(c[2])}</p>
+       ['Sarajevo',N('Confederal Chancellery'),N('Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.'),['115 bis'],N('Konfederalna Kancelarija')],
+       ['Zagreb',N('Court of Justice and Prosecutor\'s Office'),N('The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.'),['119 bis','119 ter'],N('Konfederalni Sud · Konfederalno Tužilaštvo')],
+       ['Beograd',N('Confederal Central Bank'),N('Issues the dinar. Five governors for seven years, no more than two from the same people.'),['97 bis'],N('Konfederalna Centralna Banka')],
+       ['Ļubļana',N('Confederal Court of Audit'),N('Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.'),['136 bis',133],N('Konfederalni Računski Sud')],
+       ['Ohrid · Cetiñe',N('Language Institute · Library and Archives'),N('The Institute describes the three regional standards and prepares the alphabet and toponymy; the Library and Archives keep the written heritage.'),['130 bis',74],N('Konfederalni Institut za Jezik · Konfederalna Biblioteka i Arhiv')],
+       [N('Advisory'),N('Council of Communities'),N('The Albanian, Hungarian, Slovak and Turkish communities, in equal numbers, give their opinion on laws that touch the autonomous entities.'),['1 octies'],N('Veće Zajednica')]
+      ].map(c=>`<div class="pcard"><div class="pc-eye">${L(c[0])}</div><h3>${L(c[4])}${LANG==='en'?`<span class="ssn">${L(c[1])}</span>`:''}</h3><p>${L(c[2])}</p>
         <div class="arrow">${c[3].map(artLink).join(' · ')}</div></div>`).join('')}
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
@@ -2649,13 +2661,13 @@ function vCouncil(){
   const rota=['slo','hrv','srb','bos','cng','mkd','bul'];
   const deps=[
    ['Sarajevo',N('Foreign Affairs'),N('Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.'),[],[55,56,57]],
-   ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),['Konfederalne Oružane Snage','Konfederalna Žandarmerija','ACGUB'],[59,62,139,140]],
+   ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),[N('Konfederalne Oružane Snage'),N('Konfederalna Žandarmerija'),'ACGUB'],[59,62,139,140]],
    ['Beograd',N('Finance and Treasury'),N('The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.'),[],['99 bis','99 sexies',133]],
-   ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),['Konfederalni Istražni Ured'],[99,141,143]],
+   ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),[N('Konfederalni Istražni Biro')],[99,141,143]],
    ['Sofija',N('Education, Culture and Science'),N('The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.'),[],[63,66,67,74]],
    ['Beograd',N('Economy and Infrastructure'),N('The single economic area, competition, confederal roads, railways, energy and communications.'),[],['91 bis',95,96,97]],
    ['Sarajevo',N('Environment, Territory and Resources'),N('Sustainable development, spatial planning, water, forests, nature and the protected seas.'),[],[78,80,83,85]],
-   ['Sarajevo','Konfederalna Kancelarija',N('The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.'),[],['115 bis']]];
+   ['Sarajevo',N('Konfederalna Kancelarija'),N('The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.'),[],['115 bis']]];
   const rules=[
    [N('One people, one councillor'),N('Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.'),[112]],
    [N('Consensus first, then a double key'),N('Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.'),[110,111]],
@@ -2663,10 +2675,10 @@ function vCouncil(){
    [N('Departments change hands'),N('The council shares out the departments; no people heads the same one for two terms in a row.'),[114]],
    [N('Full time'),N('Councillors hold no other office, seat or paid activity. Four-year term, renewable once.'),[112,115]],
    [N('Accounts to the Kongres'),N('The yearly report counts, department by department, the decisions taken by consensus and by majority.'),[111]]];
-  return crumb([['Home','#/home'],['Institutions','#/institutions'],['Konfederalno Veće']])+`
+  return crumb([['Home','#/home'],['Institutions','#/institutions'],[N('Konfederalno Veće')]])+`
   <section class="section pagehead reveal">
     <div class="eyebrow" data-i18n="h_council_eye">Confederal Council · Sarajevo</div>
-    <h1>Konfederalno Veće</h1>
+    <h1>${L`Konfederalno Veće`}</h1>
     <p class="lead">${L`Seven councillors, one for each constituent people, govern the Confederation
     together. Each heads a department seated in one of the four capitals, and the presidency passes
     from one to the next every year. No one governs alone (${arts([111,113,114])}).`}</p>
@@ -2686,7 +2698,7 @@ function vCouncil(){
     the council meets in Sarajevo, served by the Konfederalna Kancelarija (${arts([114,'115 bis'])}).`}</p>
     <div class="cards c4">
       ${deps.map(d=>`<div class="pcard"><div class="pc-eye">${d[0]}</div><h3>${L(d[1])}</h3><p>${L(d[2])}</p>
-        ${d[3].length?`<div class="depsec"><b>${L`Services`}</b> · ${d[3].join(' · ')}</div>`:''}
+        ${d[3].length?`<div class="depsec"><b>${L`Services`}</b> · ${d[3].map(x=>L(x)).join(' · ')}</div>`:''}
         <div class="arrow">${arts(d[4])}</div></div>`).join('')}
     </div>
   </section>
@@ -2705,25 +2717,25 @@ function vCouncil(){
 function vSecurity(){
   const arts=a=>a.map(artLink).join(' · ');
   const forces=[
-   {img:'security-zandarmerija',eye:N('Department of Defence and Security · Sofija'),n:'Konfederalna Žandarmerija',en:N('Confederal Gendarmerie'),
+   {img:'security-zandarmerija',eye:N('Department of Defence and Security · Sofija'),n:N('Konfederalna Žandarmerija'),en:N('Confederal Gendarmerie'),
     lead:N('A territorial force with military status. Its Granična Straža checks everyone who crosses the external borders and runs the customs; a special unit handles counter-terrorism and hostage rescue.'),
     rows:[[N('Missions'),N('Borders and customs, transport routes and waterways, confederal buildings and staff, the police of Brčko and Mostar, protected natural areas, reinforcement of State police on request.')],
           [N('Command'),N('A commander and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.')],
           [N('Limits'),N('No ordinary policing inside a State unless it asks, save under a confirmed state of emergency with five delegations; never against political, associative or trade-union gatherings.')]],
     a:[139,'139 bis',140,'140 bis']},
-   {img:'security-istrazni-ured',eye:N('Department of Justice and Fundamental Rights · Zagreb'),n:'Konfederalni Istražni Ured',en:N('Confederal Bureau of Investigation'),
+   {img:'security-istrazni-biro',eye:N('Department of Justice and Fundamental Rights · Zagreb'),n:N('Konfederalni Istražni Biro'),en:N('Confederal Bureau of Investigation'),
     lead:N('An investigative agency for six offences only, with no patrols and no community policing. The Confederal Prosecutor\'s Office decides whether to prosecute.'),
     rows:[[N('Offences'),N('Attacks on the security of the Confederation, terrorism, organised crime across States, corruption of confederal officials, electoral fraud, war crimes and crimes against humanity.')],
           [N('Command'),N('A directorate of three, not all of one people; the director-general rotates among the peoples; seven years.')],
           [N('Limits'),N('Investigations of elected officials, judges or State powers need the prior authorisation of the special chamber; no files on nationality, religion, politics or union membership.')]],
     a:[141,142,143,144,145]},
-   {img:'security-obavestajna-agencija',eye:N('Konfederalno Veće, collegially · Sarajevo'),n:'Konfederalna Obavěštajna Agencija',en:N('Confederal Intelligence Agency'),
+   {img:'security-obavestajna-agencija',eye:N('Konfederalno Veće, collegially · Sarajevo'),n:N('Konfederalna Obavěštajna Agencija'),en:N('Confederal Intelligence Agency'),
     lead:N('Gathers intelligence abroad through its external branch; at home, its internal branch acts only against four threats. It answers to the whole council, never to one councillor.'),
     rows:[[N('At home'),N('Espionage and foreign interference, terrorism, proliferation of weapons of mass destruction, attacks on critical infrastructure and information systems.')],
           [N('Command'),N('A director and two deputies, confirmed by two thirds of the Kongres and five delegations of the Narodni Sabor, for seven years.')],
           [N('Limits'),N('No police powers; every intrusive measure on the territory needs the special chamber; data destroyed once no longer needed.')]],
     a:['145 bis','145 ter']},
-   {img:'security-armed-forces',eye:N('Department of Defence and Security · Sofija'),n:'Konfederalne Oružane Snage',en:N('Confederal Armed Forces, a militia army'),
+   {img:'security-armed-forces',eye:N('Department of Defence and Security · Sofija'),n:N('Konfederalne Oružane Snage'),en:N('Confederal Armed Forces, a militia army'),
     lead:N('They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.'),
     rows:[[N('Service'),N('Compulsory for men, with a civilian alternative; voluntary for all.')],
           [N('Command'),N('The Chief of the General Staff (načelnik Generalštaba), confirmed by two thirds of the Kongres and five delegations, for four years, renewable once.')],
@@ -2752,7 +2764,7 @@ function vSecurity(){
         <div class="secimg">${imgSlot(f.img)}</div>
         <div class="secbody">
           <div class="eyebrow" style="margin:0">${L(f.eye)}</div>
-          <h3>${f.n}${LANG==='en'?`<span>${L(f.en)}</span>`:''}</h3>
+          <h3>${L(f.n)}${LANG==='en'?`<span>${L(f.en)}</span>`:''}</h3>
           <p class="seclead">${L(f.lead)}</p>
           <table class="dtable">${f.rows.map(r=>`<tr><td>${L(r[0])}</td><td>${L(r[1])}</td></tr>`).join('')}</table>
           <div class="secarts">${arts(f.a)}</div>
@@ -3289,7 +3301,7 @@ let REG=null;              // registration draft (in memory until issue)
 const REG_STEPS=[
  [N('Identity'),N('Name, sex, date of birth')],
  [N('State of attachment'),N('Municipality of origin')],
- [N('National register'),'Narodni Sabor'],
+ [N('National register'),N('Narodni Sabor')],
  [N('Document language'),N('Regional standard')],
  [N('Declaration'),N('Review and issue')]];
 function citLoad(){
@@ -4426,7 +4438,7 @@ function vCitizen(){
     <div class="panel"><div class="eyebrow" data-i18n="h_rights">Your civic rights</div>
       <table class="dtable">
         <tr><td>Kongres</td><td>${c.abroad?L`Constituency of ${esc(s.n)} (${esc(s.c)}) · voting from abroad`:L`Constituency of ${esc(s.n)} (${esc(s.c)})`}</td></tr>
-        <tr><td>Narodni Sabor</td><td>${p?L`${peo} since ${since} · one constituency for the whole Confederation · counts from the first election held after ${after}.`
+        <tr><td>${L`Narodni Sabor`}</td><td>${p?L`${peo} since ${since} · one constituency for the whole Confederation · counts from the first election held after ${after}.`
           :L`Not enrolled · no vote for the Narodni Sabor (Art. 102).`}${lockTxt}</td></tr>
         <tr><td>${L`Referendums`}</td><td>${s.t==='M'?L`Confederal votes, and the votes of ${esc(s.n)} as set by confederal law`:L`Confederal votes, and the votes of ${esc(s.n)}`}</td></tr>
         <tr><td>${L`Initiative`}</td><td>${L`Constitutional initiative (${fmtN(300000)} citizens) and optional referendum (${fmtN(150000)} citizens)`}</td></tr>
@@ -4647,9 +4659,9 @@ document.getElementById('langsel').addEventListener('click',e=>{
   applyChrome();rerender();
 });
 document.getElementById('scriptsel').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b||b.dataset.s===SCRIPT)return;
-  SCRIPT=b.dataset.s==='cyr'?'cyr':'lat';
-  try{localStorage.setItem('bk-script',SCRIPT);}catch(err){}
+  const b=e.target.closest('button'); if(!b||!SCRIPTS[LANG]||b.dataset.s===scriptOf())return;
+  SCRIPTS[LANG]=b.dataset.s==='cyr'?'cyr':'lat';
+  try{localStorage.setItem('bk-script-'+LANG,SCRIPTS[LANG]);}catch(err){}
   applyChrome();rerender();
 });
 window.addEventListener('hashchange',render);
@@ -4706,7 +4718,7 @@ const SB_PAGES=[
  [N('Security and Defence'),N('Gendarmerie, Bureau of Investigation, intelligence, armed forces'),'#/security'],
  [N('Constitution'),N('Constitutional corpus'),'#/constitution'],
  [N('Kongres seats'),N('250 delegates in 54 constituencies'),'#/institutions'],
- ['Konfederalno Veće',N('Presidency, seven departments and how the council decides'),'#/council'],
+ [N('Konfederalno Veće'),N('Presidency, seven departments and how the council decides'),'#/council'],
  [N('Revising the Constitution'),N('Total and partial revision, entrenched guarantees'),'#/institutions'],
  [N('Official journal'),N('Latest confederal decisions'),'#/journal'],
  [N('Identity'),N('Language, alphabet and symbols'),'#/identity'],
@@ -4874,7 +4886,7 @@ const SLOTS={
  'institutions-hall':{cat:'Politique',lab:N('Politics'),subj:N('Assembly hall / confederal palace'),w:1800,h:1000},
  'participation-crowd':{cat:'Humain',lab:N('People'),subj:N('Citizens · public square'),w:2400,h:1000},
  'security-zandarmerija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Žandarmerija · Granična Straža'),w:1500,h:1000},
- 'security-istrazni-ured':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Ured · investigators'),w:1500,h:1000},
+ 'security-istrazni-biro':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalni Istražni Biro · investigators'),w:1500,h:1000},
  'security-obavestajna-agencija':{cat:'Sécurité',lab:N('Security'),subj:N('Konfederalna Obavěštajna Agencija · intelligence'),w:1500,h:1000},
  'security-armed-forces':{cat:'Sécurité',lab:N('Security'),subj:N('Confederal armed forces'),w:1500,h:1000},
 };
@@ -4886,13 +4898,20 @@ function rotKeyframes(n,name){
   const v=100/n, f=v/6;
   return `<style>@keyframes ${name}{0%{opacity:0}${f.toFixed(2)}%{opacity:1}${v.toFixed(2)}%{opacity:1}${(v+f).toFixed(2)}%{opacity:0}100%{opacity:0}}</style>`;
 }
-/* Images qui portent du texte : une variante par cyrillique, images/<id>-sre.jpg
-   (cyrillique central) et images/<id>-ist.jpg (oriental), montrée quand le cyrillique
-   est actif ; sinon l'image latine. */
-const SLOT_CYR={'security-zandarmerija':1};
+/* Images qui portent du texte (ADR 2026-11-06-noms-officiels-traduits.md) : l'image de base
+   sert à l'anglais et au središñi latin ; les variantes déclarées dans SLOT_VAR la remplacent :
+   -zap (zapadni), -sre (cyrillique central), -ist (istočni : toujours en cyrillique, même
+   quand le portail est affiché en latin, puisque le bulgare et le macédonien ne s'écrivent
+   qu'en cyrillique). Une variante absente de la liste laisse l'image de base. */
+const SLOT_VAR={'security-zandarmerija':['sre','ist'],'security-istrazni-biro':['zap','sre','ist']};
+function slotFile(id){
+  const v=SLOT_VAR[id]; if(!v)return id;
+  const w=LANG==='zap'?'zap':LANG==='ist'?'ist':LANG==='sre'&&cyrOn()?'sre':'';
+  return w&&v.includes(w)?id+'-'+w:id;
+}
 function imgSlot(id,cls){
   const s=SLOTS[id]||{cat:'Image',lab:N('Image'),subj:id,w:1600,h:900};
-  const f=SLOT_CYR[id]&&cyrOn()?id+'-'+LANG:id;
+  const f=slotFile(id);
   const n=SLOT_N[id]||1, kf='rot-'+id;
   let extra='';
   if(n>1){

@@ -101,6 +101,10 @@ citoyen et `scripts/toponymie_v3.py` l'appliquent.
 
 ADR 2026-10-25-portail-cyrillique.md. Le portail dérive son cyrillique des libellés latins v3.
 
+**Ouverture** (ADR 2026-11-06-istocni-cyrillique.md) : l'istočni s'ouvre en cyrillique, le
+bulgare et le macédonien ne s'écrivant qu'en cyrillique ; le središñi s'ouvre en latin.
+Chaque standard garde le choix de son lecteur.
+
 | | Central (SRE) | Oriental (IST) |
 |---|---|---|
 | Base | cyrillique confédéral | conventions bulgares |
