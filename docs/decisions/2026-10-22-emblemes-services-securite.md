@@ -34,6 +34,8 @@ Ces emblèmes sont la base des futurs logos. Aucun logo n'est encore dessiné.
      unités d'intervention.
    - Autre option écartée : la couleuvre gardienne de la maison (*zmija čuvarkuća*),
      liée à la devise *Naš dom*.
+   - **Remplacé le 2026-11-07 par le lion ailé de face, à la torche et à l'épée**
+     (ADR 2026-11-08-embleme-koa-lion-aile.md).
 5. **Konfederalni Istražni Ured : la balance et l'épée.**
    - Décisions de l'utilisateur : « Istražni … ce sera la balance », puis « oui voilà
      balance et épée ».
@@ -50,4 +52,5 @@ Elles sont consignées dans `docs/canon/couleurs-symboles.md`.
   couronne de chêne avec le lion ailé en petit. **Réglé le 2026-11-06 : le lion ailé,
   motif principal** (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md).
 - Animal totem de la Confédération.
-- Dessin des logos.
+- Dessin des logos. **KIB** : écusson du 2026-11-06 (ADR 2026-11-06-istrazni-biro.md) ;
+  **KOA** : emblème du 2026-11-07 (ADR 2026-11-08-embleme-koa-lion-aile.md).
