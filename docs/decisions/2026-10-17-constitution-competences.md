@@ -96,7 +96,8 @@ du modèle sont donc condensées en un article chacune :
   laquelle l'art. 82 renvoie.
 - **Organisation de la Cour confédérale de justice.**
 - **Symboles confédéraux.**
-- **Nom sud-slave de l'ACGUB** : le sigle est conservé.
+- **Nom sud-slave de l'ACGUB** : le sigle est conservé. **Remplacé le 2026-11-08 par KAVS**
+  (KAIR en zapadni, KAIS en istočni ; ADR 2026-11-08-sigle-kavs.md).
 
 ## Propagation
 - `docs/constitution/v4.md` et `v4.en.md` : titre 3 réécrit, art. 40 et 105 i, version 4.2,

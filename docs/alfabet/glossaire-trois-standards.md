@@ -104,7 +104,7 @@ anglais et en français ; zapadni et istočni mettent une majuscule au premier m
 | Bureau d'enquête | Konfederalni Istražni Biro (KIB) | Konfederalni preiskovalni biro (KPB) | Konfederalno bjuro za razsledvane (KBR) |
 | Renseignement | Konfederalna Obavěštajna Agencija (KOA) | Konfederalna obveščevalna agencija (KOA) | Konfederalna agencija za razuznavane (KAR) |
 | Forces armées | Konfederalne Oružane Snage | Konfederalne oborožene sile | Konfederalni vãorãženi sili |
-| Situations d'urgence | Konfederalna Agencija za Vanredne Situacije | Konfederalna agencija za izredne razmere | Konfederalna agencija za izvãnredni situacii |
+| Situations d'urgence | Konfederalna Agencija za Vanredne Situacije (KAVS) | Konfederalna agencija za izredne razmere (KAIR) | Konfederalna agencija za izvãnredni situacii (KAIS) |
 
 En istočni, le texte courant emploie l'article défini (*Sãbranieto na narodite*,
 *Konfederalnijat sãvet* sujet, *Konfederalnija sãvet* ailleurs).

@@ -1146,6 +1146,11 @@
    "sre": "Ustav v4.14: Konfederalni Istražni Biro",
    "ist": "Konstitucija v4.14: Konfederalno bjuro za razsledvane"
   },
+  "Constitution v4.15: the KAVS": {
+   "zap": "Ustava v4.15: KAIR",
+   "sre": "Ustav v4.15: KAVS",
+   "ist": "Konstitucija v4.15: KAIS"
+  },
   "Constitution v4.2: powers of the Confederation": {
    "sre": "Ustav v4.2: nadležnosti Konfederacije",
    "ist": "Konstitucija v4.2: pravomoštija na Konfederacijata",
@@ -2155,6 +2160,11 @@
    "zap": "Kļučni podatki so seštevek podatkov občin države: prebivalstvo po zadñem popisu ali registru prebivalstva posamezne države, površina po mejah občin, BDP na prebivalca po regionalnih računih Eurostata (2023, standardi kupne moči) kot povprečje, tehtano s prebivalstvom. V Bosni in Hercegovini se regionalni BDP objavļa samo po entitetah.",
    "ist": "Osnovnite danni sa obobšteni ot obštinite na dãržavata: naselenieto — po poslednoto prebrojavane ili registãr na naselenieto na sãotvetnata strana, ploštta — po granicite na obštinite, BVP na čovek — po regionalnite smetki na Eurostat (2023 g., v standarti na pokupatelnata sposobnost), osrednen spored naselenieto. V Bosna i Hercegovina regionalnijat BVP se publikuva samo po entiteti.",
    "sre": "Osnovni podaci izračunavaju se iz podataka opština države: stanovništvo prema najnovijem popisu ili registru stanovništva svake zemļe, površina prema granicama opština, BDP po stanovniku prema regionalnim računima Eurostata (2023, standardi kupovne moći), kao prosěk prema broju stanovnika. U Bosni i Hercegovini regionalni BDP objavļuje se samo po entitetima."
+  },
+  "Konfederalna Agencija za Vanredne Situacije": {
+   "zap": "Konfederalna agencija za izredne razmere",
+   "sre": "Konfederalna Agencija za Vanredne Situacije",
+   "ist": "Konfederalna agencija za izvãnredni situacii"
   },
   "Konfederalna Centralna Banka": {
    "zap": "Konfederalna centralna banka",
@@ -3905,6 +3915,11 @@
    "zap": "Institucije →",
    "ist": "Instituciite →",
    "sre": "Institucije →"
+  },
+  "The Konfederalna Agencija za Vanredne Situacije, which directs civil defence, takes the acronym KAVS, drawn from its name, instead of ACGUB, which abbreviated a French title. Like the other acronyms, it follows the name in each standard: KAIR in zapadni, KAIS in istočni. Its missions do not change.": {
+   "zap": "Konfederalna agencija za izredne razmere, ki vodi civilno zaščito, dobi kratico KAIR, izpeļano iz svojega imena, namesto ACGUB, ki je krajšala francoski naziv. Kot druge kratice sledi imenu v vsakem standardu: KAVS v središñem, KAIS v istočnem. Ñene naloge se ne spremenijo.",
+   "sre": "Konfederalna Agencija za Vanredne Situacije, koja rukovodi civilnom zaštitom, dobija skraćenicu KAVS, izvedenu iz svog imena; ranije je nosila skraćenicu ACGUB, izvedenu iz francuskog naziva. Kao i ostale skraćenice, prati ime u svakom standardu: KAIR na zapadnom, KAIS na istočnom. Ñeni zadaci ostaju isti.",
+   "ist": "Konfederalnata agencija za izvãnredni situacii, kojato rãkovodi graždanskata zaštita, polučava sãkraštenieto KAIS, obrazuvano ot nejnoto ime, vmesto ACGUB, koeto sãkraštavaše frensko naimenovanie. Kakto drugite sãkraštenija, to sledva imeto vãv vseki standart: KAVS i KAIR v drugite dva standarta. Zadačite na agencijata ne se promeñat."
   },
   "The Konfederalni Istražni Ured becomes the Konfederalni Istražni Biro (KIB). In Bulgarian and Macedonian, уред means a device; biro is understood in all three standards (biro, бюро, биро). Its competences, its seat in Zagreb and its emblem, the scales and the sword, do not change.": {
    "zap": "Konfederalni preiskovalni biro (KPB) se v središñem standardu ne imenuje več ured, temveč biro. V bolgarščini in makedonščini уред pomeni napravo; biro se razume v vseh treh standardih (biro, бюро, биро). Ñegove pristojnosti, sedež v Zagrebu in emblem, tehtnica in meč, se ne spremenijo.",
