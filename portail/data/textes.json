@@ -186,6 +186,11 @@
    "ist": "Mnozinstvoto glasuva „protiv“. Zakonãt ne vliza v sila.",
    "zap": "Večina glasuje proti. Zakon ne začne veļati."
   },
+  "A new Title V bis organises confederal cohesion. Belonging to the Confederation is civic: it is added to belonging to a people without replacing it, and there is no Balkan register. Confederal parties stand in at least twelve States of at least three peoples; every secondary school pupil spends a semester in a State of another people; a common core of history and a confederal pantheon; the Day of the Confederation commemorates no battle. Service is done outside the State of attachment, each people has its own football team and the clubs play a single Konfederalna Liga, the Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija, and the KRT broadcasts in the three standards.": {
+   "zap": "Novo poglavje V bis ureja konfederalno kohezijo. Pripadnost Konfederaciji je državļanska: dodaja se pripadnosti narodu, ne da bi jo nadomestila, balkanskega registra pa ni. Konfederalne stranke kandidirajo v vsaj dvanajstih državah vsaj treh narodov; vsak dijak sredñe šole preživi semester v državi drugega naroda; skupno jedro zgodovine in konfederalni panteon; Dan Konfederacije ne obeležuje nobene bitke. Služba se opravi zunaj države pripadnosti, vsak narod ima svojo nogometno reprezentanco, klubi igrajo v enotni Konfederalni Ligi, Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo, KRT pa oddaja v treh standardih.",
+   "sre": "Nova glava V bis uređuje konfederalnu koheziju. Pripadnost Konfederaciji je građanska: ona se dodaje pripadnosti narodu, a ne zaměñuje je, i ne postoji balkanski registar. Konfederalne stranke podnose liste u najmañe dvanaest država najmañe tri naroda; svaki učenik sredñe škole provodi semestar u državi drugog naroda; zajedničko jezgro istorije i konfederalni panteon; Dan Konfederacije ne oblěžava nijednu bitku. Služba se obavļa izvan države pripadnosti, svaki narod ima svoju fudbalsku reprezentaciju, klubovi igraju u jedinstvenoj Konfederalnoj Ligi, Transbalkanska povezuje Ļubļanu, Zagreb, Beograd i Sofiju, a KRT emituje program na tri standarda.",
+   "ist": "Novata glava V bis urežda konfederalnata splotenost. Prinadležnostta kãm Konfederacijata e graždanska: tja se dobavja kãm prinadležnostta kãm narod, bez da ja zamestva, i balkanski registãr ñama. Konfederalnite partii izdigat listi v naj-malko dvanadeset dãržavi na naj-malko tri naroda; vseki učenik v gimnazija prekarva edin učeben srok v dãržava na drug narod; obšto jadro po istorija i konfederalen panteon; Deñat na Konfederacijata ne čestva nikakva bitka. Službata se otbiva izvãn dãržavata na prinadležnost, vseki narod ima svoj futbolen otbor, klubovete igrajat v edinna Konfederalna Liga, Transbalkanska svãrzva Ļubļana, Zagreb, Beograd i Sofija, a KRT izlãčva na trite standarta."
+  },
   "A newer card, issue {0}, exists under this number. This copy is no longer current.": {
    "sre": "Pod ovim brojem postoji novija karta, izdañe br. {0}. Ova karta više ne važi.",
    "ist": "Pod tozi nomer sãštestvuva po-nova karta, izdanie {0}. Tozi ekzempļar veče ne e aktualen.",
@@ -1150,6 +1155,11 @@
    "zap": "Ustava v4.15: KAIR",
    "sre": "Ustav v4.15: KAVS",
    "ist": "Konstitucija v4.15: KAIS"
+  },
+  "Constitution v4.16: confederal cohesion": {
+   "zap": "Ustava v4.16: konfederalna kohezija",
+   "sre": "Ustav v4.16: konfederalna kohezija",
+   "ist": "Konstitucija v4.16: konfederalnata splotenost"
   },
   "Constitution v4.2: powers of the Confederation": {
    "sre": "Ustav v4.2: nadležnosti Konfederacije",
