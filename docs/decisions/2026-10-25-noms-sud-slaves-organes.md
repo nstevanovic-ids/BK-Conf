@@ -33,7 +33,7 @@ article nouveau.
 | Conseil des communautés | Veće Zajednica | 1 octies |
 | Inspecteur général des forces de sécurité | *generalni inspektor sigurnosnih snaga* | 138 bis |
 | Commission de contrôle de la sécurité | Komisija za Nadzor Sigurnosti | 138 ter |
-| Agence de gestion des urgences (ACGUB) | Konfederalna Agencija za Vanredne Situacije | 62 |
+| Agence de gestion des urgences (ACGUB ; KAVS depuis le 2026-11-08, ADR 2026-11-08-sigle-kavs.md) | Konfederalna Agencija za Vanredne Situacije | 62 |
 | Forces armées ; armée de terre | Konfederalne Oružane Snage ; *vojska* | 59 |
 
 ## Choix écartés

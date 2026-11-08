@@ -49,7 +49,7 @@ français.
 | Bureau d'enquête | Konfederalni Istražni Biro (KIB) | Konfederalni preiskovalni biro (KPB) | Konfederalno bjuro za razsledvane (KBR) |
 | Renseignement | Konfederalna Obavěštajna Agencija (KOA) | Konfederalna obveščevalna agencija (KOA) | Konfederalna agencija za razuznavane (KAR) |
 | Forces armées | Konfederalne Oružane Snage | Konfederalne oborožene sile | Konfederalni vãorãženi sili |
-| Situations d'urgence | Konfederalna Agencija za Vanredne Situacije | Konfederalna agencija za izredne razmere | Konfederalna agencija za izvãnredni situacii |
+| Situations d'urgence | Konfederalna Agencija za Vanredne Situacije (KAVS) | Konfederalna agencija za izredne razmere (KAIR) | Konfederalna agencija za izvãnredni situacii (KAIS) |
 
 ### 2. Trois choix
 - **Assemblée des peuples en bulgare** : *Sãbranie na narodite*, « assemblée des peuples »,
@@ -59,7 +59,8 @@ français.
   - zapadni et istočni suivent l'usage de leur langue, avec une majuscule au premier mot
     seulement (*Ustavno sodišče*, *Konstitucionen sãd*) ;
   - le središñi garde une majuscule à chaque mot.
-- **Sigles** : ils suivent les noms (KIB, KPB, KBR ; KOA, KAR ; GS, MS, GO).
+- **Sigles** : ils suivent les noms (KIB, KPB, KBR ; KOA, KAR ; GS, MS, GO ; KAVS, KAIR, KAIS
+  depuis le 2026-11-08, à la place d'ACGUB, ADR 2026-11-08-sigle-kavs.md).
 - **Bureau d'enquête en zapadni** : *Konfederalni preiskovalni biro* (KPB) et non *preiskovalni
   urad*, car le sigle KPU désigne déjà les écoles polytechniques confédérales (art. 66) dans
   les cinq textes (« oui », 2026-11-06). *Biro* existe en slovène et rejoint le središñi.

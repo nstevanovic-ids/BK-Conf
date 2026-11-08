@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-08',cat:N('Law'),t:N('Constitution v4.15: the KAVS'),
+  s:N('The Konfederalna Agencija za Vanredne Situacije, which directs civil defence, takes the acronym KAVS, drawn from its name, instead of ACGUB, which abbreviated a French title. Like the other acronyms, it follows the name in each standard: KAIR in zapadni, KAIS in istočni. Its missions do not change.')},
  {d:'2026-11-06',cat:N('Identity'),t:N('Istočni opens in Cyrillic'),
   s:N('Bulgarian and Macedonian are written only in Cyrillic: the istočni standard now opens in Cyrillic, with Latin as an option. The središñi still opens in Latin, and each standard remembers its own choice.')},
  {d:'2026-11-06',cat:N('Identity'),t:N('The names of the organs in the three standards'),
@@ -2661,7 +2663,7 @@ function vCouncil(){
   const rota=['slo','hrv','srb','bos','cng','mkd','bul'];
   const deps=[
    ['Sarajevo',N('Foreign Affairs'),N('Relations with other states, treaties and the representations of the Confederation abroad. The States keep their own relations within their powers.'),[],[55,56,57]],
-   ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),[N('Konfederalne Oružane Snage'),N('Konfederalna Žandarmerija'),'ACGUB'],[59,62,139,140]],
+   ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),[N('Konfederalne Oružane Snage'),N('Konfederalna Žandarmerija'),N('Konfederalna Agencija za Vanredne Situacije')],[59,62,139,140]],
    ['Beograd',N('Finance and Treasury'),N('The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.'),[],['99 bis','99 sexies',133]],
    ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),[N('Konfederalni Istražni Biro')],[99,141,143]],
    ['Sofija',N('Education, Culture and Science'),N('The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.'),[],[63,66,67,74]],

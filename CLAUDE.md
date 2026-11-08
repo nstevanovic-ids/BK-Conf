@@ -100,8 +100,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
   #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
-  Version 4.14 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
-  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured, et noms des organes traduits en zapadni et en istočni). Titres 1 à 3 (texte de base, art. 1
+  Version 4.15 : texte intégral, 192 articles en dix titres (4.8 : noms sud-slaves des organes ;
+  4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured, et noms des organes traduits en zapadni et en istočni ; 4.15 : sigle KAVS de l'agence des situations d'urgence, KAIR en zapadni, KAIS en istočni, à la place d'ACGUB, ADR 2026-11-08-sigle-kavs.md). Titres 1 à 3 (texte de base, art. 1
   à 99, dont le chapitre « Compétences » 55 à 99, avec sections `#### Section N / Nom`, et le
   chapitre « Régime des finances » 99 bis à 99 septies), titres 1 bis et 4 à 7 (art. 1 bis à
   146, articles « bis » insérés sans renumérotation), titre 8 révision (147 à 150, garanties
