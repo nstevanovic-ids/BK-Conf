@@ -23,7 +23,7 @@ workflow Pages copie ce dossier). Vise des JPEG optimisés (< ~400 Ko chacun).
 | `security-istrazni-biro-zap.jpg` | Sécurité | Gilet zapadni (KPB) | 1500×1000 | Même encart, en ZAP |
 | `security-istrazni-biro-sre.jpg` | Sécurité | Gilet en cyrillique central (КИБ) | 1500×1000 | Même encart, en SRE avec le cyrillique actif |
 | `security-istrazni-biro-ist.jpg` | Sécurité | Gilet istočni (КБР) | 1500×1000 | Même encart, en IST (latin ou cyrillique) |
-| `security-obavestajna-agencija.jpg` | Sécurité | Konfederalna Obavěštajna Agencija · renseignement | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
+| `security-obavestajna-agencija.jpg` | Sécurité | Hall du siège de la KOA, emblème en laiton dans le sol, agents aux visages floutés ; sans texte, pas de variante | 1500×1000 | Page Security and Defence — encart Obavěštajna Agencija |
 | `security-armed-forces.jpg` | Sécurité | Forces armées confédérales | 1500×1000 | Page Security and Defence — encart forces armées |
 
 Images qui portent du texte : l'image de base sert à l'anglais et au središñi latin. Les

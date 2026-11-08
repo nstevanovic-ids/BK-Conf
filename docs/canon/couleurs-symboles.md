@@ -63,12 +63,12 @@ sans, c'est le *civil flag* ».
 - Les palettes de drapeau peuvent signaler une autonomie identitaire
   (ex. palette kilim de Torlak vs pan-couleurs serbes)
 
-## Emblèmes des services de sécurité (ADR 2026-10-22-emblemes-services-securite.md et 2026-11-06-loup-zandarmerija-lion-forces-armees.md)
+## Emblèmes des services de sécurité (ADR 2026-10-22-emblemes-services-securite.md, 2026-11-06-loup-zandarmerija-lion-forces-armees.md et 2026-11-08-embleme-koa-lion-aile.md)
 | Service | Animal | Motif |
 |---|---|---|
 | Konfederalna Žandarmerija (art. 138 à 140) | **Loup** (*Canis lupus*), à la place du lynx depuis le 2026-11-06 | natif de toute la région, il ignore les frontières intérieures, comme les missions de la Granična Straža ; vit en meute ; garde son territoire (frontières, axes, infrastructures, art. 139) |
 | Unité d'intervention spécialisée (art. 140 bis) | **Cobra** | tradition des unités d'intervention (EKO Cobra autrichienne, « Kobre » serbes) ; seul animal non régional du système, justifié par cette tradition |
-| Konfederalna Obavěštajna Agencija (art. 145 bis) | **Poskok** (vipère ammodyte, *Vipera ammodytes*) | natif de la Slovénie à la Bulgarie, serpent le plus venimeux d'Europe, présent dans l'imaginaire de toute la région ; vigilance et dissuasion |
+| Konfederalna Obavěštajna Agencija (art. 145 bis) | **Lion ailé d'or de face, tenant la torche et l'épée**, médaillon sur la poitrine (le poskok jusqu'au 2026-11-07) | debout, ailes d'aigle déployées, gueule fermée ; torche à flamme rouge à gauche, épée à droite, croisées derrière la poitrine ; médaillon : anneau d'argent à quatorze clous d'or, champ bleu marine, soleil d'or à trente-deux rais à facettes, globe centré sur les Balkans, Confédération en or ; sans texte ; ni auréole, ni livre, ni eau (lion vénitien *in moleca*) ; version monochrome vectorisée (incrustée en laiton dans le granit noir du hall du siège) ; sources `images-sources/symboles/KOA-embleme*` |
 | Konfederalni Istražni Biro, KIB (art. 141 à 145) | **Balance et épée** (fléau porté par une épée verticale) | la justice qui pèse les preuves et qui agit ; l'épée distingue le Bureau des juridictions, dont la balance seule est le signe habituel ; écusson : écu noir bordé de jaune (#F4CC21), sigle KIB en lettres larges, drapeau civil étiré portant la balance et l'épée, nom sur deux lignes ; une version par standard et par alphabet (KPB zapadni, KIB/КИБ središñi, КБР istočni, toujours en cyrillique), cyrillique aux formes bulgares ; sources `images-sources/symboles/KIB-ecusson-*.png` |
 | Konfederalne Oružane Snage (art. 59 à 61 bis) | **Lion ailé d'or tenant un buzdovan** (emblème institutionnel, pas d'animal propre) | l'armée est celle de la Confédération tout entière ; le drapeau d'État, qui porte le lion ailé, lui est réservé avec les institutions (art. 7 bis) ; variante militaire : lion accroupi, une patte levée tenant le buzdovan, signe du commandement ; écusson de l'armée de terre : écu kaki très foncé, lion en or vieilli mat, sans texte ni drapeau ; camouflage TAZ 90 suisse |
 
@@ -78,7 +78,9 @@ Règles communes aux logos des services :
   les insignes basse visibilité : fond noir de l'écusson de la Žandarmerija, fond kaki très
   foncé de celui de l'armée de terre (ADR 2026-11-06-loup-zandarmerija-lion-forces-armees.md) ;
 - le lion ailé n'apparaît qu'en petit, comme signe de rattachement, jamais comme motif
-  principal d'un service, sauf pour les forces armées, dont il est l'emblème ;
+  principal d'un service, sauf pour deux services, dont il est l'emblème : les forces armées
+  (lion accroupi au buzdovan) et la KOA (lion debout de face, à la torche et à l'épée,
+  ADR 2026-11-08-embleme-koa-lion-aile.md) ;
 - interdits : symboles propres à un peuple (aigle bicéphale, šahovnica, lys des
   Kotromanić, lion couronné bulgare, soleil de Vergina, Triglav), étoile à cinq
   branches, soleil à sept rais (réservé au sceau), motifs à sept éléments, œil (contraire

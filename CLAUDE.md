@@ -123,12 +123,16 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Plateforme participative (Decidim, e-Konfederacija) → docs/plateforme/ ; lancement sur les
   réseaux (X d'abord, puis Instagram) → docs/communication/
 - Symboles confédéraux (animal totem à choisir, lettre-emblème glagolitique/bosančica) → en
-  attente ; emblèmes des services (ADR 2026-10-22-emblemes-services-securite.md et
-  2026-11-06-loup-zandarmerija-lion-forces-armees.md) : loup pour la Žandarmerija (tête de
-  profil, gueule fermée ; ni loup hurlant ni croissant, ni montagne de Lika ; le lynx est
-  abandonné), cobra pour l'unité d'intervention, poskok pour la KOA, balance et épée pour le
-  KIB (Konfederalni Istražni Biro, ex-Ured, ADR 2026-11-06-istrazni-biro.md), lion ailé tenant un buzdovan pour les forces armées (seule exception au lion « en petit » ;
-  écusson de l'armée de terre kaki très foncé, sans texte ; camouflage TAZ 90 suisse)
+  attente ; emblèmes des services (ADR 2026-10-22-emblemes-services-securite.md,
+  2026-11-06-loup-zandarmerija-lion-forces-armees.md et 2026-11-08-embleme-koa-lion-aile.md) :
+  loup pour la Žandarmerija (tête de profil, gueule fermée ; ni loup hurlant ni croissant, ni
+  montagne de Lika ; le lynx est abandonné), cobra pour l'unité d'intervention, balance et
+  épée pour le KIB (Konfederalni Istražni Biro, ex-Ured, ADR 2026-11-06-istrazni-biro.md) ;
+  deux exceptions au lion « en petit » : lion ailé accroupi tenant un buzdovan pour les
+  forces armées (écusson de l'armée de terre kaki très foncé, sans texte ; camouflage
+  TAZ 90 suisse), lion ailé debout de face tenant la torche et l'épée, médaillon au soleil
+  et au globe sur la poitrine, pour la KOA (le poskok est abandonné ; sans texte ; version
+  monochrome incrustée en laiton dans le sol du hall du siège)
 - Cartes GADM → scripts/raccord_contours.py (raccorde les contours sources : doublons,
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
