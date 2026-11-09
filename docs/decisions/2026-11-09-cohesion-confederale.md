@@ -108,5 +108,17 @@ Constitution portée en version 4.16 : titre 5 bis (articles 130 ter à 130 octi
   - `portail/data/constitution*.json` régénérés : onze titres, 202 articles.
 - Portail :
   - Journal officiel, entrée du 2026-11-09 ;
-  - `portail/data/textes.json`, avec trois traductions.
+  - Identité : nouvelle section « Living together » (`h_cohesion`), neuf cartes renvoyant aux
+    articles ;
+  - Sécurité : ligne « Service » des forces armées (six mois hors de l'État de rattachement,
+    service civil une fois et demie plus long) ;
+  - Konfederalno Veće :
+    - éducation : mobilité scolaire et tronc commun, art. 73 bis, 130 quinquies et 130 sexies ;
+    - économie et infrastructures : Transbalkanska, art. 95 bis et 96 bis ;
+    - Kancelarija : statut de parti confédéral, art. 130 quater ;
+  - Institutions :
+    - Chancellerie : reconnaissance des partis confédéraux ;
+    - démocratie directe : note sur les quatre dimanches de votation ;
+  - `portail/data/textes.json` (trois traductions pour chaque chaîne nouvelle ou modifiée,
+    anciennes clés retirées) et `portail/data/i18n.json`.
 - `CLAUDE.md`.
