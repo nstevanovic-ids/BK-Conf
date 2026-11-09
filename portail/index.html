@@ -1587,6 +1587,8 @@ const STATE_FLAG_DATA="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAM
 /* N, the no-op marker of the core, is declared further down: the table takes it as a parameter.
    translate="no" keeps in Latin the letters and spellings cited as such (inline: .jt span is a block) */
 const JOURNAL=(N=>[
+ {d:'2026-11-09',cat:N('Law'),t:N('Constitution v4.16: confederal cohesion'),
+  s:N('A new Title V bis organises confederal cohesion. Belonging to the Confederation is civic: it is added to belonging to a people without replacing it, and there is no Balkan register. Confederal parties stand in at least twelve States of at least three peoples; every secondary school pupil spends a semester in a State of another people; a common core of history and a confederal pantheon; the Day of the Confederation commemorates no battle. Service is done outside the State of attachment, each people has its own football team and the clubs play a single Konfederalna Liga, the Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija, and the KRT broadcasts in the three standards.')},
  {d:'2026-11-08',cat:N('Law'),t:N('Constitution v4.15: the KAVS'),
   s:N('The Konfederalna Agencija za Vanredne Situacije, which directs civil defence, takes the acronym KAVS, drawn from its name, instead of ACGUB, which abbreviated a French title. Like the other acronyms, it follows the name in each standard: KAIR in zapadni, KAIS in istočni. Its missions do not change.')},
  {d:'2026-11-06',cat:N('Identity'),t:N('Istočni opens in Cyrillic'),
@@ -2614,6 +2616,7 @@ function vInstitutions(){
         same people, may submit any confederal law to a popular vote within 100 days of its
         publication (Art. 122).`}</p></div>
     </div>
+    <p class="note" style="margin-top:14px">${L`Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).`}</p>
   </section>
   <section class="section reveal">
     <div class="h2row"><h2 data-i18n="h_revision">Revising the Constitution</h2></div>
@@ -2638,7 +2641,7 @@ function vInstitutions(){
     archives, and give a voice to the communities outside the seven peoples.`}</p>
     <div class="cards">
       ${[
-       ['Sarajevo',N('Confederal Chancellery'),N('Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.'),['115 bis'],N('Konfederalna Kancelarija')],
+       ['Sarajevo',N('Confederal Chancellery'),N('Runs confederal elections and votes, verifies signatures, recognises confederal parties, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.'),['115 bis','130 quater'],N('Konfederalna Kancelarija')],
        ['Zagreb',N('Court of Justice and Prosecutor\'s Office'),N('The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.'),['119 bis','119 ter'],N('Konfederalni Sud · Konfederalno Tužilaštvo')],
        ['Beograd',N('Confederal Central Bank'),N('Issues the dinar. Five governors for seven years, no more than two from the same people.'),['97 bis'],N('Konfederalna Centralna Banka')],
        ['Ļubļana',N('Confederal Court of Audit'),N('Audits the confederal accounts and certifies the yearly report on equalisation and on the flows between the Confederation and the States.'),['136 bis',133],N('Konfederalni Računski Sud')],
@@ -2666,10 +2669,10 @@ function vCouncil(){
    ['Sofija',N('Defence and Security'),N('The armed forces and the Konfederalna Žandarmerija, with its Granična Straža at the external borders, and civil defence.'),[N('Konfederalne Oružane Snage'),N('Konfederalna Žandarmerija'),N('Konfederalna Agencija za Vanredne Situacije')],[59,62,139,140]],
    ['Beograd',N('Finance and Treasury'),N('The confederal budget under the debt brake, the confederal taxes and the yearly report on the flows between the Confederation and the States.'),[],['99 bis','99 sexies',133]],
    ['Zagreb',N('Justice and Fundamental Rights'),N('Civil and criminal law, the register of citizens, and the Bureau of Investigation for the six confederal offences.'),[N('Konfederalni Istražni Biro')],[99,141,143]],
-   ['Sofija',N('Education, Culture and Science'),N('The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.'),[],[63,66,67,74]],
-   ['Beograd',N('Economy and Infrastructure'),N('The single economic area, competition, confederal roads, railways, energy and communications.'),[],['91 bis',95,96,97]],
+   ['Sofija',N('Education, Culture and Science'),N('The Balkan Education Area, school mobility and the common history core, universities, research, sport and the confederal heritage; culture remains with the States.'),[],[63,66,67,'73 bis',74,'130 quinquies','130 sexies']],
+   ['Beograd',N('Economy and Infrastructure'),N('The single economic area, competition, confederal roads, railways and the Transbalkanska, energy and communications.'),[],['91 bis',95,'95 bis',96,'96 bis',97]],
    ['Sarajevo',N('Environment, Territory and Resources'),N('Sustainable development, spatial planning, water, forests, nature and the protected seas.'),[],[78,80,83,85]],
-   ['Sarajevo',N('Konfederalna Kancelarija'),N('The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.'),[],['115 bis']]];
+   ['Sarajevo',N('Konfederalna Kancelarija'),N('The general staff of the council, led by the Chancellor: confederal elections and votes, confederal party status, the national registers and the Official Journal.'),[],['115 bis','130 quater']]];
   const rules=[
    [N('One people, one councillor'),N('Each national delegation of the Narodni Sabor nominates its councillor, enrolled in its register for at least eight years; the Confederal Assembly confirms each one by a separate vote.'),[112]],
    [N('Consensus first, then a double key'),N('Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.'),[110,111]],
@@ -2739,7 +2742,7 @@ function vSecurity(){
     a:['145 bis','145 ter']},
    {img:'security-armed-forces',eye:N('Department of Defence and Security · Sofija'),n:N('Konfederalne Oružane Snage'),en:N('Confederal Armed Forces, a militia army'),
     lead:N('They prevent war, defend the country and support the civil authorities in exceptional situations. Their deployment requires the authorisation of the Kongres.'),
-    rows:[[N('Service'),N('Compulsory for men, with a civilian alternative; voluntary for all.')],
+    rows:[[N('Service'),N('Compulsory for men, six months of basic training outside the State of attachment in mixed units; civilian service on request, half as long again; voluntary for all.')],
           [N('Command'),N('The Chief of the General Staff (načelnik Generalštaba), confirmed by two thirds of the Kongres and five delegations, for four years, renewable once.')],
           [N('In wartime'),N('When the defence of the country is authorised, the Confederal Assembly elects a commander-in-chief with the rank of general.')]],
     a:[59,60,'61 bis']}];
@@ -2946,6 +2949,16 @@ function vJournal(){
 }
 
 function vIdentity(){
+  const coh=[
+   [N('Civic belonging'),N('Belonging to the Confederation is added to belonging to a people and never replaces it. There is no Balkan national register.'),['130 ter',102]],
+   [N('Confederal parties'),N('Public funding and airtime go to parties standing in at least twelve States of at least three peoples.'),['130 quater']],
+   [N('A semester elsewhere'),N('Every upper secondary pupil spends a semester in a State of another people, at the expense of the Confederation.'),['130 quinquies']],
+   [N('Common history'),N('A common core of history, with the consent of the Narodni Sabor: the wars told without silencing the crimes or blaming a whole people.'),['130 sexies']],
+   [N('Confederal pantheon'),N('Lives that crossed the borders between peoples are honoured; the tribute never changes the belonging a person declared.'),['130 septies']],
+   [N('Day of the Confederation'),N('The anniversary of the acceptance of the Constitution. No confederal holiday commemorates a battle.'),['130 octies']],
+   [N('Serving away from home'),N('Six months of basic training outside the State of attachment, in mixed units; civilian service on request, half as long again.'),[60]],
+   [N('Seven teams, one league'),N('Each people has its own football team; the clubs play a single Konfederalna Liga.'),['73 bis']],
+   [N('Rail, airwaves, ballots'),N('The Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija; the KRT broadcasts in the three standards; four voting Sundays a year.'),['95 bis','96 bis','124 bis']]];
   return crumb([['Home','#/home'],['Identity']])+`
   <section class="section pagehead reveal">
     <div class="eyebrow" data-i18n="h_identity_eye">Identity of the union</div>
@@ -2981,6 +2994,14 @@ function vIdentity(){
     <div class="peoples">
       ${Object.values(PEUPLES).map(p=>`<div class="pp">
         <b>${p.name}</b>${L(p.en)!==p.name?`<span>${L(p.en)}</span>`:''}</div>`).join('')}
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="h2row"><h2 data-i18n="h_cohesion">Living together</h2></div>
+    <p class="lead" style="margin-bottom:18px">${L`Belonging to the Confederation is civic. It is built by serving, studying, voting and travelling together, and it is added to belonging to a people without replacing it.`}</p>
+    <div class="steps">
+      ${coh.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${L(g[0])}</h4>
+        <p>${L(g[1])}</p><span class="sa">${g[2].map(artLink).join(' · ')}</span></div>`).join('')}
     </div>
   </section>`;
 }

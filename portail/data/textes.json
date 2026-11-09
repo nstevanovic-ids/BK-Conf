@@ -136,6 +136,11 @@
    "sre": "Komandant i dva zaměnika, koje potvrđuju dvě trećine Kongresa i pet delegacija Narodnog Sabora, na sedam godina.",
    "ist": "Komandir i dvama zamestnici, utvãrdeni s mnozinstvo ot dve treti v Kongresa i ot pet delegacii na Sãbranieto na narodite, za srok ot sedem godini."
   },
+  "A common core of history, with the consent of the Narodni Sabor: the wars told without silencing the crimes or blaming a whole people.": {
+   "zap": "Skupno jedro zgodovine s soglasjem Skupščine narodov: vojne so prikazane, ne da bi zamolčali zločine ali krivdo pripisali celemu narodu.",
+   "sre": "Zajedničko jezgro istorije uz pristanak Narodnog Sabora: ratovi se prikazuju bez prikrivaña zločina i bez okrivļavaña čitavog naroda.",
+   "ist": "Obšto jadro po istorija sãs sãglasieto na Sãbranieto na narodite: vojnite se predstavjat, bez da se premãlčavat prestãplenijata i bez da se obviñava cjal narod."
+  },
   "A confederation of fifty-two states and seven constituent South Slavic peoples, united in a Balkan union founded on the equality of states and on direct democracy.": {
    "zap": "Konfederacija dvainpetdesetih držav in sedmih konstitutivnih južnoslovanskih narodov, združenih v balkansko zvezo, ki temeļi na enakopravnosti držav in neposredni demokraciji.",
    "ist": "Konfederacija ot petdeset i dve dãržavi i sedem konstitutivni južnoslavjanski naroda, obedineni v balkanski sãjuz, osnovan na ravnopravieto na dãržavite i na prjakata demokracija.",
@@ -186,6 +191,11 @@
    "ist": "Mnozinstvoto glasuva „protiv“. Zakonãt ne vliza v sila.",
    "zap": "Večina glasuje proti. Zakon ne začne veļati."
   },
+  "A new Title V bis organises confederal cohesion. Belonging to the Confederation is civic: it is added to belonging to a people without replacing it, and there is no Balkan register. Confederal parties stand in at least twelve States of at least three peoples; every secondary school pupil spends a semester in a State of another people; a common core of history and a confederal pantheon; the Day of the Confederation commemorates no battle. Service is done outside the State of attachment, each people has its own football team and the clubs play a single Konfederalna Liga, the Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija, and the KRT broadcasts in the three standards.": {
+   "zap": "Novo poglavje V bis ureja konfederalno kohezijo. Pripadnost Konfederaciji je državļanska: dodaja se pripadnosti narodu, ne da bi jo nadomestila, balkanskega registra pa ni. Konfederalne stranke kandidirajo v vsaj dvanajstih državah vsaj treh narodov; vsak dijak sredñe šole preživi semester v državi drugega naroda; skupno jedro zgodovine in konfederalni panteon; Dan Konfederacije ne obeležuje nobene bitke. Služba se opravi zunaj države pripadnosti, vsak narod ima svojo nogometno reprezentanco, klubi igrajo v enotni Konfederalni Ligi, Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo, KRT pa oddaja v treh standardih.",
+   "sre": "Nova glava V bis uređuje konfederalnu koheziju. Pripadnost Konfederaciji je građanska: ona se dodaje pripadnosti narodu, a ne zaměñuje je, i ne postoji balkanski registar. Konfederalne stranke podnose liste u najmañe dvanaest država najmañe tri naroda; svaki učenik sredñe škole provodi semestar u državi drugog naroda; zajedničko jezgro istorije i konfederalni panteon; Dan Konfederacije ne oblěžava nijednu bitku. Služba se obavļa izvan države pripadnosti, svaki narod ima svoju fudbalsku reprezentaciju, klubovi igraju u jedinstvenoj Konfederalnoj Ligi, Transbalkanska povezuje Ļubļanu, Zagreb, Beograd i Sofiju, a KRT emituje program na tri standarda.",
+   "ist": "Novata glava V bis urežda konfederalnata splotenost. Prinadležnostta kãm Konfederacijata e graždanska: tja se dobavja kãm prinadležnostta kãm narod, bez da ja zamestva, i balkanski registãr ñama. Konfederalnite partii izdigat listi v naj-malko dvanadeset dãržavi na naj-malko tri naroda; vseki učenik v gimnazija prekarva edin učeben srok v dãržava na drug narod; obšto jadro po istorija i konfederalen panteon; Deñat na Konfederacijata ne čestva nikakva bitka. Službata se otbiva izvãn dãržavata na prinadležnost, vseki narod ima svoj futbolen otbor, klubovete igrajat v edinna Konfederalna Liga, Transbalkanska svãrzva Ļubļana, Zagreb, Beograd i Sofija, a KRT izlãčva na trite standarta."
+  },
   "A newer card, issue {0}, exists under this number. This copy is no longer current.": {
    "sre": "Pod ovim brojem postoji novija karta, izdañe br. {0}. Ova karta više ne važi.",
    "ist": "Pod tozi nomer sãštestvuva po-nova karta, izdanie {0}. Tozi ekzempļar veče ne e aktualen.",
@@ -210,6 +220,11 @@
    "zap": "Javni pregled konfederalnega digitalnega državļanstva: potrjene prijave po narodnih registrih in po državah, z dnevnimi podatki. Samo skupna števila, nikoli posamezni vpisi.",
    "ist": "Publičen pregled na konfederalnoto digitalno graždanstvo: potvãrdeni zajavki po narodni registri i po dãržavi, s dnevni danni. Samo obobšteni stojnosti, nikoga individualni zapisi.",
    "sre": "Javni pregled konfederalnog digitalnog državļanstva: potvrđene prijave po narodnim registrima i po državama, s dnevnim podacima. Samo zbirni podaci, nikad pojedinačni zapisi."
+  },
+  "A semester elsewhere": {
+   "zap": "Semester drugje",
+   "sre": "Semestar drugdě",
+   "ist": "Edin srok drugade"
   },
   "A territorial force with military status. Its Granična Straža checks everyone who crosses the external borders and runs the customs; a special unit handles counter-terrorism and hostage rescue.": {
    "zap": "Teritorialna sila z vojaškim statusom. Ñena Mejna straža nadzoruje vse, ki prečkajo zunañe meje, in upravļa carino; posebna enota skrbi za boj proti terorizmu in reševañe talcev.",
@@ -546,6 +561,16 @@
    "sre": "Započnite prijavu",
    "ist": "Podajte zajavka"
   },
+  "Belonging to the Confederation is added to belonging to a people and never replaces it. There is no Balkan national register.": {
+   "zap": "Pripadnost Konfederaciji se dodaja pripadnosti narodu in je nikoli ne nadomesti. Balkanskega narodnega registra ni.",
+   "sre": "Pripadnost Konfederaciji dodaje se pripadnosti narodu i nikada je ne zaměñuje. Balkanski narodni registar ne postoji.",
+   "ist": "Prinadležnostta kãm Konfederacijata se dobavja kãm prinadležnostta kãm narod i nikoga ne ja zamestva. Balkanski naroden registãr ñama."
+  },
+  "Belonging to the Confederation is civic. It is built by serving, studying, voting and travelling together, and it is added to belonging to a people without replacing it.": {
+   "zap": "Pripadnost Konfederaciji je državļanska. Gradi se s skupnim služeñem, šolañem, glasovañem in potovañem ter se dodaja pripadnosti narodu, ne da bi jo nadomestila.",
+   "sre": "Pripadnost Konfederaciji je građanska. Ona se gradi zajedničkim služeñem, školovañem, glasañem i putovañem, i dodaje se pripadnosti narodu, a ne zaměñuje je.",
+   "ist": "Prinadležnostta kãm Konfederacijata e graždanska. Tja se izgražda črez obšta služba, obučenie, glasuvane i pãtuvane i se dobavja kãm prinadležnostta kãm narod, bez da ja zamestva."
+  },
   "Beograd": {
    "zap": "Beograd",
    "sre": "Beograd",
@@ -806,6 +831,11 @@
    "sre": "Građani · javni trg",
    "ist": "Graždani · ploštad"
   },
+  "Civic belonging": {
+   "zap": "Državļanska pripadnost",
+   "sre": "Građanska pripadnost",
+   "ist": "Graždanska prinadležnost"
+  },
   "Civic life": {
    "zap": "Državļansko živļeñe",
    "ist": "Graždanski život",
@@ -866,6 +896,11 @@
    "sre": "Rukovodstvo",
    "ist": "Komandvane"
   },
+  "Common history": {
+   "zap": "Skupna zgodovina",
+   "sre": "Zajednička istorija",
+   "ist": "Obšta istorija"
+  },
   "Communities": {
    "zap": "Skupnosti",
    "sre": "Zajednice",
@@ -876,10 +911,10 @@
    "ist": "Obštnosti sãs sobstveni pravomoštija v oblastta na obrazovanieto, kulturata i obštinskite dela (čl. 1 quater).",
    "sre": "Zajednice sa svojim nadležnostima u obrazovañu, kulturi i opštinskim poslovima (čl. 1 quater)."
   },
-  "Compulsory for men, with a civilian alternative; voluntary for all.": {
-   "zap": "Obvezna za moške, z možnostjo civilne službe; prostovoļna za vse.",
-   "sre": "Obavezna za muškarce, uz civilnu alternativu; dobrovoļna za sve.",
-   "ist": "Zadãlžitelna za mãžete, s alternativna graždanska služba; dobrovolna za vsički."
+  "Compulsory for men, six months of basic training outside the State of attachment in mixed units; civilian service on request, half as long again; voluntary for all.": {
+   "zap": "Obvezna za moške, šest mesecev osnovnega usposabļaña zunaj države pripadnosti v mešanih enotah; civilna služba na zahtevo, za polovico daļša; prostovoļna za vse.",
+   "sre": "Obavezna za muškarce, šest měseci osnovne obuke izvan države pripadnosti u měšovitim jedinicama; civilna služba na zahtěv, za polovinu duža; dobrovoļna za sve.",
+   "ist": "Zadãlžitelna za mãžete, šest meseca osnovno obučenie izvãn dãržavata na prinadležnost v smeseni podelenija; graždanska služba po zajavlenie, s polovinata po-dãlga; dobrovolna za vsički."
   },
   "Confederal": {
    "sre": "Konfederalne",
@@ -995,6 +1030,16 @@
    "zap": "Konfederalna občina, ki ni država: lastna volilna enota za Kongres (čl. 103)",
    "sre": "Konfederalna opština, nije država: posebna izborna jedinica za Kongres (čl. 103)",
    "ist": "Konfederalna obština, kojato ne e dãržava: sobstven izbiratelen rajon za Kongresa (čl. 103)"
+  },
+  "Confederal pantheon": {
+   "zap": "Konfederalni panteon",
+   "sre": "Konfederalni panteon",
+   "ist": "Konfederalen panteon"
+  },
+  "Confederal parties": {
+   "zap": "Konfederalne stranke",
+   "sre": "Konfederalne stranke",
+   "ist": "Konfederalni partii"
   },
   "Confederal state flag, flown by confederal institutions seated in this city. A badge bears the city code.": {
    "zap": "Državna zastava Konfederacije, ki jo izobešajo konfederalne institucije s sedežem v tem mestu. Na znački je oznaka mesta.",
@@ -1151,6 +1196,11 @@
    "sre": "Ustav v4.15: KAVS",
    "ist": "Konstitucija v4.15: KAIS"
   },
+  "Constitution v4.16: confederal cohesion": {
+   "zap": "Ustava v4.16: konfederalna kohezija",
+   "sre": "Ustav v4.16: konfederalna kohezija",
+   "ist": "Konstitucija v4.16: konfederalnata splotenost"
+  },
   "Constitution v4.2: powers of the Confederation": {
    "sre": "Ustav v4.2: nadležnosti Konfederacije",
    "ist": "Konstitucija v4.2: pravomoštija na Konfederacijata",
@@ -1300,6 +1350,11 @@
    "zap": "Datum rojstva",
    "sre": "Datum rođeña",
    "ist": "Data na raždane"
+  },
+  "Day of the Confederation": {
+   "zap": "Dan Konfederacije",
+   "sre": "Dan Konfederacije",
+   "ist": "Den na Konfederacijata"
   },
   "Deadlock rules for the election of councillors and judges, a 90-day limit for the consent of the Narodni Sabor, legislative initiative and promulgation, urgent laws, a state of emergency, half renewal of the Ustavni Sud; new Confederal Chancellery, Court of Justice, Prosecutor's Office, Court of Audit, Language Institute, Library and Archives and Council of Communities. 165 articles.": {
    "sre": "Pravila za slučaj blokade pri izboru većnika i sudija, rok od 90 dana za pristanak Narodnog Sabora, zakonodavna inicijativa i proglašeñe zakona, hitni zakoni, vanredno stañe, obnavļañe polovine sastava Ustavnog Suda; novi organi: Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv i Veće Zajednica. 165 članova.",
@@ -1455,6 +1510,11 @@
    "zap": "Vsaka narodna delegacija Skupščine narodov predlaga svojega svetnika, ki je vsaj osem let vpisan v register ñenega naroda; Konfederalna skupščina vsakega potrdi s posebnim glasovañem.",
    "ist": "Vsjaka narodna delegacija v Sãbranieto na narodite predlaga svoja sãvetnik, vpisan v registãra na nejnija narod ot pone osem godini; Konfederalnoto sãbranie potvãrždava vseki ot tjah s otdelno glasuvane.",
    "sre": "Svaka narodna delegacija Narodnog Sabora predlaže svog većnika, koji je najmañe osam godina upisan u registar tog naroda; Konfederalna skupština potvrđuje svakog od ñih posebnim glasañem."
+  },
+  "Each people has its own football team; the clubs play a single Konfederalna Liga.": {
+   "zap": "Vsak narod ima svojo nogometno reprezentanco; klubi igrajo v enotni Konfederalni Ligi.",
+   "sre": "Svaki narod ima svoju fudbalsku reprezentaciju; klubovi igraju u jedinstvenoj Konfederalnoj Ligi.",
+   "ist": "Vseki narod ima svoj futbolen otbor; klubovete igrajat v edinna Konfederalna Liga."
   },
   "Each population is divided by a common divisor, here {0}, and rounded to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the Konfederalno Veće confirms the distribution after each census ({1}).": {
    "zap": "Prebivalstvo vsake volilne enote se deli s skupnim deliteļem, tu {0}, in zaokroži na najbližje celo število; deliteļ je izbran tako, da je zasedenih vseh 250 sedežev, z najmañ 2 in največ 20 sedeži na državo ter najmañ 1 za Brčko in Mostar. Podatki popisa so isti kot na straneh držav; Konfederalni svet razdelitev potrdi po vsakem popisu ({1}).",
@@ -1635,6 +1695,11 @@
    "zap": "Vsaka država je volilna enota. Sedeži sledijo številu prebivalcev, tako da delegat povsod predstavļa približno enako število prebivalcev, ob spodñi meji, ki tudi najmañšim državam zagotavļa mesto v domu.",
    "sre": "Svaka država je izborna jedinica. Broj mandata prati broj stanovnika, tako da delegat svuda predstavļa približno isti broj stanovnika, uz doñu granicu koja i najmañim državama osigurava zastupļenost u domu.",
    "ist": "Vsjaka dãržava e izbiratelen rajon. Mestata se razpredeļat spored naselenieto, taka če navsjakãde edin delegat da predstavļava priblizitelno ednakãv broj žiteli, pri dolna granica, kojato zapazva prisãstvieto na naj-malkite dãržavi v kamarata."
+  },
+  "Every upper secondary pupil spends a semester in a State of another people, at the expense of the Confederation.": {
+   "zap": "Vsak dijak sredñe šole preživi semester v državi drugega naroda, na stroške Konfederacije.",
+   "sre": "Svaki učenik sredñe škole provodi semestar u državi drugog naroda, o trošku Konfederacije.",
+   "ist": "Vseki učenik v gimnazija prekarva edin učeben srok v dãržava na drug narod za smetka na Konfederacijata."
   },
   "Everyday use": {
    "sre": "Svakodnevna upotreba",
@@ -2336,6 +2401,11 @@
    "sre": "Ograničeña",
    "ist": "Ograničenija"
   },
+  "Lives that crossed the borders between peoples are honoured; the tribute never changes the belonging a person declared.": {
+   "zap": "Časti se živļeña, ki so prestopila meje med narodi; počastitev nikoli ne spremeni pripadnosti, ki jo je oseba izjavila.",
+   "sre": "Odaje se počast životima koji su prešli granice među narodima; počast nikada ne měña pripadnost koju je osoba izjavila.",
+   "ist": "Počitat se sãdbite, prekračili granicite meždu narodite; počitta nikoga ne promeña prinadležnostta, kojato čovekãt e deklariral."
+  },
   "Loading the figures…": {
    "zap": "Nalagañe podatkov…",
    "ist": "Zareždane na dannite…",
@@ -3011,6 +3081,11 @@
    "ist": "Vremenno sistemno zname v cvetovete na konstitutivnija narod, dokato bãde izraboten sobstven heraldičeski proekt.",
    "sre": "Privremena sistemska zastava u narodnim bojama konstitutivnog naroda, do izrade posebnog heraldičkog dizajna."
   },
+  "Public funding and airtime go to parties standing in at least twelve States of at least three peoples.": {
+   "zap": "Javno financirañe in oddajni čas prejmejo stranke, ki kandidirajo v vsaj dvanajstih državah vsaj treh narodov.",
+   "sre": "Javno finansirañe i vrěme emitovaña dobijaju stranke koje podnose liste u najmañe dvanaest država najmañe tri naroda.",
+   "ist": "Publično finansirane i efirno vreme polučavat partiite, koito izdigat listi v naj-malko dvanadeset dãržavi na naj-malko tri naroda."
+  },
   "Public security belongs first to the States, the confederal territories included: each has its own police. The Confederation keeps only the powers the Constitution lists, through services placed under different masters and answerable to the judges and to both chambers. None may be used to watch the political life of citizens (Art. 137).": {
    "zap": "Javna varnost je predvsem v pristojnosti držav, vkļučno s konfederalnimi ozemļi: vsaka ima svojo policijo. Konfederacija ima samo pooblastila, ki jih našteva Ustava, in jih izvaja prek služb, ki so podrejene različnim organom ter odgovorne sodnikom in obema domovoma. Nobene od ñih ni dovoļeno uporabiti za nadzor nad političnim živļeñem državļanov (čl. 137).",
    "sre": "Javna sigurnost je prvenstveno u nadležnosti država, ukļučujući i konfederalne teritorije: svaka ima svoju policiju. Konfederacija zadržava samo nadležnosti koje navodi Ustav, preko službi koje su podređene različitim organima i odgovaraju sudijama i obama domovima. Nijedna se ne može koristiti za nadzor političkog života građana (čl. 137).",
@@ -3050,6 +3125,11 @@
    "zap": "Razčetrteno rdeče in modro s črnim križem čez vse; rdeč osredñi ščit z vzpetim zlatim trakijskim levom; nad križem majhno zlato sonce, heraldična kontinuiteta zgodovinske bolgarske Trakije.",
    "ist": "Razdeleno na četiri poleta v červeno i siño, s čeren krãst vãrhu vsičko; červen centralen štit s izpraven zlaten trakijski lãv; nad krãsta — malko zlatno slãnce, heraldičeska priemstvenost na istoričeskata bãlgarska Trakija.",
    "sre": "Poděļeno na četiri poļa, crveno i plavo, s crnim krstom preko cělog poļa; središñi crveni štit sa zlatnim propetim tračkim lavom; iznad krsta malo zlatno sunce, heraldički kontinuitet istorijske bugarske Trakije."
+  },
+  "Rail, airwaves, ballots": {
+   "zap": "Železnica, eter, glasovañe",
+   "sre": "Pruga, eter, glasañe",
+   "ist": "Železnica, efir, glasuvane"
   },
   "Rank {0} of {1}": {
    "sre": "Rang {0} od {1}",
@@ -3241,10 +3321,10 @@
    "sre": "Revizija Ustava",
    "ist": "Izmenenie na Konstitucijata"
   },
-  "Runs confederal elections and votes, verifies signatures, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.": {
-   "zap": "Izvaja konfederalne volitve in glasovaña, preverja podpise, vodi narodne registre in objavļa ñihovo letno gibañe ter izdaja Uradni list.",
-   "sre": "Organizuje konfederalne izbore i glasaña, prověrava potpise, vodi narodne registre i objavļuje godišñe podatke o upisima u ñih, a izdaje i Službeni glasnik.",
-   "ist": "Organizira konfederalnite izbori i glasuvanija, proverjava podpisite, vodi narodnite registri i publikuva godišnoto dviženie v tjah i izdava Dãržaven vestnik."
+  "Runs confederal elections and votes, verifies signatures, recognises confederal parties, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.": {
+   "zap": "Izvaja konfederalne volitve in glasovaña, preverja podpise, priznava konfederalne stranke, vodi narodne registre in objavļa ñihovo letno gibañe ter izdaja Uradni list.",
+   "sre": "Organizuje konfederalne izbore i glasaña, prověrava potpise, utvrđuje status konfederalnih stranaka, vodi narodne registre i objavļuje godišñe podatke o upisima u ñih, a izdaje i Službeni glasnik.",
+   "ist": "Organizira konfederalnite izbori i glasuvanija, proverjava podpisite, priznava konfederalnite partii, vodi narodnite registri i publikuva godišnoto dviženie v tjah i izdava Dãržaven vestnik."
   },
   "Sarajevo": {
    "zap": "Sarajevo",
@@ -3366,6 +3446,11 @@
    "ist": "Službi",
    "sre": "Službe"
   },
+  "Serving away from home": {
+   "zap": "Služba zunaj svoje države",
+   "sre": "Služba izvan svoje države",
+   "ist": "Služba izvãn svojata dãržava"
+  },
   "Set by the municipality of origin, one's own or a parent's or grandparent's for the diaspora, otherwise by residence. Constituency for the Kongres. Not a free choice (Art. 38).": {
    "zap": "Določa jo domovinska občina, lastna ali, za diasporo, občina enega od staršev ali starih staršev, sicer prebivališče. Volilna enota za Kongres. Ni predmet svobodne izbire (čl. 38).",
    "sre": "Određuje se prema opštini porěkla, ličnoj ili, za dijasporu, opštini roditeļa, děda ili bake, a inače prema prebivalištu. Izborna jedinica za Kongres. Nije stvar slobodnog izbora (čl. 38).",
@@ -3385,6 +3470,11 @@
    "zap": "Sedem vodoravnih pasov zlate in srebrne barve; na osredñem ščitu z valovito vodo v zgorñem delu ležeč jelen ob hrastu, vse v modri, srebrni in zeleni barvi; heraldika zahodne sremske ravnine.",
    "sre": "Sedam horizontalnih traka, zlatnih i srebrnih; na središñem štitu, s vijugavom vodom u gorñem dělu, jelen koji leži pored hrasta, sve u plavoj, srebrnoj i zelenoj boji; heraldika zapadne srěmske ravnice.",
    "ist": "Sedem horizontalni ivici v zlatno i srebãrno; vãrhu centralnija štit s vãlnoobrazna voda v gornata čast — ležašt elen do dãb, vsičko v siño, srebãrno i zeleno; heraldika na zapadnata sremska ravnina."
+  },
+  "Seven teams, one league": {
+   "zap": "Sedem reprezentanc, ena liga",
+   "sre": "Sedam reprezentacija, jedna liga",
+   "ist": "Sedem otbora, edna liga"
   },
   "Severna Trakija, without the yat": {
    "sre": "Severna Trakija, bez jata",
@@ -3455,6 +3545,11 @@
    "sre": "Prikažite podatke u tabeli",
    "ist": "Pokažete dannite v tablica",
    "zap": "Prikaži podatke v tabeli"
+  },
+  "Six months of basic training outside the State of attachment, in mixed units; civilian service on request, half as long again.": {
+   "zap": "Šest mesecev osnovnega usposabļaña zunaj države pripadnosti, v mešanih enotah; civilna služba na zahtevo, za polovico daļša.",
+   "sre": "Šest měseci osnovne obuke izvan države pripadnosti, u měšovitim jedinicama; civilna služba na zahtěv, za polovinu duža.",
+   "ist": "Šest meseca osnovno obučenie izvãn dãržavata na prinadležnost, v smeseni podelenija; graždanska služba po zajavlenie, s polovinata po-dãlga."
   },
   "Sky-blue and maroon horizontal; a white seven-pointed mullet above; below, a sheaf of wheat, the grain wealth of southern Dobruja.": {
    "zap": "Vodoravno nebesno modro in bordo; zgoraj bela sedemkraka zvezda; spodaj snop pšenice, žitno bogastvo južne Dobruxe.",
@@ -3696,6 +3791,11 @@
    "ist": "Izmenenieto stava čast ot Konstitucijata.",
    "zap": "Sprememba postane del Ustave."
   },
+  "The anniversary of the acceptance of the Constitution. No confederal holiday commemorates a battle.": {
+   "zap": "Obletnica sprejetja Ustave. Noben konfederalni praznik ne obeležuje bitke.",
+   "sre": "Godišñica prihvataña Ustava. Nijedan konfederalni praznik ne oblěžava bitku.",
+   "ist": "Godišninata ot priemaneto na Konstitucijata. Nito edin konfederalen praznik ne čestva bitka."
+  },
   "The anti-robot check could not load. Check your connection or allow challenges.cloudflare.com for this page.": {
    "zap": "Preverjaña proti robotom ni bilo mogoče naložiti. Preverite povezavo ali za to stran dovolite challenges.cloudflare.com.",
    "ist": "Proverkata sreštu roboti ne moža da se zaredi. Proverete vrãzkata si ili razrešete challenges.cloudflare.com za tazi stranica.",
@@ -3711,10 +3811,10 @@
    "sre": "Balkanska konfederacija je dom u koji se ulazi po izboru i u kojem se ostaje po pristanku. Konfederalno državļanstvo je deklarativno: traži se preko interneta u pet koraka i počiñe važiti izdavañem državļanske karte (čl. 37). Ono daje pravo na participaciju u konfederalnim konsultacijama i glasañima.",
    "ist": "Balkanskata konfederacija e dom, v kojto se vliza po izbor i v kojto se ostava po sãglasie. Konfederalnoto graždanstvo e deklarativno: zajavjava se onlajn v pet stãpki i poražda dejstvie s izdavaneto na graždanskata karta (čl. 37). To dava pravo na učastie v konfederalnite dopitvanija i glasuvanija."
   },
-  "The Balkan Education Area, universities, research, sport and the confederal heritage; culture remains with the States.": {
-   "zap": "Balkanski izobraževalni prostor, univerze, raziskave, šport in konfederalna dediščina; kultura ostaja v pristojnosti držav.",
-   "ist": "Balkansko obrazovatelno prostranstvo, universiteti, naučni izsledvanija, sport i konfederalno nasledstvo; kulturata ostava v kompetentnost na dãržavite.",
-   "sre": "Balkanski obrazovni prostor, univerziteti, naučna istraživaña, sport i konfederalno naslěđe; kultura ostaje u nadležnosti država."
+  "The Balkan Education Area, school mobility and the common history core, universities, research, sport and the confederal heritage; culture remains with the States.": {
+   "zap": "Balkanski izobraževalni prostor, šolska mobilnost in skupno jedro zgodovine, univerze, raziskave, šport in konfederalna dediščina; kultura ostaja v pristojnosti držav.",
+   "sre": "Balkanski obrazovni prostor, školska mobilnost i zajedničko jezgro istorije, univerziteti, naučna istraživaña, sport i konfederalno naslěđe; kultura ostaje u nadležnosti država.",
+   "ist": "Balkansko obrazovatelno prostranstvo, učilištna mobilnost i obšto jadro po istorija, universiteti, naučni izsledvanija, sport i konfederalno nasledstvo; kulturata ostava v kompetentnost na dãržavite."
   },
   "The Bulgarian State of Northern Thrace (TR-41) is now written <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: a purely Bulgarian name, with the ekavian reflex, takes no yat. The two <span translate=\"no\" style=\"display:inline\">Srěm</span> States keep it, since the Croatian form <span translate=\"no\" style=\"display:inline\">Srijem</span> shows the reflex. Constitution v4.10.": {
    "sre": "Naziv bugarske države (TR-41) sada se piše <span translate=\"no\" style=\"display:inline\">Severna Trakija</span>: čisto bugarski naziv, s ekavskim refleksom, nema jat. Dvě države čiji naziv sadrži <span translate=\"no\" style=\"display:inline\">Srěm</span> zadržavaju jat, jer hrvatski oblik <span translate=\"no\" style=\"display:inline\">Srijem</span> pokazuje ñegov refleks. Ustav v4.10.",
@@ -3896,10 +3996,10 @@
    "sre": "Žandarmerija i Istražni biro nikada ne odgovaraju istom većniku; Obavěštajna agencija odgovara Konfederalnom Veću u cělini.",
    "ist": "Žandarmerijata i Bjuroto nikoga ne sa podčineni na edin i sãšt sãvetnik; Agencijata se otčita pred celija sãvet."
   },
-  "The general staff of the council, led by the Chancellor: confederal elections and votes, the national registers and the Official Journal.": {
-   "zap": "Generalni sekretariat sveta, ki ga vodi kancler: konfederalne volitve in glasovaña, narodni registri in Uradni list.",
-   "ist": "Generalnijat sekretariat na sãveta, rãkovoden ot kanclera: konfederalni izbori i glasuvanija, narodnite registri i Dãržaven vestnik.",
-   "sre": "Generalni sekretarijat Veća, na čijem je čelu kancelar: konfederalni izbori i glasaña, narodni registri i Službeni glasnik."
+  "The general staff of the council, led by the Chancellor: confederal elections and votes, confederal party status, the national registers and the Official Journal.": {
+   "zap": "Generalni sekretariat sveta, ki ga vodi kancler: konfederalne volitve in glasovaña, status konfederalnih strank, narodni registri in Uradni list.",
+   "sre": "Generalni sekretarijat Veća, na čijem je čelu kancelar: konfederalni izbori i glasaña, status konfederalnih stranaka, narodni registri i Službeni glasnik.",
+   "ist": "Generalnijat sekretariat na sãveta, rãkovoden ot kanclera: konfederalni izbori i glasuvanija, statutãt na konfederalnite partii, narodnite registri i Dãržaven vestnik."
   },
   "The guarantee itself": {
    "zap": "Jamstvo samo",
@@ -4081,10 +4181,10 @@
    "sre": "Pravilo koje štiti ove četiri garancije ne može se ukinuti mañom većinom.",
    "ist": "Praviloto, koeto zaštitava tezi četiri garancii, ne može da bãde otmeneno s po-malko mnozinstvo."
   },
-  "The single economic area, competition, confederal roads, railways, energy and communications.": {
-   "zap": "Enotni gospodarski prostor, konkurenca, konfederalne ceste, železnice, energetika in komunikacije.",
-   "ist": "Edinno ikonomičesko prostranstvo, konkurencija, konfederalni pãtišta, železnici, energetika i sãobštenija.",
-   "sre": "Jedinstveni ekonomski prostor, konkurencija, konfederalni putevi, želěznice, energija i komunikacije."
+  "The single economic area, competition, confederal roads, railways and the Transbalkanska, energy and communications.": {
+   "zap": "Enotni gospodarski prostor, konkurenca, konfederalne ceste, železnice in Transbalkanska, energetika in komunikacije.",
+   "sre": "Jedinstveni ekonomski prostor, konkurencija, konfederalni putevi, želěznice i Transbalkanska, energija i komunikacije.",
+   "ist": "Edinno ikonomičesko prostranstvo, konkurencija, konfederalni pãtišta, železnici i Transbalkanska, energetika i sãobštenija."
   },
   "The South Slavic Latin alphabet, 32 letters, version 3.": {
    "zap": "Južnoslovanska latinica, 32 črk, različica 3.",
@@ -4105,6 +4205,11 @@
    "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega preiskovalnega biroja privede pred sodišče.",
    "sre": "Vrhovni sud za konfederalno pravo i tužilaštvo koje predmete Konfederalnog Istražnog Biroa iznosi pred sud.",
    "ist": "Vãrhovnijat sãd po konfederalnoto pravo i prokuraturata, kojato vnasja v sãda delata na Konfederalnoto bjuro za razsledvane."
+  },
+  "The Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija; the KRT broadcasts in the three standards; four voting Sundays a year.": {
+   "zap": "Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo; KRT oddaja v treh standardih; štiri nedeļe glasovaña na leto.",
+   "sre": "Transbalkanska povezuje Ļubļanu, Zagreb, Beograd i Sofiju; KRT emituje program na tri standarda; četiri neděļe glasaña godišñe.",
+   "ist": "Transbalkanska svãrzva Ļubļana, Zagreb, Beograd i Sofija; KRT izlãčva na trite standarta; četiri nedeli za glasuvane godišno."
   },
   "The unified alphabet on the card and in the Constitution": {
    "sre": "Jedinstvena abeceda na karti i u Ustavu",
@@ -4350,6 +4455,11 @@
    "sre": "glasaju u svojoj državi",
    "ist": "glasuvat v svojata dãržava",
    "zap": "volijo v svoji državi"
+  },
+  "Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).": {
+   "zap": "Glasovaña potekajo ob štirih vnaprej določenih nedeļah na leto, na isti dan v vsej Konfederaciji (čl. 124 bis).",
+   "sre": "Glasaña se održavaju četiri neděļe godišñe, unaprěd određene, istog dana u cěloj Konfederaciji (čl. 124 bis).",
+   "ist": "Glasuvanijata se proveždat v četiri nedeli, opredeleni predvaritelno vsjaka godina, v edin i sãšti den v cjalata Konfederacija (čl. 124 bis)."
   },
   "Vowel": {
    "zap": "Samoglasnik",
