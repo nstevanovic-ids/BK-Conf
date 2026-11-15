@@ -1,0 +1,1195 @@
+{
+ "home-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 13279,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "states-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 20241,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 6,
+  "noalt": 0,
+  "emptyalt": 6,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-film-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 3389,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-blason-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 3415,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-simple-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 3006,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-ville-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 3018,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-muni-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 2736,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "map-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 2837,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "institutions-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 9568,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "council-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 5003,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "security-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 6979,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "constitution-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 4124,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "journal-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 7954,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "identity-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 4891,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "alphabet-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 2368,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "symbols-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 20267,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "autonomy-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 4841,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "participation-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 3336,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 2,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "dashboard-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 1337,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "register-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 2412,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "citizen-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 1398,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "verify-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 1396,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "minor-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 1333,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-route-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 13279,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-state-375": {
+  "sw": 375,
+  "cw": 375,
+  "h": 1035,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 0,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "home-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 10886,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "states-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 6075,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 6,
+  "noalt": 0,
+  "emptyalt": 6,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-film-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3684,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-blason-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3552,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-simple-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3125,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-ville-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3173,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-muni-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 2868,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "map-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 2631,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "institutions-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 7837,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "council-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3798,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "security-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 6277,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "constitution-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 3087,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "journal-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 4696,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "identity-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 4227,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "alphabet-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1649,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "symbols-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 7942,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "autonomy-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 4155,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "participation-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 2772,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 2,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "dashboard-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1080,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "register-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1735,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "citizen-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1219,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "verify-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1205,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "minor-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1154,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-route-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 10886,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-state-768": {
+  "sw": 768,
+  "cw": 768,
+  "h": 1024,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 0,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "home-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 9227,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "states-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 3949,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 6,
+  "noalt": 0,
+  "emptyalt": 6,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-film-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 2077,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-blason-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1887,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-simple-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1620,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "state-ville-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1785,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 1,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "state-muni-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1480,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+ },
+ "map-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1190,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "institutions-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 5369,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "council-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 2445,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "security-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 3553,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "constitution-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 2915,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "journal-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 3582,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "identity-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 2463,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 4,
+  "noalt": 0,
+  "emptyalt": 3,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "alphabet-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1367,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "symbols-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 5208,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "autonomy-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 3987,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "participation-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 2037,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 3,
+  "noalt": 0,
+  "emptyalt": 2,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "dashboard-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 900,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "register-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1470,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "citizen-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1046,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "verify-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 1032,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "minor-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 981,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-route-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 9227,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 1,
+  "imgs": 57,
+  "noalt": 0,
+  "emptyalt": 52,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "err-state-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "h": 900,
+  "title": "Balkan Confederation · Official Portal",
+  "h1": 0,
+  "imgs": 0,
+  "noalt": 0,
+  "emptyalt": 0,
+  "lang": "en",
+  "langblocks": 0,
+  "errors": []
+ },
+ "home-sre-lat-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh"
+ },
+ "states-sre-lat-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh"
+ },
+ "state-blason-sre-lat-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh"
+ },
+ "institutions-sre-lat-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh"
+ },
+ "constitution-sre-lat-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh"
+ },
+ "home-sre-lat-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh"
+ },
+ "states-sre-lat-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh"
+ },
+ "state-blason-sre-lat-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh"
+ },
+ "institutions-sre-lat-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh"
+ },
+ "constitution-sre-lat-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh"
+ },
+ "home-sre-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh-Cyrl"
+ },
+ "states-sre-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh-Cyrl"
+ },
+ "state-blason-sre-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh-Cyrl"
+ },
+ "institutions-sre-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh-Cyrl"
+ },
+ "constitution-sre-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sh-Cyrl"
+ },
+ "home-sre-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh-Cyrl"
+ },
+ "states-sre-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh-Cyrl"
+ },
+ "state-blason-sre-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh-Cyrl"
+ },
+ "institutions-sre-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh-Cyrl"
+ },
+ "constitution-sre-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sh-Cyrl"
+ },
+ "home-ist-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "bg"
+ },
+ "states-ist-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "bg"
+ },
+ "state-blason-ist-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "bg"
+ },
+ "institutions-ist-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "bg"
+ },
+ "constitution-ist-cyr-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "bg"
+ },
+ "home-ist-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "bg"
+ },
+ "states-ist-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "bg"
+ },
+ "state-blason-ist-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "bg"
+ },
+ "institutions-ist-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "bg"
+ },
+ "constitution-ist-cyr-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "bg"
+ },
+ "home-zap-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sl"
+ },
+ "states-zap-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sl"
+ },
+ "state-blason-zap-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sl"
+ },
+ "institutions-zap-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sl"
+ },
+ "constitution-zap-375": {
+  "sw": 375,
+  "cw": 375,
+  "lang": "sl"
+ },
+ "home-zap-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sl"
+ },
+ "states-zap-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sl"
+ },
+ "state-blason-zap-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sl"
+ },
+ "institutions-zap-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sl"
+ },
+ "constitution-zap-1440": {
+  "sw": 1440,
+  "cw": 1440,
+  "lang": "sl"
+ }
+}

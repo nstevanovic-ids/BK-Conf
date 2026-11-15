@@ -1,0 +1,75 @@
+{
+ "_": "Lighthouse 13.6, mobile simulé (Moto G Power, 4G lente), build inline servi en local avec gzip comme GitHub Pages ; 2026-11-15, main 7d96e3c",
+ "#/home": {
+  "performance": 22,
+  "accessibility": 92,
+  "best-practices": 100,
+  "seo": 91,
+  "FCP_s": 7.3,
+  "LCP_s": 54.5,
+  "TBT_ms": 466,
+  "CLS": 0.843,
+  "poids_ko": 14649,
+  "requetes": 57
+ },
+ "#/states": {
+  "performance": 25,
+  "accessibility": 93,
+  "best-practices": 100,
+  "seo": 91,
+  "FCP_s": 7.3,
+  "LCP_s": 7.5,
+  "TBT_ms": 420,
+  "CLS": 0.843,
+  "poids_ko": 2192,
+  "requetes": 64
+ },
+ "#/state/LK-20": {
+  "performance": 45,
+  "accessibility": 94,
+  "best-practices": 100,
+  "seo": 91,
+  "FCP_s": 7.3,
+  "LCP_s": 7.6,
+  "TBT_ms": 540,
+  "CLS": 0.014,
+  "poids_ko": 1344,
+  "requetes": 6
+ },
+ "#/state/BA-01": {
+  "performance": 39,
+  "accessibility": 94,
+  "best-practices": 96,
+  "seo": 90,
+  "FCP_s": 7.2,
+  "LCP_s": 7.6,
+  "TBT_ms": 816,
+  "CLS": 0,
+  "poids_ko": 3316,
+  "requetes": 8
+ },
+ "#/constitution": {
+  "performance": 27,
+  "accessibility": 92,
+  "best-practices": 100,
+  "seo": 90,
+  "FCP_s": 7.3,
+  "LCP_s": 7.5,
+  "TBT_ms": 358,
+  "CLS": 0.857,
+  "poids_ko": 1303,
+  "requetes": 4
+ },
+ "#/map": {
+  "performance": 29,
+  "accessibility": 91,
+  "best-practices": 100,
+  "seo": 90,
+  "FCP_s": 7.3,
+  "LCP_s": 7.3,
+  "TBT_ms": 3756,
+  "CLS": 0,
+  "poids_ko": 1303,
+  "requetes": 4
+ }
+}
