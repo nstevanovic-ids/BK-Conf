@@ -1,0 +1,2852 @@
+{
+"en": {
+"home": {
+"nav": [
+"Home",
+"States",
+"Map",
+"Institutions",
+"Security",
+"Constitution",
+"Identity",
+"Participation"
+],
+"brand": "Balkanska Konfederacija",
+"brandSub": "Balkan Confederation",
+"register": "Register",
+"search": "Search the portal",
+"htmlLang": "en",
+"eyebrow": "Official portal",
+"h1": "The Balkan Confederation",
+"lead": "A confederation of fifty-two states and seven constituent South Slavic peoples, united in a Balkan union founded on the equality of states and on direct democracy.",
+"motto": "“Naš dom” · Our home.",
+"cta": [
+"Explore the states",
+"Become a citizen"
+],
+"unionH": "A confederation of states, a home for peoples.",
+"unionP": "Balkan by territory, South Slavic by language and kinship: fifty-two states govern themselves within a single confederal order founded on equality and direct democracy.",
+"figs": [
+[
+"52",
+"Confederated states"
+],
+[
+"7",
+"Constituent peoples"
+],
+[
+"4",
+"Confederal capitals"
+],
+[
+"24",
+"Autonomous communities"
+]
+],
+"bands": [
+"From the Adriatic shore to the Black Sea, one confederal space.",
+"Your state elects the Kongres. Your people elect the Narodni Sabor.",
+"Naš dom."
+],
+"bandSub": "Confederal digital citizenship opens the participatory platform: consultations, debates, proposals and votes.",
+"feats": [
+[
+"Seven peoples, one home",
+"Slovenes, Croats, Serbs, Bosniaks, Montenegrins, Macedonians and Bulgarians share a unified South Slavic language and alphabet, alongside recognised Albanian, Hungarian, Turkish and Slovak communities.",
+"Language & identity"
+],
+[
+"Four confederal institutions",
+"The Kongres legislates, the Narodni Sabor guards the equality of nations, the Konfederalno Veće governs by consensus and the Ustavni Sud upholds the Constitution, seated across the four confederal capitals.",
+"The institutions"
+]
+],
+"exploreH": "Explore the portal",
+"cards": [
+[
+"Territory",
+"States & territories",
+"The 52 states, confederal territories and confederal autonomous municipalities."
+],
+[
+"Geography",
+"Interactive map",
+"Municipal boundaries, demographic and economic indicators by state."
+],
+[
+"Government",
+"Institutions",
+"The Kongres, Narodni Sabor, Konfederalno Veće and Ustavni Sud."
+],
+[
+"Law",
+"Constitution",
+"The consolidated text of the Confederal Constitution and its titles."
+],
+[
+"Language",
+"Identity & alphabet",
+"The unified Latin alphabet, the symbols and heraldry of the union."
+],
+[
+"Civic life",
+"Participation",
+"Confederal digital citizenship and the participatory platform."
+]
+],
+"journalH": "Official Journal",
+"journal": 27,
+"journalRows": [
+[
+"2026-11-09",
+"A new Title V bis organises confederal cohesion. Belonging to the Confederation is civic: it is added to belonging to a people without replacing it, and there is no Balkan register. Confederal parties stand in at least twelve States of at least three peoples; every secondary school pupil spends a semester in a State of another people; a common core of history and a confederal pantheon; the Day of the Confederation commemorates no battle. Service is done outside the State of attachment, each people has its own football team and the clubs play a single Konfederalna Liga, the Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija, and the KRT broadcasts in the three standards.",
+"Law"
+],
+[
+"2026-11-08",
+"The Konfederalna Agencija za Vanredne Situacije, which directs civil defence, takes the acronym KAVS, drawn from its name, instead of ACGUB, which abbreviated a French title. Like the other acronyms, it follows the name in each standard: KAIR in zapadni, KAIS in istočni. Its missions do not change.",
+"Law"
+],
+[
+"2026-11-06",
+"Bulgarian and Macedonian are written only in Cyrillic: the istočni standard now opens in Cyrillic, with Latin as an option. The središñi still opens in Latin, and each standard remembers its own choice.",
+"Identity"
+]
+]
+},
+"states": {
+"eyebrow": "DIRECTORY",
+"h1": "States & territories",
+"lead": "Forty-eight territorial states, four confederal territories and two confederal autonomous municipalities. Filter by constituent people or search by name, code or seat.",
+"ph": "Search a state, a code, a seat…",
+"chips": [
+"All",
+"Slovenes",
+"Croats",
+"Serbs",
+"Bosniaks",
+"Montenegrins",
+"Macedonians",
+"Bulgarians",
+"Confederal"
+],
+"cards": {
+"BA-01": [
+"Bosanska Krajina",
+"Bosniaks",
+"273,261 inhabitants"
+],
+"BC-02": [
+"Bačka",
+"Serbs",
+"969,037 inhabitants"
+],
+"BE-03": [
+"Bregalnica",
+"Macedonians",
+"150,234 inhabitants"
+],
+"BN-04": [
+"Banat",
+"Serbs",
+"487,958 inhabitants"
+],
+"BZ-05": [
+"Zapadna Bosna",
+"Serbs",
+"566,966 inhabitants"
+],
+"CG-06": [
+"Crna Gora",
+"Montenegrins",
+"491,158 inhabitants"
+],
+"CM-07": [
+"Černomorska",
+"Bulgarians",
+"808,446 inhabitants"
+],
+"DA-08": [
+"Dalmacija",
+"Croats",
+"725,941 inhabitants"
+],
+"DJ-09": [
+"Južna Dobruxa",
+"Bulgarians",
+"236,223 inhabitants"
+],
+"DR-10": [
+"Dubrovačka Republika",
+"Croats",
+"69,721 inhabitants"
+],
+"GV-11": [
+"Vzhodna Goriška",
+"Slovenes",
+"200,550 inhabitants"
+],
+"HI-12": [
+"Istočna Hercegovina",
+"Serbs",
+"106,180 inhabitants"
+],
+"HZ-13": [
+"Zapadna Hercegovina",
+"Croats",
+"246,631 inhabitants"
+],
+"IS-14": [
+"Istra",
+"Croats",
+"221,444 inhabitants"
+],
+"KJ-15": [
+"Južna Koroška",
+"Slovenes",
+"37,165 inhabitants"
+],
+"KM-16": [
+"Kosovo i Metohija",
+"Serbs",
+"34,819 inhabitants"
+],
+"KR-17": [
+"Krañska",
+"Slovenes",
+"1,125,040 inhabitants"
+],
+"KV-18": [
+"Kvarner",
+"Croats",
+"239,212 inhabitants"
+],
+"LG-19": [
+"Ludogorje",
+"Bulgarians",
+"340,317 inhabitants"
+],
+"LK-20": [
+"Lika",
+"Croats",
+"238,156 inhabitants"
+],
+"MI-21": [
+"Istočna Mizija",
+"Bulgarians",
+"798,112 inhabitants"
+],
+"MZ-22": [
+"Zapadna Mizija",
+"Bulgarians",
+"324,937 inhabitants"
+],
+"PA-23": [
+"Pajonija",
+"Macedonians",
+"279,167 inhabitants"
+],
+"PI-24": [
+"Istočno Podriñe",
+"Serbs",
+"424,092 inhabitants"
+],
+"PM-25": [
+"Prekmurje",
+"Slovenes",
+"75,791 inhabitants"
+],
+"PO-26": [
+"Podunavļe",
+"Serbs",
+"326,523 inhabitants"
+],
+"PR-27": [
+"Pirin",
+"Bulgarians",
+"285,644 inhabitants"
+],
+"PZ-28": [
+"Zapadno Podriñe",
+"Serbs",
+"375,193 inhabitants"
+],
+"RO-29": [
+"Rodopi",
+"Bulgarians",
+"412,773 inhabitants"
+],
+"RS-30": [
+"Raška Sanxak",
+"Serbs",
+"418,245 inhabitants"
+],
+"SI-31": [
+"Istočni Srěm",
+"Serbs",
+"292,361 inhabitants"
+],
+"SL-32": [
+"Slavonija",
+"Croats",
+"607,970 inhabitants"
+],
+"SO-33": [
+"Soli",
+"Bosniaks",
+"445,028 inhabitants"
+],
+"SP-34": [
+"Šopluk",
+"Bulgarians",
+"434,705 inhabitants"
+],
+"ST-35": [
+"Štajerska",
+"Slovenes",
+"696,561 inhabitants"
+],
+"SU-36": [
+"Šumadija",
+"Serbs",
+"986,599 inhabitants"
+],
+"SX-37": [
+"Stranxa",
+"Bulgarians",
+"26,516 inhabitants"
+],
+"SZ-38": [
+"Zapadni Srěm",
+"Croats",
+"132,635 inhabitants"
+],
+"TK-39": [
+"Timok",
+"Serbs",
+"210,640 inhabitants"
+],
+"TL-40": [
+"Torlak",
+"Serbs",
+"884,014 inhabitants"
+],
+"TR-41": [
+"Trakija",
+"Bulgarians",
+"708,171 inhabitants"
+],
+"TU-42": [
+"Tunxa",
+"Bulgarians",
+"743,550 inhabitants"
+],
+"US-43": [
+"Usora",
+"Serbs",
+"260,616 inhabitants"
+],
+"VB-44": [
+"Vrhbosna",
+"Bosniaks",
+"654,378 inhabitants"
+],
+"VS-45": [
+"Severen Vardar",
+"Macedonians",
+"689,546 inhabitants"
+],
+"VZ-46": [
+"Zapaden Vardar",
+"Macedonians",
+"717,766 inhabitants"
+],
+"ZA-47": [
+"Zagorje",
+"Croats",
+"799,147 inhabitants"
+],
+"ZL-48": [
+"Zlatibor",
+"Serbs",
+"138,330 inhabitants"
+],
+"BG-91": [
+"Beograd",
+"Confederal territory",
+"1,685,563 inhabitants"
+],
+"SA-92": [
+"Sarajevo",
+"Confederal territory",
+"413,593 inhabitants"
+],
+"SF-93": [
+"Sofija",
+"Confederal territory",
+"1,303,813 inhabitants"
+],
+"ZG-94": [
+"Zagreb",
+"Confederal territory",
+"837,607 inhabitants"
+],
+"BK-95": [
+"Brčko",
+"Confederal municipality",
+"83,516 inhabitants"
+],
+"MO-96": [
+"Mostar",
+"Confederal municipality",
+"105,797 inhabitants"
+]
+}
+},
+"state": {
+"crumb": [
+"Home",
+"States",
+"Lika"
+],
+"type": "Territorial state",
+"rows": [
+[
+"Official code",
+"LK-20"
+],
+[
+"Status",
+"Territorial state"
+],
+[
+"Constituent people",
+"Croats · Hrvati"
+],
+[
+"Regional standard",
+"Central standard (središñi)"
+],
+[
+"Seat",
+"Gospić"
+],
+[
+"Municipalities",
+"45"
+],
+[
+"Population",
+"238,156Census 2021"
+],
+[
+"Area",
+"12,838 km²"
+],
+[
+"Population density",
+"19 inhabitants / km²"
+],
+[
+"GDP per capita (PPS, est.)",
+"22,500 PPS59% of the EU-27 average · Eurostat NUTS 3, 2023"
+],
+[
+"Autonomous communities",
+"1"
+]
+]
+},
+"cons": {
+"h": [
+"General provisions"
+],
+"crumb": [
+"Home",
+"Constitution",
+"Title I"
+],
+"arts": [
+{
+"id": "art-1",
+"num": "Article 1",
+"name": "The Balkan Confederation",
+"body": [
+"The seven constituent peoples and all the communities who share their land, united in the confederated States and the confederal autonomous municipalities listed in Article 1 bis, form the Balkan Confederation (Balkanska Konfederacija)."
+]
+},
+{
+"id": "art-2",
+"num": "Article 2",
+"name": "Purpose",
+"body": [
+"The Balkan Confederation protects the liberty and the rights of its peoples and of every person, and safeguards the independence and the security of the country.",
+"It promotes the common prosperity, the internal cohesion and the cultural, linguistic and religious diversity of the country.",
+"It ensures the greatest possible equality of opportunity among citizens and among States."
+]
+},
+{
+"id": "art-3",
+"num": "Article 3",
+"name": "The confederated States",
+"body": [
+"The confederated States are sovereign except to the extent that their sovereignty is limited by the Confederal Constitution; they exercise all rights that are not vested in the Confederation."
+]
+},
+{
+"id": "art-4",
+"num": "Article 4",
+"name": "Languages",
+"body": [
+"The national language of the Confederation is the južnoslovenski jezik. It is expressed through three regional standards, western, central and eastern, equal in dignity and in law (Article 128).",
+"Each State determines its official language within these standards and may recognise dialect standards (Article 127).",
+"The languages of minority communities are protected within their autonomous entities (Articles 1 quater and 127).",
+"The Confederation ensures that dialectal diversity is represented as far as possible in territorial administration."
+]
+},
+{
+"id": "art-5",
+"num": "Article 5",
+"name": "Principles of public activity governed by the rule of law",
+"body": [
+"The law is the basis and the limit of the activity of the Confederation, the States and the municipalities.",
+"All public activity must be in the public interest and proportionate to the ends sought.",
+"Authorities and private persons must act in good faith.",
+"The Confederation and the States respect international law."
+]
+},
+{
+"id": "art-6",
+"num": "Article 6",
+"name": "Subsidiarity",
+"body": [
+"The allocation and the performance of public tasks are based on the principle of subsidiarity.",
+"A task is entrusted to the level closest to the citizens that is able to perform it: the municipality, then the State, then the Confederation (Article 43)."
+]
+},
+{
+"id": "art-7",
+"num": "Article 7",
+"name": "Individual and social responsibility",
+"body": [
+"Every person is responsible for himself and contributes, according to his abilities, to the tasks of the community and of society."
+]
+},
+{
+"id": "art-7bis",
+"num": "Article 7 bis",
+"name": "Symbols of the Confederation",
+"body": [
+"The flag of the Confederation consists of a vertical red band at the hoist and a field of three horizontal bands, blue, white and blue. It is the flag of citizens and of municipal authorities.",
+"The state flag also bears, on the red band, a radiant golden sun charged with the winged lion gules; its white band is bordered by friezes inspired by Balkan textiles. It is reserved for the confederal institutions, the armed forces and the representations of the Confederation abroad. The law lays down the proportions and shades of both flags.",
+"The emblem of the Confederation is the golden winged lion. The seal of the Confederation bears the winged lion on a seven-rayed sun.",
+"The motto of the Confederation is \"Naš dom\" (Our home).",
+"The anthem of the Confederation is laid down by law.",
+"Laws concerning the symbols of the Confederation are subject to the consent of the Narodni Sabor (Article 109 a)."
+]
+}
+]
+},
+"searchPh": "Search states, communities, peoples, letters, pages…",
+"noMatch": "No match.",
+"langs": [
+[
+"EN",
+""
+],
+[
+"ZAP",
+""
+],
+[
+"SRE",
+""
+],
+[
+"IST",
+""
+]
+]
+},
+"zap": {
+"home": {
+"nav": [
+"Domov",
+"Države",
+"Zemļevid",
+"Institucije",
+"Varnost",
+"Ustava",
+"Identiteta",
+"Sodelovañe"
+],
+"brand": "Balkanska Konfederacija",
+"brandSub": "Naš dom",
+"register": "Registracija",
+"search": "Iskañe po portalu",
+"htmlLang": "sl",
+"eyebrow": "Uradni portal",
+"h1": "Balkanska konfederacija",
+"lead": "Konfederacija dvainpetdesetih držav in sedmih konstitutivnih južnoslovanskih narodov, združenih v balkansko zvezo, ki temeļi na enakopravnosti držav in neposredni demokraciji.",
+"motto": "„Naš dom“ · geslo Konfederacije.",
+"cta": [
+"Raziščite države",
+"Postanite državļan"
+],
+"unionH": "Konfederacija držav, dom za narode.",
+"unionP": "Po ozemļu balkanska, po jeziku in sorodstvu južnoslovanska: dvainpetdeset držav se samostojno upravļa v enotnem konfederalnem redu, ki temeļi na enakopravnosti in neposredni demokraciji.",
+"figs": [
+[
+"52",
+"Konfederirane države"
+],
+[
+"7",
+"Konstitutivni narodi"
+],
+[
+"4",
+"Konfederalne prestolnice"
+],
+[
+"24",
+"Avtonomne skupnosti"
+]
+],
+"bands": [
+"Od jadranske obale do Črnega morja en sam konfederalni prostor.",
+"Vaša država voli Kongres. Vaš narod voli Skupščino narodov.",
+"Naš dom."
+],
+"bandSub": "Konfederalno digitalno državļanstvo odpira pot do platforme za sodelovañe: posvetovaña, razprave, predlogi in glasovaña.",
+"feats": [
+[
+"Sedem narodov, en dom",
+"Slovenci, Hrvati, Srbi, Bošñaki, Črnogorci, Makedonci in Bolgari si delijo enoten južnoslovanski jezik in abecedo, ob ñih pa živijo tudi priznane skupnosti: albanska, maxarska, turška in slovaška.",
+"Jezik in identiteta"
+],
+[
+"Štiri konfederalne institucije",
+"Kongres sprejema zakone, Skupščina narodov varuje enakopravnost narodov, Konfederalni svet vlada s soglasjem, Ustavno sodišče pa bdi nad Ustavo; sedeži institucij so v štirih konfederalnih prestolnicah.",
+"Institucije"
+]
+],
+"exploreH": "Raziščite portal",
+"cards": [
+[
+"Ozemļe",
+"Države in ozemļa",
+"52 držav, konfederalna ozemļa in konfederalne avtonomne občine."
+],
+[
+"Geografija",
+"Interaktivni zemļevid",
+"Meje občin ter demografski in gospodarski kazalniki po državah."
+],
+[
+"Oblast",
+"Institucije",
+"Kongres, Skupščina narodov, Konfederalni svet in Ustavno sodišče."
+],
+[
+"Pravo",
+"Ustava",
+"Prečiščeno besedilo Ustave Konfederacije in ñena poglavja."
+],
+[
+"Jezik",
+"Identiteta in abeceda",
+"Enotna latinična abeceda ter simboli in heraldika zveze."
+],
+[
+"Državļansko živļeñe",
+"Sodelovañe",
+"Konfederalno digitalno državļanstvo in platforma za sodelovañe."
+]
+],
+"journalH": "Uradni list",
+"journal": 27,
+"journalRows": [
+[
+"2026-11-09",
+"Novo poglavje V bis ureja konfederalno kohezijo. Pripadnost Konfederaciji je državļanska: dodaja se pripadnosti narodu, ne da bi jo nadomestila, balkanskega registra pa ni. Konfederalne stranke kandidirajo v vsaj dvanajstih državah vsaj treh narodov; vsak dijak sredñe šole preživi semester v državi drugega naroda; skupno jedro zgodovine in konfederalni panteon; Dan Konfederacije ne obeležuje nobene bitke. Služba se opravi zunaj države pripadnosti, vsak narod ima svojo nogometno reprezentanco, klubi igrajo v enotni Konfederalni Ligi, Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo, KRT pa oddaja v treh standardih.",
+"Pravo"
+],
+[
+"2026-11-08",
+"Konfederalna agencija za izredne razmere, ki vodi civilno zaščito, dobi kratico KAIR, izpeļano iz svojega imena, namesto ACGUB, ki je krajšala francoski naziv. Kot druge kratice sledi imenu v vsakem standardu: KAVS v središñem, KAIS v istočnem. Ñene naloge se ne spremenijo.",
+"Pravo"
+],
+[
+"2026-11-06",
+"Bolgarščina in makedonščina se pišeta samo v cirilici: istočni standard se zdaj odpre v cirilici, latinica pa ostane na voļo. Središñi se še naprej odpre v latinici, vsak standard pa si zapomni svojo izbiro.",
+"Identiteta"
+]
+]
+},
+"states": {
+"eyebrow": "IMENIK",
+"h1": "Države in ozemļa",
+"lead": "Oseminštirideset teritorialnih držav, štiri konfederalna ozemļa in dve konfederalni avtonomni občini. Filtrirajte po konstitutivnem narodu ali iščite po imenu, oznaki ali sedežu.",
+"ph": "Iščite državo, oznako, sedež…",
+"chips": [
+"Vse",
+"Slovenci",
+"Hrvati",
+"Srbi",
+"Bošñaki",
+"Črnogorci",
+"Makedonci",
+"Bolgari",
+"Konfederalne"
+],
+"cards": {
+"BA-01": [
+"Bosanska Krajina",
+"Bošñaki",
+"273.261 prebivalcev"
+],
+"BC-02": [
+"Bačka",
+"Srbi",
+"969.037 prebivalcev"
+],
+"BE-03": [
+"Bregalnica",
+"Makedonci",
+"150.234 prebivalcev"
+],
+"BN-04": [
+"Banat",
+"Srbi",
+"487.958 prebivalcev"
+],
+"BZ-05": [
+"Zapadna Bosna",
+"Srbi",
+"566.966 prebivalcev"
+],
+"CG-06": [
+"Crna Gora",
+"Črnogorci",
+"491.158 prebivalcev"
+],
+"CM-07": [
+"Černomorska",
+"Bolgari",
+"808.446 prebivalcev"
+],
+"DA-08": [
+"Dalmacija",
+"Hrvati",
+"725.941 prebivalcev"
+],
+"DJ-09": [
+"Južna Dobruxa",
+"Bolgari",
+"236.223 prebivalcev"
+],
+"DR-10": [
+"Dubrovačka Republika",
+"Hrvati",
+"69.721 prebivalcev"
+],
+"GV-11": [
+"Vzhodna Goriška",
+"Slovenci",
+"200.550 prebivalcev"
+],
+"HI-12": [
+"Istočna Hercegovina",
+"Srbi",
+"106.180 prebivalcev"
+],
+"HZ-13": [
+"Zapadna Hercegovina",
+"Hrvati",
+"246.631 prebivalcev"
+],
+"IS-14": [
+"Istra",
+"Hrvati",
+"221.444 prebivalcev"
+],
+"KJ-15": [
+"Južna Koroška",
+"Slovenci",
+"37.165 prebivalcev"
+],
+"KM-16": [
+"Kosovo i Metohija",
+"Srbi",
+"34.819 prebivalcev"
+],
+"KR-17": [
+"Krañska",
+"Slovenci",
+"1.125.040 prebivalcev"
+],
+"KV-18": [
+"Kvarner",
+"Hrvati",
+"239.212 prebivalcev"
+],
+"LG-19": [
+"Ludogorje",
+"Bolgari",
+"340.317 prebivalcev"
+],
+"LK-20": [
+"Lika",
+"Hrvati",
+"238.156 prebivalcev"
+],
+"MI-21": [
+"Istočna Mizija",
+"Bolgari",
+"798.112 prebivalcev"
+],
+"MZ-22": [
+"Zapadna Mizija",
+"Bolgari",
+"324.937 prebivalcev"
+],
+"PA-23": [
+"Pajonija",
+"Makedonci",
+"279.167 prebivalcev"
+],
+"PI-24": [
+"Istočno Podriñe",
+"Srbi",
+"424.092 prebivalcev"
+],
+"PM-25": [
+"Prekmurje",
+"Slovenci",
+"75.791 prebivalcev"
+],
+"PO-26": [
+"Podunavļe",
+"Srbi",
+"326.523 prebivalcev"
+],
+"PR-27": [
+"Pirin",
+"Bolgari",
+"285.644 prebivalcev"
+],
+"PZ-28": [
+"Zapadno Podriñe",
+"Srbi",
+"375.193 prebivalcev"
+],
+"RO-29": [
+"Rodopi",
+"Bolgari",
+"412.773 prebivalcev"
+],
+"RS-30": [
+"Raška Sanxak",
+"Srbi",
+"418.245 prebivalcev"
+],
+"SI-31": [
+"Istočni Srěm",
+"Srbi",
+"292.361 prebivalcev"
+],
+"SL-32": [
+"Slavonija",
+"Hrvati",
+"607.970 prebivalcev"
+],
+"SO-33": [
+"Soli",
+"Bošñaki",
+"445.028 prebivalcev"
+],
+"SP-34": [
+"Šopluk",
+"Bolgari",
+"434.705 prebivalcev"
+],
+"ST-35": [
+"Štajerska",
+"Slovenci",
+"696.561 prebivalcev"
+],
+"SU-36": [
+"Šumadija",
+"Srbi",
+"986.599 prebivalcev"
+],
+"SX-37": [
+"Stranxa",
+"Bolgari",
+"26.516 prebivalcev"
+],
+"SZ-38": [
+"Zapadni Srěm",
+"Hrvati",
+"132.635 prebivalcev"
+],
+"TK-39": [
+"Timok",
+"Srbi",
+"210.640 prebivalcev"
+],
+"TL-40": [
+"Torlak",
+"Srbi",
+"884.014 prebivalcev"
+],
+"TR-41": [
+"Trakija",
+"Bolgari",
+"708.171 prebivalcev"
+],
+"TU-42": [
+"Tunxa",
+"Bolgari",
+"743.550 prebivalcev"
+],
+"US-43": [
+"Usora",
+"Srbi",
+"260.616 prebivalcev"
+],
+"VB-44": [
+"Vrhbosna",
+"Bošñaki",
+"654.378 prebivalcev"
+],
+"VS-45": [
+"Severen Vardar",
+"Makedonci",
+"689.546 prebivalcev"
+],
+"VZ-46": [
+"Zapaden Vardar",
+"Makedonci",
+"717.766 prebivalcev"
+],
+"ZA-47": [
+"Zagorje",
+"Hrvati",
+"799.147 prebivalcev"
+],
+"ZL-48": [
+"Zlatibor",
+"Srbi",
+"138.330 prebivalcev"
+],
+"BG-91": [
+"Beograd",
+"Konfederalno ozemļe",
+"1.685.563 prebivalcev"
+],
+"SA-92": [
+"Sarajevo",
+"Konfederalno ozemļe",
+"413.593 prebivalcev"
+],
+"SF-93": [
+"Sofija",
+"Konfederalno ozemļe",
+"1.303.813 prebivalcev"
+],
+"ZG-94": [
+"Zagreb",
+"Konfederalno ozemļe",
+"837.607 prebivalcev"
+],
+"BK-95": [
+"Brčko",
+"Konfederalna občina",
+"83.516 prebivalcev"
+],
+"MO-96": [
+"Mostar",
+"Konfederalna občina",
+"105.797 prebivalcev"
+]
+}
+},
+"state": {
+"crumb": [
+"Domov",
+"Države",
+"Lika"
+],
+"type": "Teritorialna država",
+"rows": [
+[
+"Uradna oznaka",
+"LK-20"
+],
+[
+"Status",
+"Teritorialna država"
+],
+[
+"Konstitutivni narod",
+"Hrvati"
+],
+[
+"Regionalni standard",
+"Središñi standard"
+],
+[
+"Sedež",
+"Gospić"
+],
+[
+"Občine",
+"45"
+],
+[
+"Prebivalstvo",
+"238.156Popis 2021"
+],
+[
+"Površina",
+"12.838 km²"
+],
+[
+"Gostota prebivalstva",
+"19 prebivalcev / km²"
+],
+[
+"BDP na prebivalca (SKM, ocena)",
+"22.500 SKM59 % povprečja EU-27 · Eurostat NUTS 3, 2023"
+],
+[
+"Avtonomne skupnosti",
+"1"
+]
+]
+},
+"cons": {
+"h": [
+"Splošne določbe"
+],
+"crumb": [
+"Domov",
+"Ustava",
+"Poglavje I"
+],
+"arts": [
+{
+"id": "art-1",
+"num": "Člen 1",
+"name": "Balkanska konfederacija",
+"body": [
+"Sedem konstitutivnih narodov in vse skupnosti, ki delijo ñihovo zemļo, združeni v konfederiranih državah in konfederalnih avtonomnih občinah, naštetih v členu 1 bis, tvorijo Balkansko konfederacijo (Balkanska Konfederacija)."
+]
+},
+{
+"id": "art-2",
+"num": "Člen 2",
+"name": "Namen",
+"body": [
+"Balkanska konfederacija varuje svobodo in pravice svojih narodov in vsake osebe ter zagotavļa neodvisnost in varnost dežele.",
+"Spodbuja skupno blagiño, notraño kohezijo ter kulturno, jezikovno in versko raznolikost dežele.",
+"Skrbi za čim večjo enakost možnosti med državļani in med državami."
+]
+},
+{
+"id": "art-3",
+"num": "Člen 3",
+"name": "Konfederirane države",
+"body": [
+"Konfederirane države so suverene, kolikor ñihove suverenosti ne omejuje konfederalna Ustava; izvršujejo vse pravice, ki niso prenesene na Konfederacijo."
+]
+},
+{
+"id": "art-4",
+"num": "Člen 4",
+"name": "Jeziki",
+"body": [
+"Nacionalni jezik Konfederacije je južnoslovanski jezik. Izraža se v treh regionalnih standardih, zahodnem, osredñem in vzhodnem, ki imajo enako dostojanstvo in enak pravni položaj (člen 128).",
+"Vsaka država določi svoj uradni jezik v okviru teh standardov in lahko prizna narečne standarde (člen 127).",
+"Jeziki mañšinskih skupnosti so varovani v ñihovih avtonomnih entitetah (člena 1 quater in 127).",
+"Konfederacija skrbi, da je narečna raznolikost v teritorialni upravi zastopana, kolikor je mogoče."
+]
+},
+{
+"id": "art-5",
+"num": "Člen 5",
+"name": "Načela javnega delovaña, ki ga ureja pravo",
+"body": [
+"Pravo je temeļ in meja delovaña Konfederacije, držav in občin.",
+"Vse javno delovañe mora biti v javnem interesu in sorazmerno zasledovanim ciļem.",
+"Oblasti in zasebniki morajo ravnati v dobri veri.",
+"Konfederacija in države spoštujejo mednarodno pravo."
+]
+},
+{
+"id": "art-6",
+"num": "Člen 6",
+"name": "Subsidiarnost",
+"body": [
+"Dodeļevañe in izvajañe javnih nalog temeļita na načelu subsidiarnosti.",
+"Naloga se zaupa ravni, ki je državļanom najbližja in jo je zmožna opraviti: občini, nato državi, nato Konfederaciji (člen 43)."
+]
+},
+{
+"id": "art-7",
+"num": "Člen 7",
+"name": "Individualna in družbena odgovornost",
+"body": [
+"Vsaka oseba je odgovorna zase in po svojih močeh prispeva k nalogam skupnosti in družbe."
+]
+},
+{
+"id": "art-7bis",
+"num": "Člen 7 bis",
+"name": "Simboli Konfederacije",
+"body": [
+"Zastava Konfederacije je sestavļena iz navpičnega rdečega pasu ob drogu in poļa treh vodoravnih pasov, modrega, belega in modrega. To je zastava državļanov in občinskih oblasti.",
+"Državna zastava nosi poleg tega na rdečem pasu sijoče zlato sonce z naloženim rdečim krilatim levom; ñen beli pas obrobļajo frizi, navdihñeni z balkanskimi tekstilijami. Pridržana je za konfederalne institucije, oborožene sile in predstavništva Konfederacije v tujini. Razmerja in odtenke obeh zastav določi zakon.",
+"Emblem Konfederacije je zlati krilati lev. Pečat Konfederacije nosi krilatega leva na soncu s sedmimi žarki.",
+"Geslo Konfederacije je „Naš dom“.",
+"Himno Konfederacije določi zakon.",
+"Za zakone o simbolih Konfederacije je potrebno soglasje Skupščine narodov (člen 109 a)."
+]
+}
+]
+},
+"searchPh": "Iščite države, skupnosti, narode, črke, strani…",
+"noMatch": "Ni zadetkov.",
+"langs": [
+[
+"EN",
+""
+],
+[
+"ZAP",
+""
+],
+[
+"SRE",
+""
+],
+[
+"IST",
+""
+]
+]
+},
+"sre": {
+"home": {
+"nav": [
+"Početna",
+"Države",
+"Karta",
+"Institucije",
+"Sigurnost",
+"Ustav",
+"Identitet",
+"Participacija"
+],
+"brand": "Balkanska Konfederacija",
+"brandSub": "Naš dom",
+"register": "Registracija",
+"search": "Pretraga portala",
+"htmlLang": "sh",
+"eyebrow": "Službeni portal",
+"h1": "Balkanska konfederacija",
+"lead": "Konfederacija pedeset dvě države i sedam konstitutivnih južnoslovenskih naroda, ujediñenih u balkanski savez koji počiva na ravnopravnosti država i na neposrednoj demokratiji.",
+"motto": "„Naš dom“ · geslo Konfederacije.",
+"cta": [
+"Istražite države",
+"Postanite državļanin"
+],
+"unionH": "Konfederacija država, dom za narode.",
+"unionP": "Balkanska po teritoriji, južnoslovenska po jeziku i srodstvu: pedeset dvě države uživaju samoupravu u okviru jedinstvenog konfederalnog poretka koji počiva na ravnopravnosti i neposrednoj demokratiji.",
+"figs": [
+[
+"52",
+"Države članice"
+],
+[
+"7",
+"Konstitutivni narodi"
+],
+[
+"4",
+"Konfederalni glavni gradovi"
+],
+[
+"24",
+"Autonomne zajednice"
+]
+],
+"bands": [
+"Od jadranske obale do Crnog mora, jedan konfederalni prostor.",
+"Vaša država bira Kongres. Vaš narod bira Narodni Sabor.",
+"Naš dom."
+],
+"bandSub": "Konfederalno digitalno državļanstvo otvara pristup platformi za participaciju: konsultacije, rasprave, predlozi i glasaña.",
+"feats": [
+[
+"Sedam naroda, jedan dom",
+"Slovenci, Hrvati, Srbi, Bošñaci, Crnogorci, Makedonci i Bugari zajedno imaju jedinstven južnoslovenski jezik i jedinstvenu abecedu, a uz ñih žive i priznate zajednice: albanska, mađarska, turska i slovačka.",
+"Jezik i identitet"
+],
+[
+"Četiri konfederalne institucije",
+"Kongres donosi zakone, Narodni Sabor čuva ravnopravnost naroda, Konfederalno Veće donosi odluke konsenzusom, a Ustavni Sud štiti Ustav; sědišta institucija nalaze se u četiri konfederalna glavna grada.",
+"Institucije"
+]
+],
+"exploreH": "Istražite portal",
+"cards": [
+[
+"Teritorija",
+"Države i teritorije",
+"52 države, konfederalne teritorije i konfederalne autonomne opštine."
+],
+[
+"Geografija",
+"Interaktivna karta",
+"Granice opština, demografski i ekonomski pokazateļi po državama."
+],
+[
+"Vlast",
+"Institucije",
+"Kongres, Narodni Sabor, Konfederalno Veće i Ustavni Sud."
+],
+[
+"Pravo",
+"Ustav",
+"Objediñeni tekst Ustava Konfederacije i ñegove glave."
+],
+[
+"Jezik",
+"Identitet i abeceda",
+"Jedinstvena latinica, simboli i heraldika saveza."
+],
+[
+"Građanski život",
+"Participacija",
+"Konfederalno digitalno državļanstvo i platforma za participaciju."
+]
+],
+"journalH": "Službeni glasnik",
+"journal": 27,
+"journalRows": [
+[
+"2026-11-09",
+"Nova glava V bis uređuje konfederalnu koheziju. Pripadnost Konfederaciji je građanska: ona se dodaje pripadnosti narodu, a ne zaměñuje je, i ne postoji balkanski registar. Konfederalne stranke podnose liste u najmañe dvanaest država najmañe tri naroda; svaki učenik sredñe škole provodi semestar u državi drugog naroda; zajedničko jezgro istorije i konfederalni panteon; Dan Konfederacije ne oblěžava nijednu bitku. Služba se obavļa izvan države pripadnosti, svaki narod ima svoju fudbalsku reprezentaciju, klubovi igraju u jedinstvenoj Konfederalnoj Ligi, Transbalkanska povezuje Ļubļanu, Zagreb, Beograd i Sofiju, a KRT emituje program na tri standarda.",
+"Pravo"
+],
+[
+"2026-11-08",
+"Konfederalna Agencija za Vanredne Situacije, koja rukovodi civilnom zaštitom, dobija skraćenicu KAVS, izvedenu iz svog imena; ranije je nosila skraćenicu ACGUB, izvedenu iz francuskog naziva. Kao i ostale skraćenice, prati ime u svakom standardu: KAIR na zapadnom, KAIS na istočnom. Ñeni zadaci ostaju isti.",
+"Pravo"
+],
+[
+"2026-11-06",
+"Bugarski i makedonski pišu se samo ćirilicom: istočni standard se sada otvara na ćirilici, a latinica ostaje kao mogućnost. Središñi se i daļe otvara na latinici, a svaki standard pamti svoj izbor.",
+"Identitet"
+]
+]
+},
+"states": {
+"eyebrow": "IMENIK",
+"h1": "Države i teritorije",
+"lead": "Četrdeset osam teritorijalnih država, četiri konfederalne teritorije i dvě konfederalne autonomne opštine. Filtrirajte po konstitutivnom narodu ili tražite po nazivu, kodu ili sědištu.",
+"ph": "Tražite državu, kod, sědište…",
+"chips": [
+"Sve",
+"Slovenci",
+"Hrvati",
+"Srbi",
+"Bošñaci",
+"Crnogorci",
+"Makedonci",
+"Bugari",
+"Konfederalne"
+],
+"cards": {
+"BA-01": [
+"Bosanska Krajina",
+"Bošñaci",
+"273.261 stanovnik"
+],
+"BC-02": [
+"Bačka",
+"Srbi",
+"969.037 stanovnika"
+],
+"BE-03": [
+"Bregalnica",
+"Makedonci",
+"150.234 stanovnika"
+],
+"BN-04": [
+"Banat",
+"Srbi",
+"487.958 stanovnika"
+],
+"BZ-05": [
+"Zapadna Bosna",
+"Srbi",
+"566.966 stanovnika"
+],
+"CG-06": [
+"Crna Gora",
+"Crnogorci",
+"491.158 stanovnika"
+],
+"CM-07": [
+"Černomorska",
+"Bugari",
+"808.446 stanovnika"
+],
+"DA-08": [
+"Dalmacija",
+"Hrvati",
+"725.941 stanovnik"
+],
+"DJ-09": [
+"Južna Dobruxa",
+"Bugari",
+"236.223 stanovnika"
+],
+"DR-10": [
+"Dubrovačka Republika",
+"Hrvati",
+"69.721 stanovnik"
+],
+"GV-11": [
+"Vzhodna Goriška",
+"Slovenci",
+"200.550 stanovnika"
+],
+"HI-12": [
+"Istočna Hercegovina",
+"Srbi",
+"106.180 stanovnika"
+],
+"HZ-13": [
+"Zapadna Hercegovina",
+"Hrvati",
+"246.631 stanovnik"
+],
+"IS-14": [
+"Istra",
+"Hrvati",
+"221.444 stanovnika"
+],
+"KJ-15": [
+"Južna Koroška",
+"Slovenci",
+"37.165 stanovnika"
+],
+"KM-16": [
+"Kosovo i Metohija",
+"Srbi",
+"34.819 stanovnika"
+],
+"KR-17": [
+"Krañska",
+"Slovenci",
+"1.125.040 stanovnika"
+],
+"KV-18": [
+"Kvarner",
+"Hrvati",
+"239.212 stanovnika"
+],
+"LG-19": [
+"Ludogorje",
+"Bugari",
+"340.317 stanovnika"
+],
+"LK-20": [
+"Lika",
+"Hrvati",
+"238.156 stanovnika"
+],
+"MI-21": [
+"Istočna Mizija",
+"Bugari",
+"798.112 stanovnika"
+],
+"MZ-22": [
+"Zapadna Mizija",
+"Bugari",
+"324.937 stanovnika"
+],
+"PA-23": [
+"Pajonija",
+"Makedonci",
+"279.167 stanovnika"
+],
+"PI-24": [
+"Istočno Podriñe",
+"Srbi",
+"424.092 stanovnika"
+],
+"PM-25": [
+"Prekmurje",
+"Slovenci",
+"75.791 stanovnik"
+],
+"PO-26": [
+"Podunavļe",
+"Srbi",
+"326.523 stanovnika"
+],
+"PR-27": [
+"Pirin",
+"Bugari",
+"285.644 stanovnika"
+],
+"PZ-28": [
+"Zapadno Podriñe",
+"Srbi",
+"375.193 stanovnika"
+],
+"RO-29": [
+"Rodopi",
+"Bugari",
+"412.773 stanovnika"
+],
+"RS-30": [
+"Raška Sanxak",
+"Srbi",
+"418.245 stanovnika"
+],
+"SI-31": [
+"Istočni Srěm",
+"Srbi",
+"292.361 stanovnik"
+],
+"SL-32": [
+"Slavonija",
+"Hrvati",
+"607.970 stanovnika"
+],
+"SO-33": [
+"Soli",
+"Bošñaci",
+"445.028 stanovnika"
+],
+"SP-34": [
+"Šopluk",
+"Bugari",
+"434.705 stanovnika"
+],
+"ST-35": [
+"Štajerska",
+"Slovenci",
+"696.561 stanovnik"
+],
+"SU-36": [
+"Šumadija",
+"Srbi",
+"986.599 stanovnika"
+],
+"SX-37": [
+"Stranxa",
+"Bugari",
+"26.516 stanovnika"
+],
+"SZ-38": [
+"Zapadni Srěm",
+"Hrvati",
+"132.635 stanovnika"
+],
+"TK-39": [
+"Timok",
+"Srbi",
+"210.640 stanovnika"
+],
+"TL-40": [
+"Torlak",
+"Srbi",
+"884.014 stanovnika"
+],
+"TR-41": [
+"Trakija",
+"Bugari",
+"708.171 stanovnik"
+],
+"TU-42": [
+"Tunxa",
+"Bugari",
+"743.550 stanovnika"
+],
+"US-43": [
+"Usora",
+"Srbi",
+"260.616 stanovnika"
+],
+"VB-44": [
+"Vrhbosna",
+"Bošñaci",
+"654.378 stanovnika"
+],
+"VS-45": [
+"Severen Vardar",
+"Makedonci",
+"689.546 stanovnika"
+],
+"VZ-46": [
+"Zapaden Vardar",
+"Makedonci",
+"717.766 stanovnika"
+],
+"ZA-47": [
+"Zagorje",
+"Hrvati",
+"799.147 stanovnika"
+],
+"ZL-48": [
+"Zlatibor",
+"Srbi",
+"138.330 stanovnika"
+],
+"BG-91": [
+"Beograd",
+"Konfederalna teritorija",
+"1.685.563 stanovnika"
+],
+"SA-92": [
+"Sarajevo",
+"Konfederalna teritorija",
+"413.593 stanovnika"
+],
+"SF-93": [
+"Sofija",
+"Konfederalna teritorija",
+"1.303.813 stanovnika"
+],
+"ZG-94": [
+"Zagreb",
+"Konfederalna teritorija",
+"837.607 stanovnika"
+],
+"BK-95": [
+"Brčko",
+"Konfederalna opština",
+"83.516 stanovnika"
+],
+"MO-96": [
+"Mostar",
+"Konfederalna opština",
+"105.797 stanovnika"
+]
+}
+},
+"state": {
+"crumb": [
+"Početna",
+"Države",
+"Lika"
+],
+"type": "Teritorijalna država",
+"rows": [
+[
+"Službeni kod",
+"LK-20"
+],
+[
+"Status",
+"Teritorijalna država"
+],
+[
+"Konstitutivni narod",
+"Hrvati"
+],
+[
+"Regionalni standard",
+"središñi standard"
+],
+[
+"Sědište",
+"Gospić"
+],
+[
+"Opštine",
+"45"
+],
+[
+"Stanovništvo",
+"238.156Popis 2021"
+],
+[
+"Površina",
+"12.838 km²"
+],
+[
+"Gustina naseļenosti",
+"19 stanovnika / km²"
+],
+[
+"BDP po stanovniku (SKM, procěna)",
+"22.500 SKM59% prosěka EU-27 · Eurostat NUTS 3, 2023"
+],
+[
+"Autonomne zajednice",
+"1"
+]
+]
+},
+"cons": {
+"h": [
+"Opšte odredbe"
+],
+"crumb": [
+"Početna",
+"Ustav",
+"Glava I"
+],
+"arts": [
+{
+"id": "art-1",
+"num": "Član 1",
+"name": "Balkanska konfederacija",
+"body": [
+"Sedam konstitutivnih naroda i sve zajednice koje děle ñihovu zemļu, ujediñeni u državama članicama i konfederalnim autonomnim opštinama navedenim u članu 1 bis, čine Balkansku konfederaciju (Balkanska Konfederacija)."
+]
+},
+{
+"id": "art-2",
+"num": "Član 2",
+"name": "Svrha",
+"body": [
+"Balkanska konfederacija štiti slobodu i prava svojih naroda i svake osobe, i čuva nezavisnost i sigurnost zemļe.",
+"Ona unaprěđuje zajedničko blagostañe, koheziju unutar zemļe i raznolikost ñenih kultura, jezika i věra.",
+"Ona osigurava najveću moguću jednakost prilika među državļanima i među državama."
+]
+},
+{
+"id": "art-3",
+"num": "Član 3",
+"name": "Države članice",
+"body": [
+"Države članice su suverene, osim u měri u kojoj je ñihov suverenitet ograničen Konfederalnim ustavom; one vrše sva prava koja nisu prenesena na Konfederaciju."
+]
+},
+{
+"id": "art-4",
+"num": "Član 4",
+"name": "Jezici",
+"body": [
+"Nacionalni jezik Konfederacije je južnoslovenski jezik. On se izražava kroz tri regionalna standarda, zapadni, središñi i istočni, jednaka po dostojanstvu i ravnopravna (član 128).",
+"Svaka država određuje svoj službeni jezik u okviru tih standarda i može priznati dijalektalne standarde (član 127).",
+"Jezici mañinskih zajednica zaštićeni su u ñihovim autonomnim entitetima (članovi 1 quater i 127).",
+"Konfederacija osigurava da dijalektalna raznolikost bude, koliko je to moguće, zastupļena u teritorijalnoj upravi."
+]
+},
+{
+"id": "art-5",
+"num": "Član 5",
+"name": "Načela javne dělatnosti podređene vladavini prava",
+"body": [
+"Pravo je osnova i granica dělatnosti Konfederacije, država i opština.",
+"Svaka javna dělatnost mora biti u javnom interesu i proporcionalna ciļevima kojima se teži.",
+"Organi vlasti i privatne osobe moraju postupati u dobroj věri.",
+"Konfederacija i države poštuju međunarodno pravo."
+]
+},
+{
+"id": "art-6",
+"num": "Član 6",
+"name": "Supsidijarnost",
+"body": [
+"Raspoděla i izvršavañe javnih zadataka zasnivaju se na načelu supsidijarnosti.",
+"Zadatak se pověrava nivou najbližem državļanima koji ga može izvršiti: opštini, zatim državi, zatim Konfederaciji (član 43)."
+]
+},
+{
+"id": "art-7",
+"num": "Član 7",
+"name": "Individualna i društvena odgovornost",
+"body": [
+"Svaka osoba odgovorna je za sebe i, prema svojim sposobnostima, doprinosi izvršavañu zadataka zajednice i društva."
+]
+},
+{
+"id": "art-7bis",
+"num": "Član 7 bis",
+"name": "Simboli Konfederacije",
+"body": [
+"Zastava Konfederacije sastoji se od vertikalne crvene trake uz kopļe i poļa od tri horizontalne trake, plave, běle i plave. Ona je zastava državļana i opštinskih vlasti.",
+"Državna zastava na crvenoj traci nosi i zlatno zrakasto sunce na kojem je crveni krilati lav; ñena běla traka obrubļena je frizovima nadahnutim balkanskim tkaninama. Ñu upotrebļavaju iskļučivo konfederalne institucije, oružane snage i predstavništva Konfederacije izvan zemļe. Zakon utvrđuje proporcije i nijanse jedne i druge zastave.",
+"Amblem Konfederacije je zlatni krilati lav. Pečat Konfederacije nosi krilatog lava na suncu sa sedam zraka.",
+"Geslo Konfederacije je „Naš dom“.",
+"Himna Konfederacije utvrđuje se zakonom.",
+"Za zakone o simbolima Konfederacije potreban je pristanak Narodnog Sabora (član 109 a)."
+]
+}
+]
+},
+"searchPh": "Tražite države, zajednice, narode, slova, stranice…",
+"noMatch": "Nema rezultata.",
+"langs": [
+[
+"EN",
+""
+],
+[
+"ZAP",
+""
+],
+[
+"SRE",
+""
+],
+[
+"IST",
+""
+]
+]
+},
+"sre-cyr": {
+"home": {
+"nav": [
+"Почетна",
+"Државе",
+"Карта",
+"Институције",
+"Сигурност",
+"Устав",
+"Идентитет",
+"Партиципација"
+],
+"brand": "Балканска Конфедерација",
+"brandSub": "Наш дом",
+"register": "Регистрација",
+"search": "Претрага портала",
+"htmlLang": "sh-Cyrl",
+"eyebrow": "Службени портал",
+"h1": "Балканска конфедерација",
+"lead": "Конфедерација педесет две државе и седам конститутивних јужнословенских народа, уједињених у балкански савез који почива на равноправности држава и на непосредној демократији.",
+"motto": "„Наш дом“ · гесло Конфедерације.",
+"cta": [
+"Истражите државе",
+"Постаните држављанин"
+],
+"unionH": "Конфедерација држава, дом за народе.",
+"unionP": "Балканска по територији, јужнословенска по језику и сродству: педесет две државе уживају самоуправу у оквиру јединственог конфедералног поретка који почива на равноправности и непосредној демократији.",
+"figs": [
+[
+"52",
+"Државе чланице"
+],
+[
+"7",
+"Конститутивни народи"
+],
+[
+"4",
+"Конфедерални главни градови"
+],
+[
+"24",
+"Аутономне заједнице"
+]
+],
+"bands": [
+"Од јадранске обале до Црног мора, један конфедерални простор.",
+"Ваша држава бира Конгрес. Ваш народ бира Народни Сабор.",
+"Наш дом."
+],
+"bandSub": "Конфедерално дигитално држављанство отвара приступ платформи за партиципацију: консултације, расправе, предлози и гласања.",
+"feats": [
+[
+"Седам народа, један дом",
+"Словенци, Хрвати, Срби, Бошњаци, Црногорци, Македонци и Бугари заједно имају јединствен јужнословенски језик и јединствену абецеду, а уз њих живе и признате заједнице: албанска, мађарска, турска и словачка.",
+"Језик и идентитет"
+],
+[
+"Четири конфедералне институције",
+"Конгрес доноси законе, Народни Сабор чува равноправност народа, Конфедерално Веће доноси одлуке консензусом, а Уставни Суд штити Устав; седишта институција налазе се у четири конфедерална главна града.",
+"Институције"
+]
+],
+"exploreH": "Истражите портал",
+"cards": [
+[
+"Територија",
+"Државе и територије",
+"52 државе, конфедералне територије и конфедералне аутономне општине."
+],
+[
+"Географија",
+"Интерактивна карта",
+"Границе општина, демографски и економски показатељи по државама."
+],
+[
+"Власт",
+"Институције",
+"Конгрес, Народни Сабор, Конфедерално Веће и Уставни Суд."
+],
+[
+"Право",
+"Устав",
+"Обједињени текст Устава Конфедерације и његове главе."
+],
+[
+"Језик",
+"Идентитет и абецеда",
+"Јединствена латиница, симболи и хералдика савеза."
+],
+[
+"Грађански живот",
+"Партиципација",
+"Конфедерално дигитално држављанство и платформа за партиципацију."
+]
+],
+"journalH": "Службени гласник",
+"journal": 27,
+"journalRows": [
+[
+"2026-11-09",
+"Нова глава V бис уређује конфедералну кохезију. Припадност Конфедерацији је грађанска: она се додаје припадности народу, а не замењује је, и не постоји балкански регистар. Конфедералне странке подносе листе у најмање дванаест држава најмање три народа; сваки ученик средње школе проводи семестар у држави другог народа; заједничко језгро историје и конфедерални пантеон; Дан Конфедерације не облежава ниједну битку. Служба се обавља изван државе припадности, сваки народ има своју фудбалску репрезентацију, клубови играју у јединственој Конфедералној Лиги, Трансбалканска повезује Љубљану, Загреб, Београд и Софију, а КРТ емитује програм на три стандарда.",
+"Право"
+],
+[
+"2026-11-08",
+"Конфедерална Агенција за Ванредне Ситуације, која руководи цивилном заштитом, добија скраћеницу КАВС, изведену из свог имена; раније је носила скраћеницу АЦГУБ, изведену из француског назива. Као и остале скраћенице, прати име у сваком стандарду: КАИР на западном, КАИС на источном. Њени задаци остају исти.",
+"Право"
+],
+[
+"2026-11-06",
+"Бугарски и македонски пишу се само ћирилицом: источни стандард се сада отвара на ћирилици, а латиница остаје као могућност. Средишњи се и даље отвара на латиници, а сваки стандард памти свој избор.",
+"Идентитет"
+]
+]
+},
+"states": {
+"eyebrow": "ИМЕНИК",
+"h1": "Државе и територије",
+"lead": "Четрдесет осам територијалних држава, четири конфедералне територије и две конфедералне аутономне општине. Филтрирајте по конститутивном народу или тражите по називу, коду или седишту.",
+"ph": "Тражите државу, код, седиште…",
+"chips": [
+"Све",
+"Словенци",
+"Хрвати",
+"Срби",
+"Бошњаци",
+"Црногорци",
+"Македонци",
+"Бугари",
+"Конфедералне"
+],
+"cards": {
+"BA-01": [
+"Босанска Крајина",
+"Бошњаци",
+"273.261 становник"
+],
+"BC-02": [
+"Бачка",
+"Срби",
+"969.037 становника"
+],
+"BE-03": [
+"Брегалница",
+"Македонци",
+"150.234 становника"
+],
+"BN-04": [
+"Банат",
+"Срби",
+"487.958 становника"
+],
+"BZ-05": [
+"Западна Босна",
+"Срби",
+"566.966 становника"
+],
+"CG-06": [
+"Црна Гора",
+"Црногорци",
+"491.158 становника"
+],
+"CM-07": [
+"Черноморска",
+"Бугари",
+"808.446 становника"
+],
+"DA-08": [
+"Далмација",
+"Хрвати",
+"725.941 становник"
+],
+"DJ-09": [
+"Јужна Добруџа",
+"Бугари",
+"236.223 становника"
+],
+"DR-10": [
+"Дубровачка Република",
+"Хрвати",
+"69.721 становник"
+],
+"GV-11": [
+"Взходна Горишка",
+"Словенци",
+"200.550 становника"
+],
+"HI-12": [
+"Источна Херцеговина",
+"Срби",
+"106.180 становника"
+],
+"HZ-13": [
+"Западна Херцеговина",
+"Хрвати",
+"246.631 становник"
+],
+"IS-14": [
+"Истра",
+"Хрвати",
+"221.444 становника"
+],
+"KJ-15": [
+"Јужна Корошка",
+"Словенци",
+"37.165 становника"
+],
+"KM-16": [
+"Косово и Метохија",
+"Срби",
+"34.819 становника"
+],
+"KR-17": [
+"Крањска",
+"Словенци",
+"1.125.040 становника"
+],
+"KV-18": [
+"Кварнер",
+"Хрвати",
+"239.212 становника"
+],
+"LG-19": [
+"Лудогорје",
+"Бугари",
+"340.317 становника"
+],
+"LK-20": [
+"Лика",
+"Хрвати",
+"238.156 становника"
+],
+"MI-21": [
+"Источна Мизија",
+"Бугари",
+"798.112 становника"
+],
+"MZ-22": [
+"Западна Мизија",
+"Бугари",
+"324.937 становника"
+],
+"PA-23": [
+"Пајонија",
+"Македонци",
+"279.167 становника"
+],
+"PI-24": [
+"Источно Подриње",
+"Срби",
+"424.092 становника"
+],
+"PM-25": [
+"Прекмурје",
+"Словенци",
+"75.791 становник"
+],
+"PO-26": [
+"Подунавље",
+"Срби",
+"326.523 становника"
+],
+"PR-27": [
+"Пирин",
+"Бугари",
+"285.644 становника"
+],
+"PZ-28": [
+"Западно Подриње",
+"Срби",
+"375.193 становника"
+],
+"RO-29": [
+"Родопи",
+"Бугари",
+"412.773 становника"
+],
+"RS-30": [
+"Рашка Санџак",
+"Срби",
+"418.245 становника"
+],
+"SI-31": [
+"Источни Срем",
+"Срби",
+"292.361 становник"
+],
+"SL-32": [
+"Славонија",
+"Хрвати",
+"607.970 становника"
+],
+"SO-33": [
+"Соли",
+"Бошњаци",
+"445.028 становника"
+],
+"SP-34": [
+"Шоплук",
+"Бугари",
+"434.705 становника"
+],
+"ST-35": [
+"Штајерска",
+"Словенци",
+"696.561 становник"
+],
+"SU-36": [
+"Шумадија",
+"Срби",
+"986.599 становника"
+],
+"SX-37": [
+"Странџа",
+"Бугари",
+"26.516 становника"
+],
+"SZ-38": [
+"Западни Срем",
+"Хрвати",
+"132.635 становника"
+],
+"TK-39": [
+"Тимок",
+"Срби",
+"210.640 становника"
+],
+"TL-40": [
+"Торлак",
+"Срби",
+"884.014 становника"
+],
+"TR-41": [
+"Тракија",
+"Бугари",
+"708.171 становник"
+],
+"TU-42": [
+"Тунџа",
+"Бугари",
+"743.550 становника"
+],
+"US-43": [
+"Усора",
+"Срби",
+"260.616 становника"
+],
+"VB-44": [
+"Врхбосна",
+"Бошњаци",
+"654.378 становника"
+],
+"VS-45": [
+"Северен Вардар",
+"Македонци",
+"689.546 становника"
+],
+"VZ-46": [
+"Западен Вардар",
+"Македонци",
+"717.766 становника"
+],
+"ZA-47": [
+"Загорје",
+"Хрвати",
+"799.147 становника"
+],
+"ZL-48": [
+"Златибор",
+"Срби",
+"138.330 становника"
+],
+"BG-91": [
+"Београд",
+"Конфедерална територија",
+"1.685.563 становника"
+],
+"SA-92": [
+"Сарајево",
+"Конфедерална територија",
+"413.593 становника"
+],
+"SF-93": [
+"Софија",
+"Конфедерална територија",
+"1.303.813 становника"
+],
+"ZG-94": [
+"Загреб",
+"Конфедерална територија",
+"837.607 становника"
+],
+"BK-95": [
+"Брчко",
+"Конфедерална општина",
+"83.516 становника"
+],
+"MO-96": [
+"Мостар",
+"Конфедерална општина",
+"105.797 становника"
+]
+}
+},
+"state": {
+"crumb": [
+"Почетна",
+"Државе",
+"Лика"
+],
+"type": "Територијална држава",
+"rows": [
+[
+"Службени код",
+"LK-20"
+],
+[
+"Статус",
+"Територијална држава"
+],
+[
+"Конститутивни народ",
+"Хрвати"
+],
+[
+"Регионални стандард",
+"средишњи стандард"
+],
+[
+"Седиште",
+"Госпић"
+],
+[
+"Општине",
+"45"
+],
+[
+"Становништво",
+"238.156Попис 2021"
+],
+[
+"Површина",
+"12.838 км²"
+],
+[
+"Густина насељености",
+"19 становника / км²"
+],
+[
+"БДП по становнику (СКМ, процена)",
+"22.500 СКМ59% просека EU-27 · Eurostat НУТС 3, 2023"
+],
+[
+"Аутономне заједнице",
+"1"
+]
+]
+},
+"cons": {
+"h": [
+"Опште одредбе"
+],
+"crumb": [
+"Почетна",
+"Устав",
+"Глава I"
+],
+"arts": [
+{
+"id": "art-1",
+"num": "Члан 1",
+"name": "Балканска конфедерација",
+"body": [
+"Седам конститутивних народа и све заједнице које деле њихову земљу, уједињени у државама чланицама и конфедералним аутономним општинама наведеним у члану 1 бис, чине Балканску конфедерацију (Балканска Конфедерација)."
+]
+},
+{
+"id": "art-2",
+"num": "Члан 2",
+"name": "Сврха",
+"body": [
+"Балканска конфедерација штити слободу и права својих народа и сваке особе, и чува независност и сигурност земље.",
+"Она унапређује заједничко благостање, кохезију унутар земље и разноликост њених култура, језика и вера.",
+"Она осигурава највећу могућу једнакост прилика међу држављанима и међу државама."
+]
+},
+{
+"id": "art-3",
+"num": "Члан 3",
+"name": "Државе чланице",
+"body": [
+"Државе чланице су суверене, осим у мери у којој је њихов суверенитет ограничен Конфедералним уставом; оне врше сва права која нису пренесена на Конфедерацију."
+]
+},
+{
+"id": "art-4",
+"num": "Члан 4",
+"name": "Језици",
+"body": [
+"Национални језик Конфедерације је јужнословенски језик. Он се изражава кроз три регионална стандарда, западни, средишњи и источни, једнака по достојанству и равноправна (члан 128).",
+"Свака држава одређује свој службени језик у оквиру тих стандарда и може признати дијалекталне стандарде (члан 127).",
+"Језици мањинских заједница заштићени су у њиховим аутономним ентитетима (чланови 1 quater и 127).",
+"Конфедерација осигурава да дијалектална разноликост буде, колико је то могуће, заступљена у територијалној управи."
+]
+},
+{
+"id": "art-5",
+"num": "Члан 5",
+"name": "Начела јавне делатности подређене владавини права",
+"body": [
+"Право је основа и граница делатности Конфедерације, држава и општина.",
+"Свака јавна делатност мора бити у јавном интересу и пропорционална циљевима којима се тежи.",
+"Органи власти и приватне особе морају поступати у доброј вери.",
+"Конфедерација и државе поштују међународно право."
+]
+},
+{
+"id": "art-6",
+"num": "Члан 6",
+"name": "Супсидијарност",
+"body": [
+"Расподела и извршавање јавних задатака заснивају се на начелу супсидијарности.",
+"Задатак се поверава нивоу најближем држављанима који га може извршити: општини, затим држави, затим Конфедерацији (члан 43)."
+]
+},
+{
+"id": "art-7",
+"num": "Члан 7",
+"name": "Индивидуална и друштвена одговорност",
+"body": [
+"Свака особа одговорна је за себе и, према својим способностима, доприноси извршавању задатака заједнице и друштва."
+]
+},
+{
+"id": "art-7bis",
+"num": "Члан 7 бис",
+"name": "Симболи Конфедерације",
+"body": [
+"Застава Конфедерације састоји се од вертикалне црвене траке уз копље и поља од три хоризонталне траке, плаве, беле и плаве. Она је застава држављана и општинских власти.",
+"Државна застава на црвеној траци носи и златно зракасто сунце на којем је црвени крилати лав; њена бела трака обрубљена је фризовима надахнутим балканским тканинама. Њу употребљавају искључиво конфедералне институције, оружане снаге и представништва Конфедерације изван земље. Закон утврђује пропорције и нијансе једне и друге заставе.",
+"Амблем Конфедерације је златни крилати лав. Печат Конфедерације носи крилатог лава на сунцу са седам зрака.",
+"Гесло Конфедерације је „Наш дом“.",
+"Химна Конфедерације утврђује се законом.",
+"За законе о симболима Конфедерације потребан је пристанак Народног Сабора (члан 109 а)."
+]
+}
+]
+},
+"searchPh": "Тражите државе, заједнице, народе, слова, странице…",
+"noMatch": "Нема резултата.",
+"langs": [
+[
+"EN",
+""
+],
+[
+"ZAP",
+""
+],
+[
+"SRE",
+""
+],
+[
+"IST",
+""
+]
+]
+},
+"ist-cyr": {
+"home": {
+"nav": [
+"Начало",
+"Държави",
+"Карта",
+"Институции",
+"Сигурност",
+"Конституция",
+"Идентичност",
+"Участие"
+],
+"brand": "Балканска Конфедерация",
+"brandSub": "Наш дом",
+"register": "Регистрация",
+"search": "Търсене в портала",
+"htmlLang": "bg",
+"eyebrow": "Официален портал",
+"h1": "Балканската конфедерация",
+"lead": "Конфедерация от петдесет и две държави и седем конститутивни южнославянски народа, обединени в балкански съюз, основан на равноправието на държавите и на пряката демокрация.",
+"motto": "„Наш дом“ · девизът на Конфедерацията.",
+"cta": [
+"Разгледайте държавите",
+"Станете гражданин"
+],
+"unionH": "Конфедерация от държави, дом за народите.",
+"unionP": "Балканска по територия, южнославянска по език и родство, Конфедерацията обединява петдесет и две държави, които се самоуправляват в единен конфедерален ред, основан на равноправието и пряката демокрация.",
+"figs": [
+[
+"52",
+"Конфедерирани държави"
+],
+[
+"7",
+"Конститутивни народи"
+],
+[
+"4",
+"Конфедерални столици"
+],
+[
+"24",
+"Автономни общности"
+]
+],
+"bands": [
+"От Адриатическото крайбрежие до Черно море — едно конфедерално пространство.",
+"Вашата държава избира Конгреса. Вашият народ избира Събранието на народите.",
+"Наш дом."
+],
+"bandSub": "Конфедералното дигитално гражданство отваря достъп до платформата за участие: допитвания, дебати, предложения и гласувания.",
+"feats": [
+[
+"Седем народа, един дом",
+"Словенците, хърватите, сърбите, бошняците, черногорците, македонците и българите споделят единен южнославянски език и единна азбука, а редом с тях живеят признатите албанска, унгарска, турска и словашка общност.",
+"Език и идентичност"
+],
+[
+"Четири конфедерални институции",
+"Конгресът приема законите, Събранието на народите пази равноправието на народите, Конфедералният съвет управлява с консенсус, а Конституционният съд бди над спазването на Конституцията; седалищата им са в четирите конфедерални столици.",
+"Институциите"
+]
+],
+"exploreH": "Разгледайте портала",
+"cards": [
+[
+"Територия",
+"Държави и територии",
+"Всичките 52 държави, конфедералните територии и конфедералните автономни общини."
+],
+[
+"География",
+"Интерактивна карта",
+"Граници на общините, демографски и икономически показатели по държави."
+],
+[
+"Управление",
+"Институции",
+"Конгресът, Събранието на народите, Конфедералният съвет и Конституционният съд."
+],
+[
+"Право",
+"Конституция",
+"Консолидираният текст на Конфедералната конституция и нейните глави."
+],
+[
+"Език",
+"Идентичност и азбука",
+"Единната латинска азбука, символите и хералдиката на съюза."
+],
+[
+"Граждански живот",
+"Участие",
+"Конфедералното дигитално гражданство и платформата за участие."
+]
+],
+"journalH": "Държавен вестник",
+"journal": 27,
+"journalRows": [
+[
+"2026-11-09",
+"Новата глава V бис урежда конфедералната сплотеност. Принадлежността към Конфедерацията е гражданска: тя се добавя към принадлежността към народ, без да я замества, и балкански регистър няма. Конфедералните партии издигат листи в най-малко дванадесет държави на най-малко три народа; всеки ученик в гимназия прекарва един учебен срок в държава на друг народ; общо ядро по история и конфедерален пантеон; Денят на Конфедерацията не чества никаква битка. Службата се отбива извън държавата на принадлежност, всеки народ има свой футболен отбор, клубовете играят в единна Конфедерална Лига, Трансбалканска свързва Любляна, Загреб, Београд и София, а КРТ излъчва на трите стандарта.",
+"Право"
+],
+[
+"2026-11-08",
+"Конфедералната агенция за извънредни ситуации, която ръководи гражданската защита, получава съкращението КАИС, образувано от нейното име, вместо АЦГУБ, което съкращаваше френско наименование. Както другите съкращения, то следва името във всеки стандарт: КАВС и КАИР в другите два стандарта. Задачите на агенцията не се променят.",
+"Право"
+],
+[
+"2026-11-06",
+"Българският и македонският се пишат само на кирилица: стандартът источни вече се отваря на кирилица, а латиницата остава като възможност. Стандартът средишньи продължава да се отваря на латиница и всеки стандарт помни собствения си избор.",
+"Идентичност"
+]
+]
+},
+"states": {
+"eyebrow": "УКАЗАТЕЛ",
+"h1": "Държави и територии",
+"lead": "Четиридесет и осем териториални държави, четири конфедерални територии и две конфедерални автономни общини. Филтрирайте по конститутивен народ или търсете по име, код или административен център.",
+"ph": "Търсете държава, код, административен център…",
+"chips": [
+"Всички",
+"Словенци",
+"Хървати",
+"Сърби",
+"Бошняци",
+"Черногорци",
+"Македонци",
+"Българи",
+"Конфедерални"
+],
+"cards": {
+"BA-01": [
+"Босанска Крайина",
+"Бошняци",
+"273 261 жители"
+],
+"BC-02": [
+"Бачка",
+"Сърби",
+"969 037 жители"
+],
+"BE-03": [
+"Брегалница",
+"Македонци",
+"150 234 жители"
+],
+"BN-04": [
+"Банат",
+"Сърби",
+"487 958 жители"
+],
+"BZ-05": [
+"Западна Босна",
+"Сърби",
+"566 966 жители"
+],
+"CG-06": [
+"Црна Гора",
+"Черногорци",
+"491 158 жители"
+],
+"CM-07": [
+"Черноморска",
+"Българи",
+"808 446 жители"
+],
+"DA-08": [
+"Далмация",
+"Хървати",
+"725 941 жители"
+],
+"DJ-09": [
+"Южна Добруджа",
+"Българи",
+"236 223 жители"
+],
+"DR-10": [
+"Дубровачка Република",
+"Хървати",
+"69 721 жители"
+],
+"GV-11": [
+"Взходна Горишка",
+"Словенци",
+"200 550 жители"
+],
+"HI-12": [
+"Источна Херцеговина",
+"Сърби",
+"106 180 жители"
+],
+"HZ-13": [
+"Западна Херцеговина",
+"Хървати",
+"246 631 жители"
+],
+"IS-14": [
+"Истра",
+"Хървати",
+"221 444 жители"
+],
+"KJ-15": [
+"Южна Корошка",
+"Словенци",
+"37 165 жители"
+],
+"KM-16": [
+"Косово и Метохия",
+"Сърби",
+"34 819 жители"
+],
+"KR-17": [
+"Краньска",
+"Словенци",
+"1 125 040 жители"
+],
+"KV-18": [
+"Кварнер",
+"Хървати",
+"239 212 жители"
+],
+"LG-19": [
+"Лудогорйе",
+"Българи",
+"340 317 жители"
+],
+"LK-20": [
+"Лика",
+"Хървати",
+"238 156 жители"
+],
+"MI-21": [
+"Источна Мизия",
+"Българи",
+"798 112 жители"
+],
+"MZ-22": [
+"Западна Мизия",
+"Българи",
+"324 937 жители"
+],
+"PA-23": [
+"Пайония",
+"Македонци",
+"279 167 жители"
+],
+"PI-24": [
+"Источно Подринье",
+"Сърби",
+"424 092 жители"
+],
+"PM-25": [
+"Прекмурйе",
+"Словенци",
+"75 791 жители"
+],
+"PO-26": [
+"Подунавлье",
+"Сърби",
+"326 523 жители"
+],
+"PR-27": [
+"Пирин",
+"Българи",
+"285 644 жители"
+],
+"PZ-28": [
+"Западно Подринье",
+"Сърби",
+"375 193 жители"
+],
+"RO-29": [
+"Родопи",
+"Българи",
+"412 773 жители"
+],
+"RS-30": [
+"Рашка Санджак",
+"Сърби",
+"418 245 жители"
+],
+"SI-31": [
+"Источни Срем",
+"Сърби",
+"292 361 жители"
+],
+"SL-32": [
+"Славония",
+"Хървати",
+"607 970 жители"
+],
+"SO-33": [
+"Соли",
+"Бошняци",
+"445 028 жители"
+],
+"SP-34": [
+"Шоплук",
+"Българи",
+"434 705 жители"
+],
+"ST-35": [
+"Щайерска",
+"Словенци",
+"696 561 жители"
+],
+"SU-36": [
+"Шумадия",
+"Сърби",
+"986 599 жители"
+],
+"SX-37": [
+"Странджа",
+"Българи",
+"26 516 жители"
+],
+"SZ-38": [
+"Западни Срем",
+"Хървати",
+"132 635 жители"
+],
+"TK-39": [
+"Тимок",
+"Сърби",
+"210 640 жители"
+],
+"TL-40": [
+"Торлак",
+"Сърби",
+"884 014 жители"
+],
+"TR-41": [
+"Тракия",
+"Българи",
+"708 171 жители"
+],
+"TU-42": [
+"Тунджа",
+"Българи",
+"743 550 жители"
+],
+"US-43": [
+"Усора",
+"Сърби",
+"260 616 жители"
+],
+"VB-44": [
+"Врхбосна",
+"Бошняци",
+"654 378 жители"
+],
+"VS-45": [
+"Северен Вардар",
+"Македонци",
+"689 546 жители"
+],
+"VZ-46": [
+"Западен Вардар",
+"Македонци",
+"717 766 жители"
+],
+"ZA-47": [
+"Загорйе",
+"Хървати",
+"799 147 жители"
+],
+"ZL-48": [
+"Златибор",
+"Сърби",
+"138 330 жители"
+],
+"BG-91": [
+"Београд",
+"Конфедерална територия",
+"1 685 563 жители"
+],
+"SA-92": [
+"Сарайево",
+"Конфедерална територия",
+"413 593 жители"
+],
+"SF-93": [
+"София",
+"Конфедерална територия",
+"1 303 813 жители"
+],
+"ZG-94": [
+"Загреб",
+"Конфедерална територия",
+"837 607 жители"
+],
+"BK-95": [
+"Брчко",
+"Конфедерална община",
+"83 516 жители"
+],
+"MO-96": [
+"Мостар",
+"Конфедерална община",
+"105 797 жители"
+]
+}
+},
+"state": {
+"crumb": [
+"Начало",
+"Държави",
+"Лика"
+],
+"type": "Териториална държава",
+"rows": [
+[
+"Официален код",
+"LK-20"
+],
+[
+"Статут",
+"Териториална държава"
+],
+[
+"Конститутивен народ",
+"Хървати"
+],
+[
+"Регионален стандарт",
+"Централен стандарт (средишньи)"
+],
+[
+"Административен център",
+"Госпић"
+],
+[
+"Общини",
+"45"
+],
+[
+"Население",
+"238 156Преброяване 2021"
+],
+[
+"Площ",
+"12 838 км²"
+],
+[
+"Гъстота на населението",
+"19 жители / км²"
+],
+[
+"БВП на човек (СПС, оценка)",
+"22 500 СПС59% от средното за ЕС (27 държави) · Eurostat НУТС 3, 2023"
+],
+[
+"Автономни общности",
+"1"
+]
+]
+},
+"cons": {
+"h": [
+"Общи разпоредби"
+],
+"crumb": [
+"Начало",
+"Конституция",
+"Глава I"
+],
+"arts": [
+{
+"id": "art-1",
+"num": "Член 1",
+"name": "Балканската конфедерация",
+"body": [
+"Седемте конститутивни народа и всички общности, които споделят тяхната земя, обединени в конфедерираните държави и в конфедералните автономни общини, изброени в член 1 бис, образуват Балканската конфедерация (Балканска Конфедерация)."
+]
+},
+{
+"id": "art-2",
+"num": "Член 2",
+"name": "Цел",
+"body": [
+"Балканската конфедерация защитава свободата и правата на своите народи и на всеки човек и опазва независимостта и сигурността на страната.",
+"Тя насърчава общото благоденствие, вътрешната сплотеност и културното, езиковото и религиозното многообразие на страната.",
+"Тя осигурява възможно най-голямо равенство на възможностите между гражданите и между държавите."
+]
+},
+{
+"id": "art-3",
+"num": "Член 3",
+"name": "Конфедерираните държави",
+"body": [
+"Конфедерираните държави са суверенни, доколкото техният суверенитет не е ограничен от Конфедералната конституция; те упражняват всички права, които не са предоставени на Конфедерацията."
+]
+},
+{
+"id": "art-4",
+"num": "Член 4",
+"name": "Езици",
+"body": [
+"Националният език на Конфедерацията е южнославянският език. Той се изразява чрез три регионални стандарта — западен, централен и източен, равни по достойнство и в правно отношение (член 128).",
+"Всяка държава определя своя официален език в рамките на тези стандарти и може да признава диалектни стандарти (член 127).",
+"Езиците на малцинствените общности са защитени в техните автономни образувания (членове 1 quater и 127).",
+"Конфедерацията осигурява възможно най-широко представяне на диалектното многообразие в териториалната администрация."
+]
+},
+{
+"id": "art-5",
+"num": "Член 5",
+"name": "Принципи на публичната дейност, подчинена на правото",
+"body": [
+"Правото е основа и граница на дейността на Конфедерацията, на държавите и на общините.",
+"Всяка публична дейност трябва да отговаря на обществен интерес и да бъде съразмерна на преследваните цели.",
+"Публичните органи и частните лица трябва да действат добросъвестно.",
+"Конфедерацията и държавите зачитат международното право."
+]
+},
+{
+"id": "art-6",
+"num": "Член 6",
+"name": "Субсидиарност",
+"body": [
+"Разпределението и изпълнението на публичните задачи се основават на принципа на субсидиарност.",
+"Задачата се възлага на най-близкото до гражданите равнище, което е в състояние да я изпълни: общината, след това държавата, след това Конфедерацията (член 43)."
+]
+},
+{
+"id": "art-7",
+"num": "Член 7",
+"name": "Индивидуална и социална отговорност",
+"body": [
+"Всеки човек отговаря за себе си и допринася според възможностите си за изпълнението на задачите на общността и на обществото."
+]
+},
+{
+"id": "art-7bis",
+"num": "Член 7 бис",
+"name": "Символи на Конфедерацията",
+"body": [
+"Знамето на Конфедерацията се състои от вертикална червена ивица откъм древката и поле от три хоризонтални ивици — синя, бяла и синя. То е знаме на гражданите и на общинските власти.",
+"Държавното знаме носи освен това върху червената ивица сияещо златно слънце, натоварено с червения крилат лъв; бялата му ивица е обрамчена с фризове, вдъхновени от балканските тъкани. То е запазено за конфедералните институции, въоръжените сили и представителствата на Конфедерацията в чужбина. Законът определя пропорциите и оттенъците на двете знамена.",
+"Емблемата на Конфедерацията е златният крилат лъв. Печатът на Конфедерацията носи крилатия лъв върху слънце със седем лъча.",
+"Девизът на Конфедерацията е „Наш дом“ (Нашият дом).",
+"Химнът на Конфедерацията се определя със закон.",
+"Законите относно символите на Конфедерацията изискват съгласието на Събранието на народите (член 109 а)."
+]
+}
+]
+},
+"searchPh": "Търсете държави, общности, народи, букви, страници…",
+"noMatch": "Няма съвпадения.",
+"langs": [
+[
+"EN",
+""
+],
+[
+"ZAP",
+""
+],
+[
+"SRE",
+""
+],
+[
+"IST",
+""
+]
+]
+}
+}

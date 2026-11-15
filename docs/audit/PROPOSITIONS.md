@@ -1,136 +1,152 @@
-# Trois directions visuelles : point d'arrêt
+# Trois directions d'interface : point d'arrêt
 
-Rien n'est implémenté dans `portail/`. Les trois prototypes sont des pages autonomes de
-`docs/audit/`, construites par `build_protos.py` depuis `portail/data/*.json` : une mini-grille
-de six États et leur fiche (Lika, Soli, Torlak, Usora, Vrhbosna, Zlatibor, les six États
-territoriaux qui ont un blason). Emblème, drapeaux, blasons et carte sont les assets du portail ;
-aucun n'est redessiné.
+Deuxième série, du 15 novembre 2026. La première série ne montrait qu'une fiche d'État et
+tirait une direction de la structure du drapeau civil : elle est retirée.
 
-Les trois partagent le même socle, qui répond aux constats indépendants du style :
-palette canonique seule, textes alternatifs des drapeaux, lien d'évitement, focus porté au titre
-après navigation, titre d'onglet par page, chiffres clés en tête, liens précédent et suivant,
-bouton de copie du lien, cibles de 44 px, aucun texte sous 12 px.
+Rien n'est implémenté dans `portail/`. Les prototypes sont des pages autonomes de `docs/audit/`,
+construites par `build_protos.py`. Chacun montre les **mêmes quatre écrans** :
 
-## Les directions
+1. l'accueil (en-tête, navigation, hiérarchie des sections) ;
+2. les États (recherche, filtres, 54 entités) ;
+3. la Constitution, titre I (lecture longue) ;
+4. une planche de composants (boutons, filtres, champ, fil d'Ariane, tableau, échelles, palette).
 
-### 1. Chancellerie (`proto-1.html`)
+Un sélecteur bascule tout l'écran entre les cinq variantes : anglais, zapadni, središñi latin,
+središñi cyrillique, istočni cyrillique. **Aucun texte n'est rédigé pour les prototypes** : les
+libellés sont relevés dans le portail lui-même (`extract_strings.py` → `proto-strings.json`),
+les données viennent de `portail/data/*.json`, l'emblème et la photo sont des assets existants.
+Les intitulés en français de la planche sont des annotations, pas de l'interface.
 
-**Intention.** Le registre officiel : fond blanc, en-tête bleu `#374078` coiffé d'un filet rouge
-et souligné d'un filet or, surtitres rouges, chiffres bleus. C'est l'esprit « institutionnel
-suisse » actuel, ramené à la palette canonique et à une hiérarchie nette : drapeau à gauche,
-nom et note à droite, quatre chiffres clés sur toute la largeur, puis blason et carte.
+## Socle commun aux trois
 
-- Force : la plus lisible, la plus proche de l'existant, la moins risquée dans les quatre langues.
-- Limite : sobre au point d'être peu mémorable dans un fil de réseau social.
-- Neutres dérivés : encre `#1b2030`, gris `#565c6e`, filet `#d7d9e4`, tous tirés du bleu.
+| Jeu de jetons | Avant | Prototypes |
+|---|---|---|
+| Couleurs | 99 dans le CSS | 4 canoniques et 8 neutres dérivés du bleu `#374078` |
+| Tailles de police | 67 | 7 fixes, plus des titres fluides |
+| Pas d'espacement | 36 | 9 (4, 8, 12, 16, 24, 32, 48, 72, 112 px) |
+| Plus petit texte | 10,5 px | 12 px |
+| Cibles tactiles | 24 sur 80 sous 44 px | toutes à 44 px ou plus |
 
-### 2. Pavillon (`proto-2.html`)
+Les neutres : encre `#1b2030`, gris de texte `#565c6e`, filet `#d7d9e4`, fond `#eef0f6` pour
+le clair ; `#141a33`, `#1d2547`, `#3b4571`, `#c3c8dc` pour le sombre. Règles tenues partout :
+l'or ne porte jamais de texte sur fond clair (1,62:1), le rouge et le bleu ne se touchent pas.
 
-**Intention.** La page est construite comme le drapeau civil : une bande rouge au guindant, qui
-porte le code de l'État à la verticale, et un champ bleu où le nom s'écrit en très grand, blanc.
-Viennent ensuite une bande blanche de chiffres rouges sous filets or, puis une bande bleue pour
-le blason et la carte. Bleu, blanc, bleu : l'identité vient de la structure, sans ornement.
+Vérifié par script sur les 3 prototypes × 4 écrans × 3 largeurs (375, 768, 1440 px), en anglais
+et en istočni cyrillique : aucun débordement horizontal, aucun texte sous 12 px, aucune cible
+sous 44 px, aucun drapeau plus haut que large. Les drapeaux sont toujours au format 3:2,
+horizontaux, à côté du nom de l'État.
 
-- Force : immédiatement reconnaissable, forte sur mobile, donne aux 48 fiches sans film une
-  ouverture à la hauteur des 6 qui en ont un (constat C-2).
-- Limite : le nom en très grand supporte mal les noms longs (« Dubrovačka Republika »,
-  « Kosovo i Metohija » en cyrillique) ; il faudra une taille adaptative. Le rouge et le bleu
-  se touchent (contraste 1,44) : aucun texte ne doit jamais passer de l'un à l'autre.
-- Neutres dérivés : les mêmes que la direction 1.
+## 1. Titre (`proto-1.html`)
 
-### 3. Atlas (`proto-3.html`)
+**Intention.** La typographie fait l'identité. Sofia Sans Extra Condensed, déjà la police des
+titres, est poussée à très grande taille : le nom de la Confédération occupe toute la largeur
+de l'écran, en bleu sur blanc, dans la langue et l'écriture choisies. Tout le reste est calme :
+beaucoup de blanc, alignement à gauche, filets fins, le rouge réservé à ce qui est actif.
 
-**Intention.** La carte d'abord, sur fond sombre : la fiche s'ouvre sur la carte de la
-Confédération, l'État en or. Le drapeau, le blason et un panneau « parmi les 48 États
-territoriaux » (rang et barre pour la population, le PIB et la superficie, calculés depuis
-`stats.json`) suivent en trois colonnes. C'est le style de `#/map` étendu à tout le portail,
-ce qui règle l'écart V-8.
+- En-tête : une barre claire translucide, navigation en texte, soulignement rouge de la page
+  courante.
+- États : une liste dense, une ligne par État (drapeau, code, nom, peuple, population).
+  Les 54 entités tiennent en 7 écrans de téléphone au lieu de 25.
+- Constitution : colonne de lecture de 66 caractères, sommaire fixe à gauche.
+- Force : la plus lisible, la plus institutionnelle, la meilleure pour la lecture longue ;
+  l'identité ne dépend d'aucune image.
+- Limite : peu de couleur ; l'accueil repose sur une seule photo.
 
-- Force : unifie la carte et le reste, valorise les données, l'or sur bleu nuit est très lisible
-  (10,6:1).
-- Limite : la plus éloignée de l'existant et du registre institutionnel ; le thème clair devient
-  secondaire ; les drapeaux à fond sombre se détachent moins bien ; l'effort est le plus élevé.
-- Neutres dérivés : fond `#141a33`, panneau `#1d2547`, filet `#3b4571`, texte secondaire
-  `#c3c8dc`, tous tirés du bleu.
+## 2. Mosaïque (`proto-2.html`)
+
+**Intention.** Les quatre couleurs canoniques deviennent des surfaces. L'accueil est une grille
+de tuiles arrondies de tailles inégales : une grande tuile bleue pour le titre, une tuile rouge
+pour la devise, une tuile or pour le premier chiffre, des tuiles blanches pour le reste. La
+navigation flotte dans une pastille translucide.
+
+- États : tuiles à drapeau, deux par ligne sur téléphone (9 écrans), cinq sur grand écran.
+- Constitution : le texte sur une feuille blanche, les articles en pastilles défilantes.
+- Force : la plus colorée et la plus immédiate sur téléphone ; se prête bien aux captures pour
+  les réseaux.
+- Limite : c'est la grille « bento » que beaucoup de sites adoptent en ce moment, donc la moins
+  singulière des trois. Avec huit entrées en cyrillique, la navigation ne tient pas dans la
+  pastille à 1440 px et passe sur deux lignes.
+
+## 3. Console (`proto-3.html`)
+
+**Intention.** Une application plutôt qu'un site : fond bleu nuit, barre latérale sur grand
+écran, barre d'onglets en bas sur téléphone. L'accueil s'ouvre sur la recherche, qui répond à
+la frappe (essayer « lika », « soli », « Лика »). Les États sont une liste avec un panneau
+d'aperçu qui se met à jour au clic.
+
+- Force : la plus rapide pour qui sait ce qu'il cherche ; prolonge le style de `#/map` au reste
+  du portail (constat V-8) ; l'or sur bleu nuit est très lisible (10,6:1).
+- Limite : la plus éloignée du registre institutionnel et de l'existant ; un visiteur venu
+  d'un post arrive devant un champ de recherche plutôt que devant un récit ; le thème clair
+  serait à refaire.
 
 ## Animations
 
-Le cadre est l'ADR `2026-10-23-glissement-sections.md` : un seul glissement de 620 ms, rien
-d'autre ne s'anime à l'arrivée, l'apparition au défilement de ce qui est sous l'écran est conservée.
+Cadre : l'ADR `2026-10-23-glissement-sections.md` (un seul glissement de 620 ms, rien d'autre
+ne s'anime à l'arrivée).
 
 | Animation | 1 | 2 | 3 | Technique | ADR |
 |---|---|---|---|---|---|
-| Glissement entre routes, 620 ms | oui | oui | oui | View Transitions, existant | conforme |
-| **Drapeau partagé** : la vignette de la grille devient le drapeau de la fiche pendant le glissement | oui | oui | oui | `view-transition-name`, une dizaine de lignes de JS natif pour poser le nom sur la bonne vignette | **demande un amendement** : c'est un second mouvement pendant le glissement |
-| Apparition au défilement du blason et de la carte (sous l'écran seulement) | oui | oui | oui | CSS pur, `animation-timeline: view()` ; sans prise en charge, rien ne bouge | conforme |
-| Survol des cartes de la grille (soulèvement de 3 px, bordure) | oui | oui | oui | CSS, 140 ms, `hover: hover` seulement | conforme |
-| Survol des régions de la carte | oui | oui | oui | CSS, 150 ms | conforme |
-| Barres de rang qui se remplissent en entrant à l'écran | | | oui | CSS pur, liée au défilement | conforme (même règle que les grands chiffres) |
+| Glissement vertical entre sections, 620 ms, en-tête immobile | oui | oui | oui | View Transitions, existant | conforme |
+| Filtrer les États : les cartes glissent vers leur nouvelle place, 320 ms | oui | oui | | View Transitions, un nom par carte | conforme (réponse à un geste, pas une arrivée) |
+| Aperçu d'un État qui se remplace en fondu | | | oui | View Transitions | conforme |
+| Soulignement rouge qui se trace au survol d'un lien de l'accueil | oui | | | CSS, 250 ms | conforme |
+| Tuile qui passe au bleu au survol | | oui | | CSS, 180 ms | conforme |
+| États des boutons, filtres et onglets | oui | oui | oui | CSS, 140 ms | conforme |
 
-Toutes sont neutralisées sous `prefers-reduced-motion: reduce`. Aucune ne retarde le contenu :
-le texte est présent dès le premier rendu, les animations liées au défilement partent d'un état
-déjà lisible. Aucune bibliothèque.
-
-Si tu refuses l'amendement, le drapeau partagé disparaît et le reste tient sans lui.
+Aucune animation à l'arrivée, aucune apparition au défilement, aucune bibliothèque. Tout est
+neutralisé sous `prefers-reduced-motion: reduce`. **Aucun amendement de l'ADR n'est nécessaire.**
 
 ## Coût
 
-Poids mesuré dans les prototypes ; effort estimé pour tout le portail (25 types de page).
-
-| | 1. Chancellerie | 2. Pavillon | 3. Atlas |
+| | 1. Titre | 2. Mosaïque | 3. Console |
 |---|---|---|---|
-| CSS propre à la direction (prototype) | 2,2 ko | 2,7 ko | 2,4 ko |
-| Socle commun (prototype) | 4,9 ko de CSS, 2,8 ko de JS | idem | idem |
-| Variation estimée du gabarit complet | de −5 à 0 ko (les jetons remplacent 99 couleurs et 67 tailles) | de 0 à +5 ko | de +10 à +15 ko, plus le calcul des rangs |
-| Lot 1, fondations | 2 jours | 2 jours | 3 jours |
-| Lot 2, composants | 3 jours | 4 jours | 6 jours |
-| Lot 3, animations | 1 jour | 1 jour | 1,5 jour |
-| Risque multilingue | faible | moyen (noms longs en grand) | faible |
-| Risque de régression | faible | moyen | élevé (thème clair à refaire) |
+| CSS propre à la direction (prototype, 4 écrans) | 6,5 ko | 6,5 ko | 6,9 ko |
+| Socle commun (prototype) | 5,2 ko | 5,2 ko | 5,2 ko |
+| Variation estimée du CSS du portail (84,5 ko aujourd'hui) | −15 à −5 ko | −10 à 0 ko | 0 à +10 ko |
+| Lot 1, fondations (jetons, en-tête, typographie) | 2 jours | 2,5 jours | 3,5 jours |
+| Lot 2, composants (25 types de page) | 4 jours | 5 jours | 7 jours |
+| Lot 3, animations | 0,5 jour | 0,5 jour | 1 jour |
+| Risque multilingue | faible | moyen (navigation en pastille) | faible |
+| Risque de régression | faible | moyen | élevé |
 
-Les estimations d'effort sont des ordres de grandeur, pas des mesures.
+Le poids du JS des prototypes (13 ko) est celui de la maquette elle-même, pas un coût pour le
+portail. Les efforts sont des ordres de grandeur.
 
 ## Recommandation
 
-**Direction 1 pour tout le portail, avec l'ouverture de la direction 2 sur les fiches d'État
-sans film.**
+**Direction 1, Titre.** Elle est contemporaine sans suivre une mode, elle tire son identité de
+la police que tu as déjà choisie et de l'alphabet lui-même, et c'est elle qui sert le mieux les
+trois usages lourds du portail : lire la Constitution, parcourir 54 États, passer d'une langue
+à l'autre. C'est aussi la moins chère et la moins risquée.
 
-La Chancellerie corrige les constats majeurs au moindre risque et garde le ton institutionnel
-que tu as fixé. Seule, elle laisse les 48 fiches sans film un cran en dessous des 6 filmées.
-Le bandeau Pavillon (guindant rouge, champ bleu, nom en grand, drapeau) leur donne une ouverture
-de même tenue, et c'est la page qu'un visiteur venu d'un post voit en premier. Les deux
-partagent les mêmes neutres, donc un seul jeu de jetons.
+Si tu la trouves trop sobre, la direction 2 est la bonne alternative, en sachant qu'elle
+vieillira plus vite. Je déconseille la direction 3 comme interface principale ; sa recherche
+qui répond à la frappe mérite en revanche d'être reprise dans la direction retenue.
 
-Je déconseille la direction 3 pour l'instant : elle est cohérente, mais elle refait le portail
-plutôt qu'elle ne l'améliore, et elle dépend d'un chantier de performance de la carte (P-4)
-qui n'est pas fait.
+## Ce que les prototypes ne montrent pas
+
+- La fiche d'État, la carte, les institutions, le parcours citoyen : ils suivront le système
+  retenu, au lot 2.
+- Le thème sombre des directions 1 et 2, et le thème clair de la direction 3.
+- La recherche globale et le menu plein écran sur téléphone (la navigation défile à
+  l'horizontale dans les prototypes).
 
 ## Chaînes d'interface nouvelles
 
-Toutes passeront par `L` et recevront leurs trois traductions avant fusion
-(`textes.py check`). Je ne les ai pas traduites : elles sont à rédiger avec le glossaire, et je
-te soumettrai celles dont la forme n'est pas évidente.
-
-| Anglais | Où | Remarque |
-|---|---|---|
-| Skip to content | lien d'évitement | |
-| Flag of {0} / Coat of arms of {0} | textes alternatifs | génitif du nom d'État dans les trois standards : **incertain**, à valider nom par nom ou à tourner sans génitif (« {0}: flag ») |
-| Previous state / Next state | bas de fiche | « state » ne convient pas aux villes-États ni à Brčko et Mostar : libellé à décider |
-| Copy link / Link copied | fiche | |
-| Page not found, et sa phrase d'aide | route inconnue | |
-| Titres d'onglet | 25 types de page | réemploi des titres déjà traduits |
-| Among the 48 territorial states / Rank {0} of {1} | direction 3 seulement | |
+Les prototypes n'en introduisent aucune. L'implémentation en demandera quelques-unes (lien
+d'évitement, titres d'onglet, page introuvable, textes alternatifs des blasons) : elles
+passeront par `L` avec leurs trois traductions, et je te soumettrai celles dont la forme n'est
+pas évidente plutôt que de les inventer.
 
 ## Décisions attendues
 
-1. **Direction** : 1, 2, 3, ou la combinaison recommandée (1 + ouverture 2 sur les fiches).
-2. **Drapeau partagé** : amender l'ADR du 23 octobre, oui ou non.
-3. **Palette** (constat V-1) : l'interface revient aux quatre couleurs canoniques et les trois
-   neutres dérivés entrent dans `docs/canon/couleurs-symboles.md`. Recommandé : oui.
-4. **Lot 0, partage et vitesse** (constats S-1, S-2, P-1, P-3) : adresses `s/<code>/` avec
-   Open Graph, déploiement du build lié. Ce n'est pas du visuel, mais ce sont les trois
-   constats bloquants. Recommandé : le faire avant le lot 1, en une PR séparée.
-5. **Thème sombre** : conservé tel quel et recalé sur les nouveaux jetons (recommandé), ou revu.
+1. **Direction** : 1, 2 ou 3.
+2. **Palette** (constat V-1) : l'interface revient aux quatre couleurs canoniques et les neutres
+   dérivés entrent dans `docs/canon/couleurs-symboles.md`. Recommandé : oui.
+3. **Lot 0, partage et vitesse** (constats S-1, S-2, P-1, P-3) : adresses `s/<code>/` avec
+   Open Graph et déploiement du build lié, avant le lot 1, en PR séparée. Recommandé : oui.
+4. **Thème sombre** : recalé sur les nouveaux jetons sans être revu (recommandé), ou revu.
 
-Ensuite, comme prévu : branche dédiée depuis `main`, commits atomiques, une PR par lot,
-captures et Lighthouse avant et après dans chacune. Aucune PR vers `main` sans ton accord.
+Ensuite : branche dédiée depuis `main`, commits atomiques, une PR par lot, captures et
+Lighthouse avant et après dans chacune. Aucune PR vers `main` sans ton accord.

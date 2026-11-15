@@ -245,8 +245,8 @@ Je propose une option, je n'applique rien.
 3. **Adresses de partage (S-2).** Recommandé : `s/<code>/` générées au build.
 4. **Codes de langue (L-2).** Recommandé : garder `sl`, `sh`, `bg` pour la synthèse vocale et
    l'écrire dans le glossaire ; je n'ai pas d'argument de fond pour un autre choix.
-5. **Animations (ADR du 23 octobre).** Voir `PROPOSITIONS.md` : une seule des animations
-   proposées demande un amendement.
+5. **Animations (ADR du 23 octobre).** Voir `PROPOSITIONS.md` : aucune des animations
+   proposées ne demande d'amendement.
 
 ## Annexe : reproduire
 
