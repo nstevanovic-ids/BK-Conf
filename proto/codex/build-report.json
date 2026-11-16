@@ -1,0 +1,15 @@
+{
+ "fr_misaligned": [],
+ "ref_mismatch": [],
+ "warnings": [],
+ "counts": {
+  "articles": 202,
+  "titles": 11,
+  "states": 54,
+  "reverse_refs": 184,
+  "articles_cited": 90,
+  "new_strings": 10,
+  "core_bytes": 31603,
+  "largest_title_bytes": 63262
+ }
+}

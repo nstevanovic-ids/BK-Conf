@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constitution of the Balkan Confederation</title>
+<meta name="description" content="Codex: the Constitution of the Balkan Confederation as the site itself.">
+<meta name="color-scheme" content="light dark">
+<link rel="preload" href="data/core.json" as="fetch" crossorigin>
+<link rel="modulepreload" href="app.js">
+<link rel="modulepreload" href="cyr.js">
+<link rel="icon" href="emblem.png" type="image/png">
+<link rel="stylesheet" href="codex.css">
+<script>try{var t=localStorage.getItem('cx-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
+/* the static heading belongs to the home page only: elsewhere nothing is shown until the real view */
+if(!/^#?\/?(home|preamble)?$/.test(location.hash))document.documentElement.classList.add('deep');
+/* a deep link starts fetching what its view needs with the first bytes, not after the script chain */
+(function(){var h=location.hash,m=/state[-\/]([A-Za-z]{2}-\d{2})/.exec(h);
+function L(rel,href,as){var l=document.createElement('link');l.rel=rel;l.href=href;if(as){l.as=as;l.setAttribute('fetchpriority','high');}document.head.appendChild(l);}
+if(m){L('preload','flags/'+m[1].toUpperCase()+'.png','image');L('modulepreload','state.js');L('modulepreload','instr.js');L('modulepreload','map.js');}
+else if(/art|title|constitution/i.test(h))L('modulepreload','reader.js');})();</script>
+</head>
+<body>
+<a class="skip" href="#main" id="skip" data-untranslated lang="en">Skip to content</a>
+<header id="hd">
+  <a class="brand" href="#home" id="brand">
+    <img src="emblem.png" width="230" height="204" alt="">
+    <span class="bn" id="brandn">Balkanska Konfederacija</span>
+  </a>
+  <a class="loc" id="loc" href="#home"></a>
+  <div class="tools" id="tools">
+    <div class="seg" id="langsel" role="group"></div>
+    <div class="seg" id="scriptsel" role="group" hidden></div>
+    <button class="ib" id="themebtn" type="button"><span aria-hidden="true">◐</span></button>
+  </div>
+  <button class="kbtn" id="palbtn" type="button" aria-haspopup="dialog"><span class="kl" id="pallab"></span><kbd translate="no" id="palkbd">⌘K</kbd></button>
+  <button class="ib burger" id="burger" type="button" aria-expanded="false" aria-controls="tools"><span aria-hidden="true"></span></button>
+  <div id="prog" role="progressbar" aria-valuemin="0" aria-valuemax="202" aria-valuenow="0"></div>
+</header>
+<nav id="thread" hidden></nav>
+<main id="main" tabindex="-1"><div class="wrap hm" id="boot"><section class="cover"><div class="eyebrow">&nbsp;</div><h1>Constitution of the Balkan Confederation</h1></section></div></main>
+<div id="pop" role="tooltip" hidden></div>
+<div id="pal" hidden></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

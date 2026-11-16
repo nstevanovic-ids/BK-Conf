@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Balkanska Konfederacija</title>
+<meta name="description" content="Official portal of the Balkan Confederation">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="emblem.png">
+<link rel="preload" href="fonts/arimo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sofia-sans-extra-condensed.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="data/core.json" as="fetch" crossorigin>
+<link rel="modulepreload" href="m/core.js">
+<link rel="modulepreload" href="m/rules.js">
+<link rel="stylesheet" href="css/sabor.min.css">
+<script>
+try{var t=localStorage.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
+/* Le premier écran ne charge que ce qu'il affiche : la vue demandée par le hash est préchargée. */
+(function(){var h=location.hash.slice(1),v=/^state/.test(h)?'state':/^(constitution|preamble|title-|art-)/.test(h)?'constitution':/^equalisation/.test(h)?'equal':'instrument';
+function l(rel,href,as){var e=document.createElement('link');e.rel=rel;e.href=href;if(as){e.as=as;if(as==='fetch')e.crossOrigin='anonymous';}document.head.appendChild(e);}
+l('modulepreload','m/'+v+'.js');
+var m=/^state-([A-Za-z]{2}-\d{2})$/.exec(h);if(m){l('preload','flags/'+m[1].toUpperCase()+'.png','image');}
+var g='en';try{g=localStorage.getItem('bk-lang')||'en';}catch(e){}
+if(v==='instrument'&&g==='en')document.documentElement.className='home';})();
+</script>
+</head>
+<body>
+<header id="hd" class="hd">
+  <a class="brand" href="#home"><img src="emblem.png" alt="" width="34" height="30"><span translate="no">Balkanska Konfederacija</span></a>
+</header>
+<main id="app" tabindex="-1">
+  <div class="inst boot-home"><section class="top"><div class="intro"><h1 class="h1" id="ih">How a confederal law is made</h1>
+    <p class="lead">Every confederal law passes the Kongres. The Narodni Sabor guards the matters that touch the peoples, and the citizens keep the last word through the referendum. Choose a case to follow it step by step.</p></div></section></div>
+</main>
+<div id="toast" class="toast" role="status"></div>
+<div id="live" class="vh" aria-live="polite" aria-atomic="true"></div>
+<div id="pal"></div>
+<script type="module" src="m/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+{
+ "new": [
+  "Skip to content",
+  "Open in the instrument",
+  "Fiscal capacity per inhabitant is taken as proportional to GDP per capita, the only indicator of Article 132 a published for every State.",
+  "Confederal average = 100",
+  "Assumptions of the instrument",
+  "The confederal average is that of the 52 States, weighted by population, before equalisation. Brčko and Mostar are not States.",
+  "Every contributor gives the same fraction of its surplus, never more than the ceiling. What the ceiling leaves uncovered falls to the Confederation, since the floor is guaranteed without reservation.",
+  "Result of the model: with a ceiling of {0}, the contributors fund {1} of what a floor of {2} requires.",
+  "Receives",
+  "Contributes",
+  "of the surplus",
+  "For",
+  "Abstention",
+  "Against",
+  "Passes",
+  "Fails",
+  "Suspended",
+  "Link copied",
+  "Copy link",
+  "The delegates of a State vote together, as their State is placed.",
+  "Every member is present; an abstention is not a vote cast.",
+  "Registers: population of the territorial States attached to each people, as no register count exists yet.",
+  "The voters of a State all vote as their State is placed; the weight is the resident population.",
+  "Brčko and Mostar vote with Sarajevo, the nearest confederal territory (Art. 124).",
+  "A member placed against votes the alarm motion.",
+  "The coalition is the set of States placed in favour; a confederal territory belongs to no people.",
+  "Consensus: no councillor against.",
+  "Share of the possible votes of the Kongres in which its delegates decide the outcome.",
+  "Exact count over every alignment of the other 53 constituencies. It also belongs to {0} of the minimal majorities of 126 seats ({1} of {2})."
+ ],
+ "from_constitution": [
+  {
+   "key": "consent",
+   "article": "109 a",
+   "en": "Right of mandatory consent",
+   "zap": "Pravica obveznega soglasja",
+   "sre": "Pravo obaveznog pristanka",
+   "ist": "Pravo na zadãlžitelno sãglasie"
+  },
+  {
+   "key": "alarm",
+   "article": "109 b",
+   "en": "Alarm-bell procedure",
+   "zap": "Postopek alarmnega zvonca",
+   "sre": "Postupak uzbune",
+   "ist": "Procedura na alarmenija zvãnec"
+  },
+  {
+   "key": "109b",
+   "article": "109 b",
+   "en": "For any other confederal law, if two thirds of the members of a national delegation vote an alarm motion within thirty days of the adoption of the law by the Kongres, the law is suspended and referred to the conciliation committee (Article 110 ter). If conciliation fails, the law may be adopted only by a two-thirds majority of the Kongres.",
+   "zap": "Če za kateri koli drug konfederalni zakon dve tretjini članov narodne delegacije v tridesetih dneh po tem, ko ga je sprejel Kongres, izglasujeta alarmni predlog, se zakon zadrži in predloži usklajevalnemu odboru (člen 110 ter). Če usklajevañe ne uspe, se zakon lahko sprejme samo z dvotretjinsko večino Kongresa.",
+   "sre": "Za svaki drugi konfederalni zakon, ako dvě trećine članova jedne narodne delegacije izglasaju zahtěv za uzbunu u roku od trideset dana od usvajaña zakona u Kongresu, zakon se obustavļa i upućuje odboru za usaglašavañe (član 110 ter). Ako usaglašavañe propadne, zakon se može usvojiti samo dvotrećinskom većinom Kongresa.",
+   "ist": "Za vseki drug konfederalen zakon, ako dve treti ot členovete na dadena narodna delegacija glasuvat alarmeno iskane v srok ot trideset dni ot priemaneto na zakona ot Kongresa, zakonãt se spira i se izprašta na sãglasitelnata komisija (člen 110 ter). Ako sãglasitelnata procedura zavãrši bez uspeh, zakonãt može da bãde priet samo s mnozinstvo ot dve treti v Kongresa."
+  },
+  {
+   "key": "106",
+   "article": "106",
+   "en": "Decisions of the Kongres are taken by simple majority of the delegates present, unless the Constitution provides otherwise. The quorum is an absolute majority of the delegates.",
+   "zap": "Odločitve Kongresa se sprejemajo z navadno večino navzočih delegatov, če Ustava ne določa drugače. Za sklepčnost je potrebna navzočnost absolutne večine delegatov.",
+   "sre": "Kongres donosi odluke prostom većinom prisutnih delegata, osim ako Ustav ne određuje drugačije. Kvorum čini apsolutna većina delegata.",
+   "ist": "Rešenijata na Kongresa se vzemat s obiknoveno mnozinstvo ot prisãstvaštite delegati, osven ako Konstitucijata ne predvižda drugo. Kvorumãt e absoļutnoto mnozinstvo ot delegatite."
+  },
+  {
+   "key": "106bis",
+   "article": "106 bis",
+   "en": "The right of legislative initiative belongs: to at least eight States, of which no more than half belong to the same constituent people (Article 1 bis).",
+   "zap": "Pravica zakonodajne pobude pripada: najmañ osmim državam, od katerih največ polovica pripada istemu konstitutivnemu narodu (člen 1 bis).",
+   "sre": "Pravo zakonodavne inicijative imaju: najmañe osam država, od kojih najviše polovina pripada istom konstitutivnom narodu (član 1 bis).",
+   "ist": "Pravoto na zakonodatelna iniciativa prinadleži: na naj-malko osem dãržavi, ot koito ne poveče ot polovinata prinadležat kãm edin i sãšt konstitutiven narod (člen 1 bis)."
+  },
+  {
+   "key": "106bis2",
+   "article": "106 bis",
+   "en": "Bills are tabled before the Kongres.",
+   "zap": "Predlogi zakonov se vlagajo pri Kongresu.",
+   "sre": "Predlozi zakona podnose se Kongresu.",
+   "ist": "Zakonoproektite se vnasjat v Kongresa."
+  },
+  {
+   "key": "110",
+   "article": "110",
+   "en": "Whenever the Constitution requires a majority in at least five of the seven national delegations, the delegations forming that majority must also together represent a majority of the citizens enrolled in the national registers, according to the latest annual count of the Confederal Chancellery (Article 115 bis).",
+   "zap": "Kadar koli Ustava zahteva večino v najmañ petih od sedmih narodnih delegacij, morajo delegacije, ki sestavļajo to večino, skupaj predstavļati tudi večino državļanov, vpisanih v narodne registre, po zadñem letnem štetju Konfederalne kanclerije (člen 115 bis).",
+   "sre": "Kad god Ustav zahtěva većinu u najmañe pet od sedam narodnih delegacija, delegacije koje čine tu većinu moraju i zajedno predstavļati većinu državļana upisanih u narodne registre, prema poslědñem godišñem prebrojavañu Konfederalne Kancelarije (član 115 bis).",
+   "ist": "Vinagi kogato Konstitucijata iziskva mnozinstvo v pone pet ot sedemte narodni delegacii, delegaciite, koito obrazuvat tova mnozinstvo, trjabva osven tova da predstavļavat zaedno mnozinstvoto ot graždanite, vpisani v narodnite registri, spored poslednija godišen otčet na Konfederalnata kancelarija (člen 115 bis)."
+  },
+  {
+   "key": "111c",
+   "article": "111",
+   "en": "Decisions of the Konfederalno Veće are taken collegially by consensus.",
+   "zap": "Konfederalni svet sprejema odločitve kolegijsko s soglasjem.",
+   "sre": "Konfederalno Veće donosi odluke kolegijalno, konsenzusom.",
+   "ist": "Rešenijata na Konfederalnija sãvet se vzemat kolegialno črez konsensus."
+  },
+  {
+   "key": "111",
+   "article": "111",
+   "en": "When consensus cannot be reached, a decision requires the votes of at least four councillors whose peoples together represent a majority of the citizens enrolled in the national registers (Article 110), or the votes of at least five councillors. Where a seat is vacant, a majority of the members in office suffices; in the event of a tie, the serving president has the casting vote.",
+   "zap": "Kadar soglasja ni mogoče doseči, so za odločitev potrebni glasovi najmañ štirih svetnikov, katerih narodi skupaj predstavļajo večino državļanov, vpisanih v narodne registre (člen 110), ali glasovi najmañ petih svetnikov. Kadar je sedež izprazñen, zadošča večina članov v funkciji; pri enakem številu glasov je odločilen glas predsednika v funkciji.",
+   "sre": "Kad se konsenzus ne može postići, za odluku su potrebni glasovi najmañe četiri većnika čiji narodi zajedno predstavļaju većinu državļana upisanih u narodne registre (član 110) ili glasovi najmañe pet većnika. Kad je jedno město upražñeno, dovoļna je većina članova na dužnosti; u slučaju jednakog broja glasova, odlučujući glas ima predsědnik na dužnosti.",
+   "ist": "Kogato ne može da bãde postignat konsensus, rešenieto iziskva glasovete na naj-malko četirima sãvetnici, čiito narodi zaedno predstavļavat mnozinstvoto ot graždanite, vpisani v narodnite registri (člen 110), ili glasovete na naj-malko petima sãvetnici. Kogato dadeno mjasto e ovakanteno, dostatãčno e mnozinstvoto ot členovete, koito sa na dlãžnost; pri ravenstvo na glasovete glasãt na dejstvaštija predsedatel e rešavašt."
+  },
+  {
+   "key": "121",
+   "article": "121",
+   "en": "An initiative for partial revision is submitted to the vote of the people and of the States. It is adopted if it obtains a double majority: a majority of voters at confederal level and a majority of the States (each State counting as one vote, determined by the popular vote within that State).",
+   "zap": "Pobuda za delno spremiñañe se predloži v glasovañe ļudstvu in državam. Sprejeta je, če dobi dvojno večino: večino glasujočih na konfederalni ravni in večino držav (vsaka država šteje kot en glas, ki ga določi izid ļudskega glasovaña v tej državi).",
+   "sre": "Inicijativa za dělimičnu reviziju stavļa se na glasañe građana i država. Usvojena je ako dobije dvostruku većinu: većinu birača koji su glasali na konfederalnom nivou i većinu država (svaka država ima jedan glas, koji se utvrđuje prema rezultatu glasaña građana u toj državi).",
+   "ist": "Iniciativata za častično izmenenie se podlaga na glasuvane ot naroda i ot dãržavite. Tja se priema, ako poluči dvojno mnozinstvo: mnozinstvo ot glasuvalite na konfederalno ravnište i mnozinstvo ot dãržavite (vsjaka dãržava se broi za edin glas, kojto se opredeļa ot glasuvaneto na naroda v tazi dãržava)."
+  },
+  {
+   "key": "122",
+   "article": "122",
+   "en": "One hundred and fifty thousand citizens, or twelve States of which no more than half belong to the same constituent people (Article 1 bis), may request that any confederal law passed by the Kongres be submitted to the vote of the people.",
+   "zap": "Sto petdeset tisoč državļanov ali dvanajst držav, od katerih največ polovica pripada istemu konstitutivnemu narodu (člen 1 bis), lahko zahteva, da se vsak konfederalni zakon, ki ga sprejme Kongres, predloži v glasovañe ļudstvu.",
+   "sre": "Sto pedeset hiļada državļana ili dvanaest država, od kojih najviše polovina pripada istom konstitutivnom narodu (član 1 bis), mogu zatražiti da se svaki konfederalni zakon koji je usvojio Kongres stavi na glasañe građana.",
+   "ist": "Sto i petdeset hiļadi graždani ili dvanadeset dãržavi, ot koito ne poveče ot polovinata prinadležat kãm edin i sãšt konstitutiven narod (člen 1 bis), mogat da poiskat vseki konfederalen zakon, priet ot Kongresa, da bãde podložen na glasuvane ot naroda."
+  },
+  {
+   "key": "122e",
+   "article": "122",
+   "en": "The act is submitted to the popular vote and is rejected if a majority of voters vote against it.",
+   "zap": "Akt se predloži v ļudsko glasovañe in je zavrñen, če večina glasujočih glasuje proti ñemu.",
+   "sre": "Akt se stavļa na glasañe građana i odbijen je ako se većina birača koji su glasali izjasni protiv ñega.",
+   "ist": "Aktãt se podlaga na glasuvane ot naroda i se othvãrļa, ako mnozinstvoto ot glasuvalite se proiznese protiv nego."
+  },
+  {
+   "key": "123bis",
+   "article": "123 bis",
+   "en": "A confederal law whose entry into force admits no delay may be declared urgent by the Kongres by an absolute majority of its members, with the approval of the Narodni Sabor by an absolute majority of its members and a simple majority in at least five of the seven national delegations. That approval replaces the alarm-bell procedure (Article 109 b). The law enters into force immediately. Its period of validity must be limited.",
+   "zap": "Konfederalni zakon, katerega uveļavitev ne dopušča odlašaña, lahko Kongres z absolutno večino svojih članov razglasi za nujnega; potrebna je odobritev Skupščine narodov z absolutno večino ñenih članov in navadno večino v najmañ petih od sedmih narodnih delegacij. Ta odobritev nadomesti postopek alarmnega zvonca (člen 109 b). Zakon začne veļati takoj. Ñegova veļavnost mora biti časovno omejena.",
+   "sre": "Konfederalni zakon čije stupañe na snagu ne trpi nikakvo odlagañe Kongres može proglasiti hitnim apsolutnom većinom svojih članova, uz odobreñe Narodnog Sabora apsolutnom većinom ñegovih članova i prostom većinom u najmañe pet od sedam narodnih delegacija. To odobreñe zaměñuje postupak uzbune (član 109 b). Zakon stupa na snagu odmah. Ñegov rok važeña mora biti ograničen.",
+   "ist": "Konfederalen zakon, čieto vlizane v sila ne tãrpi otlagane, može da bãde objaven za spešen ot Kongresa s absoļutno mnozinstvo ot negovite členove, s odobrenieto na Sãbranieto na narodite s absoļutno mnozinstvo ot negovite členove i s obiknoveno mnozinstvo v pone pet ot sedemte narodni delegacii. Tova odobrenie zamestva procedurata na alarmenija zvãnec (člen 109 b). Zakonãt vliza v sila nezabavno. Srokãt na negovoto dejstvie trjabva da bãde ograničen."
+  },
+  {
+   "key": "124m",
+   "article": "124",
+   "en": "The confederal autonomous municipalities (Brčko, Mostar) vote with the confederal territories geographically closest to them, unless the law provides otherwise.",
+   "zap": "Konfederalni avtonomni občini (Brčko, Mostar) glasujeta s konfederalnimi ozemļi, ki so jima geografsko najbližja, razen če zakon določa drugače.",
+   "sre": "Konfederalne autonomne opštine (Brčko, Mostar) glasaju zajedno s konfederalnim teritorijama koje su im geografski najbliže, osim ako zakon ne određuje drugačije.",
+   "ist": "Konfederalnite avtonomni obštini (Brčko, Mostar) glasuvat zaedno s geografski naj-blizkite do tjah konfederalni teritorii, osven ako zakonãt ne predvižda drugo."
+  },
+  {
+   "key": "132b",
+   "article": "132 b",
+   "en": "no State may, after equalisation, have tax resources per inhabitant below eighty-five per cent of the confederal average;",
+   "zap": "nobena država po izravnavi ne sme imeti davčnih sredstev na prebivalca, ki bi znašala mañ kot petinosemdeset odstotkov konfederalnega povprečja;",
+   "sre": "nijedna država ne može poslě izravnaña imati poreska sredstva po stanovniku maña od osamdeset pet posto konfederalnog prosěka;",
+   "ist": "nikoja dãržava ne može sled izravñavaneto da razpolaga s danãčni resursi na žitel pod osemdeset i pet na sto ot srednoto konfederalno ravnište;"
+  },
+  {
+   "key": "132c",
+   "article": "132 c",
+   "en": "no contributing State may be deprived, by way of equalisation, of more than thirty per cent of the surplus of its fiscal capacity over the confederal average;",
+   "zap": "nobeni državi plačnici ne sme biti iz naslova izravnave odvzeto več kot trideset odstotkov presežka ñene fiskalne zmogļivosti nad konfederalnim povprečjem;",
+   "sre": "nijednoj državi koja doprinosi ne može se putem izravnaña oduzeti više od trideset posto viška ñenog fiskalnog kapaciteta iznad konfederalnog prosěka;",
+   "ist": "nikoja dãržava vnositel ne može da bãde lišena črez izravñavaneto ot poveče ot trideset na sto ot previšenieto na nejnija fiskalen kapacitet nad srednoto konfederalno ravnište;"
+  },
+  {
+   "key": "150",
+   "article": "150",
+   "en": "The following provisions may be revised only with the approval of the Narodni Sabor by a two-thirds majority in plenary assembly and a majority within each of the seven national delegations:",
+   "zap": "Nasledñe določbe je mogoče spremeniti samo, če to odobri Skupščina narodov z dvotretjinsko večino v plenarni sestavi in z večino v vsaki od sedmih narodnih delegacij:",
+   "sre": "Ove odredbe mogu se revidirati samo uz odobreñe Narodnog Sabora dvotrećinskom većinom na plenarnoj sědnici i većinom u svakoj od sedam narodnih delegacija:",
+   "ist": "Slednite razporedbi mogat da bãdat izmeñani samo s odobrenieto na Sãbranieto na narodite s mnozinstvo ot dve treti v plenarno zasedanie i s mnozinstvo vãv vsjaka ot sedemte narodni delegacii:"
+  },
+  {
+   "key": "n-art-123bis",
+   "article": "123 bis",
+   "en": "Urgent laws",
+   "zap": "Nujni zakoni",
+   "sre": "Hitni zakoni",
+   "ist": "Spešni zakoni"
+  },
+  {
+   "key": "n-art-150",
+   "article": "150",
+   "en": "Entrenched guarantees",
+   "zap": "Utrjena jamstva",
+   "sre": "Ojačane garancije",
+   "ist": "Zasileni garancii"
+  },
+  {
+   "key": "n-art-124",
+   "article": "124",
+   "en": "Double majority",
+   "zap": "Dvojna večina",
+   "sre": "Dvostruka većina",
+   "ist": "Dvojno mnozinstvo"
+  },
+  {
+   "key": "n-art-132",
+   "article": "132",
+   "en": "Equalisation formula",
+   "zap": "Formula izravnave",
+   "sre": "Formula izravnaña",
+   "ist": "Formula za izravñavane"
+  },
+  {
+   "key": "n-art-110ter",
+   "article": "110 ter",
+   "en": "Conciliation",
+   "zap": "Usklajevañe",
+   "sre": "Usaglašavañe",
+   "ist": "Sãglasitelna procedura"
+  },
+  {
+   "key": "n-art-111",
+   "article": "111",
+   "en": "Role, composition and decisions",
+   "zap": "Vloga, sestava in odločañe",
+   "sre": "Uloga, sastav i odluke",
+   "ist": "Roļa, sãstav i rešenija"
+  }
+ ]
+}

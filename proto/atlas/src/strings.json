@@ -1,0 +1,32 @@
+{
+ "_": "Chaînes que le code ne cite pas littéralement (tenues dans des tables ou composées). Les littéraux L('…') et T('…') d'app.js et map.js sont relevés par build.py.",
+ "i18n": [
+  "nav_map"
+ ],
+ "textes": [
+  "Territorial state",
+  "Confederal territory",
+  "Confederal autonomous municipality",
+  "serb community",
+  "turkish community",
+  "albanian community",
+  "bosniak community",
+  "croat community",
+  "slovak community",
+  "special community",
+  "hungarian community",
+  "bulgarian community",
+  "Slovenes state · seat {0}",
+  "Croats state · seat {0}",
+  "Serbs state · seat {0}",
+  "Bosniaks state · seat {0}",
+  "Montenegrins state · seat {0}",
+  "Macedonians state · seat {0}",
+  "Bulgarians state · seat {0}",
+  "Population",
+  "Density",
+  "GDP per capita",
+  "Municipalities",
+  "States"
+ ]
+}

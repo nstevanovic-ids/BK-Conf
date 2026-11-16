@@ -1,0 +1,91 @@
+{
+ "new": [
+  "Assumption",
+  "Alignment failed for this article.",
+  "Skip to content",
+  "To be translated",
+  "No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.",
+  "The plenary majority depends on seventy individual votes and is not modelled here.",
+  "The formula is left to confederal law. Here: fiscal capacity is GDP per inhabitant (Eurostat 2023, PPS); the average is weighted by population over the 52 States; one uniform rate is levied on the surplus, the lowest that pays the floor.",
+  "At this setting the ceiling does not pay for the floor. The text does not say who covers the gap.",
+  "The text does not say how the limits combine with the method. Here: one common divisor, standard rounding, then the limits, as on the portal.",
+  "Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the committee is eight."
+ ],
+ "replaced_by_existing": [
+  {
+   "was": "Cited by",
+   "now": "In the Constitution",
+   "source": "textes.json"
+  },
+  {
+   "was": "Texts in parallel",
+   "now": "Language",
+   "source": "textes.json"
+  },
+  {
+   "was": "Reading thread",
+   "now": "Pages",
+   "source": "textes.json (aria-label seulement)"
+  },
+  {
+   "was": "Neighbouring States",
+   "now": "Location",
+   "source": "textes.json"
+  },
+  {
+   "was": "Applies to its category",
+   "now": "Territorial state / Confederal territory / Confederal autonomous municipality",
+   "source": "textes.json"
+  },
+  {
+   "was": "Names this State",
+   "now": "(supprimé : le titre « In the Constitution » suffit)",
+   "source": "textes.json"
+  },
+  {
+   "was": "Reset",
+   "now": "↺, aria-label « Back »",
+   "source": "textes.json"
+  },
+  {
+   "was": "Double line",
+   "now": "aria-label « Latin / Cyrillic »",
+   "source": "i18n.json (scr_lat, scr_cyr)"
+  },
+  {
+   "was": "For / Against",
+   "now": "signes ✓ et ✕",
+   "source": "aucune chaîne"
+  },
+  {
+   "was": "Condition met / Condition not met",
+   "now": "signes ✓ et ✕",
+   "source": "aucune chaîne"
+  },
+  {
+   "was": "Confederal average",
+   "now": "« 100 % = n PPS »",
+   "source": "aucune chaîne"
+  },
+  {
+   "was": "at the floor / at the ceiling",
+   "now": "« min 2 », « max 20 »",
+   "source": "aucune chaîne"
+  },
+  {
+   "was": "Reading progress",
+   "now": "« Constitution »",
+   "source": "textes.json (aria-label)"
+  },
+  {
+   "was": "French working text",
+   "now": "« FR »",
+   "source": "aucune chaîne"
+  },
+  {
+   "was": "les quatre phrases d'accueil",
+   "now": "remplacées par l'instrument de l'art. 110 sur l'accueil",
+   "source": "texte de la Constitution"
+  }
+ ]
+}

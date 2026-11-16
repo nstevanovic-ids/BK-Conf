@@ -1,0 +1,22 @@
+[
+ "Adopted",
+ "Arrow keys move between neighbouring entities, Enter opens one, Escape goes up one level, plus and minus zoom, 0 fits the Confederation.",
+ "Assumption: “no more than half” is counted on the States making the request; city-States are States and belong to no people.",
+ "Assumptions: each national register is approximated by the population of the territorial States attached to its people (docs/canon/equilibre.md), since no count of the registers exists yet.",
+ "Assumptions: fiscal capacity and tax resources per inhabitant are taken as GDP per capita (PPS, 2023); the 52 States only; every contributing State gives the same share of its surplus; if the cap binds, receipts are reduced pro rata.",
+ "Cap",
+ "Contributing States",
+ "Each delegation is taken as voting as a bloc; the plenary majority of Article 110 is not simulated separately.",
+ "Enrolled citizens represented",
+ "Floor",
+ "Floor not reached within the cap",
+ "Floor reached",
+ "In favour",
+ "Largest share of one people",
+ "Not adopted",
+ "Receiving States",
+ "Reset",
+ "Select States on the map.",
+ "Share of surpluses levied",
+ "mapped outlines"
+]

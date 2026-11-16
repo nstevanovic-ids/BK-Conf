@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Balkanska Konfederacija</title>
+<meta name="description" content="Official portal of the Balkan Confederation">
+<meta name="theme-color" content="#F4F2EA">
+<link rel="icon" href="emblem.png">
+<link rel="modulepreload" href="i18n.js">
+<link rel="preload" href="fonts/sofia-sans-extra-condensed.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/arimo.woff2" as="font" type="font/woff2" crossorigin>
+<style>/*CRITICAL*/</style>
+</head>
+<body class="v-home boot svgmode">
+<div id="stage">
+  <div id="glmap"></div>
+  <div id="labels" aria-hidden="true"></div>
+  <div id="silwrap"><!--SILHOUETTE--></div>
+  <div id="svlabels" aria-hidden="true"></div>
+  <div id="map" tabindex="0" role="application"></div>
+</div>
+
+<header id="top">
+  <a id="brand" href="#home"><img src="emblem.png" alt="" width="34" height="30"><span translate="no">Balkanska Konfederacija</span></a>
+  <nav id="crumbs"></nav>
+  <div id="tools">
+    <button id="palBtn" type="button" aria-haspopup="dialog"><span id="palLab">Search the portal</span><kbd translate="no" hidden></kbd></button>
+    <div id="lang">
+      <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" translate="no">EN</button>
+      <div id="langMenu" hidden>
+        <div class="seg" id="langsel" role="group"></div>
+        <div class="seg" id="scriptsel" role="group" hidden></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="legend" hidden></div>
+
+<aside id="sheet" data-snap="half">
+  <button id="grip" type="button" aria-controls="sheetBody"><i></i></button>
+  <div id="sheetBody" tabindex="-1">
+    <div class="pad home">
+      <div class="eyebrow">Official portal</div>
+      <h1>The Balkan<br>Confederation</h1>
+      <p class="lead">A confederation of fifty-two states and seven constituent South Slavic peoples, united in a Balkan union founded on the equality of states and on direct democracy.</p>
+      <p class="motto">“Naš dom” · Our home.</p>
+    </div>
+  </div>
+</aside>
+
+<div id="tip" hidden></div>
+<div id="pal" hidden>
+  <div id="palBox" role="dialog" aria-modal="true">
+    <div id="palTop"><input id="palIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palList" aria-autocomplete="list"><button id="palX" type="button" translate="no">Esc</button></div>
+    <div id="palList" role="listbox"></div>
+  </div>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
