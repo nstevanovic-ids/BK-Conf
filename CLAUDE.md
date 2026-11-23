@@ -147,7 +147,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
   en lon/lat pour d3-geo, échoue s'il reste un trou ou un recouvrement) ;
-  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md
+  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md ; puis, après
+  scripts/build_stats.py, scripts/build_carte.py (shapely) → `portail/data/carte/` (communes de la
+  carte #/map, **générées, ne pas éditer** : `index.json`, `m/<CODE>.json`, `communes.json`) ;
+  `build_carte.py --check` (empreinte des entrées) bloque le déploiement si elles sont périmées
 
 ## Branche de référence
 - **`main`** est la seule branche publiée (GitHub Pages, `.github/workflows/pages.yml`).
