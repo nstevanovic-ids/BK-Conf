@@ -10,6 +10,7 @@ on:
       - "scripts/build_portail.py"
       - "scripts/build_constitution.py"
       - "scripts/build_lecteur.py"
+      - "scripts/test_regles.js"
       - "scripts/equilibre.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -49,6 +50,12 @@ jobs:
           # textes.json must carry every page string in zap, sre and ist (ADR 2026-10-26-traduction-pages.md);
           # a gap does not block the deploy (the page falls back on English) but is flagged.
           python scripts/textes.py check || echo "::warning::page translations incomplete — run python scripts/textes.py check"
+
+      - name: Check the voting and seat rules against the Constitution
+        run: |
+          # portail/js/regles.js, the single rules engine (Art. 103, 109 b, 110, 110 ter, 111, 115 bis),
+          # checked case by case against the text (docs/lot1/MOTEUR.md).
+          node scripts/test_regles.js
 
       - name: Check that the Constitution data are up to date
         run: |
