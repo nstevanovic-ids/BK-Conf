@@ -156,7 +156,24 @@ infrastructure numérique). Haute exigence de cohérence interne.
   le 2026-10-15 et n'est plus publiée.
 
 ## Architecture du portail
-- `portail/index.html` = template (HTML + CSS + JS de rendu)
+- `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
+  route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
+  (lecteur de la Constitution, repris de Codex : ouverture, 1 à 5 textes alignés en/zap/sre/ist/fr,
+  renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
+  glyphe par glyphe, double ligne en `<ruby>`) ; `js/marges.js` (instruments de marge des art. 1 bis,
+  1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
+  (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
+  docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 : carte,
+  mini-cartes ; qrcode : carte citoyenne) ; ADR 2026-11-23-lecteur-constitution.md
+- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/en-sre-fr`
+  (textes affichés) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
+  recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
+  `CX.rerender` (langue, écriture), `CX.takeRef` / `CX.target` (élément partagé), `CX.leave`
+- Recherche (Ctrl+K, /) : une seule, celle du portail ; accès par numéro (« 110 », « art 1 bis »,
+  « čl. 110 », « § 110 »), repli sans diacritiques ni écriture (ļ = lj = l…), extraits en graphie
+  d'origine ; articles depuis `constitution/idx.<lg>.json`, texte depuis `full.<lg>.json` (première
+  frappe)
+- Lien d'évitement « Skip to content » (clé `skip` d'i18n.json) sur tout le portail
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
   entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
   généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
@@ -195,7 +212,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
   les sections de la navigation, horizontal entre les pages d'une même section (fiches
   d'États, titres de la constitution, sous-pages) ; rien d'autre ne s'anime à l'arrivée ;
   retour d'une fiche : la grille des États revient à sa position, filtre conservé
-  (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md)
+  (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md). Amendé pour les
+  pages refondues (ADR 2026-11-23-mouvement-lecteur.md) : dans `#/constitution`, renvoi suivi vers un
+  autre titre = élément partagé (numéro d'article, `data-vt="ref"`), sans glissement ; renvoi dans le
+  titre = défilement et éclairage de l'article ; table des titres animée au défilement ; bascule
+  d'écriture glyphe par glyphe (fondu de 200 ms en mouvement réduit) ; carte (lot 2) et votes (lot 3)
+  y ajouteront leur règle
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
@@ -240,7 +262,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   `DATA_CORE` avant tout rendu (+ `textes.json` hors anglais) ; `DATA_ROUTE` attendu avant le rendu
   de la route, `DATA_LATER` après (gestes de la page), `SEARCH_DATA` à l'ouverture de la recherche.
   Une vue qui lit une donnée nouvelle l'ajoute à ces tables et à `DATA_FILES` ; contrôle :
-  `docs/lot1/outils/dom.js` (DOM identique au fichier unique, toutes routes, cinq langues)
+  `docs/lot1/outils/dom.js` (DOM identique au fichier unique, toutes routes, cinq langues).
+  Préchargement dès le `<head>` selon l'adresse (polices, socle, code, sommaire et titre du lecteur),
+  bloc retiré du fichier unique ; `#app` vide réserve la hauteur de l'écran (pas de saut du pied de page)
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux

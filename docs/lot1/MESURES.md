@@ -116,3 +116,60 @@ du plan ayant été acceptée (commits séparés, mesurés à part).
 - Captures : identiques au build lié (13 sur 13) et, hors arrivée sur l'article 110, au fichier unique
   (128 sur 141) ; non versées. Aucune page vide ni débordement ; seules erreurs, les 404 de blasons
   absents.
+
+## 3. Fin du lot (`3-fin-de-lot/`)
+
+Build lié chargé par page, lecteur, instruments, recherche unifiée, lien d'évitement, préchargement.
+
+| Page | Perf. | Access. | FCP (s) | LCP (s) | TBT (ms) | CLS | Poids (ko) | LCP : main → par page → fin |
+|---|---|---|---|---|---|---|---|---|
+| `#/constitution` | **91** | 94 | 1,2 | **3,3** | 136 | **0,001** | **394** | 7,5 → 3,3 → 3,3 |
+| `#/constitution/title-4/art-110` | **92** | 95 | 1,2 | **3,3** | 16 | 0,011 | 433 | 7,5 → 3,3 → 3,3 |
+| `#/state/LK-20` | 74 | 95 | 1,3 | 6,5 | 107 | 0,09 | 1 033 | 7,5 → 6,7 → 6,5 |
+| `#/state/BA-01` | 75 | 95 | 1,3 | 6,9 | 120 | 0 | 3 005 | 7,4 → 7,1 → 6,9 |
+| `#/states` | 76 | 94 | 1,3 | 7,0 | 59 | 0 | 1 782 | 10,4 → 6,8 → 7,0 |
+| `#/map` | 47 | 91 | 1,3 | 6,3 | 2 877 | 0 | 999 | 7,4 → 1,8 → 6,3 |
+| `#/home` | 60 | 93 | 1,3 | 47,6 | 572 | 0 | 13 682 | 50,1 → 47,9 → 47,6 |
+
+- **`#/constitution` et un article : LCP 7,5 → 3,3 s, poids 1 310 → 394 ko, CLS 0,86 → 0,001,
+  performance 33 → 91, accessibilité 88 → 95.** Le budget de 2,5 s n'est pas tenu. Le rendu du lecteur
+  ne pèse qu'environ 140 ms ; le reste est le gabarit du portail (128 ko gzip, le code de toutes les
+  pages) à transférer et exécuter, plus les polices (194 ko). Essais : préchargement des polices et des
+  données (3,6 → 3,6 s), bibliothèques `vendor/` sorties du chargement bloquant (3,6 → 3,3 s, FCP
+  1,8 → 1,2 s), sans préchargement des polices (3,3 s, inchangé). Prochaine marche : sortir du gabarit
+  le code des autres pages, comme le lecteur (hors de ce lot).
+- **Premier affichage 7,3 → 1,2 à 1,3 s, CLS 0,84 à 0,95 → 0 à 0,09 sur toutes les pages** :
+  `#app` vide réserve la hauteur de l'écran, le pied de page ne saute plus.
+- `#/map` : le LCP de 1,8 s du point 2 était le pied de page, affiché avant la carte ; il n'est plus en
+  haut de l'écran, l'élément mesuré est maintenant le texte de la carte (6,3 s, contre 7,4 s sur `main`).
+  La carte change au lot 2.
+- Accueil et fiches d'États : leurs images (photos d'ouverture, blason en `loading="lazy"`, film)
+  restent l'élément LCP ; hors lot (constat P-2 de l'audit).
+- **Captures** : 163 (27 routes à trois largeurs, 7 pages dans cinq langues et écritures, le lecteur en
+  thème sombre), aucune page vide, aucun débordement, seules erreurs les 404 de blasons absents
+  (constat C-1). **Hors de la Constitution, toutes les captures sont identiques à `main` à 0,5 % de
+  pixels près** ; seules celles de la Constitution sont versées (`3-fin-de-lot/captures/`, 51 : 29
+  comparables à `0-main-inline`, plus la vue à plusieurs textes, l'introuvable et le thème sombre).
+
+### Vérification (section « Vérification » du plan)
+
+| Contrôle | Résultat |
+|---|---|
+| Chrome (Playwright) 375, 768, 1440 px | 163 captures regardées, sans débordement |
+| EN, ZAP, SRE latin et cyrillique, IST cyrillique et latin | captures et DOM ; bascule de langue et d'écriture sur l'article 110, l'alinéa lu reste à 1 px près |
+| Erreurs console | aucune, hors 404 des blasons absents (déjà sur `main`) |
+| Drapeaux | proportion d'origine (aperçu : largeur fixe, hauteur automatique ; le lecteur n'en affiche pas d'autre) |
+| Focus visible, clavier | 24 arrêts dans le lecteur, tous avec un focus visible ; interrupteurs, curseurs, onglets, j / k au clavier ; lien d'évitement en premier |
+| Mouvement réduit | captures en mouvement réduit ; bascule par fondu de 200 ms ; pas de transition de page |
+| Non-régression | DOM de `#app`, en-tête et `lang` identiques entre fichier unique et build lié : 31 routes × 5 langues, recherche et bascule de langue, 159 comparaisons, 0 divergence (après chaque commit de code) |
+| Moteur | `node scripts/test_regles.js` : 222 vérifications ; 5 000 votes identiques à Sabor |
+| Export | `_site/export/` et `balkanska_konfederacija.html` ouverts en `file://` et sous `/export/` : lecteur, carte, fiches sans erreur |
+| Lighthouse mobile | ci-dessus |
+
+### Pas vu fonctionner
+- Safari et Firefox (Playwright WebKit et Firefox non installés dans le conteneur) ; un vrai téléphone ;
+  le balayage tactile réel entre textes (simulé seulement) ; la fluidité à 60 images/s de la bascule
+  (machine sans processeur graphique).
+- Un déploiement réel sur GitHub Pages (le workflow n'a tourné qu'en local, étape par étape).
+- La carte citoyenne enregistrée (code QR chargé avec la page) : chemin de données vérifié, carte non
+  dessinée dans un test.

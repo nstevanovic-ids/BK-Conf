@@ -34,12 +34,13 @@ const PAGES = {home: '#/home', states: '#/states', 'state-film': '#/state/BA-01'
   'state-simple': '#/state/DA-08', 'state-ville': '#/state/SA-92', 'state-muni': '#/state/BK-95', map: '#/map',
   institutions: '#/institutions', council: '#/council', security: '#/security', constitution: '#/constitution',
   'constitution-titre': '#/constitution/title-4', 'constitution-art': '#/constitution/title-4/art-110',
+  'constitution-textes': '#/constitution/title-4/art-110/en-sre-fr', 'constitution-introuvable': '#/constitution/art-999',
   journal: '#/journal', identity: '#/identity', alphabet: '#/alphabet', symbols: '#/symbols', autonomy: '#/autonomy',
   participation: '#/participation', dashboard: '#/dashboard', register: '#/register', citizen: '#/citizen',
   verify: '#/verify', minor: '#/minor', 'err-route': '#/nimporte', 'err-state': '#/state/XX-99'};
 const LANGS = {zap: ['zap', 'lat'], 'sre-lat': ['sre', 'lat'], 'sre-cyr': ['sre', 'cyr'], 'ist-cyr': ['ist', 'cyr'],
   'ist-lat': ['ist', 'lat']};
-const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art'];
+const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art', 'constitution-textes'];
 
 const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const r1 = x => Math.round(x * 10) / 10, r3 = x => Math.round(x * 1000) / 1000;
@@ -128,6 +129,14 @@ async function captures() {
       for (const name of LANG_PAGES) await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-${lname}-${w}.png`), metrics, `${name}-${lname}-${w}`);
       await ctx.close();
     }
+  }
+  // thème sombre : le lecteur à 375 et 1440 px
+  for (const w of [375, 1440]) {
+    const ctx = await b.newContext({viewport: {width: w, height: w === 375 ? 812 : 900}, reducedMotion: 'reduce', colorScheme: 'dark'});
+    await ctx.addInitScript(`try{localStorage.setItem('bk-theme','dark')}catch(e){}`);
+    for (const name of ['constitution', 'constitution-art', 'constitution-textes'])
+      await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-sombre-${w}.png`), metrics, `${name}-sombre-${w}`);
+    await ctx.close();
   }
   await b.close();
   fs.writeFileSync(path.join(OUT, 'pages.json'), JSON.stringify(metrics, null, 1));
