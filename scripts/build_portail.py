@@ -4,7 +4,8 @@ build_portail.py — assemble le portail.
 
 Deux sorties (ADR docs/decisions/2026-11-23-deploiement-lie.md) :
   (défaut)  build lié : assemble _site/, le site publié sur GitHub Pages. Le gabarit est copié
-            tel quel et charge data/*.json par fetch() ; polices, bibliothèques, images et films
+            avec la version des données (?v=) et charge data/*.json par page (table DATA_SRC du
+            gabarit, socle puis données de la route) ; polices, bibliothèques, images et films
             restent des fichiers. Les données sont copiées d'après une liste blanche : jamais les
             GeoJSON sources de portail/data/ (27 Mo). Le fichier unique y est ajouté comme export,
             dans _site/export/index.html, ses liens vers images/ et videos/ remontant d'un cran.
@@ -20,6 +21,7 @@ Usage :
 """
 import argparse
 import base64
+import hashlib
 import json
 import re
 import shutil
@@ -34,7 +36,7 @@ OUT_INLINE = ROOT / "balkanska_konfederacija.html"
 SITE = ROOT / "_site"
 
 # Données publiées (build lié). Toute donnée que le gabarit charge doit y figurer : le contrôle
-# de build_linked() compare cette liste aux fetch() du gabarit.
+# de build_linked() compare cette liste à la table DATA_SRC du gabarit.
 DATA_FILES = (
     "peuples.json", "etats.json", "entites-autonomes.json", "alfabet.json", "state_flags.json",
     "flagnotes.json", "geo.json", "constitution.json", "constitution.zap.json",
@@ -43,6 +45,10 @@ DATA_FILES = (
 )
 # Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
 ASSET_DIRS = ("fonts", "vendor", "images", "videos")
+# Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
+BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
+# Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.
+DATA_V_LINE = "const DATA_V='';"
 ROOT_FILES = ("favicon.ico", "apple-touch-icon.png")
 
 
@@ -94,16 +100,14 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         f"TX={json.dumps(textes, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
-        "STD={western:'Western standard (zapadni)',central:'Central standard (središñi)',eastern:'Eastern standard (istočni)'};\n"
-        "render();\n"
+        # toutes les données sont là : chaque clé du chargement par page est marquée chargée
+        "Object.keys(DATA_SRC).forEach(k=>{DATA_P[k]=Promise.resolve();});\n"
+        "boot();\n"
     )
-    # Swap the loadData().then(...) call for the inline assignment + render.
-    src = re.sub(
-        r"loadData\(\)\.then\(\(\)=>\{ render\(\); \}\)\.catch\([\s\S]*?\}\);",
-        inline_js,
-        src,
-        count=1,
-    )
+    # Le chargement du socle est remplacé par les données injectées (une seule occurrence).
+    if src.count(BOOT_LINE) != 1:
+        sys.exit(f"ligne d'amorce absente du gabarit : {BOOT_LINE}")
+    src = src.replace(BOOT_LINE, inline_js)
     # Inline the vendored libraries (d3-geo for the map, qrcode for the citizen card).
     for lib in ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js"):
         tag = f'<script src="vendor/{lib}"></script>'
@@ -151,10 +155,8 @@ def _copytree(src: Path, dst: Path) -> None:
 def build_linked() -> int:
     """_site/ : gabarit, données de la liste blanche, fichiers, export du fichier unique."""
     tpl = TEMPLATE.read_text(encoding="utf-8")
-    # Chaque fetch(base+'x.json') du gabarit doit être publié, et réciproquement.
-    fetched = set(re.findall(r"fetch\(base\+'([\w.-]+\.json)'\)", tpl))
-    fetched |= {f"constitution.{s}.json" for s in ("zap", "sre", "ist")
-                if "fetch(base+'constitution.'+s+'.json')" in tpl}
+    # Chaque fichier de la table DATA_SRC du gabarit doit être publié, et réciproquement.
+    fetched = set(re.findall(r":\['([\w.-]+\.json)',d=>", tpl))
     if fetched != set(DATA_FILES):
         print("Liste blanche et gabarit divergent :",
               "non publiés", sorted(fetched - set(DATA_FILES)) or "–",
@@ -170,9 +172,17 @@ def build_linked() -> int:
     if SITE.exists():
         shutil.rmtree(SITE)
     (SITE / "data").mkdir(parents=True)
-    shutil.copy2(TEMPLATE, SITE / "index.html")
+    # Version des données : empreinte des fichiers publiés, ajoutée aux adresses des fetch(), pour
+    # qu'un gabarit nouveau ne lise pas des données restées dans le cache (max-age=600 sur Pages).
+    h = hashlib.sha256()
     for f in DATA_FILES:
+        h.update(f.encode() + b"\0" + (DATA / f).read_bytes())
         shutil.copy2(DATA / f, SITE / "data" / f)
+    if tpl.count(DATA_V_LINE) != 1:
+        print(f"ligne absente du gabarit : {DATA_V_LINE}", file=sys.stderr)
+        return 1
+    (SITE / "index.html").write_text(
+        tpl.replace(DATA_V_LINE, f"const DATA_V='?v={h.hexdigest()[:10]}';"), encoding="utf-8")
     for d in ASSET_DIRS:
         _copytree(PORTAIL / d, SITE / d)
     for f in ROOT_FILES:

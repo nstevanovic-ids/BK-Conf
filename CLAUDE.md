@@ -226,7 +226,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
   liste et les `fetch()` du gabarit divergent), polices, `vendor/`, images, films ; plus le fichier
   unique en export (`/export/`, liens relatifs préfixés `../`). `--inline` = fichier unique
   `balkanska_konfederacija.html` (données, polices et scripts vendor injectés, `file://`). `_site/` et
-  le fichier unique sont générés, ignorés par git (ADR 2026-11-23-deploiement-lie.md)
+  le fichier unique sont générés, ignorés par git ; données versionnées (`?v=` posé au build)
+  (ADR 2026-11-23-deploiement-lie.md)
+- Chargement par page (même ADR) : table `DATA_SRC` du gabarit (clé → fichier, variable) ; socle
+  `DATA_CORE` avant tout rendu (+ `textes.json` hors anglais) ; `DATA_ROUTE` attendu avant le rendu
+  de la route, `DATA_LATER` après (gestes de la page), `SEARCH_DATA` à l'ouverture de la recherche.
+  Une vue qui lit une donnée nouvelle l'ajoute à ces tables et à `DATA_FILES` ; contrôle :
+  `docs/lot1/outils/dom.js` (DOM identique au fichier unique, toutes routes, cinq langues)
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux

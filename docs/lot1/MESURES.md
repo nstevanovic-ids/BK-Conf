@@ -7,7 +7,8 @@ du plan ayant été acceptée (commits séparés, mesurés à part).
 ## Méthode
 - Outils dans `docs/lot1/outils/` : `serve.py` (serveur statique, gzip et `max-age=600` comme
   GitHub Pages), `mesure.js` (Lighthouse et captures), `compare.py` (écart de pixels entre deux jeux de
-  captures), `tableau.py` (tableau ci-dessous).
+  captures), `tableau.py` (tableau ci-dessous), `usage.js` (données lues par chaque route),
+  `dom.js` (DOM identique entre fichier unique et build lié).
 - Lighthouse 13.6, mobile simulé par défaut (Moto G Power, 4G lente), Chromium de Playwright sans
   tête, sans processeur graphique ; médiane de trois passages par page, valeurs de chaque passage dans
   `lighthouse.json`. Même outil et mêmes pages que l'audit (`docs/audit/lighthouse-avant.json`, branche
@@ -80,3 +81,38 @@ du plan ayant été acceptée (commits séparés, mesurés à part).
 - Export : `_site/export/index.html` ouvert en `file://` (`#/state/LK-20`, article 110) et servi
   sous `/export/` : rendu complet, sans erreur ; il ne diffère du fichier unique que par le préfixe
   `../` de ses liens d'images et de films.
+
+## 2. Chargement par page (`2-par-page/`, commit 2)
+
+| Page | Perf. | FCP (s) | LCP (s) | TBT (ms) | Poids (ko) | Requêtes | LCP : fichier unique → lié → par page |
+|---|---|---|---|---|---|---|---|
+| `#/home` | 42 | 1,7 | 47,9 | 357 | 13 708 | 66 | 50,1 → 47,0 → 47,9 |
+| `#/states` | 52 | 1,8 | 6,8 | 29 | 1 808 | 76 | 10,4 → 11,0 → 6,8 |
+| `#/state/LK-20` | 52 | 1,8 | 6,7 | 41 | 1 040 | 20 | 7,5 → 8,4 → 6,7 |
+| `#/state/BA-01` | 51 | 1,8 | 7,1 | 42 | 3 012 | 22 | 7,4 → 9,0 → 7,1 |
+| `#/constitution` | 67 | 1,8 | **3,3** | 40 | **405** | 14 | 7,5 → 8,3 → **3,3** |
+| `#/constitution/title-4/art-110` | 91 | 1,8 | **3,3** | 51 | **405** | 14 | 7,5 → 8,4 → **3,3** |
+| `#/map` | 45 | 1,8 | 1,8 | 2 495 | 1 005 | 17 | 7,4 → 1,8 → 1,8 |
+
+- **`#/constitution` : LCP 7,5 → 3,3 s, poids 1 310 → 405 ko** (le plan estimait 0,4 Mo en anglais).
+  La page n'attend plus que le gabarit, le socle (8 ko gzip) et `constitution.json` (43 ko). Les
+  polices (199 ko) font maintenant la moitié du poids. Le budget de 2,5 s n'est pas encore tenu :
+  préchargement des polices et du titre demandé à étudier en fin de lot (risque « LCP » du plan).
+- Fiches d'États : LCP 7,5 → 6,7 s ; restent les drapeaux (567 ko gzip pour les 54, chargés en un
+  fichier), puis le blason ou le film, élément LCP. Accueil : inchangé, ses photos dominent (constat
+  P-2 de l'audit, hors lot).
+- JSON chargés (`pages.json`, champ `json`) : `#/constitution` en anglais, le socle et
+  `constitution.json` ; en istočni, plus `textes.json` et `constitution.ist.json` ; `#/home`, le
+  socle seul ; une fiche d'État, le socle plus drapeaux, notes de drapeaux, contours, chiffres,
+  films ; `#/register`, le socle puis, après le rendu, communes et drapeaux.
+- **Non-régression** (`docs/lot1/outils/dom.js`) : DOM de `#app`, en-tête et `lang` identiques entre
+  le fichier unique (toutes données) et le build lié chargé par page, sur 31 routes × 5 langues et
+  écritures (EN, ZAP, SRE latin et cyrillique, IST cyrillique), recherche comprise (deux requêtes par
+  route), plus la bascule EN → langue sur l'article 110 : **159 comparaisons, 0 divergence**. Contrôle
+  du contrôle : en retirant les notes de drapeaux de la route `#/state/…`, `dom.js` signale les 5
+  langues de `#/state/LK-20`.
+- Gestes : sur `#/map`, la sélection de LK-20 affiche son drapeau (chargé après le rendu) ; sur
+  `#/register`, les 1 461 communes sont chargées avant toute saisie.
+- Captures : identiques au build lié (13 sur 13) et, hors arrivée sur l'article 110, au fichier unique
+  (128 sur 141) ; non versées. Aucune page vide ni débordement ; seules erreurs, les 404 de blasons
+  absents.

@@ -4577,7 +4577,19 @@ function placeCmp(a,b){for(let i=0;i<3;i++)if(a[i]!==b[i])return a[i]<b[i]?-1:1;
 let _shown=null, _from=null;   // dernière route rendue, route qu'on quitte
 let _gridY=null;                  // position dans la grille des États au départ vers une fiche
 let _chrome=false;
+/* Une route s'affiche quand ses données sont là (DATA_ROUTE) ; si l'on a changé de route entre-temps,
+   seule la dernière demandée s'affiche. Les données des gestes de la page suivent (DATA_LATER). */
+let _want=null;
 function render(){
+  const h=location.hash||'#/home';
+  _want=h;
+  need(routeData(h)).then(()=>{
+    if(_want!==h)return;
+    renderRoute();
+    need(routeData(h,true)).catch(()=>{});
+  },dataFail);
+}
+function renderRoute(){
   if(!_chrome){_chrome=true;applyChrome();i18nWatch();}
   toggleMenu(false);
   const h=location.hash||'#/home', prev=_shown;
@@ -4679,7 +4691,9 @@ document.getElementById('langsel').addEventListener('click',e=>{
   if(b.dataset.l===LANG)return;
   LANG=b.dataset.l;
   try{localStorage.setItem('bk-lang',LANG);}catch(err){}
-  applyChrome();rerender();
+  /* texte des pages et, sur la Constitution, texte officiel de la nouvelle langue */
+  const l=LANG;
+  need(routeData(location.hash||'#/home')).then(()=>{if(LANG===l){applyChrome();rerender();}},dataFail);
 });
 document.getElementById('scriptsel').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b||!SCRIPTS[LANG]||b.dataset.s===scriptOf())return;
@@ -4841,16 +4855,20 @@ function openSearch(){
   sc.classList.add('open');
   document.documentElement.classList.add('search-open');
   const inp=document.getElementById('searchInput');
-  inp.value='';sbSel=0;sbResults=searchQuery('');renderResults();
+  inp.value='';sbSel=0;
   setTimeout(()=>inp.focus(),0);
+  /* index construit quand ses données sont là (alphabet, drapeaux, Constitution de la langue) */
+  sbReady=need(SEARCH_DATA()).then(()=>{sbResults=searchQuery(inp.value);sbSel=0;renderResults();});
 }
 function closeSearch(){document.getElementById('searchScrim').classList.remove('open');
   document.documentElement.classList.remove('search-open');}
 function sbHover(n){sbSel=n;
   document.querySelectorAll('.sb-item').forEach(e=>e.classList.toggle('sel',+e.dataset.n===n));}
 function sbGo(n){const i=sbResults[n];if(!i)return;closeSearch();go(i.hash);}
+let sbReady=null;
 document.getElementById('searchInput').addEventListener('input',e=>{
-  sbResults=searchQuery(e.target.value);sbSel=0;renderResults();});
+  if(!sbReady)return;
+  sbReady.then(()=>{sbResults=searchQuery(e.target.value);sbSel=0;renderResults();});});
 document.getElementById('searchScrim').addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){e.preventDefault();sbSel=Math.min(sbSel+1,sbResults.length-1);renderResults();}
   else if(e.key==='ArrowUp'){e.preventDefault();sbSel=Math.max(sbSel-1,0);renderResults();}
@@ -5497,38 +5515,76 @@ function miniGeo(code){
     aria-label="${L`Location of ${esc((byCode(code)||{}).n||code)} in the Confederation`}">${land}${regs.join('')}</svg>`;
 }
 
-/* ============ BOOTSTRAP : chargement des données ============ */
+/* ============ BOOTSTRAP : données chargées par page ============
+   ADR 2026-11-23-deploiement-lie.md. Le socle (peuples, États, entités autonomes, interface,
+   registre, et hors anglais le texte des pages) est attendu avant tout rendu ; chaque route attend
+   en plus ses propres données (DATA_ROUTE) ; DATA_LATER se charge après le rendu, pour les gestes de
+   la page (sélection sur la carte, étapes de l'inscription). Table relevée par
+   docs/lot1/outils/usage.js : une donnée oubliée donne une page incomplète. Le build inline injecte
+   toutes les données et marque chaque clé comme chargée. */
 let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
-async function loadData(){
-  const base='data/';
-  const [pe,st,au,al,fl,fn,ge,co,ss,li,op,vi,i1,rg,tx,...ctr]=await Promise.all([
-    fetch(base+'peuples.json').then(r=>r.json()),
-    fetch(base+'etats.json').then(r=>r.json()),
-    fetch(base+'entites-autonomes.json').then(r=>r.json()),
-    fetch(base+'alfabet.json').then(r=>r.json()),
-    fetch(base+'state_flags.json').then(r=>r.json()),
-    fetch(base+'flagnotes.json').then(r=>r.json()),
-    fetch(base+'geo.json').then(r=>r.json()),
-    fetch(base+'constitution.json').then(r=>r.json()),
-    fetch(base+'stats.json').then(r=>r.json()),
-    fetch(base+'lights.json').then(r=>r.json()),
-    fetch(base+'opstine.json').then(r=>r.json()),
-    fetch(base+'videos.json').then(r=>r.ok?r.json():{}).catch(()=>({})),   // optionnel
-    fetch(base+'i18n.json').then(r=>r.ok?r.json():I18N).catch(()=>I18N),
-    fetch(base+'registre.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
-    fetch(base+'textes.json').then(r=>r.ok?r.json():TX).catch(()=>TX),
-    ...['zap','sre','ist'].map(s=>fetch(base+'constitution.'+s+'.json').then(r=>r.ok?r.json():null).catch(()=>null)),
-  ]);
-  PEUPLES=pe; STATES=st; GEO=ge; CONSTITUTION=co; STATS=ss; LIGHTS=li; OPSTINE=op.m; VIDEOS=vi; I18N=i1; TX=tx; REGISTRE={...REGISTRE,...rg};
-  ['zap','sre','ist'].forEach((s,i)=>{if(ctr[i])CONS_TR[s]=ctr[i];});
-  AUT=au; ALPHA=al.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]); STATE_FLAGS=fl; FLAGNOTE=fn;
-  STD={western:N('Western standard (zapadni)'),central:N('Central standard (središñi)'),eastern:N('Eastern standard (istočni)')};
+const DATA_V='';   // version des données, posée par scripts/build_portail.py (cache de Pages, max-age=600)
+/* clé → [fichier de data/, affectation] ; scripts/build_portail.py publie exactement ces fichiers */
+const DATA_SRC={
+  peuples:['peuples.json',d=>{PEUPLES=d;}],
+  etats:['etats.json',d=>{STATES=d;}],
+  aut:['entites-autonomes.json',d=>{AUT=d;}],
+  i18n:['i18n.json',d=>{I18N=d;}],
+  registre:['registre.json',d=>{REGISTRE={...REGISTRE,...d};}],
+  textes:['textes.json',d=>{TX=d;}],
+  alfabet:['alfabet.json',d=>{ALPHA=d.map(x=>Array.isArray(x)?x:[x.glyph,x.ipa,x.type]);}],
+  flags:['state_flags.json',d=>{STATE_FLAGS=d;}],
+  flagnotes:['flagnotes.json',d=>{FLAGNOTE=d;}],
+  geo:['geo.json',d=>{GEO=d;}],
+  cons:['constitution.json',d=>{CONSTITUTION=d;}],
+  'cons.zap':['constitution.zap.json',d=>{CONS_TR.zap=d;}],
+  'cons.sre':['constitution.sre.json',d=>{CONS_TR.sre=d;}],
+  'cons.ist':['constitution.ist.json',d=>{CONS_TR.ist=d;}],
+  stats:['stats.json',d=>{STATS=d;}],
+  lights:['lights.json',d=>{LIGHTS=d;}],
+  opstine:['opstine.json',d=>{OPSTINE=d.m;}],
+  videos:['videos.json',d=>{VIDEOS=d;}],
+};
+/* facultatives : en cas d'échec la page garde la valeur par défaut (anglais, sans films…) */
+const DATA_OPT=new Set(['i18n','registre','textes','videos','cons.zap','cons.sre','cons.ist']);
+const DATA_CORE=['peuples','etats','aut','i18n','registre'];
+const txL=()=>LANG==='en'?[]:['textes'];
+const consL=()=>LANG==='en'?[]:['cons.'+LANG];   // texte officiel de la langue (art. 151)
+const withCard=()=>citLoad()?['flags']:[];       // carte citoyenne dessinée : drapeau de l'État
+const DATA_ROUTE={
+  states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos'],
+  map:['geo','lights','stats'], institutions:['cons','stats'], council:['cons','stats'], security:['cons'],
+  constitution:()=>['cons',...consL()], identity:['cons'], alphabet:['alfabet'],
+  symbols:['flags'], autonomy:['flags'],
+  citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags']:[]),
+};
+const DATA_LATER={
+  map:['flags'], register:['opstine','flags'], minor:['opstine','flags'], citizen:['flags'],
+};
+const SEARCH_DATA=()=>['alfabet','flags',LANG==='en'?'cons':'cons.'+LANG];
+const DATA_P={};   // clé → promesse du chargement
+function need(keys){
+  return Promise.all(keys.map(k=>DATA_P[k]||(DATA_P[k]=
+    fetch('data/'+DATA_SRC[k][0]+DATA_V)
+      .then(r=>{if(!r.ok)throw new Error(DATA_SRC[k][0]+' : '+r.status);return r.json();})
+      .then(d=>{DATA_SRC[k][1](d);})
+      .catch(e=>{if(DATA_OPT.has(k))return;delete DATA_P[k];throw e;}))));
 }
-loadData().then(()=>{ render(); }).catch(e=>{
+function routeData(h,later){
+  const seg=h.startsWith('#/state/')?'state':(h.replace(/^#\//,'').split('/')[0]||'home');
+  const t=(later?DATA_LATER:DATA_ROUTE)[seg], ks=typeof t==='function'?t():(t||[]);
+  return later?ks:[...txL(),...ks];
+}
+function dataFail(e){
   document.getElementById('app').innerHTML='<p style="padding:40px">'+L`Could not load the portal data: ${e}`+'</p>';
-});
+}
+function boot(){
+  STD={western:N('Western standard (zapadni)'),central:N('Central standard (središñi)'),eastern:N('Eastern standard (istočni)')};
+  render();
+}
+need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données
 
 </script>
 </body>
