@@ -6,16 +6,18 @@ Sources : docs/constitution/v4.en.md (texte publié, anglais) et les trois versi
           des standards, qui font également foi (art. 151 ; ADR 2026-10-26-constitution-trois-standards.md) :
           v4.zap.md (zapadni), v4.sre.md (središñi), v4.ist.md (istočni), en alphabet v3.
 Sorties : portail/data/constitution.json (anglais) et constitution.<std>.json, lus par
-          portail/index.html (vue #/constitution, qui suit la langue choisie).
+          portail/index.html (vue #/constitution, qui suit la langue choisie) ; puis, par
+          scripts/build_lecteur.py, les données du lecteur dans portail/data/constitution/
+          (avec le texte de travail français, docs/constitution/v4.md).
 
 Les versions des standards gardent les préfixes de structure en anglais (« # Title II / »,
 « ## Chapter 3 / », « ### Article 12 bis / », « #### Section 4 / », « # Preamble »), avec les
 mêmes numéros ; seuls les noms après « / » et les corps sont traduits. Le script refuse une
 version dont la structure diffère de l'anglais (titres, chapitres, articles, sections, blocs).
 
-À relancer après toute modification d'un texte, puis rebuild du portail :
+À relancer après toute modification d'un texte (les cinq), puis rebuild du portail :
     python scripts/build_constitution.py
-    python scripts/build_portail.py --inline
+    python scripts/build_portail.py
 
 Structure produite :
   {version, date, iso, source, preamble:{paras[], motto},
@@ -211,7 +213,9 @@ def main() -> int:
         out = OUT.with_name(f"constitution.{std}.json")
         out.write_text(json.dumps(tr, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         report(tr, out)
-    return 0
+    # Données du lecteur (alignement des cinq textes, renvois, ancrages des instruments).
+    import build_lecteur
+    return build_lecteur.main()
 
 
 if __name__ == "__main__":

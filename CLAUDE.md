@@ -99,7 +99,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   2026-10-26-constitution-trois-standards.md ; v1 et v2 archivées). Toute modification de
   fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
-  #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
+  #/constitution du portail, qui suit la langue ; le script refuse une structure divergente),
+  puis les données du lecteur (`scripts/build_lecteur.py`, voir « Architecture du portail »).
   Version 4.16 : texte intégral, 202 articles en onze titres (4.8 : noms sud-slaves des organes ;
   4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured, et noms des organes traduits en zapadni et en istočni ; 4.15 : sigle KAVS de l'agence des situations d'urgence, KAIR en zapadni, KAIS en istočni, à la place d'ACGUB, ADR 2026-11-08-sigle-kavs.md ; 4.16 :
   cohésion confédérale, ADR 2026-11-09-cohesion-confederale.md : titre 5 bis, art. 130 ter à
@@ -159,6 +160,13 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
   entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
   généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
+- `portail/data/constitution/` = données du lecteur de la Constitution, **générées, ne pas éditer** :
+  `core.json` (sommaire, préambules, renvois inverses, ancrages des instruments), `t/<titre>.<lg>.json`
+  (55 fichiers : en, zap, sre, ist, fr), `idx.<lg>.json` (aperçus), `full.<lg>.json` (recherche), par
+  `scripts/build_lecteur.py`, appelé par `build_constitution.py` ; échoue si le français (v4.md) ne
+  s'aligne pas unité par unité, si les renvois diffèrent d'un texte à l'autre ou si un ancrage
+  d'instrument est introuvable ; Pages refuse de déployer des données périmées. `map.json` (carte de
+  marge) par `scripts/build_carte_marge.py`, à relancer après `gen_geo.py` (shapely)
 - `stats.json` (communes, population, superficie, PIB par habitant) est généré par
   `scripts/build_stats.py` depuis les GeoJSON d'États, les recensements de
   `docs/data/population/` et le PIB régional de `docs/data/pib/` (Eurostat 2023, SPA)

@@ -3,7 +3,8 @@
 build_portail.py — assemble le portail.
 
 Deux sorties (ADR docs/decisions/2026-11-23-deploiement-lie.md) :
-  (défaut)  build lié : assemble _site/, le site publié sur GitHub Pages. Le gabarit est copié
+  (défaut)  build lié : assemble _site/, le site publié sur GitHub Pages (données du lecteur de
+            la Constitution comprises, data/constitution/). Le gabarit est copié
             avec la version des données (?v=) et charge data/*.json par page (table DATA_SRC du
             gabarit, socle puis données de la route) ; polices, bibliothèques, images et films
             restent des fichiers. Les données sont copiées d'après une liste blanche : jamais les
@@ -43,6 +44,9 @@ DATA_FILES = (
     "constitution.sre.json", "constitution.ist.json", "stats.json", "lights.json", "opstine.json",
     "videos.json", "i18n.json", "registre.json", "textes.json",
 )
+# Données générées du lecteur de la Constitution (scripts/build_lecteur.py, build_carte_marge.py),
+# chargées par le lecteur lui-même : publiées en entier.
+DATA_DIRS = ("constitution",)
 # Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
 ASSET_DIRS = ("fonts", "vendor", "images", "videos")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
@@ -163,6 +167,7 @@ def build_linked() -> int:
               "; publiés sans être chargés", sorted(set(DATA_FILES) - fetched) or "–", file=sys.stderr)
         return 1
     missing = [f for f in DATA_FILES if not (DATA / f).exists()]
+    missing += [d for d in DATA_DIRS if not (DATA / d / "core.json").exists()]
     missing += [d for d in ASSET_DIRS if not (PORTAIL / d).is_dir()]
     missing += [f for f in ROOT_FILES if not (PORTAIL / f).exists()]
     if missing:
@@ -178,6 +183,10 @@ def build_linked() -> int:
     for f in DATA_FILES:
         h.update(f.encode() + b"\0" + (DATA / f).read_bytes())
         shutil.copy2(DATA / f, SITE / "data" / f)
+    for d in DATA_DIRS:
+        for fp in sorted((DATA / d).rglob("*.json")):
+            h.update(str(fp.relative_to(DATA)).encode() + b"\0" + fp.read_bytes())
+        _copytree(DATA / d, SITE / "data" / d)
     if tpl.count(DATA_V_LINE) != 1:
         print(f"ligne absente du gabarit : {DATA_V_LINE}", file=sys.stderr)
         return 1
@@ -191,10 +200,10 @@ def build_linked() -> int:
     if rc:
         return rc
 
-    data_kb = sum((SITE / "data" / f).stat().st_size for f in DATA_FILES) // 1024
+    data_kb = sum(f.stat().st_size for f in (SITE / "data").rglob("*.json")) // 1024
     print(f"Build lié → {SITE.relative_to(ROOT)}/ (index.html "
           f"{(SITE / 'index.html').stat().st_size // 1024} kB, data/ {data_kb} kB en "
-          f"{len(DATA_FILES)} fichiers, export/index.html)")
+          f"{len(DATA_FILES)} fichiers et {', '.join(d + '/' for d in DATA_DIRS)}, export/index.html)")
     print("Servir avec :  cd _site && python -m http.server 8000   puis http://localhost:8000")
     return 0
 

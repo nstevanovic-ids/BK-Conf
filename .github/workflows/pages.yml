@@ -6,7 +6,10 @@ on:
       - main   # seule branche publiée (cf. CLAUDE.md, « Branche de référence »)
     paths:
       - "portail/**"
+      - "docs/constitution/**"
       - "scripts/build_portail.py"
+      - "scripts/build_constitution.py"
+      - "scripts/build_lecteur.py"
       - "scripts/equilibre.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -46,6 +49,17 @@ jobs:
           # textes.json must carry every page string in zap, sre and ist (ADR 2026-10-26-traduction-pages.md);
           # a gap does not block the deploy (the page falls back on English) but is flagged.
           python scripts/textes.py check || echo "::warning::page translations incomplete — run python scripts/textes.py check"
+
+      - name: Check that the Constitution data are up to date
+        run: |
+          # constitution*.json and the reader data (portail/data/constitution/) are generated from the
+          # five texts of docs/constitution/ (scripts/build_constitution.py, then build_lecteur.py, which
+          # fails on a misaligned text, diverging cross-references or a missing instrument anchor).
+          # A text changed without regenerating them blocks the deploy.
+          python scripts/build_constitution.py
+          git add -N portail/data
+          git diff --exit-code --stat -- portail/data/constitution.json portail/data/constitution.*.json portail/data/constitution/ \
+            || { echo "::error::generated Constitution data are stale — run python scripts/build_constitution.py"; exit 1; }
 
       - name: Build linked portal and single-file export
         run: |
