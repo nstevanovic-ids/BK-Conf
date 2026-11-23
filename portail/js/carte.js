@@ -351,11 +351,36 @@ var MAPX = (function () {
   }
 
   /* ---------------------------------------------------------------- moteur MapLibre (carte-gl.js) */
-  function needGL() { return Promise.reject(new Error('moteur MapLibre non livré')); }
+  let GLP = null;
+  function needGL() {
+    if (EXPORT()) return Promise.reject(new Error('export'));
+    if (!GLP) GLP = need(['js/carte-gl.js']).then(() => CAGL.create(glCtx())).then(api => {
+      if (!$('ca') || !$('caGl') || !api.map.getContainer().isConnected) { api.remove(); throw new Error('page quittée'); }
+      GL = api; stageSync(); legend(); if (S.people) GL.setPeople(S.people);
+      return api;
+    }).catch(e => { GLP = null; throw e; });
+    return GLP;
+  }
+  function glCtx() {
+    return { CARTE, by: byCode, R: () => S.r, mode: () => S.mode, people: () => S.people, loadMun, klass, valOf, valLab, sc, mobile, reduced,
+      obstacles: () => obstacles($('caStage').getBoundingClientRect()),
+      onLevel(l) { if (l !== S.level) { S.level = l; legend(); } },
+      onPick(id) { if (layerView()) return; go2(id.s ? `#/map/${id.c}/${id.s}` : '#/map/' + id.c, 'map'); } };
+  }
+  /* premier geste de zoom sur la silhouette : MapLibre prend le relais, au même cadrage */
+  function zoomIntent(ev) {
+    if (!svgMode() || layerView() || EXPORT()) return;
+    if (ev.type === 'wheel') ev.preventDefault();
+    const t = ev.touches && ev.touches[0], pt = [ev.clientX || (t && t.clientX) || innerWidth / 2, ev.clientY || (t && t.clientY) || innerHeight / 2];
+    const r = $('caStage').getBoundingClientRect(), dir = ev.type === 'wheel' ? (ev.deltaY < 0 ? 1 : -1) : 1;
+    needGL().then(g => { stageSync(); if (ev.type !== 'touchstart') g.zoomAt([pt[0] - r.left, pt[1] - r.top], dir); }).catch(() => {});
+  }
   function stageSync() {
     const ca = $('ca'); if (!ca) return;
-    const svg = !GL || !!layerView();
+    const svg = !GL || !!layerView(), was = ca.classList.contains('ca-svg');
     ca.classList.toggle('ca-svg', svg);
+    if (was !== svg && reduced()) { ca.classList.remove('ca-cut'); void ca.offsetWidth; ca.classList.add('ca-cut'); }
+    if (!svg && was && GL) GL.wake();
     ca.classList.toggle('ca-layer', S.r.v === 'layer');
     svSoon();
   }
@@ -370,8 +395,9 @@ var MAPX = (function () {
     const sh = $('caSheet'), ca = $('ca'); if (!sh) return;
     S.snap = n; sh.dataset.snap = n;
     ca.style.setProperty('--vis', snapPx(n) + 'px');
+    ca.style.setProperty('--pbv', Math.min(snapPx(n), snapPx('half')) + 8 + 'px');   // la carte se cadre au-dessus du feuillet
     const g = $('caGrip'); g.setAttribute('aria-expanded', n !== 'peek'); g.setAttribute('aria-label', n === 'full' ? T('search_close') : L`Open`);
-    if (!quiet) setTimeout(svSoon, 360);
+    if (!quiet) { setTimeout(svSoon, 360); if (GL) GL.repad(); }
   }
   function wireSheet(sig) {
     const sh = $('caSheet'), grip = $('caGrip'), body = $('caBody');
@@ -589,7 +615,10 @@ var MAPX = (function () {
     body.addEventListener('mouseover', hover, sig);
     body.addEventListener('focusin', hover, sig);
     body.addEventListener('mouseleave', () => { S.cur = null; if (GL) GL.setCursor(null, true); svPaint(); }, sig);
-    $('caLab').addEventListener('click', e => { const el = e.target.closest('[data-c]'); if (el && GL) pick(el.dataset.c); }, sig);
+    const stage = $('caStage');
+    stage.addEventListener('wheel', zoomIntent, { ...sig, passive: false });
+    stage.addEventListener('dblclick', zoomIntent, sig);
+    stage.addEventListener('touchstart', ev => { if (ev.touches.length > 1) zoomIntent(ev); }, { ...sig, passive: true });
     document.addEventListener('keydown', e => {
       if (e.key !== 'Escape' || document.documentElement.classList.contains('search-open')) return;
       const hd = document.querySelector('body>header'); if (hd && hd.classList.contains('open')) return;
@@ -645,6 +674,7 @@ var MAPX = (function () {
     if (off) { off(); off = null; }
     document.documentElement.classList.remove('ca-on');
     if (GL) { GL.remove(); GL = null; }
+    GLP = null; S.level = 0;
     S.cur = null; S.hov = null;
     const tip = $('caTip'); if (tip) tip.hidden = true;
     if (document.title !== TITLE0 && !$('ca')) document.title = TITLE0;

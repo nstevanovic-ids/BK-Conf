@@ -89,12 +89,12 @@ html.ca-on footer{display:none}
 .ca .lb.mu.dk{color:var(--ca-labdk);text-shadow:0 0 2px var(--ca-halodk),0 0 3px var(--ca-halodk)}
 .ca .lb.mu b{font-weight:700}
 .ca .lb.mu small{display:block;font-size:12px;font-variant-numeric:tabular-nums;opacity:.85;margin-top:2px}
-.ca .lb.mu.seat b::before{content:"";display:inline-block;width:5px;height:5px;border:1.5px solid currentColor;border-radius:50%;margin-right:4px;vertical-align:.08em}
+.ca .lb.mu.ca-ch b::before{content:"";display:inline-block;width:5px;height:5px;border:1.5px solid currentColor;border-radius:50%;margin-right:4px;vertical-align:.08em}
 .ca .lb.mu.big{font-size:14px}.ca .lb.mu.big small{font-size:12px}
 .ca .lb.nu{font:700 13px/1 var(--disp);color:var(--ca-labdk);text-shadow:none;letter-spacing:.02em}
-.ca .lb.pp{font:700 12.5px/1.15 var(--text);color:var(--ca-ink);background:var(--ca-card);border:1.5px solid var(--ca-ink);border-radius:8px;padding:4px 8px;text-shadow:none}
-.ca .lb.pp.off{background:repeating-linear-gradient(135deg,var(--ca-card) 0 4px,var(--c0) 4px 6px)}
-.ca .lb.pp i{font-style:normal;margin-left:5px}
+.ca .lb.ca-pk{font:700 12.5px/1.15 var(--text);color:var(--ca-ink);background:var(--ca-card);border:1.5px solid var(--ca-ink);border-radius:8px;padding:4px 8px;text-shadow:none}
+.ca .lb.ca-pk.off{background:repeating-linear-gradient(135deg,var(--ca-card) 0 4px,var(--c0) 4px 6px)}
+.ca .lb.ca-pk i{font-style:normal;margin-left:5px}
 
 /* ---------- fil d'Ariane de la carte, zoom ---------- */
 .ca-crumbs{position:absolute;z-index:20;left:calc(var(--sheet-w) + 32px);top:16px;display:flex;align-items:center;gap:2px;min-width:0;
@@ -262,7 +262,7 @@ a.ca-cr:hover{background:rgba(55,64,120,.07)}
 
 /* ---------- téléphone : feuillet bas à trois crans ---------- */
 @media (max-width:599px),(max-width:899px) and (orientation:portrait){
-  .ca{--pt:116px;--pr:14px;--pl:14px;--pb:calc(var(--vis,50%) + 8px)}
+  .ca{--pt:64px;--pr:66px;--pl:14px;--pb:var(--pbv,calc(50% + 8px))}
   .ca-crumbs{left:10px;top:10px;max-width:calc(100% - 140px);border-radius:11px;padding:0 2px}
   .ca-cr{height:44px;padding:0 8px}
   .ca-zoom{right:10px;top:62px}

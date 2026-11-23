@@ -1,0 +1,121 @@
+{
+ "_": "Lighthouse 13.6, mobile simulé (Moto G Power, 4G lente), servi en gzip comme GitHub Pages (docs/lot1/outils/serve.py) ; médiane de 3 passages ; 2026-11-23 ; lot 2, commit 4 : carte en SVG, sans MapLibre",
+ "#/map": {
+  "performance": 93,
+  "accessibility": 96,
+  "best-practices": 100,
+  "seo": 90,
+  "FCP_s": 1.3,
+  "LCP_s": 3.2,
+  "TBT_ms": 57,
+  "CLS": 0,
+  "SI_s": 1.3,
+  "TTI_s": 3.2,
+  "poids_ko": 358,
+  "requetes": 14,
+  "lcp_element": "<h1 data-i18n=\"h_map\">",
+  "passages": [
+   {
+    "performance": 94,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.1,
+    "TBT_ms": 69,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.1,
+    "poids_ko": 358,
+    "requetes": 14
+   },
+   {
+    "performance": 93,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.2,
+    "TBT_ms": 22,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.2,
+    "poids_ko": 358,
+    "requetes": 14
+   },
+   {
+    "performance": 93,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.2,
+    "TBT_ms": 57,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.2,
+    "poids_ko": 358,
+    "requetes": 14
+   }
+  ]
+ },
+ "#/map/LK-20": {
+  "performance": 92,
+  "accessibility": 96,
+  "best-practices": 100,
+  "seo": 90,
+  "FCP_s": 1.3,
+  "LCP_s": 3.3,
+  "TBT_ms": 75,
+  "CLS": 0,
+  "SI_s": 1.3,
+  "TTI_s": 3.3,
+  "poids_ko": 383,
+  "requetes": 15,
+  "lcp_element": "<h2>",
+  "passages": [
+   {
+    "performance": 92,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.3,
+    "TBT_ms": 81,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.3,
+    "poids_ko": 383,
+    "requetes": 15
+   },
+   {
+    "performance": 92,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.3,
+    "TBT_ms": 75,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.3,
+    "poids_ko": 383,
+    "requetes": 15
+   },
+   {
+    "performance": 92,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 90,
+    "FCP_s": 1.3,
+    "LCP_s": 3.3,
+    "TBT_ms": 26,
+    "CLS": 0,
+    "SI_s": 1.3,
+    "TTI_s": 3.3,
+    "poids_ko": 383,
+    "requetes": 15
+   }
+  ]
+ }
+}

@@ -60,6 +60,8 @@ BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inlin
 # Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.
 DATA_V_LINE = "const DATA_V='';"
 ROOT_FILES = ("favicon.ico", "apple-touch-icon.png")
+# Code qui n'a de sens qu'en ligne : le moteur MapLibre de la carte (le fichier unique garde la silhouette).
+GL_ONLY = ("carte-gl.js",)
 
 
 def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
@@ -97,7 +99,7 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     # dans le fichier unique, la carte reste en SVG (CA_EXPORT).
     carte = json.loads((DATA / "carte" / "index.json").read_text(encoding="utf-8"))
     code = [PORTAIL / "vendor" / lib for lib in VENDOR] + \
-        [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
+        [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css") and f.name not in GL_ONLY]
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (

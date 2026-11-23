@@ -35,7 +35,14 @@ const norm = s => s.replace(/\.\.\/(images|videos)\//g, '$1/')
 async function snap(pg) {
   try { await pg.waitForLoadState('networkidle', {timeout: 10000}); } catch (e) {}
   await pg.waitForTimeout(400);
-  return pg.evaluate(() => ({app: document.getElementById('app').innerHTML,
+  return pg.evaluate(() => ({app: (() => {
+    // carte : MapLibre (canevas, libellés) n'existe qu'en ligne ; on compare la page sans lui
+    const a = document.getElementById('app').cloneNode(true);
+    a.querySelectorAll('#caGl,#caLab').forEach(e => { e.innerHTML = ''; e.className = e.id === 'caGl' ? 'ca-gl' : 'ca-lab'; e.removeAttribute('style'); });
+    const lg = a.querySelector('#caLegend'); if (lg) lg.innerHTML = '';   // niveau de la légende : celui du zoom de MapLibre
+    const ca = a.querySelector('#ca'); if (ca) { ca.classList.add('ca-svg'); ca.classList.remove('ca-cut'); }
+    return a.innerHTML;
+  })(),
     head: document.querySelector('body>header').innerText, lang: document.documentElement.lang}));
 }
 
@@ -67,6 +74,8 @@ function firstDiff(a, b) {
         const srch = [];
         for (const q of QUERIES) {
           await pg.keyboard.press('Control+k');
+          // le champ prend le focus par setTimeout : sur la carte en WebGL logiciel, le fil est occupé
+          await pg.waitForFunction(() => document.activeElement && document.activeElement.id === 'searchInput', null, {timeout: 5000}).catch(() => {});
           await pg.waitForTimeout(150);
           await pg.keyboard.type(q);
           try { await pg.waitForLoadState('networkidle', {timeout: 8000}); } catch (e) {}
