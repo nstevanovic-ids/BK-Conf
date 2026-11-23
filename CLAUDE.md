@@ -158,7 +158,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
   route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
-  (lecteur de la Constitution, repris de Codex : ouverture, 1 à 5 textes alignés en/zap/sre/ist/fr,
+  (lecteur de la Constitution, repris de Codex : ouverture sur le préambule puis les onze titres, sans
+  article mis en avant, 1 à 5 textes alignés en/zap/sre/ist/fr,
   renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
   glyphe par glyphe, double ligne en `<ruby>`) ; `js/marges.js` (instruments de marge des art. 1 bis,
   1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
