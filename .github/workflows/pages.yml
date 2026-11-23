@@ -6,7 +6,11 @@ on:
       - main   # seule branche publiée (cf. CLAUDE.md, « Branche de référence »)
     paths:
       - "portail/**"
+      - "docs/constitution/**"
       - "scripts/build_portail.py"
+      - "scripts/build_constitution.py"
+      - "scripts/build_lecteur.py"
+      - "scripts/test_regles.js"
       - "scripts/equilibre.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -47,18 +51,29 @@ jobs:
           # a gap does not block the deploy (the page falls back on English) but is flagged.
           python scripts/textes.py check || echo "::warning::page translations incomplete — run python scripts/textes.py check"
 
-      - name: Build self-contained portal
+      - name: Check the voting and seat rules against the Constitution
         run: |
-          python scripts/build_portail.py --inline
-          mkdir -p _site
-          cp balkanska_konfederacija.html _site/index.html
-          # Ship the OFL font files and their licences (fonts are also inlined as base64)
-          if [ -d portail/fonts ]; then cp -r portail/fonts _site/fonts; fi
-          # Ship owner-supplied images (referenced as images/<id>.jpg)
-          if [ -d portail/images ]; then cp -r portail/images _site/images; fi
-          # Ship state films (referenced as videos/<code>.mp4, see scripts/encode_video.py)
-          if [ -d portail/videos ]; then cp -r portail/videos _site/videos; fi
-          cp portail/favicon.ico portail/apple-touch-icon.png _site/
+          # portail/js/regles.js, the single rules engine (Art. 103, 109 b, 110, 110 ter, 111, 115 bis),
+          # checked case by case against the text (docs/lot1/MOTEUR.md).
+          node scripts/test_regles.js
+
+      - name: Check that the Constitution data are up to date
+        run: |
+          # constitution*.json and the reader data (portail/data/constitution/) are generated from the
+          # five texts of docs/constitution/ (scripts/build_constitution.py, then build_lecteur.py, which
+          # fails on a misaligned text, diverging cross-references or a missing instrument anchor).
+          # A text changed without regenerating them blocks the deploy.
+          python scripts/build_constitution.py
+          git add -N portail/data
+          git diff --exit-code --stat -- portail/data/constitution.json portail/data/constitution.*.json portail/data/constitution/ \
+            || { echo "::error::generated Constitution data are stale — run python scripts/build_constitution.py"; exit 1; }
+
+      - name: Build linked portal and single-file export
+        run: |
+          # Linked build (ADR 2026-11-23-deploiement-lie.md): the template, the data on the whitelist of
+          # scripts/build_portail.py (never the source GeoJSON), fonts, libraries, images and films as
+          # files; the self-contained single file is published as an export in export/index.html.
+          python scripts/build_portail.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

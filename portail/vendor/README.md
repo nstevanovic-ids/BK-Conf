@@ -8,5 +8,7 @@
 
 Utilisées par la carte (#/map) et les mini-cartes des fiches État : projection
 satellite, découpage à l'horizon, graticule. `qrcode.min.js` dessine le code de
-vérification au verso de la carte citoyenne (#/citizen). `scripts/build_portail.py --inline`
-les intègre dans le fichier unique.
+vérification au verso de la carte citoyenne (#/citizen). Chargées avec les pages qui s'en
+servent (`DATA_ROUTE` du gabarit, dans cet ordre), plus au démarrage de toutes les pages
+(ADR 2026-11-23-deploiement-lie.md) ; `scripts/build_portail.py --inline` les intègre dans le
+fichier unique.

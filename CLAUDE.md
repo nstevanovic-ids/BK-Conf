@@ -99,7 +99,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   2026-10-26-constitution-trois-standards.md ; v1 et v2 archivées). Toute modification de
   fond se fait dans les cinq fichiers, puis `python scripts/build_constitution.py`
   régénère `portail/data/constitution.json` et `constitution.<std>.json` (lecteur
-  #/constitution du portail, qui suit la langue ; le script refuse une structure divergente).
+  #/constitution du portail, qui suit la langue ; le script refuse une structure divergente),
+  puis les données du lecteur (`scripts/build_lecteur.py`, voir « Architecture du portail »).
   Version 4.16 : texte intégral, 202 articles en onze titres (4.8 : noms sud-slaves des organes ;
   4.9 : double clé, cf. plus bas ; 4.10 : Severna Trakija sans yat ; 4.11 : središñi standard ; 4.12 : redécoupage bulgare ; 4.13 : passe de fondation, cinquante-deux États, rattachement de chaque État à son peuple en garantie renforcée, art. 150 e ; 4.14 : Konfederalni Istražni Biro, ex-Ured, et noms des organes traduits en zapadni et en istočni ; 4.15 : sigle KAVS de l'agence des situations d'urgence, KAIR en zapadni, KAIS en istočni, à la place d'ACGUB, ADR 2026-11-08-sigle-kavs.md ; 4.16 :
   cohésion confédérale, ADR 2026-11-09-cohesion-confederale.md : titre 5 bis, art. 130 ter à
@@ -155,10 +156,34 @@ infrastructure numérique). Haute exigence de cohérence interne.
   le 2026-10-15 et n'est plus publiée.
 
 ## Architecture du portail
-- `portail/index.html` = template (HTML + CSS + JS de rendu)
+- `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
+  route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
+  (lecteur de la Constitution, repris de Codex : ouverture, 1 à 5 textes alignés en/zap/sre/ist/fr,
+  renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
+  glyphe par glyphe, double ligne en `<ruby>`) ; `js/marges.js` (instruments de marge des art. 1 bis,
+  1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
+  (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
+  docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 : carte,
+  mini-cartes ; qrcode : carte citoyenne) ; ADR 2026-11-23-lecteur-constitution.md
+- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/en-sre-fr`
+  (textes affichés) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
+  recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
+  `CX.rerender` (langue, écriture), `CX.takeRef` / `CX.target` (élément partagé), `CX.leave`
+- Recherche (Ctrl+K, /) : une seule, celle du portail ; accès par numéro (« 110 », « art 1 bis »,
+  « čl. 110 », « § 110 »), repli sans diacritiques ni écriture (ļ = lj = l…), extraits en graphie
+  d'origine ; articles depuis `constitution/idx.<lg>.json`, texte depuis `full.<lg>.json` (première
+  frappe)
+- Lien d'évitement « Skip to content » (clé `skip` d'i18n.json) sur tout le portail
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
   entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
   généré depuis docs/constitution/v4.en.md, ne pas l'éditer à la main
+- `portail/data/constitution/` = données du lecteur de la Constitution, **générées, ne pas éditer** :
+  `core.json` (sommaire, préambules, renvois inverses, ancrages des instruments), `t/<titre>.<lg>.json`
+  (55 fichiers : en, zap, sre, ist, fr), `idx.<lg>.json` (aperçus), `full.<lg>.json` (recherche), par
+  `scripts/build_lecteur.py`, appelé par `build_constitution.py` ; échoue si le français (v4.md) ne
+  s'aligne pas unité par unité, si les renvois diffèrent d'un texte à l'autre ou si un ancrage
+  d'instrument est introuvable ; Pages refuse de déployer des données périmées. `map.json` (carte de
+  marge) par `scripts/build_carte_marge.py`, à relancer après `gen_geo.py` (shapely)
 - `stats.json` (communes, population, superficie, PIB par habitant) est généré par
   `scripts/build_stats.py` depuis les GeoJSON d'États, les recensements de
   `docs/data/population/` et le PIB régional de `docs/data/pib/` (Eurostat 2023, SPA)
@@ -187,7 +212,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
   les sections de la navigation, horizontal entre les pages d'une même section (fiches
   d'États, titres de la constitution, sous-pages) ; rien d'autre ne s'anime à l'arrivée ;
   retour d'une fiche : la grille des États revient à sa position, filtre conservé
-  (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md)
+  (ADR 2026-10-23-glissement-sections.md et 2026-10-24-etats-en-tete-mobile.md). Amendé pour les
+  pages refondues (ADR 2026-11-23-mouvement-lecteur.md) : dans `#/constitution`, renvoi suivi vers un
+  autre titre = élément partagé (numéro d'article, `data-vt="ref"`), sans glissement ; renvoi dans le
+  titre = défilement et éclairage de l'article ; table des titres animée au défilement ; bascule
+  d'écriture glyphe par glyphe (fondu de 200 ms en mouvement réduit) ; carte (lot 2) et votes (lot 3)
+  y ajouteront leur règle
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
@@ -221,7 +251,20 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Carte : dessin CNI / carte suisse en Arimo, vérification publique `#/verify` (QR au verso),
   pass Google Wallet générique (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ;
   jamais de date de naissance ni de narodnost sur un pass
-- `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
+- `scripts/build_portail.py` = assemble `_site/`, le site publié sur Pages (build lié) : gabarit tel
+  quel, JSON de la liste blanche `DATA_FILES` (jamais les GeoJSON sources ; le build échoue si la
+  liste et les `fetch()` du gabarit divergent), polices, `vendor/`, images, films ; plus le fichier
+  unique en export (`/export/`, liens relatifs préfixés `../`). `--inline` = fichier unique
+  `balkanska_konfederacija.html` (données, polices et scripts vendor injectés, `file://`). `_site/` et
+  le fichier unique sont générés, ignorés par git ; données versionnées (`?v=` posé au build)
+  (ADR 2026-11-23-deploiement-lie.md)
+- Chargement par page (même ADR) : table `DATA_SRC` du gabarit (clé → fichier, variable) ; socle
+  `DATA_CORE` avant tout rendu (+ `textes.json` hors anglais) ; `DATA_ROUTE` attendu avant le rendu
+  de la route, `DATA_LATER` après (gestes de la page), `SEARCH_DATA` à l'ouverture de la recherche.
+  Une vue qui lit une donnée nouvelle l'ajoute à ces tables et à `DATA_FILES` ; contrôle :
+  `docs/lot1/outils/dom.js` (DOM identique au fichier unique, toutes routes, cinq langues).
+  Préchargement dès le `<head>` selon l'adresse (polices, socle, code, sommaire et titre du lecteur),
+  bloc retiré du fichier unique ; `#app` vide réserve la hauteur de l'écran (pas de saut du pied de page)
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux

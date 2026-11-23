@@ -253,6 +253,22 @@ def extract():
         tag = f"{func_at(src, pos)}:{line}"
         if tag not in e["ctx"]:
             e["ctx"].append(tag)
+    # Code de page (lecteur de la Constitution, marges…) : mêmes appels L`…`, L(x), N('…'),
+    # chargé avec sa page (ADR 2026-11-23-lecteur-constitution.md).
+    for js in sorted((ROOT / "portail" / "js").glob("*.js")):
+        jsrc = js.read_text(encoding="utf-8")
+        for kind, key, pos, dynamic in Lexer(jsrc).run():
+            line = jsrc.count("\n", 0, pos) + 1
+            if dynamic or key is None:
+                if kind != "L()":
+                    dyn.append((kind, f"js/{js.name}:{line}"))
+                continue
+            if not re.search(r"[A-Za-z]", key):
+                continue
+            e = cat.setdefault(key, {"ctx": []})
+            tag = f"js/{js.name}:{func_at(jsrc, pos)}:{line}"
+            if tag not in e["ctx"]:
+                e["ctx"].append(tag)
     for k in NAMES:
         cat.setdefault(k, {"ctx": ["NAMES"]})
     for fname, get in JSON_SOURCES:
