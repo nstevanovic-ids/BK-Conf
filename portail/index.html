@@ -119,6 +119,11 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.2;lett
 
 /* ---------- top hairline ---------- */
 .topline{height:3px;background:#c90505;width:100%}
+/* lien d'évitement : hors écran jusqu'au focus du clavier */
+.skip{position:absolute;left:8px;top:-64px;z-index:100;background:var(--indigo);color:var(--indigo-ink);
+  padding:11px 16px;font-weight:700;font-size:.86rem;border-radius:3px;text-decoration:none;box-shadow:0 0 0 2px var(--gold-bright)}
+.skip:focus{top:8px}
+#app:focus{outline:none}
 
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:60;background:var(--indigo);color:var(--indigo-ink)}
@@ -1373,6 +1378,8 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 </script>
 </head>
 <body>
+<!-- lien d'évitement (constat A-4 de l'audit) : premier arrêt du clavier, vers le contenu de la page -->
+<a class="skip" href="#app" data-i18n="skip" onclick="return skipTo()">Skip to content</a>
 
 <div class="topline"></div>
 
@@ -1435,7 +1442,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
   </div></nav>
 </header>
 
-<main id="app"></main>
+<main id="app" tabindex="-1"></main>
 
 <div class="scrim" id="searchScrim" onclick="if(event.target===this)closeSearch()">
   <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search the portal" data-i18n-aria="search">
@@ -4361,6 +4368,13 @@ function citHeader(){
    ROUTER
    ============================================================ */
 function go(h){location.hash=h;}
+/* lien d'évitement : le focus va au contenu de la page (le lecteur, l'en-tête de son article), sans
+   toucher à l'adresse, qui porte la route */
+function skipTo(){
+  const t=document.querySelector('#cx .cx-art.cx-cur .cx-ah h3')||document.getElementById('app');
+  if(t.tabIndex<0&&t.id!=='app')t.tabIndex=-1;
+  t.focus();return false;
+}
 const ROUTES={
  'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
  'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],

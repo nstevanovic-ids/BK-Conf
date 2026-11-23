@@ -8,7 +8,7 @@ acceptée : une 12e chaîne, soumise à l'auteur avant livraison.
 |---|---|---|---|
 | 1 | Assumption | oui | 6 (instruments) |
 | 2 | Alignment failed for this article. | abandonnée : le générateur échoue à la place | – |
-| 3 | Skip to content | à livrer avec le lien d'évitement | 8 |
+| 3 | Skip to content | oui, dans `i18n.json` (en-tête du portail, clé `skip`) | 8 |
 | 4 | To be translated | abandonnée | – |
 | 5 | No annual count exists yet (Art. 115 bis)… | oui | 6 |
 | 6 | The plenary majority depends on seventy individual votes… | oui | 6 |
