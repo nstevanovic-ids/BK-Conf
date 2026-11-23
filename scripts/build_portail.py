@@ -43,15 +43,17 @@ DATA_FILES = (
     "flagnotes.json", "geo.json", "stats.json", "lights.json", "opstine.json",
     "videos.json", "i18n.json", "registre.json", "textes.json",
 )
-# Données générées du lecteur de la Constitution (scripts/build_lecteur.py, build_carte_marge.py),
-# chargées par le lecteur lui-même : publiées en entier.
-DATA_DIRS = ("constitution",)
+# Données générées, chargées par leur page : lecteur de la Constitution (scripts/build_lecteur.py,
+# build_carte_marge.py) et carte (scripts/build_carte.py) ; publiées en entier. Valeur : le fichier
+# dont l'absence signale un dossier non généré.
+DATA_DIRS = {"constitution": "core.json", "carte": "index.json"}
 # Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
 ASSET_DIRS = ("fonts", "vendor", "images", "videos", "js", "css")
 # Code chargé avec sa page (need() du gabarit) ; le fichier unique l'embarque.
 CODE_DIRS = ("js", "css")
-# Bibliothèques tierces, chargées avec leurs pages (d3 : carte et mini-cartes ; qrcode : carte citoyenne),
-# dans cet ordre (d3-geo s'appuie sur d3-array).
+# Bibliothèques tierces embarquées par le fichier unique, chargées avec leurs pages (d3 : mini-cartes
+# des fiches ; qrcode : carte citoyenne), dans cet ordre (d3-geo s'appuie sur d3-array). MapLibre
+# (vendor/maplibre-gl/, carte) n'est publié qu'en build lié : son worker exige http(s).
 VENDOR = ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
 BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
@@ -189,7 +191,7 @@ def build_linked() -> int:
               "; publiés sans être chargés", sorted(set(DATA_FILES) - fetched) or "–", file=sys.stderr)
         return 1
     missing = [f for f in DATA_FILES if not (DATA / f).exists()]
-    missing += [d for d in DATA_DIRS if not (DATA / d / "core.json").exists()]
+    missing += [f"{d}/{f}" for d, f in DATA_DIRS.items() if not (DATA / d / f).exists()]
     missing += [d for d in ASSET_DIRS if not (PORTAIL / d).is_dir()]
     missing += [f for f in ROOT_FILES if not (PORTAIL / f).exists()]
     if missing:
