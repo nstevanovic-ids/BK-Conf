@@ -264,7 +264,8 @@ var MAPX = (function () {
   const svgMode = () => { const ca = $('ca'); return !ca || ca.classList.contains('ca-svg'); };
   const merc = lat => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)) * 180 / Math.PI;
   const svXY = pt => [pt[0] * CARTE.sil.k, -merc(pt[1]) * CARTE.sil.k];
-  const layerView = () => S.r.v === 'layer' ? LAYERS[S.r.a].view() : null;
+  const VIEWS = {};                                   // vue de chaque couche, calculée une fois (elle lit son état en direct)
+  const layerView = () => S.r.v === 'layer' ? (VIEWS[S.r.a] || (VIEWS[S.r.a] = LAYERS[S.r.a].view())) : null;
   function svPaint() {
     const g = $('caSvS'); if (!g) return;
     const br = CARTE.breaks.state[S.mode], V = layerView(), sel = (S.r.v === 'state' || S.r.v === 'mun') ? S.r.c : null;
@@ -562,7 +563,7 @@ var MAPX = (function () {
   }
   function refreshLayer() {
     const L0 = S.r.v === 'layer' && LAYERS[S.r.a]; if (!L0) return;
-    const live = $('caBody').querySelector('[data-live]'); if (live) live.innerHTML = L0.live();
+    const live = $('caBody').querySelector('[data-live]'); if (live) { live.innerHTML = L0.live(); if (cyrOn()) cyrApply(live); }
     svPaint(); svLabels();
   }
 
@@ -679,6 +680,85 @@ var MAPX = (function () {
     const tip = $('caTip'); if (tip) tip.hidden = true;
     if (document.title !== TITLE0 && !$('ca')) document.title = TITLE0;
   }
+
+  /* ---------------------------------------------------------------- couches institutionnelles
+     Les règles viennent du moteur unique (portail/js/regles.js, REGLES), à la lettre de l'article, avec
+     les hypothèses du lecteur de la Constitution (même texte). Chaque couche renvoie à son article.
+     Aucune péréquation (art. 132) tant que l'article n'est pas révisé. */
+  const ASSUME = {
+    sl: N('The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.'),
+    reg: N('No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.'),
+    plen: N('The plenary majority depends on seventy individual votes and is not modelled here.'),
+  };
+  let RC = null;
+  const ctxR = () => RC || (RC = REGLES.contexte(STATES, STATS, PEUPLES));
+  const sign = ok => `<span aria-hidden="true">${ok ? '✓' : '✕'}</span>`;
+  const pctN = (x, d = 1) => (x * 100).toLocaleString(L_LOC[LANG] || 'en-GB', { minimumFractionDigits: d, maximumFractionDigits: d }) + (LANG === 'en' ? '%' : ' %');
+  const artHref = id => { const t = (typeof cIndex === 'function' && CORE) ? cIndex()[id] : null; return t ? `#/constitution/${t}/${id}` : '#/constitution'; };
+  const layerHead = (art, name) => `<a class="ca-back" href="#/map">‹ ${esc(T('f_conf'))}</a>
+    <div class="eyebrow">${esc(L`Art. ${art}`)}</div><h1 class="ca-name">${esc(L(name))}</h1>`;
+  const layerFoot = (id, num) => `<a class="ca-art" href="${artHref(id)}">${esc(L`Article ${num}`)} →</a>`;
+  const assume = (...k) => `<p class="ca-as"><b>${L`Assumption`}</b>${k.map(x => esc(L(ASSUME[x]))).join(' ')}</p>`;
+  const NEED = () => need(['js/regles.js', 'core']);
+
+  /* art. 103 : 250 sièges, une circonscription par État (2 à 20 sièges), Brčko et Mostar au moins un */
+  LAYERS['art-103'] = {
+    name: N('Kongres seats'), need: NEED,
+    sheet() {
+      return `${layerHead('103', this.name)}
+      <p class="ca-sub">${L`Every State is a constituency. Seats follow the population, so that a delegate represents roughly the same number of inhabitants everywhere, within a floor that keeps the smallest States in the chamber.`}</p>
+      <div data-live>${this.live()}</div>${assume('sl')}${layerFoot('art-103', '103')}`;
+    },
+    live() {
+      const C = ctxR(), K = C.seats, rows = [...K.rows].sort((a, b) => b.s - a.s || b.pop - a.pop);
+      return `<div class="ca-kp"><div><b>${fmtN(K.sum)}</b><span>${L`Delegates`}</span></div><div><b>${fmtN(rows.length)}</b><span>${L`Constituencies`}</span></div>
+        <div><b>${fmtN(Math.round(C.popTotal / 250 / 100) * 100)}</b><span>${L`Inhabitants per delegate, on average`}</span></div></div>
+        <div class="ca-stl">${rows.map(r => `<span><a href="#/map/${r.c}" translate="no">${r.c}</a><b>${r.s}</b></span>`).join('')}</div>`;
+    },
+    view() {
+      const C = ctxR(), by = Object.fromEntries(C.seats.rows.map(r => [r.c, r]));
+      return { cls: () => 'i-lo', names: false, pick: () => false,
+        circles: () => C.seats.rows.map(r => ({ c: r.c, r: 4.4 * Math.sqrt(r.s) * (mobile() ? 0.62 : 1), cls: 'cs' })),
+        labels: () => C.seats.rows.filter(r => r.s >= (mobile() ? 7 : 3)).map(r => ({ c: r.c, pt: CARTE.e[r.c].pt, free: true, v: [['nu', String(r.s), 'c']] })),
+        tip: c => { const r = by[c], s = byCode(c); return `<b>${esc(sc(s.n))}<code translate="no">${c}</code></b><span>${r.s} · ${esc(sc(L`Delegates`))} · ${esc(sc(L`${fmtN(r.pop)} inhabitants`))}</span>`; } };
+    },
+  };
+
+  /* art. 110 : cinq des sept délégations, qui représentent aussi la majorité des inscrits (double clé) */
+  const K110 = { slo: 1, hrv: 1, srb: 0, bos: 1, cng: 1, mkd: 1, bul: 0 };     // même départ que la marge du lecteur
+  const S110 = { ...K110 };
+  const yes110 = () => Object.keys(PEUPLES).filter(k => S110[k]);
+  LAYERS['art-110'] = {
+    name: N('7 delegations'), need: NEED,
+    sheet() {
+      return `${layerHead('110', this.name)}
+      <p class="ca-sub">${L`Select States on the map.`}</p>
+      <div data-live>${this.live()}</div>${assume('reg', 'plen')}${layerFoot('art-110', '110')}`;
+    },
+    live() {
+      const C = ctxR(), R = REGLES.cleDouble(C, yes110()), maj = R.inscrits * 2 > C.regTotal;
+      return `<div class="ca-big"><div>${R.n} / 7<small>≥ 5 ${sign(R.cinq)}</small></div>
+        <div>${pctN(R.part)}<small>&gt; 50 % ${sign(maj)} · ${L`Registered citizens`}</small></div></div>
+      <div class="ca-tg" role="group" aria-label="${esc(L`Constituent peoples`)}">${C.order.map(k => `<button type="button" role="switch" data-k="${k}" aria-checked="${!!S110[k]}">
+        ${esc(L(PEUPLES[k].en))} ${sign(S110[k])}<small>${pctN(C.reg[k] / C.regTotal)}</small></button>`).join('')}</div>
+      <div class="ca-vd ${R.cle ? 'ok' : 'ko'}" role="status"><b aria-hidden="true">${R.cle ? '✓' : '✕'}</b><div>${R.cle ? L`Adopted` : L`Not adopted`}</div></div>
+      <p class="ca-row"><button type="button" class="ca-rs" data-rs aria-label="${esc(L`Back`)}"><span aria-hidden="true">↺</span></button></p>`;
+    },
+    act(e) {
+      const b = e.target.closest('[data-k]');
+      if (b) { S110[b.dataset.k] = S110[b.dataset.k] ? 0 : 1; setTimeout(() => { const n = $('caBody').querySelector(`[data-k="${b.dataset.k}"]`); if (n) n.focus({ preventScroll: true }); }); return true; }
+      if (e.target.closest('[data-rs]')) { Object.assign(S110, K110); return true; }
+      return false;
+    },
+    view() {
+      const C = ctxR(), head = {};
+      for (const k of C.order) head[k] = STATES.filter(s => s.t === 'T' && s.p === k).sort((a, b) => (st(b.c).population || 0) - (st(a.c).population || 0))[0];
+      return { cls: c => { const s = byCode(c); return s.t !== 'T' ? 'i-na' : S110[s.p] ? 'i-on' : 'i-off'; }, names: false,
+        pick: c => { const s = byCode(c); if (s.t !== 'T') return false; S110[s.p] = S110[s.p] ? 0 : 1; return true; },
+        labels: () => C.order.map(k => ({ pt: CARTE.e[head[k].c].pt, v: [['ca-pk' + (S110[k] ? '' : ' off'), `${esc(sc(L(PEUPLES[k].en)))}<i>${S110[k] ? '✓' : '✕'}</i>`, 'c']] })),
+        tip: c => { const s = byCode(c); return `<b>${esc(sc(s.n))}<code translate="no">${c}</code></b><span>${s.t !== 'T' ? '—' : esc(sc(L(PEUPLES[s.p].en))) + ' · ' + pctN(C.reg[s.p] / C.regTotal)}</span>`; } };
+    },
+  };
 
   return { prepare, html, mounted, inplace, rerender, theme, leave, parse, hashOf, LAYERS, S, loadMun, munNow, valOf, klass,
     who, sc, svSoon, stageSync, legend, pick, upLevel, go2, setCursor, entities, refreshLayer, sheetHTML };

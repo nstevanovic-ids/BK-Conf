@@ -241,7 +241,10 @@ a.ca-cr:hover{background:rgba(55,64,120,.07)}
 .ca-as b{display:block;font:700 12px/1.3 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--ca-ink3);margin-bottom:2px}
 .ca-art{display:inline-flex;align-items:center;min-height:44px;margin:12px 0 0;font-weight:700;font-size:14px;color:var(--ca-blue);text-decoration:none}
 .ca-art:hover{text-decoration:underline}
-.ca-retreat .ca-legend,.ca-layer .ca-legend{display:none}
+.ca-row{margin:12px 0 0}
+.ca-rs{min-width:44px;min-height:44px;border:1.5px solid var(--ca-ink);border-radius:8px;font-size:18px;color:var(--ca-ink)}
+.ca-rs:hover{background:var(--ca-paper)}
+.ca-layer .ca-legend,.ca-layer .ca-zoom{display:none}
 
 /* ---------- transitions : élément partagé dans la carte ---------- */
 :root[data-vt="ca"]::view-transition-old(root),:root[data-vt="ca"]::view-transition-new(root){animation:none}
