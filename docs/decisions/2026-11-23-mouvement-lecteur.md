@@ -3,7 +3,7 @@
 ## Statut
 Accepté le 2026-11-17 par l'auteur : décision 3 de `proto/REPRISE.md` (branche `claude/proto-tour-2`),
 « ADR d'amendement des transitions, limité aux trois pages : oui ». Lot 1 (`docs/lot1/PLAN.md`) : règle
-complète pour `#/constitution` ; la carte (lot 2) et la page des votes (lot 3) y ajouteront la leur.
+complète pour `#/constitution` ; la carte (lot 2) a ajouté la sienne, la page des votes (lot 3) y ajoutera la sienne.
 
 Amende l'ADR 2026-10-23-glissement-sections.md (« un seul glissement, rien d'autre ne s'anime à
 l'arrivée ») et l'ADR 2026-10-24-etats-en-tete-mobile.md, **pour les trois pages refondues seulement**.
@@ -44,9 +44,27 @@ Le reste du portail garde la règle d'origine.
 8. **Rien d'autre** ne s'anime à l'arrivée : la page entre déjà positionnée (sur l'article demandé ou
    sur l'alinéa tenu avant un nouveau rendu).
 
+## Décision : `#/map` (amendement du 2026-11-23, lot 2, ADR 2026-11-23-carte-maplibre.md)
+1. **Entrée et sortie** : le glissement vertical du portail, inchangé (la carte est une section de la
+   navigation). Toutes les adresses `#/map/…` sont une même page : le routeur ne glisse pas entre elles et
+   délègue à la carte (`MAPX.inplace`), qui ne redessine rien.
+2. **Dans la carte** (Confédération, État, commune, couches) : pas de glissement. La caméra vole (MapLibre,
+   courbe 1,3, de 0,9 à 2,4 s selon la distance, interrompue par tout geste) ; le feuillet change de contenu
+   sans animation, sauf le nom de l'entité, qui passe de la ligne de liste au titre du feuillet (élément
+   partagé `ca-name`, 0,32 s ; `data-vt="ca"` : pas de fondu de la page). Une seule transition à la fois.
+3. **Arrivée depuis une autre page** (lien, recherche, fiche d'État) : la carte entre déjà cadrée sur l'État
+   ou la commune, sans vol (règle d'origine : rien ne s'anime à l'arrivée). Le moteur, prêt après le premier
+   rendu, prend la main de la silhouette par un fondu de 0,45 s.
+4. **Au zoom**, les limites communales apparaissent de proche en proche depuis le point d'entrée (0,76 s,
+   fondu de 0,3 s par commune) ; les libellés s'allument en 0,32 s.
+5. **Changement d'indicateur** : fondu des couleurs de 0,48 s.
+6. **Langue et écriture** : libellés de la carte remplacés d'un coup (pas de bascule glyphe par glyphe sur
+   la carte) ; feuillet converti comme le reste du portail.
+7. **Mouvement réduit** : aucun vol (cadrage direct, coupe de 0,2 s), communes d'un bloc, ni fondu des
+   couleurs ni élément partagé ; le fil d'Ariane de la carte devient un indicateur de niveau numéroté.
+
 ## Place réservée
-- **Carte** (`#/map`, lot 2) : zoom continu Confédération → État → commune ; sa règle s'ajoutera ici.
-- **Votes et majorités** (lot 3) : déroulé des votes joués pas à pas ; idem.
+- **Votes et majorités** (lot 3) : déroulé des votes joués pas à pas ; sa règle s'ajoutera ici.
 
 ## Mise en œuvre
 - `portail/index.html` : `render()` attend les données de la route puis `CX.prepare()` ; même titre :

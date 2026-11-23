@@ -3,6 +3,9 @@
 ## Statut
 Accepté (demande utilisateur du 2026-10-14 : « il faut revoir complètement la map », sur
 le modèle d'un tableau de bord sombre avec un globe et des panneaux de données).
+**Remplacé le 2026-11-23** par l'ADR 2026-11-23-carte-maplibre.md (lot 2 : MapLibre, zoom
+jusqu'aux communes, thème du portail, sans lumières ni couleur par peuple). La projection
+orthographique reste celle des mini-cartes des fiches d'États.
 
 ## Décision
 
