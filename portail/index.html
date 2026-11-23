@@ -27,6 +27,9 @@ const DATA_V='';   // version des données et du code, posée par scripts/build_
     var t=m[1];
     if(t)cols.forEach(function(l){pl('data/constitution/t/'+t+'.'+l+'.json','fetch');});
   }
+  if(/^#\/map(\/|$)/.test(h)){
+    pl('data/carte/index.json','fetch');pl('data/stats.json','fetch');pl('js/carte.js','script');pl('css/carte.css','style');
+  }
 })();
 </script>
 <!--préchargement:fin-->
@@ -635,215 +638,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 @keyframes vt-x-prev-out{to{transform:translateX(100%)}}
 @keyframes vt-x-prev-in{from{transform:translateX(-100%)}}
 
-/* ---------- map: situation room (always dark, like an instrument screen) ---------- */
-.sr{--sr-bg:#050a1b;--sr-ocean:#081129;--sr-land:#1a2445;--sr-far:#172040;
-  --sr-grid:rgba(132,152,226,.11);--sr-glow:#4d5ec9;--sr-gold:#dfcc68;--sr-red:#d4644f;
-  --sr-ink:#e9ecf6;--sr-ink-2:#aab3d3;--sr-ink-3:#76809f;
-  --sr-panel:rgba(11,18,42,.72);--sr-edge:rgba(160,178,255,.14);--sr-hi:rgba(160,178,255,.08);
-  position:relative;margin:6px calc(50% - 50vw) -90px;color:var(--sr-ink);
-  height:max(690px,calc(100vh - var(--hdr,150px) - 30px));overflow:hidden;isolation:isolate;
-  background:radial-gradient(110% 80% at 50% 18%,#101a44 0%,#0a1230 38%,var(--sr-bg) 75%);
-  font-feature-settings:"tnum" 1}
-.sr::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55;
-  background-image:radial-gradient(rgba(150,170,240,.10) 1px,transparent 1.3px);background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%);
-          mask-image:radial-gradient(120% 90% at 50% 45%,#000 30%,transparent 85%)}
-.sr-stage{position:absolute;inset:0;cursor:grab;touch-action:none;outline:none}
-.sr-stage{--glowc:rgba(79,125,255,.5)}
-.sr-stage[data-mode="gdp"]{--glowc:rgba(240,138,58,.45)}
-.sr-stage[data-mode="peoples"]{--glowc:rgba(220,230,255,.2)}
-.sr-regions{filter:drop-shadow(0 0 9px var(--glowc))}
-.sr-tex{pointer-events:none}
-.sr-stage[data-mode="peoples"] .sr-dots{opacity:.55}
-.sr-stage.grabbing{cursor:grabbing}
-.sr-stage:focus-visible{box-shadow:inset 0 0 0 2px var(--sr-gold)}
-.sr-layers{position:absolute;inset:0;transform-origin:0 0}
-.sr-stage svg,.sr-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.sr-over,.sr-lights{pointer-events:none}
-.sr-halo{fill:none;stroke:var(--sr-glow);stroke-width:26;opacity:.42;filter:url(#srBlur)}
-.sr-sphere{fill:url(#srOcean)}
-.sr-limb{fill:none;stroke:rgba(150,170,255,.55);stroke-width:1}
-.sr-grat{fill:none;stroke:var(--sr-grid);stroke-width:.7}
-.sr-far{fill:var(--sr-far)}
-.sr-land path{fill:var(--sr-land)}
-.sr-borders{fill:none;stroke:rgba(150,170,255,.22);stroke-width:.6}
-.sr-reg{stroke:rgba(5,8,24,.92);stroke-width:.9;stroke-linejoin:round;cursor:pointer;
-  transition:fill .35s ease,opacity .25s ease}
-.sr-reg.fed{stroke:var(--sr-gold);stroke-width:.9}
-.sr-stage[data-mode="states"] .sr-reg{stroke:rgba(150,178,255,.6);stroke-width:.55}
-.sr-stage[data-mode="states"] .sr-reg.fed{stroke:#ffe7a3;stroke-width:.8}
-.sr-stage[data-mode="gdp"] .sr-reg,.sr-stage[data-mode="dens"] .sr-reg{stroke:rgba(5,8,24,.55);stroke-width:.5}
-.sr-reg.muni{stroke-dasharray:3 2}
-.sr-reg.dim{opacity:.16}
-.sr-reg:focus{outline:none}
-.sr-occbase{fill:var(--sr-land);pointer-events:none}
-.sr-occ{fill:url(#srHatch);stroke:var(--sr-red);stroke-width:.8;stroke-dasharray:2 2;pointer-events:none}
-.sr-hover{fill:none;stroke:#fff;stroke-width:1.3;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(190,210,255,.9))}
-.sr-pin{fill:none;stroke:#ffe7a3;stroke-width:1.8;stroke-linejoin:round;
-  filter:drop-shadow(0 0 6px rgba(245,181,74,.85))}
-.sr-flbl{fill:var(--sr-ink);font-size:10.5px;font-weight:700;paint-order:stroke;
-  stroke:rgba(6,11,29,.9);stroke-width:3px;text-anchor:middle}
-.sr-tip{position:absolute;z-index:6;pointer-events:none;opacity:0;transform:translate(-50%,-125%);
-  background:rgba(8,13,33,.92);border:1px solid var(--sr-edge);color:var(--sr-ink);
-  padding:7px 11px;border-radius:8px;font-size:.78rem;font-weight:600;white-space:nowrap;
-  transition:opacity .12s ease}
-.sr-tip.show{opacity:1}
-.sr-tip span{display:block;color:var(--sr-ink-2);font-weight:500;font-size:.72rem;margin-top:2px}
-/* chrome */
-.sr-top{position:absolute;z-index:4;top:18px;left:24px;right:24px;display:flex;align-items:center;
-  gap:14px;pointer-events:none}
-.sr-top>*{pointer-events:auto}
-.sr-title{margin-right:auto}
-.sr-title h1{font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin:0;color:var(--sr-ink)}
-.sr-title p{margin:3px 0 0;font-size:.8rem;color:var(--sr-ink-2)}
-.sr-seg{display:flex;padding:3px;border-radius:999px;background:var(--sr-panel);
-  border:1px solid var(--sr-edge);backdrop-filter:blur(12px)}
-.sr-seg button,.sr-btn{border:0;background:none;color:var(--sr-ink-2);font-size:.78rem;
-  font-weight:600;padding:7px 14px;border-radius:999px}
-.sr-seg button:hover,.sr-btn:hover{color:var(--sr-ink)}
-.sr-seg button.on{background:linear-gradient(160deg,#ffffff,#c4d0ff);color:#0a1230;
-  box-shadow:0 4px 14px -6px rgba(160,185,255,.9)}
-.sr-seg button:focus-visible,.sr-btn:focus-visible,.sr-bar:focus-visible,.sr-open:focus-visible{
-  outline:2px solid var(--sr-gold);outline-offset:2px}
-.sr-tools{display:flex;gap:6px}
-.sr-btn{background:var(--sr-panel);border:1px solid var(--sr-edge);backdrop-filter:blur(12px);
-  min-width:36px;height:36px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:7px}
-.sr-btn[aria-pressed="true"]{color:#f5b54a;border-color:rgba(245,181,74,.45)}
-.sr-btn .dot{width:7px;height:7px;border-radius:50%;background:currentColor;
-  box-shadow:0 0 8px currentColor}
-.sr-col{position:absolute;z-index:3;top:80px;display:flex;flex-direction:column;gap:10px}
-.sr-left{left:24px;width:262px}
-.sr-right{right:24px;width:316px}
-.sr-card{border:1px solid transparent;border-radius:12px;padding:15px 17px;
-  background:linear-gradient(var(--sr-panel),var(--sr-panel)) padding-box,
-    linear-gradient(150deg,rgba(170,195,255,.34),rgba(170,195,255,.05) 38%,rgba(170,195,255,.03) 70%,rgba(245,181,74,.22)) border-box;
-  backdrop-filter:blur(14px) saturate(1.15);box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
-.sr-k{font-size:.76rem;color:var(--sr-ink-2);font-weight:600}
-.sr-big{font-size:1.9rem;font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-top:6px;
-  color:var(--sr-ink);background:linear-gradient(180deg,#ffffff 30%,#aebdf5);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sr-big small{font-size:.95rem;font-weight:600;color:var(--sr-ink-2);margin-left:3px}
-.sr-sub{font-size:.74rem;color:var(--sr-ink-3);margin-top:4px;line-height:1.4}
-.sr-split{display:flex;gap:2px;height:5px;margin-top:12px;border-radius:3px;overflow:hidden}
-.sr-split i{display:block;min-width:3px}
-.sr-rows{margin:11px 0 0;display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:.78rem}
-.sr-rows dt{color:var(--sr-ink-2)}
-.sr-rows dd{margin:0;text-align:right;font-weight:600}
-.sr-ring{display:flex;align-items:center;gap:14px;margin-top:8px}
-.sr-ring svg{flex:none}
-.sr-ringsvg line{stroke-width:2.4;stroke-linecap:round}
-.sr-ringsvg text{fill:var(--sr-ink);font-size:16px;font-weight:600;text-anchor:middle;letter-spacing:-.02em}
-.sr-dist{display:block;width:100%;height:92px}
-.sr-distwrap.mini{margin-top:10px}
-.sr-distwrap.mini .sr-dist{height:30px}
-.sr-dist rect{cursor:pointer;transition:fill .2s ease}
-.sr-dist rect:hover,.sr-dist rect.hl{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}
-.sr-axis{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:.68rem;color:var(--sr-ink-3)}
-.sr-axis span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sr-grad{gap:8px}
-.sr-grad b{display:inline-block;width:160px;height:7px;border-radius:4px;
-  box-shadow:0 0 12px -2px rgba(255,255,255,.25)}
-.sr-grad em{font-style:normal;color:var(--sr-ink-2)}
-/* selection card */
-.sr-sel{border-top:2px solid transparent;min-height:120px}
-.sr-sel.pinned{box-shadow:0 0 0 1px rgba(245,181,74,.45),0 18px 40px -24px rgba(0,0,0,.8)}
-.sr-selhead{display:flex;gap:12px;align-items:center}
-.sr-selhead .fl{flex:none;width:44px;border-radius:3px;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(255,255,255,.12)}
-.sr-selhead .fl svg{display:block;width:100%;height:auto}
-.sr-selhead h2{font-size:1.08rem;font-weight:700;margin:0;line-height:1.2;color:var(--sr-ink)}
-.sr-selhead p{margin:2px 0 0;font-size:.74rem;color:var(--sr-ink-2)}
-.sr-meter{position:relative;height:6px;border-radius:3px;background:rgba(160,178,255,.12);margin:7px 0 2px}
-.sr-meter i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
-  background:linear-gradient(90deg,#99402f,#f08a3a 55%,#ffe7a3);box-shadow:0 0 10px -1px rgba(240,138,58,.6)}
-.sr-meter b{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:var(--sr-ink-2)}
-.sr-meterlbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--sr-ink-3)}
-.sr-open{display:inline-flex;margin-top:10px;font-size:.78rem;font-weight:700;color:#1a0b05;
-  background:linear-gradient(100deg,#f08a3a,#f5b54a 60%,#ffe7a3);border-radius:999px;padding:7px 14px;
-  box-shadow:0 6px 18px -8px rgba(240,138,58,.9)}
-.sr-open:hover{filter:brightness(1.08)}
-.sr-hint{font-size:.78rem;color:var(--sr-ink-2);line-height:1.5;margin:6px 0 10px}
-/* bar lists (peoples, ranking) */
-.sr-bars{display:flex;flex-direction:column;gap:3px;margin-top:10px}
-.sr-bar{display:grid;grid-template-columns:96px 1fr 52px;align-items:center;gap:9px;width:100%;
-  border:0;background:none;color:var(--sr-ink);font-size:.76rem;text-align:left;
-  padding:4px 6px;margin:0 -6px;border-radius:7px;width:calc(100% + 12px)}
-button.sr-bar:hover{background:var(--sr-hi)}
-.sr-bar.off{opacity:.38}
-.sr-bar .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sr-ink-2)}
-.sr-bar .tr{height:6px;border-radius:3px;background:rgba(160,178,255,.07);position:relative}
-.sr-bar .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;
-  background:linear-gradient(90deg,var(--c0),var(--c));box-shadow:2px 0 10px -1px var(--cg)}
-.sr-bar .tr i::after{content:"";position:absolute;right:0;top:-1px;bottom:-1px;width:2px;border-radius:2px;
-  background:#fff;opacity:.85}
-.sr-bar .v{text-align:right;font-weight:600}
-.sr-cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.sr-cardhead button{border:0;background:none;color:var(--sr-gold);font-size:.72rem;font-weight:600;padding:0}
-/* legend */
-.sr-legend{position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;
-  max-width:min(760px,calc(100% - 640px));padding:9px 16px;border-radius:14px;
-  background:var(--sr-panel);border:1px solid var(--sr-edge);backdrop-filter:blur(12px);
-  font-size:.72rem;color:var(--sr-ink-2)}
-.sr-legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-.sr-legend i{width:11px;height:11px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(200,212,255,.18)}
-.sr-legend i.hatch{background:repeating-linear-gradient(45deg,var(--sr-red) 0 1.5px,transparent 1.5px 4px);
-  box-shadow:inset 0 0 0 1px var(--sr-red)}
-.sr-legend i.light{border-radius:50%;background:radial-gradient(circle,#fff6e0 0,#f08a3a 38%,transparent 72%)}
-.sr-srcs{color:var(--sr-ink-3);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
-.sr-src{position:absolute;z-index:3;right:24px;bottom:14px;font-size:.66rem;color:var(--sr-ink-3);
-  text-align:right;max-width:300px;line-height:1.4}
-@media(max-width:1180px){
-  .sr{height:max(780px,calc(100vh - var(--hdr,150px) - 30px))}
-  .sr-legend{max-width:calc(100% - 48px);bottom:auto;top:76px}
-  .sr-col{top:150px}
-}
-@media(max-width:980px){
-  .sr{height:auto;margin-bottom:-90px;padding-bottom:28px;display:flex;flex-direction:column}
-  .sr-top{order:-1}
-  .sr-stage{position:relative;height:68vh;min-height:430px}
-  .sr-top{position:relative;top:0;left:0;right:0;padding:16px 16px 6px;flex-wrap:wrap}
-  .sr-title{flex-basis:100%}
-  .sr-legend{position:relative;left:0;top:0;transform:none;max-width:none;margin:10px 16px 0;
-    justify-content:flex-start}
-  .sr-col{position:relative;top:0;left:0;right:0;width:auto;margin:12px 16px 0}
-  .sr-src{position:relative;right:0;bottom:0;margin:14px 16px 0;text-align:left;max-width:none}
-}
-@media(prefers-reduced-motion:reduce){.sr-reg{transition:none}}
-.sr-ping circle{fill:none;stroke:#ffd27a;stroke-width:1.2;opacity:0}
-@media(prefers-reduced-motion:no-preference){
-  /* bars grow in, then a slow light sweep runs along each gradient */
-  .sr-bar .tr i{overflow:hidden;transform-origin:left;
-    animation:srGrowX .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms)}
-  .sr-bar .tr i::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent) no-repeat;
-    background-size:38% 100%;background-position:-60% 0;
-    animation:srSweep 5.5s ease-in-out infinite;animation-delay:calc(1.4s + var(--i,0)*160ms)}
-  .sr-split i,.sr-meter i{transform-origin:left;animation:srGrowX 1.1s cubic-bezier(.2,.8,.2,1) both}
-  .sr-meter i{animation-delay:.1s}
-  /* GDP ring: ticks light up in turn, then a glint travels along the lit arc */
-  .sr-ringsvg line.on{animation:srTickIn .45s ease-out both,srGlint 4.8s ease-in-out infinite;
-    animation-delay:calc(var(--i)*22ms),calc(1.6s + var(--i)*28ms)}
-  /* columns of the histogram rise from the baseline when the measure changes */
-  .sr-distwrap.rise .sr-dist rect{transform-box:fill-box;transform-origin:50% 100%;
-    animation:srGrowY .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*12ms)}
-  /* legend gradient and the active button carry the same slow sweep */
-  .sr-grad b{position:relative;overflow:hidden}
-  .sr-grad b::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent) no-repeat;
-    background-size:30% 100%;background-position:-50% 0;animation:srSweep 6s ease-in-out infinite 1s}
-  .sr-open{background-size:180% 100%;animation:srDrift 6s ease-in-out infinite alternate}
-  /* radar ping on the confederal capitals */
-  .sr-ping circle{transform-box:fill-box;transform-origin:center;
-    animation:srPing 3.6s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:calc(var(--i)*.6s)}
-}
-@keyframes srGrowX{from{transform:scaleX(0)}}
-@keyframes srGrowY{from{transform:scaleY(0)}}
-@keyframes srSweep{0%{background-position:-60% 0}55%,100%{background-position:160% 0}}
-@keyframes srTickIn{from{opacity:0}}
-@keyframes srGlint{0%,7%,100%{stroke-width:2.4}3.5%{stroke-width:3.3;stroke:#ffd98f}}
-@keyframes srDrift{from{background-position:0% 0}to{background-position:100% 0}}
-@keyframes srPing{0%{transform:scale(.25);opacity:.9}70%{opacity:.15}100%{transform:scale(1.9);opacity:0}}
 .minimap{width:100%;height:auto;display:block;border:1px solid var(--line);
   border-radius:3px;background:var(--map-water)}
 .minimap .mm-land{fill:var(--map-land)}
@@ -1838,9 +1632,10 @@ function fmtD(iso){
 
 /* Cyrillic display of everything on screen: text nodes and the title, aria-label, placeholder
    and alt attributes are converted as they are inserted. Skipped: translate="no" (letters of the
-   Latin alphabet, IPA, codes, the citizen card, the language buttons), code, .mono, inputs. */
+   Latin alphabet, IPA, codes, the citizen card, the language buttons, the map labels), code, key names
+   (kbd), .mono, inputs. */
 const CYR_ATTRS=['title','aria-label','placeholder','alt'];
-const cyrSkip=el=>!!el.closest('[translate="no"],script,style,textarea,code,.mono,.cxl,.cxu');
+const cyrSkip=el=>!!el.closest('[translate="no"],script,style,textarea,code,kbd,.mono,.cxl,.cxu');
 function cyrApply(n){
   if(!cyrOn()||!n)return;
   if(n.nodeType===3){if(n.parentElement&&!cyrSkip(n.parentElement))n.data=cyrText(n.data,LANG);return;}
@@ -1891,6 +1686,7 @@ function i18nWatch(){
 /* A change of language or script redraws the page where it stands. */
 function rerender(){
   if((location.hash||'').startsWith('#/constitution')&&window.CX&&CX.rerender())return;
+  if((location.hash||'').startsWith('#/map')&&window.MAPX&&MAPX.rerender())return;
   const y=window.scrollY;
   renderNow();
   window.scrollTo({top:y,behavior:'instant'});
@@ -2224,78 +2020,9 @@ document.addEventListener('visibilitychange',()=>{
   if(document.hidden)_sh.v.pause();else if(_sh.seen)shPlay(_sh.v);
 });
 
+/* Carte de la Confédération : portail/js/carte.js (MAPX), chargé avec la page (ADR 2026-11-23-carte-maplibre.md) */
 function vMap(){
-  const T=srTotals(), r=srRange('gdp');
-  const ring=Math.round(T.eu);
-  return crumb([['Home','#/home'],['Map']])+`
-  <section class="sr" id="sr" aria-label="${L`Map of the Confederation`}">
-    <div class="sr-stage" id="srStage" data-mode="${SR.mode}" tabindex="0"
-      aria-label="${L`Map of the Confederation. Drag to move, scroll or press plus and minus to zoom, 0 to fit.`}">
-      <div class="sr-layers" id="srLayers">
-        <svg id="srSvg"></svg>
-        <canvas class="sr-lights" id="srLights" aria-hidden="true"></canvas>
-        <svg class="sr-over" id="srOver" aria-hidden="true"></svg>
-      </div>
-      <div class="sr-tip" id="srTip"></div>
-    </div>
-    <div class="sr-top">
-      <div class="sr-title"><h1 data-i18n="h_map">Map of the Confederation</h1>
-        <p>${L`48 states, 4 confederal territories and 2 confederal municipalities`}</p></div>
-      <div class="sr-seg" role="group" aria-label="${L`Colour the states by`}">
-        ${[['states',N('States')],['gdp',N('GDP per capita')],['dens',N('Density')],['peoples',N('Peoples')]].map(([m,l])=>
-          `<button data-m="${m}" class="${SR.mode===m?'on':''}" aria-pressed="${SR.mode===m}"
-            onclick="srMode('${m}')">${L(l)}</button>`).join('')}
-      </div>
-      <div class="sr-tools">
-        <button class="sr-btn" id="srLightsBtn" aria-pressed="${SR.lights}" onclick="srToggleLights()"
-          title="${L`One light per municipality, brighter with population`}"><span class="dot"></span>${L`Lights`}</button>
-        <button class="sr-btn" id="srZout" aria-label="${L`Zoom out`}">&minus;</button>
-        <button class="sr-btn" id="srFit">${L`Fit`}</button>
-        <button class="sr-btn" id="srZin" aria-label="${L`Zoom in`}">+</button>
-      </div>
-    </div>
-    <div class="sr-col sr-left">
-      <div class="sr-card">
-        <div class="sr-k">${L`Population`}</div>
-        <div class="sr-big"><span data-count="${T.pop}">${fmtN(T.pop)}</span></div>
-        <div class="sr-split" role="img" aria-label="${L`Share of the population: territorial states ${Math.round(100*T.by.T[1]/T.pop)}%, confederal territories ${Math.round(100*T.by.F[1]/T.pop)}%, confederal municipalities ${Math.round(100*T.by.M[1]/T.pop)}%`}">
-          <i style="flex:${T.by.T[1]};background:linear-gradient(90deg,#2a3f9e,#4f7dff)"></i>
-          <i style="flex:${T.by.F[1]};background:linear-gradient(90deg,#f08a3a,#f5b54a)"></i>
-          <i style="flex:${T.by.M[1]};background:#ffe7a3"></i></div>
-        <dl class="sr-rows">
-          <dt>${L`${T.by.T[0]} territorial states`}</dt><dd>${fmtN(T.by.T[1])}</dd>
-          <dt>${L`${T.by.F[0]} confederal territories`}</dt><dd>${fmtN(T.by.F[1])}</dd>
-          <dt>${L`${T.by.M[0]} confederal municipalities`}</dt><dd>${fmtN(T.by.M[1])}</dd>
-        </dl>
-        <div class="sr-sub">${L`Latest census or population register of each country`}</div>
-      </div>
-      <div class="sr-card">
-        <div class="sr-k">${L`Area`}</div>
-        <div class="sr-big"><span data-count="${T.area}">${fmtN(T.area)}</span><small>km²</small></div>
-        <dl class="sr-rows">
-          <dt>${L`Density`}</dt><dd>${fmtN(Math.round(T.pop/T.area))} / km²</dd>
-          <dt>${L`Municipalities`}</dt><dd>${fmtN(T.mun)}</dd>
-        </dl>
-      </div>
-      <div class="sr-card">
-        <div class="sr-k">${L`GDP per capita`}</div>
-        <div class="sr-ring">
-          ${srRing(T.eu)}
-          <div><div class="sr-big" style="font-size:1.45rem;margin:0"><span data-count="${Math.round(T.gdp/100)*100}">${fmtN(Math.round(T.gdp/100)*100)}</span><small>PPS</small></div>
-            <div class="sr-sub">${L`per inhabitant in 2023, ${ring}% of the EU-27 average`}</div></div>
-        </div>
-        <dl class="sr-rows">
-          <dt>${L`Highest, ${esc(r.max.n)}`}</dt><dd>${fmtN(r.maxV)}</dd>
-          <dt>${L`Lowest, ${esc(r.min.n)}`}</dt><dd>${fmtN(r.minV)}</dd>
-        </dl>
-      </div>
-    </div>
-    <div class="sr-col sr-right">
-      <div class="sr-card sr-sel" id="srSel" aria-live="polite">${srSelHTML(null,true)}</div>
-      <div class="sr-card" id="srPeoples">${srPeoplesHTML()}</div>
-    </div>
-    <div class="sr-legend" id="srLegend">${srLegendHTML()}</div>
-  </section>`;
+  return window.MAPX?MAPX.html(location.hash||'#/map'):'';
 }
 
 /* ---------- institutions: who elects whom ---------- */
@@ -4439,7 +4166,8 @@ let _want=null;
 function render(){
   const h=location.hash||'#/home';
   _want=h;
-  need(routeData(h)).then(()=>h.startsWith('#/constitution')&&window.CX?CX.prepare(h):null).then(()=>{
+  need(routeData(h)).then(()=>h.startsWith('#/constitution')&&window.CX?CX.prepare(h):
+    h.startsWith('#/map')&&window.MAPX?MAPX.prepare(h):null).then(()=>{
     if(_want!==h)return;
     renderRoute();
     need(routeData(h,true)).catch(()=>{});
@@ -4454,6 +4182,8 @@ function renderRoute(){
   const d=pa?placeCmp(pa,pb):0;
   /* même page : renvoi vers un article du titre déjà affiché → le lecteur défile */
   if(prev!==null&&d===0&&h.startsWith('#/constitution')&&window.CX&&CX.inplace(h))return;
+  /* même page : sous-route de la carte (État, commune, couche) → la carte vole, elle n'est pas redessinée */
+  if(prev!==null&&d===0&&h.startsWith('#/map')&&window.MAPX&&MAPX.inplace(h))return;
   /* grille → fiche : on retient la position pour y revenir au retour */
   if(prev&&prev.startsWith('#/states')&&h.startsWith('#/state/'))_gridY=window.scrollY;
   /* un seul glissement ; aucun au premier affichage ni sur la même page */
@@ -4481,6 +4211,7 @@ function renderNow(){
   const h=location.hash||'#/home';
   const app=document.getElementById('app');
   if(window.CX)CX.leave();
+  if(window.MAPX)MAPX.leave();
   let html,key;
   if(h.startsWith('#/state/')){html=vState(h.slice(8));key='#/states';}
   else{
@@ -4517,11 +4248,11 @@ function renderNow(){
   setHdr();
   /* lecteur de la Constitution : arrivée sur l'article, déjà positionnée, le glissement l'apporte */
   if(h.startsWith('#/constitution')&&window.CX)CX.mounted();
+  if(h.startsWith('#/map')&&window.MAPX)MAPX.mounted();
   setupReveal();
   requestAnimationFrame(()=>{
     setupParallax();
     animateFigs();
-    if(h.startsWith('#/map'))initMap();
   });
 }
 /* Grands chiffres : comptage seulement s'ils entrent à l'écran en défilant ;
@@ -4811,6 +4542,7 @@ function toggleTheme(){
   const next=cur==='dark'?'light':'dark';
   document.documentElement.setAttribute('data-theme',next);
   try{localStorage.setItem('bk-theme',next);}catch(e){}
+  if(window.MAPX)MAPX.theme();
 }
 
 /* ============================================================
@@ -4926,57 +4658,11 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 /* ============================================================
-   MAP, satellite view of the Confederation (d3-geo, vendored)
-   geo.json v2 : lon/lat rings, 1/q degree, delta-encoded
+   MINI-MAP of the state pages (d3-geo, vendored) : geo.json v2, lon/lat rings, 1/q degree,
+   delta-encoded ; orthographic projection centred on the Confederation
    ============================================================ */
-const SR={mode:'states',lights:true,filter:null,pin:null,hover:null,intro:false};
-const SR_CENTER=[20.6,43.6], SR_FROM=[-12,24];   // resting centre; where the intro starts
-// The peoples carry no colour code (ADR 2026-10-14-pas-de-code-couleur-peuples). By
-// default the states share one confederal tone; colouring by people is only an
-// option of this map. Option palette checked with the data-viz validator on the real
-// neighbours: worst neighbour pair 24 ΔE in normal vision, 7.1 under colour-blindness
-// simulation (orange / green, borders and labels carry it); legend pairs >= 16 ΔE.
-const SR_PEOPLE={slo:'#0794f8',hrv:'#f10f4f',srb:'#b53ddd',bos:'#0bd7d9',
-  cng:'#eeda1b',mkd:'#ff8c00',bul:'#2fbf5b'};
-// title of each bar of the peoples card (full labels for translation; the English is unchanged)
-const SR_ONLY={slo:N('Show only the slovenes on the map'),hrv:N('Show only the croats on the map'),
-  srb:N('Show only the serbs on the map'),bos:N('Show only the bosniaks on the map'),
-  cng:N('Show only the montenegrins on the map'),mkd:N('Show only the macedonians on the map'),
-  bul:N('Show only the bulgarians on the map'),fed:N('Show only the confederal entities on the map')};
-const SR_STATE='#1b2a66', SR_CAPITAL='#f5b54a';
-const SR_FED='#20246b';
-const srHex=k=>SR_PEOPLE[k]||SR_FED;
-// Gradients drawn from the confederal colours: azur #374078 for the cool scale,
-// gueules #99402F to or #DFCC68 for the warm one (lightness rises step by step).
-const SR_COOL=['#1d2b72','#2a3f9e','#3a55c4','#4f7dff','#55b4ff','#b6e6ff'];
-const SR_WARM=['#5a1e16','#99402f','#d2602f','#f08a3a','#f5b54a','#ffe7a3'];
-const SR_SCALE={
-  states:{title:N('Population'),rank:N('{0} entities ranked by population'),ramp:SR_COOL,log:true},
-  peoples:{title:N('Population'),rank:N('{0} entities ranked by population'),ramp:SR_COOL,log:true},
-  gdp:{title:N('GDP per capita, PPS, 2023'),rank:N('{0} entities ranked by gdp per capita, pps, 2023'),ramp:SR_WARM,log:true},
-  dens:{title:N('Inhabitants per km²'),rank:N('{0} entities ranked by inhabitants per km²'),ramp:SR_COOL,log:true}
-};
-let SRF=null, SRM=null;
-const srRgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
-const srHexOf=a=>'#'+a.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');
-const srA=(h,a)=>{const [r,g,b]=srRgb(h);return `rgba(${r},${g},${b},${a})`;};
-function srLerp(stops,t){
-  t=Math.max(0,Math.min(1,t));const n=stops.length-1,i=Math.min(n-1,Math.floor(t*n)),f=t*n-i;
-  const a=srRgb(stops[i]),b=srRgb(stops[i+1]);return srHexOf(a.map((v,k)=>v+(b[k]-v)*f));
-}
-const srDom={};
-function srT(code,mode){   // position of a value on the mode's scale, 0..1
-  const v=srVal(code,mode);if(v==null)return null;
-  if(!srDom[mode]){const r=srRange(mode);srDom[mode]=[r.minV,r.maxV];}
-  const [a,b]=srDom[mode],L=SR_SCALE[mode].log;
-  return L?(Math.log(v)-Math.log(a))/(Math.log(b)-Math.log(a)):(v-a)/(b-a);
-}
-function srTone(code,mode){  // the chart colour of an entity: its value on the gradient
-  mode=mode||SR.mode;const s=byCode(code)||{};
-  if(mode==='peoples')return s.t==='T'?srHex(s.p):SR_CAPITAL;
-  if(mode==='states')return s.t==='T'?srLerp(SR_COOL,.25+.75*(srT(code,'states')||0)):SR_CAPITAL;
-  const t=srT(code,mode);return t==null?'#1a2246':srLerp(SR_SCALE[mode].ramp,t);
-}
+const SR_CENTER=[20.6,43.6];
+let SRF=null;
 function geoDecode(){
   if(SRF)return SRF;
   const q=GEO.q||1000;
@@ -4990,436 +4676,11 @@ function geoDecode(){
   const feat=o=>{const props={...o};delete props.g;
     return {type:'Feature',properties:props,geometry:{type:'MultiPolygon',coordinates:polys(o.g)}};};
   const states=(GEO.states||[]).map(feat), fed=(GEO.fed||[]).map(feat);
-  SRF={states,fed,occupied:(GEO.occupied||[]).map(feat),land:(GEO.land||[]).map(feat),
-    far:polys(GEO.far||[]).map(c=>({type:'Polygon',coordinates:c})),
-    borders:{type:'MultiLineString',coordinates:(GEO.borders||[]).map(a=>ring(a,false))},
-    members:{type:'FeatureCollection',features:states.concat(fed)}};
+  SRF={states,fed,land:(GEO.land||[]).map(feat),members:{type:'FeatureCollection',features:states.concat(fed)}};
   return SRF;
 }
 function srProjection(){
-  // Orthographic: the true globe, without the area distortion of a tilted view.
   return d3.geoOrthographic().clipAngle(90).precision(1);
-}
-/* ---- data helpers ---- */
-function srVal(code,mode){
-  const st=STATS[code]||{};
-  if(mode==='gdp')return st.gdp;
-  if(mode==='dens')return st.population&&st.area?st.population/st.area:null;
-  return st.population;
-}
-function srFill(code){
-  const s=byCode(code)||{};
-  if(SR.mode==='states')return s.t==='T'?SR_STATE:'url(#srCap)';
-  if(SR.mode==='peoples')return s.t==='T'?srHex(s.p):SR_FED;
-  return srTone(code);
-}
-function srFmt(code,mode){
-  const v=srVal(code,mode);
-  if(v==null)return '';
-  if(mode==='gdp')return L`${fmtN(v)} PPS per inhabitant`;
-  if(mode==='dens')return L`${fmtN(Math.round(v))} inhabitants / km²`;
-  return L`${fmtN(v)} inhabitants`;
-}
-function srTotals(){
-  const T={pop:0,area:0,mun:0,gdp:0,eu:0,by:{T:[0,0],F:[0,0],M:[0,0]}};
-  let g=0,e=0,gp=0;
-  STATES.forEach(s=>{const st=STATS[s.c]||{},p=st.population||0;
-    T.pop+=p;T.area+=st.area||0;T.mun+=st.municipalities||0;
-    if(T.by[s.t]){T.by[s.t][0]++;T.by[s.t][1]+=p;}
-    if(st.gdp&&p){g+=p*st.gdp;e+=p*st.gdp_eu;gp+=p;}});
-  T.gdp=gp?g/gp:0;T.eu=gp?e/gp:0;
-  return T;
-}
-function srRange(mode){
-  let min=null,max=null,minV=Infinity,maxV=-Infinity;
-  STATES.forEach(s=>{const v=srVal(s.c,mode);if(v==null)return;
-    if(v<minV){minV=v;min=s;} if(v>maxV){maxV=v;max=s;}});
-  return {min,max,minV,maxV};
-}
-function srShort(v,mode){
-  if(mode==='states'||mode==='peoples')return v>=1e6
-    ?L`${(v/1e6).toLocaleString(L_LOC[LANG]||'en-GB',{minimumFractionDigits:2,maximumFractionDigits:2})} M`
-    :L`${fmtN(Math.round(v/1e3))} k`;
-  return fmtN(Math.round(v));
-}
-/* ---- charts ---- */
-// Ring of 60 ticks, lit along the warm gradient up to the value (EU-27 = 100 %).
-function srRing(pct,size){
-  size=size||84;const c=size/2,n=60,on=Math.round(n*Math.min(pct,100)/100),r0=c-11,r1=c-3;let t='';
-  const pc=(Math.round(pct)/100).toLocaleString(L_LOC[LANG]||'en-GB',{style:'percent'});
-  for(let i=0;i<n;i++){const a=-Math.PI/2+2*Math.PI*i/n,
-      x0=c+r0*Math.cos(a),y0=c+r0*Math.sin(a),x1=c+r1*Math.cos(a),y1=c+r1*Math.sin(a);
-    const lit=i<on,col=lit?srLerp(SR_WARM.slice(1),i/Math.max(1,n-1)):'rgba(160,178,255,.14)';
-    t+=`<line${lit?` class="on" style="--i:${i}"`:''} x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${col}"/>`;}
-  return `<svg class="sr-ringsvg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img"
-    aria-label="${L`${pc} of the EU-27 average`}">${t}
-    <circle cx="${c}" cy="${c}" r="${r0-5}" fill="none" stroke="rgba(160,178,255,.12)"/>
-    <text x="${c}" y="${c+5}"><tspan data-count="${Math.round(pct)}" data-suffix="%">${pc}</tspan></text></svg>`;
-}
-// Every entity as one column, sorted by the active measure; the bottom fades out.
-function srDist(mode,hl,h){
-  h=h||92;const W=284,list=STATES.filter(s=>srVal(s.c,mode)!=null)
-    .sort((a,b)=>srVal(b.c,mode)-srVal(a.c,mode));
-  const n=list.length,gap=1.4,bw=(W-gap*(n-1))/n,top=srT(list[0].c,mode)||1;
-  const bars=list.map((s,i)=>{const t=srT(s.c,mode),bh=Math.max(3,(h-14)*(.12+.88*t)),
-      x=i*(bw+gap),y=h-bh,col=srTone(s.c,mode);
-    return `<rect data-c="${s.c}" x="${x.toFixed(2)}" y="${y.toFixed(1)}" width="${bw.toFixed(2)}" height="${bh.toFixed(1)}"
-      rx="1" fill="${col}" style="--i:${i}" class="${s.c===hl?'hl':''}"><title>${esc(s.n)}, ${srShort(srVal(s.c,mode),mode)}</title></rect>`;}).join('');
-  const rank=hl?list.findIndex(s=>s.c===hl):-1;
-  const mark=rank>=0?(()=>{const x=rank*(bw+gap)+bw/2;
-    return `<path d="M${(x-3.5).toFixed(1)} 0H${(x+3.5).toFixed(1)}L${x.toFixed(1)} 5Z" fill="#ffe7a3"/>`;})():'';
-  return {n,rank,svg:`<svg class="sr-dist" viewBox="0 0 ${W} ${h}" preserveAspectRatio="none" role="img"
-    aria-label="${L(SR_SCALE[mode].rank,fmtN(n))}">
-    <defs><linearGradient id="srFadeG${h}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/>
-      <stop offset="1" stop-color="#fff" stop-opacity=".18"/></linearGradient>
-      <mask id="srFade${h}"><rect width="${W}" height="${h}" fill="url(#srFadeG${h})"/></mask></defs>
-    <g mask="url(#srFade${h})">${bars}</g>${mark}
-    <line x1="0" y1="${h-.5}" x2="${W}" y2="${h-.5}" stroke="rgba(160,178,255,.25)"/></svg>`};
-}
-/* ---- panels ---- */
-function srSelHTML(code,rise){
-  const s=code&&byCode(code), m=SR.mode==='peoples'?'states':SR.mode;
-  const title=L({states:N('Population'),gdp:N('GDP per capita'),dens:N('Density')}[m]);
-  if(!s){
-    const d=srDist(m,null),r=srRange(m),all={states:N('Population, all {0} entities'),
-      gdp:N('GDP per capita, all {0} entities'),dens:N('Density, all {0} entities')}[m];
-    return `<div class="sr-cardhead"><div class="sr-k">${L(all,fmtN(d.n))}</div></div>
-      <div class="sr-distwrap${rise?' rise':''}" data-mode="${m}">${d.svg}</div>
-      <div class="sr-axis"><span>${esc(r.max.n)} ${srShort(r.maxV,m)}</span><span>${esc(r.min.n)} ${srShort(r.minV,m)}</span></div>
-      <p class="sr-hint">${L`Hover a state or a column to see its figures, click to pin it.`}</p>`;
-  }
-  const st=STATS[s.c]||{}, fed=s.t!=='T';
-  const who=fed?(s.t==='F'?L`Confederal territory`:L`Confederal municipality`):L(PEUPLES[s.p].en);
-  const dens=st.population&&st.area?Math.round(st.population/st.area):null;
-  const eu=st.gdp_eu, scale=160, d=srDist(m,s.c,30);
-  return `<div class="sr-selhead"><div class="fl">${flagSVG(s)}</div>
-      <div><h2>${esc(s.n)}</h2><p>${s.c}, ${who}</p></div></div>
-    <dl class="sr-rows">
-      <dt>${L`Population`}</dt><dd>${st.population!=null?fmtN(st.population):L`pending`}</dd>
-      <dt>${L`Area`}</dt><dd>${st.area?L`${fmtN(st.area)} km²`:L`pending`}</dd>
-      <dt>${L`Density`}</dt><dd>${dens!=null?L`${fmtN(dens)} / km²`:L`pending`}</dd>
-      <dt>${L`GDP per capita`}</dt><dd>${st.gdp!=null?L`${fmtN(st.gdp)} PPS`:L`pending`}</dd>
-    </dl>
-    ${eu!=null?(()=>{const pc=(eu/100).toLocaleString(L_LOC[LANG]||'en-GB',{style:'percent',maximumFractionDigits:1});
-      return `<div class="sr-meter" role="img" aria-label="${L`${pc} of the EU-27 average`}">
-      <i style="width:${Math.min(100,100*eu/scale).toFixed(1)}%"></i>
-      <b style="left:${(100*100/scale).toFixed(1)}%"></b></div>
-      <div class="sr-meterlbl"><span>${L`${pc} of the EU-27 average`}</span><span>${L`EU = 100`}</span></div>`;})():''}
-    ${d.rank>=0?`<div class="sr-distwrap mini" data-mode="${m}">${d.svg}</div>
-      <div class="sr-meterlbl"><span>${L`Rank ${fmtN(d.rank+1)} of ${fmtN(d.n)}`}</span><span>${title}</span></div>`:''}
-    <a class="sr-open" href="#/state/${s.c}">${L`Open state page`}</a>`;
-}
-function srPeoplesHTML(){
-  const sum={},fedSum=STATES.filter(s=>s.t!=='T').reduce((a,s)=>a+((STATS[s.c]||{}).population||0),0);
-  STATES.forEach(s=>{if(s.t==='T')sum[s.p]=(sum[s.p]||0)+((STATS[s.c]||{}).population||0);});
-  const opt=SR.mode==='peoples';   // colours only when the people option is on
-  const rows=Object.entries(PEUPLES).map(([k,p])=>[k,p.en,opt?srHex(k):'#4f7dff',sum[k]||0]);
-  rows.push(['fed',N('Confederal entities'),opt?SR_FED:'#f5b54a',fedSum]);
-  const max=Math.max(...rows.map(r=>r[3]));
-  return `<div class="sr-cardhead"><div class="sr-k">${L`Population by constituent people`}</div>
-      ${SR.filter?`<button onclick="srFilter(null)">${L`Show all`}</button>`:''}</div>
-    <div class="sr-bars">${rows.map(([k,n,c,v],i)=>
-      `<button class="sr-bar${SR.filter&&SR.filter!==k?' off':''}" style="--i:${i}" aria-pressed="${SR.filter===k}"
-        onclick="srFilter('${k}')" title="${SR_ONLY[k]?esc(L(SR_ONLY[k])):''}">
-        <span class="nm">${esc(L(n))}</span>
-        <span class="tr"><i style="width:${(100*v/max).toFixed(1)}%;--c:${c};--c0:${srA(c,.08)};--cg:${srA(c,.55)}"></i></span>
-        <span class="v">${L`${(v/1e6).toLocaleString(L_LOC[LANG]||'en-GB',{minimumFractionDigits:1,maximumFractionDigits:1})} M`}</span></button>`).join('')}</div>`;
-}
-function srLegendHTML(){
-  let h='';
-  if(SR.mode==='states'){
-    h=`<span><i style="background:${SR_STATE};box-shadow:inset 0 0 0 1px rgba(150,172,255,.7)"></i>${L`Territorial states`}</span>`+
-      `<span><i style="background:radial-gradient(circle at 35% 35%,#ffe7a3,#f08a3a 60%,#99402f)"></i>${L`Confederal territories and municipalities`}</span>`;
-  }else if(SR.mode==='peoples'){
-    h=Object.entries(PEUPLES).map(([k,p])=>`<span><i style="background:${srHex(k)}"></i>${L(p.en)}</span>`).join('')+
-      `<span><i style="background:${SR_FED};box-shadow:inset 0 0 0 1.5px #dfcc68"></i>${L`Confederal entities`}</span>`;
-  }else{
-    const S=SR_SCALE[SR.mode],r=srRange(SR.mode);
-    h=`<span style="color:var(--sr-ink)">${L(S.title)}</span>
-      <span class="sr-grad"><em>${srShort(r.minV,SR.mode)}</em>
-        <b style="background:linear-gradient(90deg,${S.ramp.join(',')})"></b>
-        <em>${srShort(r.maxV,SR.mode)}</em></span>`;
-  }
-  h+=`<span><i class="hatch"></i>${L`Occupied territories`}</span>`;
-  if(SR.lights)h+=`<span><i class="light"></i>${L`One light per municipality`}</span>`;
-  h+=`<span class="sr-srcs" tabindex="0" title="${L`Boundaries: GADM, geoBoundaries, Natural Earth. Population: national censuses and registers. GDP: Eurostat regional accounts, 2023.`}">${L`Sources`}</span>`;
-  return h;
-}
-/* ---- engine ---- */
-function initMap(){
-  const stage=document.getElementById('srStage');
-  if(!stage||!window.d3||!GEO.states)return;
-  const F=geoDecode(), NS='http://www.w3.org/2000/svg';
-  const svg=document.getElementById('srSvg'), over=document.getElementById('srOver');
-  const cv=document.getElementById('srLights'), tip=document.getElementById('srTip');
-  const mk=(tag,cls,parent,attrs={})=>{const e=document.createElementNS(NS,tag);
-    if(cls)e.setAttribute('class',cls);for(const k in attrs)e.setAttribute(k,attrs[k]);
-    parent.appendChild(e);return e;};
-  svg.innerHTML=`<defs>
-    <radialGradient id="srOcean" cx="46%" cy="40%" r="62%"><stop offset="0" stop-color="#0b1838"/>
-      <stop offset="1" stop-color="#050b20"/></radialGradient>
-    <filter id="srBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
-    <pattern id="srHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="6" stroke="#d4644f" stroke-width="1.6" opacity=".8"/></pattern>
-    <pattern id="srDots" width="4.5" height="4.5" patternUnits="userSpaceOnUse">
-      <circle cx="2.25" cy="2.25" r=".62" fill="#cfdcff" fill-opacity=".26"/></pattern>
-    <linearGradient id="srSheen" x1="0" y1="0" x2=".85" y2="1">
-      <stop offset="0" stop-color="#b9cdff" stop-opacity=".22"/><stop offset=".42" stop-color="#b9cdff" stop-opacity="0"/>
-      <stop offset="1" stop-color="#02040f" stop-opacity=".42"/></linearGradient>
-    <radialGradient id="srCap" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#ffe7a3"/>
-      <stop offset=".55" stop-color="#f08a3a"/><stop offset="1" stop-color="#99402f"/></radialGradient>
-    <clipPath id="srClip"><path id="srClipPath"/></clipPath></defs>`;
-  const el={halo:mk('path','sr-halo',svg),sphere:mk('path','sr-sphere',svg),grat:mk('path','sr-grat',svg)};
-  const gFar=mk('g','',svg);
-  const far=F.far.map(f=>[mk('path','sr-far',gFar),f]);
-  const gLand=mk('g','sr-land',svg);
-  const land=F.land.map(f=>[mk('path','',gLand),f]);
-  el.borders=mk('path','sr-borders',svg);
-  const gReg=mk('g','sr-regions',svg);
-  const regs=F.states.concat(F.fed).map(f=>{
-    const c=f.properties.c,s=byCode(c)||{},fed=s.t&&s.t!=='T';
-    const p=mk('path','sr-reg'+(fed?' fed':'')+(s.t==='M'?' muni':''),gReg,
-      {'data-c':c,'data-p':fed?'fed':s.p,tabindex:'0',role:'button',
-       'aria-label':`${s.n||c} (${c}). ${srFmt(c,'peoples')}`});
-    p.style.fill=srFill(c);
-    p.addEventListener('focus',()=>{if(p.matches(':focus-visible'))srPin(c,true);});
-    p.addEventListener('keydown',e=>{if(e.key==='Enter')go('#/state/'+c);});
-    return [p,f];});
-  const occ=F.occupied.map(f=>[mk('path','sr-occbase',svg),f]).concat(
-    F.occupied.map(f=>[mk('path','sr-occ',svg),f]));
-  // texture of the territory: a light sheen and a fine dot screen, clipped to the states
-  const tex=mk('g','sr-tex',svg,{'clip-path':'url(#srClip)'});
-  mk('rect','',tex,{width:'100%',height:'100%',fill:'url(#srSheen)'});
-  mk('rect','sr-dots',tex,{width:'100%',height:'100%',fill:'url(#srDots)'});
-  const clipPath=svg.querySelector('#srClipPath');
-  el.limb=mk('path','sr-limb',svg);
-  const hov=mk('path','sr-hover',over), pin=mk('path','sr-pin',over);
-  // confederal capitals: a slow radar ping under each label
-  const pings=F.fed.map((f,i)=>{const g=mk('g','sr-ping',over);
-    mk('circle','',g,{r:'14',style:`--i:${i}`});mk('circle','',g,{r:'14',style:`--i:${i+.5}`});
-    return [g,GEO.pts[f.properties.c]];});
-  const lbls=F.fed.map(f=>{const c=f.properties.c,s=byCode(c)||{};
-    const t=mk('text','sr-flbl',over);t.textContent=s.k||c;return [t,GEO.pts[c]];});
-  const sprite=document.createElement('canvas');sprite.width=sprite.height=64;
-  {const x=sprite.getContext('2d'),g=x.createRadialGradient(32,32,0,32,32,32);
-    g.addColorStop(0,'rgba(255,248,226,1)');g.addColorStop(.12,'rgba(255,214,150,.95)');
-    g.addColorStop(.36,'rgba(240,138,58,.34)');g.addColorStop(1,'rgba(240,138,58,0)');
-    x.fillStyle=g;x.fillRect(0,0,64,64);}
-  const L=(LIGHTS&&LIGHTS.p)||[], lq=(LIGHTS&&LIGHTS.q)||1000, lights=[];
-  for(let i=0;i<L.length;i+=3)lights.push([L[i]/lq,L[i+1]/lq,L[i+2]]);
-  const proj=srProjection(), path=d3.geoPath(proj).digits(1);
-  const grat=d3.geoGraticule().step([10,10])();
-  // bounding cap of every drawn feature, to skip what is off screen or behind the globe
-  const cap=f=>{const c=d3.geoCentroid(f);let r=0;
-    d3.geoStream(f,{point:(x,y)=>{const d=d3.geoDistance(c,[x,y]);if(d>r)r=d;},
-      lineStart(){},lineEnd(){},polygonStart(){},polygonEnd(){},sphere(){}});return [c,r];};
-  [far,land,regs,occ].forEach(list=>list.forEach(it=>{it[2]=cap(it[1]);}));
-  const layers=document.getElementById('srLayers');
-  const M=SRM={stage,svg,over,cv,ctx:cv.getContext('2d'),proj,path,el,land,regs,occ,hov,pin,lbls,far,layers,
-    T:{a:1,x:0,y:0},
-    sprite,lights,grat,F,lon:SR_CENTER[0],lat:SR_CENTER[1],k:1,kFit:1,dpr:1,w:0,h:0,raf:0,
-    clip:Math.PI/2};
-
-  const clampView=()=>{M.lon=((M.lon+540)%360)-180;M.lat=Math.max(-80,Math.min(80,M.lat));
-    M.k=Math.max(M.kMin,Math.min(M.kFit*9,M.k));};
-  const size=()=>{const r=stage.getBoundingClientRect();M.w=r.width;M.h=r.height;
-    M.dpr=Math.min(2,window.devicePixelRatio||1);
-    [svg,over].forEach(s=>{s.setAttribute('viewBox',`0 0 ${M.w} ${M.h}`);});
-    cv.width=Math.round(M.w*M.dpr);cv.height=Math.round(M.h*M.dpr);};
-  const fit=()=>{
-    const wide=M.w>=980, x0=wide?310:16, x1=wide?M.w-364:M.w-16, y0=wide?(M.w<1180?150:84):16, y1=M.h-(wide?70:16);
-    M.lon=SR_CENTER[0];M.lat=SR_CENTER[1];
-    proj.rotate([-M.lon,-M.lat,0]).fitExtent([[x0,y0],[x1,Math.max(y0+200,y1)]],F.members);
-    M.k=M.kFit=proj.scale();M.kMin=Math.min(M.w,M.h)*.3;};
-  M.draw=()=>{
-    M.raf=0;proj.rotate([-M.lon,-M.lat,0]).scale(M.k);
-    M.T={a:1,x:0,y:0};layers.style.transform='';
-    const sph=path({type:'Sphere'})||'';
-    el.sphere.setAttribute('d',sph);el.halo.setAttribute('d',sph);el.limb.setAttribute('d',sph);
-    el.grat.setAttribute('d',path(grat)||'');
-    const ctr=[M.lon,M.lat],t=proj.translate(),
-      reach=Math.max(...[[0,0],[M.w,0],[0,M.h],[M.w,M.h]].map(([x,y])=>Math.hypot(x-t[0],y-t[1])))+40,
-      vis=reach>=M.k?Math.PI/2:Math.asin(reach/M.k);
-    const put=list=>list.forEach(it=>{const [p,f,c]=it;
-      const show=d3.geoDistance(ctr,c[0])-c[1]<vis;
-      if(show){p.setAttribute('d',path(f)||'');it[3]=1;}
-      else if(it[3]){p.setAttribute('d','');it[3]=0;}});
-    put(far);put(land);
-    el.borders.setAttribute('d',path(F.borders)||'');
-    put(regs);put(occ);
-    clipPath.setAttribute('d',regs.map(([p])=>p.getAttribute('d')||'').join(''));
-    const zoomed=M.k/M.kFit;
-    lbls.forEach(([t,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
-      const xy=ok&&proj(ll);t.style.display=xy?'':'none';
-      if(xy){t.setAttribute('x',xy[0].toFixed(1));t.setAttribute('y',(xy[1]+4).toFixed(1));}});
-    pings.forEach(([g,ll])=>{const ok=ll&&d3.geoDistance(ll,ctr)<M.clip&&zoomed>.55;
-      const xy=ok&&proj(ll);g.style.display=xy?'':'none';
-      if(xy)g.setAttribute('transform',`translate(${xy[0].toFixed(1)},${xy[1].toFixed(1)})`);});
-    srOutline();srLightsDraw();};
-  M.queue=()=>{if(!M.raf)M.raf=requestAnimationFrame(M.draw);};
-  // During a gesture near the territory the drawn layers are only moved with a CSS
-  // transform (orthographic is nearly affine there); the exact redraw follows when
-  // the gesture pauses. Far out, the globe turns and is redrawn at every frame.
-  const pq=srProjection();
-  const sync=()=>pq.translate(proj.translate()).scale(M.k).rotate([-M.lon,-M.lat,0]);
-  let idle=0;
-  const fast=k=>k>=M.kFit*.6&&M.k>=M.kFit*.6;
-  const settle=()=>{layers.style.transform=`translate(${M.T.x}px,${M.T.y}px) scale(${M.T.a})`;
-    clearTimeout(idle);idle=setTimeout(M.queue,160);};
-  const zoomAt=(f,cx,cy)=>{
-    // zooming in keeps the point under the cursor; zooming out keeps the centre
-    sync();const k0=M.k;
-    if(f<1){[cx,cy]=proj.translate();}
-    const a=f>1?pq.invert([cx,cy]):null;M.k*=f;clampView();
-    if(a&&isFinite(a[0]))for(let i=0;i<2;i++){sync();
-      const b=pq.invert([cx,cy]);if(!b||!isFinite(b[0]))break;M.lon+=a[0]-b[0];M.lat+=a[1]-b[1];}
-    clampView();const g=M.k/k0;
-    if(fast(k0)){M.T.x=cx+g*(M.T.x-cx);M.T.y=cy+g*(M.T.y-cy);M.T.a*=g;settle();}
-    else M.queue();};
-  const panBy=(x0,y0,x1,y1)=>{sync();const a=pq.invert([x0,y0]),b=pq.invert([x1,y1]);
-    if(!a||!b||!isFinite(a[0]+b[0]+a[1]+b[1]))return;
-    M.lon+=a[0]-b[0];M.lat+=a[1]-b[1];clampView();
-    if(fast(M.k)){M.T.x+=x1-x0;M.T.y+=y1-y0;settle();}else M.queue();};
-  M.fitView=()=>{fit();M.queue();};
-
-  // pointer: drag to move, pinch or wheel to zoom, click to pin
-  const pts=new Map();let moved=false,start=null,pinch=null;
-  const regAt=(x,y)=>{const e=document.elementFromPoint(x,y);return e&&e.closest&&e.closest('.sr-reg');};
-  stage.onpointerdown=e=>{stage.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
-    if(pts.size===1){moved=false;start=[e.clientX,e.clientY];stage.classList.add('grabbing');}};
-  stage.onpointermove=e=>{
-    const r=stage.getBoundingClientRect();
-    if(pts.has(e.pointerId)){
-      const prev=pts.get(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
-      if(pts.size===2){const [p,q]=[...pts.values()],d=Math.hypot(p[0]-q[0],p[1]-q[1]);
-        if(pinch)zoomAt(d/pinch,(p[0]+q[0])/2-r.left,(p[1]+q[1])/2-r.top);pinch=d;moved=true;return;}
-      if(Math.hypot(e.clientX-start[0],e.clientY-start[1])>4)moved=true;
-      if(moved){panBy(prev[0]-r.left,prev[1]-r.top,e.clientX-r.left,e.clientY-r.top);srTip(null);}
-      return;}
-    const t=regAt(e.clientX,e.clientY);
-    srHover(t?t.dataset.c:null);srTip(t?t.dataset.c:null,e.clientX-r.left,e.clientY-r.top);};
-  stage.onpointerup=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;
-    if(pts.size)return;stage.classList.remove('grabbing');
-    try{stage.releasePointerCapture(e.pointerId);}catch(_){}
-    if(!moved){const t=regAt(e.clientX,e.clientY);srPin(t?t.dataset.c:null);}};
-  stage.onpointercancel=e=>{pts.delete(e.pointerId);pinch=null;stage.classList.remove('grabbing');};
-  stage.onpointerleave=()=>{if(!pts.size){srHover(null);srTip(null);}};
-  stage.onwheel=e=>{e.preventDefault();const r=stage.getBoundingClientRect();
-    zoomAt(Math.pow(1.0018,-e.deltaY*(e.deltaMode?40:1)),e.clientX-r.left,e.clientY-r.top);};
-  stage.ondblclick=e=>{const r=stage.getBoundingClientRect();zoomAt(1.8,e.clientX-r.left,e.clientY-r.top);};
-  stage.onkeydown=e=>{if(e.target!==stage)return;const s=60,c=[M.w/2,M.h/2];
-    const keys={ArrowLeft:[-s,0],ArrowRight:[s,0],ArrowUp:[0,-s],ArrowDown:[0,s]};
-    if(keys[e.key]){e.preventDefault();panBy(c[0],c[1],c[0]-keys[e.key][0],c[1]-keys[e.key][1]);}
-    else if(e.key==='+'||e.key==='=')zoomAt(1.3,c[0],c[1]);
-    else if(e.key==='-')zoomAt(1/1.3,c[0],c[1]);
-    else if(e.key==='0')M.fitView();
-    else if(e.key==='Escape')srPin(null);};
-  const room=document.getElementById('sr');
-  room.addEventListener('mouseover',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
-    if(r)srHover(r.dataset.c,true);});
-  room.addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest('.sr-dist rect'))srHover(null,true);});
-  room.addEventListener('click',e=>{const r=e.target.closest&&e.target.closest('.sr-dist rect');
-    if(r)srPin(r.dataset.c,true);});
-  document.getElementById('srZin').onclick=()=>zoomAt(1.4,M.w/2,M.h/2);
-  document.getElementById('srZout').onclick=()=>zoomAt(1/1.4,M.w/2,M.h/2);
-  document.getElementById('srFit').onclick=M.fitView;
-  new ResizeObserver(()=>{if(!stage.isConnected)return;const z=M.k/M.kFit;size();
-    const lon=M.lon,lat=M.lat;fit();M.k=M.kFit*z;M.lon=lon;M.lat=lat;M.queue();}).observe(stage);
-
-  size();fit();srApplyFilter();srCountUp(document.getElementById('sr'));
-  if(SR.pin){const c=SR.pin;SR.pin=null;srPin(c,true);}
-  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(!SR.intro&&!reduce){
-    // one orchestrated moment: the Earth turns and the view descends onto the Confederation
-    SR.intro=true;const k1=M.k,k0=Math.min(M.w,M.h)*.36,t0=performance.now();
-    const rot=d3.geoInterpolate(SR_FROM,SR_CENTER);
-    const step=t=>{if(!stage.isConnected)return;const u=Math.min(1,(t-t0)/2600);
-      const q=u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;
-      const r=rot(Math.min(1,q*1.35));M.lon=r[0];M.lat=r[1];
-      M.k=k0*Math.pow(k1/k0,Math.max(0,(q-.18)/.82));M.draw();
-      if(u<1)requestAnimationFrame(step);};
-    M.k=k0;M.lon=SR_FROM[0];M.lat=SR_FROM[1];requestAnimationFrame(step);
-  }else M.draw();
-}
-// Numbers of the panels count up once when the map opens (skipped with reduced motion).
-function srCountUp(root){
-  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const els=[...root.querySelectorAll('[data-count]')],t0=performance.now(),dur=1300;
-  const step=t=>{const u=Math.min(1,(t-t0)/dur),q=1-Math.pow(1-u,3);
-    els.forEach(e=>{const v=+e.dataset.count,n=Math.round(v*q);   // raw value in data-count, formatted at each step
-      e.textContent=e.dataset.suffix==='%'?(n/100).toLocaleString(L_LOC[LANG]||'en-GB',{style:'percent'})
-        :fmtN(n)+(e.dataset.suffix||'');});
-    if(u<1&&root.isConnected)requestAnimationFrame(step);};
-  requestAnimationFrame(step);
-}
-function srLightsDraw(){
-  const M=SRM;if(!M)return;const x=M.ctx;x.setTransform(1,0,0,1,0,0);
-  x.clearRect(0,0,M.cv.width,M.cv.height);
-  if(!SR.lights)return;
-  x.globalCompositeOperation='lighter';
-  // light size follows the zoom and the size of the map on screen (phone vs desktop)
-  const rel=Math.max(.45,Math.min(1.25,M.kFit*.22/760));
-  const ctr=[M.lon,M.lat],z=rel*Math.min(2.2,Math.pow(M.k/M.kFit,.45)),d=M.dpr,
-    dim={states:1,peoples:.8}[SR.mode]||.5;
-  for(const [lon,lat,pop] of M.lights){
-    if(d3.geoDistance([lon,lat],ctr)>M.clip-.02)continue;
-    const p=M.proj([lon,lat]);if(!p)continue;
-    const r=(2.2+Math.sqrt(pop)/52)*z*d;
-    x.globalAlpha=dim*Math.min(1,.28+Math.sqrt(pop)/260);
-    x.drawImage(M.sprite,p[0]*d-r,p[1]*d-r,2*r,2*r);
-  }
-  x.globalAlpha=1;x.globalCompositeOperation='source-over';
-}
-function srOutline(){
-  const M=SRM;if(!M)return;
-  const f=c=>{const r=c&&M.regs.find(([p])=>p.dataset.c===c);return r?M.path(r[1])||'':'';};
-  M.hov.setAttribute('d',SR.hover&&SR.hover!==SR.pin?f(SR.hover):'');
-  M.pin.setAttribute('d',f(SR.pin));
-}
-function srTip(code,x,y){
-  const t=document.getElementById('srTip');if(!t)return;
-  if(!code){t.classList.remove('show');return;}
-  const s=byCode(code)||{};
-  t.innerHTML=`${esc(s.n||code)}<span>${code}, ${srFmt(code,SR.mode)}</span>`;
-  t.style.left=x+'px';t.style.top=y+'px';t.classList.add('show');
-}
-function srHover(code,fromChart){
-  if(SR.hover===code)return;SR.hover=code;srOutline();
-  const c=document.getElementById('srSel');if(!c)return;
-  // over the map: the card shows the state; over a column: the column lights up
-  if(fromChart)c.querySelectorAll('.sr-dist rect').forEach(r=>
-    r.classList.toggle('hl',r.dataset.c===code||r.dataset.c===SR.pin));
-  else if(!SR.pin)c.innerHTML=srSelHTML(code);
-}
-function srPin(code,keep){
-  SR.pin=code&&(keep||SR.pin!==code)?code:null;
-  const c=document.getElementById('srSel');
-  if(c){c.innerHTML=srSelHTML(SR.pin||SR.hover);c.classList.toggle('pinned',!!SR.pin);}
-  srOutline();
-}
-function srMode(m){
-  SR.mode=m;
-  const st=document.getElementById('srStage');if(st)st.dataset.mode=m;
-  const pc=document.getElementById('srPeoples');if(pc)pc.innerHTML=srPeoplesHTML();
-  document.querySelectorAll('.sr-seg button').forEach(b=>{const on=b.dataset.m===m;
-    b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
-  if(SRM)SRM.regs.forEach(([p])=>{p.style.fill=srFill(p.dataset.c);});
-  const lg=document.getElementById('srLegend');if(lg)lg.innerHTML=srLegendHTML();
-  const c=document.getElementById('srSel');if(c)c.innerHTML=srSelHTML(SR.pin||SR.hover,true);
-  srLightsDraw();
-}
-function srFilter(k){
-  SR.filter=k&&SR.filter!==k?k:null;srApplyFilter();
-  const c=document.getElementById('srPeoples');if(c)c.innerHTML=srPeoplesHTML();
-}
-function srApplyFilter(){
-  if(SRM)SRM.regs.forEach(([p])=>p.classList.toggle('dim',!!SR.filter&&p.dataset.p!==SR.filter));
-}
-function srToggleLights(){
-  SR.lights=!SR.lights;
-  const b=document.getElementById('srLightsBtn');if(b)b.setAttribute('aria-pressed',SR.lights);
-  const lg=document.getElementById('srLegend');if(lg)lg.innerHTML=srLegendHTML();
-  srLightsDraw();
 }
 function miniGeo(code){
   if(!window.d3||!GEO.states)return '';
@@ -5444,7 +4705,7 @@ function miniGeo(code){
    la page (sélection sur la carte, étapes de l'inscription). Table relevée par
    docs/lot1/outils/usage.js : une donnée oubliée donne une page incomplète. Le build inline injecte
    toutes les données et marque chaque clé comme chargée. */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CORE=null, CIDX={}, CFULL={}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CORE=null, CIDX={}, CFULL={}, STATS={}, CARTE=null, COMMUNES=null, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 /* DATA_V : version des données et du code, définie dans <head> (préchargement) */
@@ -5462,7 +4723,7 @@ const DATA_SRC={
   geo:['geo.json',d=>{GEO=d;}],
   core:['constitution/core.json',d=>{CORE=d;}],   // sommaire du lecteur (scripts/build_lecteur.py)
   stats:['stats.json',d=>{STATS=d;}],
-  lights:['lights.json',d=>{LIGHTS=d;}],
+  carte:['carte/index.json',d=>{CARTE=d;}],   // carte de #/map (scripts/build_carte.py)
   opstine:['opstine.json',d=>{OPSTINE=d.m;}],
   videos:['videos.json',d=>{VIDEOS=d;}],
 };
@@ -5479,13 +4740,13 @@ const D3=['vendor/d3-array.min.js','vendor/d3-geo.min.js'], QR='vendor/qrcode.mi
 const withCard=()=>citLoad()?['flags',QR]:[];    // carte citoyenne dessinée : drapeau de l'État, code QR
 const DATA_ROUTE={
   states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos',...D3],
-  map:['geo','lights','stats',...D3], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
+  map:['stats','carte','js/carte.js','css/carte.css'], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
   constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
   symbols:['flags'], autonomy:['flags'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags',QR]:[]),
 };
 const DATA_LATER={
-  map:['flags'], register:['opstine','flags',QR], minor:['opstine','flags',QR], citizen:['flags',QR],
+  register:['opstine','flags',QR], minor:['opstine','flags',QR], citizen:['flags',QR],
 };
 const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG];
 const DATA_P={};   // clé → promesse du chargement
