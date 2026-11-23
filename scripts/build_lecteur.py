@@ -251,11 +251,11 @@ def link_text(raw, lang, ORDER, ART_TITLE, TITLES, CODES):
         out.append(html.escape(raw[i:s], quote=False))
         txt = html.escape(raw[s:e], quote=False)
         if target.startswith("state-"):
-            out.append(f'<a class="sl" href="#/state/{target[6:]}" translate="no">{txt}</a>')
+            out.append(f'<a class="cx-sl" href="#/state/{target[6:]}" translate="no">{txt}</a>')
         elif target.startswith("title-"):
-            out.append(f'<a class="rf" href="#/constitution/{target}">{txt}</a>')
+            out.append(f'<a class="cx-rf" href="#/constitution/{target}">{txt}</a>')
         else:
-            out.append(f'<a class="rf" href="#/constitution/{ART_TITLE[target]}/{target}">{txt}</a>')
+            out.append(f'<a class="cx-rf" href="#/constitution/{ART_TITLE[target]}/{target}">{txt}</a>')
         i = e
     out.append(html.escape(raw[i:], quote=False))
     h = "".join(out)

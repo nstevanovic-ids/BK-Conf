@@ -497,76 +497,6 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .notice{background:var(--surface);border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
   border-radius:3px;padding:13px 16px;font-size:.83rem;color:var(--ink-2);margin-top:14px}
 
-/* ---------- constitution reader ---------- */
-.cpre{max-width:68ch;font-size:1.06rem;line-height:1.75;color:var(--ink)}
-.cpre p{margin:0 0 14px}
-.cpre p:first-child{font-weight:600}
-.cpre p.cfin{font-weight:700;margin-top:22px}
-.cpre .cmotto{font-style:italic;color:var(--gold);font-size:1.12rem;margin-top:18px}
-.creader{display:grid;grid-template-columns:250px minmax(0,1fr);gap:52px;align-items:start}
-.ctoc{position:sticky;top:var(--hdr,150px);max-height:calc(100vh - var(--hdr,150px) - 24px);
-  overflow:auto;font-size:.79rem;padding:4px 6px 12px 0;overscroll-behavior:contain}
-.ctoc-h{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
-  color:var(--gold);margin-bottom:8px}
-.ctoc .cch{font-weight:700;color:var(--ink);margin:14px 0 4px;font-size:.76rem}
-.ctoc .cch span{display:block;font-weight:500;color:var(--ink-3);font-size:.72rem}
-.ctoc .csec{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:10px 0 2px 10px}
-.ctoc .csec span{display:block;text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink-3);font-size:.7rem}
-.csech{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-2);
-  margin:34px 0 0;padding-bottom:7px;border-bottom:1px solid var(--line-2)}
-.cchap+.csech{margin-top:18px}
-.ctoc a{display:block;padding:4px 0 4px 10px;border-left:2px solid var(--line);
-  color:var(--ink-2);line-height:1.35}
-.ctoc a b{display:block;font-size:.68rem;color:var(--ink-3);font-weight:600}
-.ctoc a:hover{color:var(--ink);border-left-color:var(--gold)}
-.ctoc-t{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
-.ctoc .ctoc-t a{border:1px solid var(--line-2);border-radius:3px;padding:3px 8px;font-size:.7rem;font-weight:600}
-.ctoc .ctoc-t a.on{background:var(--indigo);color:var(--indigo-ink);border-color:var(--indigo)}
-.cbody{min-width:0}
-.cchap{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
-  font-weight:700;margin:30px 0 0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-.cbody .cchap:first-child{margin-top:0}
-.cart{padding:24px 0 26px;border-bottom:1px solid var(--line)}
-.cart .cnum{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.cart h3{font-size:1.18rem;margin:4px 0 12px;line-height:1.3}
-.cart p,.cart li{font-size:.96rem;line-height:1.68;max-width:74ch}
-.cart p{margin:0 0 10px}
-.cart .csub{font-weight:700;font-size:.86rem;margin:16px 0 6px;color:var(--ink)}
-.cart ol,.cart ul{margin:0 0 12px;padding:0;list-style:none}
-.cart .cul li{position:relative;padding-left:18px;margin-bottom:4px}
-.cart .cul li::before{content:'';position:absolute;left:4px;top:.72em;width:5px;height:5px;
-  border-radius:50%;background:var(--gold)}
-.cart .cll li,.cart .col li{display:flex;gap:10px;margin-bottom:6px}
-.cart .cmk{flex:none;min-width:1.6em;color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
-.cart .col.ccols{columns:2;column-gap:36px}
-.cart .col.ccols li{break-inside:avoid;margin-bottom:3px;font-size:.9rem}
-.cart a.cref{color:var(--navy);border-bottom:1px solid var(--line-3)}
-.cart a.cref:hover{color:var(--gold);border-bottom-color:var(--gold)}
-[data-theme="dark"] .cart a.cref{color:var(--gold-2);border-bottom-color:rgba(228,186,72,.4)}
-[data-theme="dark"] .cpre .cmotto{color:var(--gold-2)}
-.cpager{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
-.cpager a{border:1px solid var(--line);border-radius:4px;padding:14px 16px;background:var(--white);
-  font-weight:600;font-size:.88rem}
-.cpager a small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--gold);font-weight:700;margin-bottom:4px}
-.cpager a.nx,.cpager span+a{text-align:right}
-.cpager a:hover{border-color:var(--gold)}
-@media(max-width:900px){
-  .creader{grid-template-columns:1fr;gap:18px}
-  .ctoc{position:static;max-height:none;overflow:visible;padding:0;
-    border:1px solid var(--line);border-radius:4px;background:var(--white);padding:14px 16px}
-  .ctoc a{display:inline-block;border-left:none;padding:3px 10px 3px 0}
-  .ctoc a b{display:inline;margin-right:4px}
-  .ctoc .cch{margin-top:10px}
-}
-@media(max-width:680px){
-  .cart .col.ccols{columns:1}
-  .cpager{grid-template-columns:1fr}
-  .cpager a.nx,.cpager span+a{text-align:left}
-  .cpre{font-size:1rem}
-}
-
-
 /* ---------- symbols page ---------- */
 .symcard{background:var(--white);border:1px solid var(--line-2);border-radius:4px;overflow:hidden}
 .symcard + .symcard{margin-top:14px}
@@ -1875,7 +1805,7 @@ function fmtD(iso){
    and alt attributes are converted as they are inserted. Skipped: translate="no" (letters of the
    Latin alphabet, IPA, codes, the citizen card, the language buttons), code, .mono, inputs. */
 const CYR_ATTRS=['title','aria-label','placeholder','alt'];
-const cyrSkip=el=>!!el.closest('[translate="no"],script,style,textarea,code,.mono');
+const cyrSkip=el=>!!el.closest('[translate="no"],script,style,textarea,code,.mono,.cxl,.cxu');
 function cyrApply(n){
   if(!cyrOn()||!n)return;
   if(n.nodeType===3){if(n.parentElement&&!cyrSkip(n.parentElement))n.data=cyrText(n.data,LANG);return;}
@@ -1925,6 +1855,7 @@ function i18nWatch(){
 }
 /* A change of language or script redraws the page where it stands. */
 function rerender(){
+  if((location.hash||'').startsWith('#/constitution')&&window.CX&&CX.rerender())return;
   const y=window.scrollY;
   renderNow();
   window.scrollTo({top:y,behavior:'instant'});
@@ -2797,13 +2728,11 @@ function vSecurity(){
 }
 
 /* ============================================================
-   CONSTITUTION READER, data: portail/data/constitution.json
-   (generated from docs/constitution/v4.en.md by scripts/build_constitution.py)
+   CONSTITUTION : le lecteur est portail/js/constitution.js (données portail/data/constitution/,
+   scripts/build_lecteur.py). Ici restent les liens des autres pages (cIndex, artLink) et, pour la
+   recherche, les textes officiels constitution.json et constitution.<std>.json (art. 151 ; ADR
+   2026-10-26-constitution-trois-standards.md), avec leurs préfixes anglais montrés par cNum.
    ============================================================ */
-/* Official versions (Art. 151): constitution.json in English and constitution.<std>.json for each
-   standard, same ids and structure; the reader follows the language (ADR
-   2026-10-26-constitution-trois-standards.md). The data keep the English structural prefixes
-   (Title IV bis, Chapter 3, Section 2, Article 12): cNum shows them in the reader's language. */
 let CONS_TR={};
 const cDoc=()=>LANG!=='en'&&CONS_TR[LANG]&&(CONS_TR[LANG].titles||[]).length?CONS_TR[LANG]:CONSTITUTION;
 function cNum(num,abbr){
@@ -2814,120 +2743,19 @@ function cNum(num,abbr){
   if(m[1]==='Section')return L`Section ${m[2]}`;
   return abbr?L`Art. ${m[2]}`:L`Article ${m[2]}`;
 }
-/* Cross-references made into links: Article 109 in English; člen, član, čl. (declined) in the standards. */
-const CREF_SUF='(?: (?:bis|ter|quater|quinquies|sexies|septies|octies)(?![\\p{L}]))?';
-const CREF={en:new RegExp('\\b(Articles?) (\\d+'+CREF_SUF+')','gu'),
-  std:new RegExp('(?<![\\p{L}])([Čč]l(?:\\.|an|en)\\p{L}*) (\\d+'+CREF_SUF+')','gu')};
 function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
+/* Article → titre (renvois des autres pages, artLink) : sommaire du lecteur, core.json. */
 function cIndex(){
   if(cIndex.m)return cIndex.m;
+  if(!CORE)return {};
   const m={};
-  (CONSTITUTION.titles||[]).forEach(t=>cArticles(t).forEach(a=>{m[a.id]=t.id;}));
+  CORE.toc.forEach(t=>t.a.forEach(a=>{m['art-'+a]=t.id;}));
   return cIndex.m=m;
 }
-function cRange(t){const a=cArticles(t);
-  return a.length===1?cNum(a[0].num):cNum(a[0].num)+' – '+a[a.length-1].num.replace(/^Article /,'');}
-function cInline(x,links){
-  let h=esc(x).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
-              .replace(/\*([^*]+)\*/g,'<em>$1</em>');
-  if(!links)return h;
-  const idx=cIndex();
-  h=h.replace(LANG==='en'?CREF.en:CREF.std,(m,w,n)=>{
-    const id='art-'+n.replace(' ',''), t=idx[id];
-    return t?`<a class="cref" href="#/constitution/${t}/${id}">${w} ${n}</a>`:m;});
-  h=h.replace(/\(([A-Z]{2}-\d{2})\)/g,(m,c)=>byCode(c)?
-    `(<a class="cref" href="#/state/${c}">${c}</a>)`:m);
-  return h;
-}
-function cBlock(b){
-  if(b.t==='p')return `<p>${cInline(b.x,true)}</p>`;
-  if(b.t==='h')return `<div class="csub">${cInline(b.x)}</div>`;
-  if(b.t==='ul')return `<ul class="cul">${b.items.map(i=>`<li>${cInline(i,true)}</li>`).join('')}</ul>`;
-  if(b.t==='ll')return `<ol class="cll">${b.items.map(i=>
-    `<li><span class="cmk" translate="no">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
-  if(b.t==='ol')return `<ol class="col${b.items.length>12?' ccols':''}">${b.items.map(i=>
-    `<li><span class="cmk">${i[0]}.</span><span>${cInline(i[1],true)}</span></li>`).join('')}</ol>`;
-  return '';
-}
-function cJump(id,now){
-  const el=document.getElementById(id); if(!el)return false;
-  const hdr=document.querySelector('header'), off=(hdr?hdr.offsetHeight:0)+16;
-  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:now?'instant':'smooth'});
-  const t=cIndex()[id];
-  if(t)history.replaceState(null,'','#/constitution/'+t+'/'+id);
-  return false;
-}
+/* Le lecteur (portail/js/constitution.js, chargé avec la page) fournit tout le contenu de #/constitution :
+   ouverture, titres, articles, introuvable. ADR 2026-11-23-lecteur-constitution.md. */
 function vConstitution(){
-  const C=cDoc(), T=C.titles||[], CD=esc(C.iso?fmtD(C.iso):C.date);
-  const parts=(location.hash||'').replace(/^#\//,'').split('/');
-  const cur=T.find(t=>t.id===parts[1]);
-  const nArt=T.reduce((n,t)=>n+cArticles(t).length,0);
-  if(!cur){
-    return crumb([['Home','#/home'],['Constitution']])+`
-  <section class="section pagehead reveal">
-    <div class="eyebrow" data-i18n="h_fundamental">Fundamental law</div>
-    <h1 data-i18n="h_constitution_h1">Constitution of the Balkan Confederation</h1>
-    <p class="lead">${LANG==='en'?L`Consolidated text, version ${esc(C.version.replace('v',''))} of
-    ${CD}: a preamble and ${fmtN(nArt)} articles in ${fmtN(T.length)} titles. Official acts
-    are published in the unified South Slavic Latin alphabet and in the three regional
-    standards; this is the English text.`
-    :L`Consolidated text, version ${esc(C.version.replace('v',''))} of ${CD}: a preamble and
-    ${fmtN(nArt)} articles in ${fmtN(T.length)} titles. The texts in the three regional standards
-    are equally authentic (Art. 151); this is the official text in this standard.`}</p>
-  </section>
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="h2row"><h2 data-i18n="h_titles">Titles</h2><a class="seeall" href="#/journal">${L`Official Journal`} →</a></div>
-    <div class="jlist">
-      ${T.map(t=>`<a class="jrow" href="#/constitution/${t.id}">
-        <span class="jd">${esc(cNum(t.num))}</span>
-        <span class="jt">${esc(t.name)}<span>${esc(cRange(t))} · ${L`${fmtN(cArticles(t).length)} articles`}</span></span>
-        <span class="jcat">${L`Read`} →</span></a>`).join('')}
-    </div>
-  </section>
-  <section class="section reveal" style="animation-delay:.1s">
-    <div class="eyebrow" data-i18n="h_preamble">Preamble</div>
-    <div class="cpre">
-      ${C.preamble.paras.map((p,i)=>`<p${i===C.preamble.paras.length-1?' class="cfin"':''}>${cInline(p)}</p>`).join('')}
-      <p class="cmotto">${cInline(C.preamble.motto)}</p>
-    </div>
-    <div class="cpager"><span></span>
-      <a href="#/constitution/${T[0].id}"><small>${L`Begin reading`}</small>${esc(cNum(T[0].num))} · ${esc(T[0].name)} →</a></div>
-  </section>`;
-  }
-  const i=T.indexOf(cur), prev=T[i-1], next=T[i+1];
-  const toc=cur.chapters.map(ch=>`
-      ${ch.num?`<div class="cch">${esc(cNum(ch.num))}<span>${esc(ch.name)}</span></div>`:''}
-      ${ch.articles.map(a=>`${a.sec?`<div class="csec">${esc(cNum(a.sec.num))}<span>${esc(a.sec.name)}</span></div>`:''}<a href="#/constitution/${cur.id}/${a.id}"
-        onclick="return cJump('${a.id}')"><b>${esc(cNum(a.num,true))}</b>${esc(a.name)}</a>`).join('')}`).join('');
-  const body=cur.chapters.map(ch=>`
-      ${ch.num?`<h2 class="cchap">${esc(cNum(ch.num))} · ${esc(ch.name)}</h2>`:''}
-      ${ch.articles.map(a=>`${a.sec?`<h3 class="csech">${esc(cNum(a.sec.num))} · ${esc(a.sec.name)}</h3>`:''}<article class="cart" id="${a.id}">
-        <div class="cnum">${esc(cNum(a.num))}</div>
-        <h3>${esc(a.name)}</h3>
-        ${a.body.map(cBlock).join('')}
-      </article>`).join('')}`).join('');
-  return crumb([['Home','#/home'],['Constitution','#/constitution'],[cNum(cur.num)]])+`
-  <section class="section pagehead reveal">
-    <div class="eyebrow">${L`Constitution`} · ${esc(cNum(cur.num))}</div>
-    <h1>${esc(cur.name)}</h1>
-    <p class="lead">${esc(cRange(cur))} · ${L`${fmtN(cArticles(cur).length)} articles`}.
-    ${L`Consolidated text, version ${esc(C.version.replace('v',''))} of ${CD}.`}</p>
-  </section>
-  <section class="section reveal" style="animation-delay:.05s">
-    <div class="creader">
-      <nav class="ctoc" aria-label="${esc(L`Articles of ${cNum(cur.num)}`)}">
-        <div class="ctoc-h">${esc(cNum(cur.num))}</div>${toc}
-        <div class="ctoc-t">${T.map(t=>`<a class="${t===cur?'on':''}" href="#/constitution/${t.id}">${esc(cNum(t.num))}</a>`).join('')}</div>
-      </nav>
-      <div class="cbody">${body}
-        <div class="cpager">
-          ${prev?`<a href="#/constitution/${prev.id}"><small>← ${L`Previous`}</small>${esc(cNum(prev.num))} · ${esc(prev.name)}</a>`
-                :`<a href="#/constitution"><small>← ${L`Back`}</small>${L`Preamble and table of titles`}</a>`}
-          ${next?`<a class="nx" href="#/constitution/${next.id}"><small>${L`Next`} →</small>${esc(cNum(next.num))} · ${esc(next.name)}</a>`:'<span></span>'}
-        </div>
-      </div>
-    </div>
-  </section>`;
+  return window.CX?CX.html(location.hash||'#/constitution'):'';
 }
 
 function vJournal(){
@@ -4570,7 +4398,7 @@ function routePlace(h){
   const seg=ROUTES[p[0]]?p[0]:'home';
   let fine=0;
   if(seg==='constitution'&&p[1]){
-    const i=(CONSTITUTION.titles||[]).findIndex(t=>t.id===p[1]);fine=i+1;}
+    const i=((CORE||{}).toc||[]).findIndex(t=>t.id===p[1]);fine=i+1;}
   return [NAV_ORDER.indexOf(ROUTES[seg][1]),keys.indexOf(seg),fine];
 }
 function placeCmp(a,b){for(let i=0;i<3;i++)if(a[i]!==b[i])return a[i]<b[i]?-1:1;return 0;}
@@ -4583,7 +4411,7 @@ let _want=null;
 function render(){
   const h=location.hash||'#/home';
   _want=h;
-  need(routeData(h)).then(()=>{
+  need(routeData(h)).then(()=>h.startsWith('#/constitution')&&window.CX?CX.prepare(h):null).then(()=>{
     if(_want!==h)return;
     renderRoute();
     need(routeData(h,true)).catch(()=>{});
@@ -4596,28 +4424,35 @@ function renderRoute(){
   _shown=h; _from=prev;
   const pa=prev===null?null:routePlace(prev), pb=routePlace(h);
   const d=pa?placeCmp(pa,pb):0;
-  /* même page : renvoi vers un article du titre déjà affiché → simple défilement */
-  if(prev!==null&&d===0){
-    const cp=h.split('/');
-    if(cp[1]==='constitution'&&cp[3]&&document.getElementById(cp[3])){cJump(cp[3]);return;}
-  }
+  /* même page : renvoi vers un article du titre déjà affiché → le lecteur défile */
+  if(prev!==null&&d===0&&h.startsWith('#/constitution')&&window.CX&&CX.inplace(h))return;
   /* grille → fiche : on retient la position pour y revenir au retour */
   if(prev&&prev.startsWith('#/states')&&h.startsWith('#/state/'))_gridY=window.scrollY;
   /* un seul glissement ; aucun au premier affichage ni sur la même page */
   if(d===0||!document.startViewTransition||
      matchMedia('(prefers-reduced-motion:reduce)').matches){renderNow();return;}
   const root=document.documentElement;
-  /* même section de la navigation : glissement horizontal, sinon vertical */
-  root.dataset.vt=(pa[0]===pb[0]?'x-':'y-')+(d<0?'next':'prev');
+  /* renvoi suivi vers un autre titre de la Constitution : seul le numéro d'article passe d'une page
+     à l'autre (élément partagé) ; sinon même section de la navigation : glissement horizontal, sinon
+     vertical. Un seul propriétaire de la transition : le routeur. */
+  const ref=h.startsWith('#/constitution')&&window.CX?CX.takeRef():null;
+  root.dataset.vt=ref?'ref':(pa[0]===pb[0]?'x-':'y-')+(d<0?'next':'prev');
   const hd=document.querySelector('body>header');
   root.style.setProperty('--vt-top',Math.max(0,Math.round(hd?hd.getBoundingClientRect().bottom:0))+'px');
-  const vt=document.startViewTransition(renderNow);
-  const done=()=>{if(_shown===h)delete root.dataset.vt;};
+  let named=null;
+  if(ref)ref.el.style.viewTransitionName='cx-artnum';
+  const vt=document.startViewTransition(()=>{
+    if(ref)ref.el.style.viewTransitionName='';
+    renderNow();
+    if(ref){named=CX.target();if(named)named.style.viewTransitionName='cx-artnum';}
+  });
+  const done=()=>{if(named)named.style.viewTransitionName='';if(_shown===h)delete root.dataset.vt;};
   vt.finished.then(done,done);
 }
 function renderNow(){
   const h=location.hash||'#/home';
   const app=document.getElementById('app');
+  if(window.CX)CX.leave();
   let html,key;
   if(h.startsWith('#/state/')){html=vState(h.slice(8));key='#/states';}
   else{
@@ -4652,9 +4487,8 @@ function renderNow(){
   if(h==='#/home'||h==='#/'||h==='')homeCount();
   citHeader();
   setHdr();
-  /* arrivée sur un article : la page entre déjà positionnée, le glissement l'apporte */
-  const cp=h.split('/');
-  if(cp[1]==='constitution'&&cp[3])cJump(cp[3],true);
+  /* lecteur de la Constitution : arrivée sur l'article, déjà positionnée, le glissement l'apporte */
+  if(h.startsWith('#/constitution')&&window.CX)CX.mounted();
   setupReveal();
   requestAnimationFrame(()=>{
     setupParallax();
@@ -4849,13 +4683,13 @@ function renderResults(){
   const sel=box.querySelector('.sb-item.sel');
   if(sel)sel.scrollIntoView({block:'nearest'});
 }
-function openSearch(){
+function openSearch(q){
   toggleMenu(false);
   const sc=document.getElementById('searchScrim');
   sc.classList.add('open');
   document.documentElement.classList.add('search-open');
   const inp=document.getElementById('searchInput');
-  inp.value='';sbSel=0;
+  inp.value=typeof q==='string'?q:'';sbSel=0;
   setTimeout(()=>inp.focus(),0);
   /* index construit quand ses données sont là (alphabet, drapeaux, Constitution de la langue) */
   sbReady=need(SEARCH_DATA()).then(()=>{sbResults=searchQuery(inp.value);sbSel=0;renderResults();});
@@ -5522,7 +5356,7 @@ function miniGeo(code){
    la page (sélection sur la carte, étapes de l'inscription). Table relevée par
    docs/lot1/outils/usage.js : une donnée oubliée donne une page incomplète. Le build inline injecte
    toutes les données et marque chaque clé comme chargée. */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, CORE=null, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 const DATA_V='';   // version des données, posée par scripts/build_portail.py (cache de Pages, max-age=600)
@@ -5539,6 +5373,7 @@ const DATA_SRC={
   flagnotes:['flagnotes.json',d=>{FLAGNOTE=d;}],
   geo:['geo.json',d=>{GEO=d;}],
   cons:['constitution.json',d=>{CONSTITUTION=d;}],
+  core:['constitution/core.json',d=>{CORE=d;}],   // sommaire du lecteur (scripts/build_lecteur.py)
   'cons.zap':['constitution.zap.json',d=>{CONS_TR.zap=d;}],
   'cons.sre':['constitution.sre.json',d=>{CONS_TR.sre=d;}],
   'cons.ist':['constitution.ist.json',d=>{CONS_TR.ist=d;}],
@@ -5551,12 +5386,11 @@ const DATA_SRC={
 const DATA_OPT=new Set(['i18n','registre','textes','videos','cons.zap','cons.sre','cons.ist']);
 const DATA_CORE=['peuples','etats','aut','i18n','registre'];
 const txL=()=>LANG==='en'?[]:['textes'];
-const consL=()=>LANG==='en'?[]:['cons.'+LANG];   // texte officiel de la langue (art. 151)
 const withCard=()=>citLoad()?['flags']:[];       // carte citoyenne dessinée : drapeau de l'État
 const DATA_ROUTE={
   states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos'],
-  map:['geo','lights','stats'], institutions:['cons','stats'], council:['cons','stats'], security:['cons'],
-  constitution:()=>['cons',...consL()], identity:['cons'], alphabet:['alfabet'],
+  map:['geo','lights','stats'], institutions:['core','stats'], council:['core','stats'], security:['core'],
+  constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
   symbols:['flags'], autonomy:['flags'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags']:[]),
 };
@@ -5565,8 +5399,17 @@ const DATA_LATER={
 };
 const SEARCH_DATA=()=>['alfabet','flags',LANG==='en'?'cons':'cons.'+LANG];
 const DATA_P={};   // clé → promesse du chargement
+/* code d'une page (js/…, css/…) : script ou feuille de style ajouté à <head>, une fois */
+function needCode(k){
+  return new Promise((res,rej)=>{
+    const css=k.startsWith('css/'), el=document.createElement(css?'link':'script');
+    if(css){el.rel='stylesheet';el.href=k+DATA_V;}else el.src=k+DATA_V;
+    el.onload=()=>res();el.onerror=()=>{delete DATA_P[k];rej(new Error(k));};
+    document.head.appendChild(el);
+  });
+}
 function need(keys){
-  return Promise.all(keys.map(k=>DATA_P[k]||(DATA_P[k]=
+  return Promise.all(keys.map(k=>DATA_P[k]||(DATA_P[k]=/^(?:js|css)\//.test(k)?needCode(k):
     fetch('data/'+DATA_SRC[k][0]+DATA_V)
       .then(r=>{if(!r.ok)throw new Error(DATA_SRC[k][0]+' : '+r.status);return r.json();})
       .then(d=>{DATA_SRC[k][1](d);})

@@ -48,7 +48,9 @@ DATA_FILES = (
 # chargées par le lecteur lui-même : publiées en entier.
 DATA_DIRS = ("constitution",)
 # Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
-ASSET_DIRS = ("fonts", "vendor", "images", "videos")
+ASSET_DIRS = ("fonts", "vendor", "images", "videos", "js", "css")
+# Code chargé avec sa page (need() du gabarit) ; le fichier unique l'embarque.
+CODE_DIRS = ("js", "css")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
 BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
 # Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.
@@ -85,6 +87,13 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         videos = {c: {k: (asset_base + v if isinstance(v, str) and v.startswith("videos/") else v)
                       for k, v in vd.items()} for c, vd in videos.items()}
     registre = json.loads((DATA / "registre.json").read_text(encoding="utf-8"))
+    # Lecteur de la Constitution : sommaire (CORE) et fichiers chargés par portail/js/constitution.js
+    # (titres, aperçus, carte de marge), sous leur chemin relatif à data/constitution/.
+    cdir = DATA / "constitution"
+    core = json.loads((cdir / "core.json").read_text(encoding="utf-8"))
+    cx_data = {str(f.relative_to(cdir)): json.loads(f.read_text(encoding="utf-8"))
+               for f in sorted(cdir.rglob("*.json")) if not f.name.startswith(("core.", "full."))}
+    code = [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -104,14 +113,27 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         f"TX={json.dumps(textes, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
+        f"CORE={json.dumps(core, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"var CX_DATA={json.dumps(cx_data, ensure_ascii=False, separators=(',', ':'))};\n"
         # toutes les données sont là : chaque clé du chargement par page est marquée chargée
         "Object.keys(DATA_SRC).forEach(k=>{DATA_P[k]=Promise.resolve();});\n"
+        + "".join(f"DATA_P[{json.dumps(f.parent.name + '/' + f.name)}]=Promise.resolve();\n" for f in code) +
         "boot();\n"
     )
     # Le chargement du socle est remplacé par les données injectées (une seule occurrence).
     if src.count(BOOT_LINE) != 1:
         sys.exit(f"ligne d'amorce absente du gabarit : {BOOT_LINE}")
     src = src.replace(BOOT_LINE, inline_js)
+    # Code de page (lecteur, moteur) : scripts avant le script principal, qui les appelle dès le
+    # premier rendu ; feuilles de style dans <head>. Ils ne font que se définir au chargement.
+    tag = '<script src="vendor/qrcode.min.js"></script>'
+    esc_end = lambda t: t.replace("</script", "<\\/script")   # noqa: E731
+    js = "".join("<script>\n" + esc_end(f.read_text(encoding="utf-8")) + "\n</script>\n"
+                 for f in code if f.suffix == ".js")
+    css = "".join(f"<style>\n{f.read_text(encoding='utf-8')}\n</style>\n" for f in code if f.suffix == ".css")
+    if tag not in src or "</head>" not in src:
+        sys.exit("balise d'ancrage absente du gabarit (vendor/qrcode.min.js ou </head>)")
+    src = src.replace(tag, tag + "\n" + js, 1).replace("</head>", css + "</head>", 1)
     # Inline the vendored libraries (d3-geo for the map, qrcode for the citizen card).
     for lib in ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js"):
         tag = f'<script src="vendor/{lib}"></script>'
@@ -187,6 +209,9 @@ def build_linked() -> int:
         for fp in sorted((DATA / d).rglob("*.json")):
             h.update(str(fp.relative_to(DATA)).encode() + b"\0" + fp.read_bytes())
         _copytree(DATA / d, SITE / "data" / d)
+    for d in CODE_DIRS:   # le code de page porte la même version que les données
+        for fp in sorted((PORTAIL / d).glob("*")):
+            h.update(f"{d}/{fp.name}".encode() + b"\0" + fp.read_bytes())
     if tpl.count(DATA_V_LINE) != 1:
         print(f"ligne absente du gabarit : {DATA_V_LINE}", file=sys.stderr)
         return 1
