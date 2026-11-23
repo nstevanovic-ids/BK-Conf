@@ -1938,6 +1938,7 @@ function vState(code){
           <div class="subhead">${L`Location`}</div>
           ${miniGeo(code)}
           <div class="fcap">${L`Geographic position of the seat on the Balkan peninsula.`}</div>
+          <a class="seeall" href="#/map/${s.c}" style="display:inline-block;margin-top:10px">${L`Interactive map`} &rarr;</a>
         </div>
       </div>
       <div>
@@ -4343,7 +4344,7 @@ const SB_PAGES=[
  [N('Home'),N('Overview of the Confederation'),'#/home'],
  [N('States & territories'),N('Directory of the 52 states'),'#/states'],
  [N('Autonomous communities'),N('24 recognised minority communities'),'#/autonomy'],
- [N('Interactive map'),N('Globe of the Confederation, key figures by state'),'#/map'],
+ [N('Interactive map'),N('Municipal boundaries, demographic and economic indicators by state.'),'#/map'],
  [N('Institutions'),N('The four confederal institutions'),'#/institutions'],
  [N('Security and Defence'),N('Gendarmerie, Bureau of Investigation, intelligence, armed forces'),'#/security'],
  [N('Constitution'),N('Constitutional corpus'),'#/constitution'],
@@ -4400,6 +4401,11 @@ function buildIndex(){
     const tl=L`Title ${t.num}`+' · '+t.name[li];
     idx.push({type:N('Constitution'),label:L`Art. ${e[0]}`+' · '+e[1],sub:tl,aid:id,num:e[0],
       hash:'#/constitution/'+t.id+'/'+id,hay:fold(e[0]+' '+e[1]+' '+tl),iconText:'§'});}));
+  /* communes (carte/communes.json, chargé à la première frappe) : elles font voler la carte (#/map) ;
+     une commune sans contour propre mène à son contour hôte, qui la nomme */
+  (COMMUNES||[]).forEach(r=>{const h=byCode(r[1]);if(!h)return;
+    idx.push({type:N('Municipalities'),label:r[0],sub:h.n+' · '+r[1],hash:r[2]?'#/map/'+r[1]+'/'+r[2]:'#/map/'+r[1],
+      hay:fold(r[0]+' '+(r[3]||'')+' '+h.n),iconText:'◦'});});
   SB_PAGES.forEach(p=>{
     idx.push({type:N('Pages'),label:L(p[0]),sub:L(p[1]),hash:p[2],
       hay:fold(p[0]+' '+p[1]+tr(p[0])+tr(p[1])),iconText:'§'});});
@@ -4521,7 +4527,9 @@ document.getElementById('searchInput').addEventListener('input',e=>{
   const v=e.target.value, run=()=>{if(e.target.value===v){sbResults=searchQuery(v);sbSel=0;renderResults();}};
   sbReady.then(run);
   /* texte des articles, chargé à la première frappe, puis la requête est rejouée */
-  if(v.trim()&&!CFULL[LANG])need(['cfull.'+LANG]).then(()=>sbReady.then(run)).catch(()=>{});});
+  if(v.trim()&&!CFULL[LANG])need(['cfull.'+LANG]).then(()=>sbReady.then(run)).catch(()=>{});
+  /* communes, chargées à la première frappe : l'index est refait */
+  if(v.trim()&&!COMMUNES)need(['communes']).then(()=>{SIDX=null;return sbReady.then(run);}).catch(()=>{});});
 document.getElementById('searchScrim').addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){e.preventDefault();sbSel=Math.min(sbSel+1,sbResults.length-1);renderResults();}
   else if(e.key==='ArrowUp'){e.preventDefault();sbSel=Math.max(sbSel-1,0);renderResults();}
@@ -4724,6 +4732,7 @@ const DATA_SRC={
   core:['constitution/core.json',d=>{CORE=d;}],   // sommaire du lecteur (scripts/build_lecteur.py)
   stats:['stats.json',d=>{STATS=d;}],
   carte:['carte/index.json',d=>{CARTE=d;}],   // carte de #/map (scripts/build_carte.py)
+  communes:['carte/communes.json',d=>{COMMUNES=d.m;}],   // index des communes pour la recherche
   opstine:['opstine.json',d=>{OPSTINE=d.m;}],
   videos:['videos.json',d=>{VIDEOS=d;}],
 };

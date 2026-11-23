@@ -98,6 +98,7 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     # Carte (#/map) : l'index et sa silhouette ; ni communes ni MapLibre (son worker exige http(s)) :
     # dans le fichier unique, la carte reste en SVG (CA_EXPORT).
     carte = json.loads((DATA / "carte" / "index.json").read_text(encoding="utf-8"))
+    communes = json.loads((DATA / "carte" / "communes.json").read_text(encoding="utf-8"))
     code = [PORTAIL / "vendor" / lib for lib in VENDOR] + \
         [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css") and f.name not in GL_ONLY]
 
@@ -118,6 +119,8 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
         f"CORE={json.dumps(core, ensure_ascii=False, separators=(',', ':'))};\n"
         f"CARTE={json.dumps(carte, ensure_ascii=False, separators=(',', ':'))};\nvar CA_EXPORT=1;\n"
+        # recherche : les communes (elles mènent à leur État, la commune n'existant qu'en ligne)
+        f"COMMUNES={json.dumps(communes['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"var CX_DATA={json.dumps(cx_data, ensure_ascii=False, separators=(',', ':'))};\n"
         # recherche : aperçus et texte des articles, dans les quatre langues de l'interface
         + "".join(f"CIDX.{l}=CX_DATA['idx.{l}.json'];\n" for l in ("en", "zap", "sre", "ist"))
