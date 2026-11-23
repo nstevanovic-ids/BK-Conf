@@ -2414,17 +2414,15 @@ const LAW={
 };
 const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
 let _lawT=[];
-/* Kongres seats (Art. 103): 250 seats, Sainte-Laguë (common divisor, standard rounding),
-   2 to 20 per State, at least 1 for Brčko and Mostar. Computed from STATS. */
+/* Kongres seats (Art. 103) : moteur unique, REGLES.sieges (portail/js/regles.js ; Sainte-Laguë en
+   diviseur commun arrondi au plus proche, 2 à 20 sièges par État, au moins 1 pour Brčko et Mostar),
+   chargé avec la page (DATA_ROUTE). Computed from STATS. */
 function kongresSeats(total=250){
-  const rows=STATES.filter(s=>STATS[s.c]&&STATS[s.c].population).map(s=>({c:s.c,n:s.n,t:s.t,p:STATS[s.c].population}));
-  const seats=D=>rows.map(r=>Math.min(20,Math.max(r.t==='M'?1:2,Math.round(r.p/D))));
-  let lo=1,hi=1e7,D=0,s=[];
-  for(let i=0;i<200;i++){D=(lo+hi)/2;s=seats(D);const n=s.reduce((a,b)=>a+b,0);
-    if(n>total)lo=D;else if(n<total)hi=D;else break;}
-  rows.forEach((r,i)=>r.s=s[i]);
-  rows.sort((a,b)=>b.s-a.s||b.p-a.p);
-  return {D,rows,pop:rows.reduce((a,r)=>a+r.p,0)};
+  const rows=STATES.filter(s=>STATS[s.c]&&STATS[s.c].population).map(s=>({c:s.c,n:s.n,t:s.t,pop:STATS[s.c].population}));
+  const R=REGLES.sieges(rows,total);
+  const out=R.rows.map((r,i)=>({c:r.c,n:rows[i].n,t:r.t,p:r.pop,s:r.s}));
+  out.sort((a,b)=>b.s-a.s||b.p-a.p);
+  return {D:R.D,rows:out,pop:out.reduce((a,r)=>a+r.p,0)};
 }
 function seatsHTML(){
   const K=kongresSeats();
@@ -5389,7 +5387,7 @@ const txL=()=>LANG==='en'?[]:['textes'];
 const withCard=()=>citLoad()?['flags']:[];       // carte citoyenne dessinée : drapeau de l'État
 const DATA_ROUTE={
   states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos'],
-  map:['geo','lights','stats'], institutions:['core','stats'], council:['core','stats'], security:['core'],
+  map:['geo','lights','stats'], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
   constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
   symbols:['flags'], autonomy:['flags'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags']:[]),

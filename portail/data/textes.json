@@ -466,6 +466,11 @@
    "ist": "Sãbranie na narodite",
    "zap": "Skupščina narodov"
   },
+  "Assumption": {
+   "zap": "Predpostavka",
+   "sre": "Pretpostavka",
+   "ist": "Dopuskane"
+  },
   "At home": {
    "zap": "Doma",
    "sre": "U zemļi",
@@ -2561,6 +2566,11 @@
    "ist": "Sledvašta",
    "zap": "Nasledñe"
   },
+  "No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.": {
+   "zap": "Letnega štetja še ni (čl. 115 bis): vsakemu registru je pripisano prebivalstvo po popisu teritorialnih držav, ki pripadajo ñegovemu narodu.",
+   "sre": "Godišñe prebrojavañe još ne postoji (čl. 115 bis): svakom registru pripisano je stanovništvo prema popisu teritorijalnih država koje pripadaju ñegovom narodu.",
+   "ist": "Vse ošte ñama godišen otčet (čl. 115 bis): na vseki registãr e pripisano naselenieto spored prebrojavaneto na teritorialnite dãržavi, koito prinadležat na negovija narod."
+  },
   "No card has been issued under this number.": {
    "sre": "Nijedna karta nema ovaj broj.",
    "ist": "Pod tozi nomer ne e izdavana karta.",
@@ -4111,6 +4121,11 @@
    "sre": "Plovdivska ravnica pripaja se Trakiji, koju sada děle dvě države: Trakija (TR-41) na zapadu, oko Plovdiva, i Tunxa (TU-42) na istoku, oko Stare Zagore, nazvana po svojoj rěci. Oblast Ruse pripaja se državi Istočna Mizija, a istočni Rodopi državi Rodopi; svaka bugarska država sada ima sědište unutar svojih granica. Konfederaciju čini 50 država, od toga 46 teritorijalnih; Vrhbosna, Istočen Vardar, Zapaden Vardar i Zagorje sada imaju kodove VB-43, VI-44, VZ-45 i ZA-46.",
    "ist": "Plovdivskoto pole se prisãediñava kãm Trakija, kojato sega se podeļa meždu dve dãržavi: Trakija (TR-41) na zapad, okolo Plovdiv, i Tunxa (TU-42) na iztok, okolo Stara Zagora, narečena na svojata reka. Rusenska oblast se prisãediñava kãm Istočna Mizija, a Iztočnite Rodopi — kãm Rodopi; vsjaka bãlgarska dãržava veče ima sedališteto si v sobstvenite si granici. Konfederacijata se sãstoi ot 50 dãržavi, ot koito 46 teritorialni; Vrhbosna, Istočen Vardar, Zapaden Vardar i Zagorje polučavat kodovete VB-43, VI-44, VZ-45 i ZA-46."
   },
+  "The plenary majority depends on seventy individual votes and is not modelled here.": {
+   "zap": "Večina v plenarni sestavi je odvisna od sedemdesetih posameznih glasov in tu ni modelirana.",
+   "sre": "Većina na plenarnoj sědnici proizlazi iz sedamdeset pojedinačnih glasova i u ovom prikazu se ne izračunava.",
+   "ist": "Mnozinstvoto v plenarno zasedanie zavisi ot sedemdeset otdelni glasa i tuk ne se modelira."
+  },
   "The portal in Cyrillic": {
    "sre": "Portal na ćirilici",
    "ist": "Portalãt na kirilica",
@@ -4210,6 +4225,11 @@
    "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega preiskovalnega biroja privede pred sodišče.",
    "sre": "Vrhovni sud za konfederalno pravo i tužilaštvo koje predmete Konfederalnog Istražnog Biroa iznosi pred sud.",
    "ist": "Vãrhovnijat sãd po konfederalnoto pravo i prokuraturata, kojato vnasja v sãda delata na Konfederalnoto bjuro za razsledvane."
+  },
+  "The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.": {
+   "zap": "Besedilo ne določa, kako se omejitve združujejo z metodo. Tu: en skupni deliteļ, zaokrožitev na najbližje celo število, nato omejitve.",
+   "sre": "Tekst ne određuje kako se granice priměñuju zajedno s metodom. U ovom slučaju: jedan zajednički dělilac, zaokruživañe na najbliži cěli broj, zatim granice.",
+   "ist": "Tekstãt ne posočva kak granicite se sãčetavat s metoda. Tuk: edin obšt delitel, zakrãgļavane do naj-blizkoto cjalo čislo, sled tova granicite."
   },
   "The Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija; the KRT broadcasts in the three standards; four voting Sundays a year.": {
    "zap": "Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo; KRT oddaja v treh standardih; štiri nedeļe glasovaña na leto.",
@@ -4370,6 +4390,11 @@
    "zap": "Dva doma, eden izvoļen po državah in drugi po narodih, izbereta kolegijsko izvršilno oblast in sodnike ustavnega sodišča. Zakonodajna, izvršilna in sodna funkcija so ločene in nihče ne sme biti član več kot enega konfederalnega organa (čl. 101).",
    "sre": "Dva doma, jedan izabran po državama, a drugi po narodima, biraju kolegijalnu izvršnu vlast i sudije ustavnog suda. Zakonodavna, izvršna i sudska funkcija su razdvojene, i niko ne može biti član više od jednog konfederalnog organa (čl. 101).",
    "ist": "Dve kamari, ednata izbirana v dãržavite, a drugata – ot narodite, izbirat kolegialna izpãlnitelna vlast i sãdiite na konstitucionnija sãd. Zakonodatelnata, izpãlnitelnata i sãdebnata funkcija sa razdeleni i nikoj ne može da bãde člen na poveče ot edin konfederalen organ (čl. 101)."
+  },
+  "Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.": {
+   "zap": "Dve tretjini se zaokrožita navzgor: sedem od desetih članov delegacije, 167 od 250 delegatov. Večina štirinajstih članov usklajevalnega odbora je osem.",
+   "sre": "Dvě trećine zaokružuju se na veći cěli broj: sedam od deset članova delegacije, 167 od 250 delegata. Većina od četrnaest članova odbora za usaglašavañe je osam.",
+   "ist": "Dvete treti se zakrãgļat nagore: sedem ot desette členove na delegacijata, 167 ot 250-te delegati. Mnozinstvoto ot četirinadesette členove na sãglasitelnata komisija e osem."
   },
   "Two-thirds of one national delegation vote an alarm motion within 30 days. The law is suspended and sent to the conciliation committee, fourteen members, one per people from each chamber, for 60 days. No compromise wins the vote of the delegation that raised the alarm.": {
    "sre": "Dvě trećine članova jedne narodne delegacije izglasaju zahtěv za uzbunu u roku od 30 dana. Zakon se obustavļa i na 60 dana upućuje odboru za usaglašavañe od četrnaest članova, po jedan za svaki narod iz svakog doma. Delegacija koja je pokrenula uzbunu ne podržava nijedan kompromis.",

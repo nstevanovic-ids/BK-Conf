@@ -159,7 +159,7 @@ var CX = (function () {
     if (k === 'h') return `<p class="cx-u cx-sh">${h}</p>`;
     return `<p class="cx-u">${multi ? `<span class="cx-al" translate="no" aria-hidden="true">${n}</span>` : ''}${h}</p>`;
   }
-  function articleHTML(arts, cols, gi) {
+  function articleHTML(arts, cols, gi, mgs) {
     const a0 = arts[0], id = a0.id, [n, sfx] = a0.num.split(' ');
     const R = a0.u.length, multi = a0.u.filter(u => u[0] === 'p').length > 1;
     let h = `<section class="cx-art cx-grid" id="${id}" data-i="${gi}">
@@ -172,15 +172,24 @@ var CX = (function () {
     });
     const cited = CORE.cited[id] || [], ins = INS[id];
     if (cited.length || ins) {
-      h += `<aside class="cx-mg" style="grid-row:1 / span ${R + 1}"><div class="cx-mgi">${cited.length ? `<div class="cx-cb"><span class="cx-k">${ui(L`In the Constitution`)}</span>${cited.map(c =>
-        `<a class="cx-rf" href="${hashFor(c)}" translate="no">${esc(artNum(c))}</a>`).join('')}</div>` : ''}${ins ? `<div class="cx-ins" data-ins="${ins}" data-art="${id}"></div>` : ''}</div></aside>`;
+      const mg = `${cited.length ? `<div class="cx-cb"><span class="cx-k">${ui(L`In the Constitution`)}</span>${cited.map(c =>
+        `<a class="cx-rf" href="${hashFor(c)}" translate="no">${esc(artNum(c))}</a>`).join('')}</div>` : ''}${ins ? `<div class="cx-ins" data-ins="${ins}" data-art="${id}"></div>` : ''}`;
+      /* mode latéral : la marge sort de la zone qui défile de côté (sinon elle n'y reste pas collante) */
+      if (mgs) mgs.push([id, mg]);
+      else h += `<aside class="cx-mg" style="grid-row:1 / span ${R + 1}"><div class="cx-mgi">${mg}</div></aside>`;
     }
     return h + '</section>';
   }
-  const INS = {};   // instruments de marge par article (marges.js)
+  /* instruments de marge par article (portail/js/marges.js, moteur portail/js/regles.js), chargés à
+     l'approche de leur article ; l'art. 132 n'en a pas (révision en cours) */
+  const INS = { 'art-1bis': 'map1', 'art-1ter': 'cap', 'art-103': 'sl', 'art-109': 'alarm', 'art-110': 'dk110',
+    'art-111': 'dk111', 'art-115bis': 'reg' };
+  const INS_NEED = ['js/regles.js', 'js/marges.js', 'stats'];
+  const mountIns = el => need(INS_NEED).then(() => { if (el.isConnected) MARGES.mount(el); }).catch(() => {});
   function titleHTML(files, cols, tt, lay) {
     const f0 = files[0], order = ORDER(), [rn, sfx] = tt.num.split(' ');
     const ti = CORE.toc.indexOf(tt), prev = CORE.toc[ti - 1], next = CORE.toc[ti + 1], l0 = cols[0];
+    const mgs = lay.hs && lay.mg ? [] : null;
     let h = `<div class="cx-rd${lay.mg ? ' cx-has-mg' : ''}${lay.hs ? ' cx-hs' : ''}" data-n="${cols.length}" style="--n:${cols.length}">
   <div class="cx-sheet" id="cxSheet">
   <section class="cx-opener cx-grid" id="${tt.id}">
@@ -196,14 +205,14 @@ var CX = (function () {
       ch.arts.forEach((a, ai) => {
         if (a.sec) h += `<div class="cx-brk cx-sec cx-grid">${files.map((f, i) => { const s = f.ch[ci].arts[ai].sec || a.sec;
           return `<div ${cellA(i, cols[i])} style="grid-row:1"><p class="cx-k">${esc(lab('section', s[0].replace('Section ', ''), cols[i]))}</p><h2>${esc(s[1])}</h2></div>`; }).join('')}</div>`;
-        h += articleHTML(files.map(f => f.ch[ci].arts[ai]), cols, order.indexOf(a.id));
+        h += articleHTML(files.map(f => f.ch[ci].arts[ai]), cols, order.indexOf(a.id), mgs);
       });
     });
     const tl_ = t => esc(sc(lab('title', t.num, LANG))) + ' · ' + esc(sc(t.name[li(LANG)]));
     h += `<nav class="cx-pager">${prev ? `<a href="${hashFor(prev.id)}"><small>← ${ui(L`Previous`)}</small><b>${tl_(prev)}</b></a>`
       : `<a href="${hashFor('preamble')}"><small>← ${ui(L`Back`)}</small><b>${ui(tk('h_preamble'))}</b></a>`}
     ${next ? `<a class="cx-nx" href="${hashFor(next.id)}"><small>${ui(L`Next`)} →</small><b>${tl_(next)}</b></a>` : '<span></span>'}</nav>
-  </div></div>`;
+  </div>${mgs ? `<div class="cx-mgcol" id="cxMgcol">${mgs.map(([id, mg]) => `<div class="cx-mgslot" data-for="${id}"><div class="cx-mgi">${mg}</div></div>`).join('')}</div>` : ''}</div>`;
     return h;
   }
   function barHTML(r, cols, mobile) {
@@ -405,7 +414,7 @@ var CX = (function () {
       setLoc(`<b>${ui(L`Constitution`)}</b>`, hashFor('home')); setProgress(null);
       if (r.pre) { const p = $('preamble'); if (p) p.scrollIntoView({ block: 'start' }); } else scrollTo(0, 0);
       docTitle(''); S.here = 'home';
-      if (window.MARGES) MARGES.hero(cx);
+      const hi = $('cxHeroIns'); if (hi) need(INS_NEED).then(() => { if (hi.isConnected) MARGES.hero(hi); }).catch(() => {});
     } else if (r.v === 'nf') {
       setLoc(`<b>${ui(L`Constitution`)}</b>`, hashFor('home')); setProgress(null); docTitle(sc(L`Not found`));
       const b = $('cxNfs'); if (b) b.onclick = () => openSearch(r.q || '');
@@ -494,7 +503,20 @@ var CX = (function () {
       if (order[i]) { e.preventDefault(); location.hash = hashFor(order[i]); }
     }, sig);
     // instruments : chargés à l'approche de leur article (marges.js)
-    if (window.MARGES) MARGES.watch(rd, ac);
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); mountIns(e.target); } }), { rootMargin: '700px 0px' });
+    rd.querySelectorAll('.cx-ins').forEach(el => io.observe(el));
+    ac.signal.addEventListener('abort', () => io.disconnect());
+    // mode latéral : chaque marge prend la hauteur et la position de son article
+    const col = $('cxMgcol');
+    if (col) {
+      const slots = [...col.children], sheet = $('cxSheet');
+      const align = () => { const top = col.getBoundingClientRect().top;
+        for (const sl of slots) { const a = $(sl.dataset.for); if (!a) continue; const r = a.getBoundingClientRect();
+          sl.style.top = (r.top - top) + 'px'; sl.style.height = r.height + 'px'; } };
+      const ro = new ResizeObserver(align); ro.observe(sheet); arts.forEach(a => ro.observe(a));
+      ac.signal.addEventListener('abort', () => ro.disconnect());
+      align();
+    }
     let rz = 0;
     addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
       const m = narrow(), lay = layout(colsNow(m).length, m);

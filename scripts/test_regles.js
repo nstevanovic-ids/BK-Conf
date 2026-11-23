@@ -33,15 +33,15 @@ for (const r of S.rows) {
   // Sainte-Laguë en diviseur commun : hors limites, sièges = population / diviseur, arrondi au plus proche
   if (!r.floor && !r.cap) eq(r.s, Math.round(r.pop / S.D), `art. 103 al. 3 : Sainte-Laguë pour ${r.c}`);
 }
-// même répartition que celle affichée aujourd'hui par le portail (kongresSeats du gabarit)
+// le portail n'a plus d'autre calcul des sièges : kongresSeats délègue au moteur
 {
   const tpl = fs.readFileSync(path.join(ROOT, 'portail', 'index.html'), 'utf8');
   const src = /function kongresSeats\(total=250\)\{[\s\S]*?\n\}/.exec(tpl);
-  ok(!!src, 'kongresSeats présent dans le gabarit');
+  ok(!!src && /REGLES\.sieges\(/.test(src[0]), 'art. 103 : kongresSeats du portail passe par REGLES.sieges');
   if (src) {
-    const k = vm.runInNewContext(`${src[0]};kongresSeats()`, { STATES, STATS });
+    const k = vm.runInNewContext(`${src[0]};kongresSeats()`, { STATES, STATS, REGLES: R });
     const a = Object.fromEntries(k.rows.map(r => [r.c, r.s])), b = Object.fromEntries(S.rows.map(r => [r.c, r.s]));
-    eq(Object.keys(a).sort().map(c => a[c]), Object.keys(b).sort().map(c => b[c]), 'art. 103 : sièges identiques au portail');
+    eq(Object.keys(a).sort().map(c => a[c]), Object.keys(b).sort().map(c => b[c]), 'art. 103 : sièges de la page Institutions');
   }
 }
 
