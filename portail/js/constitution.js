@@ -145,7 +145,6 @@ var CX = (function () {
     const jobs = [];
     const cols = r.v === 'reader' ? colsNow(narrow()) : [LANG];
     if (r.v === 'reader') cols.forEach(l => jobs.push(load(`t/${r.title}.${l}.json`)));
-    if (r.v === 'home') jobs.push(load(`t/title-4.${LANG}.json`));
     if (cols.some(l => l !== 'en' && l !== 'fr')) jobs.push(need(['textes']));   // en-têtes des colonnes
     await Promise.all(jobs);
     return r;
@@ -235,11 +234,6 @@ var CX = (function () {
     const lead = LANG === 'en'
       ? L`Consolidated text, version ${ver} of ${fmtD(c.iso)}: a preamble and ${fmtN(nArt)} articles in ${fmtN(c.toc.length)} titles. Official acts are published in the unified South Slavic Latin alphabet and in the three regional standards; this is the English text.`
       : L`Consolidated text, version ${ver} of ${fmtD(c.iso)}: a preamble and ${fmtN(nArt)} articles in ${fmtN(c.toc.length)} titles. The texts in the three regional standards are equally authentic (Art. 151); this is the official text in this standard.`;
-    const t4 = got[`t/title-4.${LANG}.json`], a110 = t4 && t4.ch.flatMap(ch => ch.arts).find(x => x.id === 'art-110');
-    const hero = a110 ? `<aside class="cx-hero" id="cxHero"${ua(lab('art', '110', LANG))}>
-      <a class="cx-hk" href="${hashFor('art-110')}" data-pv><b translate="no">110</b><span>${ui(lab('article', '110', LANG))} · <span class="cxl" ${cl}>${esc(a110.name)}</span></span></a>
-      <div class="cx-hx">${[3, 4].map(u => `<div class="cx-cell cxl" ${cl} data-u="${u}"><p class="cx-u"><span class="cx-al" translate="no" aria-hidden="true">${u + 1}</span>${a110.u[u][a110.u[u].length - 1]}</p></div>`).join('')}</div>
-      <div class="cx-ins" data-ins="dk110" data-art="art-110" id="cxHeroIns"></div></aside>` : '';
     return `<div class="cx-hm">
   <section class="cx-cover">
     <div class="cx-eyebrow">${ui(tk('h_fundamental'))}</div>
@@ -249,7 +243,6 @@ var CX = (function () {
     <div class="cx-acts"><a class="cx-btn cx-pri" href="${hashFor('art-1')}">${ui(L`Begin reading`)}</a>
       ${pos && titleOf(pos) ? `<a class="cx-btn" href="${hashFor(pos)}">${ui(L`Continue →`)} <span class="cx-num">${ui(lab('art', artNum(pos), LANG))}</span></a>` : ''}
       <a class="cx-btn" href="#/journal">${ui(L`Official Journal`)}</a></div>
-    ${hero}
   </section>
   <section class="cx-pre" id="preamble">
     <h2>${ui(tk('h_preamble'))}</h2>
@@ -414,7 +407,6 @@ var CX = (function () {
       setLoc(`<b>${ui(L`Constitution`)}</b>`, hashFor('home')); setProgress(null);
       if (r.pre) { const p = $('preamble'); if (p) p.scrollIntoView({ block: 'start' }); } else scrollTo(0, 0);
       docTitle(''); S.here = 'home';
-      const hi = $('cxHeroIns'); if (hi) need(INS_NEED).then(() => { if (hi.isConnected) MARGES.hero(hi); }).catch(() => {});
     } else if (r.v === 'nf') {
       setLoc(`<b>${ui(L`Constitution`)}</b>`, hashFor('home')); setProgress(null); docTitle(sc(L`Not found`));
       const b = $('cxNfs'); if (b) b.onclick = () => openSearch(r.q || '');

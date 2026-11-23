@@ -252,8 +252,6 @@ var MARGES = (function () {
   return {
     /* lecteur : instruments montés à l'approche de leur article ; leurs marques vont sur l'article */
     mount(el) { mount(el, el.dataset.ins, marker(id => '#' + id)); },
-    /* ouverture : l'art. 110 et sa double clé, sur les deux alinéas cités */
-    hero(el) { mount(el, 'dk110', marker(() => '#cxHero')); },
     drawMap
   };
 })();

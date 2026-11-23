@@ -24,7 +24,7 @@ const DATA_V='';   // version des données et du code, posée par scripts/build_
     pl('data/constitution/core.json','fetch');pl('js/constitution.js','script');pl('css/constitution.css','style');
     var c=/\/((?:en|zap|sre|ist|fr)(?:-(?:en|zap|sre|ist|fr))*)$/.exec(h), cols=c?c[1].split('-'):[lang];
     if(innerWidth<=760)cols=cols.slice(0,1);
-    var t=m[1]||(h.indexOf('/art-')<0&&!/\/title-/.test(h)?'title-4':null);
+    var t=m[1];
     if(t)cols.forEach(function(l){pl('data/constitution/t/'+t+'.'+l+'.json','fetch');});
   }
 })();
