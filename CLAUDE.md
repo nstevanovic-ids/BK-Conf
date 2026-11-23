@@ -158,15 +158,16 @@ infrastructure numérique). Haute exigence de cohérence interne.
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
   route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
-  (lecteur de la Constitution, repris de Codex : ouverture, 1 à 5 textes alignés en/zap/sre/ist/fr,
-  renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
-  glyphe par glyphe, double ligne en `<ruby>`) ; `js/marges.js` (instruments de marge des art. 1 bis,
+  (lecteur de la Constitution, repris de Codex : ouverture, un texte à la fois — en, zap, sre, ist ou fr,
+  par défaut celui de l'interface, pas de lecture comparée ; texte d'un autre standard dans son écriture
+  première, sre latin, ist cyrillique ; renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
+  glyphe par glyphe, double ligne en `<ruby>`, écriture première au-dessus) ; `js/marges.js` (instruments de marge des art. 1 bis,
   1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
   (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
   docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 : carte,
   mini-cartes ; qrcode : carte citoyenne) ; ADR 2026-11-23-lecteur-constitution.md
-- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/en-sre-fr`
-  (textes affichés) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
+- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/fr`
+  (texte autre que celui de l'interface) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
   recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
   `CX.rerender` (langue, écriture), `CX.takeRef` / `CX.target` (élément partagé), `CX.leave`
 - Recherche (Ctrl+K, /) : une seule, celle du portail ; accès par numéro (« 110 », « art 1 bis »,

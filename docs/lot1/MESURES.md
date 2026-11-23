@@ -173,3 +173,18 @@ Build lié chargé par page, lecteur, instruments, recherche unifiée, lien d'é
 - Un déploiement réel sur GitHub Pages (le workflow n'a tourné qu'en local, étape par étape).
 - La carte citoyenne enregistrée (code QR chargé avec la page) : chemin de données vérifié, carte non
   dessinée dans un test.
+
+## 4. Un texte à la fois (`4-texte-unique/`, retour de l'auteur du 2026-11-23)
+
+Lecture comparée retirée ; un texte écrit dans une autre écriture que celle attendue était le défaut
+signalé (« SRE d'abord en cyrillique, IST d'abord en latin »). Constat dans un navigateur vierge : SRE
+s'ouvrait bien en latin et IST en cyrillique ; l'inversion venait de la double ligne (le latin au-dessus
+pour l'istočni) et des colonnes de la lecture comparée, qui reprenaient la dernière écriture mémorisée
+d'un standard sans que la bascule de l'en-tête soit visible.
+- Un texte d'un autre standard que l'interface s'ouvre dans son écriture première (SRE latin, IST
+  cyrillique) ; le texte de l'interface suit la bascule Lat / Ћир de l'en-tête.
+- Double ligne : écriture première au-dessus (« Lat/Ћир » pour le središñi, « Кир/Lat » pour l'istočni).
+- 51 captures des pages de la Constitution (trois largeurs, cinq langues et écritures, texte français,
+  introuvable, thème sombre) : aucune erreur, aucun débordement. Les captures à plusieurs textes du
+  point 3 sont retirées.
+- Non-régression : 159 comparaisons, 0 divergence.

@@ -7,6 +7,10 @@ de l'auteur appliquées : texte français public (décision 5), péréquation no
 révision de l'art. 132 (décision 6) ; recommandations du plan acceptées le 2026-11-23 (moteur de Sabor
 porté dès ce lot, chaînes 1, 3, 5, 6, 9, 10 et 11 livrées, lien d'évitement, chaîne 12 soumise).
 
+**Amendé le 2026-11-23 (retour de l'auteur)** : la lecture comparée est retirée (« complètement
+inutile ») : un seul texte à la fois ; l'écriture d'un texte suit la règle de l'ADR
+2026-11-06-istocni-cyrillique.md (décisions 3 et 6 ci-dessous, réécrites).
+
 Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page) et
 2026-11-23-mouvement-lecteur.md (amendement du mouvement).
 
@@ -23,23 +27,27 @@ Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page)
    `full.<lg>.json` ; `map.json` par `scripts/build_carte_marge.py`. Le générateur échoue, sans rien
    écrire, si le français ne s'aligne pas unité par unité, si les renvois diffèrent d'un texte à
    l'autre ou si un alinéa annoté est introuvable ; Pages refuse de déployer des données périmées.
-3. **Cinq textes** : anglais, zapadni, središñi, istočni (officiels, art. 151) et le texte de travail
-   français (`docs/constitution/v4.md`), alignés unité par unité (alinéa, lettre, intertitre) dans une
-   même grille. La colonne française porte une ligne : « French working text. The versions in the three
-   regional standards are equally authentic (Art. 151). » (chaîne 11). Un à cinq textes sur écran large
-   (au-delà, colonnes de 340 px défilant de côté, le premier texte et la marge restant en place) ; un
-   seul sur écran étroit (onglets, balayage horizontal, même alinéa).
+3. **Un texte à la fois**, parmi cinq : anglais, zapadni, središñi, istočni (officiels, art. 151) et le
+   texte de travail français (`docs/constitution/v4.md`), découpés unité par unité (alinéa, lettre,
+   intertitre). Par défaut, celui de la langue de l'interface ; la barre en propose un autre (un seul
+   choix, pas de lecture comparée), sur le même alinéa ; un changement de langue de l'interface y
+   ramène. Le texte français porte une ligne : « French working text. The versions in the three regional
+   standards are equally authentic (Art. 151). » (chaîne 11). Écran étroit : onglets et balayage
+   horizontal entre les textes.
 4. **Routes** : `#/constitution` (ouverture : titre, art. 110 manipulable, préambule, onze titres avec
    un trait par article, Journal officiel) ; `/preamble` ; `/title-4` ; `/title-4/art-110` (inchangée) ;
-   `/title-4/art-110/en-sre-fr` (textes). `art-110`, `art-1-bis`, un mauvais titre sont réécrits ; une
+   `/title-4/art-110/fr` (texte autre que celui de l'interface). `art-110`, `art-1-bis`, un mauvais
+   titre et les anciennes adresses à plusieurs textes (`/en-sre-fr` : le premier) sont réécrits ; une
    adresse introuvable donne une vue « Not found » qui garde l'adresse et ouvre la recherche.
 5. **Barre du lecteur** à la place du fil d'Ariane, collante sous l'en-tête : titre et article lus,
    textes affichés, double ligne, compteur, règle graduée (onze titres, un trait par article) ; fil de
    lecture des renvois suivis ; j / k.
 6. **Langue et écriture** : celles du portail. Sur sa page, le lecteur garde l'alinéa lu quand la langue
-   change ; ses cellules suivent chacune l'écriture de leur standard (središñi et istočni) et échappent
-   à la conversion globale (`.cxl`, `.cxu` dans `cyrSkip`). Double ligne : `<ruby>`, chaque mot avec sa
-   forme cyrillique dessous.
+   change. Le texte de la langue de l'interface suit la bascule Lat / Ћир de l'en-tête (choix mémorisé
+   par standard) ; le texte d'un autre standard s'ouvre dans son écriture première : latin pour le
+   središñi, cyrillique pour l'istočni (ADR 2026-11-06-istocni-cyrillique.md). Les cellules échappent à
+   la conversion globale (`.cxl`, `.cxu` dans `cyrSkip`). Double ligne (bouton « Lat/Ћир » ou
+   « Кир/Lat » de la barre) : `<ruby>`, l'écriture première au-dessus, l'autre dessous.
 7. **Moteur unique** : `REGLES` (`portail/js/regles.js`, porté de `proto/sabor/js/rules.js`) calcule
    pour les instruments et pour la page Institutions (sièges). Vérification article par article :
    `docs/lot1/MOTEUR.md`, `scripts/test_regles.js` (au déploiement).
@@ -60,7 +68,7 @@ Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page)
 est hors de ce lot.
 
 ## Limites
-- La double ligne garde des blancs irréguliers là où le mot cyrillique est plus large que le latin.
+- La double ligne garde des blancs irréguliers là où la forme du dessous est plus large que celle du dessus.
 - Le fil de lecture repart de zéro quand on navigue sans suivre un renvoi (comme dans Codex).
 - Chaîne 12 (ce que l'instrument de l'art. 111 ne calcule pas) : rédigée, soumise à l'auteur, non
   livrée (`docs/lot1/CHAINES.md`).
