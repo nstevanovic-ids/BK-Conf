@@ -373,7 +373,7 @@ var CAGL = (function () {
     let target = null;
     async function sync(R, o = {}) {
       if (dead) return;
-      const instant = !!o.first && ctx.reduced();
+      const instant = !!o.first;                       // arrivée sur la page : déjà cadrée, sans vol (ADR du mouvement)
       target = R;
       if (R.v === 'state') {
         gsrc('sel').setData(feat({ c: R.c })); maskFor(SG[R.c], 0.62);

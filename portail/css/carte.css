@@ -133,6 +133,7 @@ a.ca-cr:hover{background:rgba(55,64,120,.07)}
 .ca-back:hover{color:var(--ca-ink);background:var(--ca-paper)}
 .ca-code{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-4px 0 18px}
 .ca-code span:last-child{font-weight:600;font-size:14px;color:var(--ca-ink2)}
+[data-theme="dark"] .ca .ca-code .tag{background:#374078;color:#fff}
 .ca-figs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:10px 0 6px;border-top:1px solid var(--ca-line)}
 .ca-figs div{padding:11px 0 10px;border-bottom:1px solid var(--ca-line2)}
 .ca-figs div:nth-child(even){padding-left:14px;border-left:1px solid var(--ca-line2)}

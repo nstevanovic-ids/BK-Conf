@@ -23,6 +23,12 @@ Les sept peuples constitutifs n'ont **aucune couleur attitrée** dans le projet.
   sélecteur (« Peoples »). Le panneau « Population by constituent people » reste
   neutre, sauf quand cette option est active.
 
+## Amendement du 2026-11-23 : l'exception de la carte est fermée
+Avec la carte MapLibre (ADR 2026-11-23-carte-maplibre.md, lot 2), l'option « Peoples » et sa palette
+à sept couleurs sont supprimées. La population par peuple reste sur la carte comme filtre à une seule
+teinte (un peuple à la fois, ses États dans la couleur de l'indicateur, les autres estompés) ; la couche
+de l'art. 110 montre les délégations par aplat et hachure. Aucun peuple n'a de couleur, sans exception.
+
 ## Hors périmètre
 Les drapeaux d'États et leurs couleurs héraldiques ne sont pas un code couleur des
 peuples ; ils ne changent pas.

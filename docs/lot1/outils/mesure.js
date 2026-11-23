@@ -32,6 +32,7 @@ const LH_ROUTES = (arg('--routes', '') ? arg('--routes', '').split(',') : ['#/ho
   '#/constitution', '#/constitution/title-4/art-110', '#/map']);
 const PAGES = {home: '#/home', states: '#/states', 'state-film': '#/state/BA-01', 'state-blason': '#/state/LK-20',
   'state-simple': '#/state/DA-08', 'state-ville': '#/state/SA-92', 'state-muni': '#/state/BK-95', map: '#/map',
+  'map-etat': '#/map/LK-20', 'map-commune': '#/map/LK-20/gospic', 'map-103': '#/map/art-103', 'map-110': '#/map/art-110',
   institutions: '#/institutions', council: '#/council', security: '#/security', constitution: '#/constitution',
   'constitution-titre': '#/constitution/title-4', 'constitution-art': '#/constitution/title-4/art-110',
   'constitution-textes': '#/constitution/title-4/art-110/en-sre-fr', 'constitution-introuvable': '#/constitution/art-999',
@@ -40,7 +41,8 @@ const PAGES = {home: '#/home', states: '#/states', 'state-film': '#/state/BA-01'
   verify: '#/verify', minor: '#/minor', 'err-route': '#/nimporte', 'err-state': '#/state/XX-99'};
 const LANGS = {zap: ['zap', 'lat'], 'sre-lat': ['sre', 'lat'], 'sre-cyr': ['sre', 'cyr'], 'ist-cyr': ['ist', 'cyr'],
   'ist-lat': ['ist', 'lat']};
-const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art', 'constitution-textes'];
+const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art', 'constitution-textes',
+  'map', 'map-etat', 'map-110'];
 
 const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const r1 = x => Math.round(x * 10) / 10, r3 = x => Math.round(x * 1000) / 1000;
@@ -98,7 +100,7 @@ async function shoot(ctx, name, hash, file, metrics, key) {
   const t0 = Date.now();
   await pg.goto(BASE + hash, {waitUntil: 'load'});
   try { await pg.waitForLoadState('networkidle', {timeout: 15000}); } catch (e) {}
-  await pg.waitForTimeout(name === 'map' ? 4000 : 1500);
+  await pg.waitForTimeout(name.startsWith('map') ? 6000 : 1500);   // carte : MapLibre, au repos
   await pg.screenshot({path: file});
   const m = await pg.evaluate(() => ({
     sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth,
@@ -134,7 +136,7 @@ async function captures() {
   for (const w of [375, 1440]) {
     const ctx = await b.newContext({viewport: {width: w, height: w === 375 ? 812 : 900}, reducedMotion: 'reduce', colorScheme: 'dark'});
     await ctx.addInitScript(`try{localStorage.setItem('bk-theme','dark')}catch(e){}`);
-    for (const name of ['constitution', 'constitution-art', 'constitution-textes'])
+    for (const name of ['constitution', 'constitution-art', 'constitution-textes', 'map', 'map-etat'])
       await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-sombre-${w}.png`), metrics, `${name}-sombre-${w}`);
     await ctx.close();
   }
