@@ -50,6 +50,9 @@ DATA_DIRS = ("constitution",)
 ASSET_DIRS = ("fonts", "vendor", "images", "videos", "js", "css")
 # Code chargé avec sa page (need() du gabarit) ; le fichier unique l'embarque.
 CODE_DIRS = ("js", "css")
+# Bibliothèques tierces, chargées avec leurs pages (d3 : carte et mini-cartes ; qrcode : carte citoyenne),
+# dans cet ordre (d3-geo s'appuie sur d3-array).
+VENDOR = ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
 BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
 # Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.
@@ -89,7 +92,8 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     cx_data = {str(f.relative_to(cdir)): json.loads(f.read_text(encoding="utf-8"))
                for f in sorted(cdir.rglob("*.json")) if not f.name.startswith(("core.", "full."))}
     cx_full = {l: json.loads((cdir / f"full.{l}.json").read_text(encoding="utf-8")) for l in ("en", "zap", "sre", "ist")}
-    code = [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
+    code = [PORTAIL / "vendor" / lib for lib in VENDOR] + \
+        [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -117,27 +121,26 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         + "".join(f"DATA_P[{json.dumps(f.parent.name + '/' + f.name)}]=Promise.resolve();\n" for f in code) +
         "boot();\n"
     )
+    # Pas de préchargement dans le fichier unique (tout y est) ; DATA_V y reste vide.
+    a, z = src.find("<!--préchargement:début-->"), src.find("<!--préchargement:fin-->")
+    if a < 0 or z < a:
+        sys.exit("bloc de préchargement absent du gabarit")
+    src = src[:a] + "<script>const DATA_V='';</script>" + src[z + len("<!--préchargement:fin-->"):]
     # Le chargement du socle est remplacé par les données injectées (une seule occurrence).
     if src.count(BOOT_LINE) != 1:
         sys.exit(f"ligne d'amorce absente du gabarit : {BOOT_LINE}")
     src = src.replace(BOOT_LINE, inline_js)
-    # Code de page (lecteur, moteur) : scripts avant le script principal, qui les appelle dès le
-    # premier rendu ; feuilles de style dans <head>. Ils ne font que se définir au chargement.
-    tag = '<script src="vendor/qrcode.min.js"></script>'
+    # Bibliothèques et code de page (lecteur, moteur) : scripts avant le script principal, qui les
+    # appelle dès le premier rendu ; feuilles de style dans <head>. Ils ne font que se définir au
+    # chargement ; chaque clé est marquée chargée (inline_js).
+    tag = "<!--code:inline-->"
     esc_end = lambda t: t.replace("</script", "<\\/script")   # noqa: E731
     js = "".join("<script>\n" + esc_end(f.read_text(encoding="utf-8")) + "\n</script>\n"
                  for f in code if f.suffix == ".js")
     css = "".join(f"<style>\n{f.read_text(encoding='utf-8')}\n</style>\n" for f in code if f.suffix == ".css")
-    if tag not in src or "</head>" not in src:
-        sys.exit("balise d'ancrage absente du gabarit (vendor/qrcode.min.js ou </head>)")
-    src = src.replace(tag, tag + "\n" + js, 1).replace("</head>", css + "</head>", 1)
-    # Inline the vendored libraries (d3-geo for the map, qrcode for the citizen card).
-    for lib in ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js"):
-        tag = f'<script src="vendor/{lib}"></script>'
-        if tag not in src:
-            sys.exit(f"balise absente du template : {tag}")
-        code = (PORTAIL / "vendor" / lib).read_text(encoding="utf-8").replace("</script", "<\\/script")
-        src = src.replace(tag, f"<script>\n{code}\n</script>")
+    if src.count(tag) != 1 or "</head>" not in src:
+        sys.exit("ancre absente du gabarit (<!--code:inline--> ou </head>)")
+    src = src.replace(tag, js, 1).replace("</head>", css + "</head>", 1)
     # Embed the OFL font files (Arimo, Sofia Sans Extra Condensed) as base64 so the
     # single file is fully self-contained (font url(fonts/...) -> data URI).
     fonts_dir = PORTAIL / "fonts"

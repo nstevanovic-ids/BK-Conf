@@ -83,6 +83,17 @@ premier affichage à 7,3 s sur toutes les pages.
     `docs/lot1/outils/dom.js` (DOM identique entre fichier unique et build lié, toutes routes, cinq
     langues et écritures, recherche, bascule de langue).
 
+11. **Préchargement dès le `<head>`.** Un petit script lit l'adresse et précharge ce que la page
+    demandera ensuite par paliers : les polices, le socle (et `textes.json` hors anglais) ; sur
+    `#/constitution…`, le sommaire, le code et la feuille du lecteur et le titre demandé dans ses
+    textes. Mêmes adresses que les `fetch()` (version `DATA_V`, définie là). Le fichier unique n'a pas
+    ce bloc.
+12. **Bibliothèques par page.** `vendor/d3-*` (carte, mini-cartes des fiches) et `vendor/qrcode`
+    (carte citoyenne) ne bloquent plus le rendu de toutes les pages : ce sont des clés de
+    `DATA_ROUTE` / `DATA_LATER`, chargées dans l'ordre ; le fichier unique les embarque toujours.
+13. **Hauteur réservée.** Tant que `#app` est vide, il réserve la hauteur de l'écran : le pied de page
+    ne s'affiche plus en haut pour sauter ensuite (CLS 0,84 à 0,95 → 0,001 à 0,09).
+
 ## Effet mesuré
 Lighthouse 13.6, mobile simulé, servi en gzip comme Pages, médiane de trois passages
 (`docs/lot1/MESURES.md`, sections 0 à 2 ; outils dans `docs/lot1/outils/`).

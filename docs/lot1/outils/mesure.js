@@ -28,8 +28,8 @@ const LH = arg('--lh', 'lighthouse');
 const LABEL = arg('--label', '');
 const CHROME = chromium.executablePath();
 
-const LH_ROUTES = ['#/home', '#/states', '#/state/LK-20', '#/state/BA-01', '#/constitution',
-  '#/constitution/title-4/art-110', '#/map'];
+const LH_ROUTES = (arg('--routes', '') ? arg('--routes', '').split(',') : ['#/home', '#/states', '#/state/LK-20', '#/state/BA-01',
+  '#/constitution', '#/constitution/title-4/art-110', '#/map']);
 const PAGES = {home: '#/home', states: '#/states', 'state-film': '#/state/BA-01', 'state-blason': '#/state/LK-20',
   'state-simple': '#/state/DA-08', 'state-ville': '#/state/SA-92', 'state-muni': '#/state/BK-95', map: '#/map',
   institutions: '#/institutions', council: '#/council', security: '#/security', constitution: '#/constitution',
