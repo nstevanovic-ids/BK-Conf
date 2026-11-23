@@ -40,8 +40,7 @@ SITE = ROOT / "_site"
 # de build_linked() compare cette liste à la table DATA_SRC du gabarit.
 DATA_FILES = (
     "peuples.json", "etats.json", "entites-autonomes.json", "alfabet.json", "state_flags.json",
-    "flagnotes.json", "geo.json", "constitution.json", "constitution.zap.json",
-    "constitution.sre.json", "constitution.ist.json", "stats.json", "lights.json", "opstine.json",
+    "flagnotes.json", "geo.json", "stats.json", "lights.json", "opstine.json",
     "videos.json", "i18n.json", "registre.json", "textes.json",
 )
 # Données générées du lecteur de la Constitution (scripts/build_lecteur.py, build_carte_marge.py),
@@ -69,10 +68,6 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     flags = json.loads((DATA / "state_flags.json").read_text())
     flagnotes = json.loads((DATA / "flagnotes.json").read_text())
     geo = json.loads((DATA / "geo.json").read_text())
-    constitution = json.loads((DATA / "constitution.json").read_text(encoding="utf-8"))
-    # Versions officielles des trois standards (art. 151 ; ADR 2026-10-26-constitution-trois-standards.md).
-    cons_tr = {s: json.loads((DATA / f"constitution.{s}.json").read_text(encoding="utf-8"))
-               for s in ("zap", "sre", "ist")}
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
     lights = json.loads((DATA / "lights.json").read_text(encoding="utf-8"))
     opstine = json.loads((DATA / "opstine.json").read_text(encoding="utf-8"))
@@ -93,6 +88,7 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     core = json.loads((cdir / "core.json").read_text(encoding="utf-8"))
     cx_data = {str(f.relative_to(cdir)): json.loads(f.read_text(encoding="utf-8"))
                for f in sorted(cdir.rglob("*.json")) if not f.name.startswith(("core.", "full."))}
+    cx_full = {l: json.loads((cdir / f"full.{l}.json").read_text(encoding="utf-8")) for l in ("en", "zap", "sre", "ist")}
     code = [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
 
     # Replace the bootstrap loader with inline assignment.
@@ -104,8 +100,6 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"STATE_FLAGS={json.dumps(flags, ensure_ascii=False)};\n"
         f"FLAGNOTE={json.dumps(flagnotes, ensure_ascii=False)};\n"
         f"GEO={json.dumps(geo, ensure_ascii=False)};\n"
-        f"CONSTITUTION={json.dumps(constitution, ensure_ascii=False)};\n"
-        f"CONS_TR={json.dumps(cons_tr, ensure_ascii=False, separators=(',', ':'))};\n"
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
         f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
@@ -115,6 +109,9 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
         f"CORE={json.dumps(core, ensure_ascii=False, separators=(',', ':'))};\n"
         f"var CX_DATA={json.dumps(cx_data, ensure_ascii=False, separators=(',', ':'))};\n"
+        # recherche : aperçus et texte des articles, dans les quatre langues de l'interface
+        + "".join(f"CIDX.{l}=CX_DATA['idx.{l}.json'];\n" for l in ("en", "zap", "sre", "ist"))
+        + f"CFULL={json.dumps(cx_full, ensure_ascii=False, separators=(',', ':'))};\n" +
         # toutes les données sont là : chaque clé du chargement par page est marquée chargée
         "Object.keys(DATA_SRC).forEach(k=>{DATA_P[k]=Promise.resolve();});\n"
         + "".join(f"DATA_P[{json.dumps(f.parent.name + '/' + f.name)}]=Promise.resolve();\n" for f in code) +

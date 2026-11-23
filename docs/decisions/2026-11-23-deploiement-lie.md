@@ -24,7 +24,7 @@ premier affichage à 7,3 s sur toutes les pages.
    | Chemin | Contenu |
    |---|---|
    | `index.html` | le gabarit `portail/index.html`, avec la version des données (décision 8) |
-   | `data/` | les 18 JSON de la liste blanche `DATA_FILES` |
+   | `data/` | les JSON de la liste blanche `DATA_FILES` (18 au commit 1, 14 depuis le commit 7) et `data/constitution/`, données du lecteur |
    | `fonts/`, `vendor/` | polices OFL et licences, bibliothèques (d3-array, d3-geo, qrcode) |
    | `images/`, `videos/` | photos, blasons, images du pass Google Wallet, films d'États |
    | `favicon.ico`, `apple-touch-icon.png` | icônes |
@@ -53,9 +53,9 @@ premier affichage à 7,3 s sur toutes les pages.
      | `#/states` | drapeaux, chiffres, films |
      | `#/state/<code>` | drapeaux, notes de drapeaux, contours, chiffres, films |
      | `#/map` | contours, lumières, chiffres |
-     | `#/institutions`, `#/council` | Constitution anglaise, chiffres |
-     | `#/security`, `#/identity` | Constitution anglaise |
-     | `#/constitution…` | Constitution anglaise, plus le texte officiel de la langue hors anglais |
+     | `#/institutions`, `#/council` | sommaire du lecteur (`constitution/core.json`), chiffres ; moteur des règles (`js/regles.js`) pour les sièges |
+     | `#/security`, `#/identity` | sommaire du lecteur |
+     | `#/constitution…` | sommaire du lecteur, code du lecteur (`js/constitution.js`, `css/constitution.css`) ; le lecteur charge ensuite les titres qu'il affiche, et les instruments à l'approche |
      | `#/alphabet` | alphabet |
      | `#/symbols`, `#/autonomy` | drapeaux |
      | `#/citizen`, `#/minor` | drapeaux si une carte est enregistrée dans le navigateur |
@@ -64,8 +64,10 @@ premier affichage à 7,3 s sur toutes les pages.
 
    - **Données des gestes** (`DATA_LATER`), chargées après le rendu : drapeaux sur `#/map` (fiche de
      la sélection), communes et drapeaux sur `#/register` et `#/minor`, drapeaux sur `#/citizen`.
-   - **Recherche** : alphabet, drapeaux et Constitution de la langue, chargés à l'ouverture ; les
-     résultats s'affichent quand ils sont là.
+   - **Recherche** : alphabet, drapeaux, sommaire et aperçus des articles de la langue à l'ouverture ;
+     texte des articles (`constitution/full.<lg>.json`) à la première frappe (commit 7). Les quatre
+     `constitution*.json` restent produits (ils alimentent `scripts/build_lecteur.py`) mais ne sont
+     plus chargés ni publiés.
 7. **Rendu.** Une route s'affiche quand ses données sont arrivées ; si l'on a changé de route
    entre-temps, seule la dernière demandée s'affiche. Un changement de langue charge le texte des
    pages et, sur la Constitution, le texte officiel de la langue, puis redessine. Le glissement entre

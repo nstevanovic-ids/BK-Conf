@@ -2727,21 +2727,9 @@ function vSecurity(){
 
 /* ============================================================
    CONSTITUTION : le lecteur est portail/js/constitution.js (données portail/data/constitution/,
-   scripts/build_lecteur.py). Ici restent les liens des autres pages (cIndex, artLink) et, pour la
-   recherche, les textes officiels constitution.json et constitution.<std>.json (art. 151 ; ADR
-   2026-10-26-constitution-trois-standards.md), avec leurs préfixes anglais montrés par cNum.
+   scripts/build_lecteur.py). Ici restent les liens des autres pages (cIndex, artLink) ; la recherche
+   lit les aperçus et le texte des articles du lecteur (idx.<lg>.json, full.<lg>.json).
    ============================================================ */
-let CONS_TR={};
-const cDoc=()=>LANG!=='en'&&CONS_TR[LANG]&&(CONS_TR[LANG].titles||[]).length?CONS_TR[LANG]:CONSTITUTION;
-function cNum(num,abbr){
-  const m=/^(Title|Chapter|Section|Article) (.+)$/.exec(String(num||''));
-  if(!m)return num||'';
-  if(m[1]==='Title')return L`Title ${m[2]}`;
-  if(m[1]==='Chapter')return L`Chapter ${m[2]}`;
-  if(m[1]==='Section')return L`Section ${m[2]}`;
-  return abbr?L`Art. ${m[2]}`:L`Article ${m[2]}`;
-}
-function cArticles(t){return t.chapters.flatMap(c=>c.articles);}
 /* Article → titre (renvois des autres pages, artLink) : sommaire du lecteur, core.json. */
 function cIndex(){
   if(cIndex.m)return cIndex.m;
@@ -4619,42 +4607,99 @@ function buildIndex(){
     const sub=fed?L(FED_LAB[s.t])
                  :L(PSTATE_LAB[s.p]||'{0}',s.ch);
     idx.push({type:N('States'),label:s.n,sub,code:s.c,hash:'#/state/'+s.c,
-      hay:(s.n+' '+s.c+' '+s.k+' '+s.ch+' '+(pu?pu.en:'')+tr(pu&&pu.en)).toLowerCase(),icon:flagSVG(s)});
+      hay:fold(s.n+' '+s.c+' '+s.k+' '+s.ch+' '+(pu?pu.en:'')+tr(pu&&pu.en)),icon:flagSVG(s)});
   });
   AUT.forEach(a=>{const h=byCode(a.host);
     idx.push({type:N('Autonomous communities'),label:a.n,
       sub:L(COM_LAB[a.com]||a.com)+' · '+(h?h.n:a.host),code:a.id,hash:'#/autonomy',
-      hay:(a.n+' '+a.id+' '+a.com+' '+(h?h.n:'')+tr(COM_LAB[a.com])).toLowerCase(),iconText:'◇'});});
+      hay:fold(a.n+' '+a.id+' '+a.com+' '+(h?h.n:'')+tr(COM_LAB[a.com])),iconText:'◇'});});
   Object.entries(PEUPLES).forEach(([k,p])=>{
     idx.push({type:N('Constituent peoples'),label:L(p.en),sub:p.name+' · '+L(STD[p.std]||''),
-      hash:'#/identity',hay:(p.en+' '+p.name+' '+k+tr(p.en)).toLowerCase(),iconText:'○'});});
+      hash:'#/identity',hay:fold(p.en+' '+p.name+' '+k+tr(p.en)),iconText:'○'});});
   ALPHA.forEach(a=>{
     idx.push({type:N('Alphabet'),label:a[0],sub:L`IPA ${a[1]}`,hash:'#/alphabet',
       hay:(a[0]+' '+a[1]).toLowerCase(),iconText:a[0],lat:true});});
-  (cDoc().titles||[]).forEach(t=>cArticles(t).forEach(a=>{
-    const txt=a.body.map(b=>b.x||(b.items||[]).map(i=>Array.isArray(i)?i[1]:i).join(' ')).join(' ');
-    idx.push({type:N('Constitution'),label:cNum(a.num)+' · '+a.name,sub:cNum(t.num)+' · '+t.name,
-      hash:'#/constitution/'+t.id+'/'+a.id,
-      hay:(a.num+' '+cNum(a.num)+' '+a.name+' '+t.name+' '+txt).toLowerCase(),iconText:'§'});}));
+  /* Constitution : un article par entrée (aperçus du lecteur, idx.<lg>.json) ; le texte des articles
+     (full.<lg>.json) est cherché à part, chargé à la première frappe. */
+  const ix=CIDX[LANG]||{}, li=['en','zap','sre','ist'].indexOf(LANG);
+  ((CORE||{}).toc||[]).forEach(t=>t.a.forEach(n=>{
+    const id='art-'+n, e=ix[id]; if(!e)return;
+    const tl=L`Title ${t.num}`+' · '+t.name[li];
+    idx.push({type:N('Constitution'),label:L`Art. ${e[0]}`+' · '+e[1],sub:tl,aid:id,num:e[0],
+      hash:'#/constitution/'+t.id+'/'+id,hay:fold(e[0]+' '+e[1]+' '+tl),iconText:'§'});}));
   SB_PAGES.forEach(p=>{
     idx.push({type:N('Pages'),label:L(p[0]),sub:L(p[1]),hash:p[2],
-      hay:(p[0]+' '+p[1]+tr(p[0])+tr(p[1])).toLowerCase(),iconText:'§'});});
+      hay:fold(p[0]+' '+p[1]+tr(p[0])+tr(p[1])),iconText:'§'});});
   return idx;
 }
+/* Recherche sans diacritiques ni écriture (repris de Codex) : la requête et les données sont repliées
+   en latin simple ; ļ = lj = l, ñ = nj = n, đ = dj = d. fold1 garde la longueur (extraits). */
+const FOLD1={'đ':'d','ł':'l','ı':'i','’':"'",'–':'-','—':'-'};
+function fold1(s){
+  return [...String(s).toLowerCase()].map(c=>FOLD1[c]||c.normalize('NFD')[0]).join('');
+}
+function fold(s){
+  return fold1(cyr2lat(String(s))).replace(/lj/g,'l').replace(/nj/g,'n').replace(/dj/g,'d')
+    .replace(/[-/().,;:!?«»„“”"']/g,' ').replace(/\s+/g,' ').trim();
+}
+const ART_SUF='bis|ter|quater|quinquies|sexies|septies|octies';
+/* « 110 », « art 1 bis », « čl. 110 », « § 110 » : accès direct à l'article */
+function artQuery(raw){
+  const f=fold1(cyr2lat(String(raw))).trim();
+  const m=new RegExp('^(?:art(?:icles?|\\.)?|cl(?:an|en)?\\w*\\.?|§)?\\s*(\\d{1,3})\\s*('+ART_SUF+')?\\s*$').exec(f)||
+          new RegExp('^(?:art(?:icles?|\\.)?|cl(?:an|en)?\\w*\\.?|§)?\\s*(\\d{1,3})\\s*([a-z]*)$').exec(f);
+  return m?{n:m[1],sfx:m[2]||''}:null;
+}
+/* extrait en graphie d'origine, l'occurrence marquée ; null si les positions ne se répondent pas */
+function sbExcerpt(text,tok){
+  const F=fold1(text); if(F.length!==text.length)return null;
+  let i=F.search(new RegExp('(^|[\\s(«"„])'+tok.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+  if(i>=0&&/[\s(«"„]/.test(F[i]))i++;
+  if(i<0)i=F.indexOf(tok);
+  if(i<0)return null;
+  let a=text.lastIndexOf(' ',Math.max(0,i-36)); a=a<0||i<40?Math.max(0,text.lastIndexOf('\n',i)+1):a+1;
+  if(text.lastIndexOf('\n',i)>=a)a=text.lastIndexOf('\n',i)+1;
+  let b=text.indexOf(' ',Math.min(text.length,i+tok.length+64)); if(b<0)b=text.length;
+  const nl=text.indexOf('\n',i); if(nl>=0&&nl<b)b=nl;
+  return (a>0?'… ':'')+esc(text.slice(a,i))+'<mark>'+esc(text.substr(i,tok.length))+'</mark>'+
+    esc(text.slice(i+tok.length,b).trimEnd())+(b<text.length?' …':'');
+}
 function searchQuery(raw){
-  const q=cyr2lat(raw).trim().toLowerCase();   // Cyrillic input is searched in Latin v3
+  const q=fold(raw);   // Cyrillic input is searched in Latin v3
   if(!SIDX||SIDX.lang!==LANG){SIDX=buildIndex();SIDX.lang=LANG;}   // rebuilt when the language changes
   if(!q)return SIDX.filter(i=>i.type==='Pages').slice(0,8);
-  const terms=q.split(/\s+/), scored=[];
+  const terms=q.split(/\s+/), scored=[], A=artQuery(raw);
   SIDX.forEach(i=>{
+    if(i.aid&&A){   // accès par numéro : l'article même, puis ses bis, ter…, puis les numéros qui commencent ainsi
+      const base=String(parseInt(i.num,10)), sfx=(i.num.split(' ')[1]||'');
+      if(base===A.n&&(sfx===A.sfx))scored.push([300,i]);
+      else if(base===A.n&&(!A.sfx||sfx.startsWith(A.sfx)))scored.push([250,i]);
+      else if(!A.sfx&&base.startsWith(A.n))scored.push([150-base.length,i]);
+      return;
+    }
     if(!terms.every(t=>i.hay.includes(t)))return;
     let sc=0;
+    const lab=fold(i.label);
     if(i.code&&i.code.toLowerCase()===q)sc+=100;
-    if(i.label.toLowerCase()===q)sc+=80;
-    if(i.label.toLowerCase().startsWith(q))sc+=40;
+    if(lab===q)sc+=80;
+    if(lab.startsWith(q))sc+=40;
     if(i.hay.startsWith(q))sc+=10;
     scored.push([sc,i]);
   });
+  /* texte des articles (full.<lg>.json, chargé à la première frappe) : au début d'un mot, puis ailleurs */
+  const full=CFULL[LANG];
+  if(full&&!A){
+    const named=new Set(scored.filter(x=>x[1].aid).map(x=>x[1].aid)), tok=fold1(cyr2lat(raw)).trim().split(/\s+/)[0];
+    const at=(h,k)=>h.startsWith(k)||h.includes(' '+k);
+    SIDX.forEach(i=>{
+      if(!i.aid||named.has(i.aid)||!full[i.aid])return;
+      const h=i.fh||(i.fh=fold(full[i.aid]));
+      const w=terms.every(t=>at(h,t)), inside=!w&&q.length>3&&terms.every(t=>h.includes(t));
+      if(!w&&!inside)return;
+      const ex=tok&&sbExcerpt(full[i.aid],tok);
+      scored.push([w?3:1,ex?{...i,subHtml:ex}:i]);
+    });
+  }
   scored.sort((a,b)=>b[0]-a[0]);
   return scored.slice(0,40).map(x=>x[1]);
 }
@@ -4674,7 +4719,7 @@ function renderResults(){
     html+=`<div class="sb-item${n===sbSel?' sel':''}" data-n="${n}" `+
       `onmousemove="sbHover(${n})" onclick="sbGo(${n})">`+
       `<span class="sb-ic"${nt}>${sbIcon(i)}</span>`+
-      `<span class="sb-tx"${nt}><b>${esc(i.label)}</b><span>${esc(i.sub||'')}</span></span>`+
+      `<span class="sb-tx"${nt}><b>${esc(i.label)}</b><span>${i.subHtml||esc(i.sub||'')}</span></span>`+
       `${i.code?`<span class="sb-code">${esc(i.code)}</span>`:''}</div>`;
   });
   box.innerHTML=html;
@@ -4700,7 +4745,10 @@ function sbGo(n){const i=sbResults[n];if(!i)return;closeSearch();go(i.hash);}
 let sbReady=null;
 document.getElementById('searchInput').addEventListener('input',e=>{
   if(!sbReady)return;
-  sbReady.then(()=>{sbResults=searchQuery(e.target.value);sbSel=0;renderResults();});});
+  const v=e.target.value, run=()=>{if(e.target.value===v){sbResults=searchQuery(v);sbSel=0;renderResults();}};
+  sbReady.then(run);
+  /* texte des articles, chargé à la première frappe, puis la requête est rejouée */
+  if(v.trim()&&!CFULL[LANG])need(['cfull.'+LANG]).then(()=>sbReady.then(run)).catch(()=>{});});
 document.getElementById('searchScrim').addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){e.preventDefault();sbSel=Math.min(sbSel+1,sbResults.length-1);renderResults();}
   else if(e.key==='ArrowUp'){e.preventDefault();sbSel=Math.max(sbSel-1,0);renderResults();}
@@ -5354,7 +5402,7 @@ function miniGeo(code){
    la page (sélection sur la carte, étapes de l'inscription). Table relevée par
    docs/lot1/outils/usage.js : une donnée oubliée donne une page incomplète. Le build inline injecte
    toutes les données et marque chaque clé comme chargée. */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CONSTITUTION={titles:[]}, CORE=null, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CORE=null, CIDX={}, CFULL={}, STATS={}, LIGHTS={q:1000,p:[]}, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 const DATA_V='';   // version des données, posée par scripts/build_portail.py (cache de Pages, max-age=600)
@@ -5370,18 +5418,19 @@ const DATA_SRC={
   flags:['state_flags.json',d=>{STATE_FLAGS=d;}],
   flagnotes:['flagnotes.json',d=>{FLAGNOTE=d;}],
   geo:['geo.json',d=>{GEO=d;}],
-  cons:['constitution.json',d=>{CONSTITUTION=d;}],
   core:['constitution/core.json',d=>{CORE=d;}],   // sommaire du lecteur (scripts/build_lecteur.py)
-  'cons.zap':['constitution.zap.json',d=>{CONS_TR.zap=d;}],
-  'cons.sre':['constitution.sre.json',d=>{CONS_TR.sre=d;}],
-  'cons.ist':['constitution.ist.json',d=>{CONS_TR.ist=d;}],
   stats:['stats.json',d=>{STATS=d;}],
   lights:['lights.json',d=>{LIGHTS=d;}],
   opstine:['opstine.json',d=>{OPSTINE=d.m;}],
   videos:['videos.json',d=>{VIDEOS=d;}],
 };
 /* facultatives : en cas d'échec la page garde la valeur par défaut (anglais, sans films…) */
-const DATA_OPT=new Set(['i18n','registre','textes','videos','cons.zap','cons.sre','cons.ist']);
+/* aperçus et texte des articles du lecteur, par langue, pour la recherche (portail/data/constitution/) */
+for(const l of ['en','zap','sre','ist']){
+  DATA_SRC['cidx.'+l]=['constitution/idx.'+l+'.json',d=>{CIDX[l]=d;}];
+  DATA_SRC['cfull.'+l]=['constitution/full.'+l+'.json',d=>{CFULL[l]=d;}];
+}
+const DATA_OPT=new Set(['i18n','registre','textes','videos']);
 const DATA_CORE=['peuples','etats','aut','i18n','registre'];
 const txL=()=>LANG==='en'?[]:['textes'];
 const withCard=()=>citLoad()?['flags']:[];       // carte citoyenne dessinée : drapeau de l'État
@@ -5395,7 +5444,7 @@ const DATA_ROUTE={
 const DATA_LATER={
   map:['flags'], register:['opstine','flags'], minor:['opstine','flags'], citizen:['flags'],
 };
-const SEARCH_DATA=()=>['alfabet','flags',LANG==='en'?'cons':'cons.'+LANG];
+const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG];
 const DATA_P={};   // clé → promesse du chargement
 /* code d'une page (js/…, css/…) : script ou feuille de style ajouté à <head>, une fois */
 function needCode(k){
