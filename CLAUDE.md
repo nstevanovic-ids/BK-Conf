@@ -221,7 +221,12 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Carte : dessin CNI / carte suisse en Arimo, vérification publique `#/verify` (QR au verso),
   pass Google Wallet générique (`registre/src/wallet.js`, images `scripts/gen_wallet_images.py`) ;
   jamais de date de naissance ni de narodnost sur un pass
-- `scripts/build_portail.py` = injecte data + drapeaux + scripts vendor dans le template → build final
+- `scripts/build_portail.py` = assemble `_site/`, le site publié sur Pages (build lié) : gabarit tel
+  quel, JSON de la liste blanche `DATA_FILES` (jamais les GeoJSON sources ; le build échoue si la
+  liste et les `fetch()` du gabarit divergent), polices, `vendor/`, images, films ; plus le fichier
+  unique en export (`/export/`, liens relatifs préfixés `../`). `--inline` = fichier unique
+  `balkanska_konfederacija.html` (données, polices et scripts vendor injectés, `file://`). `_site/` et
+  le fichier unique sont générés, ignorés par git (ADR 2026-11-23-deploiement-lie.md)
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
 ## Pipeline drapeaux

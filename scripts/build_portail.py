@@ -1,22 +1,28 @@
 #!/usr/bin/env python3
 """
-build_portail.py — assemble le portail final self-contained.
+build_portail.py — assemble le portail.
 
-Deux modes :
-  --linked   (défaut) : copie le template tel quel ; il charge data/*.json par fetch().
-                        Nécessite un serveur HTTP local (python -m http.server).
-  --inline   : injecte les données directement dans le HTML pour un fichier unique
-              ouvrable par double-clic (file://), sans serveur.
+Deux sorties (ADR docs/decisions/2026-11-23-deploiement-lie.md) :
+  (défaut)  build lié : assemble _site/, le site publié sur GitHub Pages. Le gabarit est copié
+            tel quel et charge data/*.json par fetch() ; polices, bibliothèques, images et films
+            restent des fichiers. Les données sont copiées d'après une liste blanche : jamais les
+            GeoJSON sources de portail/data/ (27 Mo). Le fichier unique y est ajouté comme export,
+            dans _site/export/index.html, ses liens vers images/ et videos/ remontant d'un cran.
+  --inline  fichier unique : injecte données, bibliothèques, polices et favicon dans le HTML
+            (balkanska_konfederacija.html), ouvrable par double-clic (file://), sans serveur.
 
-Le template vit dans portail/index.html. Les données dans portail/data/*.json.
+Le gabarit vit dans portail/index.html, les données dans portail/data/*.json.
 
 Usage :
-    python scripts/build_portail.py            # build lié (dev avec serveur)
-    python scripts/build_portail.py --inline   # build inline (fichier unique)
+    python scripts/build_portail.py            # _site/ (build lié + export), comme le déploiement
+    python scripts/build_portail.py --inline   # fichier unique à la racine du dépôt
+    cd _site && python -m http.server 8000     # puis http://localhost:8000
 """
 import argparse
 import base64
 import json
+import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -25,9 +31,24 @@ PORTAIL = ROOT / "portail"
 TEMPLATE = PORTAIL / "index.html"
 DATA = PORTAIL / "data"
 OUT_INLINE = ROOT / "balkanska_konfederacija.html"
+SITE = ROOT / "_site"
+
+# Données publiées (build lié). Toute donnée que le gabarit charge doit y figurer : le contrôle
+# de build_linked() compare cette liste aux fetch() du gabarit.
+DATA_FILES = (
+    "peuples.json", "etats.json", "entites-autonomes.json", "alfabet.json", "state_flags.json",
+    "flagnotes.json", "geo.json", "constitution.json", "constitution.zap.json",
+    "constitution.sre.json", "constitution.ist.json", "stats.json", "lights.json", "opstine.json",
+    "videos.json", "i18n.json", "registre.json", "textes.json",
+)
+# Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
+ASSET_DIRS = ("fonts", "vendor", "images", "videos")
+ROOT_FILES = ("favicon.ico", "apple-touch-icon.png")
 
 
-def build_inline() -> int:
+def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
+    """Fichier unique. asset_base préfixe les liens restés relatifs (images, films, icône) :
+    '' pour un fichier posé à côté de images/ et videos/, '../' pour _site/export/."""
     src = TEMPLATE.read_text(encoding="utf-8")
     peuples = json.loads((DATA / "peuples.json").read_text())
     states = json.loads((DATA / "etats.json").read_text())
@@ -50,6 +71,9 @@ def build_inline() -> int:
     textes = json.loads((DATA / "textes.json").read_text(encoding="utf-8"))
     vfile = DATA / "videos.json"
     videos = json.loads(vfile.read_text(encoding="utf-8")) if vfile.exists() else {}
+    if asset_base:
+        videos = {c: {k: (asset_base + v if isinstance(v, str) and v.startswith("videos/") else v)
+                      for k, v in vd.items()} for c, vd in videos.items()}
     registre = json.loads((DATA / "registre.json").read_text(encoding="utf-8"))
 
     # Replace the bootstrap loader with inline assignment.
@@ -74,7 +98,6 @@ def build_inline() -> int:
         "render();\n"
     )
     # Swap the loadData().then(...) call for the inline assignment + render.
-    import re
     src = re.sub(
         r"loadData\(\)\.then\(\(\)=>\{ render\(\); \}\)\.catch\([\s\S]*?\}\);",
         inline_js,
@@ -104,34 +127,71 @@ def build_inline() -> int:
     if ico.exists():
         b64 = base64.b64encode(ico.read_bytes()).decode("ascii")
         src = src.replace('href="favicon.ico"', f'href="data:image/x-icon;base64,{b64}"', 1)
+    # Liens restés relatifs (images, icône) : préfixés pour un export posé hors de la racine.
+    if asset_base:
+        for head, tail in (('href="', 'apple-touch-icon.png"'), ('src="', 'images/'), ('`', 'images/')):
+            if head + tail not in src:
+                sys.exit(f"lien relatif attendu absent du template : {head + tail}")
+            src = src.replace(head + tail, head + asset_base + tail)
+        left = re.findall(r"""[`"'(=](?:images|videos)/""", src)
+        if left:
+            sys.exit(f"lien relatif non préfixé dans l'export : {left[:3]}")
 
-    OUT_INLINE.write_text(src, encoding="utf-8")
-    kb = len(src) // 1024
-    print(f"Build inline → {OUT_INLINE.relative_to(ROOT)} ({kb} kB)")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(src, encoding="utf-8")
+    kb = len(src.encode("utf-8")) // 1024
+    print(f"Build inline → {out.relative_to(ROOT)} ({kb} kB)")
     return 0
 
 
+def _copytree(src: Path, dst: Path) -> None:
+    shutil.copytree(src, dst, ignore=shutil.ignore_patterns("README.md", ".*"))
+
+
 def build_linked() -> int:
-    # Le template est déjà prêt ; rien à assembler. On vérifie juste la présence des data.
-    missing = [
-        f for f in ("peuples.json", "etats.json", "entites-autonomes.json",
-                    "alfabet.json", "state_flags.json", "flagnotes.json", "geo.json",
-                    "constitution.json", "stats.json", "lights.json", "opstine.json",
-                    "i18n.json", "registre.json", "textes.json", "constitution.zap.json",
-                    "constitution.sre.json", "constitution.ist.json")
-        if not (DATA / f).exists()
-    ]
-    if missing:
-        print("Données manquantes :", ", ".join(missing), file=sys.stderr)
+    """_site/ : gabarit, données de la liste blanche, fichiers, export du fichier unique."""
+    tpl = TEMPLATE.read_text(encoding="utf-8")
+    # Chaque fetch(base+'x.json') du gabarit doit être publié, et réciproquement.
+    fetched = set(re.findall(r"fetch\(base\+'([\w.-]+\.json)'\)", tpl))
+    fetched |= {f"constitution.{s}.json" for s in ("zap", "sre", "ist")
+                if "fetch(base+'constitution.'+s+'.json')" in tpl}
+    if fetched != set(DATA_FILES):
+        print("Liste blanche et gabarit divergent :",
+              "non publiés", sorted(fetched - set(DATA_FILES)) or "–",
+              "; publiés sans être chargés", sorted(set(DATA_FILES) - fetched) or "–", file=sys.stderr)
         return 1
-    print("Build lié OK. Servir avec :  cd portail && python -m http.server 8000")
-    print("Puis ouvrir http://localhost:8000")
+    missing = [f for f in DATA_FILES if not (DATA / f).exists()]
+    missing += [d for d in ASSET_DIRS if not (PORTAIL / d).is_dir()]
+    missing += [f for f in ROOT_FILES if not (PORTAIL / f).exists()]
+    if missing:
+        print("Fichiers manquants :", ", ".join(missing), file=sys.stderr)
+        return 1
+
+    if SITE.exists():
+        shutil.rmtree(SITE)
+    (SITE / "data").mkdir(parents=True)
+    shutil.copy2(TEMPLATE, SITE / "index.html")
+    for f in DATA_FILES:
+        shutil.copy2(DATA / f, SITE / "data" / f)
+    for d in ASSET_DIRS:
+        _copytree(PORTAIL / d, SITE / d)
+    for f in ROOT_FILES:
+        shutil.copy2(PORTAIL / f, SITE / f)
+    rc = build_inline(SITE / "export" / "index.html", asset_base="../")
+    if rc:
+        return rc
+
+    data_kb = sum((SITE / "data" / f).stat().st_size for f in DATA_FILES) // 1024
+    print(f"Build lié → {SITE.relative_to(ROOT)}/ (index.html "
+          f"{(SITE / 'index.html').stat().st_size // 1024} kB, data/ {data_kb} kB en "
+          f"{len(DATA_FILES)} fichiers, export/index.html)")
+    print("Servir avec :  cd _site && python -m http.server 8000   puis http://localhost:8000")
     return 0
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--inline", action="store_true", help="build fichier unique self-contained")
+    ap.add_argument("--inline", action="store_true", help="fichier unique à la racine du dépôt")
     args = ap.parse_args()
     return build_inline() if args.inline else build_linked()
 
