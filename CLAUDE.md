@@ -168,9 +168,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   la bascule Lat / Ћир de l'en-tête ne touche que l'interface ; renvois et aperçus, barre collante à la
   place du fil d'Ariane, fil de lecture, j / k, bascule glyphe par glyphe) ; `js/marges.js` (instruments de marge des art. 1 bis,
   1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
-  (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
-  docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 :
-  mini-cartes des fiches ; qrcode : carte citoyenne ; MapLibre GL JS 6.18.0 : carte) ;
+  (moteur unique des votes et des sièges, aussi pour Institutions, la carte et la page des votes : règles,
+  cas `SCENARIOS`, libellés `LIB` ; `node scripts/test_regles.js`, docs/lot1/MOTEUR.md) ; bibliothèques
+  `vendor/` chargées par les pages qui s'en servent (d3 : mini-cartes des fiches ; d3-force : page des
+  votes ; qrcode : carte citoyenne ; MapLibre GL JS 6.18.0 : carte) ;
   ADR 2026-11-23-lecteur-constitution.md
 - Carte (#/map), reprise d'Atlas (ADR 2026-11-23-carte-maplibre.md) : `portail/js/carte.js` (`MAPX`,
   classes `ca-`, `css/carte.css`) et `portail/js/carte-gl.js` (`CAGL`, moteur MapLibre,
@@ -182,6 +183,17 @@ infrastructure numérique). Haute exigence de cohérence interne.
   l'art. 132) ; sous-route sans redessin (`MAPX.inplace`) ; la carte renvoie à la fiche d'État,
   elle ne la duplique pas ; plein écran sous l'en-tête, sans pied de page ; thème du portail ;
   population par peuple en filtre à une seule teinte
+- Votes et majorités (#/votes), reprise de Sabor (ADR 2026-11-24-votes-majorites.md) : « Votes and
+  majorities », rangée sous Institutions après `#/council`, sans entrée de navigation ; `portail/js/votes.js`
+  (`VOTES`, classes `vo-`, `css/votes.css`) : 54 disques (surface = population), sept délégations, sept
+  conseillers ; neuf types de décision et sept cas joués pas à pas, calculés par `REGLES` ; deux dispositions
+  (par peuple ; géographique sur `constitution/map.json`, délégations en liste sous la carte) ; règle et ligne
+  du verdict citées depuis les titres du lecteur (ancrages de `build_lecteur.py`) ; verdicts « Adopted » /
+  « Not adopted » / « Suspended », « Admissible » / « Not admissible » pour les demandes d'États ; adresses
+  `#/votes`, `/<type>`, `/<type>/<cas>`, `/<type>/v-<code>`, suffixes `/map` et `/<CODE>` (composition par
+  `replaceState`) ; d3-force au repos, jamais en mouvement réduit ; la page renvoie à la fiche d'État et au
+  lecteur sans les dupliquer ; Institutions, `#/council` et les marges du lecteur (instruments, articles qui
+  fondent une règle) y renvoient ; aucune péréquation avant la révision de l'art. 132
 - Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/fr`, `/…/sre-cyr`,
   `/…/ist-lat` (texte ou écriture autres que ceux par défaut) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
   recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
@@ -189,7 +201,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Recherche (Ctrl+K, /) : une seule, celle du portail ; accès par numéro (« 110 », « art 1 bis »,
   « čl. 110 », « § 110 »), repli sans diacritiques ni écriture (ļ = lj = l…), extraits en graphie
   d'origine ; articles depuis `constitution/idx.<lg>.json`, texte depuis `full.<lg>.json` (première
-  frappe)
+  frappe) ; types de décision et cas de la page des votes (moteur chargé avec la recherche)
 - Lien d'évitement « Skip to content » (clé `skip` d'i18n.json) sur tout le portail
 - `portail/data/*.json` = source de vérité des données (etats, peuples,
   entites-autonomes, alfabet, flagnotes, state_flags) ; `constitution.json` est
@@ -235,8 +247,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   titre = défilement et éclairage de l'article ; table des titres animée au défilement ; bascule
   d'écriture glyphe par glyphe (fondu de 200 ms en mouvement réduit) ; dans `#/map`, pas de
   glissement entre ses adresses : vol de caméra (0,9 à 2,4 s), nom de l'entité en élément partagé
-  (`data-vt="ca"`), arrivée depuis une autre page déjà cadrée, sans vol ; votes (lot 3) y ajouteront
-  leur règle
+  (`data-vt="ca"`), arrivée depuis une autre page déjà cadrée, sans vol ; dans `#/votes`, pas de
+  glissement entre ses adresses : les disques rejoignent leur camp ou la place de leur État (d3-force),
+  sièges du Veće en éléments partagés (`data-vt="vo"`), cas joués pas à pas, arrivée composée sans
+  mouvement ; en mouvement réduit, grille stable et fondu de 140 ms, glisser désactivé et dit
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
@@ -246,7 +260,9 @@ infrastructure numérique). Haute exigence de cohérence interne.
   l'anglais du gabarit sert de clé, `L`…`` (littéral étiqueté), `L(x)` (données), `N('…')`
   (tables de code) ; traductions dans `portail/data/textes.json` ; `scripts/textes.py`
   (extract, check, merge ; istočni rédigé en bulgare cyrillique puis converti en latin v3,
-  vérifié par aller-retour) ; nombres et dates selon la langue (`fmtN`, `fmtD`) ; tout texte
+  vérifié par aller-retour ; merge garde tels quels les noms de `NAMES`, Kongres et villes, mais
+  traduit les organes de `ORGANS`, ADR 2026-11-06-noms-officiels-traduits.md et
+  2026-11-24-votes-majorites.md) ; nombres et dates selon la langue (`fmtN`, `fmtD`) ; tout texte
   nouveau ou modifié dans le gabarit doit passer par `L` et recevoir ses trois traductions
   (`textes.py check` échoue sinon) ; glossaire docs/alfabet/glossaire-trois-standards.md ;
   alphabet v3 (ñ, ļ) dans toutes les chaînes ; cyrillique dérivé à l'affichage pour SRE et

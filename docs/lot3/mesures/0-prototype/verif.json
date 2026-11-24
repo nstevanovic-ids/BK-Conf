@@ -1,0 +1,213 @@
+{
+ "B3": {
+  "scl": [
+   220,
+   267,
+   47
+  ],
+  "firstCase": [
+   222,
+   265,
+   43
+  ],
+  "stage": [
+   347,
+   1249,
+   902
+  ],
+  "panel": [
+   281,
+   1025,
+   744
+  ],
+  "copy": [
+   407,
+   439,
+   32
+  ],
+  "panelScroll": false,
+  "innerH": 900,
+  "tip": {
+   "hidden": false,
+   "top": 446,
+   "bottom": 540
+  }
+ },
+ "I5": {
+  "tabs": 18,
+  "first": "KR-17"
+ },
+ "marks": [
+  {
+   "id": "k",
+   "mark": "✓",
+   "ariaHiddenParent": "true",
+   "sr": "✓",
+   "label": null
+  },
+  {
+   "id": "ns",
+   "mark": "✓",
+   "ariaHiddenParent": "true",
+   "sr": "✓",
+   "label": null
+  },
+  {
+   "id": "del",
+   "mark": "✓",
+   "ariaHiddenParent": "true",
+   "sr": "✓",
+   "label": null
+  },
+  {
+   "id": "key",
+   "mark": "✓",
+   "ariaHiddenParent": "true",
+   "sr": "✓",
+   "label": null
+  }
+ ],
+ "B4": {
+  "before": {
+   "v": "hold",
+   "w": "Suspended"
+  },
+  "after": {
+   "v": "hold",
+   "w": "Suspended",
+   "k": "212",
+   "line": "For any other confederal law, if two thirds of the members of a national delegat"
+  }
+ },
+ "B5": {
+  "paths": 1,
+  "units": 54,
+  "overlaps": 0,
+  "delegationButtonsVisible": 0,
+  "delegationButtonsTotal": 27,
+  "memberStepsVisible": 0,
+  "hash": "#vote-consent-10a009",
+  "statePaths": 2
+ },
+ "I1": {
+  "before": "f",
+  "after": "f",
+  "sel": "BC-02",
+  "card": true,
+  "fixed": [
+   56,
+   177
+  ],
+  "small": 38,
+  "nolabel": 30,
+  "overflow": false
+ },
+ "I6": {
+  "step": "Step 1 of 4"
+ },
+ "I7": {
+  "seats": 7,
+  "unitsVisible": 0
+ },
+ "B2": {
+  "n": 16,
+  "chars": 490,
+  "total": 2157,
+  "sample": [
+   "Skip to content",
+   "For",
+   "Abstention",
+   "Against",
+   "Passes",
+   "Copy link",
+   "For",
+   "Against",
+   "Every member is present; an abstention i",
+   "For",
+   "Against",
+   "Registers: population of the territorial"
+  ]
+ },
+ "F8": "Not found",
+ "F10": {
+  "d3force": false,
+  "dragBefore": "f",
+  "dragAfter": "f",
+  "notice": false
+ },
+ "dark": [
+  {
+   "s": ".pv strong",
+   "fg": "rgb(255, 255, 255)",
+   "bg": "rgb(85, 98, 180)",
+   "cr": "5.54"
+  },
+  {
+   "s": ".pv-k",
+   "fg": "rgb(255, 255, 255)",
+   "bg": "rgb(85, 98, 180)",
+   "cr": "5.54"
+  },
+  {
+   "s": ".g-req",
+   "fg": "rgb(195, 198, 220)",
+   "bg": "rgb(23, 27, 54)",
+   "cr": "9.97"
+  },
+  {
+   "s": ".cap",
+   "fg": "rgb(148, 152, 182)",
+   "bg": "rgb(15, 18, 38)",
+   "cr": "6.54"
+  },
+  {
+   "s": ".lm",
+   "fg": "rgb(148, 152, 182)",
+   "bg": "rgb(15, 18, 38)",
+   "cr": "6.54"
+  },
+  {
+   "s": ".u[data-o=f] span",
+   "fg": "rgb(255, 255, 255)",
+   "bg": "rgb(85, 98, 180)",
+   "cr": "5.54"
+  },
+  {
+   "s": ".u[data-o=x] span",
+   "fg": "rgb(195, 198, 220)",
+   "bg": "rgb(15, 18, 38)",
+   "cr": "10.95"
+  },
+  {
+   "s": ".tbtn small",
+   "fg": "rgb(148, 152, 182)",
+   "bg": "rgb(23, 27, 54)",
+   "cr": "5.96"
+  },
+  {
+   "s": ".g-hyp",
+   "fg": "rgb(148, 152, 182)",
+   "bg": "rgb(23, 27, 54)",
+   "cr": "5.96"
+  },
+  {
+   "s": ".chip",
+   "fg": "rgb(255, 255, 255)",
+   "bg": "rgb(85, 98, 180)",
+   "cr": "5.54"
+  },
+  {
+   "s": ".hn",
+   "fg": "rgb(243, 243, 247)",
+   "bg": "rgb(15, 18, 38)",
+   "cr": "16.72"
+  },
+  {
+   "s": ".legend",
+   "fg": "rgb(195, 198, 220)",
+   "bg": "rgb(15, 18, 38)",
+   "cr": "10.95"
+  }
+ ],
+ "errors": []
+}

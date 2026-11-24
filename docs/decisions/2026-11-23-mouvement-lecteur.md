@@ -3,7 +3,7 @@
 ## Statut
 Accepté le 2026-11-17 par l'auteur : décision 3 de `proto/REPRISE.md` (branche `claude/proto-tour-2`),
 « ADR d'amendement des transitions, limité aux trois pages : oui ». Lot 1 (`docs/lot1/PLAN.md`) : règle
-complète pour `#/constitution` ; la carte (lot 2) a ajouté la sienne, la page des votes (lot 3) y ajoutera la sienne.
+complète pour `#/constitution` ; la carte (lot 2) et la page des votes (lot 3) ont ajouté la leur.
 
 Amende l'ADR 2026-10-23-glissement-sections.md (« un seul glissement, rien d'autre ne s'anime à
 l'arrivée ») et l'ADR 2026-10-24-etats-en-tete-mobile.md, **pour les trois pages refondues seulement**.
@@ -64,10 +64,42 @@ Le reste du portail garde la règle d'origine.
 7. **Mouvement réduit** : aucun vol (cadrage direct, coupe de 0,2 s), communes d'un bloc, ni fondu des
    couleurs ni élément partagé ; le fil d'Ariane de la carte devient un indicateur de niveau numéroté.
 
-## Place réservée
-- **Votes et majorités** (lot 3) : déroulé des votes joués pas à pas ; sa règle s'ajoutera ici.
+## Décision : `#/votes` (amendement du 2026-11-24, lot 3, ADR 2026-11-24-votes-majorites.md)
+1. **Entrée et sortie** : glissement horizontal depuis `#/institutions` et `#/council` (même section de la
+   navigation, la page est rangée après `#/council`), vertical depuis les autres sections ; règle d'origine.
+2. **Adresses `#/votes/…`** (type, cas, composition, disposition, disque choisi) : une même page. Le routeur ne
+   glisse pas entre elles et délègue à la page (`VOTES.inplace`) ; la composition s'écrit dans l'adresse par
+   `history.replaceState`, sans transition.
+3. **Regroupement des unités** : un disque qui change de camp (clic, glisser, délégation entière, type, cas)
+   rejoint sa place par une simulation de forces (d3-force : rappel vers la place, collision ; au repos en
+   0,6 à 1,5 s, reprise par tout geste). La place est celle de la grille de son camp, la même avec ou sans
+   animation : les disques voisins se rangent avec lui. Les cadres de groupe suivent ; les jauges glissent en
+   0,4 s et sont mises à jour en place, rien n'est redessiné.
+4. **Passage d'une disposition à l'autre** (« Constituent peoples » ↔ « Map ») : les 54 disques voyagent de
+   leur camp à la place de leur État (point intérieur de `constitution/map.json`, chevauchements écartés),
+   environ une seconde ; les camps se replient sous la carte en liste de délégations, les cadres s'effacent et
+   le fond de carte apparaît en 0,32 s ; l'inverse au retour.
+5. **Konfederalno Veće** : les sept sièges changent de colonne par une transition à éléments partagés (un nom
+   par siège, posé le temps de la transition seulement ; 0,32 s ; `data-vt="vo"` : pas d'animation de la
+   page). Une seule transition à la fois : jamais pendant un glissement du routeur. Les 54 disques s'effacent.
+6. **Pas à pas** : un cas choisi se joue une étape toutes les 1,9 s ; à chaque étape, les jauges de l'étape se
+   remplissent ; Précédent ou Suivant arrêtent la lecture.
+7. **Arrivée** (lien, recherche, renvoi d'un article ou d'Institutions) : la page entre composée, disques à
+   leur place ; la simulation, chargée au repos, part au repos (rien ne bouge avant le premier geste) ; un cas
+   ouvert par son adresse est à sa dernière étape, sans lecture automatique.
+8. **Langue et écriture** : la page est redessinée à l'identique, à la même hauteur ; rien ne bouge.
+9. **Mouvement réduit** : d3-force n'est pas chargé ; grille stable ; un disque qui change de camp s'efface et
+   reparaît à sa place (fondu de 140 ms) ; changement de disposition par une coupe et un fondu de 0,2 s ;
+   jauges sans transition ; pas de lecture automatique (Suivant) ; pas de transition des sièges. Le glisser est
+   désactivé et la page le dit, sous la légende (relié à la scène par `aria-describedby`).
+10. **Abandonnés de Sabor** : l'élément partagé disque → titre de la fiche d'État (la fiche est une autre
+    section : glissement vertical) ; la bascule glyphe par glyphe des titres (hors du lecteur, le portail
+    redessine).
 
 ## Mise en œuvre
+- `portail/js/votes.js` : simulation (`startSim`, `retarget`), grille du mouvement réduit (`placeGrid`),
+  dispositions (`setMode`, `relax`), sièges (`seatMove`) ; `portail/css/votes.css` : `:root[data-vt="vo"]`,
+  variantes du mouvement réduit.
 - `portail/index.html` : `render()` attend les données de la route puis `CX.prepare()` ; même titre :
   `CX.inplace()` ; transition `data-vt="ref"` pour un renvoi suivi, avec le nom `cx-artnum` posé sur
   l'élément de départ puis sur celui d'arrivée.

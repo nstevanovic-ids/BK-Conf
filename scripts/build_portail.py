@@ -52,9 +52,11 @@ ASSET_DIRS = ("fonts", "vendor", "images", "videos", "js", "css")
 # Code chargé avec sa page (need() du gabarit) ; le fichier unique l'embarque.
 CODE_DIRS = ("js", "css")
 # Bibliothèques tierces embarquées par le fichier unique, chargées avec leurs pages (d3 : mini-cartes
-# des fiches ; qrcode : carte citoyenne), dans cet ordre (d3-geo s'appuie sur d3-array). MapLibre
+# des fiches ; d3-force et ses trois dépendances : page des votes ; qrcode : carte citoyenne), dans cet ordre
+# (d3-geo s'appuie sur d3-array, d3-force sur d3-dispatch, d3-quadtree et d3-timer). MapLibre
 # (vendor/maplibre-gl/, carte) n'est publié qu'en build lié : son worker exige http(s).
-VENDOR = ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js")
+VENDOR = ("d3-array.min.js", "d3-geo.min.js", "d3-dispatch.min.js", "d3-quadtree.min.js", "d3-timer.min.js",
+          "d3-force.min.js", "qrcode.min.js")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
 BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
 # Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.

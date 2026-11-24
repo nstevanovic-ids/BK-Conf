@@ -8,13 +8,10 @@
 var MARGES = (function () {
   'use strict';
   const N = s => s;   // marqueur des chaînes de tables (scripts/textes.py)
-  const ASSUME = {
-    reg: N('No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.'),
-    plen: N('The plenary majority depends on seventy individual votes and is not modelled here.'),
-    sl: N('The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.'),
-    al: N('Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.'),
-    exc: N('Not calculated here: a vacant seat, when a majority of the members in office suffices; a tie, when the serving president has the casting vote; and the decisions to which the suspension does not apply.'),
-  };
+  /* hypothèses : libellés du moteur (REGLES.LIB.hyp, une seule source avec la page des votes), plus celle
+     de la marge de l'art. 110, propre à l'instrument */
+  const PLEN = N('The plenary majority depends on seventy individual votes and is not modelled here.');
+  const assume = k => k === 'plen' ? PLEN : REGLES.LIB.hyp[k];
   let C = null;
   const ctx = () => C || (C = REGLES.contexte(STATES, STATS, PEUPLES));
   const sc = s => CX.sc(s);
@@ -23,7 +20,15 @@ var MARGES = (function () {
   const fmtNd = (n, d) => Number(n).toLocaleString(L_LOC[LANG] || 'en-GB', { minimumFractionDigits: d, maximumFractionDigits: d });
   const fmtP = (x, d = 1) => fmtNd(x * 100, d) + (LANG === 'en' ? '%' : ' %');
   const sign = ok => ok ? '✓' : '✕';
-  const as = (...keys) => `<p class="cx-as"><b>${t(L`Assumption`)}</b>${keys.map(k => t(L(ASSUME[k]))).join(' ')}</p>`;
+  const as = (...keys) => `<p class="cx-as"><b>${t(L`Assumption`)}</b>${keys.map(k => t(L(assume(k)))).join(' ')}</p>`;
+  /* renvoi vers la page des votes (#/votes), réglée sur la règle de l'instrument ; pour les délégations ou
+     les conseillers, la composition montrée (chaque peuple pour ou contre, États et délégation compris) */
+  const vo = route => `<a class="cx-vo" href="#/votes/${route}">${t(L`Votes and majorities`)} →</a>`;
+  const voCode = (C, type, st) => {
+    const v = REGLES.blank(C, type, 'a');
+    C.order.forEach(k => REGLES.setGroup(C, v, k, st[k] ? 'f' : 'a')); REGLES.setGroup(C, v, 'fed', 'f'); REGLES.setGroup(C, v, 'mun', 'f');
+    return REGLES.typeById(type).slug + '/v-' + REGLES.encode(C, v).replace(/^vote-[a-z]+-/, '');
+  };
   const reset = () => `<button type="button" class="cx-rs" aria-label="${t(L`Back`)}"><span aria-hidden="true">↺</span></button>`;
   const stLine = c => { const s = byCode(c) || { n: c }; return `<a class="cx-sl" href="#/state/${c}" translate="no">${c}</a> <strong>${t(s.n)}</strong>`; };
 
@@ -68,7 +73,7 @@ var MARGES = (function () {
       const R = REGLES.cleDouble(C, yes(C, st));
       el.innerHTML = `<div class="cx-ih"><div class="cx-big ${R.cinq ? 'cx-ok' : 'cx-ko'}">${R.n} / 7<small>≥ 5 ${sign(R.cinq)}</small></div>
       <div class="cx-big ${R.cle ? 'cx-ok' : 'cx-ko'}">${fmtP(R.part)}<small>&gt; 50 % ${sign(R.inscrits * 2 > C.regTotal)} · ${t(L`Registered citizens`)}</small></div></div>
-      ${switches(C, st)}${as('reg', 'plen')}${reset()}`;
+      ${switches(C, st)}${as('reg', 'plen')}${reset()}${vo(voCode(C, 'consent', st))}`;
       // art. 110 al. 4 : cinq sur sept ; al. 5 : double clé ; al. 6 : six sur sept, ou les sept
       mark('110.cinq', R.cinq ? 'ok' : 'ko', `${R.n} / 7 ${sign(R.cinq)}`);
       mark('110.cle', R.cinq ? (R.cle ? 'ok' : 'ko') : 'na', `${fmtP(R.part)} ${R.cinq ? sign(R.cle) : ''}`.trim());
@@ -82,7 +87,7 @@ var MARGES = (function () {
       const R = REGLES.conseil(C, yes(C, st));
       el.innerHTML = `<div class="cx-ih"><div class="cx-big ${R.adoptee ? 'cx-ok' : 'cx-ko'}">${R.n} / 7<small>${R.consensus ? '7 / 7' : R.cinq ? '≥ 5' : '≥ 4'} ${sign(R.adoptee)}</small></div>
       <div class="cx-big ${R.inscrits * 2 > C.regTotal ? 'cx-ok' : 'cx-ko'}">${fmtP(R.part)}<small>&gt; 50 % ${sign(R.inscrits * 2 > C.regTotal)} · ${t(L`Registered citizens`)}</small></div></div>
-      ${switches(C, st)}${as('reg', 'exc')}${reset()}`;
+      ${switches(C, st)}${as('reg', 'exc')}${reset()}${vo(voCode(C, 'council', st))}`;
       // art. 111 al. 3 : consensus ; al. 4 : quatre et la majorité des inscrits, ou cinq ; al. 5 : trente jours
       mark('111.consensus', R.consensus ? 'ok' : 'ko', `7 / 7 ${sign(R.consensus)}`);
       mark('111.quatre', R.consensus ? 'na' : R.adoptee ? 'ok' : 'ko', R.consensus ? '–' : `${R.n} + ${fmtP(R.part)} ${sign(R.quatre)} · ${R.n} ≥ 5 ${sign(R.cinq)}`);
@@ -93,7 +98,7 @@ var MARGES = (function () {
   /* ---------------------------------------------------------------- art. 115 bis : le relevé annuel */
   function regs(el, C, mark) {
     el.innerHTML = `<table><tbody>${C.order.map(k => `<tr><td>${esc(pname(k))}</td><td class="cx-r">${fmtN(C.reg[k])}</td><td class="cx-r">${fmtP(C.reg[k] / C.regTotal)}</td></tr>`).join('')}
-    <tr class="cx-tot"><td>${t(L`Total`)}</td><td class="cx-r">${fmtN(C.regTotal)}</td><td class="cx-r">${fmtP(1, 0)}</td></tr></tbody></table>${as('reg')}`;
+    <tr class="cx-tot"><td>${t(L`Total`)}</td><td class="cx-r">${fmtN(C.regTotal)}</td><td class="cx-r">${fmtP(1, 0)}</td></tr></tbody></table>${as('reg')}${vo('consent')}`;
     mark('115bis.releve', 'on', '');
   }
   /* ---------------------------------------------------------------- art. 103 : sièges du Kongres */
@@ -101,7 +106,7 @@ var MARGES = (function () {
     const st = el._st || (el._st = { sel: null, f: {} });
     const base = REGLES.sieges(C.states), b0 = Object.fromEntries(base.rows.map(r => [r.c, r.s]));
     const pctOf = c => Math.round(((st.f[c] || 1) - 1) * 100);
-    el.innerHTML = `<div class="cx-ih"></div><div class="cx-mapbox"></div><div class="cx-det" aria-live="polite"></div><div class="cx-seats"></div>${as('sl')}${reset()}`;
+    el.innerHTML = `<div class="cx-ih"></div><div class="cx-mapbox"></div><div class="cx-det" aria-live="polite"></div><div class="cx-seats"></div>${as('sl')}${reset()}${vo('ordinary-law')}`;
     const q = c => el.querySelector(c);
     let map = null, lastRows = null;
     drawMap(q('.cx-mapbox'), { label: L`Kongres seats`, pick: c => { if (c && c !== st.sel) { st.sel = c; draw(); } } }).then(m => { map = m; if (lastRows) paintMap(); });
@@ -187,7 +192,7 @@ var MARGES = (function () {
     ${row('com', '≥ 8 / 14', 0, 14, st.com)}
     <button type="button" class="cx-sw" role="switch" aria-checked="${!!st.mem}" data-mem><span class="cx-kn"></span><span class="cx-nm" id="cxAlMem"></span><span class="cx-pc" translate="no">1 / 14</span></button>
     ${row('kg', '≥ 167 / 250', 0, 250, st.kg)}
-    ${as('al')}${reset()}`;
+    ${as('al')}${reset()}${vo('ordinary-law/alarm')}`;
     const q = c => el.querySelector(c);
     const draw = () => {
       const A = REGLES.alarme({ voix: st.v, jour: st.day }), K = REGLES.conciliation({ pour: st.com, membre: st.mem }), two = REGLES.kongresDeuxTiers(st.kg);

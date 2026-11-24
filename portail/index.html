@@ -29,6 +29,11 @@ const DATA_V='';   // version des données et du code, posée par scripts/build_
   if(/^#\/map(\/|$)/.test(h)){
     pl('data/carte/index.json','fetch');pl('data/stats.json','fetch');pl('js/carte.js','script');pl('css/carte.css','style');
   }
+  if(/^#\/votes(\/|$)/.test(h)){
+    var q=['en','zap','sre','ist'].indexOf(lang)>=0?lang:'en';
+    pl('data/constitution/core.json','fetch');pl('data/stats.json','fetch');pl('js/regles.js','script');pl('js/votes.js','script');
+    pl('css/votes.css','style');pl('data/constitution/t/title-4.'+q+'.json','fetch');pl('data/constitution/t/title-8.'+q+'.json','fetch');
+  }
 })();
 </script>
 <!--préchargement:fin-->
@@ -1063,6 +1068,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .seat .sn small{display:block;font-size:.7rem;font-weight:500;color:var(--ink-3);margin-top:2px}
 .seat .sv{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--indigo);line-height:1}
 [data-theme="dark"] .seat .sv{color:var(--ink)}
+.ins-vos{margin:16px 0 0}
 .seatnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;line-height:1.6}
 /* ---------- security and defence ---------- */
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -1686,6 +1692,7 @@ function i18nWatch(){
 function rerender(){
   if((location.hash||'').startsWith('#/constitution')&&window.CX&&CX.rerender())return;
   if((location.hash||'').startsWith('#/map')&&window.MAPX&&MAPX.rerender())return;
+  if((location.hash||'').startsWith('#/votes')&&window.VOTES&&VOTES.rerender())return;
   const y=window.scrollY;
   renderNow();
   window.scrollTo({top:y,behavior:'instant'});
@@ -2086,15 +2093,15 @@ function insSVG(lay){
   const G=INS_GEO[lay];
   const node=(k,o)=>{
     const [x,y,w,h]=G.nodes[k], tx=k==='joint'?x+w/2:x+G.pad, ty=G.ty;
-    const meta=(lay==='tall'&&o.mt)||o.m;
+    const meta=(lay==='tall'&&o.mt)||o.m, role=insRole(o);
     const lines=k==='joint'
       ?`<text class="isc-t" x="${tx}" y="${y+h/2-2}" text-anchor="middle">${L(o.t)}</text>
         <text class="isc-m isc-js" x="${tx}" y="${y+h/2+12}" text-anchor="middle">${L`joint sitting`}</text>`
       :`<text class="isc-t" x="${tx}" y="${y+ty[0]}">${esc(L(o.t))}</text>
-        <text class="isc-r" x="${tx}" y="${y+ty[1]}">${esc(L(o.r))}</text>
+        <text class="isc-r" x="${tx}" y="${y+ty[1]}">${esc(role)}</text>
         ${meta.map((m,i)=>`<text class="isc-m" x="${tx}" y="${y+ty[2]+i*ty[3]}">${esc(L(m))}</text>`).join('')}`;
     return `<g class="isc-n ${k}" data-id="${k}" tabindex="0" role="button" aria-pressed="false"
-      aria-label="${esc(L(o.t))}${o.r?', '+esc(L(o.r)):''}">
+      aria-label="${esc(L(o.t))}${role?', '+esc(role):''}">
       <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${k==='joint'?h/2:4}"/>${lines}</g>`;
   };
   const arrow=(id,cls)=>`<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
@@ -2109,12 +2116,15 @@ function insSVG(lay){
     ${Object.entries(INS_NODES).map(([k,o])=>node(k,o)).join('')}
   </svg>`;
 }
+/* rôle d'un organe sous son nom ; omis quand il le répète (le zapadni et l'istočni nomment l'Assemblée des
+   peuples dans leur langue, ADR 2026-11-06-noms-officiels-traduits.md : « Assembly of Nations » = le nom) */
+function insRole(o){const r=o.r?L(o.r):'';return r&&r!==L(o.t)?r:'';}
 function insDetail(k){
   const el=document.getElementById('iscDetail'); if(!el)return;
   if(!k){el.innerHTML=`<p class="isc-empty">${L`Select an institution in the diagram to see how it is
     formed and what it does.`}</p>`;return;}
   const o=INS_NODES[k];
-  el.innerHTML=`<div><h3>${esc(L(o.t))}</h3><div class="isc-role">${esc(o.r?L(o.r):L`Joint sitting of the two chambers`)}</div>
+  el.innerHTML=`<div><h3>${esc(L(o.t))}</h3><div class="isc-role">${esc(o.r?insRole(o):L`Joint sitting of the two chambers`)}</div>
     <p>${esc(L(o.d))}</p></div>
     <div class="isc-arts"><b>${L`In the Constitution`}</b>${o.a.map(artLink).join('')}</div>`;
 }
@@ -2175,6 +2185,10 @@ const LAW={
    ['pass',N('The amendment enters the Constitution.'),[123]]]}
 };
 const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
+/* chaque cas mène à la page des votes, réglée sur la règle qu'il illustre (#/votes, lot 3) */
+const LAW_VOTES={ordinary:'ordinary-law',consent:'consent',refused:'consent',alarm:'ordinary-law/alarm',
+  referendum:'twelve-states',amendment:'amendment'};
+const votesLink=(route,id)=>`<a class="btn btn-ghost ins-vo"${id?` id="${id}"`:''} href="#/votes/${route}">${L`Votes and majorities`} →</a>`;
 let _lawT=[];
 /* Kongres seats (Art. 103) : moteur unique, REGLES.sieges (portail/js/regles.js ; Sainte-Laguë en
    diviseur commun arrondi au plus proche, 2 à 20 sièges par État, au moins 1 pour Brčko et Mostar),
@@ -2198,7 +2212,8 @@ function seatsHTML(){
     <p class="seatnote">${L`Each population is divided by a common divisor, here ${fmtN(Math.round(K.D/10)*10)}, and rounded
     to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and
     at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the
-    Konfederalno Veće confirms the distribution after each census (${artLink(103)}).`}</p>`;
+    Konfederalno Veće confirms the distribution after each census (${artLink(103)}).`}</p>
+    <p class="ins-vos">${votesLink('ordinary-law')}</p>`;
 }
 function lawHTML(){
   return `<div class="law-chips" role="group" aria-label="${L`Choose a case`}">
@@ -2207,6 +2222,7 @@ function lawHTML(){
     <ol class="law-rail" id="lawRail"><span class="law-fill" id="lawFill" aria-hidden="true"></span>
     ${LAW_STAGES.map((st,i)=>`<li class="law-st" data-i="${i}"><span class="law-dot" aria-hidden="true"></span>
       <b class="law-k">${L(st)}</b><p class="law-x"></p><span class="law-a"></span></li>`).join('')}</ol>
+    <p class="ins-vos">${votesLink('ordinary-law','lawVotes')}</p>
 `;
 }
 function lawFillTo(i){
@@ -2229,6 +2245,7 @@ function lawPlay(k,animate){
     el.querySelector('.law-x').textContent=L(st[1]);
     el.querySelector('.law-a').innerHTML=st[2].map(artLink).join('');});
   rail.setAttribute('aria-label',L(c.n)+': '+L(c.o));
+  const vl=document.getElementById('lawVotes');if(vl)vl.setAttribute('href','#/votes/'+LAW_VOTES[k]);
   if(still){sts.forEach(el=>el.classList.add('on'));
     requestAnimationFrame(()=>lawFillTo(sts.length-1));return;}
   lawFillTo(0);
@@ -2301,11 +2318,11 @@ function vInstitutions(){
       <div class="panel"><div class="eyebrow" data-i18n="h_initiative">Popular initiative</div>
         <p class="note">${L`300,000 citizens may propose a total or partial revision of the Constitution
         within 18 months. A partial revision is adopted by the double majority of the people and of the
-        States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).`}</p></div>
+        States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).`}</p><p class="ins-vos">${votesLink('popular-initiative')}</p></div>
       <div class="panel"><div class="eyebrow" data-i18n="h_referendum">Optional referendum</div>
         <p class="note">${L`150,000 citizens, or 12 States of which no more than half belong to the
         same people, may submit any confederal law to a popular vote within 100 days of its
-        publication (Art. 122).`}</p></div>
+        publication (Art. 122).`}</p><p class="ins-vos">${votesLink('twelve-states')}</p></div>
     </div>
     <p class="note" style="margin-top:14px">${L`Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).`}</p>
   </section>
@@ -2324,6 +2341,7 @@ function vInstitutions(){
         .map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${L(g[0])}</h4>
         <p>${L(g[1])}</p><span class="sa">${g[2].map(artLink).join(' · ')}</span></div>`).join('')}
     </div>
+    <p class="ins-vos">${votesLink('amendment')}</p>
   </section>
   <section class="section reveal">
     <div class="h2row"><h2 data-i18n="h_bodies">Other confederal bodies</h2></div>
@@ -2346,6 +2364,11 @@ function vInstitutions(){
       <a class="btn btn-ghost" href="#/security">${L`Security and Defence →`}</a>
     </div>
   </section>`;
+}
+
+/* Votes et majorités : portail/js/votes.js (VOTES), chargé avec la page (ADR 2026-11-24-votes-majorites.md) */
+function vVotes(){
+  return window.VOTES?VOTES.html(location.hash||'#/votes'):'';
 }
 
 /* ============================================================
@@ -2404,6 +2427,7 @@ function vCouncil(){
       ${rules.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${L(g[0])}</h4>
         <p>${L(g[1])}</p><span class="sa">${arts(g[2])}</span></div>`).join('')}
     </div>
+    <p class="ins-vos">${votesLink('council/four-councillors')}</p>
   </section>`;
 }
 
@@ -4126,13 +4150,13 @@ function go(h){location.hash=h;}
 /* lien d'évitement : le focus va au contenu de la page (le lecteur, l'en-tête de son article), sans
    toucher à l'adresse, qui porte la route */
 function skipTo(){
-  const t=document.querySelector('#cx .cx-art.cx-cur .cx-ah h3')||document.getElementById('app');
+  const t=document.querySelector('#cx .cx-art.cx-cur .cx-ah h3')||document.querySelector('#voUnits .vo-u[tabindex="0"]')||document.getElementById('app');
   if(t.tabIndex<0&&t.id!=='app')t.tabIndex=-1;
   t.focus();return false;
 }
 const ROUTES={
  'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
- 'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
+ 'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'votes':[vVotes,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
@@ -4167,7 +4191,8 @@ function render(){
   const h=location.hash||'#/home';
   _want=h;
   need(routeData(h)).then(()=>h.startsWith('#/constitution')&&window.CX?CX.prepare(h):
-    h.startsWith('#/map')&&window.MAPX?MAPX.prepare(h):null).then(()=>{
+    h.startsWith('#/map')&&window.MAPX?MAPX.prepare(h):
+    h.startsWith('#/votes')&&window.VOTES?VOTES.prepare(h):null).then(()=>{
     if(_want!==h)return;
     renderRoute();
     need(routeData(h,true)).catch(()=>{});
@@ -4184,6 +4209,8 @@ function renderRoute(){
   if(prev!==null&&d===0&&h.startsWith('#/constitution')&&window.CX&&CX.inplace(h))return;
   /* même page : sous-route de la carte (État, commune, couche) → la carte vole, elle n'est pas redessinée */
   if(prev!==null&&d===0&&h.startsWith('#/map')&&window.MAPX&&MAPX.inplace(h))return;
+  /* même page : autre composition, cas ou disposition des votes → la scène reste, les disques vont à leur place */
+  if(prev!==null&&d===0&&h.startsWith('#/votes')&&window.VOTES&&VOTES.inplace(h))return;
   /* grille → fiche : on retient la position pour y revenir au retour */
   if(prev&&prev.startsWith('#/states')&&h.startsWith('#/state/'))_gridY=window.scrollY;
   /* un seul glissement ; aucun au premier affichage ni sur la même page */
@@ -4212,6 +4239,7 @@ function renderNow(){
   const app=document.getElementById('app');
   if(window.CX)CX.leave();
   if(window.MAPX)MAPX.leave();
+  if(window.VOTES)VOTES.leave();
   let html,key;
   if(h.startsWith('#/state/')){html=vState(h.slice(8));key='#/states';}
   else{
@@ -4249,6 +4277,7 @@ function renderNow(){
   /* lecteur de la Constitution : arrivée sur l'article, déjà positionnée, le glissement l'apporte */
   if(h.startsWith('#/constitution')&&window.CX)CX.mounted();
   if(h.startsWith('#/map')&&window.MAPX)MAPX.mounted();
+  if(h.startsWith('#/votes')&&window.VOTES)VOTES.mounted();
   setupReveal();
   requestAnimationFrame(()=>{
     setupParallax();
@@ -4349,6 +4378,7 @@ const SB_PAGES=[
  [N('Constitution'),N('Constitutional corpus'),'#/constitution'],
  [N('Kongres seats'),N('250 delegates in 54 constituencies'),'#/institutions'],
  [N('Konfederalno Veće'),N('Presidency, seven departments and how the council decides'),'#/council'],
+ [N('Votes and majorities'),N('Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.'),'#/votes'],
  [N('Revising the Constitution'),N('Total and partial revision, entrenched guarantees'),'#/institutions'],
  [N('Official journal'),N('Latest confederal decisions'),'#/journal'],
  [N('Identity'),N('Language, alphabet and symbols'),'#/identity'],
@@ -4405,6 +4435,22 @@ function buildIndex(){
   (COMMUNES||[]).forEach(r=>{const h=byCode(r[1]);if(!h)return;
     idx.push({type:N('Municipalities'),label:r[0],sub:h.n+' · '+r[1],hash:r[2]?'#/map/'+r[1]+'/'+r[2]:'#/map/'+r[1],
       hay:fold(r[0]+' '+(r[3]||'')+' '+h.n),iconText:'◦'});});
+  /* page des votes : types de décision et cas (moteur unique, REGLES, chargé avec la recherche) ; ils mènent
+     à la page réglée sur eux. Les noms des articles du type (aperçus du lecteur) entrent dans la recherche :
+     « double » trouve la majorité de l'art. 124, « 150 » les garanties renforcées. */
+  if(window.REGLES){
+    const R=REGLES, VT=N('Votes and majorities'), art=a=>(ix['art-'+a.replace(/ /g,'')]||[])[1]||'';
+    const ORG={k:'kongres',k23:'kongres',ns:'sabor',del:'delegations',key:'registered',p:'citizens',s:'states',
+      alarm:'alarm',co:'states',half:'people',cons:'council',c4:'registered',c5:'council'};
+    const hayT=t=>{const en=R.LIB.type[t.id], orgs=[...new Set(t.steps.flat().map(k=>R.LIB.org[ORG[k]]))];
+      return en+' '+t.arts.join(' ')+' '+t.arts.map(art).join(' ')+' '+orgs.join(' ')+tr(en)+orgs.map(tr).join('');};
+    R.TYPES.forEach(t=>{
+      idx.push({type:VT,label:L(R.LIB.type[t.id])+(t.co?' · '+L('{0} States',t.co):''),sub:t.arts.map(a=>L`Art. ${a}`).join(' · '),
+        hash:'#/votes/'+t.slug,hay:fold(hayT(t)),iconText:'✓'});});
+    R.SCENARIOS.forEach(x=>{const t=R.typeById(x.type);
+      idx.push({type:VT,label:L(x.name),sub:L(R.LIB.type[t.id]),hash:'#/votes/'+t.slug+'/'+x.id,
+        hay:fold(x.name+tr(x.name)+' '+hayT(t)),iconText:'✓'});});
+  }
   SB_PAGES.forEach(p=>{
     idx.push({type:N('Pages'),label:L(p[0]),sub:L(p[1]),hash:p[2],
       hay:fold(p[0]+' '+p[1]+tr(p[0])+tr(p[1])),iconText:'§'});});
@@ -4749,6 +4795,7 @@ const withCard=()=>citLoad()?['flags',QR]:[];    // carte citoyenne dessinée : 
 const DATA_ROUTE={
   states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos',...D3],
   map:['stats','carte','js/carte.js','css/carte.css'], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
+  votes:['core','stats','js/regles.js','js/votes.js','css/votes.css'],
   constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
   symbols:['flags'], autonomy:['flags'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags',QR]:[]),
@@ -4756,7 +4803,7 @@ const DATA_ROUTE={
 const DATA_LATER={
   register:['opstine','flags',QR], minor:['opstine','flags',QR], citizen:['flags',QR],
 };
-const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG];
+const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG,'js/regles.js'];   // moteur : types et cas de la page des votes
 const DATA_P={};   // clé → promesse du chargement
 /* code d'une page (js/…, css/…) : script ou feuille de style ajouté à <head>, une fois */
 function needCode(k){

@@ -191,6 +191,11 @@
    "ist": "Mnozinstvoto glasuva „protiv“. Zakonãt ne vliza v sila.",
    "zap": "Večina glasuje proti. Zakon ne začne veļati."
   },
+  "A member placed against votes the alarm motion.": {
+   "zap": "Član, postavļen med glasove proti, glasuje za alarmni predlog.",
+   "sre": "Član postavļen među glasove protiv glasa za zahtěv za uzbunu.",
+   "ist": "Člen, postaven sred glasovete „protiv“, glasuva alarmeno iskane."
+  },
   "A new Title V bis organises confederal cohesion. Belonging to the Confederation is civic: it is added to belonging to a people without replacing it, and there is no Balkan register. Confederal parties stand in at least twelve States of at least three peoples; every secondary school pupil spends a semester in a State of another people; a common core of history and a confederal pantheon; the Day of the Confederation commemorates no battle. Service is done outside the State of attachment, each people has its own football team and the clubs play a single Konfederalna Liga, the Transbalkanska links Ļubļana, Zagreb, Beograd and Sofija, and the KRT broadcasts in the three standards.": {
    "zap": "Novo poglavje V bis ureja konfederalno kohezijo. Pripadnost Konfederaciji je državļanska: dodaja se pripadnosti narodu, ne da bi jo nadomestila, balkanskega registra pa ni. Konfederalne stranke kandidirajo v vsaj dvanajstih državah vsaj treh narodov; vsak dijak sredñe šole preživi semester v državi drugega naroda; skupno jedro zgodovine in konfederalni panteon; Dan Konfederacije ne obeležuje nobene bitke. Služba se opravi zunaj države pripadnosti, vsak narod ima svojo nogometno reprezentanco, klubi igrajo v enotni Konfederalni Ligi, Transbalkanska povezuje Ļubļano, Zagreb, Beograd in Sofijo, KRT pa oddaja v treh standardih.",
    "sre": "Nova glava V bis uređuje konfederalnu koheziju. Pripadnost Konfederaciji je građanska: ona se dodaje pripadnosti narodu, a ne zaměñuje je, i ne postoji balkanski registar. Konfederalne stranke podnose liste u najmañe dvanaest država najmañe tri naroda; svaki učenik sredñe škole provodi semestar u državi drugog naroda; zajedničko jezgro istorije i konfederalni panteon; Dan Konfederacije ne oblěžava nijednu bitku. Služba se obavļa izvan države pripadnosti, svaki narod ima svoju fudbalsku reprezentaciju, klubovi igraju u jedinstvenoj Konfederalnoj Ligi, Transbalkanska povezuje Ļubļanu, Zagreb, Beograd i Sofiju, a KRT emituje program na tri standarda.",
@@ -241,6 +246,11 @@
    "ist": "Absoļuten i otnositelen imunitet i zaštita po vreme na sesiite, s razrešenie na specialnata kamara; sãglasitelna komisija ot četirinadeset členove, po edin za vseki narod ot vsjaka kamara, kojato se sezira i pri otkaz na sãglasie; sãglasie na Sãbranieto na narodite i fakultativen referendum za dogovorite; stepenuvano konfederalno prinuditelno izpãlnenie; znameto, emblemata, pečatãt i devizãt na Konfederacijata. 174 člena.",
    "zap": "Absolutna in relativna imuniteta ter jamstvo med zasedañi, pri čemer dovoļeña izdaja posebni senat; usklajevalni odbor štirinajstih članov, po en član vsakega naroda iz vsakega doma, tudi ob zavrnitvi soglasja; soglasje Skupščine narodov in fakultativni referendum za mednarodne pogodbe; stopñevana konfederalna izvršba; zastava, emblem, pečat in geslo Konfederacije. 174 členov."
   },
+  "Abstention": {
+   "zap": "Vzdržani",
+   "sre": "Uzdržani",
+   "ist": "Vãzdãržali se"
+  },
   "Access to your card": {
    "zap": "Dostop do izkaznice",
    "ist": "Dostãp do kartata",
@@ -255,6 +265,11 @@
    "zap": "Dodaj v Google Wallet",
    "sre": "Dodajte u Google Wallet",
    "ist": "Dobavjane v Google Wallet"
+  },
+  "Admissible": {
+   "zap": "Dopustno",
+   "sre": "Dopustivo",
+   "ist": "Dopustimo"
   },
   "Adopted": {
    "zap": "Sprejeto",
@@ -275,6 +290,11 @@
    "zap": "Posvetovalni organ",
    "sre": "Konsultativni organ",
    "ist": "Konsultativen organ"
+  },
+  "Against": {
+   "zap": "Proti",
+   "sre": "Protiv",
+   "ist": "Protiv"
   },
   "Alarm motion": {
    "sre": "Zahtěv za uzbunu",
@@ -481,6 +501,11 @@
    "sre": "Pretpostavka",
    "ist": "Dopuskane"
   },
+  "Assumptions of the calculation": {
+   "zap": "Predpostavke izračuna",
+   "sre": "Pretpostavke izračunavaña",
+   "ist": "Dopuskanija pri izčisļavaneto"
+  },
   "At home": {
    "zap": "Doma",
    "sre": "U zemļi",
@@ -635,6 +660,11 @@
    "sre": "Brčko i Mostar neposredno su pod konfederalnom jurisdikcijom i ne pripadaju nijednoj državi. Ñihovo opštinsko veće bira se na neposrednim izborima i garantuje pravednu zastupļenost svih zajednica koje u ñima žive.",
    "ist": "Brčko i Mostar sa pod prjaka konfederalna jurisdikcija i ne prinadležat kãm nikoja dãržava. Obštinskijat im sãvet se izbira črez prjako glasuvane i garantira spravedlivoto predstavitelstvo na vsički obštnosti, koito živejat v tjah.",
    "zap": "Brčko in Mostar sta neposredno pod konfederalno jurisdikcijo in ne pripadata nobeni državi. Ñun občinski svet se voli na neposrednih volitvah in jamči pravično zastopanost vseh skupnosti, ki tam prebivajo."
+  },
+  "Brčko and Mostar vote with Sarajevo, the nearest confederal territory (Art. 124).": {
+   "zap": "Brčko in Mostar glasujeta s Sarajevom, najbližjim konfederalnim ozemļem (čl. 124).",
+   "sre": "Brčko i Mostar glasaju zajedno sa Sarajevom, najbližom konfederalnom teritorijom (čl. 124).",
+   "ist": "Brčko i Mostar glasuvat zaedno sãs Sarajevo, naj-blizkata konfederalna teritorija (čl. 124)."
   },
   "Bulgarian": {
    "zap": "Bolgarska",
@@ -931,6 +961,11 @@
    "sre": "Obavezna za muškarce, šest měseci osnovne obuke izvan države pripadnosti u měšovitim jedinicama; civilna služba na zahtěv, za polovinu duža; dobrovoļna za sve.",
    "ist": "Zadãlžitelna za mãžete, šest meseca osnovno obučenie izvãn dãržavata na prinadležnost v smeseni podelenija; graždanska služba po zajavlenie, s polovinata po-dãlga; dobrovolna za vsički."
   },
+  "Conciliation": {
+   "zap": "Usklajevañe",
+   "sre": "Usaglašavañe",
+   "ist": "Sãglasitelna procedura"
+  },
   "Confederal": {
    "sre": "Konfederalne",
    "ist": "Konfederalni",
@@ -1116,10 +1151,20 @@
    "ist": "Pãrvo konsensus, sled tova dvoen kļuč",
    "sre": "Prvo konsenzus, zatim dvostruki kļuč"
   },
+  "Consensus: no councillor against.": {
+   "zap": "Soglasje: noben svetnik ni proti.",
+   "sre": "Konsenzus: nijedan većnik nije protiv.",
+   "ist": "Konsensus: nito edin sãvetnik ne e protiv."
+  },
   "Consent and alarm": {
    "zap": "Soglasje in alarmni zvonec",
    "sre": "Pristanak i uzbuna",
    "ist": "Sãglasie i alarmen zvãnec"
+  },
+  "Consent given by five delegations": {
+   "zap": "Soglasje petih delegacij",
+   "sre": "Pristanak pet delegacija",
+   "ist": "Sãglasie na pet delegacii"
   },
   "Consent of the Narodni Sabor: two-thirds in plenary and a majority within at least six of the seven delegations, or within all seven if it touches an entrenched guarantee.": {
    "sre": "Pristanak Narodnog Sabora: dvotrećinska većina na plenarnoj sědnici i većina u najmañe šest od sedam delegacija, odnosno u svih sedam ako amandman zadire u ojačanu garanciju.",
@@ -1285,6 +1330,11 @@
    "zap": "Naprej →",
    "ist": "Napred →",
    "sre": "Daļe →"
+  },
+  "Copy link": {
+   "zap": "Kopiraj povezavo",
+   "sre": "Kopirajte link",
+   "ist": "Kopirajte vrãzkata"
   },
   "Core rights": {
    "zap": "Temeļne pravice",
@@ -1636,6 +1686,11 @@
    "ist": "Vãvedete familnoto si ime.",
    "zap": "Vnesite priimek."
   },
+  "Entrenched guarantees": {
+   "zap": "Utrjena jamstva",
+   "sre": "Ojačane garancije",
+   "ist": "Zasileni garancii"
+  },
   "Environment, Territory and Resources": {
    "zap": "Okoļe, prostor in naravni viri",
    "ist": "Okolna sreda, teritorija i resursi",
@@ -1690,6 +1745,11 @@
    "sre": "Svake četiri godine, prve neděļe u oktobru, svaki državļanin popuñava dva glasačka listića. Prvim bira Kongres, u državi kojoj pripada. Drugim bira Narodni Sabor, u narodnom registru u koji se odlučio upisati. Prvi upis može se jednom ispraviti u roku od tri godine; nakon toga drugi registar dostupan je tek petnaest godina od upisa. Upis važi od prvih izbora održanih više od godinu dana kasnije. Državļanin koji se ne upiše ni u jedan registar zadržava sva ostala prava: glasa za Kongres i na svim referendumima.",
    "ist": "Na vseki četiri godini, v pãrvata nedeļa na oktomvri, vseki graždanin glasuva s dve bjuletini. S pãrvata se izbira Kongresãt, v dãržavata na prinadležnost na graždanina. S vtorata se izbira Sãbranieto na narodite, v narodnija registãr, v kojto graždaninãt e izbral da se vpiše. Pãrvoto vpisvane može da bãde popraveno vednãž v srok ot tri godini; sled tova drug registãr e dostãpen edva petnadeset godini sled vpisvaneto. Vpisvaneto poražda dejstvie ot pãrvite izbori, provedeni poveče ot edna godina po-kãsno. Graždanin, kojto ne se vpiše v nikoj registãr, zapazva vsički ostanali prava: toj glasuva za Kongresa i na vsički referendumi.",
    "zap": "Vsaka štiri leta, prvo nedeļo v oktobru, odda vsak državļan dve glasovnici. S prvo voli Kongres, v državi, ki ji pripada. Z drugo voli Skupščino narodov, v narodnem registru, v katerega se je odločil vpisati. Prvi vpis je mogoče v treh letih enkrat popraviti; pozneje je drug register dostopen šele petnajst let po vpisu. Vpis veļa od prvih volitev, ki potekajo več kot eno leto pozneje. Državļan, ki se ne vpiše v noben register, ohrani vse druge pravice: voli Kongres in glasuje na vseh referendumih."
+  },
+  "Every member is present. Simple majority: more votes for than against; abstentions do not count.": {
+   "zap": "Vsi člani so navzoči. Navadna večina: več glasov za kot proti; vzdržani glasovi se ne štejejo.",
+   "sre": "Svi članovi su prisutni. Prosta većina: više glasova za nego protiv; uzdržani glasovi se ne računaju.",
+   "ist": "Vsički členove prisãstvat. Obiknoveno mnozinstvo: poveče glasove „za“, otkolkoto „protiv“; vãzdãržalite se ne se brojat."
   },
   "Every page can now be read in the three standards (zapadni, središñi, istočni), and the central and eastern standards also in Cyrillic: the state pages, the institutions, security, the Official Journal, the alphabet and symbols, the citizen's journey and the search. Numbers and dates follow the language; a glossary fixes the shared terms.": {
    "zap": "Vse strani je zdaj mogoče brati v treh standardih (zapadni, središñi, istočni), središñi in istočni standard pa tudi v cirilici: strani držav, institucije, varnost, Uradni list, abecedo in simbole, pot do državļanstva in iskañe. Števila in datumi sledijo jeziku, skupne izraze pa določa glosar.",
@@ -1771,6 +1831,11 @@
    "ist": "Cjal izgled",
    "sre": "Prilagodi"
   },
+  "Five delegations without the two largest": {
+   "zap": "Pet delegacij brez dveh največjih",
+   "sre": "Pet delegacija bez dvě najveće",
+   "ist": "Pet delegacii bez dvete naj-golemi"
+  },
   "Five horizontal stripes of gules and argent; from the hoist, a vert triangular pall charged with a golden radiant sun, Strandja highlands at the gates of Anatolia.": {
    "zap": "Pet vodoravnih pasov rdeče in srebrne barve; od droga zelen trikotnik z zlatim sijočim soncem; višavje Stranxe na vratih Anatolije.",
    "ist": "Pet horizontalni ivici v červeno i srebãrno; otkãm drevkata — zelen triãgãlnik sãs zlatno sijaešto slãnce; Stranxa, planinata pred portite na Anadola.",
@@ -1780,6 +1845,11 @@
    "zap": "Pet korakov, nekaj minut. Vaša država, vaš narodni register in jezik vaše izkaznice so tri neodvisne izbire. Jezik lahko spremenite kadar koli; prvi narodni register lahko v treh letih enkrat popravite, sicer se lahko v drug register vpišete šele petnajst let po vpisu (čl. 102).",
    "ist": "Pet stãpki, ñakolko minuti. Vašata dãržava, vašijat naroden registãr i ezikãt na kartata vi sa tri nezavisimi izbora. Ezikãt može da bãde promeñan po vsjako vreme; pãrvijat naroden registãr može da bãde popraven vednãž v srok ot tri godini, a inače drug registãr e vãzmožen edva petnadeset godini sled vpisvaneto vi (čl. 102).",
    "sre": "Pet koraka, nekoliko minuta. Vaša država, vaš narodni registar i jezik vaše karte tri su nezavisna izbora. Jezik se može izměniti u svako doba; prvi narodni registar može se jednom ispraviti u roku od tri godine, a inače je upis u drugi registar moguć tek petnaest godina nakon vašeg upisa (čl. 102)."
+  },
+  "For": {
+   "zap": "Za",
+   "sre": "Za",
+   "ist": "Za"
   },
   "for each seat": {
    "sre": "za svakog sudiju",
@@ -1810,6 +1880,11 @@
    "sre": "Četrdeset osam teritorijalnih država, četiri konfederalne teritorije i dvě konfederalne autonomne opštine. Filtrirajte po konstitutivnom narodu ili tražite po nazivu, kodu ili sědištu.",
    "ist": "Četirideset i osem teritorialni dãržavi, četiri konfederalni teritorii i dve konfederalni avtonomni obštini. Filtrirajte po konstitutiven narod ili tãrsete po ime, kod ili administrativen centãr.",
    "zap": "Oseminštirideset teritorialnih držav, štiri konfederalna ozemļa in dve konfederalni avtonomni občini. Filtrirajte po konstitutivnem narodu ali iščite po imenu, oznaki ali sedežu."
+  },
+  "Four councillors for, three against": {
+   "zap": "Štirje svetniki za, trije proti",
+   "sre": "Četiri većnika za, tri protiv",
+   "ist": "Četirima sãvetnici „za“, trima „protiv“"
   },
   "Free choice of a national register, no compulsion to declare one, and the right to join none.": {
    "zap": "Svobodna izbira narodnega registra, brez prisile k izjavi in s pravico ostati zunaj vseh registrov.",
@@ -2227,9 +2302,9 @@
    "ist": "Konfederalna centralna banka"
   },
   "Konfederalna Kancelarija": {
-   "zap": "Konfederalna Kancelarija",
+   "zap": "Konfederalna kanclerija",
    "sre": "Konfederalna Kancelarija",
-   "ist": "Konfederalna Kancelarija"
+   "ist": "Konfederalna kancelarija"
   },
   "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.": {
    "sre": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
@@ -2287,9 +2362,9 @@
    "ist": "Konfederalen sãd · Konfederalna prokuratura"
   },
   "Konfederalno Veće": {
-   "zap": "Konfederalno Veće",
+   "zap": "Konfederalni svet",
    "sre": "Konfederalno Veće",
-   "ist": "Konfederalno Veće"
+   "ist": "Konfederalen sãvet"
   },
   "Konfederalno Veće, collegially · Sarajevo": {
    "zap": "Konfederalni svet kot kolegij · Sarajevo",
@@ -2386,6 +2461,11 @@
    "sre": "Ograničeña",
    "ist": "Ograničenija"
   },
+  "Link copied": {
+   "zap": "Povezava je kopirana",
+   "sre": "Link je kopiran",
+   "ist": "Vrãzkata e kopirana"
+  },
   "Lives that crossed the borders between peoples are honoured; the tribute never changes the belonging a person declared.": {
    "zap": "Časti se živļeña, ki so prestopila meje med narodi; počastitev nikoli ne spremeni pripadnosti, ki jo je oseba izjavila.",
    "sre": "Odaje se počast životima koji su prešli granice među narodima; počast nikada ne měña pripadnost koju je osoba izjavila.",
@@ -2425,6 +2505,11 @@
    "zap": "Pregled članstva",
    "ist": "Pregled na členstvoto",
    "sre": "Pregled članstva"
+  },
+  "Met": {
+   "zap": "Izpolñeno",
+   "sre": "Ispuñeno",
+   "ist": "Izpãlneno"
   },
   "Missions": {
    "zap": "Naloge",
@@ -2492,9 +2577,9 @@
    "sre": "Ime, pol, datum rođeña"
   },
   "Narodni Sabor": {
-   "zap": "Narodni Sabor",
+   "zap": "Skupščina narodov",
    "sre": "Narodni Sabor",
-   "ist": "Narodni Sabor"
+   "ist": "Sãbranie na narodite"
   },
   "Nation on card": {
    "zap": "Narodnost na izkaznici",
@@ -2636,6 +2721,11 @@
    "ist": "Ñama",
    "sre": "Nema"
   },
+  "Not admissible": {
+   "zap": "Ni dopustno",
+   "sre": "Nije dopustivo",
+   "ist": "Nedopustimo"
+  },
   "Not adopted": {
    "zap": "Ni sprejeto",
    "sre": "Nije usvojeno",
@@ -2655,6 +2745,11 @@
    "zap": "Ni najdeno",
    "ist": "Ne e namereno",
    "sre": "Nije pronađeno"
+  },
+  "Not met": {
+   "zap": "Ni izpolñeno",
+   "sre": "Nije ispuñeno",
+   "ist": "Ne e izpãlneno"
   },
   "not printed": {
    "zap": "ni izpisano",
@@ -2771,6 +2866,11 @@
    "ist": "Po edna delegacija ot deset členove za vseki ot sedemte konstitutivni naroda. Vsjaka delegacija se izbira ot graždanite, vpisani v narodnija registãr na sãotvetnija narod, koito glasuvat kato edin izbiratelen rajon v cjalata Konfederacija; kandidati mogat da bãdat samo graždanite, vpisani v registãra. Zakonite za ezicite, obrazovanieto, kulturata, simvolite, granicite na dãržavite, avtonomnite obrazuvanija, pravata na narodite, finansovoto izravñavane i Konstitucijata iziskvat negovoto sãglasie: pet ot sedemte delegacii, koito trjabva da predstavļavat i mnozinstvoto ot vpisanite graždani (šest delegacii za Konstitucijata). Toj trjabva da se proiznese v srok ot 90 dni, inače sãglasieto mu se smjata za dadeno. Pri vseki drug zakon dve treti ot členovete na edna delegacija mogat da zadejstvat alarmenija zvãnec.",
    "zap": "Po ena desetčlanska delegacija za vsakega od sedmih konstitutivnih narodov. Vsako delegacijo izvolijo državļani, vpisani v narodni register tega naroda, ki glasujejo v eni volilni enoti za vso Konfederacijo; kandidirajo lahko samo državļani, vpisani v ta register. Zakoni o jezikih, izobraževañu, kulturi, simbolih, mejah držav, avtonomnih entitetah, pravicah narodov, finančni izravnavi in Ustavi potrebujejo ñegovo soglasje: soglasje petih od sedmih delegacij, ki morajo predstavļati tudi večino vpisanih državļanov (za Ustavo šestih delegacij). Odločiti mora v 90 dneh, sicer se šteje, da je soglasje dano. Pri vsakem drugem zakonu lahko dve tretjini članov ene delegacije sprožita postopek alarmnega zvonca."
   },
+  "One delegation raises the alarm": {
+   "zap": "Ena delegacija izglasuje alarmni predlog",
+   "sre": "Jedna delegacija izglasa zahtěv za uzbunu",
+   "ist": "Edna delegacija glasuva alarmeno iskane"
+  },
   "One language, seven peoples, a living tongue.": {
    "zap": "En jezik, sedem narodov, živa govorica.",
    "sre": "Jedan jezik, sedam naroda, živi govor.",
@@ -2815,6 +2915,11 @@
    "zap": "Odprite povezavo iz potrditvenega e-poštnega sporočila. Uporabite jo lahko samo enkrat.",
    "sre": "Otvorite link iz poruke za potvrdu. Može se iskoristiti samo jednom.",
    "ist": "Otvorete vrãzkata ot imejla za potvãrždenie. Tja može da se izpolzva samo vednãž."
+  },
+  "Optional referendum": {
+   "zap": "Fakultativni referendum",
+   "sre": "Fakultativni referendum",
+   "ist": "Fakultativen referendum"
   },
   "Or field charged with the double-headed eagle gules displayed, medieval Serbian heraldry of Kosovo and Metohija.": {
    "zap": "Zlato poļe z razprtim rdečim dvoglavim orlom, sredñeveška srbska heraldika Kosova in Metohije.",
@@ -2931,6 +3036,11 @@
    "ist": "Toponimite v edinnata azbuka",
    "zap": "Zemļepisna imena v enotni abecedi"
   },
+  "Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.": {
+   "zap": "Razporedite države, narodne delegacije in svetnike ter poglejte, kakšno večino zahteva Ustava: pri vsakem pragu je naveden ñegov člen, vsaka predpostavka je izrecno navedena.",
+   "sre": "Rasporedite države, narodne delegacije i većnike i pogledajte kakvu većinu zahtěva Ustav: uz svaki prag naveden je ñegov član, a svaka pretpostavka je izričito navedena.",
+   "ist": "Razpredelete dãržavite, narodnite delegacii i sãvetnicite i vižte kakvo mnozinstvo iziskva Konstitucijata: kãm vseki prag e posočen členãt mu, a vsjako dopuskane e izrično posočeno."
+  },
   "Plain horizontal tricolour of carmine, or and azure, banner of the Kvarner gulf, of solid stripe without charge.": {
    "zap": "Navadna vodoravna trobojnica karminske, zlate in modre barve, prapor Kvarnerskega zaliva, s polnimi pasovi brez heraldičnih likov.",
    "sre": "Tri horizontalne trake, karminska, zlatna i plava, zastava Kvarnerskog zaliva, čiste trake bez heraldičkih likova.",
@@ -2960,6 +3070,11 @@
    "zap": "Politika",
    "sre": "Politika",
    "ist": "Politika"
+  },
+  "Popular initiative": {
+   "zap": "Državļanska pobuda",
+   "sre": "Građanska inicijativa",
+   "ist": "Graždanska iniciativa"
   },
   "Population": {
    "zap": "Prebivalstvo",
@@ -3286,6 +3401,11 @@
    "sre": "Revizija Ustava",
    "ist": "Izmenenie na Konstitucijata"
   },
+  "Right of mandatory consent": {
+   "zap": "Pravica obveznega soglasja",
+   "sre": "Pravo obaveznog pristanka",
+   "ist": "Pravo na zadãlžitelno sãglasie"
+  },
   "Runs confederal elections and votes, verifies signatures, recognises confederal parties, keeps the national registers and publishes their yearly flows, and publishes the Official Journal.": {
    "zap": "Izvaja konfederalne volitve in glasovaña, preverja podpise, priznava konfederalne stranke, vodi narodne registre in objavļa ñihovo letno gibañe ter izdaja Uradni list.",
    "sre": "Organizuje konfederalne izbore i glasaña, prověrava potpise, utvrđuje status konfederalnih stranaka, vodi narodne registre i objavļuje godišñe podatke o upisima u ñih, a izdaje i Službeni glasnik.",
@@ -3511,6 +3631,11 @@
    "ist": "Pokažete dannite v tablica",
    "zap": "Prikaži podatke v tabeli"
   },
+  "Six delegations of seven on an entrenched guarantee": {
+   "zap": "Šest od sedmih delegacij pri utrjenem jamstvu",
+   "sre": "Šest od sedam delegacija za ojačanu garanciju",
+   "ist": "Šest ot sedemte delegacii pri zasilena garancija"
+  },
   "Six months of basic training outside the State of attachment, in mixed units; civilian service on request, half as long again.": {
    "zap": "Šest mesecev osnovnega usposabļaña zunaj države pripadnosti, v mešanih enotah; civilna služba na zahtevo, za polovico daļša.",
    "sre": "Šest měseci osnovne obuke izvan države pripadnosti, u měšovitim jedinicama; civilna služba na zahtěv, za polovinu duža.",
@@ -3706,6 +3831,11 @@
    "sre": "Prezime",
    "ist": "Familija"
   },
+  "Suspended": {
+   "zap": "Zadržano",
+   "sre": "Obustavļeno",
+   "ist": "Sprjano"
+  },
   "Sustainable development, spatial planning, water, forests, nature and the protected seas.": {
    "zap": "Trajnostni razvoj, prostorsko načrtovañe, vode, gozdovi, narava in zavarovana morja.",
    "ist": "Ustojčivo razvitie, ustrojstvo na teritorijata, vodi, gori, priroda i zaštiteni morski zoni.",
@@ -3851,6 +3981,11 @@
    "ist": "Graždanskoto zname e znameto na vsički žiteli na Konfederacijata. Izdiga se ot graždanite i ot graždanskite sdruženija, kakto i na obštestvenite sgradi, podčineni na obštinskata vlast. Vertikalna červena ivica otkãm drevkata; horizontalno pole v siño, srebãrno i siño — neukrasenata osnova na dãržavnoto zname.",
    "zap": "Civilna zastava je zastava ļudstva Konfederacije. Izobešajo jo državļani in civilna združeña, izobešena pa je tudi na javnih stavbah pod občinsko upravo. Navpični rdeči pas ob drogu; vodoravno poļe modre, srebrne in modre barve, neokrašena osnova državne zastave."
   },
+  "The coalition is the set of States placed in favour; a confederal territory belongs to no people.": {
+   "zap": "Koalicijo sestavļajo države, postavļene med glasove za; konfederalno ozemļe ne pripada nobenemu narodu.",
+   "sre": "Koaliciju čine države postavļene među glasove za; konfederalna teritorija ne pripada nijednom narodu.",
+   "ist": "Koalicijata se sãstoi ot dãržavite, postaveni sred glasovete „za“; konfederalnata teritorija ne prinadleži na nito edin narod."
+  },
   "The coat of arms, the state flag and the civil flag of the Confederation.": {
    "zap": "Grb, državna zastava in civilna zastava Konfederacije.",
    "sre": "Grb, državna zastava i zastava državļana Konfederacije.",
@@ -3946,10 +4081,20 @@
    "ist": "Deklaracijata na roditeļa ili nastojnika e zadãlžitelna.",
    "zap": "Potrebna je izjava starša ali zakonitega skrbnika."
   },
+  "The delegates of a State vote together, as their State is placed.": {
+   "zap": "Delegati posamezne države glasujejo skupaj, tako kot je postavļena ñihova država.",
+   "sre": "Delegati jedne države glasaju zajedno, onako kako je postavļena ñihova država.",
+   "ist": "Delegatite na edna dãržava glasuvat zaedno, kakto e postavena dãržavata im."
+  },
   "The deletion failed. Please try again.": {
    "sre": "Brisañe nije izvršeno. Pokušajte još jednom.",
    "ist": "Iztrivaneto ne beše uspešno. Moļa, opitajte otnovo.",
    "zap": "Brisañe ni uspelo. Poskusite znova."
+  },
+  "The double key also applies to six delegations of seven: six are \"at least five of the seven\" (Art. 110).": {
+   "zap": "Dvojni kļuč veļa tudi za šest delegacij od sedmih: šest je »najmañ pet od sedmih« (čl. 110).",
+   "sre": "Dvostruki kļuč priměñuje se i na šest od sedam delegacija: šest je „najmañe pet od sedam“ (čl. 110).",
+   "ist": "Dvojnijat kļuč se prilaga i za šest ot sedemte delegacii: šest sa „pone pet ot sedemte“ (čl. 110)."
   },
   "The four confederal institutions": {
    "zap": "Štiri konfederalne institucije",
@@ -4196,6 +4341,11 @@
    "ist": "Edinnata latinska azbuka, simvolite i heraldikata na sãjuza.",
    "sre": "Jedinstvena latinica, simboli i heraldika saveza."
   },
+  "The voters of a State all vote as their State is placed; the weight is the resident population.": {
+   "zap": "Vsi volivci posamezne države glasujejo tako, kot je postavļena ñihova država; utež je ñeno prebivalstvo.",
+   "sre": "Svi birači jedne države glasaju onako kako je postavļena ñihova država; težina je broj ñenih stanovnika.",
+   "ist": "Vsički izbirateli na edna dãržava glasuvat, kakto e postavena dãržavata im; težestta e nejnoto naselenie."
+  },
   "The whole portal in the three standards": {
    "zap": "Ves portal v treh standardih",
    "sre": "Čitav portal na tri standarda",
@@ -4316,6 +4466,11 @@
    "ist": "Turska obštnost",
    "zap": "Turška skupnost"
   },
+  "Twelve States, nine of one people": {
+   "zap": "Dvanajst držav, devet istega naroda",
+   "sre": "Dvanaest država, devet iz istog naroda",
+   "ist": "Dvanadeset dãržavi, devet ot edin i sãšt narod"
+  },
   "Twenty-four autonomous communities guarantee the cultural, educational and municipal rights of minority communities (Art. 1 quater to 1 sexies). They hold no legislative power of their own, but a right of consultation and of petition.": {
    "sre": "Dvadeset četiri autonomne zajednice garantuju kulturna, obrazovna i opštinska prava mañinskih zajednica (čl. 1 quater do 1 sexies). Nemaju zakonodavnu vlast, ali imaju pravo na konsultacije i pravo peticije.",
    "ist": "Dvadeset i četiri avtonomni obštnosti garantirat kulturnite, obrazovatelnite i obštinskite prava na malcinstvenite obštnosti (čl. ot 1 quater do 1 sexies). Te ñamat sobstvena zakonodatelna vlast, no imat pravo na konsultacija i na peticija.",
@@ -4340,6 +4495,11 @@
    "zap": "Dva doma, eden izvoļen po državah in drugi po narodih, izbereta kolegijsko izvršilno oblast in sodnike ustavnega sodišča. Zakonodajna, izvršilna in sodna funkcija so ločene in nihče ne sme biti član več kot enega konfederalnega organa (čl. 101).",
    "sre": "Dva doma, jedan izabran po državama, a drugi po narodima, biraju kolegijalnu izvršnu vlast i sudije ustavnog suda. Zakonodavna, izvršna i sudska funkcija su razdvojene, i niko ne može biti član više od jednog konfederalnog organa (čl. 101).",
    "ist": "Dve kamari, ednata izbirana v dãržavite, a drugata – ot narodite, izbirat kolegialna izpãlnitelna vlast i sãdiite na konstitucionnija sãd. Zakonodatelnata, izpãlnitelnata i sãdebnata funkcija sa razdeleni i nikoj ne može da bãde člen na poveče ot edin konfederalen organ (čl. 101)."
+  },
+  "Two peoples alone": {
+   "zap": "Samo dva naroda",
+   "sre": "Samo dva naroda",
+   "ist": "Samo dva naroda"
   },
   "Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.": {
    "zap": "Dve tretjini se zaokrožita navzgor: sedem od desetih članov delegacije, 167 od 250 delegatov. Večina štirinajstih članov usklajevalnega odbora je osem.",
@@ -4371,10 +4531,15 @@
    "ist": "Obnovjavane na kartata mi",
    "sre": "Ažurirajte kartu"
   },
+  "Urgent laws": {
+   "zap": "Nujni zakoni",
+   "sre": "Hitni zakoni",
+   "ist": "Spešni zakoni"
+  },
   "Ustavni Sud": {
-   "zap": "Ustavni Sud",
+   "zap": "Ustavno sodišče",
    "sre": "Ustavni Sud",
-   "ist": "Ustavni Sud"
+   "ist": "Konstitucionen sãd"
   },
   "Valid card": {
    "sre": "Važeća karta",
@@ -4436,6 +4601,11 @@
    "ist": "glasuvat v svojata dãržava",
    "zap": "volijo v svoji državi"
   },
+  "Votes and majorities": {
+   "zap": "Glasovaña in večine",
+   "sre": "Glasaña i većine",
+   "ist": "Glasuvanija i mnozinstva"
+  },
   "Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).": {
    "zap": "Glasovaña potekajo ob štirih vnaprej določenih nedeļah na leto, na isti dan v vsej Konfederaciji (čl. 124 bis).",
    "sre": "Glasaña se održavaju četiri neděļe godišñe, unaprěd određene, istog dana u cěloj Konfederaciji (čl. 124 bis).",
@@ -4490,6 +4660,11 @@
    "sre": "Běla",
    "ist": "Bjalo",
    "zap": "Bela"
+  },
+  "With reduced motion, the discs are not dragged: select one, then place it by clicking or with the arrow keys.": {
+   "zap": "Pri zmañšanem gibañu krogov ni mogoče vleči: izberite krog in ga postavite s klikom ali s puščicami.",
+   "sre": "Uz smañeno kretañe krugovi se ne prevlače: izaberite krug, a zatim ga postavite klikom ili strelicama.",
+   "ist": "Pri namaleno dviženie krãgovete ne se vlačat: izberete krãg i go postavete s štrakvane ili sãs strelkite."
   },
   "within <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>": {
    "sre": "u državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",
@@ -4641,6 +4816,16 @@
    "ist": "{0} {0#one:člen;other:člena}",
    "zap": "{0} {0#one:člen;two:člena;few:členi;other:členov}"
   },
+  "{0} confederal municipalities": {
+   "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}",
+   "sre": "{0} {0#one:konfederalna opština;few:konfederalne opštine;other:konfederalnih opština}",
+   "ist": "{0} {0#one:konfederalna obština;other:konfederalni obštini}"
+  },
+  "{0} confederal territories": {
+   "zap": "{0} {0#one:konfederalno ozemļe;two:konfederalni ozemļi;few:konfederalna ozemļa;other:konfederalnih ozemeļ}",
+   "sre": "{0} {0#one:konfederalna teritorija;few:konfederalne teritorije;other:konfederalnih teritorija}",
+   "ist": "{0} {0#one:konfederalna teritorija;other:konfederalni teritorii}"
+  },
   "{0} inhabitants": {
    "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev}",
    "ist": "{0} {0#one:žitel;other:žiteli}",
@@ -4671,6 +4856,11 @@
    "ist": "{0} km²",
    "sre": "{0} km²"
   },
+  "{0} Kongres seats": {
+   "zap": "{0} {0#one:sedež;two:sedeža;few:sedeži;other:sedežev} v Kongresu",
+   "sre": "{0} {0#one:mandat;few:mandata;other:mandata} u Kongresu",
+   "ist": "{0} {0#one:mjasto;other:mesta} v Kongresa"
+  },
   "{0} M": {
    "zap": "{0} mio.",
    "ist": "{0} mln.",
@@ -4690,6 +4880,16 @@
    "zap": "{0} od {1} · ena volilna enota za vso Konfederacijo · veļa od prvih volitev po {2}.",
    "sre": "{0} · upis od {1} · jedna izborna jedinica za cělu Konfederaciju · računa se od prvih izbora održanih nakon {2}.",
    "ist": "{0} ot {1} · edin izbiratelen rajon za cjalata Konfederacija · važi ot pãrvite izbori, provedeni sled {2}."
+  },
+  "{0} States": {
+   "zap": "{0} {0#one:država;two:državi;few:države;other:držav}",
+   "sre": "{0} {0#one:država;few:države;other:država}",
+   "ist": "{0} {0#one:dãržava;other:dãržavi}"
+  },
+  "{0} territorial states": {
+   "zap": "{0} {0#one:teritorialna država;two:teritorialni državi;few:teritorialne države;other:teritorialnih držav}",
+   "sre": "{0} {0#one:teritorijalna država;few:teritorijalne države;other:teritorijalnih država}",
+   "ist": "{0} {0#one:teritorialna dãržava;other:teritorialni dãržavi}"
   },
   "{0}% of the EU-27 average": {
    "zap": "{0} % povprečja EU-27",

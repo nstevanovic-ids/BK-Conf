@@ -232,9 +232,12 @@ JSON_SOURCES = [
 ]
 
 # Noms propres qui passent par L() à l'affichage (colonnes mêlant noms et libellés) : ils se
-# disent pareil dans les trois standards ; textes.json les porte tels quels.
-NAMES = ["Kongres", "Narodni Sabor", "Konfederalno Veće", "Ustavni Sud", "Konfederalna Kancelarija",
-         "Sarajevo", "Beograd", "Zagreb", "Sofija", "Ļubļana", "Ohrid · Cetiñe"]
+# disent pareil dans les trois standards ; textes.json les porte tels quels (merge les y remet).
+NAMES = ["Kongres", "Sarajevo", "Beograd", "Zagreb", "Sofija", "Ļubļana", "Ohrid · Cetiñe"]
+# Noms d'organes : traduits dans chaque standard (ADR 2026-11-06-noms-officiels-traduits.md ; le središñi
+# garde le nom de référence) ; au catalogue, mais jamais remis au nom središñi par merge (lot 3 : la liste
+# NAMES les y remettait, ce qui avait annulé leur traduction).
+ORGANS = ["Narodni Sabor", "Konfederalno Veće", "Ustavni Sud", "Konfederalna Kancelarija"]
 
 
 def extract():
@@ -269,8 +272,8 @@ def extract():
             tag = f"js/{js.name}:{func_at(jsrc, pos)}:{line}"
             if tag not in e["ctx"]:
                 e["ctx"].append(tag)
-    for k in NAMES:
-        cat.setdefault(k, {"ctx": ["NAMES"]})
+    for k in NAMES + ORGANS:
+        cat.setdefault(k, {"ctx": ["NAMES" if k in NAMES else "ORGANS"]})
     for fname, get in JSON_SOURCES:
         d = json.loads((DATA / fname).read_text(encoding="utf-8"))
         for v in get(d):

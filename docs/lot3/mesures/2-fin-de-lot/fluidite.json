@@ -1,0 +1,25 @@
+{
+ "_": "requestAnimationFrame pendant les sept cas joués et cinq changements de disposition ; 2026-11-24",
+ "bureau": {
+  "largeur": 1440,
+  "processeur": 1,
+  "images": 3566,
+  "moyenne_ms": 16.7,
+  "mediane_ms": 16.7,
+  "p95_ms": 16.7,
+  "max_ms": 67,
+  "au_dela_20ms": 2,
+  "au_dela_50ms": 1
+ },
+ "mobile": {
+  "largeur": 375,
+  "processeur": 4,
+  "images": 3511,
+  "moyenne_ms": 17.2,
+  "mediane_ms": 16.7,
+  "p95_ms": 16.8,
+  "max_ms": 150,
+  "au_dela_20ms": 76,
+  "au_dela_50ms": 10
+ }
+}
