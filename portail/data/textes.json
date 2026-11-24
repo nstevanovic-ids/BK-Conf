@@ -501,6 +501,11 @@
    "sre": "Pretpostavka",
    "ist": "Dopuskane"
   },
+  "Assumptions of the calculation": {
+   "zap": "Predpostavke izračuna",
+   "sre": "Pretpostavke izračunavaña",
+   "ist": "Dopuskanija pri izčisļavaneto"
+  },
   "At home": {
    "zap": "Doma",
    "sre": "U zemļi",
@@ -1325,6 +1330,11 @@
    "zap": "Naprej →",
    "ist": "Napred →",
    "sre": "Daļe →"
+  },
+  "Copy link": {
+   "zap": "Kopiraj povezavo",
+   "sre": "Kopirajte link",
+   "ist": "Kopirajte vrãzkata"
   },
   "Core rights": {
    "zap": "Temeļne pravice",
@@ -2451,6 +2461,11 @@
    "sre": "Ograničeña",
    "ist": "Ograničenija"
   },
+  "Link copied": {
+   "zap": "Povezava je kopirana",
+   "sre": "Link je kopiran",
+   "ist": "Vrãzkata e kopirana"
+  },
   "Lives that crossed the borders between peoples are honoured; the tribute never changes the belonging a person declared.": {
    "zap": "Časti se živļeña, ki so prestopila meje med narodi; počastitev nikoli ne spremeni pripadnosti, ki jo je oseba izjavila.",
    "sre": "Odaje se počast životima koji su prešli granice među narodima; počast nikada ne měña pripadnost koju je osoba izjavila.",
@@ -2490,6 +2505,11 @@
    "zap": "Pregled članstva",
    "ist": "Pregled na členstvoto",
    "sre": "Pregled članstva"
+  },
+  "Met": {
+   "zap": "Izpolñeno",
+   "sre": "Ispuñeno",
+   "ist": "Izpãlneno"
   },
   "Missions": {
    "zap": "Naloge",
@@ -2725,6 +2745,11 @@
    "zap": "Ni najdeno",
    "ist": "Ne e namereno",
    "sre": "Nije pronađeno"
+  },
+  "Not met": {
+   "zap": "Ni izpolñeno",
+   "sre": "Nije ispuñeno",
+   "ist": "Ne e izpãlneno"
   },
   "not printed": {
    "zap": "ni izpisano",
@@ -3010,6 +3035,11 @@
    "sre": "Toponimi u jedinstvenoj abecedi",
    "ist": "Toponimite v edinnata azbuka",
    "zap": "Zemļepisna imena v enotni abecedi"
+  },
+  "Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.": {
+   "zap": "Razporedite države, narodne delegacije in svetnike ter poglejte, kakšno večino zahteva Ustava: pri vsakem pragu je naveden ñegov člen, vsaka predpostavka je izrecno navedena.",
+   "sre": "Rasporedite države, narodne delegacije i većnike i pogledajte kakvu većinu zahtěva Ustav: uz svaki prag naveden je ñegov član, a svaka pretpostavka je izričito navedena.",
+   "ist": "Razpredelete dãržavite, narodnite delegacii i sãvetnicite i vižte kakvo mnozinstvo iziskva Konstitucijata: kãm vseki prag e posočen členãt mu, a vsjako dopuskane e izrično posočeno."
   },
   "Plain horizontal tricolour of carmine, or and azure, banner of the Kvarner gulf, of solid stripe without charge.": {
    "zap": "Navadna vodoravna trobojnica karminske, zlate in modre barve, prapor Kvarnerskega zaliva, s polnimi pasovi brez heraldičnih likov.",
@@ -4571,6 +4601,11 @@
    "ist": "glasuvat v svojata dãržava",
    "zap": "volijo v svoji državi"
   },
+  "Votes and majorities": {
+   "zap": "Glasovaña in večine",
+   "sre": "Glasaña i većine",
+   "ist": "Glasuvanija i mnozinstva"
+  },
   "Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).": {
    "zap": "Glasovaña potekajo ob štirih vnaprej določenih nedeļah na leto, na isti dan v vsej Konfederaciji (čl. 124 bis).",
    "sre": "Glasaña se održavaju četiri neděļe godišñe, unaprěd određene, istog dana u cěloj Konfederaciji (čl. 124 bis).",
@@ -4625,6 +4660,11 @@
    "sre": "Běla",
    "ist": "Bjalo",
    "zap": "Bela"
+  },
+  "With reduced motion, the discs are not dragged: select one, then place it by clicking or with the arrow keys.": {
+   "zap": "Pri zmañšanem gibañu krogov ni mogoče vleči: izberite krog in ga postavite s klikom ali s puščicami.",
+   "sre": "Uz smañeno kretañe krugovi se ne prevlače: izaberite krug, a zatim ga postavite klikom ili strelicama.",
+   "ist": "Pri namaleno dviženie krãgovete ne se vlačat: izberete krãg i go postavete s štrakvane ili sãs strelkite."
   },
   "within <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>": {
    "sre": "u državi <a href=\"#/state/{0}\" style=\"color:var(--gold);font-weight:600\">{1}</a>",
@@ -4776,6 +4816,16 @@
    "ist": "{0} {0#one:člen;other:člena}",
    "zap": "{0} {0#one:člen;two:člena;few:členi;other:členov}"
   },
+  "{0} confederal municipalities": {
+   "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}",
+   "sre": "{0} {0#one:konfederalna opština;few:konfederalne opštine;other:konfederalnih opština}",
+   "ist": "{0} {0#one:konfederalna obština;other:konfederalni obštini}"
+  },
+  "{0} confederal territories": {
+   "zap": "{0} {0#one:konfederalno ozemļe;two:konfederalni ozemļi;few:konfederalna ozemļa;other:konfederalnih ozemeļ}",
+   "sre": "{0} {0#one:konfederalna teritorija;few:konfederalne teritorije;other:konfederalnih teritorija}",
+   "ist": "{0} {0#one:konfederalna teritorija;other:konfederalni teritorii}"
+  },
   "{0} inhabitants": {
    "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev}",
    "ist": "{0} {0#one:žitel;other:žiteli}",
@@ -4806,6 +4856,11 @@
    "ist": "{0} km²",
    "sre": "{0} km²"
   },
+  "{0} Kongres seats": {
+   "zap": "{0} {0#one:sedež;two:sedeža;few:sedeži;other:sedežev} v Kongresu",
+   "sre": "{0} {0#one:mandat;few:mandata;other:mandata} u Kongresu",
+   "ist": "{0} {0#one:mjasto;other:mesta} v Kongresa"
+  },
   "{0} M": {
    "zap": "{0} mio.",
    "ist": "{0} mln.",
@@ -4825,6 +4880,16 @@
    "zap": "{0} od {1} · ena volilna enota za vso Konfederacijo · veļa od prvih volitev po {2}.",
    "sre": "{0} · upis od {1} · jedna izborna jedinica za cělu Konfederaciju · računa se od prvih izbora održanih nakon {2}.",
    "ist": "{0} ot {1} · edin izbiratelen rajon za cjalata Konfederacija · važi ot pãrvite izbori, provedeni sled {2}."
+  },
+  "{0} States": {
+   "zap": "{0} {0#one:država;two:državi;few:države;other:držav}",
+   "sre": "{0} {0#one:država;few:države;other:država}",
+   "ist": "{0} {0#one:dãržava;other:dãržavi}"
+  },
+  "{0} territorial states": {
+   "zap": "{0} {0#one:teritorialna država;two:teritorialni državi;few:teritorialne države;other:teritorialnih držav}",
+   "sre": "{0} {0#one:teritorijalna država;few:teritorijalne države;other:teritorijalnih država}",
+   "ist": "{0} {0#one:teritorialna dãržava;other:teritorialni dãržavi}"
   },
   "{0}% of the EU-27 average": {
    "zap": "{0} % povprečja EU-27",

@@ -29,6 +29,11 @@ const DATA_V='';   // version des données et du code, posée par scripts/build_
   if(/^#\/map(\/|$)/.test(h)){
     pl('data/carte/index.json','fetch');pl('data/stats.json','fetch');pl('js/carte.js','script');pl('css/carte.css','style');
   }
+  if(/^#\/votes(\/|$)/.test(h)){
+    var q=['en','zap','sre','ist'].indexOf(lang)>=0?lang:'en';
+    pl('data/constitution/core.json','fetch');pl('data/stats.json','fetch');pl('js/regles.js','script');pl('js/votes.js','script');
+    pl('css/votes.css','style');pl('data/constitution/t/title-4.'+q+'.json','fetch');pl('data/constitution/t/title-8.'+q+'.json','fetch');
+  }
 })();
 </script>
 <!--préchargement:fin-->
@@ -1686,6 +1691,7 @@ function i18nWatch(){
 function rerender(){
   if((location.hash||'').startsWith('#/constitution')&&window.CX&&CX.rerender())return;
   if((location.hash||'').startsWith('#/map')&&window.MAPX&&MAPX.rerender())return;
+  if((location.hash||'').startsWith('#/votes')&&window.VOTES&&VOTES.rerender())return;
   const y=window.scrollY;
   renderNow();
   window.scrollTo({top:y,behavior:'instant'});
@@ -2346,6 +2352,11 @@ function vInstitutions(){
       <a class="btn btn-ghost" href="#/security">${L`Security and Defence →`}</a>
     </div>
   </section>`;
+}
+
+/* Votes et majorités : portail/js/votes.js (VOTES), chargé avec la page (ADR 2026-11-24-votes-majorites.md) */
+function vVotes(){
+  return window.VOTES?VOTES.html(location.hash||'#/votes'):'';
 }
 
 /* ============================================================
@@ -4132,7 +4143,7 @@ function skipTo(){
 }
 const ROUTES={
  'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
- 'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
+ 'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'votes':[vVotes,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
  'autonomy':[vAutonomy,'#/states'],'participation':[vParticipation,'#/participation'],
@@ -4167,7 +4178,8 @@ function render(){
   const h=location.hash||'#/home';
   _want=h;
   need(routeData(h)).then(()=>h.startsWith('#/constitution')&&window.CX?CX.prepare(h):
-    h.startsWith('#/map')&&window.MAPX?MAPX.prepare(h):null).then(()=>{
+    h.startsWith('#/map')&&window.MAPX?MAPX.prepare(h):
+    h.startsWith('#/votes')&&window.VOTES?VOTES.prepare(h):null).then(()=>{
     if(_want!==h)return;
     renderRoute();
     need(routeData(h,true)).catch(()=>{});
@@ -4184,6 +4196,8 @@ function renderRoute(){
   if(prev!==null&&d===0&&h.startsWith('#/constitution')&&window.CX&&CX.inplace(h))return;
   /* même page : sous-route de la carte (État, commune, couche) → la carte vole, elle n'est pas redessinée */
   if(prev!==null&&d===0&&h.startsWith('#/map')&&window.MAPX&&MAPX.inplace(h))return;
+  /* même page : autre composition, cas ou disposition des votes → la scène reste, les disques vont à leur place */
+  if(prev!==null&&d===0&&h.startsWith('#/votes')&&window.VOTES&&VOTES.inplace(h))return;
   /* grille → fiche : on retient la position pour y revenir au retour */
   if(prev&&prev.startsWith('#/states')&&h.startsWith('#/state/'))_gridY=window.scrollY;
   /* un seul glissement ; aucun au premier affichage ni sur la même page */
@@ -4212,6 +4226,7 @@ function renderNow(){
   const app=document.getElementById('app');
   if(window.CX)CX.leave();
   if(window.MAPX)MAPX.leave();
+  if(window.VOTES)VOTES.leave();
   let html,key;
   if(h.startsWith('#/state/')){html=vState(h.slice(8));key='#/states';}
   else{
@@ -4249,6 +4264,7 @@ function renderNow(){
   /* lecteur de la Constitution : arrivée sur l'article, déjà positionnée, le glissement l'apporte */
   if(h.startsWith('#/constitution')&&window.CX)CX.mounted();
   if(h.startsWith('#/map')&&window.MAPX)MAPX.mounted();
+  if(h.startsWith('#/votes')&&window.VOTES)VOTES.mounted();
   setupReveal();
   requestAnimationFrame(()=>{
     setupParallax();
@@ -4749,6 +4765,7 @@ const withCard=()=>citLoad()?['flags',QR]:[];    // carte citoyenne dessinée : 
 const DATA_ROUTE={
   states:['flags','stats','videos'], state:['flags','flagnotes','geo','stats','videos',...D3],
   map:['stats','carte','js/carte.js','css/carte.css'], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
+  votes:['core','stats','js/regles.js','js/votes.js','css/votes.css'],
   constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
   symbols:['flags'], autonomy:['flags'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags',QR]:[]),
