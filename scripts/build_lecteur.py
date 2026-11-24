@@ -40,7 +40,8 @@ STDS = ["zap", "sre", "ist"]
 SUF = "bis|ter|quater|quinquies|sexies|septies|octies"
 ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9, "X": 10}
 
-# Alinéas annotés par les instruments de marge : clé → (article, motif cherché dans le texte anglais).
+# Alinéas annotés par les instruments de marge, ou cités par la page des votes : clé → (article, motif
+# cherché dans le texte anglais).
 # Le motif doit désigner exactement une unité ; son rang vaut pour les cinq textes, alignés.
 ANCRES = {
     "1ter.SA-92": ("art-1ter", r"^\*\*Sarajevo\*\*"),
@@ -62,6 +63,17 @@ ANCRES = {
     "111.suspension": ("art-111", r"against the opinion of at least three councillors"),
     "111.exceptions": ("art-111", r"^This procedure applies neither to"),
     "115bis.releve": ("art-115bis", r"total number of citizens enrolled on 1 January"),
+    # alinéas cités par la page des votes (#/votes, lot 3) : description des types, ligne du verdict
+    "106.majorite": ("art-106", r"^Decisions of the Kongres are taken by simple majority"),
+    "106.quorum": ("art-106", r"^The quorum is an absolute majority of the delegates"),
+    "106bis.initiative": ("art-106bis", r"^The right of legislative initiative belongs"),
+    "106bis.d": ("art-106bis", r"at least eight States, of which no more than half"),
+    "106bis.depot": ("art-106bis", r"^Bills are tabled before the Kongres"),
+    "121.double": ("art-121", r"^An initiative for partial revision is submitted to the vote"),
+    "122.demande": ("art-122", r"^One hundred and fifty thousand citizens, or twelve States"),
+    "122.vote": ("art-122", r"is rejected if a majority of voters vote against it"),
+    "123bis.urgent": ("art-123bis", r"may be declared urgent by the Kongres"),
+    "150.garanties": ("art-150", r"^The following provisions may be revised only with the approval"),
 }
 
 

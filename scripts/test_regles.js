@@ -244,6 +244,10 @@ const seatsOf = (v, o) => S.rows.reduce((a, r) => a + (v.st[r.c] === o ? r.s : 0
   for (const k of seenLine) ok(L.line[k], `libellé de la ligne ${k}`);
   for (const k of seenHyp) ok(L.hyp[k], `libellé de l'hypothèse ${k}`);
   eq(R.HYP.filter(h => !L.hyp[h]), [], 'toutes les hypothèses ont un libellé');
+  // alinéas cités : chaque ancrage existe dans core.json (scripts/build_lecteur.py, ANCRES)
+  const anc = JSON.parse(fs.readFileSync(path.join(ROOT, 'portail', 'data', 'constitution', 'core.json'), 'utf8')).anc;
+  const qs = R.TYPES.flatMap(t => t.desc).concat(Object.values(L.line).filter(x => x.q).map(x => x.q));
+  eq(qs.filter(q => !anc[q]), [], `alinéas cités par la page des votes : ${qs.length} ancrages dans core.json`);
 }
 
 console.log(`${n} vérifications, ${bad} en échec`);
