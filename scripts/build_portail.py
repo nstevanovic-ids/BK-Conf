@@ -40,24 +40,28 @@ SITE = ROOT / "_site"
 # de build_linked() compare cette liste à la table DATA_SRC du gabarit.
 DATA_FILES = (
     "peuples.json", "etats.json", "entites-autonomes.json", "alfabet.json", "state_flags.json",
-    "flagnotes.json", "geo.json", "stats.json", "lights.json", "opstine.json",
+    "flagnotes.json", "geo.json", "stats.json", "opstine.json",
     "videos.json", "i18n.json", "registre.json", "textes.json",
 )
-# Données générées du lecteur de la Constitution (scripts/build_lecteur.py, build_carte_marge.py),
-# chargées par le lecteur lui-même : publiées en entier.
-DATA_DIRS = ("constitution",)
+# Données générées, chargées par leur page : lecteur de la Constitution (scripts/build_lecteur.py,
+# build_carte_marge.py) et carte (scripts/build_carte.py) ; publiées en entier. Valeur : le fichier
+# dont l'absence signale un dossier non généré.
+DATA_DIRS = {"constitution": "core.json", "carte": "index.json"}
 # Dossiers copiés tels quels (sans leurs README) et fichiers de la racine du site.
 ASSET_DIRS = ("fonts", "vendor", "images", "videos", "js", "css")
 # Code chargé avec sa page (need() du gabarit) ; le fichier unique l'embarque.
 CODE_DIRS = ("js", "css")
-# Bibliothèques tierces, chargées avec leurs pages (d3 : carte et mini-cartes ; qrcode : carte citoyenne),
-# dans cet ordre (d3-geo s'appuie sur d3-array).
+# Bibliothèques tierces embarquées par le fichier unique, chargées avec leurs pages (d3 : mini-cartes
+# des fiches ; qrcode : carte citoyenne), dans cet ordre (d3-geo s'appuie sur d3-array). MapLibre
+# (vendor/maplibre-gl/, carte) n'est publié qu'en build lié : son worker exige http(s).
 VENDOR = ("d3-array.min.js", "d3-geo.min.js", "qrcode.min.js")
 # Amorce du chargement par page (portail/index.html), remplacée par les données en build inline.
 BOOT_LINE = "need([...DATA_CORE,...txL()]).then(boot,dataFail);   // build inline : remplacé par les données"
 # Version des données (paramètre ?v= des fetch) posée dans le gabarit publié.
 DATA_V_LINE = "const DATA_V='';"
 ROOT_FILES = ("favicon.ico", "apple-touch-icon.png")
+# Code qui n'a de sens qu'en ligne : le moteur MapLibre de la carte (le fichier unique garde la silhouette).
+GL_ONLY = ("carte-gl.js",)
 
 
 def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
@@ -72,7 +76,6 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     flagnotes = json.loads((DATA / "flagnotes.json").read_text())
     geo = json.loads((DATA / "geo.json").read_text())
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
-    lights = json.loads((DATA / "lights.json").read_text(encoding="utf-8"))
     opstine = json.loads((DATA / "opstine.json").read_text(encoding="utf-8"))
     # Films d'États (scripts/encode_video.py) : manifeste optionnel ; les fichiers
     # vidéo restent liés (videos/…), copiés à côté par le déploiement Pages.
@@ -92,8 +95,12 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     cx_data = {str(f.relative_to(cdir)): json.loads(f.read_text(encoding="utf-8"))
                for f in sorted(cdir.rglob("*.json")) if not f.name.startswith(("core.", "full."))}
     cx_full = {l: json.loads((cdir / f"full.{l}.json").read_text(encoding="utf-8")) for l in ("en", "zap", "sre", "ist")}
+    # Carte (#/map) : l'index et sa silhouette ; ni communes ni MapLibre (son worker exige http(s)) :
+    # dans le fichier unique, la carte reste en SVG (CA_EXPORT).
+    carte = json.loads((DATA / "carte" / "index.json").read_text(encoding="utf-8"))
+    communes = json.loads((DATA / "carte" / "communes.json").read_text(encoding="utf-8"))
     code = [PORTAIL / "vendor" / lib for lib in VENDOR] + \
-        [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css")]
+        [f for d in CODE_DIRS for f in sorted((PORTAIL / d).glob("*")) if f.suffix in (".js", ".css") and f.name not in GL_ONLY]
 
     # Replace the bootstrap loader with inline assignment.
     inline_js = (
@@ -105,13 +112,15 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"FLAGNOTE={json.dumps(flagnotes, ensure_ascii=False)};\n"
         f"GEO={json.dumps(geo, ensure_ascii=False)};\n"
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
-        f"LIGHTS={json.dumps(lights, separators=(',', ':'))};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         f"TX={json.dumps(textes, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"
         f"CORE={json.dumps(core, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"CARTE={json.dumps(carte, ensure_ascii=False, separators=(',', ':'))};\nvar CA_EXPORT=1;\n"
+        # recherche : les communes (elles mènent à leur État, la commune n'existant qu'en ligne)
+        f"COMMUNES={json.dumps(communes['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"var CX_DATA={json.dumps(cx_data, ensure_ascii=False, separators=(',', ':'))};\n"
         # recherche : aperçus et texte des articles, dans les quatre langues de l'interface
         + "".join(f"CIDX.{l}=CX_DATA['idx.{l}.json'];\n" for l in ("en", "zap", "sre", "ist"))
@@ -189,7 +198,7 @@ def build_linked() -> int:
               "; publiés sans être chargés", sorted(set(DATA_FILES) - fetched) or "–", file=sys.stderr)
         return 1
     missing = [f for f in DATA_FILES if not (DATA / f).exists()]
-    missing += [d for d in DATA_DIRS if not (DATA / d / "core.json").exists()]
+    missing += [f"{d}/{f}" for d, f in DATA_DIRS.items() if not (DATA / d / f).exists()]
     missing += [d for d in ASSET_DIRS if not (PORTAIL / d).is_dir()]
     missing += [f for f in ROOT_FILES if not (PORTAIL / f).exists()]
     if missing:

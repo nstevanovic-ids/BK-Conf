@@ -256,6 +256,11 @@
    "sre": "Dodajte u Google Wallet",
    "ist": "Dobavjane v Google Wallet"
   },
+  "Adopted": {
+   "zap": "Sprejeto",
+   "sre": "Usvojeno",
+   "ist": "Prieto"
+  },
   "Adopted by a simple majority of the delegates present.": {
    "sre": "Usvojen prostom većinom prisutnih delegata.",
    "ist": "Priet s obiknoveno mnozinstvo ot prisãstvaštite delegati.",
@@ -405,6 +410,11 @@
    "zap": "Ob štirih institucijah neodvisni organi izvajajo volitve, sodijo in pregañajo, revidirajo račune, skrbijo za valuto, jezik in arhive ter dajejo glas skupnostim zunaj sedmih narodov.",
    "sre": "Uz četiri institucije, nezavisni organi organizuju izbore, sude i krivično gone, revidiraju račune, čuvaju valutu, jezik i arhive i daju glas zajednicama izvan sedam naroda.",
    "ist": "Okolo četirite institucii nezavisimi organi organizirat izborite, pravorazdavat i poddãržat obvinenieto, proverjavat smetkite, pazjat valutata, ezika i arhivite i davat glas na obštnostite izvãn sedemte naroda."
+  },
+  "Arrow keys move between neighbouring entities, <kbd>Enter</kbd> opens one, <kbd>Escape</kbd> goes up one level, plus and minus zoom, 0 fits the Confederation.": {
+   "zap": "Puščice vas vodijo med sosedñimi enotami, <kbd>Enter</kbd> odpre izbrano, <kbd>Escape</kbd> vas vrne za raven višje, plus in minus povečata ali pomañšata, 0 prikaže vso Konfederacijo.",
+   "sre": "Strelice vode do susědnih entiteta, <kbd>Enter</kbd> otvara izabrani, <kbd>Escape</kbd> vraća na viši nivo, plus i minus uvećavaju i umañuju prikaz, a 0 prikazuje cělu Konfederaciju.",
+   "ist": "Strelkite vodjat do sãsednite edinici, <kbd>Enter</kbd> otvarja izbranata, <kbd>Escape</kbd> vrãšta edno nivo nagore, pļus i minus uveličavat i namaļavat izgleda, a 0 pokazva cjalata Konfederacija."
   },
   "Art. 38 a": {
    "zap": "čl. 38 a",
@@ -1421,11 +1431,6 @@
    "ist": "Gãstota",
    "sre": "Gustina"
   },
-  "Density, all {0} entities": {
-   "sre": "Gustina naseļenosti, svi entiteti ({0})",
-   "ist": "Gãstota, vsički {0} edinici",
-   "zap": "Gostota, vse enote ({0})"
-  },
   "Department of Defence and Security · Sofija": {
    "zap": "Resor za obrambo in varnost · Sofija",
    "sre": "Resor odbrane i sigurnosti · Sofija",
@@ -1646,11 +1651,6 @@
    "ist": "Ocenka po PPS na Svetovnata banka, 2023 g.",
    "sre": "Procěna na osnovu PKM Světske banke, 2023"
   },
-  "EU = 100": {
-   "sre": "EU = 100",
-   "ist": "ES = 100",
-   "zap": "EU = 100"
-  },
   "Eurostat (BiH) split by entity (FZS · BHAS), 2023": {
    "zap": "Eurostat (BiH), razdelitev po entitetah (FZS · BHAS), 2023",
    "ist": "Eurostat (Bosna i Hercegovina), razpredelenie po entiteti (FZS · BHAS), 2023 g.",
@@ -1861,11 +1861,6 @@
    "ist": "BVP na čovek (SPS, ocenka)",
    "sre": "BDP po stanovniku (SKM, procěna)"
   },
-  "GDP per capita, all {0} entities": {
-   "sre": "BDP po stanovniku, svi entiteti ({0})",
-   "ist": "BVP na čovek, vsički {0} edinici",
-   "zap": "BDP na prebivalca, vse enote ({0})"
-  },
   "GDP per capita, PPS, 2023": {
    "zap": "BDP na prebivalca, SKM, 2023",
    "ist": "BVP na čovek, SPS, 2023 g.",
@@ -1900,11 +1895,6 @@
    "zap": "Ime",
    "sre": "Ime",
    "ist": "Ime"
-  },
-  "Globe of the Confederation, key figures by state": {
-   "zap": "Globus Konfederacije, kļučni podatki po državah",
-   "sre": "Globus Konfederacije, osnovni podaci po državama",
-   "ist": "Globus na Konfederacijata, osnovni danni po dãržavi"
   },
   "Gold": {
    "sre": "Zlatna",
@@ -1991,11 +1981,6 @@
    "sre": "Heraldika",
    "ist": "Heraldika"
   },
-  "Highest, {0}": {
-   "zap": "Najvišji: {0}",
-   "ist": "Naj-visok: {0}",
-   "sre": "Najviši: {0}"
-  },
   "His e-mail address": {
    "zap": "Ñegov e-poštni naslov",
    "ist": "Negovijat imejl adres",
@@ -2020,11 +2005,6 @@
    "zap": "Vodoravna trobojnica rdeče, zlate in srebrne barve: kri, prelita za svobodo, zlato Zlatibora, »zlatega bora«, in mir. V sredini grb Zlatibora: zlato poļe, ki se z vrhovi borov dviga v srebrno glavo z zlatim srbskim križem s štirimi kresili; na poļu beli užiški sokol.",
    "sre": "Vodoravna trobojka crvene, zlatne i srebrne boje: krv prolivena za slobodu, zlato Zlatibora, „zlatnog bora“, i mir. U sredini grb Zlatibora: zlatno poļe koje se vrhovima borova uzdiže u srebrnu glavu sa zlatnim srpskim krstom sa četiri ocila; na poļu běli užički soko.",
    "ist": "Horizontalen trikoļor v červeno, zlatno i srebãrno: krãvta, proļata za svobodata, zlatoto na Zlatibor, „zlatnija bor“, i mirãt. V sredata — gerbãt na Zlatibor: zlatno pole, koeto se izdiga s vãrhove na borove v srebãrna glava sãs zlatnija srãbski krãst s četirite ogniva; vãrhu poleto — belijat sokol na Užice."
-  },
-  "Hover a state or a column to see its figures, click to pin it.": {
-   "sre": "Pređite pokazivačem preko države ili trake grafikona za prikaz ñenih podataka, a klikom je fiksirajte.",
-   "ist": "Posočete dãržava ili stãlbče, za da vidite dannite; štraknete, za da gi zakrepite.",
-   "zap": "Pomaknite kazalec nad državo ali stolpec, da vidite ñene podatke; s klikom jo pripnete."
   },
   "How the confederal institutions are elected": {
    "zap": "Kako se volijo konfederalne institucije",
@@ -2401,11 +2381,6 @@
    "ist": "Registracionen nomer",
    "sre": "Registarska tablica"
   },
-  "Lights": {
-   "zap": "Luči",
-   "ist": "Svetlini",
-   "sre": "Světla"
-  },
   "Limits": {
    "zap": "Omejitve",
    "sre": "Ograničeña",
@@ -2431,11 +2406,6 @@
    "sre": "{0}: položaj u Konfederaciji",
    "ist": "Mestopoloženie na {0} v Konfederacijata"
   },
-  "Lowest, {0}": {
-   "zap": "Najnižji: {0}",
-   "ist": "Naj-nisãk: {0}",
-   "sre": "Najniži: {0}"
-  },
   "Macedonians": {
    "sre": "Makedonci",
    "ist": "Makedonci",
@@ -2450,16 +2420,6 @@
    "zap": "Moški",
    "sre": "Muški",
    "ist": "Mãž"
-  },
-  "Map of the Confederation": {
-   "zap": "Zemļevid Konfederacije",
-   "ist": "Karta na Konfederacijata",
-   "sre": "Karta Konfederacije"
-  },
-  "Map of the Confederation. Drag to move, scroll or press plus and minus to zoom, 0 to fit.": {
-   "zap": "Zemļevid Konfederacije. Povlecite za premik, za povečavo uporabite kolesce ali pritisnite plus in minus, za prilagoditev pa 0.",
-   "ist": "Karta na Konfederacijata. Plãznete, za da premestite izgleda; prevãrtete ili natisnete pļus i minus, za da promenite maštaba, i 0 za cjal izgled.",
-   "sre": "Karta Konfederacije. Prevucite kartu da biste se kretali po ñoj; za zumirañe koristite miš ili pritisnite plus i minus, a 0 za prilagođavañe prikaza."
   },
   "Membership dashboard": {
    "zap": "Pregled članstva",
@@ -2676,6 +2636,11 @@
    "ist": "Ñama",
    "sre": "Nema"
   },
+  "Not adopted": {
+   "zap": "Ni sprejeto",
+   "sre": "Nije usvojeno",
+   "ist": "Ne e prieto"
+  },
   "Not calculated here: a vacant seat, when a majority of the members in office suffices; a tie, when the serving president has the casting vote; and the decisions to which the suspension does not apply.": {
    "zap": "Tu ni izračunano: izprazñen sedež, ko zadošča večina članov v funkciji; enako število glasov, ko je odločilen glas predsednika v funkciji; in odločitve, za katere se odlog izvršitve ne uporabļa.",
    "sre": "Ovdě se ne izračunava: upražñeno město, kad je dovoļna većina članova na dužnosti; jednak broj glasova, kad odlučujući glas ima predsědnik na dužnosti; i odluke na koje se obustava izvršeña ne priměñuje.",
@@ -2811,16 +2776,6 @@
    "sre": "Jedan jezik, sedam naroda, živi govor.",
    "ist": "Edin ezik, sedem naroda, živa reč."
   },
-  "One light per municipality": {
-   "sre": "Jedno světlo po opštini",
-   "ist": "Po edna svetlina za vsjaka obština",
-   "zap": "Ena luč za vsako občino"
-  },
-  "One light per municipality, brighter with population": {
-   "zap": "Ena luč za vsako občino, svetlejša pri večjem številu prebivalcev",
-   "ist": "Po edna svetlina za vsjaka obština, po-jarka pri po-goļamo naselenie",
-   "sre": "Jedno světlo po opštini, jače u opštinama s više stanovnika"
-  },
   "One people, one councillor": {
    "zap": "En narod, en svetnik",
    "ist": "Edin narod, edin sãvetnik",
@@ -2885,6 +2840,11 @@
    "zap": "Izid",
    "sre": "Ishod",
    "ist": "Rezultat"
+  },
+  "Outlines on the map: {0}": {
+   "zap": "Obrisi na zemļevidu: {0}",
+   "sre": "Obrisi na karti: {0}",
+   "ist": "Konturi na kartata: {0}"
   },
   "oversight": {
    "sre": "nadzor",
@@ -2951,11 +2911,6 @@
    "sre": "Građani i države",
    "ist": "Narod i dãržavi"
   },
-  "Peoples": {
-   "zap": "Narodi",
-   "ist": "Narodi",
-   "sre": "Narodi"
-  },
   "Per fess gules and sable; overall, the golden double-headed eagle displayed, with three golden six-pointed stars about its heads: after the flag proposed for Macedonia by the Flag Institute in 1995.": {
    "zap": "Vodoravno deļeno rdeče in črno; čez vse zlati razprti dvoglavi orel s tremi zlatimi šestkrakimi zvezdami ob glavah: po zastavi, ki jo je leta 1995 za Makedonijo predlagal britanski Flag Institute.",
    "sre": "Horizontalno poděļeno, crveno i crno; preko svega zlatni rašireni dvoglavi orao s tri zlatne šestokrake zvězde oko glava: po zastavi koju je 1995. za Makedoniju predložio britanski Flag Institute.",
@@ -2970,11 +2925,6 @@
    "zap": "Vodoravno deļeno zeleno in modro, gozdovi nad vodami Arde; čez vse zlati razprti beloglavi jastreb s srebrnim ovratnikom, ki v kremļih drži zlato Orfejevo liro, med dvema šopkoma vijoličnih Orfejevih cvetov (Haberlea rhodopensis): jastrebi Arde in tračanski pevec Rodopov.",
    "sre": "Horizontalno poděļeno, zeleno i plavo, šume iznad voda Arde; preko svega zlatni rašireni běloglavi sup sa srebrnom ogrlicom, koji u kanxama drži zlatnu Orfejevu liru, između dvě grančice ļubičastih Orfejevih cvětova (Haberlea rhodopensis): supovi Arde i trački pěvač Rodopa.",
    "ist": "Horizontalno razdeleno na zeleno i siño — gorite nad vodite na Arda; vãrhu vsičko — zlaten razperen beloglav lešojad sãs srebãrna jaka, dãržašt v noktite si zlatnata lira na Orfej, meždu dva strãka lilavi Orfeevi cvetja (Haberlea rhodopensis): lešojadite na Arda i trakijskijat pevec na Rodopite."
-  },
-  "per inhabitant in 2023, {0}% of the EU-27 average": {
-   "zap": "na prebivalca v letu 2023, {0} % povprečja EU-27",
-   "ist": "na čovek prez 2023 g., {0}% ot srednoto za ES (27 dãržavi)",
-   "sre": "po stanovniku u 2023. godini, {0}% prosěka EU-27"
   },
   "Place names in the unified alphabet": {
    "sre": "Toponimi u jedinstvenoj abecedi",
@@ -3030,11 +2980,6 @@
    "zap": "Register prebivalstva, 1. 1. 2026",
    "ist": "Registãr na naselenieto, 1.01.2026 g.",
    "sre": "Registar stanovništva, 1. 1. 2026."
-  },
-  "Population, all {0} entities": {
-   "sre": "Stanovništvo, svi entiteti ({0})",
-   "ist": "Naselenie, vsički {0} edinici",
-   "zap": "Prebivalstvo, vse enote ({0})"
   },
   "Preamble and table of titles": {
    "sre": "Preambula i pregled glava",
@@ -3401,6 +3346,11 @@
    "ist": "Izberete institucija v shemata, za da vidite kak se sãstavja i kakvi funkcii izpãlñava.",
    "sre": "Izaberite instituciju na dijagramu za prikaz ñenog sastava i nadležnosti."
   },
+  "Select States on the map.": {
+   "zap": "Izberite države na zemļevidu.",
+   "sre": "Izaberite države na karti.",
+   "ist": "Izberete dãržavi na kartata."
+  },
   "Send me a new link": {
    "zap": "Pošļi mi novo povezavo",
    "ist": "Izpratete mi nova vrãzka",
@@ -3510,11 +3460,6 @@
    "zap": "Spol · datum rojstva",
    "sre": "Pol · datum rođeña",
    "ist": "Pol · data na raždane"
-  },
-  "Share of the population: territorial states {0}%, confederal territories {1}%, confederal municipalities {2}%": {
-   "zap": "Delež prebivalstva: teritorialne države {0} %, konfederalna ozemļa {1} %, konfederalne občine {2} %",
-   "ist": "Djal ot naselenieto: teritorialni dãržavi {0}%, konfederalni teritorii {1}%, konfederalni obštini {2}%",
-   "sre": "Struktura stanovništva: teritorijalne države {0}%, konfederalne teritorije {1}%, konfederalne opštine {2}%"
   },
   "Show all": {
    "sre": "Prikažite sve",
@@ -4696,31 +4641,6 @@
    "ist": "{0} {0#one:člen;other:člena}",
    "zap": "{0} {0#one:člen;two:člena;few:členi;other:členov}"
   },
-  "{0} confederal municipalities": {
-   "zap": "{0} {0#one:konfederalna občina;two:konfederalni občini;few:konfederalne občine;other:konfederalnih občin}",
-   "ist": "{0} {0#one:konfederalna obština;other:konfederalni obštini}",
-   "sre": "{0} {0#one:konfederalna opština;few:konfederalne opštine;other:konfederalnih opština}"
-  },
-  "{0} confederal territories": {
-   "zap": "{0} {0#one:konfederalno ozemļe;two:konfederalni ozemļi;few:konfederalna ozemļa;other:konfederalnih ozemeļ}",
-   "ist": "{0} {0#one:konfederalna teritorija;other:konfederalni teritorii}",
-   "sre": "{0} {0#one:konfederalna teritorija;few:konfederalne teritorije;other:konfederalnih teritorija}"
-  },
-  "{0} entities ranked by gdp per capita, pps, 2023": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po BDP na prebivalca, SKM, 2023",
-   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po BVP na čovek, SPS, 2023 g.",
-   "sre": "Rang-lista {0} entiteta po BDP-u po stanovniku, SKM, 2023"
-  },
-  "{0} entities ranked by inhabitants per km²": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po številu prebivalcev na km²",
-   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po broj žiteli na km²",
-   "sre": "Rang-lista {0} entiteta po broju stanovnika po km²"
-  },
-  "{0} entities ranked by population": {
-   "zap": "{0} {0#one:enota, razvrščena;two:enoti, razvrščeni;few:enote, razvrščene;other:enot, razvrščenih} po prebivalstvu",
-   "ist": "{0} {0#one:edinica, podredena;other:edinici, podredeni} po naselenie",
-   "sre": "Rang-lista {0} entiteta po broju stanovnika"
-  },
   "{0} inhabitants": {
    "zap": "{0} {0#one:prebivalec;two:prebivalca;few:prebivalci;other:prebivalcev}",
    "ist": "{0} {0#one:žitel;other:žiteli}",
@@ -4761,30 +4681,15 @@
    "sre": "{0} {0#one:opština;few:opštine;other:opština} iz 52 države i dvě konfederalne opštine. Možete pisati i ćirilicom i bez dijakritičkih znakova.",
    "ist": "{0} obštini ot vsičkite 52 dãržavi i ot dvete konfederalni obštini. Priemat se izpisvanija na kirilica i bez diakritični znaci."
   },
-  "{0} of the EU-27 average": {
-   "zap": "{0} povprečja EU-27",
-   "ist": "{0} ot srednoto za ES (27 dãržavi)",
-   "sre": "{0} prosěka EU-27"
-  },
   "{0} PPS": {
    "zap": "{0} SKM",
    "ist": "{0} SPS",
    "sre": "{0} SKM"
   },
-  "{0} PPS per inhabitant": {
-   "sre": "{0} SKM po stanovniku",
-   "ist": "{0} SPS na čovek",
-   "zap": "{0} SKM na prebivalca"
-  },
   "{0} since {1} · one constituency for the whole Confederation · counts from the first election held after {2}.": {
    "zap": "{0} od {1} · ena volilna enota za vso Konfederacijo · veļa od prvih volitev po {2}.",
    "sre": "{0} · upis od {1} · jedna izborna jedinica za cělu Konfederaciju · računa se od prvih izbora održanih nakon {2}.",
    "ist": "{0} ot {1} · edin izbiratelen rajon za cjalata Konfederacija · važi ot pãrvite izbori, provedeni sled {2}."
-  },
-  "{0} territorial states": {
-   "zap": "{0} {0#one:teritorialna država;two:teritorialni državi;few:teritorialne države;other:teritorialnih držav}",
-   "ist": "{0} {0#one:teritorialna dãržava;other:teritorialni dãržavi}",
-   "sre": "{0} {0#one:teritorijalna država;few:teritorijalne države;other:teritorijalnih država}"
   },
   "{0}% of the EU-27 average": {
    "zap": "{0} % povprečja EU-27",

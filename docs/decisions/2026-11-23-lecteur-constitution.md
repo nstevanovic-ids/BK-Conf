@@ -35,11 +35,12 @@ Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page)
    ramène. Le texte français porte une ligne : « French working text. The versions in the three regional
    standards are equally authentic (Art. 151). » (chaîne 11). Écran étroit : onglets et balayage
    horizontal entre les textes.
-4. **Routes** : `#/constitution` (ouverture : titre, art. 110 manipulable, préambule, onze titres avec
-   un trait par article, Journal officiel) ; `/preamble` ; `/title-4` ; `/title-4/art-110` (inchangée) ;
-   `/title-4/art-110/fr` (texte autre que celui de l'interface). `art-110`, `art-1-bis`, un mauvais
-   titre et les anciennes adresses à plusieurs textes (`/en-sre-fr` : le premier) sont réécrits ; une
-   adresse introuvable donne une vue « Not found » qui garde l'adresse et ouvre la recherche.
+4. **Routes** : `#/constitution` (ouverture : titre, Journal officiel, préambule, puis les onze titres
+   avec un trait par article ; amendé le 2026-11-23, voir plus bas) ; `/preamble` ; `/title-4` ;
+   `/title-4/art-110` (inchangée) ; `/title-4/art-110/fr` (texte autre que celui de l'interface).
+   `art-110`, `art-1-bis`, un mauvais titre et les anciennes adresses à plusieurs textes (`/en-sre-fr` :
+   le premier) sont réécrits ; une adresse introuvable donne une vue « Not found » qui garde l'adresse
+   et ouvre la recherche.
 5. **Barre du lecteur** à la place du fil d'Ariane, collante sous l'en-tête : titre et article lus,
    textes affichés, double ligne, compteur, règle graduée (onze titres, un trait par article) ; fil de
    lecture des renvois suivis ; j / k.
@@ -53,14 +54,20 @@ Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page)
    pour les instruments et pour la page Institutions (sièges). Vérification article par article :
    `docs/lot1/MOTEUR.md`, `scripts/test_regles.js` (au déploiement).
 8. **Instruments de marge** (affichage de Codex, calcul du moteur) : art. 1 bis, 1 ter, 103, 109 b et
-   110 ter, 110 (aussi sur l'ouverture), 111, 115 bis. Ils écrivent leur résultat sur les alinéas, dans
-   le texte affiché, et disent leurs hypothèses (« Assumption »). Pas d'instrument pour
-   l'art. 132 tant que l'article n'est pas révisé.
+   110 ter, 110, 111, 115 bis. Ils écrivent leur résultat sur les alinéas, dans le texte affiché, et
+   disent leurs hypothèses (« Assumption »). Pas d'instrument pour l'art. 132 tant que l'article n'est
+   pas révisé.
 9. **Recherche** : une seule, celle du portail, enrichie de Codex (accès par numéro, repli sans
    diacritiques, extraits marqués) ; la palette de Codex est abandonnée.
 10. **Abandonné de Codex** : sa palette, sa fiche d'État et sa vue `#states` (le portail a les siennes),
     ses copies de polices, drapeaux, blasons, emblème et données ; la recherche des communes (lot 2,
     vers la carte).
+
+## Amendement du 2026-11-23 : l'ouverture sans l'art. 110
+L'art. 110 et son instrument, placés au-dessus du préambule (bloc `cx-hero`), se lisaient comme un
+extrait du préambule. Ils sont retirés de l'ouverture : `#/constitution` s'ouvre sur le préambule puis
+les onze titres. L'instrument de la double clé reste dans la marge de l'art. 110. L'ouverture ne charge
+plus le titre 4 (ni à l'affichage ni au préchargement du `<head>`) ; aucune chaîne nouvelle.
 
 ## Mesures (docs/lot1/MESURES.md)
 `#/constitution` : LCP 7,5 → 3,3 s, poids 1 310 → 394 ko, CLS 0,86 → 0,001, performance 33 → 92

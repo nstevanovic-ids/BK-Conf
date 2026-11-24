@@ -147,7 +147,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   recouvrements, trous ; villes-États = trou laissé par leurs voisins) puis
   scripts/gen_geo.py (couverture unique coverage_clean + coverage_simplify → geo.json v2
   en lon/lat pour d3-geo, échoue s'il reste un trou ou un recouvrement) ;
-  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md
+  cf. ADR 2026-10-14-raccord-carte.md et 2026-10-14-carte-globe.md ; puis, après
+  scripts/build_stats.py, scripts/build_carte.py (shapely) → `portail/data/carte/` (communes de la
+  carte #/map, **générées, ne pas éditer** : `index.json`, `m/<CODE>.json`, `communes.json`) ;
+  `build_carte.py --check` (empreinte des entrées) bloque le déploiement si elles sont périmées
 
 ## Branche de référence
 - **`main`** est la seule branche publiée (GitHub Pages, `.github/workflows/pages.yml`).
@@ -158,14 +161,26 @@ infrastructure numérique). Haute exigence de cohérence interne.
 ## Architecture du portail
 - `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
   route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
-  (lecteur de la Constitution, repris de Codex : ouverture, un texte à la fois — en, zap, sre, ist ou fr,
-  par défaut celui de l'interface, pas de lecture comparée ; texte d'un autre standard dans son écriture
-  première, sre latin, ist cyrillique ; renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
+  (lecteur de la Constitution, repris de Codex : ouverture sur le préambule puis les onze titres, sans
+  article mis en avant ; un texte à la fois — en, zap, sre, ist ou fr, par défaut celui de l'interface,
+  pas de lecture comparée ; texte d'un autre standard dans son écriture première, sre latin, ist
+  cyrillique ; renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
   glyphe par glyphe, double ligne en `<ruby>`, écriture première au-dessus) ; `js/marges.js` (instruments de marge des art. 1 bis,
   1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
   (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
-  docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 : carte,
-  mini-cartes ; qrcode : carte citoyenne) ; ADR 2026-11-23-lecteur-constitution.md
+  docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 :
+  mini-cartes des fiches ; qrcode : carte citoyenne ; MapLibre GL JS 6.18.0 : carte) ;
+  ADR 2026-11-23-lecteur-constitution.md
+- Carte (#/map), reprise d'Atlas (ADR 2026-11-23-carte-maplibre.md) : `portail/js/carte.js` (`MAPX`,
+  classes `ca-`, `css/carte.css`) et `portail/js/carte-gl.js` (`CAGL`, moteur MapLibre,
+  `vendor/maplibre-gl/`, importé par `import()` sur `#/map` seulement, au repos après le premier rendu
+  ou au premier geste ; jamais dans le fichier unique, où la carte reste en SVG). Premier rendu :
+  silhouette SVG des 54 entités ; zoom Confédération → État → commune ; routes `#/map`,
+  `#/map/<code>`, `#/map/<code>/<commune>`, `#/map/art-103` et `#/map/art-110` (couches
+  institutionnelles par `REGLES`, liens vers l'article ; pas de péréquation avant la révision de
+  l'art. 132) ; sous-route sans redessin (`MAPX.inplace`) ; la carte renvoie à la fiche d'État,
+  elle ne la duplique pas ; plein écran sous l'en-tête, sans pied de page ; thème du portail ;
+  population par peuple en filtre à une seule teinte
 - Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/fr`
   (texte autre que celui de l'interface) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
   recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
@@ -190,8 +205,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   `docs/data/population/` et le PIB régional de `docs/data/pib/` (Eurostat 2023, SPA)
   (cf. ADR 2026-10-13-chiffres-cles-etats.md et 2026-10-14-pib-par-habitant.md)
 - `lights.json` (une lumière par commune, intensité selon la population) est généré
-  par `scripts/build_stats.py` ; la carte (#/map) est un globe orthographique d3-geo
-  (`portail/vendor/`, d3-array + d3-geo, ISC) au style « salle de situation » sombre
+  par `scripts/build_stats.py` ; il n'est plus publié : il donne la population communale de la
+  carte (`scripts/build_carte.py`, somme des lumières de chaque contour = `stats.json`)
 - `opstine.json` (index commune → État du parcours citoyen) est généré par
   `scripts/build_stats.py` avec `stats.json` et `lights.json`
 - Parcours citoyen : `#/register` (5 étapes) et `#/citizen` (carte TD1) ; règles dans
@@ -217,8 +232,10 @@ infrastructure numérique). Haute exigence de cohérence interne.
   pages refondues (ADR 2026-11-23-mouvement-lecteur.md) : dans `#/constitution`, renvoi suivi vers un
   autre titre = élément partagé (numéro d'article, `data-vt="ref"`), sans glissement ; renvoi dans le
   titre = défilement et éclairage de l'article ; table des titres animée au défilement ; bascule
-  d'écriture glyphe par glyphe (fondu de 200 ms en mouvement réduit) ; carte (lot 2) et votes (lot 3)
-  y ajouteront leur règle
+  d'écriture glyphe par glyphe (fondu de 200 ms en mouvement réduit) ; dans `#/map`, pas de
+  glissement entre ses adresses : vol de caméra (0,9 à 2,4 s), nom de l'entité en élément partagé
+  (`data-vt="ca"`), arrivée depuis une autre page déjà cadrée, sans vol ; votes (lot 3) y ajouteront
+  leur règle
 - En-tête mobile (≤ 760 px de large ou ≤ 520 px de haut) : une barre de 56 px (emblème,
   nom, loupe, burger) ; navigation, langues, Register et thème dans le menu plein écran
 - Interface dans les trois standards : `portail/data/i18n.json` (en, zap, sre, ist) ; phase 1 :
@@ -256,15 +273,18 @@ infrastructure numérique). Haute exigence de cohérence interne.
   quel, JSON de la liste blanche `DATA_FILES` (jamais les GeoJSON sources ; le build échoue si la
   liste et les `fetch()` du gabarit divergent), polices, `vendor/`, images, films ; plus le fichier
   unique en export (`/export/`, liens relatifs préfixés `../`). `--inline` = fichier unique
-  `balkanska_konfederacija.html` (données, polices et scripts vendor injectés, `file://`). `_site/` et
+  `balkanska_konfederacija.html` (données, polices et scripts vendor injectés, `file://` ; ni MapLibre
+  ni communes de la carte : `carte/index.json` et l'index des communes seulement). `_site/` et
   le fichier unique sont générés, ignorés par git ; données versionnées (`?v=` posé au build)
   (ADR 2026-11-23-deploiement-lie.md)
 - Chargement par page (même ADR) : table `DATA_SRC` du gabarit (clé → fichier, variable) ; socle
   `DATA_CORE` avant tout rendu (+ `textes.json` hors anglais) ; `DATA_ROUTE` attendu avant le rendu
-  de la route, `DATA_LATER` après (gestes de la page), `SEARCH_DATA` à l'ouverture de la recherche.
+  de la route, `DATA_LATER` après (gestes de la page), `SEARCH_DATA` à l'ouverture de la recherche
+  (texte des articles et communes de la carte à la première frappe).
   Une vue qui lit une donnée nouvelle l'ajoute à ces tables et à `DATA_FILES` ; contrôle :
   `docs/lot1/outils/dom.js` (DOM identique au fichier unique, toutes routes, cinq langues).
-  Préchargement dès le `<head>` selon l'adresse (polices, socle, code, sommaire et titre du lecteur),
+  Préchargement dès le `<head>` selon l'adresse (polices, socle, code, sommaire et titre du lecteur ;
+  index de la carte, chiffres et code de la carte),
   bloc retiré du fichier unique ; `#app` vide réserve la hauteur de l'écran (pas de saut du pied de page)
 - Ne JAMAIS éditer les données à la main dans le HTML : éditer le JSON, puis rebuild
 
@@ -298,8 +318,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - Ne pas confondre identité « Balkan » et identité linguistique « sud-slave »
 - Ne pas proposer d'étoile rouge à 5 branches
 - Ne pas appliquer l'écriture inclusive
-- Ne pas attribuer de code couleur aux peuples (seule exception : l'option « Peoples »
-  de la carte) ; cf. ADR 2026-10-14-pas-de-code-couleur-peuples.md
+- Ne pas attribuer de code couleur aux peuples, sans exception (l'option « Peoples » du globe est
+  supprimée depuis le 2026-11-23) ; cf. ADR 2026-10-14-pas-de-code-couleur-peuples.md
 - Ne pas poser de question de clarification une fois les principes validés :
   proposer une solution et rédiger entièrement
 
