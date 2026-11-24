@@ -3,15 +3,15 @@
    tout est sous .vo, rien de global ; fonds, encres, filets et polices du portail, thème clair et sombre.
    La couleur ne code que l'état du vote (pour : azur plein ; contre : gueules hachuré ; abstention :
    contour pointillé) et le verdict (✓ azur, ✕ gueules, ‖ or), toujours doublée d'une forme ou d'une
-   texture ; aucune couleur ne distingue les peuples. Contrastes : texte ≥ 4,5 : 1, disques et filets
-   ≥ 3 : 1, dans les deux thèmes (docs/lot3/MESURES.md). ADR 2026-11-24-votes-majorites.md. */
+   texture ; aucune couleur ne distingue les peuples. Contrastes : texte ≥ 4,5 : 1 (texte secondaire en
+   --ink-2, pas --ink-3), disques et hachures ≥ 3 : 1, dans les deux thèmes (docs/lot3/MESURES.md). ADR 2026-11-24-votes-majorites.md. */
 .vo{--for:#374078;--for-t:#E9EAF3;--ag:#99402F;--ag2:#7C3122;--ag-t:#F6ECE9;--hold:#DFCC68;--hold-t:#F7F1D3;
   --hold-ink:#1b2030;--on-for:#fff;--sf:var(--surface);--sf2:var(--surface-2);--ink2:var(--ink-2);--ink3:var(--ink-3);
-  --l1:var(--line);--l2:var(--line-2);--focus:#374078;--shade:0 1px 2px rgba(20,24,40,.06),0 10px 30px rgba(20,24,40,.12);
+  --l1:var(--line);--l2:var(--line-2);--muted:var(--ink-2);--focus:#374078;--shade:0 1px 2px rgba(20,24,40,.06),0 10px 30px rgba(20,24,40,.12);
   --top:calc(var(--hdr,150px) - 16px);
   display:grid;grid-template-columns:minmax(0,1fr) 352px;grid-template-areas:"top top" "scene panel";gap:14px 32px;
   align-items:start;padding:14px 0 30px;color:var(--ink);font-family:var(--font);font-variant-numeric:tabular-nums}
-[data-theme="dark"] .vo{--for:#5562B4;--for-t:#1E2450;--ag:#B4553F;--ag2:#96432F;--ag-t:#3A1F1C;--hold-t:#3A3519;
+[data-theme="dark"] .vo{--for:#5562B4;--for-t:#1E2450;--ag:#B4553F;--ag2:#A24A35;--ag-t:#3A1F1C;--hold-t:#3A3519;
   --focus:#DFCC68;--shade:0 1px 2px rgba(0,0,0,.4),0 10px 32px rgba(0,0,0,.5)}
 .vo *{box-sizing:border-box}
 :where(.vo) button{font:inherit;color:inherit;cursor:pointer}   /* sans spécificité : les tailles des classes l'emportent */
@@ -33,7 +33,7 @@
 .vo-types{display:flex;flex-wrap:wrap;gap:6px}
 .vo-tsel{display:none}
 .vo-tbtn{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--l2);background:var(--sf);border-radius:6px;padding:5px 9px;font-size:13px;line-height:1.2;color:var(--ink2);text-align:left}
-.vo-tbtn small{font-size:10.5px;color:var(--ink3);white-space:nowrap}
+.vo-tbtn small{font-size:10.5px;color:var(--muted);white-space:nowrap}
 .vo-tbtn:hover{border-color:var(--ink);color:var(--ink)}
 .vo-tbtn[aria-checked=true]{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:700}
 .vo-tbtn[aria-checked=true] small{color:inherit;opacity:.8}
@@ -42,14 +42,14 @@
 .vo-q a{color:inherit}
 .vo-q .vo-qa{white-space:nowrap;font-weight:700;color:var(--ink)}
 .vo-scn{display:flex;align-items:center;gap:12px;min-width:0}
-.vo-cap{flex:none;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.vo-cap{flex:none;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 /* une rangée qui défile, bord droit estompé : l'indice qu'il y a d'autres cas */
 .vo-scl{display:flex;gap:6px;padding:2px 28px 4px 2px;min-width:0;overflow-x:auto;scrollbar-width:thin;
   mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
 .vo-sbtn{flex:none;display:grid;gap:1px;text-align:left;border:1px solid var(--l1);border-left:3px solid var(--l2);background:var(--sf);border-radius:4px;padding:5px 10px;font-size:12px;line-height:1.25;max-width:220px}
 .vo-sbtn small{font-size:12px;font-weight:700;color:var(--ink)}
 .vo-sbtn span{color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.vo-sbtn:hover{border-color:var(--ink3)}
+.vo-sbtn:hover{border-color:var(--muted)}
 .vo-sbtn[aria-pressed=true]{border-color:var(--ink);border-left-color:var(--ink)}
 
 /* ---------- scène ---------- */
@@ -64,7 +64,7 @@
 .vo-head{display:grid;grid-template-columns:auto 1fr;align-items:end;column-gap:8px;padding:0 12px 0 0}
 .vo-hl{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center}
 .vo-hn{font:800 38px/.9 var(--font-display)}
-.vo-hu{font-size:11px;color:var(--ink3);padding-bottom:3px;line-height:1.15}
+.vo-hu{font-size:11px;color:var(--muted);padding-bottom:3px;line-height:1.15}
 .vo-stage{position:relative;transition:height .45s cubic-bezier(.2,.7,.2,1)}
 .vo-lanes{position:absolute;left:0;right:0;top:0}
 .vo-geo{position:absolute;left:0;top:0;width:100%;height:auto;opacity:0;transition:opacity .32s;pointer-events:none}
@@ -80,7 +80,7 @@
 .vo-lh{display:flex;align-items:center;gap:6px 12px;min-height:30px;padding:0 0 4px}
 .vo-ln{display:flex;align-items:baseline;gap:10px;min-width:0;margin-right:auto}
 .vo-ln b{font-size:14px;line-height:1.2;white-space:nowrap}
-.vo-lm{font-size:11.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vo-lm{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vo-ld{display:flex;align-items:center;flex:none}
 .vo-seg3{display:inline-flex;border:1px solid var(--l2);border-radius:5px;overflow:hidden;background:var(--sf);height:28px;align-self:start;flex:none}
 .vo-seg3 button{border:0;background:none;width:28px;padding:0;display:grid;place-items:center}
@@ -127,11 +127,11 @@
 .vo-tip{position:absolute;left:0;top:0;z-index:8;width:270px;padding:10px 12px 12px;background:var(--sf);border:1px solid var(--ink);border-radius:8px;box-shadow:var(--shade);pointer-events:none;font-size:12.5px}
 .vo-tip.vo-pin{pointer-events:auto}
 .vo-tip-h{display:flex;align-items:baseline;gap:8px}
-.vo-tip-h code{font-size:11.5px;color:var(--ink3);font-family:var(--font);font-weight:700}
+.vo-tip-h code{font-size:11.5px;color:var(--muted);font-family:var(--font);font-weight:700}
 .vo-tip-h strong{font:700 1.5rem/1 var(--font-display);text-transform:uppercase;margin-right:auto}
 .vo-tip-x{border:0;background:none;font-size:1.1rem;line-height:1;padding:0 2px;color:var(--ink2);align-self:center;min-width:28px;min-height:28px}
 .vo-tip-l{color:var(--ink2);margin-top:2px}
-.vo-tip-f{display:flex;gap:14px;margin-top:6px;color:var(--ink3);white-space:nowrap}
+.vo-tip-f{display:flex;gap:14px;margin-top:6px;color:var(--muted);white-space:nowrap}
 .vo-tip-f b{color:var(--ink)}
 .vo-tip-a{display:grid;gap:8px;margin-top:10px}
 .vo-tip-a .vo-seg3{width:100%}.vo-tip-a .vo-seg3 button{flex:1;justify-content:center}
@@ -144,12 +144,12 @@
 .vo-cn-col:first-child{border-left:0}
 .vo-seat{border:0;background:none;padding:0;display:grid;justify-items:center;gap:3px;font-size:12.5px;line-height:1.2;min-width:44px;min-height:44px}
 .vo-seat .vo-disc{width:var(--d);height:var(--d);border-radius:50%;display:block}
-.vo-seat small{color:var(--ink3);font-size:11.5px}
+.vo-seat small{color:var(--muted);font-size:11.5px}
 .vo-seat:hover .vo-disc,.vo-seat:focus-visible .vo-disc{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ink)}
 .vo-disc[data-o=f]{background:var(--for)}
 .vo-disc[data-o=a]{background:repeating-linear-gradient(135deg,var(--ag) 0 3px,var(--ag2) 3px 5.5px)}
 .vo-disc[data-o=x]{background:var(--bg);outline:1.5px dashed var(--ink3);outline-offset:-1.5px}
-.vo-cn-n{margin:10px 0 0;font-size:12px;color:var(--ink3)}
+.vo-cn-n{margin:10px 0 0;font-size:12px;color:var(--muted)}
 .vo-legend{display:flex;flex-wrap:wrap;gap:6px 20px;padding:12px 0;font-size:12px;color:var(--ink2);border-top:1px solid var(--ink)}
 .vo-legend span{display:inline-flex;align-items:center;gap:6px}
 .vo-lg{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink2)}
@@ -161,10 +161,10 @@
 .vo-tblw{margin-top:8px;overflow-x:auto}
 .vo table{border-collapse:collapse;width:100%;font-size:13px}
 .vo th,.vo td{text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--l1);font-weight:400;vertical-align:middle}
-.vo thead th{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom-color:var(--ink);vertical-align:bottom}
+.vo thead th{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom-color:var(--ink);vertical-align:bottom}
 .vo tbody th a{font-weight:700;text-decoration:none;color:inherit}
 .vo tbody th a:hover{text-decoration:underline}
-.vo tbody th code{color:var(--ink3);font-size:11.5px;margin-right:4px;font-family:var(--font)}
+.vo tbody th code{color:var(--muted);font-size:11.5px;margin-right:4px;font-family:var(--font)}
 .vo-num{text-align:right;white-space:nowrap}
 .vo-rad{border:0;padding:0;margin:0;display:inline-flex;border:1px solid var(--l2);border-radius:5px;overflow:hidden}
 .vo-rad label{position:relative;width:34px;height:30px;display:grid;place-items:center;cursor:pointer}
@@ -219,7 +219,7 @@
 .vo-g-st i{font-style:normal}
 .vo-g[data-ok="1"] .vo-g-st{background:var(--for);color:var(--on-for);border:0}
 .vo-g[data-ok="0"] .vo-g-st{border:1.5px solid var(--ag);color:var(--ag);border-radius:3px}
-.vo-g[data-soft][data-ok="0"] .vo-g-st{border-color:var(--ink3);color:var(--ink3)}
+.vo-g[data-soft][data-ok="0"] .vo-g-st{border-color:var(--muted);color:var(--muted)}
 .vo-g-bar{position:relative;height:13px;margin:8px 0 5px;background:var(--sf2);border-radius:2px}
 .vo-g-bar i{position:absolute;top:0;bottom:0;transition:width .4s cubic-bezier(.2,.7,.2,1),left .4s cubic-bezier(.2,.7,.2,1)}
 .vo-bf{left:0;width:0;background:var(--for);border-radius:2px 0 0 2px}

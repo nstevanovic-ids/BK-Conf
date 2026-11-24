@@ -1,0 +1,193 @@
+{
+ "B3": {
+  "types_bas": 307,
+  "cas_bas": 366,
+  "scene_haut": 441,
+  "verdict_bas": 464
+ },
+ "I5_tabulations": 23,
+ "marques": [
+  {
+   "jauge": "k",
+   "marque": "✓",
+   "cachee": "true",
+   "texte": "Met"
+  },
+  {
+   "jauge": "ns",
+   "marque": "✓",
+   "cachee": "true",
+   "texte": "Met"
+  },
+  {
+   "jauge": "del",
+   "marque": "✓",
+   "cachee": "true",
+   "texte": "Met"
+  },
+  {
+   "jauge": "key",
+   "marque": "✓",
+   "cachee": "true",
+   "texte": "Met"
+  }
+ ],
+ "commandes": {
+  "peuples": {
+   "delegation": 27,
+   "membres": 14
+  },
+  "carte": {
+   "delegation": 27,
+   "membres": 14
+  },
+  "carte_chevauchements": 0
+ },
+ "B4": {
+  "verdict": "Suspended",
+  "pour": "212",
+  "ligne": "For any other confederal law, if two thirds of the members of a nation"
+ },
+ "I1": {
+  "avant": "f",
+  "apres": "f",
+  "choisi": "BC-02",
+  "fiche": true,
+  "petits": 38,
+  "debordement": false
+ },
+ "F10": {
+  "avis": true,
+  "texte": "With reduced motion, the discs are not dragged: select one, then place it by clicking or with the arrow keys.",
+  "decrit": "voRm",
+  "d3force": false
+ },
+ "I7": {
+  "sieges": 7,
+  "disques_visibles": 0,
+  "verdict": "Suspended"
+ },
+ "clair": {
+  "texte": [
+   [
+    ".vo-pv-k",
+    6.71
+   ],
+   [
+    ".vo-g-req",
+    6.8
+   ],
+   [
+    ".vo-g-hyp",
+    6.8
+   ],
+   [
+    ".vo-cap",
+    6.56
+   ],
+   [
+    ".vo-lm",
+    6.56
+   ],
+   [
+    ".vo-hu",
+    6.56
+   ],
+   [
+    ".vo-tbtn small",
+    6.8
+   ],
+   [
+    ".vo-sbtn span",
+    6.8
+   ],
+   [
+    ".vo-q",
+    6.8
+   ],
+   [
+    ".vo-legend",
+    6.56
+   ],
+   [
+    ".vo-dn",
+    6.56
+   ]
+  ],
+  "sur_couleur": {
+   "blanc_pour": 9.69,
+   "blanc_contre": 6.71,
+   "blanc_contre2": 9.05,
+   "encre_or": 10.01
+  },
+  "formes": {
+   "pour_fond": 9.36,
+   "contre_fond": 6.48,
+   "contre2_fond": 8.74,
+   "abstention_fond": 3.21,
+   "or_fond": 1.56
+  }
+ },
+ "sombre": {
+  "texte": [
+   [
+    ".vo-pv-k",
+    4.87
+   ],
+   [
+    ".vo-g-req",
+    8.11
+   ],
+   [
+    ".vo-g-hyp",
+    8.11
+   ],
+   [
+    ".vo-cap",
+    8.93
+   ],
+   [
+    ".vo-lm",
+    8.93
+   ],
+   [
+    ".vo-hu",
+    8.93
+   ],
+   [
+    ".vo-tbtn small",
+    8.11
+   ],
+   [
+    ".vo-sbtn span",
+    8.11
+   ],
+   [
+    ".vo-q",
+    8.11
+   ],
+   [
+    ".vo-legend",
+    8.93
+   ],
+   [
+    ".vo-dn",
+    8.93
+   ]
+  ],
+  "sur_couleur": {
+   "blanc_pour": 5.54,
+   "blanc_contre": 4.87,
+   "blanc_contre2": 5.89,
+   "encre_or": 10.01
+  },
+  "formes": {
+   "pour_fond": 3.46,
+   "contre_fond": 3.93,
+   "contre2_fond": 3.25,
+   "abstention_fond": 5.14,
+   "or_fond": 11.84
+  }
+ },
+ "erreurs": []
+}
