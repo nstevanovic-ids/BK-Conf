@@ -123,18 +123,21 @@ var REGLES = (function () {
   /* ================================================================ moteur de Sabor (rules.js)
      Un vote : { type, st:{code:'f'|'a'|'x'}, del:{peuple:[pour, contre]}, cv:{peuple:'f'|'a'|'x'} }
      f = pour, a = contre, x = abstention. Libellés retirés : org, line.k et hyp sont des identifiants. */
+  /* slug : adresse de la page des votes (#/votes/<slug>) ; desc : alinéas qui décrivent la règle, cités
+     depuis les titres du lecteur (ancrages de core.json, scripts/build_lecteur.py). */
   var TYPES = [
-    { id: 'law', arts: ['106', '109'], k: 1, d: 1, steps: [['k'], ['alarm', 'k23']] },
-    { id: 'consent', arts: ['109', '110'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']] },
-    { id: 'urgent', arts: ['123 bis'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']] },
-    { id: 'revision', arts: ['147', '110', '123'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['key'], ['p'], ['s']] },
-    { id: 'entrenched', arts: ['150'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['p'], ['s']] },
-    { id: 'initiative', arts: ['121', '124'], s: 1, steps: [['p'], ['s']] },
-    { id: 'stinit', arts: ['106 bis'], s: 1, co: 8, steps: [['co'], ['half']] },
-    { id: 'stref', arts: ['122'], s: 1, co: 12, steps: [['co'], ['half']] },
-    { id: 'council', arts: ['111'], c: 1, steps: [['cons'], ['c4', 'c5']] }
+    { id: 'law', slug: 'ordinary-law', arts: ['106', '109'], k: 1, d: 1, steps: [['k'], ['alarm', 'k23']], desc: ['106.majorite', '106.quorum'] },
+    { id: 'consent', slug: 'consent', arts: ['109', '110'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']], desc: ['110.cinq', '110.cle'] },
+    { id: 'urgent', slug: 'urgent-law', arts: ['123 bis'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']], desc: ['123bis.urgent'] },
+    { id: 'revision', slug: 'amendment', arts: ['147', '110', '123'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['key'], ['p'], ['s']], desc: ['110.six'] },
+    { id: 'entrenched', slug: 'entrenched', arts: ['150'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['p'], ['s']], desc: ['150.garanties'] },
+    { id: 'initiative', slug: 'popular-initiative', arts: ['121', '124'], s: 1, steps: [['p'], ['s']], desc: ['121.double'] },
+    { id: 'stinit', slug: 'eight-states', arts: ['106 bis'], s: 1, co: 8, steps: [['co'], ['half']], desc: ['106bis.initiative', '106bis.d'] },
+    { id: 'stref', slug: 'twelve-states', arts: ['122'], s: 1, co: 12, steps: [['co'], ['half']], desc: ['122.demande'] },
+    { id: 'council', slug: 'council', arts: ['111'], c: 1, steps: [['cons'], ['c4', 'c5']], desc: ['111.consensus', '111.quatre'] }
   ];
   var typeById = function (id) { return TYPES.filter(function (t) { return t.id === id; })[0] || TYPES[1]; };
+  var typeBySlug = function (s) { return TYPES.filter(function (t) { return t.slug === s; })[0] || null; };
   /* Article → type de décision qu'il fonde (lecteur de la Constitution). */
   var ART_RULE = {
     'art-103': 'law', 'art-106': 'law', 'art-106bis': 'stinit', 'art-109': 'law', 'art-110': 'consent',
@@ -269,9 +272,90 @@ var REGLES = (function () {
     return { type: type, t: t, gauges: G, verdict: verdict, line: line, hyp: hyp };
   }
 
-  /* Hypothèses que le texte ne tranche pas : identifiants, affichés avec le résultat (libellés : lot 3,
-     docs/lot1/PLAN.md, section « Chaînes », pour celles du lecteur). */
+  /* Hypothèses que le texte ne tranche pas : identifiants, affichés avec le résultat (libellés : LIB.hyp). */
   var HYP = ['bloc', 'present', 'reg', 'pop', 'mun', 'alarm', 'coal', 'cons', 'exc', 'sl', 'al', 'six'];
+
+  /* ---------------------------------------------------------------- libellés (lot 3, docs/lot3/PLAN.md)
+     Clés anglaises des chaînes du portail (N : relevées par scripts/textes.py, traduites dans textes.json) ;
+     le moteur ne traduit rien, la page passe chaque clé par L. { q: 'ancrage' } : alinéa de la
+     Constitution, cité depuis les titres du lecteur dans la langue de l'interface (core.json, anc). */
+  var N = function (s) { return s; };
+  var LIB = {
+    type: {
+      law: N('Ordinary law'), consent: N('Right of mandatory consent'), urgent: N('Urgent laws'),
+      revision: N('Constitutional amendment'), entrenched: N('Entrenched guarantees'), initiative: N('Popular initiative'),
+      stinit: N('Initiative'), stref: N('Optional referendum'), council: N('Konfederalno Veće')
+    },
+    org: {
+      kongres: N('Kongres'), sabor: N('Narodni Sabor'), delegations: N('7 delegations'), registered: N('Registered citizens'),
+      citizens: N('Citizens'), states: N('States'), alarm: N('Alarm motion'), people: N('Constituent people'),
+      council: N('Konfederalno Veće'), conciliation: N('Conciliation')
+    },
+    line: {
+      'law-pass': N('No consent is needed and no alarm is raised.'), 'law-hold': { q: '109.b' },
+      'consent-pass': N('In force, with the consent of the peoples.'), 'urgent-pass': N('The law enters into force.'),
+      'consent-refused': N('Consent refused'), 'revision-pass': N('The amendment enters the Constitution.'),
+      'people-rejects': N('Rejected by the people.'), 'stinit-pass': { q: '106bis.depot' }, 'stref-pass': { q: '122.vote' },
+      'council-fail': N('Without consensus, a decision needs four councillors whose peoples hold a majority of enrolled citizens, or five councillors.'),
+      'council-hold': N('A decision taken against three councillors or more is suspended for thirty days while the delegations of their peoples are heard, then reconsidered.'),
+      'council-consensus': { q: '111.consensus' }, 'council-pass': { q: '111.quatre' }
+    },
+    hyp: {
+      bloc: N('The delegates of a State vote together, as their State is placed.'),
+      present: N('Every member is present. Simple majority: more votes for than against; abstentions do not count.'),
+      reg: N('No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.'),
+      pop: N('The voters of a State all vote as their State is placed; the weight is the resident population.'),
+      mun: N('Brčko and Mostar vote with Sarajevo, the nearest confederal territory (Art. 124).'),
+      alarm: N('A member placed against votes the alarm motion.'),
+      coal: N('The coalition is the set of States placed in favour; a confederal territory belongs to no people.'),
+      cons: N('Consensus: no councillor against.'),
+      exc: N('Not calculated here: a vacant seat, when a majority of the members in office suffices; a tie, when the serving president has the casting vote; and the decisions to which the suspension does not apply.'),
+      sl: N('The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.'),
+      al: N('Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.'),
+      six: N('The double key also applies to six delegations of seven: six are "at least five of the seven" (Art. 110).')
+    },
+    /* verdicts : une décision est adoptée ou non ; une demande d'États (art. 106 bis d, 122) est recevable ou non */
+    verdict: { pass: N('Adopted'), fail: N('Not adopted'), hold: N('Suspended') },
+    request: { pass: N('Admissible'), fail: N('Not admissible'), hold: N('Suspended') },
+    vote: { f: N('For'), x: N('Abstention'), a: N('Against') }
+  };
+
+  /* ---------------------------------------------------------------- cas joués pas à pas (Sabor, SCENARIOS)
+     Données pures : id = adresse (#/votes/<type>/<id>) ; name = clé anglaise ; make(C) = le vote. Chaque cas
+     est vérifié contre le texte par scripts/test_regles.js (verdict et motif recalculés à part). */
+  function groups(C, type, map, rest) {
+    var v = blank(C, type, rest || 'a');
+    Object.keys(map).forEach(function (g) { setGroup(C, v, g, map[g]); });
+    return v;
+  }
+  var each = function (codes, fn) { codes.forEach(fn); };
+  var SCENARIOS = [
+    { id: 'consent-given', type: 'consent', name: N('Consent given by five delegations'), make: function (C) {
+      var v = groups(C, 'consent', { slo: 'f', hrv: 'f', srb: 'f', bos: 'f', cng: 'f', fed: 'f' });
+      v.del.srb = [6, 4]; v.del.hrv = [7, 3]; v.del.mkd = [3, 7]; v.del.bul = [2, 8];
+      each(['KM-16', 'TK-39', 'TL-40', 'LK-20'], function (c) { v.st[c] = 'a'; });
+      each(['PA-23', 'VS-45', 'SF-93'], function (c) { v.st[c] = 'x'; });
+      each(['RO-29', 'PR-27'], function (c) { v.st[c] = 'f'; });
+      return v; } },
+    { id: 'two-peoples', type: 'revision', name: N('Two peoples alone'), make: function (C) {
+      var v = groups(C, 'revision', { srb: 'f', bul: 'f' }); v.st['BG-91'] = 'f'; v.st['SF-93'] = 'f'; return v; } },
+    { id: 'five-delegations', type: 'consent', name: N('Five delegations without the two largest'), make: function (C) {
+      return groups(C, 'consent', { slo: 'f', hrv: 'f', bos: 'f', cng: 'f', mkd: 'f', fed: 'f', mun: 'f' }); } },
+    { id: 'alarm', type: 'law', name: N('One delegation raises the alarm'), make: function (C) {
+      var v = groups(C, 'law', { cng: 'a', bos: 'a', mkd: 'a', mun: 'x' }, 'f');
+      v.del.bos = [5, 5]; v.del.mkd = [6, 4]; v.del.cng = [2, 8];
+      each(['KR-17', 'ST-35', 'IS-14', 'KV-18', 'DJ-09', 'SX-37', 'ZG-94', 'SI-31', 'TU-42', 'DA-08'], function (c) { v.st[c] = 'a'; });
+      return v; } },
+    { id: 'six-of-seven', type: 'entrenched', name: N('Six delegations of seven on an entrenched guarantee'), make: function (C) {
+      var v = groups(C, 'entrenched', { bos: 'a' }, 'f'); v.del.bos = [4, 6]; return v; } },
+    { id: 'nine-of-twelve', type: 'stref', name: N('Twelve States, nine of one people'), make: function (C) {
+      var v = blank(C, 'stref', 'x');
+      each(['BC-02', 'BN-04', 'BZ-05', 'HI-12', 'KM-16', 'PI-24', 'PO-26', 'SU-36', 'TL-40', 'CG-06', 'BG-91', 'VS-45'], function (c) { v.st[c] = 'f'; });
+      return v; } },
+    { id: 'four-councillors', type: 'council', name: N('Four councillors for, three against'), make: function (C) {
+      return groups(C, 'council', { srb: 'f', hrv: 'f', slo: 'f', cng: 'f' }); } }
+  ];
+  var caseById = function (id) { return SCENARIOS.filter(function (s) { return s.id === id; })[0] || null; };
 
   /* ---------------------------------------------------------------- état partageable (Sabor) */
   var B27 = '0123456789abcdefghijklmnopq', TR = ['f', 'a', 'x'], B11 = '0123456789a';
@@ -325,7 +409,8 @@ var REGLES = (function () {
   return {
     contexte: contexte, sieges: sieges, cleDouble: cleDouble, conseil: conseil, alarme: alarme,
     conciliation: conciliation, kongresDeuxTiers: kongresDeuxTiers,
-    TYPES: TYPES, typeById: typeById, ART_RULE: ART_RULE, tally: tally, evaluate: evaluate, HYP: HYP,
+    TYPES: TYPES, typeById: typeById, typeBySlug: typeBySlug, ART_RULE: ART_RULE, tally: tally, evaluate: evaluate, HYP: HYP,
+    LIB: LIB, SCENARIOS: SCENARIOS, caseById: caseById,
     encode: encode, decode: decode, blank: blank, setGroup: setGroup,
     seuils: { half: half, twoThirds: twoThirds, KONGRES: KONGRES, SABOR: SABOR, DELEGATION: DELEGATION, COMMISSION: COMMISSION }
   };

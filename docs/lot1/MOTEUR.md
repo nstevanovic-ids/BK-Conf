@@ -5,7 +5,7 @@ Sabor) : c'est `proto/sabor/js/rules.js` porté sans ses libellés ni la péréq
 (art. 103), le délai de l'alarme (art. 109 b), la commission de conciliation (art. 110 ter), la double
 clé et le Konfederalno Veće pour les instruments du lecteur. Les instruments de Codex n'en gardent que
 l'affichage (commit 6), et la page Institutions y prend ses sièges. Test : `node scripts/test_regles.js`
-(227 vérifications), lancé au déploiement.
+(307 vérifications depuis le lot 3), lancé au déploiement.
 
 ## Article par article (Constitution v4.16, texte anglais publié)
 
@@ -43,3 +43,33 @@ recommandations : majorité simple = plus de pour que de contre, abstentions non
 préciser, « des suffrages exprimés », à la prochaine révision de la Constitution) ; double clé appliquée
 à la règle des six. Le moteur les applique (`evaluate`, type `revision` : jauge `key`, hypothèse `six`) ;
 au lot 1, aucun instrument n'en dépend, Sabor les affichera (lot 3).
+
+## Lot 3 : page des votes (`#/votes`, docs/lot3/PLAN.md)
+
+Plan validé par l'auteur le 2026-11-24 (« go », recommandations du plan). Aucune règle réécrite ; le moteur
+reçoit les sept cas de Sabor (`SCENARIOS`), l'adresse de chaque type (`slug`), les alinéas qui le décrivent
+(`desc`, ancrages de `core.json`) et les libellés (`LIB` : clés anglaises de `textes.json`, plus les alinéas
+cités `{ q }`). `marges.js` lit ses hypothèses dans `LIB.hyp`.
+
+| Règle | Vérifié (recalculé dans le test, sans `evaluate`) |
+|---|---|
+| Cas `consent-given` (art. 110 al. 4 et 5) | cinq délégations dont les Serbes, majorité des inscrits, plénière et Kongres : adoptée |
+| Cas `two-peoples` (art. 110 al. 6) | 2 / 7 : révision refusée, ligne « Consent refused » |
+| Cas `five-delegations` (art. 110 al. 5) | 5 / 7, 44 % des inscrits : refusée par la double clé seule |
+| Cas `alarm` (art. 106, 109 b) | majorité simple au Kongres, puis 8 membres monténégrins sur 10 : suspendue |
+| Cas `six-of-seven` (art. 110 al. 6, 150) | 6 / 7 ne suffisent pas pour une garantie renforcée |
+| Cas `nine-of-twelve` (art. 122) | 12 États, 9 serbes : plus de la moitié d'un même peuple, irrecevable |
+| Cas `four-councillors` (art. 111 al. 4 et 5) | quatre conseillers majoritaires en inscrits, trois contre : adoptée et suspendue |
+| Art. 123 bis | 126 sur 250 et 36 sur 70 ; 35 membres ne suffisent pas, 36 oui |
+| Art. 121, 123, 124 | 27 États sur 52 ; les villes-États comptent chacune comme un État |
+| Art. 124 al. 3 | Brčko et Mostar votent avec Sarajevo, territoire confédéral le plus proche d'après `geo.json` (117 et 75 km) ; leur population s'ajoute à celle de Sarajevo |
+| Art. 106 bis d | huit États, moitié au plus d'un même peuple ; Brčko et Mostar hors coalition ; une ville-État compte sans peuple |
+| Art. 106 (`present`) | 2 sièges pour et 248 abstentions : adoptée |
+| Libellés | chaque type, organe, ligne de verdict et hypothèse rendus par le moteur a sa clé |
+
+Hypothèses de Sabor validées par l'auteur le 2026-11-24 (gardées telles quelles, affichées avec le
+résultat) : `bloc` (vote en bloc au Kongres), `pop` (vote populaire comme l'État est placé, poids = population),
+`mun`, `alarm` (un membre « contre » vote la motion), `coal` (coalition = États « pour »), `cons` (consensus :
+aucun conseiller contre ; six pour et une abstention font un consensus) ; deux tiers de la plénière comptés sur
+les membres, 47 sur 70, comme `al`. Libellé de `present` retouché : « Every member is present. Simple
+majority: more votes for than against; abstentions do not count. » ; `six` a son libellé (chaîne H6).

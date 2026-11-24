@@ -8,13 +8,10 @@
 var MARGES = (function () {
   'use strict';
   const N = s => s;   // marqueur des chaînes de tables (scripts/textes.py)
-  const ASSUME = {
-    reg: N('No annual count exists yet (Art. 115 bis): each register is given the census population of the territorial States attached to its people.'),
-    plen: N('The plenary majority depends on seventy individual votes and is not modelled here.'),
-    sl: N('The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.'),
-    al: N('Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.'),
-    exc: N('Not calculated here: a vacant seat, when a majority of the members in office suffices; a tie, when the serving president has the casting vote; and the decisions to which the suspension does not apply.'),
-  };
+  /* hypothèses : libellés du moteur (REGLES.LIB.hyp, une seule source avec la page des votes), plus celle
+     de la marge de l'art. 110, propre à l'instrument */
+  const PLEN = N('The plenary majority depends on seventy individual votes and is not modelled here.');
+  const assume = k => k === 'plen' ? PLEN : REGLES.LIB.hyp[k];
   let C = null;
   const ctx = () => C || (C = REGLES.contexte(STATES, STATS, PEUPLES));
   const sc = s => CX.sc(s);
@@ -23,7 +20,7 @@ var MARGES = (function () {
   const fmtNd = (n, d) => Number(n).toLocaleString(L_LOC[LANG] || 'en-GB', { minimumFractionDigits: d, maximumFractionDigits: d });
   const fmtP = (x, d = 1) => fmtNd(x * 100, d) + (LANG === 'en' ? '%' : ' %');
   const sign = ok => ok ? '✓' : '✕';
-  const as = (...keys) => `<p class="cx-as"><b>${t(L`Assumption`)}</b>${keys.map(k => t(L(ASSUME[k]))).join(' ')}</p>`;
+  const as = (...keys) => `<p class="cx-as"><b>${t(L`Assumption`)}</b>${keys.map(k => t(L(assume(k)))).join(' ')}</p>`;
   const reset = () => `<button type="button" class="cx-rs" aria-label="${t(L`Back`)}"><span aria-hidden="true">↺</span></button>`;
   const stLine = c => { const s = byCode(c) || { n: c }; return `<a class="cx-sl" href="#/state/${c}" translate="no">${c}</a> <strong>${t(s.n)}</strong>`; };
 

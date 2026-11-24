@@ -138,5 +138,113 @@ for (const t of R.TYPES) {
   eq(v2, v, 'état partageable : encode puis decode');
 }
 
+/* ---------------------------------------------------------------- lot 3 : page des votes (#/votes)
+   Les cas de Sabor (SCENARIOS) et les seuils des types non encore couverts, recalculés ici à partir du
+   texte et des données, sans passer par evaluate. */
+const regOf = ps => ps.reduce((a, p) => a + reg[p], 0);
+const yesOf = v => C.order.filter(p => v.del[p][0] > v.del[p][1]);        // majorité simple dans la délégation
+const seatsOf = (v, o) => S.rows.reduce((a, r) => a + (v.st[r.c] === o ? r.s : 0), 0);
+{
+  const ids = R.SCENARIOS.map(x => x.id);
+  eq(ids.length, new Set(ids).size, 'cas : identifiants uniques');
+  for (const x of R.SCENARIOS) ok(R.TYPES.some(t => t.id === x.type) && typeof x.name === 'string' && x.name, `cas ${x.id} : type et nom`);
+  const run = id => { const x = R.caseById(id), v = x.make(C); return [v, R.evaluate(C, v)]; };
+  {   // art. 110 al. 4 et 5 : cinq délégations dont les Serbes, majorité des inscrits ; plénière et Kongres
+    const [v, E] = run('consent-given'), y = yesOf(v);
+    const D = C.order.reduce((a, p) => [a[0] + v.del[p][0], a[1] + v.del[p][1]], [0, 0]);
+    const okk = y.length >= 5 && regOf(y) * 2 > tot && D[0] > D[1] && seatsOf(v, 'f') > seatsOf(v, 'a');
+    eq([E.verdict, okk], ['pass', true], `cas consent-given : ${y.length} / 7, ${(regOf(y) / tot * 100).toFixed(1)} % des inscrits, adoptée (art. 110 al. 4 et 5)`);
+  }
+  {   // art. 110 al. 6 : deux délégations sur sept ne font pas les six de la révision
+    const [v, E] = run('two-peoples'), y = yesOf(v);
+    eq([y.length, E.verdict, E.line && E.line.k], [2, 'fail', 'consent-refused'], 'cas two-peoples : 2 / 7, révision refusée (art. 110 al. 6)');
+  }
+  {   // art. 110 al. 5 : cinq délégations sans les Serbes ni les Bulgares, minorité des inscrits
+    const [v, E] = run('five-delegations'), y = yesOf(v), g = E.gauges.find(x => x.id === 'key');
+    ok(y.length === 5 && regOf(y) * 2 < tot && E.verdict === 'fail' && !g.ok && E.gauges.find(x => x.id === 'del').ok,
+      `cas five-delegations : 5 / 7 mais ${(regOf(y) / tot * 100).toFixed(1)} % des inscrits, refusée par la double clé`);
+  }
+  {   // art. 109 b : sept membres sur dix d'une délégation votent la motion, la loi est suspendue
+    const [v, E] = run('alarm'), al = C.order.filter(p => v.del[p][1] >= 7);
+    eq([al, E.verdict, E.line && E.line.k], [['cng'], 'hold', 'law-hold'], 'cas alarm : la délégation monténégrine (8 sur 10) suspend la loi (art. 109 b)');
+    ok(seatsOf(v, 'f') > seatsOf(v, 'a'), 'cas alarm : la loi a d\'abord la majorité simple du Kongres (art. 106)');
+  }
+  {   // art. 110 al. 6 et 150 : une garantie renforcée exige les sept délégations
+    const [v, E] = run('six-of-seven'), y = yesOf(v);
+    eq([y.length, E.verdict], [6, 'fail'], 'cas six-of-seven : 6 / 7 ne suffisent pas pour une garantie renforcée (art. 150)');
+  }
+  {   // art. 122 : douze États, dont neuf d'un même peuple : plus de la moitié
+    const [v, E] = run('nine-of-twelve');
+    const co = STATES.filter(s => s.t !== 'M' && v.st[s.c] === 'f'), by = {};
+    co.forEach(s => { if (s.t === 'T') by[s.p] = (by[s.p] || 0) + 1; });
+    const top = Math.max(...Object.values(by));
+    eq([co.length, top, E.verdict], [12, 9, 'fail'], 'cas nine-of-twelve : 12 États, 9 serbes, plus de la moitié d\'un même peuple (art. 122)');
+  }
+  {   // art. 111 al. 4 et 5 : quatre conseillers majoritaires en inscrits, adoptée, suspendue (trois contre)
+    const [v, E] = run('four-councillors'), f = C.order.filter(p => v.cv[p] === 'f');
+    eq([f.length, regOf(f) * 2 > tot, E.verdict], [4, true, 'hold'], 'cas four-councillors : 4 conseillers, majorité des inscrits, trois contre : suspendue (art. 111 al. 5)');
+  }
+}
+{   // art. 123 bis : majorité absolue des membres, 126 sur 250 et 36 sur 70
+  const v = R.blank(C, 'urgent', 'f'); ['slo', 'hrv', 'srb', 'bos', 'cng'].forEach(p => { v.del[p] = [7, 0]; }); v.del.mkd = [0, 0]; v.del.bul = [0, 0];
+  const E = R.evaluate(C, v), g = id => E.gauges.find(x => x.id === id);
+  eq([g('k').need, g('ns').need], [126, 36], 'art. 123 bis : majorité absolue des membres, 126 sur 250 et 36 sur 70');
+  eq([g('ns').ok, E.verdict], [false, 'fail'], 'art. 123 bis : 35 membres du Narodni Sabor sur 70 ne suffisent pas');
+  v.del.srb = [8, 0];
+  eq(R.evaluate(C, v).verdict, 'pass', 'art. 123 bis : 36 membres sur 70, loi urgente approuvée');
+}
+{   // art. 121, 123 et 124 : majorité des États, 27 sur 52 ; les villes-États comptent chacune comme un État
+  const terr = STATES.filter(s => s.t === 'T').map(s => s.c);
+  const v = R.blank(C, 'initiative', 'f'); terr.slice(0, 26).forEach(c => { v.st[c] = 'a'; });
+  const E = R.evaluate(C, v), g = E.gauges.find(x => x.id === 's');
+  eq([g.need, g.f, g.ok], [27, 26, false], 'art. 124 : 22 États territoriaux et 4 villes-États font 26 États, sous les 27');
+  v.st[terr[0]] = 'f';
+  ok(R.evaluate(C, v).gauges.find(x => x.id === 's').ok, 'art. 124 : 27 États sur 52, majorité des États');
+}
+{   // art. 124 al. 3 : Brčko et Mostar votent avec le territoire confédéral le plus proche
+  const geo = J('geo.json'), cities = STATES.filter(s => s.t === 'F').map(s => s.c);
+  const km = (a, b) => { const r = x => x * Math.PI / 180, [l1, p1] = geo.pts[a], [l2, p2] = geo.pts[b];
+    const h = Math.sin(r(p2 - p1) / 2) ** 2 + Math.cos(r(p1)) * Math.cos(r(p2)) * Math.sin(r(l2 - l1) / 2) ** 2; return 12742 * Math.asin(Math.sqrt(h)); };
+  for (const m of ['BK-95', 'MO-96']) {
+    const near = cities.slice().sort((a, b) => km(m, a) - km(m, b))[0];
+    eq(C.by[m].with, near, `art. 124 al. 3 : ${m} vote avec ${near} (${Math.round(km(m, near))} km, HYP mun)`);
+  }
+  const v = R.blank(C, 'initiative', 'x'); v.st['BK-95'] = 'f'; v.st['MO-96'] = 'f';
+  eq(R.tally(C, v).stateVote['SA-92'], 'f', 'art. 124 al. 3 : Sarajevo abstenu, Brčko et Mostar pour : le vote de cet État est pour');
+  v.st['SA-92'] = 'a';
+  eq(R.tally(C, v).stateVote['SA-92'], C.by['SA-92'].pop > C.by['BK-95'].pop + C.by['MO-96'].pop ? 'a' : 'f', 'art. 124 al. 3 : la population l\'emporte');
+}
+{   // art. 106 bis d et 122 : moitié au plus d'un même peuple ; villes-États sans peuple ; Brčko et Mostar hors coalition
+  const ser = STATES.filter(s => s.p === 'srb').map(s => s.c), cro = STATES.filter(s => s.p === 'hrv').map(s => s.c);
+  const v = R.blank(C, 'stinit', 'x'); ser.slice(0, 4).concat(cro.slice(0, 4)).forEach(c => { v.st[c] = 'f'; });
+  eq(R.evaluate(C, v).verdict, 'pass', 'art. 106 bis d : huit États, quatre serbes et quatre croates, recevable');
+  v.st[cro[3]] = 'x'; v.st['BK-95'] = 'f'; v.st['MO-96'] = 'f';
+  eq([R.tally(C, v).coalStates, R.evaluate(C, v).verdict], [7, 'fail'], 'art. 106 bis d : Brčko et Mostar ne sont pas des États');
+  v.st['BG-91'] = 'f';
+  eq(R.evaluate(C, v).verdict, 'pass', 'art. 106 bis d : une ville-État compte comme État et ne relève d\'aucun peuple');
+  v.st[ser[4]] = 'f'; v.st['BG-91'] = 'x';
+  eq(R.evaluate(C, v).verdict, 'fail', 'art. 106 bis d : cinq États serbes sur huit, plus de la moitié');
+}
+{   // art. 106 : majorité simple des présents, l'abstention ne compte pas (lecture retenue le 2026-11-24)
+  const two = S.rows.find(r => r.s === 2 && r.t === 'T'), v = R.blank(C, 'law', 'x'); v.st[two.c] = 'f';
+  eq(R.evaluate(C, v).verdict, 'pass', `art. 106 : ${two.c} pour (2 sièges), 248 abstentions : adoptée (HYP present)`);
+}
+{   // libellés : chaque identifiant rendu par le moteur a sa clé anglaise
+  const L = R.LIB, seenOrg = new Set(), seenLine = new Set(), seenHyp = new Set();
+  for (const t of R.TYPES) {
+    ok(L.type[t.id], `libellé du type ${t.id}`);
+    ok(R.typeBySlug(t.slug) === t, `adresse du type ${t.id} : ${t.slug}`);
+    for (const o of ['f', 'a', 'x']) for (const v of [R.blank(C, t.id, o)].concat(R.SCENARIOS.filter(x => x.type === t.id).map(x => x.make(C)))) {
+      const E = R.evaluate(C, v);
+      E.gauges.forEach(g => { seenOrg.add(g.org); if (g.hyp) seenHyp.add(g.hyp); });
+      if (E.line) seenLine.add(E.line.k); E.hyp.forEach(h => seenHyp.add(h));
+    }
+  }
+  for (const k of seenOrg) ok(L.org[k], `libellé de l'organe ${k}`);
+  for (const k of seenLine) ok(L.line[k], `libellé de la ligne ${k}`);
+  for (const k of seenHyp) ok(L.hyp[k], `libellé de l'hypothèse ${k}`);
+  eq(R.HYP.filter(h => !L.hyp[h]), [], 'toutes les hypothèses ont un libellé');
+}
+
 console.log(`${n} vérifications, ${bad} en échec`);
 process.exit(bad ? 1 : 0);
