@@ -4,6 +4,7 @@ window.TXT = window.TXT || {};
 TXT.en = {
   title: 'The Balkan Confederation in five minutes',
   intro: {
+    chapter: 'Opening',
     eyebrow: 'BALKANSKA KONFEDERACIJA',
     title: 'The Balkan Confederation',
     sub: 'in five minutes',

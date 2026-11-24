@@ -43,8 +43,16 @@ function serve() {
    *mise en valeur* retirée. Une phrase en titre et son détail font un paragraphe. */
 function transcript(T, id, peuples) {
   const J = a => (Array.isArray(a) ? a : [a]).join(' '), S = x => x.replace(/\*/g, '');
-  const para = p => { let h = S(J(p[0])); if (!/[.!?:,]$/.test(h)) h += '.'; return p[1] ? h + ' ' + S(J(p[1])) : h; };
   const end = x => /[.!?]$/.test(x) ? x : x + '.';
+  /* un détail qui commence en minuscule prolonge la phrase du titre */
+  const para = p => {
+    let h = S(J(p[0]));
+    if (!p[1]) return end(h);
+    const d = S(J(p[1]));
+    if (/^[a-z]/.test(d) && !/[.!?:,]$/.test(h)) return end(h + ', ' + d);
+    if (!/[.!?:,]$/.test(h)) h += '.';
+    return end(h + ' ' + d);
+  };
   const t = T[id];
   switch (id) {
     case 'intro': return [end(T.title), `${t.motto}: ${end(t.mottoEn)}`];
@@ -85,7 +93,7 @@ function transcript(T, id, peuples) {
     const df = path.join(ROOT, 'portail', 'data', 'film.json');
     const all = fs.existsSync(df) ? JSON.parse(fs.readFileSync(df, 'utf8')) : {};
     all[LANG] = {src: `videos/explainer-${LANG}.mp4`, poster: `videos/explainer-${LANG}.jpg`, dur: Math.round(dur * 10) / 10,
-      chapters: sc.map(o => ({id: o.id, n: o.chap, title: o.chap ? T[o.id].chapter : T.title, t: Math.round(o.start * 10) / 10,
+      chapters: sc.map(o => ({id: o.id, n: o.chap, title: T[o.id].chapter, t: Math.round(o.start * 10) / 10,
         text: transcript(T, o.id, peuples)}))};
     fs.writeFileSync(df, JSON.stringify(all, null, 1) + '\n');
     console.log(df + '\n' + poster);

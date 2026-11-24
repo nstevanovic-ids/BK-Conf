@@ -130,6 +130,7 @@ infrastructure numérique). Haute exigence de cohérence interne.
   annuel au 1er janvier (art. 115 bis) ; cf. ADR 2026-10-25-double-cle.md
 - Alphabet → docs/alfabet/
 - Portail SPA → portail/
+- Film explicatif → film/ (rendu image par image, ADR 2026-11-24-film-explicatif.md)
 - Plateforme participative (Decidim, e-Konfederacija) → docs/plateforme/ ; lancement sur les
   réseaux (X d'abord, puis Instagram) → docs/communication/
 - Symboles confédéraux (animal totem à choisir, lettre-emblème glagolitique/bosančica) → en
@@ -228,6 +229,14 @@ infrastructure numérique). Haute exigence de cohérence interne.
   national : rectification unique dans les trois ans d'une première inscription, sinon autre
   registre quinze ans après l'inscription ; retrait libre ; effet différé d'un an pour le
   Narodni Sabor (ADR 2026-10-22-verrou-registre-national.md)
+- Film explicatif « The Confederation in five minutes » (#/five-minutes, ADR 2026-11-24-film-explicatif.md) :
+  motion design construit en code dans `film/` (composition SVG `film/explainer/`, `FILM.seek(t)` ; textes à
+  l'écran dans `film/explainer/<langue>.js`, anglais seul pour l'instant ; rendu `node film/render.js`, puis
+  `--data` → `portail/data/film.json`, **généré, ne pas éditer**, et `videos/explainer-en.jpg`) ; 4 min 35, sans
+  son ; ouverture indigo, chapitres sur fond blanc, transition au drapeau civil sans texte ; chiffres de la
+  double clé par `REGLES` ; un peuple à la fois en une seule teinte. Page sous Home, sans entrée de navigation :
+  vidéo, chapitres (saut dans la vidéo), texte du film en anglais (`lang="en"`, `translate="no"`) ; bouton
+  du héros de l'accueil, entrée de recherche. Toute décision gelée qui touche le film impose un nouveau rendu
 - Films d'États : `portail/videos/<code>.mp4` (+ `-480.mp4`, poster `.jpg`), listés dans
   `portail/data/videos.json` ; produits par `scripts/encode_video.py <code> <source>`
   (boucle sans couture, deux tailles, sans son). La fiche d'un État filmé s'ouvre sur un

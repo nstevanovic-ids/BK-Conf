@@ -41,7 +41,7 @@ SITE = ROOT / "_site"
 DATA_FILES = (
     "peuples.json", "etats.json", "entites-autonomes.json", "alfabet.json", "state_flags.json",
     "flagnotes.json", "geo.json", "stats.json", "opstine.json",
-    "videos.json", "i18n.json", "registre.json", "textes.json",
+    "videos.json", "i18n.json", "registre.json", "textes.json", "film.json",
 )
 # Données générées, chargées par leur page : lecteur de la Constitution (scripts/build_lecteur.py,
 # build_carte_marge.py) et carte (scripts/build_carte.py) ; publiées en entier. Valeur : le fichier
@@ -89,6 +89,11 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
     if asset_base:
         videos = {c: {k: (asset_base + v if isinstance(v, str) and v.startswith("videos/") else v)
                       for k, v in vd.items()} for c, vd in videos.items()}
+    # Film explicatif (film/render.js --data) : chapitres et texte ; la vidéo reste liée comme les films d'États.
+    film = json.loads((DATA / "film.json").read_text(encoding="utf-8"))
+    if asset_base:
+        film = {l: {k: (asset_base + v if isinstance(v, str) and v.startswith("videos/") else v) for k, v in fd.items()}
+                for l, fd in film.items()}
     registre = json.loads((DATA / "registre.json").read_text(encoding="utf-8"))
     # Lecteur de la Constitution : sommaire (CORE) et fichiers chargés par portail/js/constitution.js
     # (titres, aperçus, carte de marge), sous leur chemin relatif à data/constitution/.
@@ -116,6 +121,7 @@ def build_inline(out: Path = OUT_INLINE, asset_base: str = "") -> int:
         f"STATS={json.dumps(stats, ensure_ascii=False)};\n"
         f"OPSTINE={json.dumps(opstine['m'], ensure_ascii=False, separators=(',', ':'))};\n"
         f"VIDEOS={json.dumps(videos, ensure_ascii=False, separators=(',', ':'))};\n"
+        f"EXPLAINER={json.dumps(film, ensure_ascii=False, separators=(',', ':'))};\n"
         f"I18N={json.dumps(i18n, ensure_ascii=False, separators=(',', ':'))};\n"
         f"TX={json.dumps(textes, ensure_ascii=False, separators=(',', ':'))};\n"
         f"REGISTRE={{...REGISTRE,...{json.dumps(registre, ensure_ascii=False)}}};\n"

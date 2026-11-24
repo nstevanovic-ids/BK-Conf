@@ -176,6 +176,11 @@
    "sre": "Pravo na pritužbu",
    "ist": "Pravo na žalba"
   },
+  "A film: the States, the peoples, the institutions, how a law is made, direct democracy, the language and the symbols": {
+   "zap": "Film: države, narodi, institucije, kako nastane zakon, neposredna demokracija, jezik in simboli",
+   "sre": "Film: države, narodi, institucije, kako nastaje zakon, neposredna demokratija, jezik i simboli",
+   "ist": "Film: dãržavite, narodite, instituciite, kak se priema zakon, prjakata demokracija, ezikãt i simvolite"
+  },
   "A financial regime on the Swiss model: a debt brake, a capped confederal income tax shared with the States, a top-up tax to the global minimum for large groups, no duty on issuing or trading securities, and an exclusive value added tax; family allowances, a year of parental leave and a childcare place for every child; annual quotas for work permits and systematic checks at the external borders; a Kongres of 250 delegates shared out by the Sainte-Laguë method; total and partial revision, with five entrenched guarantees that only all seven national delegations can revise; entry into force and first elections. 192 articles in ten titles.": {
    "sre": "Finansijski poredak po helvetskom uzoru: kočnica zaduživaña, ograničeni konfederalni porez na dohodak koji se děli s državama, dopunski porez do globalnog minimuma za velike grupe kompanija, bez dažbine na izdavañe ili trgovañe vrědnosnim papirima, i iskļučivi porez na dodatu vrědnost; porodični dodaci, godina roditeļskog odsustva i město u predškolskoj ustanovi za svako děte; godišñe kvote za dozvole za rad i sistematske kontrole na granicama Konfederacije; Kongres od 250 delegata, s mandatima raspoređenim metodom Sainte-Laguë; potpuna i dělimična revizija, s pet ojačanih garancija koje se mogu revidirati samo odlukom svih sedam narodnih delegacija; stupañe na snagu i prvi izbori. 192 člana u deset glava.",
    "ist": "Finansov režim po švejcarski model: spiračka na dãlga, konfederalen danãk vãrhu dohodite s tavan, čiito prihodi se podeļat s dãržavite, dopãlnitelen danãk do svetovnija minimum za golemite grupi predprijatija, bez nalog vãrhu izdavaneto na cenni kniža i tãrgovijata s tjah, i izkļučitelen danãk vãrhu dobavenata stojnost; semejni pomošti, ednogodišen roditelski otpusk i mjasto v detsko zavedenie za vsjako dete; godišni kvoti za razrešenijata za rabota i sistematični proverki po vãnšnite granici; Kongres ot 250 delegati, razpredeleni po metoda na Sainte-Laguë; cjalostno i častično izmenenie na Konstitucijata, s pet zasileni garancii, koito mogat da bãdat izmeneni samo ot vsičkite sedem narodni delegacii; vlizane v sila i pãrvi izbori. 192 člena v deset glavi.",
@@ -790,6 +795,11 @@
    "zap": "Razdelek {0}",
    "sre": "Poglavļe {0}",
    "ist": "Razdel {0}"
+  },
+  "Chapters": {
+   "zap": "Poglavja",
+   "sre": "Poglavļa",
+   "ist": "Glavi"
   },
   "Check the status of a citizen card": {
    "zap": "Preverite status državļanske izkaznice",
@@ -1815,6 +1825,11 @@
    "zap": "po starših",
    "sre": "po roditeļu",
    "ist": "proizhod ot roditel"
+  },
+  "Film · {0}": {
+   "zap": "Film · {0}",
+   "sre": "Film · {0}",
+   "ist": "Film · {0}"
   },
   "Finance": {
    "sre": "Finansije",
@@ -3871,6 +3886,11 @@
    "ist": "Teritorija",
    "sre": "Teritorija"
   },
+  "Text of the film": {
+   "zap": "Besedilo filma",
+   "sre": "Tekst filma",
+   "ist": "Tekst na filma"
+  },
   "The 52 states, confederal territories and confederal autonomous municipalities.": {
    "zap": "52 držav, konfederalna ozemļa in konfederalne avtonomne občine.",
    "ist": "Vsičkite 52 dãržavi, konfederalnite teritorii i konfederalnite avtonomni obštini.",
@@ -4036,6 +4056,11 @@
    "ist": "Konfederacijata ima tri oficialni simvola: gerba, dãržavnoto zname i graždanskoto zname. Vsjaka dãržava na svoj red priema sobstveno zname, gerb i himn (čl. 126).",
    "zap": "Konfederacija ima tri uradne simbole: grb, državno zastavo in civilno zastavo. Vsaka država pa sprejme svojo zastavo, grb in himno (čl. 126)."
   },
+  "The Confederation in five minutes": {
+   "zap": "Konfederacija v petih minutah",
+   "sre": "Konfederacija u pet minuta",
+   "ist": "Konfederacijata za pet minuti"
+  },
   "The Confederation is anchored in the Balkan linguistic area. Its written identity rests on a unified Latin alphabet; its institutional identity on a shared system of symbols and heraldry.": {
    "zap": "Konfederacija je zasidrana v balkanskem jezikovnem prostoru. Ñena pisna identiteta temeļi na enotni latinični abecedi, institucionalna pa na skupnem sistemu simbolov in heraldike.",
    "sre": "Konfederacija je usidrena u balkanskom lingvističkom prostoru. Ñen pisani identitet počiva na jedinstvenoj latinici, a institucionalni na zajedničkom sistemu simbola i heraldike.",
@@ -4095,6 +4120,11 @@
    "zap": "Dvojni kļuč veļa tudi za šest delegacij od sedmih: šest je »najmañ pet od sedmih« (čl. 110).",
    "sre": "Dvostruki kļuč priměñuje se i na šest od sedam delegacija: šest je „najmañe pet od sedam“ (čl. 110).",
    "ist": "Dvojnijat kļuč se prilaga i za šest ot sedemte delegacii: šest sa „pone pet ot sedemte“ (čl. 110)."
+  },
+  "The film is in English and silent; its full text is below.": {
+   "zap": "Film je v angleščini in brez zvoka; ñegovo celotno besedilo je spodaj.",
+   "sre": "Film je na engleskom i bez zvuka; ñegov potpuni tekst nalazi se ispod.",
+   "ist": "Filmãt e na anglijski i bez zvuk; pãlnijat mu tekst e po-dolu."
   },
   "The four confederal institutions": {
    "zap": "Štiri konfederalne institucije",
@@ -4315,6 +4345,11 @@
    "sre": "Državnu zastavu ističu sve konfederalne institucije, vojne jedinice, diplomatska predstavništva i sědišta državnih organa. Vertikalna crvena traka uz kopļe nosi zrakasto sunce na kojem je crveni lav; horizontalno poļe plavo, srebrno i plavo, a središña běla traka obrubļena je frizovima nadahnutim balkanskom tekstilnom tradicijom.",
    "ist": "Dãržavnoto zname se izdiga ot vsički konfederalni institucii, voenni formirovanija i posolstva i na sedalištata na dãržavnata vlast. Vertikalna červena ivica otkãm drevkata sãs sijaešto slãnce, natovareno s červenija lãv; horizontalno pole v siño, srebãrno i siño, kato srednata bjala ivica e obramčena s frizove, vdãhnoveni ot balkanskite tãkačni tradicii.",
    "zap": "Državno zastavo izobešajo vse konfederalne institucije, vojaške enote, veleposlaništva in sedeži državnih organov. Navpični rdeči pas ob drogu nosi sijoče sonce z naloženim rdečim levom; vodoravno poļe je modro, srebrno in modro, osredñi beli pas pa obrobļajo frizi, navdihñeni z balkanskimi tekstilnimi tradicijami."
+  },
+  "The States, the peoples, the institutions, how a law is made, direct democracy, the language, living together and the symbols: a film in motion design, drawn from the Constitution and from the data of this portal.": {
+   "zap": "Države, narodi, institucije, kako nastane zakon, neposredna demokracija, jezik, sobivañe in simboli: animirani film, narejen po Ustavi in podatkih tega portala.",
+   "sre": "Države, narodi, institucije, kako nastaje zakon, neposredna demokratija, jezik, zajednički život i simboli: animirani film, izrađen prema Ustavu i podacima ovog portala.",
+   "ist": "Dãržavite, narodite, instituciite, kak se priema zakon, prjakata demokracija, ezikãt, sãvmestnijat život i simvolite: animacionen film, izgraden po Konstitucijata i po dannite na tozi portal."
   },
   "The supreme court for confederal law, and the prosecutor who brings the cases of the Konfederalni Istražni Biro to trial.": {
    "zap": "Vrhovno sodišče za konfederalno pravo in tožilstvo, ki zadeve Konfederalnega preiskovalnega biroja privede pred sodišče.",

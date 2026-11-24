@@ -14,7 +14,7 @@ const {chromium} = require('playwright');
 const BASE = process.argv[2] || 'http://127.0.0.1:8001/';
 const FILTRE = new RegExp(process.argv[3] || '.');
 const ROUTES_ALL = ['#/home', '#/states', '#/state/BA-01', '#/state/LK-20', '#/state/DA-08', '#/state/SA-92',
-  '#/state/BK-95', '#/state/XX-99', '#/map', '#/map/LK-20', '#/map/LK-20/gospic', '#/institutions', '#/council', '#/votes',
+  '#/state/BK-95', '#/state/XX-99', '#/map', '#/map/LK-20', '#/map/LK-20/gospic', '#/five-minutes', '#/institutions', '#/council', '#/votes',
   '#/votes/consent/five-delegations/map', '#/votes/council/four-councillors', '#/votes/nimporte', '#/security', '#/constitution',
   '#/constitution/preamble', '#/constitution/title-4', '#/constitution/title-4/art-110', '#/journal', '#/identity',
   '#/alphabet', '#/symbols', '#/autonomy', '#/participation', '#/dashboard', '#/register', '#/citizen', '#/confirm',

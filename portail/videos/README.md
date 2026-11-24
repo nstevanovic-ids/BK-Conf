@@ -51,3 +51,12 @@ La vidéo brute n'est pas versionnée (≈ 20 Mo pour 15 s) : la conserver hors 
 
 Le film de Baraña (BR-04, 2026-10-20) est retiré du portail le 2026-11-05 : l'État est fondu dans
 Slavonija (ADR 2026-11-05-passe-de-fondation.md). La vidéo brute reste hors dépôt.
+
+## Film explicatif
+
+`explainer-en.mp4` et `explainer-en.jpg` ne sont pas des films d'États : c'est le film
+« The Confederation in five minutes » de la page `#/five-minutes`, rendu image par image
+depuis `film/` (`node film/render.js`, puis `--data` pour `portail/data/film.json` et
+l'image d'attente). H.264 1280×720, CRF 20, 30 images par seconde, sans son ; une seule
+taille, le débit d'un film en aplats restant bas. Voir film/README.md et l'ADR
+2026-11-24-film-explicatif.md.

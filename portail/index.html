@@ -772,6 +772,25 @@ main{max-width:1240px;margin:0 auto;padding:0 28px 90px}
 .btn-onlight{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.5);
   backdrop-filter:blur(3px)}
 .btn-onlight:hover{background:#fff;color:var(--indigo);border-color:#fff}
+.hero-film{color:#fff;border-color:transparent;padding-left:8px}
+.hero-film i{width:32px;height:32px;border-radius:50%;background:var(--gold-bright);color:var(--indigo);
+  display:grid;place-items:center;padding-left:2px;box-sizing:border-box;transition:.14s}
+.hero-film:hover{color:var(--gold-pale)}
+.hero-film:hover i{transform:scale(1.08)}
+/* film explicatif (#/five-minutes) */
+.fm-v{margin:0;background:#141933;border-radius:6px;overflow:hidden;aspect-ratio:16/9;box-shadow:var(--shadow-lg)}
+.fm-v video{display:block;width:100%;height:100%}
+.fm-note{color:var(--ink-2);font-size:.9rem;margin:12px 0 36px}
+.fm-ch{list-style:none;margin:0 0 44px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.fm-ch button{width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;padding:12px 14px;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:4px;color:var(--ink);font:inherit;cursor:pointer}
+.fm-ch button:hover{border-color:var(--gold)}
+.fm-ch b{flex:1;font-weight:600}
+.fm-n{font-family:var(--font-display);font-weight:800;color:var(--red);font-size:1.15rem;min-width:1.4em}
+.fm-t{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:.85rem}
+.fm-tx{max-width:72ch}
+.fm-tx h3{margin:28px 0 8px;font-size:1.35rem}
+.fm-tx p{margin:0 0 10px;line-height:1.62}
 
 .band{min-height:62vh;display:flex;align-items:center;margin-top:70px;margin-bottom:70px}
 .band .band-scrim{position:absolute;inset:0;z-index:1;
@@ -1753,6 +1772,7 @@ function vHome(){
         <a class="btn btn-primary" href="#/states">${L`Explore the states`}
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         <a class="btn btn-onlight" href="#/register">${L`Become a citizen`}</a>
+        <a class="btn hero-film" href="#/five-minutes"><i><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg></i>${L`The Confederation in five minutes`}</a>
       </div>
     </div>
     <a class="hero-cue" href="#/home" aria-label="${L`Scroll down`}"
@@ -2449,6 +2469,40 @@ function vInstitutions(){
 /* Votes et majorités : portail/js/votes.js (VOTES), chargé avec la page (ADR 2026-11-24-votes-majorites.md) */
 function vVotes(){
   return window.VOTES?VOTES.html(location.hash||'#/votes'):'';
+}
+
+/* ============================================================
+   THE CONFEDERATION IN FIVE MINUTES (#/five-minutes) : le film explicatif
+   (film/, ADR 2026-11-24-film-explicatif.md), ses chapitres et son texte.
+   Le film est en anglais ; son texte reste dans la langue du film.
+   ============================================================ */
+function vFilm(){
+  const f=(EXPLAINER||{}).en, head=crumb([['Home','#/home'],[L`The Confederation in five minutes`]]);
+  if(!f)return head;
+  const mm=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');
+  const num=n=>n?String(n).padStart(2,'0'):'';
+  return head+`
+  <section class="section pagehead reveal">
+    <div class="eyebrow">${L`Film · ${mm(f.dur)}`}</div>
+    <h1>${L`The Confederation in five minutes`}</h1>
+    <p class="lead">${L`The States, the peoples, the institutions, how a law is made, direct democracy,
+    the language, living together and the symbols: a film in motion design, drawn from the Constitution
+    and from the data of this portal.`}</p>
+  </section>
+  <section class="section fm">
+    <figure class="fm-v"><video id="fmV" controls playsinline preload="metadata" poster="${esc(f.poster)}"
+      aria-label="${L`The Confederation in five minutes`}"><source src="${esc(f.src)}" type="video/mp4"></video></figure>
+    <p class="fm-note">${L`The film is in English and silent; its full text is below.`}</p>
+    <div class="h2row"><h2>${L`Chapters`}</h2></div>
+    <ol class="fm-ch">${f.chapters.map(c=>`<li><button type="button" onclick="fmSeek(${c.t})"><span class="fm-n">${num(c.n)}</span><b lang="en" translate="no">${esc(c.title)}</b><span class="fm-t">${mm(c.t)}</span></button></li>`).join('')}</ol>
+    <div class="h2row"><h2>${L`Text of the film`}</h2></div>
+    <div class="fm-tx" lang="en" translate="no">${f.chapters.map(c=>`<h3>${c.n?`<span class="fm-n">${num(c.n)}</span> `:''}${esc(c.title)}</h3>${c.text.map(x=>`<p>${esc(x)}</p>`).join('')}`).join('')}</div>
+  </section>`;
+}
+/* un chapitre : la vidéo y saute et repart */
+function fmSeek(t){
+  const v=document.getElementById('fmV');if(!v)return;
+  v.currentTime=t;v.play().catch(()=>{});v.scrollIntoView({block:'nearest',behavior:'smooth'});
 }
 
 /* ============================================================
@@ -4235,7 +4289,7 @@ function skipTo(){
   t.focus();return false;
 }
 const ROUTES={
- 'home':[vHome,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
+ 'home':[vHome,'#/home'],'five-minutes':[vFilm,'#/home'],'states':[vStates,'#/states'],'map':[vMap,'#/map'],
  'institutions':[vInstitutions,'#/institutions'],'council':[vCouncil,'#/institutions'],'votes':[vVotes,'#/institutions'],'security':[vSecurity,'#/security'],'constitution':[vConstitution,'#/constitution'],
  'journal':[vJournal,'#/constitution'],'identity':[vIdentity,'#/identity'],
  'alphabet':[vAlphabet,'#/identity'],'symbols':[vSymbols,'#/identity'],
@@ -4450,6 +4504,7 @@ window.addEventListener('resize',setHdr,{passive:true});
 let SIDX=null, sbResults=[], sbSel=0;
 const SB_PAGES=[
  [N('Home'),N('Overview of the Confederation'),'#/home'],
+ [N('The Confederation in five minutes'),N('A film: the States, the peoples, the institutions, how a law is made, direct democracy, the language and the symbols'),'#/five-minutes'],
  [N('States & territories'),N('Directory of the 52 states'),'#/states'],
  [N('Autonomous communities'),N('24 recognised minority communities'),'#/autonomy'],
  [N('Interactive map'),N('Municipal boundaries, demographic and economic indicators by state.'),'#/map'],
@@ -4838,7 +4893,7 @@ function miniGeo(code){
    la page (sélection sur la carte, étapes de l'inscription). Table relevée par
    docs/lot1/outils/usage.js : une donnée oubliée donne une page incomplète. Le build inline injecte
    toutes les données et marque chaque clé comme chargée. */
-let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CORE=null, CIDX={}, CFULL={}, STATS={}, CARTE=null, COMMUNES=null, OPSTINE=[], VIDEOS={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
+let PEUPLES={}, STD={}, STATES=[], AUT=[], ALPHA=[], STATE_FLAGS={}, FLAGNOTE={}, GEO={}, CORE=null, CIDX={}, CFULL={}, STATS={}, CARTE=null, COMMUNES=null, OPSTINE=[], VIDEOS={}, EXPLAINER={}, I18N={langs:{en:{lab:'EN',html:'en'}},t:{}}, REGISTRE={api:'',turnstileSiteKey:'',contact:''};
 const byCode=c=>STATES.find(s=>s.c===c);
 const autOf=code=>AUT.filter(a=>a.host===code);
 /* DATA_V : version des données et du code, définie dans <head> (préchargement) */
@@ -4860,6 +4915,7 @@ const DATA_SRC={
   communes:['carte/communes.json',d=>{COMMUNES=d.m;}],   // index des communes pour la recherche
   opstine:['opstine.json',d=>{OPSTINE=d.m;}],
   videos:['videos.json',d=>{VIDEOS=d;}],
+  film:['film.json',d=>{EXPLAINER=d;}],   // film explicatif : chapitres et texte (film/render.js --data)
 };
 /* facultatives : en cas d'échec la page garde la valeur par défaut (anglais, sans films…) */
 /* aperçus et texte des articles du lecteur, par langue, pour la recherche (portail/data/constitution/) */
@@ -4877,7 +4933,7 @@ const DATA_ROUTE={
   map:['stats','carte','js/carte.js','css/carte.css'], institutions:['core','stats','js/regles.js'], council:['core','stats'], security:['core'],
   votes:['core','stats','js/regles.js','js/votes.js','css/votes.css'],
   constitution:['core','js/constitution.js','css/constitution.css'], identity:['core'], alphabet:['alfabet'],
-  symbols:['flags'], autonomy:['flags'],
+  symbols:['flags'], autonomy:['flags'], 'five-minutes':['film'],
   citizen:withCard, minor:withCard, verify:()=>(location.hash.split('/')[2]?['flags',QR]:[]),
 };
 const DATA_LATER={
