@@ -152,9 +152,11 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.2;lett
 /* ---------- top hairline ---------- */
 .topline{height:3px;background:#c90505;width:100%}
 /* lien d'évitement : hors écran jusqu'au focus du clavier */
-.skip{position:absolute;left:8px;top:-64px;z-index:100;background:var(--indigo);color:var(--indigo-ink);
+/* classe propre (.skiplink) : « skip » est aussi l'état d'une étape du rail de la loi (li.law-st.skip),
+   qui prenait ce style, sortait de la grille et s'affichait encadrée (corrigé le 2026-11-24) */
+.skiplink{position:absolute;left:8px;top:-64px;z-index:100;background:var(--indigo);color:var(--indigo-ink);
   padding:11px 16px;font-weight:700;font-size:.86rem;border-radius:3px;text-decoration:none;box-shadow:0 0 0 2px var(--gold-bright)}
-.skip:focus{top:8px}
+.skiplink:focus{top:8px}
 #app:focus{outline:none}
 /* tant que la page n'est pas rendue, #app réserve la hauteur de l'écran : le pied de page ne s'affiche
    pas en haut pour sauter ensuite (CLS) */
@@ -1206,7 +1208,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 </head>
 <body>
 <!-- lien d'évitement (constat A-4 de l'audit) : premier arrêt du clavier, vers le contenu de la page -->
-<a class="skip" href="#app" data-i18n="skip" onclick="return skipTo()">Skip to content</a>
+<a class="skiplink" href="#app" data-i18n="skip" onclick="return skipTo()">Skip to content</a>
 
 <div class="topline"></div>
 
