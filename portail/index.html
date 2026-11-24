@@ -1071,6 +1071,36 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .seat .sv{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--indigo);line-height:1}
 [data-theme="dark"] .seat .sv{color:var(--ink)}
 .ins-vos{margin:16px 0 0}
+/* Institutions : la page des votes en avant, dès l'arrivée (aperçu de la scène, cas en accès direct).
+   La couleur ne code que pour (azur plein), contre (gueules hachuré) et abstention (contour pointillé),
+   comme sur #/votes ; aucune couleur par peuple. */
+.ivo{--for:#374078;--ag:#99402F;--ag2:#7C3122;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:26px 40px;align-items:center;margin:6px 0 34px;padding:26px 30px;background:var(--surface);
+  border:1px solid var(--line-2);border-top:3px solid #374078;border-radius:10px;box-shadow:var(--shadow)}
+[data-theme="dark"] .ivo{--for:#5562B4;--ag:#B4553F;--ag2:#A24A35;border-top-color:#5562B4}
+.ivo h2{font-size:1.9rem;margin:2px 0 8px}
+.ivo h2 a{color:inherit;text-decoration:none}
+.ivo h2 a:hover{text-decoration:underline;text-underline-offset:4px}
+.ivo-tx p{color:var(--ink-2);font-size:.95rem;line-height:1.6;margin:0 0 16px;max-width:60ch}
+.ivo .btn-primary{background:var(--for);border-color:var(--for);color:#fff}
+.ivo-cases{margin-top:20px}
+.ivo-cases .eyebrow{display:block;margin-bottom:8px}
+.ivo-cases ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ivo-cases a{display:inline-block;padding:6px 10px;border:1px solid var(--line-2);border-radius:5px;font-size:.8rem;
+  color:var(--ink-2);text-decoration:none;line-height:1.3}
+.ivo-cases a:hover{border-color:var(--ink);color:var(--ink)}
+.ivo-viz{display:block;text-decoration:none;color:inherit}
+.ivo-viz svg{display:block;width:100%;height:auto}
+.ivo-viz .f{fill:var(--for)}
+.ivo-viz .a{fill:url(#ivoHatch)}
+.ivo-viz .x{fill:none;stroke:var(--ink-3);stroke-width:.9;stroke-dasharray:2 1.6}
+.ivo-viz .h{fill:var(--ink-2);font:700 7px var(--font);letter-spacing:.06em;text-transform:uppercase}
+.ivo-viz .n{fill:var(--ink);font:800 15px var(--font-display)}
+.ivo-viz .r{stroke:var(--line-2);stroke-width:.6}
+.ivo-vd{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:.84rem;color:var(--ink-2)}
+.ivo-vd b{display:inline-flex;align-items:center;gap:6px;background:var(--for);color:#fff;border-radius:4px;padding:3px 9px;
+  font:800 1rem var(--font-display);letter-spacing:.03em;text-transform:uppercase}
+@media(max-width:860px){.ivo{grid-template-columns:1fr;padding:20px 18px}.ivo h2{font-size:1.6rem}}
 .seatnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;line-height:1.6}
 /* ---------- security and defence ---------- */
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -2277,6 +2307,53 @@ function insMount(){
     io.observe(svg);
   });
 }
+/* La page des votes en avant sur Institutions : titre, chapeau, bouton, les sept cas en accès direct et un
+   aperçu de sa scène, le cas « Consent given by five delegations » calculé par le moteur (REGLES, chargé avec
+   la page) : 54 disques, surface = population, rangés pour, abstention, contre ; carré = territoire
+   confédéral, losange = municipalité confédérale. Aucune chaîne nouvelle. */
+function insVotesHTML(){
+  const R=window.REGLES, PAGE=N('Votes and majorities'),
+    LEAD=N('Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.');
+  const cases=R?R.SCENARIOS.map(x=>`<li><a href="#/votes/${R.typeById(x.type).slug}/${x.id}">${esc(L(x.name))}</a></li>`).join(''):'';
+  let viz='';
+  if(R&&STATS&&Object.keys(STATS).length){
+    const C=R.contexte(STATES,STATS,PEUPLES), sc=R.caseById('consent-given'), v=sc.make(C), E=R.evaluate(C,v);
+    const W=110, G=6, max=Math.max(...C.states.map(s=>s.pop)), cols={f:[],x:[],a:[]};
+    C.states.forEach(s=>cols[v.st[s.c]].push(s));
+    let shapes='', hmax=0;
+    ['f','x','a'].forEach((o,ci)=>{
+      const x0=ci*(W+G), list=cols[o].sort((a,b)=>b.pop-a.pop);
+      let x=x0+2, y=26, rowH=0;
+      list.forEach(s=>{
+        const r=Math.max(2.2,9.5*Math.sqrt(s.pop/max)), d=2*r+2;
+        if(x+d>x0+W){x=x0+2;y+=rowH;rowH=0;}
+        const cx=x+r+1, cy=y+r+1; rowH=Math.max(rowH,d);
+        shapes+=s.t==='F'?`<rect class="${o}" x="${(cx-r).toFixed(1)}" y="${(cy-r).toFixed(1)}" width="${(2*r).toFixed(1)}" height="${(2*r).toFixed(1)}" rx="${(r*.5).toFixed(1)}"/>`
+          :s.t==='M'?`<rect class="${o}" x="${(cx-r*.8).toFixed(1)}" y="${(cy-r*.8).toFixed(1)}" width="${(1.6*r).toFixed(1)}" height="${(1.6*r).toFixed(1)}" transform="rotate(45 ${cx.toFixed(1)} ${cy.toFixed(1)})"/>`
+          :`<circle class="${o}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}"/>`;
+        x+=d;
+      });
+      hmax=Math.max(hmax,y+rowH);
+      shapes+=`<text class="h" x="${x0+2}" y="8">${esc(L(R.LIB.vote[o]))}</text><text class="n" x="${x0+2}" y="22">${fmtN(E.t.K[o])}</text>`
+        +(ci?`<line class="r" x1="${x0-G/2}" y1="0" x2="${x0-G/2}" y2="${hmax}"/>`:'');
+    });
+    const H=Math.ceil(hmax+4), href=`#/votes/consent/consent-given`;
+    viz=`<a class="ivo-viz" href="${href}" tabindex="-1" aria-hidden="true">
+      <svg viewBox="0 0 ${3*W+2*G} ${H}" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <defs><pattern id="ivoHatch" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="3.2" height="3.2" style="fill:var(--ag)"/><rect width="1.4" height="3.2" style="fill:var(--ag2)"/></pattern></defs>${shapes}</svg>
+      <div class="ivo-vd"><b><span aria-hidden="true">✓</span>${esc(L(R.LIB.verdict[E.verdict]))}</b>${esc(L(sc.name))}</div></a>`;
+  }
+  return `<section class="ivo" aria-labelledby="ivoH">
+    <div class="ivo-tx">
+      <h2 id="ivoH"><a href="#/votes">${esc(L(PAGE))}</a></h2>
+      <p>${esc(L(LEAD))}</p>
+      <a class="btn btn-primary" href="#/votes">${L`Open`} →</a>
+      ${cases?`<div class="ivo-cases"><span class="eyebrow" id="ivoC">${L`Choose a case`}</span><ul aria-labelledby="ivoC">${cases}</ul></div>`:''}
+    </div>
+    ${viz}
+  </section>`;
+}
 function vInstitutions(){
   return crumb([['Home','#/home'],['Institutions']])+`
   <section class="section pagehead reveal">
@@ -2287,6 +2364,7 @@ function vInstitutions(){
     and judicial functions are separated, and no one may sit in more than one confederal organ
     (Art. 101).`}</p>
   </section>
+  ${insVotesHTML()}
   <section class="band" style="min-height:40vh;margin-top:20px;margin-bottom:40px">
     <div class="band-bg" data-parallax="0.16">${imgSlot('institutions-hall','fill')}</div>
     <div class="band-scrim"></div>
