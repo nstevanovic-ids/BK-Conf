@@ -8,7 +8,8 @@
      --fps 30             images par seconde
      --crf 20             qualité x264
      --out <fichier.mp4>  défaut : portail/videos/explainer-<lang>.mp4
-     --stills 3,12.5,40   au lieu du film, des images PNG à ces instants (dans --dir, défaut film/stills/)
+     --stills 3,law:20    au lieu du film, des images PNG à ces instants (secondes, ou scène:secondes après
+                          son carton), dans --dir (défaut film/stills/)
    Le dépôt est servi par un petit serveur local ; rien ne sort de la machine. */
 const {chromium} = require('playwright');
 const http = require('http');
@@ -52,9 +53,14 @@ function serve() {
   if (A.stills) {
     const dir = path.resolve(A.dir || path.join(__dirname, 'stills'));
     fs.mkdirSync(dir, {recursive: true});
+    /* un instant = secondes du film, ou scène:secondes dans la scène (après son carton) */
+    const sc = await page.evaluate(() => FILM.scenes());
     for (const s of A.stills.split(',')) {
-      const f = path.join(dir, `${LANG}-${String(s).replace('.', '_')}.png`);
-      fs.writeFileSync(f, await shot(+s)); console.log(f);
+      const [id, lt] = s.includes(':') ? s.split(':') : [null, s], o = id && sc.find(x => x.id === id);
+      if (id && !o) throw new Error('scène inconnue : ' + id);
+      const t = o ? o.start + o.card + +lt : +lt;
+      const f = path.join(dir, `${LANG}-${s.replace(/[.:]/g, '_')}.png`);
+      fs.writeFileSync(f, await shot(t)); console.log(f);
     }
   } else {
     const from = +(A.from || 0), to = Math.min(+(A.to || dur), dur), n = Math.round((to - from) * FPS);
