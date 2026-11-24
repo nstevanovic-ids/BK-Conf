@@ -11,7 +11,7 @@
   var X = (window.TXT || {})[LANG] || TXT.en;
   var C = {
     gules: '#99402F', azure: '#374078', gold: '#DFCC68', goldInk: '#9E7A16', silver: '#FFFFFF',
-    ink: '#1b2030', ink2: '#545b6c', ink3: '#878d9b', paper: '#F6F4EE', paper2: '#E9E6DC',
+    ink: '#1b2030', ink2: '#545b6c', ink3: '#878d9b', paper: '#FFFFFF', paper2: '#E9EBF0',
     night: '#1a2040', land: '#D9DEEC', land2: '#BCC5DE', azureHi: '#4A56A0'
   };
   var FD = "'Sofia Sans Extra Condensed','Arimo',sans-serif", FB = "'Arimo',sans-serif";
@@ -122,29 +122,31 @@
 
   /* ---------------------------------------------------------------- scènes */
   var SC = [];
-  function scene(id, dur, bg, build) { SC.push({ id: id, dur: dur, bg: bg, build: build }); }
+  /* chap : numéro du chapitre ; la scène s'ouvre alors sur le carton du drapeau (CARD secondes, lt < 0) */
+  var CARD = 1.5;
+  function scene(id, dur, bg, build, chap) { SC.push({ id: id, dur: dur, bg: bg, build: build, chap: chap, lead: chap ? CARD : 0 }); }
 
   /* 0. Ouverture */
-  scene('intro', 11, 'night', function (g) {
+  scene('intro', 6.4, 'night', function (g) {
     var tl = TL(), T = X.intro;
     var glow = el('circle', { cx: 640, cy: 226, r: 210, fill: 'url(#gGlow)' }, g);
     var lg = el('g', {}, g);
     el('image', { href: LION, x: -115, y: -102, width: 230, height: 204 }, lg);
-    var eb = tl.g(g, 1.4, null, { dy: 0 });
+    var eb = tl.g(g, .7, null, { dy: 0, fi: .6 });
     var ebt = txt(eb, T.eyebrow, 640, 398, { font: FD, size: 24, weight: 700, fill: C.gold, anchor: 'middle', ls: 6 });
-    txt(tl.g(g, 2.0, null, { dy: 26 }), T.title, 640, 502, { font: FD, size: 96, weight: 800, fill: '#fff', anchor: 'middle' });
-    txt(tl.g(g, 2.7, null, { dy: 20 }), T.sub, 640, 560, { font: FD, size: 48, weight: 600, fill: C.gold, anchor: 'middle' });
+    txt(tl.g(g, 1.0, null, { dy: 26, fi: .6 }), T.title, 640, 502, { font: FD, size: 96, weight: 800, fill: '#fff', anchor: 'middle' });
+    txt(tl.g(g, 1.45, null, { dy: 20, fi: .6 }), T.sub, 640, 560, { font: FD, size: 48, weight: 600, fill: C.gold, anchor: 'middle' });
     var line = el('line', { x1: 640, x2: 640, y1: 604, y2: 604, stroke: C.gold, 'stroke-width': 1.2, opacity: .7 }, g);
-    var mo = tl.g(g, 5.2, null, { dy: 10 });
+    var mo = tl.g(g, 2.3, null, { dy: 10, fi: .6 });
     var mt = el('text', { x: 640, y: 652, 'text-anchor': 'middle' }, mo);
     el('tspan', { 'font-family': FD, 'font-size': 34, 'font-weight': 700, fill: C.gold }, mt, T.motto);
     el('tspan', { dx: 16, 'font-family': FB, 'font-size': 20, fill: 'rgba(255,255,255,.78)' }, mt, T.mottoEn);
     return function (lt) {
-      var p = E.out(P(lt, .2, 1.8));
-      set(lg, { transform: 'translate(640,226) scale(' + (.86 + .1 * p + .03 * P(lt, 2, 9)).toFixed(4) + ')', opacity: p.toFixed(3) });
-      set(glow, { opacity: (.8 * E.out(P(lt, .6, 2.4))).toFixed(3), r: (200 + 14 * P(lt, 0, 11)).toFixed(1) });
-      ebt.setAttribute('letter-spacing', lerp(18, 6, E.out(P(lt, 1.4, 1.6))).toFixed(2));
-      var w = 130 * E.io(P(lt, 4.7, 1));
+      var p = E.out(P(lt, .05, 1.1));
+      set(lg, { transform: 'translate(640,226) scale(' + (.84 + .12 * p + .03 * P(lt, 1, 5.4)).toFixed(4) + ')', opacity: p.toFixed(3) });
+      set(glow, { opacity: (.8 * E.out(P(lt, .3, 1.6))).toFixed(3), r: (200 + 16 * P(lt, 0, 6.4)).toFixed(1) });
+      ebt.setAttribute('letter-spacing', lerp(18, 6, E.out(P(lt, .7, 1.2))).toFixed(2));
+      var w = 130 * E.io(P(lt, 2.0, .8));
       set(line, { x1: 640 - w, x2: 640 + w });
       tl.run(lt);
     };
@@ -210,7 +212,9 @@
         var f0 = 4.8 + m.k * 4.0, pf = P(lt, f0, .8);
         if (m.t !== 'M' && lt >= f0 + .15) n++;
         var base = m.t === 'M' ? C.paper2 : C.land;
-        if (m.t === 'F') base = mix(base, C.gold, E.out(P(lt, CA + caps.indexOf(c) * CS, .6)));
+        /* les capitales en or le temps de leur présentation, puis Brčko et Mostar le temps de la leur */
+        if (m.t === 'F') base = mix(base, C.gold, E.out(P(lt, CA + caps.indexOf(c) * CS, .6)) * (1 - E.io(P(lt, 21.4, .7))));
+        if (m.t === 'M') base = mix(base, C.gules, .8 * E.out(P(lt, c === 'BK-95' ? 22.4 : 22.9, .6)) * (1 - E.io(P(lt, 25.6, .7))));
         var fill = mix(C.azure, base, E.out(pf));
         if (m.t === 'T' && peuple && m.peuple === peuple) fill = C.azure;
         set(m.el, {
@@ -230,7 +234,7 @@
       muns.forEach(function (m) { var p = E.back(P(lt, m.a, .6)); m.ring.setAttribute('r', (4 + 8 * p).toFixed(2)); });
       tl.run(lt);
     };
-  });
+  }, 1);
 
   /* ---------------------------------------------------------------- scène, transitions, temps */
   var svg = document.getElementById('film');
@@ -242,13 +246,51 @@
   var BG = { night: 'url(#gNight)', paper: C.paper };
   var bg = el('rect', { width: W, height: H }, svg);
   var stage = el('g', {}, svg);
-  var wipe = el('g', { style: 'display:none' }, svg);
-  var wpanel = el('rect', { width: W, height: H }, wipe);
-  el('rect', { x: W, width: 128, height: H, fill: C.gules }, wipe);
-  var WD = .62;
 
-  var START = [], DUR = 0;
-  SC.forEach(function (s) { START.push(DUR); DUR += s.dur; });
+  /* Carton de chapitre : le drapeau civil (art. 7 bis) se monte sur la fin d'une scène, porte le titre du
+     chapitre sur sa bande blanche, puis s'en va vers la droite et découvre la scène suivante. Couleurs du
+     drapeau lui-même (docs/canon/couleurs-symboles.md : éléments dérivés du drapeau). */
+  var FL = { red: '#C90505', navy: '#0E347F' }, FI = .75, FO = .9, RW = 240, BH = H / 3;
+  var flag = el('g', { style: 'display:none' }, svg);
+  var fband = [el('g', {}, flag), el('g', {}, flag), el('g', {}, flag)];
+  el('rect', { y: -1, width: W, height: BH + 2, fill: FL.navy }, fband[0]);
+  el('rect', { y: BH, width: W, height: BH, fill: '#FFFFFF' }, fband[1]);
+  el('rect', { y: 2 * BH - 1, width: W, height: BH + 2, fill: FL.navy }, fband[2]);
+  var cnum = el('g', {}, fband[1]), ctit = el('g', {}, fband[1]);
+  var cnumT = txt(cnum, '', RW + 70, BH + 182, { font: FD, size: 176, weight: 800, fill: FL.red });
+  var ctitT = txt(ctit, '', 0, BH + 158, { font: FD, size: 92, weight: 800, fill: FL.navy });
+  var fred = el('rect', { width: RW, height: H, fill: FL.red }, flag);
+  var flagFor = null;
+  function drawFlag(u, sc, n) {
+    flag.style.display = '';
+    if (flagFor !== sc) {
+      flagFor = sc;
+      cnumT.firstChild.textContent = String(n).padStart(2, '0');
+      ctitT.firstChild.textContent = ((X[sc.id] || {}).chapter || '');
+      ctitT.firstChild.setAttribute('x', RW + 70 + cnumT.getComputedTextLength() + 34);
+    }
+    var tx = [0, 0, 0], ry = 0, rx = 0, tn = 0, tt = 0;
+    if (u < 0) {
+      var p = (u + FI) / FI;
+      tx = tx.map(function (z, k) { return -W * (1 - E.io(P(p, k * .13, .62))); });
+      ry = -H * (1 - E.out(P(p, .32, .68)));
+    } else if (u < sc.lead) {
+      tn = E.out(P(u, .05, .45)); tt = E.out(P(u, .18, .5));
+    } else {
+      var q = (u - sc.lead) / FO;
+      tn = tt = 1;
+      tx = tx.map(function (z, k) { return W * E.io(P(q, k * .1, .62)); });
+      rx = (W + 20) * E.io(P(q, .22, .78));
+    }
+    fband.forEach(function (b, k) { b.setAttribute('transform', 'translate(' + tx[k].toFixed(1) + ',0)'); });
+    fred.setAttribute('transform', 'translate(' + rx.toFixed(1) + ',' + ry.toFixed(1) + ')');
+    var drift = u > 0 ? -8 * Math.min(u, sc.lead) / sc.lead : 0;
+    set(cnum, { opacity: tn.toFixed(3), transform: 'translate(' + drift.toFixed(1) + ',' + (40 * (1 - tn)).toFixed(1) + ')' });
+    set(ctit, { opacity: tt.toFixed(3), transform: 'translate(' + (drift + 60 * (1 - tt)).toFixed(1) + ',0)' });
+  }
+
+  var START = [], DUR = 0, NUM = {};
+  SC.forEach(function (s) { START.push(DUR); DUR += s.lead + s.dur; if (s.chap) NUM[s.id] = s.chap; });
   var cur = -1, upd = null;
   function seek(t) {
     t = clamp(t, 0, DUR - 1e-6);
@@ -260,15 +302,15 @@
       upd = SC[i].build(el('g', {}, stage));
       cur = i;
     }
-    upd(t - START[i]);
-    /* transition : le panneau de la scène suivante entre par la gauche, bande de gueules en tête */
-    var nx = i + 1 < SC.length ? START[i + 1] : Infinity, p = P(t, nx - WD, WD);
-    if (p > 0 && p < 1) {
-      wipe.style.display = '';
-      wpanel.setAttribute('fill', BG[SC[i + 1].bg]);
-      wipe.setAttribute('transform', 'translate(' + (lerp(-(W + 128), 0, E.io(p))).toFixed(1) + ',0)');
-      stage.setAttribute('transform', 'translate(' + (-50 * E.inn(p)).toFixed(1) + ',0)');
-    } else { wipe.style.display = 'none'; stage.removeAttribute('transform'); }
+    upd(t - START[i] - SC[i].lead);
+    /* carton du chapitre suivant (entrée) ou du chapitre en cours (maintien, sortie) */
+    var nx = i + 1 < SC.length && SC[i + 1].chap ? i + 1 : -1;
+    stage.removeAttribute('transform');
+    if (nx > 0 && t >= START[nx] - FI) {
+      drawFlag(t - START[nx], SC[nx], SC[nx].chap);
+      stage.setAttribute('transform', 'translate(' + (-60 * E.inn(P(t, START[nx] - FI, FI))).toFixed(1) + ',0)');
+    } else if (SC[i].chap && t < START[i] + SC[i].lead + FO) drawFlag(t - START[i], SC[i], SC[i].chap);
+    else flag.style.display = 'none';
   }
 
   var ready = load().then(function () {
@@ -279,7 +321,7 @@
   }).then(function () { return document.fonts.ready; });
 
   window.FILM = { duration: 0, ready: false, seek: seek, scenes: function () {
-    return SC.map(function (s, i) { return { id: s.id, start: START[i], dur: s.dur }; }); } };
+    return SC.map(function (s, i) { return { id: s.id, chap: s.chap || 0, start: START[i], card: s.lead, dur: s.dur }; }); } };
   ready.then(function () {
     FILM.duration = DUR; FILM.ready = true;
     if (RENDER) { document.body.className = 'render'; seek(+(Q.get('t') || 0)); return; }
