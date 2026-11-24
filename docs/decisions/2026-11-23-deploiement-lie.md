@@ -85,8 +85,8 @@ premier affichage à 7,3 s sur toutes les pages.
 
 11. **Préchargement dès le `<head>`.** Un petit script lit l'adresse et précharge ce que la page
     demandera ensuite par paliers : les polices, le socle (et `textes.json` hors anglais) ; sur
-    `#/constitution…`, le sommaire, le code et la feuille du lecteur et le titre demandé dans ses
-    textes. Mêmes adresses que les `fetch()` (version `DATA_V`, définie là). Le fichier unique n'a pas
+    `#/constitution…`, le sommaire, le code et la feuille du lecteur et le titre demandé dans son
+    texte. Mêmes adresses que les `fetch()` (version `DATA_V`, définie là). Le fichier unique n'a pas
     ce bloc.
 12. **Bibliothèques par page.** `vendor/d3-*` (carte, mini-cartes des fiches) et `vendor/qrcode`
     (carte citoyenne) ne bloquent plus le rendu de toutes les pages : ce sont des clés de

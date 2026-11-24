@@ -22,10 +22,9 @@ const DATA_V='';   // version des données et du code, posée par scripts/build_
   var h=location.hash||'', m=/^#\/constitution(?:\/(title-\d+(?:bis)?))?/.exec(h);
   if(m){
     pl('data/constitution/core.json','fetch');pl('js/constitution.js','script');pl('css/constitution.css','style');
-    var c=/\/((?:en|zap|sre|ist|fr)(?:-(?:en|zap|sre|ist|fr))*)$/.exec(h), cols=c?c[1].split('-'):[lang];
-    if(innerWidth<=760)cols=cols.slice(0,1);
+    var c=/\/(en|zap|sre|ist|fr)(?:-(?:en|zap|sre|ist|fr|lat|cyr))*$/.exec(h), txt=c?c[1]:lang;
     var t=m[1];
-    if(t)cols.forEach(function(l){pl('data/constitution/t/'+t+'.'+l+'.json','fetch');});
+    if(t)pl('data/constitution/t/'+t+'.'+txt+'.json','fetch');
   }
   if(/^#\/map(\/|$)/.test(h)){
     pl('data/carte/index.json','fetch');pl('data/stats.json','fetch');pl('js/carte.js','script');pl('css/carte.css','style');

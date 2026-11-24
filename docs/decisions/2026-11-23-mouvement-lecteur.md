@@ -35,9 +35,10 @@ Le reste du portail garde la règle d'origine.
    graisse et lève ses traits en entrant, se replie en sortant (animations pilotées par le défilement,
    `animation-timeline: view()`) ; dans la lecture, le numéro de l'article courant prend sa graisse
    (560 → 800) et la barre annonce l'article lu (0,5 s). La règle graduée se remplit.
-6. **Bascule d'écriture** (Lat / Ћир du portail, double ligne du lecteur) : glyphe par glyphe sur ce
-   qui est à l'écran, en une vague diagonale (moins d'une seconde), le reste converti ensuite par
-   tranches ; la ligne lue reste à sa hauteur. Double ligne : fondu de 200 ms.
+6. **Bascule d'écriture** (barre du lecteur : SRE ↔ СРЕ, ИСТ ↔ IST) : glyphe par glyphe sur ce qui est
+   à l'écran, en une vague diagonale (moins d'une seconde), le reste converti ensuite par tranches ; la
+   ligne lue reste à sa hauteur. La bascule Lat / Ћир de l'en-tête ne change que l'interface (amendé le
+   2026-11-24 : la double ligne est retirée).
 7. **Mouvement réduit** (`prefers-reduced-motion: reduce`) : aucune transition de page ni élément
    partagé, aucun défilement doux, aucune animation au défilement ; bascule d'écriture par un fondu de
    200 ms dans l'alinéa même ; l'arrivée sur un article est un éclairage fixe de 2,6 s.

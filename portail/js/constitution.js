@@ -32,9 +32,10 @@ var CX = (function () {
   const $ = id => document.getElementById(id);
   const TITLE0 = document.title;
 
-  const S = { cols: null, mtext: null, r: null, live: null, here: null, lang: null, scr: {}, dbl: ls.get('bk-cx-dbl') === '1',
+  const S = { text: null, tsc: null, shown: null, r: null, live: null, here: null, lang: null,
     ref: null, follow: null, thread: [], order: null, popFor: null, popT: 0 };
   try { S.thread = JSON.parse(ss.get('bk-cx-thread') || '[]'); } catch (e) {}
+  try { localStorage.removeItem('bk-cx-dbl'); } catch (e) {}   // ancienne double ligne, retirée
 
   /* ---------------------------------------------------------------- données */
   const got = {}, cache = new Map();
@@ -81,21 +82,30 @@ var CX = (function () {
   const titleOf = aid => CORE.toc.find(t => t.a.includes(aid.replace('art-', '')));
   const ORDER = () => S.order || (S.order = CORE.toc.flatMap(t => t.a.map(a => 'art-' + a)));
   const li = l => LANGS.indexOf(l);
-  /* écriture d'une colonne : double ligne (barre du lecteur), sinon le choix du portail pour ce standard */
-  const mode = l => (l === 'sre' || l === 'ist') ? (S.dbl ? 'dbl' : SCRIPTS[l] === 'cyr' ? 'cyr' : 'lat') : 'lat';
+  /* une seule sélection : un texte dans une seule écriture, choisis ensemble dans la barre du lecteur.
+     Un texte s'ouvre dans l'écriture première de son standard, le latin pour le središñi, le cyrillique
+     pour l'istočni (ADR 2026-11-06-istocni-cyrillique.md), quelle que soit l'écriture de l'interface ;
+     seule la barre la change. La bascule Lat / Ћир de l'en-tête ne touche que l'interface. */
+  const PRIMARY = { sre: 'lat', ist: 'cyr' };
+  const mode = l => PRIMARY[l] ? (l === S.text && S.tsc ? S.tsc : PRIMARY[l]) : 'lat';
+  const OPTS = [['en', 'en', 'lat'], ['zap', 'zap', 'lat'], ['sre', 'sre', 'lat'], ['sre-cyr', 'sre', 'cyr'],
+    ['ist', 'ist', 'cyr'], ['ist-lat', 'ist', 'lat'], ['fr', 'fr', 'lat']];
+  const optOf = id => OPTS.find(o => o[0] === id);
+  const optId = (l, sc) => (OPTS.find(o => o[1] === l && o[2] === sc) || OPTS.find(o => o[1] === l))[0];
+  const optNow = () => optId(S.text, mode(S.text));
+  const OLAB = { en: 'EN', zap: 'ZAP', sre: 'SRE', 'sre-cyr': 'СРЕ', ist: 'ИСТ', 'ist-lat': 'IST', fr: 'FR' };
 
   /* ---------------------------------------------------------------- colonnes et adresses */
+  /* un seul texte à la fois (la lecture comparée est retirée) : celui de la langue de l'interface, ou
+     un autre choisi dans la barre (dont le texte de travail français), porté par l'adresse avec son
+     écriture quand ce n'est pas la première (/sre-cyr, /ist-lat) */
   function initCols() {
-    if (S.cols) return;
-    try { const c = JSON.parse(ls.get('bk-cx-cols') || 'null');
-      if (Array.isArray(c) && c.length && c.every(x => LANGS.includes(x))) S.cols = [LANG, ...c.filter(x => x !== LANG)]; } catch (e) {}
-    if (!S.cols) S.cols = [LANG];
-    S.lang = LANG; S.scr = { sre: SCRIPTS.sre, ist: SCRIPTS.ist };
+    if (S.text) return;
+    S.text = LANG; S.tsc = PRIMARY[LANG] || 'lat'; S.lang = LANG;
   }
-  const saveCols = () => ls.set('bk-cx-cols', JSON.stringify(S.cols));
-  const suffix = cols => cols && !(cols.length === 1 && cols[0] === LANG) ? '/' + cols.join('-') : '';
+  const suffix = o => o && o !== optId(LANG, PRIMARY[LANG] || 'lat') ? '/' + o : '';
   function hashFor(id, cols) {
-    cols = cols === undefined ? S.cols : cols;
+    cols = cols === undefined ? (S.text ? optNow() : null) : cols;
     if (id === 'home') return '#/constitution';
     if (id === 'preamble') return '#/constitution/preamble';
     if (id.startsWith('art-')) { const t = titleOf(id); return '#/constitution/' + (t ? t.id : 'title-1') + '/' + id + suffix(cols); }
@@ -108,44 +118,33 @@ var CX = (function () {
     const parts = raw.split('/').filter(Boolean);
     if (!parts.length) return { v: 'home' };
     if (parts.length === 1 && parts[0] === 'preamble') return { v: 'home', pre: true };
-    let title = null, art = null, cols = null, bad = false, m;
+    let title = null, art = null, cols = null, tsc = null, bad = false, m;
     for (const p of parts) {
       if ((m = /^title-?(\d+)[- ]?(bis)?$/i.exec(p))) title = 'title-' + m[1] + (m[2] || '').toLowerCase();
       else if ((m = /^art(?:icle)?-?(\d+)[- ]?(bis|ter|quater|quinquies|sexies|septies|octies)?$/i.exec(p)))
         art = 'art-' + m[1] + (m[2] || '').toLowerCase();
-      else if (/^(?:en|zap|sre|ist|fr)(?:-(?:en|zap|sre|ist|fr))*$/.test(p)) cols = [...new Set(p.split('-'))].slice(0, 5);
+      else if ((m = /^(sre|ist)-(lat|cyr)$/.exec(p))) { cols = m[1]; tsc = m[2]; }   // texte dans son autre écriture
+      else if (/^(?:en|zap|sre|ist|fr)(?:-(?:en|zap|sre|ist|fr))*$/.test(p)) cols = p.split('-')[0];   // ancienne forme en-sre-fr : le premier texte
       else bad = true;
     }
     if (bad || (!title && !art)) return { v: 'nf', q: raw.replace(/[-/]+/g, ' ').trim() };
     if (art) { const t = titleOf(art); if (!t) return { v: 'nf', q: artNum(art) }; title = t.id; }
     else if (!CORE.toc.some(t => t.id === title)) return { v: 'nf', q: '' };
-    return { v: 'reader', title, art, cols };
+    return { v: 'reader', title, art, text: cols, tsc: cols ? tsc || PRIMARY[cols] || 'lat' : null };
   }
-  function colsNow(mobile) {
-    initCols();
-    if (mobile) { if (!LANGS.includes(S.mtext)) S.mtext = S.cols[0]; return [S.mtext]; }
-    return S.cols.slice(0, 5);
-  }
-  /* écran large : la marge reste quel que soit le nombre de textes ; sous 300 px par colonne, les
-     textes défilent de côté en colonnes de 340 px, le premier et la numérotation restant en place */
-  function layout(n, mobile) {
-    if (mobile) return { mg: false, hs: false };
-    const W = document.documentElement.clientWidth, mg = W >= 1100;
-    const pad = Math.min(40, Math.max(16, W * .04)) * 2, gut = n >= 3 ? 68 : n === 2 ? 86 : 104,
-      gap = n >= 3 ? 22 : Math.min(44, Math.max(20, W * .026));
-    const col = (W - pad - gut - (mg ? 272 + gap : 0) - n * gap) / n;
-    return { mg, hs: n >= 2 && col < 300 };
-  }
+  function colsNow() { initCols(); return [S.text]; }
+  /* écran large : la marge (renvois inverses, instruments) à droite du texte ; écran étroit : sous l'article */
+  function layout(n, mobile) { return { mg: !mobile && document.documentElement.clientWidth >= 1100 }; }
 
   /* ---------------------------------------------------------------- préparation (données de la vue) */
   async function prepare(h) {
     initCols();
     const r = parse(h);
-    if (r.cols) { S.cols = r.cols; S.mtext = r.cols[0]; saveCols(); }
+    if (r.text) { S.text = r.text; S.tsc = r.tsc; }
     const jobs = [];
     const cols = r.v === 'reader' ? colsNow(narrow()) : [LANG];
     if (r.v === 'reader') cols.forEach(l => jobs.push(load(`t/${r.title}.${l}.json`)));
-    if (cols.some(l => l !== 'en' && l !== 'fr')) jobs.push(need(['textes']));   // en-têtes des colonnes
+    if (cols.some(l => l !== 'en' && l !== 'fr')) jobs.push(need(['textes']));   // en-têtes du texte dans sa langue
     await Promise.all(jobs);
     return r;
   }
@@ -158,7 +157,7 @@ var CX = (function () {
     if (k === 'h') return `<p class="cx-u cx-sh">${h}</p>`;
     return `<p class="cx-u">${multi ? `<span class="cx-al" translate="no" aria-hidden="true">${n}</span>` : ''}${h}</p>`;
   }
-  function articleHTML(arts, cols, gi, mgs) {
+  function articleHTML(arts, cols, gi) {
     const a0 = arts[0], id = a0.id, [n, sfx] = a0.num.split(' ');
     const R = a0.u.length, multi = a0.u.filter(u => u[0] === 'p').length > 1;
     let h = `<section class="cx-art cx-grid" id="${id}" data-i="${gi}">
@@ -173,9 +172,7 @@ var CX = (function () {
     if (cited.length || ins) {
       const mg = `${cited.length ? `<div class="cx-cb"><span class="cx-k">${ui(L`In the Constitution`)}</span>${cited.map(c =>
         `<a class="cx-rf" href="${hashFor(c)}" translate="no">${esc(artNum(c))}</a>`).join('')}</div>` : ''}${ins ? `<div class="cx-ins" data-ins="${ins}" data-art="${id}"></div>` : ''}`;
-      /* mode latéral : la marge sort de la zone qui défile de côté (sinon elle n'y reste pas collante) */
-      if (mgs) mgs.push([id, mg]);
-      else h += `<aside class="cx-mg" style="grid-row:1 / span ${R + 1}"><div class="cx-mgi">${mg}</div></aside>`;
+      h += `<aside class="cx-mg" style="grid-row:1 / span ${R + 1}"><div class="cx-mgi">${mg}</div></aside>`;
     }
     return h + '</section>';
   }
@@ -188,8 +185,7 @@ var CX = (function () {
   function titleHTML(files, cols, tt, lay) {
     const f0 = files[0], order = ORDER(), [rn, sfx] = tt.num.split(' ');
     const ti = CORE.toc.indexOf(tt), prev = CORE.toc[ti - 1], next = CORE.toc[ti + 1], l0 = cols[0];
-    const mgs = lay.hs && lay.mg ? [] : null;
-    let h = `<div class="cx-rd${lay.mg ? ' cx-has-mg' : ''}${lay.hs ? ' cx-hs' : ''}" data-n="${cols.length}" style="--n:${cols.length}">
+    let h = `<div class="cx-rd${lay.mg ? ' cx-has-mg' : ''}" data-n="1" style="--n:1">
   <div class="cx-sheet" id="cxSheet">
   <section class="cx-opener cx-grid" id="${tt.id}">
     <div class="cx-gt" translate="no" aria-hidden="true">${rn}${sfx ? `<small>${sfx}</small>` : ''}</div>
@@ -204,22 +200,22 @@ var CX = (function () {
       ch.arts.forEach((a, ai) => {
         if (a.sec) h += `<div class="cx-brk cx-sec cx-grid">${files.map((f, i) => { const s = f.ch[ci].arts[ai].sec || a.sec;
           return `<div ${cellA(i, cols[i])} style="grid-row:1"><p class="cx-k">${esc(lab('section', s[0].replace('Section ', ''), cols[i]))}</p><h2>${esc(s[1])}</h2></div>`; }).join('')}</div>`;
-        h += articleHTML(files.map(f => f.ch[ci].arts[ai]), cols, order.indexOf(a.id), mgs);
+        h += articleHTML(files.map(f => f.ch[ci].arts[ai]), cols, order.indexOf(a.id));
       });
     });
     const tl_ = t => esc(sc(lab('title', t.num, LANG))) + ' · ' + esc(sc(t.name[li(LANG)]));
     h += `<nav class="cx-pager">${prev ? `<a href="${hashFor(prev.id)}"><small>← ${ui(L`Previous`)}</small><b>${tl_(prev)}</b></a>`
       : `<a href="${hashFor('preamble')}"><small>← ${ui(L`Back`)}</small><b>${ui(tk('h_preamble'))}</b></a>`}
     ${next ? `<a class="cx-nx" href="${hashFor(next.id)}"><small>${ui(L`Next`)} →</small><b>${tl_(next)}</b></a>` : '<span></span>'}</nav>
-  </div>${mgs ? `<div class="cx-mgcol" id="cxMgcol">${mgs.map(([id, mg]) => `<div class="cx-mgslot" data-for="${id}"><div class="cx-mgi">${mg}</div></div>`).join('')}</div>` : ''}</div>`;
+  </div></div>`;
     return h;
   }
   function barHTML(r, cols, mobile) {
     const chips = r.v === 'reader' ? `<div class="cx-texts">
       <span class="cx-lb">${ui(L`Language`)}</span>
-      <div class="cx-chips" role="group"${ua(L`Language`)}>${LANGS.map(l => `<button type="button" data-c="${l}" translate="no" aria-pressed="${cols.includes(l)}"${l === 'fr'
-        ? ' aria-label="FR"' : ` title="${esc((I18N.langs[l] || {}).name || l)}"`}>${l === 'fr' ? 'FR' : (I18N.langs[l] || {}).lab || l.toUpperCase()}</button>`).join('')}</div>
-      ${cols.some(l => l === 'sre' || l === 'ist') ? `<button type="button" class="cx-dbl" id="cxDbl" translate="no" aria-pressed="${S.dbl}"${ua(tk('scr_lat') + ' / ' + tk('scr_cyr'))}>A/${cols.includes('ist') && !cols.includes('sre') ? 'А' : 'Ћ'}</button>` : ''}
+      <div class="cx-chips" role="radiogroup"${ua(L`Language`)}>${OPTS.map(([id, l, scr]) => { const on = id === optNow();
+        const nm = l === 'fr' ? 'FR' : ((I18N.langs[l] || {}).name || l) + (PRIMARY[l] ? ' · ' + tk(scr === 'cyr' ? 'scr_cyr' : 'scr_lat') : '');
+        return `<button type="button" role="radio" data-c="${id}" translate="no" aria-checked="${on}" tabindex="${on ? 0 : -1}"${PRIMARY[l] && scr !== PRIMARY[l] ? ' class="cx-alt"' : ''} title="${esc(nm)}" aria-label="${esc(nm)}">${OLAB[id]}</button>`; }).join('')}</div>
       <span class="cx-cnt" id="cxCnt" translate="no"></span></div>` : '';
     return `<div class="cx-bar" id="cxBar"><div class="cx-bar-i">
     <a class="cx-loc" id="cxLoc" href="${hashFor('home')}"><b>${ui(L`Constitution`)}</b></a>${chips}</div>
@@ -274,10 +270,10 @@ var CX = (function () {
       const tt = CORE.toc.find(x => x.id === r.title), files = cols.map(l => got[`t/${r.title}.${l}.json`]);
       if (files.some(f => !f)) return '';
       const lay = layout(cols.length, mobile);
-      S.lay = { key: [tt.id, cols.join(), LANG, mobile, lay.mg, lay.hs].join('|'), mobile, lay, cols, tt };
+      S.lay = { key: [tt.id, cols.join(), LANG, mobile, lay.mg].join('|'), mobile, lay, cols, tt };
       main = titleHTML(files, cols, tt, lay);
     } else { S.lay = null; main = r.v === 'home' ? homeHTML(r) : nfHTML(r); }
-    return `<div class="cx${S.dbl ? ' cx-dblmode' : ''}" id="cx">${barHTML(r, cols, mobile)}<div class="cx-main">${main}</div></div>`;
+    return `<div class="cx" id="cx">${barHTML(r, cols, mobile)}<div class="cx-main">${main}</div></div>`;
   }
 
   /* ---------------------------------------------------------------- écriture des cellules */
@@ -385,7 +381,7 @@ var CX = (function () {
       const want = hashFor(r.art || r.title);
       if (location.hash !== want) history.replaceState(null, '', want);
     }
-    S.lang = LANG; S.scr = { sre: SCRIPTS.sre, ist: SCRIPTS.ist };
+    S.lang = LANG; S.shown = r.v === 'reader' ? optNow() : null;
     applyScripts(cx);
     if (keepThread) renderThread(); else threadOn(placeOf(r));
     const ac = new AbortController(), sig = { signal: ac.signal }, psig = { signal: ac.signal, passive: true };
@@ -447,7 +443,7 @@ var CX = (function () {
       setProgress(i);
       const cnt = $('cxCnt'); if (cnt) cnt.textContent = isArt ? `${i} / ${order.length}` : '';
       docTitle(isArt ? `${sc(lab('art', artNum(id), LANG))} · ${nameEl ? nameEl.textContent : ''}` : `${sc(lab('title', tt.num, LANG))} · ${sc(tt.name[li(LANG)])}`);
-      const h = hashFor(id, cols.length === 1 && mobile ? S.cols : cols);
+      const h = hashFor(id);
       if (location.hash !== h) history.replaceState(null, '', h);
       if (isArt) savePos(LANG, id);
     };
@@ -455,25 +451,25 @@ var CX = (function () {
     addEventListener('scroll', () => { if (!tick) tick = requestAnimationFrame(track); }, psig);
     track();
     const again = (extra) => remount(anchorNow(), extra);
-    // onglets : sur écran large ils ajoutent ou retirent une colonne ; sur écran étroit ils changent le texte
+    /* une seule sélection, un texte dans une écriture : un autre texte se monte sur le même alinéa ; le
+       même texte dans l'autre écriture bascule glyphe par glyphe, sans nouveau rendu */
+    const choose = (id, focus) => {
+      const o = optOf(id); if (!o || id === optNow()) return;
+      const [, l, scr] = o, d = OPTS.findIndex(x => x[0] === id) > OPTS.findIndex(x => x[0] === optNow()) ? 1 : -1;
+      if (l !== S.text) { S.text = l; S.tsc = scr; again({ slide: d, focus: focus ? id : null }); return; }
+      S.tsc = scr; syncChips(focus ? id : null);
+      const cells = [...document.querySelectorAll(`#cx .cxl[data-l="${l}"]`)];
+      if (cells.length) switchScript(cells, l, scr, [...document.querySelectorAll('#cx .cxl')]);
+      if (S.track) S.track();
+    };
     const chips = document.querySelector('#cx .cx-chips');
-    if (chips) chips.addEventListener('click', e => {
-      const b = e.target.closest('button'); if (!b) return; const l = b.dataset.c;
-      if (mobile) { if (l !== cols[0]) { S.mtext = l; again({ slide: LANGS.indexOf(l) > LANGS.indexOf(cols[0]) ? 1 : -1, focus: l }); } return; }
-      let c = S.cols.slice();
-      if (c.includes(l)) { if (c.length === 1) return; c = c.filter(x => x !== l); }
-      else c = [c[0], ...LANGS.filter(x => x !== c[0] && (c.includes(x) || x === l))];
-      S.cols = c; saveCols(); again({ focus: l });
-    }, sig);
-    const dbl = $('cxDbl');
-    if (dbl) dbl.addEventListener('click', () => {
-      S.dbl = !S.dbl; ls.set('bk-cx-dbl', S.dbl ? '1' : '0'); dbl.setAttribute('aria-pressed', S.dbl);
-      $('cx').classList.toggle('cx-dblmode', S.dbl);
-      for (const l of ['sre', 'ist']) {
-        const cells = [...document.querySelectorAll(`#cx .cxl[data-l="${l}"]`)];
-        if (cells.length) switchScript(cells, l, mode(l), [...document.querySelectorAll('#cx .cxl')]);
-      }
-    }, sig);
+    if (chips) {
+      chips.addEventListener('click', e => { const b = e.target.closest('button'); if (b) choose(b.dataset.c, true); }, sig);
+      chips.addEventListener('keydown', e => {
+        const d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0; if (!d) return;
+        e.preventDefault(); const o = OPTS[(OPTS.findIndex(x => x[0] === optNow()) + d + OPTS.length) % OPTS.length]; choose(o[0], true);
+      }, sig);
+    }
     if (mobile) {
       // balayage horizontal : texte suivant ou précédent, sur le même alinéa
       const sheet = $('cxSheet'); let sx = 0, sy = 0, st = 0;
@@ -481,8 +477,8 @@ var CX = (function () {
       sheet.addEventListener('touchend', e => {
         if (!st) return; const p = e.changedTouches[0], dx = p.clientX - sx, dy = p.clientY - sy;
         if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 2 || Date.now() - st > 700) return;
-        const n = LANGS[LANGS.indexOf(cols[0]) + (dx < 0 ? 1 : -1)];
-        if (n) { S.mtext = n; again({ slide: dx < 0 ? 1 : -1 }); }
+        const n = OPTS[OPTS.findIndex(x => x[0] === optNow()) + (dx < 0 ? 1 : -1)];
+        if (n) choose(n[0]);
       }, psig);
       for (const l of LANGS) if (l !== cols[0]) setTimeout(() => load(`t/${tt.id}.${l}.json`).catch(() => {}), 600);   // prêts pour le balayage
     }
@@ -498,22 +494,20 @@ var CX = (function () {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); mountIns(e.target); } }), { rootMargin: '700px 0px' });
     rd.querySelectorAll('.cx-ins').forEach(el => io.observe(el));
     ac.signal.addEventListener('abort', () => io.disconnect());
-    // mode latéral : chaque marge prend la hauteur et la position de son article
-    const col = $('cxMgcol');
-    if (col) {
-      const slots = [...col.children], sheet = $('cxSheet');
-      const align = () => { const top = col.getBoundingClientRect().top;
-        for (const sl of slots) { const a = $(sl.dataset.for); if (!a) continue; const r = a.getBoundingClientRect();
-          sl.style.top = (r.top - top) + 'px'; sl.style.height = r.height + 'px'; } };
-      const ro = new ResizeObserver(align); ro.observe(sheet); arts.forEach(a => ro.observe(a));
-      ac.signal.addEventListener('abort', () => ro.disconnect());
-      align();
-    }
     let rz = 0;
     addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
-      const m = narrow(), lay = layout(colsNow(m).length, m);
-      if (m !== mobile || lay.mg !== rd.classList.contains('cx-has-mg') || lay.hs !== rd.classList.contains('cx-hs')) again();
+      const m = narrow(), lay = layout(1, m);
+      if (m !== mobile || lay.mg !== rd.classList.contains('cx-has-mg')) again();
     }, 160); }, sig);
+  }
+  /* barre : l'option choisie (un texte, une écriture) et l'adresse qui la porte */
+  function syncChips(focus) {
+    const id = S.shown = optNow();
+    document.querySelectorAll('#cx .cx-chips [data-c]').forEach(b => {
+      const on = b.dataset.c === id; b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus({ preventScroll: true });
+    });
+    if (S.r && S.r.v === 'reader') { const h = hashFor(S.here || S.r.art || S.r.title); if (location.hash !== h) history.replaceState(null, '', h); }
   }
   /* nouveau rendu en place (textes, langue, largeur) : l'unité tenue sous la barre reste à sa hauteur */
   async function remount(anchor, extra = {}) {
@@ -531,7 +525,15 @@ var CX = (function () {
   function inplace(h) {
     if (!$('cx') || !S.r) return false;
     const r = parse(h);
-    if (r.cols && r.cols.join() !== S.cols.join()) { S.cols = r.cols; saveCols(); remount(anchorNow()); return true; }
+    /* texte ou écriture de l'adresse (lien, retour arrière) : prepare() a déjà posé l'état, on compare
+       avec ce qui est affiché */
+    if (r.text && S.shown && optId(r.text, r.tsc) !== S.shown) {
+      const was = optOf(S.shown)[1];
+      S.text = r.text; S.tsc = r.tsc;
+      if (r.text !== was) { remount(anchorNow()); return true; }
+      syncChips(); const cells = [...document.querySelectorAll(`#cx .cxl[data-l="${r.text}"]`)];
+      if (cells.length) switchScript(cells, r.text, r.tsc, [...document.querySelectorAll('#cx .cxl')]);
+    }
     if (r.v === 'home' && S.r.v === 'home') {
       S.r = r; if (r.pre) { const p = $('preamble'); if (p) p.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }
       else scrollTo({ top: 0, behavior: reduced() ? 'auto' : 'smooth' });
@@ -553,18 +555,13 @@ var CX = (function () {
     const cx = $('cx'); if (!cx) return false;
     if (S.lang !== LANG) {
       const prev = S.lang; S.lang = LANG;
-      S.cols = [LANG, ...S.cols.filter(x => x !== LANG && x !== prev)]; if (S.mtext === prev) S.mtext = LANG; saveCols();
+      S.text = LANG; S.tsc = PRIMARY[LANG] || 'lat';   // le texte suit la langue de l'interface, dans son écriture première
       remount(anchorNow());
       return true;
     }
-    const changed = ['sre', 'ist'].filter(l => S.scr[l] !== SCRIPTS[l]);
-    S.scr = { sre: SCRIPTS.sre, ist: SCRIPTS.ist };
+    // écriture de l'interface : libellés seulement, le texte garde l'écriture choisie dans la barre
     uiRefresh(cx); renderThread();
     if (S.track) S.track();
-    for (const l of changed) {
-      const cells = [...cx.querySelectorAll(`.cxl[data-l="${l}"]`)];
-      if (cells.length) switchScript(cells, l, mode(l), [...cx.querySelectorAll('.cxl')]);
-    }
     document.dispatchEvent(new CustomEvent('cx:script'));
     return true;
   }
@@ -681,34 +678,20 @@ var CX = (function () {
     if (!ok) return nodes.map(n => [n, skip(n.parentElement) ? [[n.data, n.data, false]] : segments(n.data, std), skip(n.parentElement)]);
     return out;
   }
-  /* une cellule garde sa source latine (_lat) ; dataset.sc dit ce qu'elle montre : lat | cyr | dbl */
+  /* une cellule garde sa source latine (_lat) ; dataset.sc dit ce qu'elle montre : lat | cyr */
   function setScript(cell, std, m) {
     if (cell._lat === undefined) cell._lat = cell.innerHTML;
     if ((cell.dataset.sc || 'lat') === m) return;
     cell.innerHTML = cell._lat;
     if (m === 'cyr') { for (const [n, segs, sk] of plan(cell, std)) if (!sk) n.data = segs.map(s => s[1]).join(''); }
-    else if (m === 'dbl') doubleLine(cell, std);
     cell.dataset.sc = m;
-    cell.classList.toggle('cx-dblon', m === 'dbl');
     setLang(cell, std, m);
   }
-  function setLang(cell, std, m) { cell.lang = m === 'cyr' ? (std === 'ist' ? 'bg' : 'sh-Cyrl') : HL[std]; }
-  /* double ligne : chaque mot porte sa forme cyrillique dessous (<ruby>, glose interlinéaire) */
-  function doubleLine(cell, std) {
-    for (const [n, segs, sk] of plan(cell, std)) {
-      if (sk) continue;
-      const f = document.createDocumentFragment();
-      for (const [la, cy, isW] of segs) {
-        if (!isW || la === cy) { f.append(la); continue; }
-        const r = document.createElement('ruby'); r.className = 'cx-w2'; r.append(la);
-        const t = document.createElement('rt'); t.textContent = cy; t.lang = std === 'ist' ? 'bg' : 'sh-Cyrl'; t.setAttribute('aria-hidden', 'true');
-        r.append(t); f.append(r);
-      }
-      n.replaceWith(f);
-    }
+  function setLang(cell, std, m) {
+    cell.lang = m === 'cyr' ? (std === 'ist' ? 'bg' : 'sh-Cyrl') : HL[std];
   }
   let running = null, gen = 0;
-  /* cells : cellules d'un standard ; to : lat | cyr | dbl. Seul ce qui est à l'écran s'anime ; le reste
+  /* cells : cellules d'un standard ; to : lat | cyr. Seul ce qui est à l'écran s'anime ; le reste
      est converti ensuite, par tranches, la première cellule visible tenue à sa place. */
   function switchScript(cells, std, to, track = []) {
     if (running) { running.finish(); running = null; }
@@ -744,11 +727,11 @@ var CX = (function () {
       step();
     });
     if (!vis.length) return later();
-    const glyph = !reduced() && to !== 'dbl' && vis.every(c => (c.dataset.sc || 'lat') !== 'dbl');
+    const glyph = !reduced();
     const tr = track.filter(c => !vis.includes(c) && near(c) && (r => r.bottom > 0 && r.top < vh)(c.getBoundingClientRect()));
     return (glyph ? glyphSwitch(vis, std, to, keep, tr) : fadeSwitch(vis, std, to, keep)).then(later);
   }
-  /* mouvement réduit (et double ligne) : fondu enchaîné de 200 ms dans la cellule même */
+  /* mouvement réduit : fondu enchaîné de 200 ms dans la cellule même */
   function fadeSwitch(vis, std, to, keep) {
     const ghosts = vis.map(c => { const g = document.createElement('span'); g.className = 'cx-ghost2'; g.setAttribute('aria-hidden', 'true');
       g.innerHTML = c.innerHTML; g.lang = c.lang; return g; });

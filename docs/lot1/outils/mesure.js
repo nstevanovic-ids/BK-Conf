@@ -27,6 +27,7 @@ const RUNS = parseInt(arg('--runs', '3'), 10);
 const LH = arg('--lh', 'lighthouse');
 const LABEL = arg('--label', '');
 const CHROME = chromium.executablePath();
+const ONLY = new RegExp(arg('--pages', '.'));   // filtre des captures par nom de page
 
 const LH_ROUTES = (arg('--routes', '') ? arg('--routes', '').split(',') : ['#/home', '#/states', '#/state/LK-20', '#/state/BA-01',
   '#/constitution', '#/constitution/title-4/art-110', '#/map']);
@@ -35,13 +36,13 @@ const PAGES = {home: '#/home', states: '#/states', 'state-film': '#/state/BA-01'
   'map-etat': '#/map/LK-20', 'map-commune': '#/map/LK-20/gospic', 'map-103': '#/map/art-103', 'map-110': '#/map/art-110',
   institutions: '#/institutions', council: '#/council', security: '#/security', constitution: '#/constitution',
   'constitution-titre': '#/constitution/title-4', 'constitution-art': '#/constitution/title-4/art-110',
-  'constitution-textes': '#/constitution/title-4/art-110/en-sre-fr', 'constitution-introuvable': '#/constitution/art-999',
+  'constitution-fr': '#/constitution/title-4/art-110/fr', 'constitution-introuvable': '#/constitution/art-999',
   journal: '#/journal', identity: '#/identity', alphabet: '#/alphabet', symbols: '#/symbols', autonomy: '#/autonomy',
   participation: '#/participation', dashboard: '#/dashboard', register: '#/register', citizen: '#/citizen',
   verify: '#/verify', minor: '#/minor', 'err-route': '#/nimporte', 'err-state': '#/state/XX-99'};
 const LANGS = {zap: ['zap', 'lat'], 'sre-lat': ['sre', 'lat'], 'sre-cyr': ['sre', 'cyr'], 'ist-cyr': ['ist', 'cyr'],
   'ist-lat': ['ist', 'lat']};
-const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art', 'constitution-textes',
+const LANG_PAGES = ['home', 'states', 'state-blason', 'institutions', 'constitution', 'constitution-art', 'constitution-fr',
   'map', 'map-etat', 'map-110'];
 
 const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
@@ -121,14 +122,14 @@ async function captures() {
   const b = await chromium.launch({args: ['--no-sandbox']});
   for (const [w, h] of [[375, 812], [768, 1024], [1440, 900]]) {
     const ctx = await b.newContext({viewport: {width: w, height: h}, reducedMotion: 'reduce'});
-    for (const [name, hash] of Object.entries(PAGES)) await shoot(ctx, name, hash, path.join(dir, `${name}-${w}.png`), metrics, `${name}-${w}`);
+    for (const [name, hash] of Object.entries(PAGES)) if (ONLY.test(name)) await shoot(ctx, name, hash, path.join(dir, `${name}-${w}.png`), metrics, `${name}-${w}`);
     await ctx.close();
   }
   for (const [lname, [lang, script]] of Object.entries(LANGS)) {
     for (const w of [375, 1440]) {
       const ctx = await b.newContext({viewport: {width: w, height: w === 375 ? 812 : 900}, reducedMotion: 'reduce'});
       await ctx.addInitScript(`try{localStorage.setItem('bk-lang','${lang}');localStorage.setItem('bk-script-${lang}','${script}')}catch(e){}`);
-      for (const name of LANG_PAGES) await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-${lname}-${w}.png`), metrics, `${name}-${lname}-${w}`);
+      for (const name of LANG_PAGES.filter(n => ONLY.test(n))) await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-${lname}-${w}.png`), metrics, `${name}-${lname}-${w}`);
       await ctx.close();
     }
   }
@@ -136,7 +137,7 @@ async function captures() {
   for (const w of [375, 1440]) {
     const ctx = await b.newContext({viewport: {width: w, height: w === 375 ? 812 : 900}, reducedMotion: 'reduce', colorScheme: 'dark'});
     await ctx.addInitScript(`try{localStorage.setItem('bk-theme','dark')}catch(e){}`);
-    for (const name of ['constitution', 'constitution-art', 'constitution-textes', 'map', 'map-etat'])
+    for (const name of ['constitution', 'constitution-art', 'constitution-fr', 'map', 'map-etat'].filter(n => ONLY.test(n)))
       await shoot(ctx, name, PAGES[name], path.join(dir, `${name}-sombre-${w}.png`), metrics, `${name}-sombre-${w}`);
     await ctx.close();
   }

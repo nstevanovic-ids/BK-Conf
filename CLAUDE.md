@@ -162,9 +162,11 @@ infrastructure numérique). Haute exigence de cohérence interne.
 - `portail/index.html` = template (HTML + CSS + JS de rendu) ; code de page à part, chargé avec sa
   route (`need()`), classes préfixées `cx-` : `portail/js/constitution.js` et `css/constitution.css`
   (lecteur de la Constitution, repris de Codex : ouverture sur le préambule puis les onze titres, sans
-  article mis en avant, 1 à 5 textes alignés en/zap/sre/ist/fr,
-  renvois et aperçus, barre collante à la place du fil d'Ariane, fil de lecture, j / k, bascule
-  glyphe par glyphe, double ligne en `<ruby>`) ; `js/marges.js` (instruments de marge des art. 1 bis,
+  article mis en avant ; une seule sélection, un texte dans une seule écriture, parmi EN · ZAP · SRE ·
+  СРЕ · ИСТ · IST · FR, par défaut la langue de l'interface ; pas de lecture comparée ni de double
+  ligne ; un texte s'ouvre toujours dans l'écriture première de son standard, sre latin, ist cyrillique,
+  la bascule Lat / Ћир de l'en-tête ne touche que l'interface ; renvois et aperçus, barre collante à la
+  place du fil d'Ariane, fil de lecture, j / k, bascule glyphe par glyphe) ; `js/marges.js` (instruments de marge des art. 1 bis,
   1 ter, 103, 109 b / 110 ter, 110, 111, 115 bis ; pas d'art. 132 avant sa révision) ; `js/regles.js`
   (moteur unique des votes et des sièges, aussi pour Institutions ; `node scripts/test_regles.js`,
   docs/lot1/MOTEUR.md) ; bibliothèques `vendor/` chargées par les pages qui s'en servent (d3 :
@@ -180,8 +182,8 @@ infrastructure numérique). Haute exigence de cohérence interne.
   l'art. 132) ; sous-route sans redessin (`MAPX.inplace`) ; la carte renvoie à la fiche d'État,
   elle ne la duplique pas ; plein écran sous l'en-tête, sans pied de page ; thème du portail ;
   population par peuple en filtre à une seule teinte
-- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/en-sre-fr`
-  (textes affichés) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
+- Routes du lecteur : `#/constitution`, `/preamble`, `/title-4`, `/title-4/art-110`, `/…/fr`, `/…/sre-cyr`,
+  `/…/ist-lat` (texte ou écriture autres que ceux par défaut) ; anciennes formes réécrites ; introuvable : vue « Not found » qui ouvre la
   recherche. Le portail appelle `CX.prepare`, `CX.html`, `CX.mounted`, `CX.inplace` (même titre),
   `CX.rerender` (langue, écriture), `CX.takeRef` / `CX.target` (élément partagé), `CX.leave`
 - Recherche (Ctrl+K, /) : une seule, celle du portail ; accès par numéro (« 110 », « art 1 bis »,

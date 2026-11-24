@@ -13,6 +13,7 @@ var MARGES = (function () {
     plen: N('The plenary majority depends on seventy individual votes and is not modelled here.'),
     sl: N('The text does not say how the limits combine with the method. Here: one common divisor, rounded to the nearest whole number, then the limits.'),
     al: N('Two thirds is rounded up: seven of the ten members of a delegation, 167 of the 250 delegates. A majority of the fourteen members of the conciliation committee is eight.'),
+    exc: N('Not calculated here: a vacant seat, when a majority of the members in office suffices; a tie, when the serving president has the casting vote; and the decisions to which the suspension does not apply.'),
   };
   let C = null;
   const ctx = () => C || (C = REGLES.contexte(STATES, STATS, PEUPLES));
@@ -81,7 +82,7 @@ var MARGES = (function () {
       const R = REGLES.conseil(C, yes(C, st));
       el.innerHTML = `<div class="cx-ih"><div class="cx-big ${R.adoptee ? 'cx-ok' : 'cx-ko'}">${R.n} / 7<small>${R.consensus ? '7 / 7' : R.cinq ? '≥ 5' : '≥ 4'} ${sign(R.adoptee)}</small></div>
       <div class="cx-big ${R.inscrits * 2 > C.regTotal ? 'cx-ok' : 'cx-ko'}">${fmtP(R.part)}<small>&gt; 50 % ${sign(R.inscrits * 2 > C.regTotal)} · ${t(L`Registered citizens`)}</small></div></div>
-      ${switches(C, st)}${as('reg')}${reset()}`;
+      ${switches(C, st)}${as('reg', 'exc')}${reset()}`;
       // art. 111 al. 3 : consensus ; al. 4 : quatre et la majorité des inscrits, ou cinq ; al. 5 : trente jours
       mark('111.consensus', R.consensus ? 'ok' : 'ko', `7 / 7 ${sign(R.consensus)}`);
       mark('111.quatre', R.consensus ? 'na' : R.adoptee ? 'ok' : 'ko', R.consensus ? '–' : `${R.n} + ${fmtP(R.part)} ${sign(R.quatre)} · ${R.n} ≥ 5 ${sign(R.cinq)}`);
