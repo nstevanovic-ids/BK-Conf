@@ -246,7 +246,7 @@ html[lang="bg"] .cx .cx-cover h1,html[lang="sh-Cyrl"] .cx .cx-cover h1{line-heig
 .cx{--mapc:#374078}
 [data-theme="dark"] .cx{--mapc:#DFCC68}
 .cx .cx-ins{border-top:2px solid var(--ink);margin-top:10px;padding-top:10px;color:var(--ink)}
-.cx .cx-ins[data-ins=dk110]{min-height:640px}.cx .cx-ins[data-ins=dk111]{min-height:590px}.cx .cx-ins[data-ins=reg]{min-height:370px}
+.cx .cx-ins[data-ins=dk110]{min-height:640px}.cx .cx-ins[data-ins=dk111]{min-height:680px}.cx .cx-ins[data-ins=reg]{min-height:370px}
 .cx .cx-ins[data-ins=sl]{min-height:900px}.cx .cx-ins[data-ins=map1],.cx .cx-ins[data-ins=cap]{min-height:250px}.cx .cx-ins[data-ins=alarm]{min-height:560px}
 .cx .cx-hero .cx-ins{border-top:1px solid var(--rule2)}
 .cx .cx-hero .cx-ins .cx-big{font-size:2.2rem}

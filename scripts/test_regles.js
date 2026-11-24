@@ -66,11 +66,17 @@ for (const [k, ps] of Object.entries(sets)) {
   const d = R.cleDouble(C, ps), p = part(ps);
   eq(d.cinq, ps.length >= 5, `art. 110 al. 4, ${k} : au moins cinq des sept`);
   eq(d.cle, ps.length >= 5 && p > 0.5, `art. 110 al. 5, ${k} : majorité des inscrits (${(p * 100).toFixed(1)} %)`);
-  eq(d.six, ps.length >= 6, `art. 110 al. 6, ${k} : six des sept`);
+  eq(d.six, ps.length >= 6 && p > 0.5, `art. 110 al. 5 et 6, ${k} : six des sept, double clé comprise (HYP six)`);
   eq(d.sept, ps.length === 7, `art. 110 al. 6 et art. 150, ${k} : les sept`);
 }
 ok(!R.cleDouble(C, sets['cinq sans les Serbes ni les Bulgares']).cle, 'art. 110 al. 5 : cinq délégations minoritaires en inscrits ne suffisent pas');
 ok(R.cleDouble(C, sets['cinq avec les Serbes et les Bulgares']).cle, 'art. 110 al. 5 : cinq délégations majoritaires en inscrits suffisent');
+{
+  // HYP six : six délégations représentent toujours la majorité des inscrits (la plus nombreuse exclue)
+  const min = Math.min(...C.order.map(x => part(C.order.filter(p => p !== x))));
+  ok(min > 0.5, `art. 110 al. 5 et 6 : six délégations font au moins ${(min * 100).toFixed(1)} % des inscrits`);
+  ok(C.order.every(x => R.cleDouble(C, C.order.filter(p => p !== x)).six), 'art. 110 al. 6 : toute coalition de six délégations passe la double clé');
+}
 
 /* ---------------------------------------------------------------- art. 111 : Konfederalno Veće */
 {
@@ -123,6 +129,11 @@ for (const t of R.TYPES) {
   ['BG-91', 'ZG-94', 'SA-92', 'SF-93', 'CG-06'].forEach(c => { y.st[c] = 'f'; });
   const Y = R.evaluate(C, y);
   eq([Y.t.coalStates, Y.verdict], [12, 'fail'], 'art. 122 : douze États dont sept d\'un même peuple, plus de la moitié');
+  const r = R.evaluate(C, R.blank(C, 'revision', 'f')), rk = r.gauges.find(x => x.id === 'key');
+  ok(rk && rk.ok && rk.hyp === 'six' && r.hyp.includes('six'), 'art. 110 al. 6 : révision, jauge de la double clé (HYP six)');
+  ok(!R.evaluate(C, R.blank(C, 'entrenched', 'f')).gauges.some(x => x.id === 'key'), 'art. 150 : les sept délégations, pas de jauge de double clé');
+  const rv = R.blank(C, 'revision', 'f'); for (const p of ['srb', 'bul']) R.setGroup(C, rv, p, 'a');
+  eq([R.evaluate(C, rv).verdict, R.evaluate(C, rv).line.k], ['fail', 'consent-refused'], 'art. 110 al. 6 : révision avec cinq délégations, refusée');
   const v2 = R.decode(C, R.encode(C, v));
   eq(v2, v, 'état partageable : encode puis decode');
 }

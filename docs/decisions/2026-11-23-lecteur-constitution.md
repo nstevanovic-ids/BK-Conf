@@ -5,7 +5,8 @@ Accepté le 2026-11-16 par l'auteur : Codex (`proto/codex/`, branche `claude/pro
 lecteur de `#/constitution` (lot 1, `proto/REPRISE.md`). Plan du lot : `docs/lot1/PLAN.md`. Décisions
 de l'auteur appliquées : texte français public (décision 5), péréquation non livrée en attendant la
 révision de l'art. 132 (décision 6) ; recommandations du plan acceptées le 2026-11-23 (moteur de Sabor
-porté dès ce lot, chaînes 1, 3, 5, 6, 9, 10 et 11 livrées, lien d'évitement, chaîne 12 soumise).
+porté dès ce lot, chaînes 1, 3, 5, 6, 9, 10 et 11 livrées, lien d'évitement, chaîne 12 soumise) ;
+chaîne 12 validée et lectures du moteur (`present`, `six`) tranchées le 2026-11-24 (`docs/lot1/MOTEUR.md`).
 
 **Amendé le 2026-11-23 (retour de l'auteur)** : la lecture comparée est retirée (« complètement
 inutile ») : un seul texte à la fois ; l'écriture d'un texte suit la règle de l'ADR
@@ -53,7 +54,7 @@ Voir aussi : ADR 2026-11-23-deploiement-lie.md (build lié, chargement par page)
    `docs/lot1/MOTEUR.md`, `scripts/test_regles.js` (au déploiement).
 8. **Instruments de marge** (affichage de Codex, calcul du moteur) : art. 1 bis, 1 ter, 103, 109 b et
    110 ter, 110 (aussi sur l'ouverture), 111, 115 bis. Ils écrivent leur résultat sur les alinéas, dans
-   tous les textes affichés, et disent leurs hypothèses (« Assumption »). Pas d'instrument pour
+   le texte affiché, et disent leurs hypothèses (« Assumption »). Pas d'instrument pour
    l'art. 132 tant que l'article n'est pas révisé.
 9. **Recherche** : une seule, celle du portail, enrichie de Codex (accès par numéro, repli sans
    diacritiques, extraits marqués) ; la palette de Codex est abandonnée.
@@ -70,8 +71,8 @@ est hors de ce lot.
 ## Limites
 - La double ligne garde des blancs irréguliers là où la forme du dessous est plus large que celle du dessus.
 - Le fil de lecture repart de zéro quand on navigue sans suivre un renvoi (comme dans Codex).
-- Chaîne 12 (ce que l'instrument de l'art. 111 ne calcule pas) : rédigée, soumise à l'auteur, non
-  livrée (`docs/lot1/CHAINES.md`).
+- L'instrument de l'art. 111 ne calcule ni le siège vacant, ni la voix prépondérante, ni les exceptions
+  de l'al. 7 ; il le dit (chaîne 12, validée par l'auteur le 2026-11-24, `docs/lot1/CHAINES.md`).
 - Non vu fonctionner : Safari, Firefox, un vrai téléphone ; la fluidité à 60 images/s de la bascule.
 
 ## Propagation

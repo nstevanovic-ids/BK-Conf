@@ -70,13 +70,14 @@ var REGLES = (function () {
   /* ---------------------------------------------------------------- art. 110 et 115 bis : double clé
      oui : peuples dont la délégation approuve (majorité simple en son sein).
      cinq : au moins cinq des sept (al. 4) ; cle : ces délégations représentent ensemble la majorité des
-     inscrits aux registres nationaux (al. 5, art. 115 bis) ; six : révision (al. 6) ; sept : garanties
-     renforcées (al. 6, art. 150). La double clé suit « au moins cinq des sept » (al. 5), pas la règle
-     des six (lecture littérale, HYP six). */
+     inscrits aux registres nationaux (al. 5, art. 115 bis) ; six : révision (al. 6), double clé
+     comprise : six délégations sont « au moins cinq des sept » (HYP six, lecture retenue par l'auteur
+     le 2026-11-24 ; aujourd'hui sans effet, six peuples font toujours plus de 68 % des inscrits) ;
+     sept : garanties renforcées (al. 6, art. 150), qui font tous les inscrits. */
   function cleDouble(C, oui) {
     var n = oui.length, r = oui.reduce(function (a, p) { return a + C.reg[p]; }, 0);
     return { n: n, inscrits: r, part: C.regTotal ? r / C.regTotal : 0, cinq: n >= 5, cle: n >= 5 && r * 2 > C.regTotal,
-      six: n >= 6, sept: n === 7 };
+      six: n >= 6 && r * 2 > C.regTotal, sept: n === 7 };
   }
 
   /* ---------------------------------------------------------------- art. 111 : Konfederalno Veće
@@ -126,7 +127,7 @@ var REGLES = (function () {
     { id: 'law', arts: ['106', '109'], k: 1, d: 1, steps: [['k'], ['alarm', 'k23']] },
     { id: 'consent', arts: ['109', '110'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']] },
     { id: 'urgent', arts: ['123 bis'], k: 1, d: 1, steps: [['k'], ['ns', 'del'], ['key']] },
-    { id: 'revision', arts: ['147', '110', '123'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['p'], ['s']] },
+    { id: 'revision', arts: ['147', '110', '123'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['key'], ['p'], ['s']] },
     { id: 'entrenched', arts: ['150'], k: 1, d: 1, s: 1, steps: [['k'], ['ns', 'del'], ['p'], ['s']] },
     { id: 'initiative', arts: ['121', '124'], s: 1, steps: [['p'], ['s']] },
     { id: 'stinit', arts: ['106 bis'], s: 1, co: 8, steps: [['co'], ['half']] },
@@ -185,7 +186,8 @@ var REGLES = (function () {
     for (var k in (extra || {})) g[k] = extra[k];
     return g;
   }
-  var SIMPLE = '{f} > {a}';                           // majorité simple : plus de pour que de contre (HYP present)
+  var SIMPLE = '{f} > {a}';                           // majorité simple : plus de pour que de contre, l'abstention
+                                                      // ne compte pas (HYP present, lecture retenue le 2026-11-24)
 
   function evaluate(C, v) {
     var type = typeById(v.type), t = tally(C, v), G = [];
@@ -231,11 +233,14 @@ var REGLES = (function () {
       G.push(kSimple());
       G.push(bar('ns', 'sabor', '≥ ⅔ · 70', ['110'], t.D, SABOR, twoThirds(SABOR), t.D.f >= twoThirds(SABOR), { unit: 'members', hyp: 'present' }));
       G.push(nsDeleg(need, [need === 7 ? '150' : '110']));
+      if (need === 6) { var kk = key(); kk.hyp = 'six'; G.push(kk); }   // art. 110 al. 5 et 6 (HYP six)
       G.push(people()); G.push(states());
+      var gid = function (id) { return G.filter(function (g) { return g.id === id; })[0]; };
+      var ns = ['ns', 'del', 'key'].every(function (id) { var g = gid(id); return !g || g.ok; });
       verdict = all() ? 'pass' : 'fail';
       line = verdict === 'pass' ? { k: 'revision-pass' }
-        : !G[0].ok ? null : !(G[1].ok && G[2].ok) ? { k: 'consent-refused' } : !G[3].ok ? { k: 'people-rejects' } : null;
-      hyp = ['bloc', 'present', 'pop', 'mun'];
+        : !G[0].ok ? null : !ns ? { k: 'consent-refused' } : !gid('p').ok ? { k: 'people-rejects' } : null;
+      hyp = need === 6 ? ['bloc', 'present', 'reg', 'six', 'pop', 'mun'] : ['bloc', 'present', 'pop', 'mun'];
     } else if (type.id === 'initiative') {
       G.push(people()); G.push(states());
       verdict = all() ? 'pass' : 'fail';
