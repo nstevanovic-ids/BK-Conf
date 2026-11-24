@@ -4137,7 +4137,7 @@ function go(h){location.hash=h;}
 /* lien d'évitement : le focus va au contenu de la page (le lecteur, l'en-tête de son article), sans
    toucher à l'adresse, qui porte la route */
 function skipTo(){
-  const t=document.querySelector('#cx .cx-art.cx-cur .cx-ah h3')||document.getElementById('app');
+  const t=document.querySelector('#cx .cx-art.cx-cur .cx-ah h3')||document.querySelector('#voUnits .vo-u[tabindex="0"]')||document.getElementById('app');
   if(t.tabIndex<0&&t.id!=='app')t.tabIndex=-1;
   t.focus();return false;
 }
@@ -4365,6 +4365,7 @@ const SB_PAGES=[
  [N('Constitution'),N('Constitutional corpus'),'#/constitution'],
  [N('Kongres seats'),N('250 delegates in 54 constituencies'),'#/institutions'],
  [N('Konfederalno Veće'),N('Presidency, seven departments and how the council decides'),'#/council'],
+ [N('Votes and majorities'),N('Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.'),'#/votes'],
  [N('Revising the Constitution'),N('Total and partial revision, entrenched guarantees'),'#/institutions'],
  [N('Official journal'),N('Latest confederal decisions'),'#/journal'],
  [N('Identity'),N('Language, alphabet and symbols'),'#/identity'],
@@ -4421,6 +4422,22 @@ function buildIndex(){
   (COMMUNES||[]).forEach(r=>{const h=byCode(r[1]);if(!h)return;
     idx.push({type:N('Municipalities'),label:r[0],sub:h.n+' · '+r[1],hash:r[2]?'#/map/'+r[1]+'/'+r[2]:'#/map/'+r[1],
       hay:fold(r[0]+' '+(r[3]||'')+' '+h.n),iconText:'◦'});});
+  /* page des votes : types de décision et cas (moteur unique, REGLES, chargé avec la recherche) ; ils mènent
+     à la page réglée sur eux. Les noms des articles du type (aperçus du lecteur) entrent dans la recherche :
+     « double » trouve la majorité de l'art. 124, « 150 » les garanties renforcées. */
+  if(window.REGLES){
+    const R=REGLES, VT=N('Votes and majorities'), art=a=>(ix['art-'+a.replace(/ /g,'')]||[])[1]||'';
+    const ORG={k:'kongres',k23:'kongres',ns:'sabor',del:'delegations',key:'registered',p:'citizens',s:'states',
+      alarm:'alarm',co:'states',half:'people',cons:'council',c4:'registered',c5:'council'};
+    const hayT=t=>{const en=R.LIB.type[t.id], orgs=[...new Set(t.steps.flat().map(k=>R.LIB.org[ORG[k]]))];
+      return en+' '+t.arts.join(' ')+' '+t.arts.map(art).join(' ')+' '+orgs.join(' ')+tr(en)+orgs.map(tr).join('');};
+    R.TYPES.forEach(t=>{
+      idx.push({type:VT,label:L(R.LIB.type[t.id])+(t.co?' · '+L('{0} States',t.co):''),sub:t.arts.map(a=>L`Art. ${a}`).join(' · '),
+        hash:'#/votes/'+t.slug,hay:fold(hayT(t)),iconText:'✓'});});
+    R.SCENARIOS.forEach(x=>{const t=R.typeById(x.type);
+      idx.push({type:VT,label:L(x.name),sub:L(R.LIB.type[t.id]),hash:'#/votes/'+t.slug+'/'+x.id,
+        hay:fold(x.name+tr(x.name)+' '+hayT(t)),iconText:'✓'});});
+  }
   SB_PAGES.forEach(p=>{
     idx.push({type:N('Pages'),label:L(p[0]),sub:L(p[1]),hash:p[2],
       hay:fold(p[0]+' '+p[1]+tr(p[0])+tr(p[1])),iconText:'§'});});
@@ -4773,7 +4790,7 @@ const DATA_ROUTE={
 const DATA_LATER={
   register:['opstine','flags',QR], minor:['opstine','flags',QR], citizen:['flags',QR],
 };
-const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG];
+const SEARCH_DATA=()=>['alfabet','flags','core','cidx.'+LANG,'js/regles.js'];   // moteur : types et cas de la page des votes
 const DATA_P={};   // clé → promesse du chargement
 /* code d'une page (js/…, css/…) : script ou feuille de style ajouté à <head>, une fois */
 function needCode(k){
