@@ -17,7 +17,7 @@ const SRC = process.argv[2] || 'balkanska_konfederacija.html';
 const GLOBALS = ['PEUPLES', 'STATES', 'AUT', 'ALPHA', 'STATE_FLAGS', 'FLAGNOTE', 'GEO', 'CONSTITUTION', 'CONS_TR',
   'STATS', 'LIGHTS', 'OPSTINE', 'VIDEOS', 'I18N', 'TX', 'REGISTRE'];
 const ROUTES = ['#/home', '#/states', '#/state/BA-01', '#/state/LK-20', '#/state/DA-08', '#/state/SA-92',
-  '#/state/BK-95', '#/map', '#/institutions', '#/council', '#/security', '#/constitution', '#/constitution/preamble',
+  '#/state/BK-95', '#/map', '#/institutions', '#/council', '#/votes', '#/votes/consent/five-delegations/map', '#/security', '#/constitution', '#/constitution/preamble',
   '#/constitution/title-4', '#/constitution/title-4/art-110', '#/journal', '#/identity', '#/alphabet', '#/symbols',
   '#/autonomy', '#/participation', '#/dashboard', '#/register', '#/citizen', '#/confirm', '#/card', '#/access',
   '#/verify', '#/minor', '#/nimporte', '#/state/XX-99'];

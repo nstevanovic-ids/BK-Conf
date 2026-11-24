@@ -14,7 +14,8 @@ const {chromium} = require('playwright');
 const BASE = process.argv[2] || 'http://127.0.0.1:8001/';
 const FILTRE = new RegExp(process.argv[3] || '.');
 const ROUTES_ALL = ['#/home', '#/states', '#/state/BA-01', '#/state/LK-20', '#/state/DA-08', '#/state/SA-92',
-  '#/state/BK-95', '#/state/XX-99', '#/map', '#/map/LK-20', '#/map/LK-20/gospic', '#/institutions', '#/council', '#/security', '#/constitution',
+  '#/state/BK-95', '#/state/XX-99', '#/map', '#/map/LK-20', '#/map/LK-20/gospic', '#/institutions', '#/council', '#/votes',
+  '#/votes/consent/five-delegations/map', '#/votes/council/four-councillors', '#/votes/nimporte', '#/security', '#/constitution',
   '#/constitution/preamble', '#/constitution/title-4', '#/constitution/title-4/art-110', '#/journal', '#/identity',
   '#/alphabet', '#/symbols', '#/autonomy', '#/participation', '#/dashboard', '#/register', '#/citizen', '#/confirm',
   '#/card', '#/access', '#/verify', '#/minor', '#/nimporte'];
@@ -22,7 +23,7 @@ const ROUTES = ROUTES_ALL.filter(r => FILTRE.test(r));
 const NO_CMP = /^#\/map\/[A-Z]{2}-\d{2}\/./;
 const LANGS = {en: ['en', 'lat'], zap: ['zap', 'lat'], 'sre-lat': ['sre', 'lat'], 'sre-cyr': ['sre', 'cyr'],
   'ist-cyr': ['ist', 'cyr']};
-const QUERIES = ['110', 'gosp'];
+const QUERIES = ['110', 'gosp', 'alarm'];
 
 const norm = s => s.replace(/\.\.\/(images|videos)\//g, '$1/')
   // carte (#/map) : le fichier unique n'a ni MapLibre ni communes (son worker exige http(s)) ; écarts
@@ -41,6 +42,8 @@ async function snap(pg) {
     a.querySelectorAll('#caGl,#caLab').forEach(e => { e.innerHTML = ''; e.className = e.id === 'caGl' ? 'ca-gl' : 'ca-lab'; e.removeAttribute('style'); });
     const lg = a.querySelector('#caLegend'); if (lg) lg.innerHTML = '';   // niveau de la légende : celui du zoom de MapLibre
     const ca = a.querySelector('#ca'); if (ca) { ca.classList.add('ca-svg'); ca.classList.remove('ca-cut'); }
+    // votes : la place des disques dépend du moment où la mesure est prise (simulation au repos) ; on compare sans elle
+    a.querySelectorAll('#vo .vo-u,#vo .vo-cap-o,#voTip').forEach(e => e.style.removeProperty('transform'));
     return a.innerHTML;
   })(),
     head: document.querySelector('body>header').innerText, lang: document.documentElement.lang}));
