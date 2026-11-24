@@ -389,7 +389,8 @@ Constitutions traduites quand ils existent, article cité. Doutes marqués « ? 
 |---|---|---|
 | 1 | Skip to content | déjà livrée (lot 1, `i18n.json`, clé `skip`) |
 | 2 | Open in the instrument | abandonnée : les renvois portent le nom de la page (N1) |
-| 3 à 11 | péréquation | en attente de la révision de l'art. 132 |
+| 3, 4, 6 à 11 | péréquation | en attente de la révision de l'art. 132 |
+| 5 | Assumptions of the instrument | livrer, anglais retouché (point 7) |
 | 12 à 14 | For / Abstention / Against | livrer |
 | 15, 16 | Passes / Fails | abandonnées si le point 3 est accepté |
 | 17 | Suspended | livrer |

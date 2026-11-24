@@ -2302,9 +2302,9 @@
    "ist": "Konfederalna centralna banka"
   },
   "Konfederalna Kancelarija": {
-   "zap": "Konfederalna Kancelarija",
+   "zap": "Konfederalna kanclerija",
    "sre": "Konfederalna Kancelarija",
-   "ist": "Konfederalna Kancelarija"
+   "ist": "Konfederalna kancelarija"
   },
   "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica and Konfederalne Oružane Snage.": {
    "sre": "Konfederalna Kancelarija, Konfederalni Sud, Konfederalno Tužilaštvo, Konfederalni Računski Sud, Konfederalna Centralna Banka, Konfederalni Institut za Jezik, Konfederalna Biblioteka i Arhiv, Veće Zajednica i Konfederalne Oružane Snage.",
@@ -2362,9 +2362,9 @@
    "ist": "Konfederalen sãd · Konfederalna prokuratura"
   },
   "Konfederalno Veće": {
-   "zap": "Konfederalno Veće",
+   "zap": "Konfederalni svet",
    "sre": "Konfederalno Veće",
-   "ist": "Konfederalno Veće"
+   "ist": "Konfederalen sãvet"
   },
   "Konfederalno Veće, collegially · Sarajevo": {
    "zap": "Konfederalni svet kot kolegij · Sarajevo",
@@ -2577,9 +2577,9 @@
    "sre": "Ime, pol, datum rođeña"
   },
   "Narodni Sabor": {
-   "zap": "Narodni Sabor",
+   "zap": "Skupščina narodov",
    "sre": "Narodni Sabor",
-   "ist": "Narodni Sabor"
+   "ist": "Sãbranie na narodite"
   },
   "Nation on card": {
    "zap": "Narodnost na izkaznici",
@@ -4537,9 +4537,9 @@
    "ist": "Spešni zakoni"
   },
   "Ustavni Sud": {
-   "zap": "Ustavni Sud",
+   "zap": "Ustavno sodišče",
    "sre": "Ustavni Sud",
-   "ist": "Ustavni Sud"
+   "ist": "Konstitucionen sãd"
   },
   "Valid card": {
    "sre": "Važeća karta",

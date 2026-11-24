@@ -2093,15 +2093,15 @@ function insSVG(lay){
   const G=INS_GEO[lay];
   const node=(k,o)=>{
     const [x,y,w,h]=G.nodes[k], tx=k==='joint'?x+w/2:x+G.pad, ty=G.ty;
-    const meta=(lay==='tall'&&o.mt)||o.m;
+    const meta=(lay==='tall'&&o.mt)||o.m, role=insRole(o);
     const lines=k==='joint'
       ?`<text class="isc-t" x="${tx}" y="${y+h/2-2}" text-anchor="middle">${L(o.t)}</text>
         <text class="isc-m isc-js" x="${tx}" y="${y+h/2+12}" text-anchor="middle">${L`joint sitting`}</text>`
       :`<text class="isc-t" x="${tx}" y="${y+ty[0]}">${esc(L(o.t))}</text>
-        <text class="isc-r" x="${tx}" y="${y+ty[1]}">${esc(L(o.r))}</text>
+        <text class="isc-r" x="${tx}" y="${y+ty[1]}">${esc(role)}</text>
         ${meta.map((m,i)=>`<text class="isc-m" x="${tx}" y="${y+ty[2]+i*ty[3]}">${esc(L(m))}</text>`).join('')}`;
     return `<g class="isc-n ${k}" data-id="${k}" tabindex="0" role="button" aria-pressed="false"
-      aria-label="${esc(L(o.t))}${o.r?', '+esc(L(o.r)):''}">
+      aria-label="${esc(L(o.t))}${role?', '+esc(role):''}">
       <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${k==='joint'?h/2:4}"/>${lines}</g>`;
   };
   const arrow=(id,cls)=>`<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
@@ -2116,12 +2116,15 @@ function insSVG(lay){
     ${Object.entries(INS_NODES).map(([k,o])=>node(k,o)).join('')}
   </svg>`;
 }
+/* rôle d'un organe sous son nom ; omis quand il le répète (le zapadni et l'istočni nomment l'Assemblée des
+   peuples dans leur langue, ADR 2026-11-06-noms-officiels-traduits.md : « Assembly of Nations » = le nom) */
+function insRole(o){const r=o.r?L(o.r):'';return r&&r!==L(o.t)?r:'';}
 function insDetail(k){
   const el=document.getElementById('iscDetail'); if(!el)return;
   if(!k){el.innerHTML=`<p class="isc-empty">${L`Select an institution in the diagram to see how it is
     formed and what it does.`}</p>`;return;}
   const o=INS_NODES[k];
-  el.innerHTML=`<div><h3>${esc(L(o.t))}</h3><div class="isc-role">${esc(o.r?L(o.r):L`Joint sitting of the two chambers`)}</div>
+  el.innerHTML=`<div><h3>${esc(L(o.t))}</h3><div class="isc-role">${esc(o.r?insRole(o):L`Joint sitting of the two chambers`)}</div>
     <p>${esc(L(o.d))}</p></div>
     <div class="isc-arts"><b>${L`In the Constitution`}</b>${o.a.map(artLink).join('')}</div>`;
 }
