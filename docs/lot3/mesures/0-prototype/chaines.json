@@ -1,0 +1,398 @@
+[
+ {
+  "k": "2",
+  "en": "Open in the instrument",
+  "zap": "Odpri v instrumentu",
+  "sre": "Otvorite u instrumentu",
+  "ist": "Otvorete v instrumenta",
+  "bg": "Отворете в инструмента",
+  "rt": true
+ },
+ {
+  "k": "3",
+  "en": "Fiscal capacity per inhabitant is taken as proportional to GDP per capita, the only indicator of Article 132 a published for every State.",
+  "zap": "Fiskalna zmogļivost na prebivalca je vzeta kot sorazmerna z BDP na prebivalca, edinim kazalnikom iz člena 132 a, ki je objavļen za vsako državo.",
+  "sre": "Fiskalni kapacitet po stanovniku uzima se kao proporcionalan BDP-u po stanovniku, jedinom pokazateļu iz člana 132 a koji je objavļen za svaku državu.",
+  "ist": "Fiskalnijat kapacitet na žitel se priema za proporcionalen na BVP na žitel – edinstvenijat pokazatel ot člen 132 a, publikuvan za vsjaka dãržava.",
+  "bg": "Фискалният капацитет на жител се приема за пропорционален на БВП на жител – единственият показател от член 132 а, публикуван за всяка държава.",
+  "rt": true
+ },
+ {
+  "k": "4",
+  "en": "Confederal average = 100",
+  "zap": "Konfederalno povprečje = 100",
+  "sre": "Konfederalni prosěk = 100",
+  "ist": "Sredno konfederalno ravnište = 100",
+  "bg": "Средно конфедерално равнище = 100",
+  "rt": true
+ },
+ {
+  "k": "5",
+  "en": "Assumptions of the calculation",
+  "zap": "Predpostavke izračuna",
+  "sre": "Pretpostavke izračunavaña",
+  "ist": "Dopuskanija pri izčisļavaneto",
+  "bg": "Допускания при изчисляването",
+  "rt": true
+ },
+ {
+  "k": "6",
+  "en": "The confederal average is that of the 52 States, weighted by population, before equalisation. Brčko and Mostar are not States.",
+  "zap": "Konfederalno povprečje je povprečje 52 držav, tehtano s prebivalstvom, pred izravnavo. Brčko in Mostar nista državi.",
+  "sre": "Konfederalni prosěk računa se za 52 države, prema broju stanovnika, prě izravnaña. Brčko i Mostar nisu države.",
+  "ist": "Srednoto konfederalno ravnište e tova na 52-te dãržavi, pretegleno s naselenieto, predi izravñavaneto. Brčko i Mostar ne sa dãržavi.",
+  "bg": "Средното конфедерално равнище е това на 52-те държави, претеглено с населението, преди изравняването. Brčko и Mostar не са държави.",
+  "rt": true
+ },
+ {
+  "k": "7",
+  "en": "Every contributor gives the same fraction of its surplus, never more than the ceiling. What the ceiling leaves uncovered falls to the Confederation, since the floor is guaranteed without reservation.",
+  "zap": "Vsaka država plačnica prispeva enak delež svojega presežka, nikoli več od zgorñe meje. Kar zgorña meja ne pokrije, gre v breme Konfederacije, saj je spodña meja zajamčena brez pridržka.",
+  "sre": "Svaka država koja doprinosi daje isti děo svog viška, nikad više od gorñe granice. Ono što gorña granica ne pokrije pada na teret Konfederacije, jer je doña granica zajamčena bez zadrške.",
+  "ist": "Vsjaka dãržava vnositel dava ednakva čast ot previšenieto si, nikoga poveče ot gornata granica. Tova, koeto gornata granica ne pokriva, ostava za smetka na Konfederacijata, tãj kato dolnata granica e garantirana bezuslovno.",
+  "bg": "Всяка държава вносител дава еднаква част от превишението си, никога повече от горната граница. Това, което горната граница не покрива, остава за сметка на Конфедерацията, тъй като долната граница е гарантирана безусловно.",
+  "rt": true
+ },
+ {
+  "k": "8",
+  "en": "Result of the model: with a ceiling of {0}, the contributors fund {1} of what a floor of {2} requires.",
+  "zap": "Izid modela: pri zgorñi meji {0} države plačnice pokrijejo {1} tega, kar zahteva spodña meja {2}.",
+  "sre": "Rezultat modela: uz gorñu granicu od {0} države koje doprinose pokrivaju {1} onoga što zahtěva doña granica od {2}.",
+  "ist": "Rezultat ot modela: pri gorna granica {0} dãržavite vnositeli pokrivat {1} ot tova, koeto iziskva dolna granica {2}.",
+  "bg": "Резултат от модела: при горна граница {0} държавите вносители покриват {1} от това, което изисква долна граница {2}.",
+  "rt": true
+ },
+ {
+  "k": "9",
+  "en": "Receives",
+  "zap": "Prejema",
+  "sre": "Prima",
+  "ist": "Polučava",
+  "bg": "Получава",
+  "rt": true
+ },
+ {
+  "k": "10",
+  "en": "Contributes",
+  "zap": "Prispeva",
+  "sre": "Doprinosi",
+  "ist": "Vnasja",
+  "bg": "Внася",
+  "rt": true
+ },
+ {
+  "k": "11",
+  "en": "of the surplus",
+  "zap": "presežka",
+  "sre": "viška",
+  "ist": "ot previšenieto",
+  "bg": "от превишението",
+  "rt": true
+ },
+ {
+  "k": "12",
+  "en": "For",
+  "zap": "Za",
+  "sre": "Za",
+  "ist": "Za",
+  "bg": "За",
+  "rt": true
+ },
+ {
+  "k": "13",
+  "en": "Abstention",
+  "zap": "Vzdržani",
+  "sre": "Uzdržani",
+  "ist": "Vãzdãržali se",
+  "bg": "Въздържали се",
+  "rt": true
+ },
+ {
+  "k": "14",
+  "en": "Against",
+  "zap": "Proti",
+  "sre": "Protiv",
+  "ist": "Protiv",
+  "bg": "Против",
+  "rt": true
+ },
+ {
+  "k": "15",
+  "en": "Passes",
+  "zap": "Uspe",
+  "sre": "Uspěva",
+  "ist": "Uspjava",
+  "bg": "Успява",
+  "rt": true
+ },
+ {
+  "k": "16",
+  "en": "Fails",
+  "zap": "Ne uspe",
+  "sre": "Ne uspěva",
+  "ist": "Ne uspjava",
+  "bg": "Не успява",
+  "rt": true
+ },
+ {
+  "k": "17",
+  "en": "Suspended",
+  "zap": "Zadržano",
+  "sre": "Obustavļeno",
+  "ist": "Sprjano",
+  "bg": "Спряно",
+  "rt": true
+ },
+ {
+  "k": "18",
+  "en": "Link copied",
+  "zap": "Povezava je kopirana",
+  "sre": "Link je kopiran",
+  "ist": "Vrãzkata e kopirana",
+  "bg": "Връзката е копирана",
+  "rt": true
+ },
+ {
+  "k": "19",
+  "en": "Copy link",
+  "zap": "Kopiraj povezavo",
+  "sre": "Kopirajte link",
+  "ist": "Kopirajte vrãzkata",
+  "bg": "Копирайте връзката",
+  "rt": true
+ },
+ {
+  "k": "20",
+  "en": "The delegates of a State vote together, as their State is placed.",
+  "zap": "Delegati posamezne države glasujejo skupaj, tako kot je postavļena ñihova država.",
+  "sre": "Delegati jedne države glasaju zajedno, onako kako je postavļena ñihova država.",
+  "ist": "Delegatite na edna dãržava glasuvat zaedno, kakto e postavena dãržavata im.",
+  "bg": "Делегатите на една държава гласуват заедно, както е поставена държавата им.",
+  "rt": true
+ },
+ {
+  "k": "21",
+  "en": "Every member is present. Simple majority: more votes for than against; abstentions do not count.",
+  "zap": "Vsi člani so navzoči. Navadna večina: več glasov za kot proti; vzdržani glasovi se ne štejejo.",
+  "sre": "Svi članovi su prisutni. Prosta većina: više glasova za nego protiv; uzdržani glasovi se ne računaju.",
+  "ist": "Vsički členove prisãstvat. Obiknoveno mnozinstvo: poveče glasove „za“, otkolkoto „protiv“; vãzdãržalite se ne se brojat.",
+  "bg": "Всички членове присъстват. Обикновено мнозинство: повече гласове „за“, отколкото „против“; въздържалите се не се броят.",
+  "rt": true
+ },
+ {
+  "k": "21b",
+  "en": "Every member is present; an abstention is not a vote cast.",
+  "zap": "Vsi člani so navzoči; vzdržani glas ni oddan glas.",
+  "sre": "Svi članovi su prisutni; uzdržani glas nije dat glas.",
+  "ist": "Vsički členove prisãstvat; vãzdãržaneto ne e podaden glas.",
+  "bg": "Всички членове присъстват; въздържането не е подаден глас.",
+  "rt": true
+ },
+ {
+  "k": "22",
+  "en": "Registers: population of the territorial States attached to each people, as no register count exists yet.",
+  "zap": "Registri: prebivalstvo teritorialnih držav, ki pripadajo posameznemu narodu, ker letnega štetja še ni.",
+  "sre": "Registri: stanovništvo teritorijalnih država koje pripadaju svakom narodu, jer godišñe prebrojavañe još ne postoji.",
+  "ist": "Registri: naselenieto na teritorialnite dãržavi, koito prinadležat na vseki narod, tãj kato vse ošte ñama godišen otčet.",
+  "bg": "Регистри: населението на териториалните държави, които принадлежат на всеки народ, тъй като все още няма годишен отчет.",
+  "rt": true
+ },
+ {
+  "k": "23",
+  "en": "The voters of a State all vote as their State is placed; the weight is the resident population.",
+  "zap": "Vsi volivci posamezne države glasujejo tako, kot je postavļena ñihova država; utež je ñeno prebivalstvo.",
+  "sre": "Svi birači jedne države glasaju onako kako je postavļena ñihova država; težina je broj ñenih stanovnika.",
+  "ist": "Vsički izbirateli na edna dãržava glasuvat, kakto e postavena dãržavata im; težestta e nejnoto naselenie.",
+  "bg": "Всички избиратели на една държава гласуват, както е поставена държавата им; тежестта е нейното население.",
+  "rt": true
+ },
+ {
+  "k": "24",
+  "en": "Brčko and Mostar vote with Sarajevo, the nearest confederal territory (Art. 124).",
+  "zap": "Brčko in Mostar glasujeta s Sarajevom, najbližjim konfederalnim ozemļem (čl. 124).",
+  "sre": "Brčko i Mostar glasaju zajedno sa Sarajevom, najbližom konfederalnom teritorijom (čl. 124).",
+  "ist": "Brčko i Mostar glasuvat zaedno sãs Sarajevo, naj-blizkata konfederalna teritorija (čl. 124).",
+  "bg": "Brčko и Mostar гласуват заедно със Sarajevo, най-близката конфедерална територия (чл. 124).",
+  "rt": true
+ },
+ {
+  "k": "25",
+  "en": "A member placed against votes the alarm motion.",
+  "zap": "Član, postavļen med glasove proti, glasuje za alarmni predlog.",
+  "sre": "Član postavļen među glasove protiv glasa za zahtěv za uzbunu.",
+  "ist": "Člen, postaven sred glasovete „protiv“, glasuva alarmeno iskane.",
+  "bg": "Член, поставен сред гласовете „против“, гласува алармено искане.",
+  "rt": true
+ },
+ {
+  "k": "26",
+  "en": "The coalition is the set of States placed in favour; a confederal territory belongs to no people.",
+  "zap": "Koalicijo sestavļajo države, postavļene med glasove za; konfederalno ozemļe ne pripada nobenemu narodu.",
+  "sre": "Koaliciju čine države postavļene među glasove za; konfederalna teritorija ne pripada nijednom narodu.",
+  "ist": "Koalicijata se sãstoi ot dãržavite, postaveni sred glasovete „za“; konfederalnata teritorija ne prinadleži na nito edin narod.",
+  "bg": "Коалицията се състои от държавите, поставени сред гласовете „за“; конфедералната територия не принадлежи на нито един народ.",
+  "rt": true
+ },
+ {
+  "k": "27",
+  "en": "Consensus: no councillor against.",
+  "zap": "Soglasje: noben svetnik ni proti.",
+  "sre": "Konsenzus: nijedan većnik nije protiv.",
+  "ist": "Konsensus: nito edin sãvetnik ne e protiv.",
+  "bg": "Консенсус: нито един съветник не е против.",
+  "rt": true
+ },
+ {
+  "k": "28",
+  "en": "Share of the possible votes of the Kongres in which its delegates decide the outcome.",
+  "zap": "Delež možnih glasovañ v Kongresu, v katerih ñeni delegati odločijo izid.",
+  "sre": "Uděo mogućih glasaña u Kongresu u kojima ñeni delegati odlučuju o ishodu.",
+  "ist": "Djal ot vãzmožnite glasuvanija v Kongresa, v koito nejnite delegati rešavat izhoda.",
+  "bg": "Дял от възможните гласувания в Конгреса, в които нейните делегати решават изхода.",
+  "rt": true
+ },
+ {
+  "k": "29",
+  "en": "Exact count over every alignment of the other 53 constituencies. It also belongs to {0} of the minimal majorities of 126 seats ({1} of {2}).",
+  "zap": "Natančno štetje vseh razporeditev drugih 53 volilnih enot. Država je tudi v {0} minimalnih večin s 126 sedeži ({1} od {2}).",
+  "sre": "Precizno prebrojavañe svih rasporeda ostalih 53 izborne jedinice. Država je i u {0} minimalnih većina od 126 mandata ({1} od {2}).",
+  "ist": "Točno prebrojavane na vsički razpoloženija na ostanalite 53 izbiratelni rajona. Dãržavata učastva i v {0} ot minimalnite mnozinstva ot 126 mesta ({1} ot {2}).",
+  "bg": "Точно преброяване на всички разположения на останалите 53 избирателни района. Държавата участва и в {0} от минималните мнозинства от 126 места ({1} от {2}).",
+  "rt": true
+ },
+ {
+  "k": "N1",
+  "en": "Votes and majorities",
+  "zap": "Glasovaña in večine",
+  "sre": "Glasaña i većine",
+  "ist": "Glasuvanija i mnozinstva",
+  "bg": "Гласувания и мнозинства",
+  "rt": true
+ },
+ {
+  "k": "N2",
+  "en": "Place the States, the national delegations and the councillors, and see which majority the Constitution requires: each threshold cites its article, and every assumption is stated.",
+  "zap": "Razporedite države, narodne delegacije in svetnike ter poglejte, kakšno večino zahteva Ustava: pri vsakem pragu je naveden ñegov člen, vsaka predpostavka je izrecno navedena.",
+  "sre": "Rasporedite države, narodne delegacije i većnike i pogledajte kakvu većinu zahtěva Ustav: uz svaki prag naveden je ñegov član, a svaka pretpostavka je izričito navedena.",
+  "ist": "Razpredelete dãržavite, narodnite delegacii i sãvetnicite i vižte kakvo mnozinstvo iziskva Konstitucijata: kãm vseki prag e posočen členãt mu, a vsjako dopuskane e izrično posočeno.",
+  "bg": "Разпределете държавите, народните делегации и съветниците и вижте какво мнозинство изисква Конституцията: към всеки праг е посочен членът му, а всяко допускане е изрично посочено.",
+  "rt": true
+ },
+ {
+  "k": "C1",
+  "en": "Consent given by five delegations",
+  "zap": "Soglasje petih delegacij",
+  "sre": "Pristanak pet delegacija",
+  "ist": "Sãglasie na pet delegacii",
+  "bg": "Съгласие на пет делегации",
+  "rt": true
+ },
+ {
+  "k": "C2",
+  "en": "Two peoples alone",
+  "zap": "Samo dva naroda",
+  "sre": "Samo dva naroda",
+  "ist": "Samo dva naroda",
+  "bg": "Само два народа",
+  "rt": true
+ },
+ {
+  "k": "C3",
+  "en": "Five delegations without the two largest",
+  "zap": "Pet delegacij brez dveh največjih",
+  "sre": "Pet delegacija bez dvě najveće",
+  "ist": "Pet delegacii bez dvete naj-golemi",
+  "bg": "Пет делегации без двете най-големи",
+  "rt": true
+ },
+ {
+  "k": "C4",
+  "en": "One delegation raises the alarm",
+  "zap": "Ena delegacija izglasuje alarmni predlog",
+  "sre": "Jedna delegacija izglasa zahtěv za uzbunu",
+  "ist": "Edna delegacija glasuva alarmeno iskane",
+  "bg": "Една делегация гласува алармено искане",
+  "rt": true
+ },
+ {
+  "k": "C5",
+  "en": "Six delegations of seven on an entrenched guarantee",
+  "zap": "Šest od sedmih delegacij pri utrjenem jamstvu",
+  "sre": "Šest od sedam delegacija za ojačanu garanciju",
+  "ist": "Šest ot sedemte delegacii pri zasilena garancija",
+  "bg": "Шест от седемте делегации при засилена гаранция",
+  "rt": true
+ },
+ {
+  "k": "C6",
+  "en": "Twelve States, nine of one people",
+  "zap": "Dvanajst držav, devet istega naroda",
+  "sre": "Dvanaest država, devet iz istog naroda",
+  "ist": "Dvanadeset dãržavi, devet ot edin i sãšt narod",
+  "bg": "Дванадесет държави, девет от един и същ народ",
+  "rt": true
+ },
+ {
+  "k": "C7",
+  "en": "Four councillors for, three against",
+  "zap": "Štirje svetniki za, trije proti",
+  "sre": "Četiri većnika za, tri protiv",
+  "ist": "Četirima sãvetnici „za“, trima „protiv“",
+  "bg": "Четирима съветници „за“, трима „против“",
+  "rt": true
+ },
+ {
+  "k": "H6",
+  "en": "The double key also applies to six delegations of seven: six are \"at least five of the seven\" (Art. 110).",
+  "zap": "Dvojni kļuč veļa tudi za šest delegacij od sedmih: šest je »najmañ pet od sedmih« (čl. 110).",
+  "sre": "Dvostruki kļuč priměñuje se i na šest od sedam delegacija: šest je „najmañe pet od sedam“ (čl. 110).",
+  "ist": "Dvojnijat kļuč se prilaga i za šest ot sedemte delegacii: šest sa „pone pet ot sedemte“ (čl. 110).",
+  "bg": "Двойният ключ се прилага и за шест от седемте делегации: шест са „поне пет от седемте“ (чл. 110).",
+  "rt": true
+ },
+ {
+  "k": "A1",
+  "en": "Met",
+  "zap": "Izpolñeno",
+  "sre": "Ispuñeno",
+  "ist": "Izpãlneno",
+  "bg": "Изпълнено",
+  "rt": true
+ },
+ {
+  "k": "A2",
+  "en": "Not met",
+  "zap": "Ni izpolñeno",
+  "sre": "Nije ispuñeno",
+  "ist": "Ne e izpãlneno",
+  "bg": "Не е изпълнено",
+  "rt": true
+ },
+ {
+  "k": "A3",
+  "en": "With reduced motion, the discs are not dragged: select one, then place it by clicking or with the arrow keys.",
+  "zap": "Pri zmañšanem gibañu krogov ni mogoče vleči: izberite krog in ga postavite s klikom ali s puščicami.",
+  "sre": "Uz smañeno kretañe krugovi se ne prevlače: izaberite krug, a zatim ga postavite klikom ili strelicama.",
+  "ist": "Pri namaleno dviženie krãgovete ne se vlačat: izberete krãg i go postavete s štrakvane ili sãs strelkite.",
+  "bg": "При намалено движение кръговете не се влачат: изберете кръг и го поставете с щракване или със стрелките.",
+  "rt": true
+ },
+ {
+  "k": "V1",
+  "en": "Admissible",
+  "zap": "Dopustno",
+  "sre": "Dopustivo",
+  "ist": "Dopustimo",
+  "bg": "Допустимо",
+  "rt": true
+ },
+ {
+  "k": "V2",
+  "en": "Not admissible",
+  "zap": "Ni dopustno",
+  "sre": "Nije dopustivo",
+  "ist": "Nedopustimo",
+  "bg": "Недопустимо",
+  "rt": true
+ }
+]
