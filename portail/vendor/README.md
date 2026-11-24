@@ -4,10 +4,16 @@
 |---|---|---|---|
 | `d3-array.min.js` | 3.2.4 | ISC, © 2010-2023 Mike Bostock | npm `d3-array` |
 | `d3-geo.min.js` | 3.1.1 | ISC, © 2010-2024 Mike Bostock, 2008-2012 Charles Karney | npm `d3-geo` |
+| `d3-dispatch.min.js` | 3.0.2 | ISC, © 2010-2026 Mike Bostock | npm `d3-dispatch` (`dist/`, inchangé ; intégrité `sha512-sAzH4Y4nsLo8eSqw5jKiZt+LU2wZmL/qS+OkxQGjhwazB/D7TY34R/QK1eshfGr7cZEKymKZ/Haem7m+lu98Sg==`) |
+| `d3-quadtree.min.js` | 3.0.2 | ISC, © 2010-2026 Mike Bostock | npm `d3-quadtree` (`dist/`, inchangé ; intégrité `sha512-9Lu9mqJKRbIk0d6mKDjpvPURaPdwHVK5CYbcdd0/4vBgz4ldz/7TIOse3kNERsByGNfld58KEco507AztJWyTQ==`) |
+| `d3-timer.min.js` | 3.0.2 | ISC, © 2010-2026 Mike Bostock | npm `d3-timer` (`dist/`, inchangé ; intégrité `sha512-1Il1aliroVSErrv5aulRBxAY+7+DnaoLIWGd1C6SsBTWDeobWiP/V69vwb8vT6abR1kKwaNe1196pmaQ1fK90A==`) |
+| `d3-force.min.js` | 3.0.1 | ISC, © 2010-2026 Mike Bostock | npm `d3-force` (`dist/`, inchangé ; intégrité `sha512-kAaaHLFebBYwgi5cYBXAI8vKrQFMCD2MEswj2QuPKKbdU1wYLc8WXtS7O8F/b6POCIe3gJjY6hkDstHi1yMETQ==`) |
 | `qrcode.min.js` | 2.0.4 | MIT, © 2009 Kazuhiko Arase | npm `qrcode-generator` (minifié avec terser) |
 | `maplibre-gl/` (`maplibre-gl.mjs`, `maplibre-gl-worker.mjs`, `maplibre-gl.css`, `LICENSE.txt`) | 6.18.0 | BSD-3-Clause, © 2023 MapLibre contributors | npm `maplibre-gl@6.18.0` (`dist/`, inchangé ; intégrité `sha512-8ucT+RhJtEZGFvWGPioVQwvOPMAIuUehEgxl2dELw9aJmX4SpUi+OCHHAD33B9EuohNC7kC/gccJacUgTMQfQQ==`) |
 
-d3 sert aux mini-cartes des fiches État (projection, découpage à l'horizon). `qrcode.min.js` dessine le code de
+d3 sert aux mini-cartes des fiches État (projection, découpage à l'horizon) ; d3-force (avec d3-dispatch,
+d3-quadtree et d3-timer, dans cet ordre) fait voyager les disques de la page des votes (#/votes), chargé au
+repos après son premier rendu, jamais en mouvement réduit. `qrcode.min.js` dessine le code de
 vérification au verso de la carte citoyenne (#/citizen). Chargées avec les pages qui s'en
 servent (`DATA_ROUTE` du gabarit, dans cet ordre), et non plus au démarrage de toutes les pages
 (ADR 2026-11-23-deploiement-lie.md) ; `scripts/build_portail.py --inline` les intègre dans le
