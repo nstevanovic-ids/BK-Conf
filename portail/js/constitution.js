@@ -30,7 +30,6 @@ var CX = (function () {
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const narrow = () => matchMedia('(max-width:760px)').matches;
   const $ = id => document.getElementById(id);
-  const TITLE0 = document.title;
 
   const S = { text: null, tsc: null, shown: null, r: null, live: null, here: null, lang: null,
     ref: null, follow: null, thread: [], order: null, popFor: null, popT: 0 };
@@ -376,7 +375,6 @@ var CX = (function () {
   function leave() {
     if (off) { off(); off = null; }
     hidePop(); landing++;
-    if (document.title !== TITLE0 && !$('cx')) document.title = TITLE0;
   }
   function mounted(anchor, keepThread) {
     if (off) { off(); off = null; }
