@@ -250,5 +250,18 @@ const seatsOf = (v, o) => S.rows.reduce((a, r) => a + (v.st[r.c] === o ? r.s : 0
   eq(qs.filter(q => !anc[q]), [], `alinéas cités par la page des votes : ${qs.length} ancrages dans core.json`);
 }
 
+{   // renvois du lecteur vers la page des votes : la table de constitution.js suit REGLES.ART_RULE
+  const src = fs.readFileSync(path.join(ROOT, 'portail', 'js', 'constitution.js'), 'utf8');
+  const VO = vm.runInNewContext('(' + /const VOTES_OF = (\{[\s\S]*?\});/.exec(src)[1] + ')');
+  const INS = vm.runInNewContext('(' + /const INS = (\{[\s\S]*?\});/.exec(src)[1] + ')');
+  for (const [a, ty] of Object.entries(R.ART_RULE)) {
+    if (INS[a]) { ok(!VO[a], `${a} : renvoi porté par l'instrument de marge`); continue; }
+    const slug = R.typeById(ty).slug;
+    ok(VO[a] && VO[a].split('/')[0] === slug, `${a} : la marge renvoie à #/votes/${slug} (${VO[a]})`);
+  }
+  eq(Object.keys(VO).filter(a => !R.ART_RULE[a]), [], 'renvois du lecteur : seulement des articles qui fondent une règle');
+  for (const r of Object.values(VO)) { const [t, c] = r.split('/'); ok(R.typeBySlug(t) && (!c || (R.caseById(c) && R.caseById(c).type === R.typeBySlug(t).id)), `adresse ${r}`); }
+}
+
 console.log(`${n} vérifications, ${bad} en échec`);
 process.exit(bad ? 1 : 0);

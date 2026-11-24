@@ -1068,6 +1068,7 @@ footer{background:var(--indigo);color:rgba(233,234,240,.62);margin-top:0}
 .seat .sn small{display:block;font-size:.7rem;font-weight:500;color:var(--ink-3);margin-top:2px}
 .seat .sv{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--indigo);line-height:1}
 [data-theme="dark"] .seat .sv{color:var(--ink)}
+.ins-vos{margin:16px 0 0}
 .seatnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;line-height:1.6}
 /* ---------- security and defence ---------- */
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -2181,6 +2182,10 @@ const LAW={
    ['pass',N('The amendment enters the Constitution.'),[123]]]}
 };
 const LAW_MARK={pass:'✓',alt:'!',skip:'–',stop:'✕'};
+/* chaque cas mène à la page des votes, réglée sur la règle qu'il illustre (#/votes, lot 3) */
+const LAW_VOTES={ordinary:'ordinary-law',consent:'consent',refused:'consent',alarm:'ordinary-law/alarm',
+  referendum:'twelve-states',amendment:'amendment'};
+const votesLink=(route,id)=>`<a class="btn btn-ghost ins-vo"${id?` id="${id}"`:''} href="#/votes/${route}">${L`Votes and majorities`} →</a>`;
 let _lawT=[];
 /* Kongres seats (Art. 103) : moteur unique, REGLES.sieges (portail/js/regles.js ; Sainte-Laguë en
    diviseur commun arrondi au plus proche, 2 à 20 sièges par État, au moins 1 pour Brčko et Mostar),
@@ -2204,7 +2209,8 @@ function seatsHTML(){
     <p class="seatnote">${L`Each population is divided by a common divisor, here ${fmtN(Math.round(K.D/10)*10)}, and rounded
     to the nearest whole number; the divisor is chosen so that the 250 seats are filled, with at least 2 and
     at most 20 per State and at least 1 for Brčko and Mostar. Census figures as on the State pages; the
-    Konfederalno Veće confirms the distribution after each census (${artLink(103)}).`}</p>`;
+    Konfederalno Veće confirms the distribution after each census (${artLink(103)}).`}</p>
+    <p class="ins-vos">${votesLink('ordinary-law')}</p>`;
 }
 function lawHTML(){
   return `<div class="law-chips" role="group" aria-label="${L`Choose a case`}">
@@ -2213,6 +2219,7 @@ function lawHTML(){
     <ol class="law-rail" id="lawRail"><span class="law-fill" id="lawFill" aria-hidden="true"></span>
     ${LAW_STAGES.map((st,i)=>`<li class="law-st" data-i="${i}"><span class="law-dot" aria-hidden="true"></span>
       <b class="law-k">${L(st)}</b><p class="law-x"></p><span class="law-a"></span></li>`).join('')}</ol>
+    <p class="ins-vos">${votesLink('ordinary-law','lawVotes')}</p>
 `;
 }
 function lawFillTo(i){
@@ -2235,6 +2242,7 @@ function lawPlay(k,animate){
     el.querySelector('.law-x').textContent=L(st[1]);
     el.querySelector('.law-a').innerHTML=st[2].map(artLink).join('');});
   rail.setAttribute('aria-label',L(c.n)+': '+L(c.o));
+  const vl=document.getElementById('lawVotes');if(vl)vl.setAttribute('href','#/votes/'+LAW_VOTES[k]);
   if(still){sts.forEach(el=>el.classList.add('on'));
     requestAnimationFrame(()=>lawFillTo(sts.length-1));return;}
   lawFillTo(0);
@@ -2307,11 +2315,11 @@ function vInstitutions(){
       <div class="panel"><div class="eyebrow" data-i18n="h_initiative">Popular initiative</div>
         <p class="note">${L`300,000 citizens may propose a total or partial revision of the Constitution
         within 18 months. A partial revision is adopted by the double majority of the people and of the
-        States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).`}</p></div>
+        States; for a total revision, the people first decide whether to proceed (Art. 121, 148, 149).`}</p><p class="ins-vos">${votesLink('popular-initiative')}</p></div>
       <div class="panel"><div class="eyebrow" data-i18n="h_referendum">Optional referendum</div>
         <p class="note">${L`150,000 citizens, or 12 States of which no more than half belong to the
         same people, may submit any confederal law to a popular vote within 100 days of its
-        publication (Art. 122).`}</p></div>
+        publication (Art. 122).`}</p><p class="ins-vos">${votesLink('twelve-states')}</p></div>
     </div>
     <p class="note" style="margin-top:14px">${L`Votes are held on four Sundays set in advance each year, on the same day throughout the Confederation (Art. 124 bis).`}</p>
   </section>
@@ -2330,6 +2338,7 @@ function vInstitutions(){
         .map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${L(g[0])}</h4>
         <p>${L(g[1])}</p><span class="sa">${g[2].map(artLink).join(' · ')}</span></div>`).join('')}
     </div>
+    <p class="ins-vos">${votesLink('amendment')}</p>
   </section>
   <section class="section reveal">
     <div class="h2row"><h2 data-i18n="h_bodies">Other confederal bodies</h2></div>
@@ -2415,6 +2424,7 @@ function vCouncil(){
       ${rules.map((g,i)=>`<div class="step"><div class="sn">${i+1}</div><h4>${L(g[0])}</h4>
         <p>${L(g[1])}</p><span class="sa">${arts(g[2])}</span></div>`).join('')}
     </div>
+    <p class="ins-vos">${votesLink('council/four-councillors')}</p>
   </section>`;
 }
 

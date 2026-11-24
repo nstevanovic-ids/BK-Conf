@@ -168,10 +168,10 @@ var CX = (function () {
       let pn = 0;
       a.u.forEach((u, j) => { h += `<div ${cellA(i, l)} data-u="${j}" style="grid-row:${j + 2}">${unitHTML(u, u[0] === 'p' ? ++pn : 0, multi)}</div>`; });
     });
-    const cited = CORE.cited[id] || [], ins = INS[id];
-    if (cited.length || ins) {
+    const cited = CORE.cited[id] || [], ins = INS[id], vo = VOTES_OF[id];
+    if (cited.length || ins || vo) {
       const mg = `${cited.length ? `<div class="cx-cb"><span class="cx-k">${ui(L`In the Constitution`)}</span>${cited.map(c =>
-        `<a class="cx-rf" href="${hashFor(c)}" translate="no">${esc(artNum(c))}</a>`).join('')}</div>` : ''}${ins ? `<div class="cx-ins" data-ins="${ins}" data-art="${id}"></div>` : ''}`;
+        `<a class="cx-rf" href="${hashFor(c)}" translate="no">${esc(artNum(c))}</a>`).join('')}</div>` : ''}${ins ? `<div class="cx-ins" data-ins="${ins}" data-art="${id}"></div>` : ''}${vo ? `<a class="cx-vo" href="#/votes/${vo}">${ui(L`Votes and majorities`)} →</a>` : ''}`;
       h += `<aside class="cx-mg" style="grid-row:1 / span ${R + 1}"><div class="cx-mgi">${mg}</div></aside>`;
     }
     return h + '</section>';
@@ -181,6 +181,11 @@ var CX = (function () {
   const INS = { 'art-1bis': 'map1', 'art-1ter': 'cap', 'art-103': 'sl', 'art-109': 'alarm', 'art-110': 'dk110',
     'art-111': 'dk111', 'art-115bis': 'reg' };
   const INS_NEED = ['js/regles.js', 'js/marges.js', 'stats'];
+  /* renvoi vers la page des votes (#/votes), réglée sur la règle que l'article fonde : articles sans instrument
+     (les instruments portent le leur, marges.js) ; même table que REGLES.ART_RULE (scripts/test_regles.js) */
+  const VOTES_OF = { 'art-106': 'ordinary-law', 'art-106bis': 'eight-states', 'art-110ter': 'ordinary-law/alarm',
+    'art-121': 'popular-initiative', 'art-122': 'twelve-states', 'art-123': 'popular-initiative', 'art-123bis': 'urgent-law',
+    'art-124': 'popular-initiative', 'art-147': 'amendment', 'art-149': 'amendment', 'art-150': 'entrenched' };
   const mountIns = el => need(INS_NEED).then(() => { if (el.isConnected) MARGES.mount(el); }).catch(() => {});
   function titleHTML(files, cols, tt, lay) {
     const f0 = files[0], order = ORDER(), [rn, sfx] = tt.num.split(' ');
