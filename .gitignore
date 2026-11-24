@@ -5,3 +5,6 @@
 # Python
 __pycache__/
 *.pyc
+
+# images de contrôle du film (film/render.js --stills)
+film/stills/

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Confederation in five minutes · composition</title>
+<!-- Composition du film explicatif (docs/decisions/2026-11-24-film-explicatif.md).
+     Servie depuis la racine du dépôt : python docs/lot1/outils/serve.py . 8002, puis
+     http://127.0.0.1:8002/film/explainer/ (lecture, espace = pause, ← → = 5 s, ?t=60 pour partir de 60 s).
+     Rendu : node film/render.js (voir film/README.md). -->
+<style>
+@font-face{font-family:'Arimo';font-style:normal;font-weight:400 700;src:url('../../portail/fonts/arimo.woff2') format('woff2')}
+@font-face{font-family:'Sofia Sans Extra Condensed';font-style:normal;font-weight:400 800;size-adjust:110%;
+  src:url('../../portail/fonts/sofia-sans-extra-condensed.woff2') format('woff2')}
+html,body{margin:0;background:#0b0e1a;overflow:hidden}
+#film{display:block;width:1280px;height:720px}
+body.preview{display:grid;place-items:center;min-height:100vh}
+body.preview #film{width:min(100vw,177.78vh);height:auto;aspect-ratio:16/9}
+#hud{position:fixed;left:8px;bottom:6px;font:12px/1 monospace;color:#8a90a6}
+body.render #hud{display:none}
+</style>
+</head>
+<body>
+<svg id="film" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720"></svg>
+<div id="hud"></div>
+<script src="../../portail/js/regles.js"></script>
+<script src="en.js"></script>
+<script src="film.js"></script>
+</body>
+</html>
