@@ -188,3 +188,32 @@ d'un standard sans que la bascule de l'en-tête soit visible.
   introuvable, thème sombre) : aucune erreur, aucun débordement. Les captures à plusieurs textes du
   point 3 sont retirées.
 - Non-régression : 159 comparaisons, 0 divergence.
+
+## 5. Une seule sélection (`5-selection-unique/`, retour de l'auteur du 2026-11-24)
+
+Retour : « une sélection UNIQUE en mode lecture, une seule langue ou une seule écriture » ; « l'IST est
+toujours en écriture latine par défaut » ; « le cyrillique sous le latin est illisible et inutile ».
+Cause, sur le site publié : la double ligne, une fois activée, restait mémorisée (`bk-cx-dbl`) et
+mettait le latin au-dessus du cyrillique, istočni compris.
+- Double ligne retirée (code, styles, clé effacée au premier passage).
+- Barre : une rangée à choix unique, **EN · ZAP · SRE · СРЕ · ИСТ · IST · FR**, chaque option dans sa
+  propre écriture ; flèches au clavier, balayage sur écran étroit.
+- Un texte s'ouvre toujours dans l'écriture première de son standard (SRE latin, IST cyrillique),
+  quels que soient l'écriture de l'interface et les réglages anciens ; la bascule de l'en-tête ne change
+  que l'interface. Écriture autre que la première dans l'adresse : `/sre-cyr`, `/ist-lat`.
+- Défaut corrigé au passage : un changement de texte par l'adresse seule (lien, retour arrière) ne
+  remontait pas le texte.
+
+Scénarios (`outils/selection.js`, `scenarios.json`, 7 captures) :
+
+| Scénario | Ouverture | Ensuite |
+|---|---|---|
+| navigateur neuf, interface EN | EN | ИСТ cyrillique `/ist` → IST latin `/ist-lat` (bascule glyphe par glyphe) → СРЕ `/sre-cyr` → FR `/fr` → flèche gauche : IST |
+| navigateur neuf, interface IST | ИСТ cyrillique | – |
+| interface IST, latin mémorisé, ancienne double ligne | ИСТ cyrillique, sans double ligne, clé effacée | bascule de l'en-tête : interface seule, texte inchangé |
+| interface SRE, cyrillique mémorisé, ancienne double ligne | SRE latin | СРЕ, puis ИСТ |
+| adresse `/sre-cyr` puis `/ist-lat` | СРЕ | IST latin |
+| 375 px, IST et ZAP | sept options sur une ligne, sans débordement | СРЕ |
+
+Aucune erreur console, aucun `<ruby>`, aucun débordement. Non-régression (`dom.js`, routes de la
+Constitution, cinq langues et écritures) : 24 comparaisons, 0 divergence.

@@ -1,0 +1,296 @@
+[
+ {
+  "name": "en-neuf",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "EN"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Decisions of the Narodni Sabor in plenary assem",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"ist\"}",
+    "hash": "#/constitution/title-4/art-110/ist",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"ist-lat\"}",
+    "hash": "#/constitution/title-4/art-110/ist-lat",
+    "checked": [
+     "IST"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Rešenijata na Sãbranieto na narodite v plenarno",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"sre-cyr\"}",
+    "hash": "#/constitution/title-4/art-110/sre-cyr",
+    "checked": [
+     "СРЕ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Народни Сабор на пленарној седници доноси одлук",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"fr\"}",
+    "hash": "#/constitution/title-4/art-110/fr",
+    "checked": [
+     "FR"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Les décisions du Narodni Sabor en assemblée plé",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"key\":\"ArrowLeft\"}",
+    "hash": "#/constitution/title-4/art-110/ist-lat",
+    "checked": [
+     "IST"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Rešenijata na Sãbranieto na narodite v plenarno",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "ist-neuf",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Глава IV · Институции на Конфедерацията · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "ist-anciens-reglages",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Glava IV · Institucii na Konfederacijata · čl. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"header\":\"cyr\"}",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Глава IV · Институции на Конфедерацията · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"header\":\"lat\"}",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Glava IV · Institucii na Konfederacijata · čl. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "sre-anciens-reglages",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "SRE"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Narodni Sabor na plenarnoj sědnici donosi odluk",
+    "loc": "Глава IV · Институције Конфедерације · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"sre-cyr\"}",
+    "hash": "#/constitution/title-4/art-110/sre-cyr",
+    "checked": [
+     "СРЕ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Народни Сабор на пленарној седници доноси одлук",
+    "loc": "Глава IV · Институције Конфедерације · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"ist\"}",
+    "hash": "#/constitution/title-4/art-110/ist",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Глава IV · Институције Конфедерације · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "adresse-sre-cyr",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110/sre-cyr",
+    "checked": [
+     "СРЕ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Народни Сабор на пленарној седници доноси одлук",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"go\":\"#/constitution/title-4/art-110/ist-lat\"}",
+    "hash": "#/constitution/title-4/art-110/ist-lat",
+    "checked": [
+     "IST"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Rešenijata na Sãbranieto na narodite v plenarno",
+    "loc": "Title IV · Institutions of the Confederation · Art. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "ist-375",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ИСТ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Решенията на Събранието на народите в пленарно ",
+    "loc": "Глава IV · Институции на Конфедерацията · чл. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "zap-375",
+  "steps": [
+   {
+    "at": "ouverture",
+    "hash": "#/constitution/title-4/art-110",
+    "checked": [
+     "ZAP"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Odločitve Skupščine narodov v plenarni sestavi ",
+    "loc": "Poglavje IV · Institucije Konfederacije · čl. 110",
+    "dblKey": null,
+    "overflow": false
+   },
+   {
+    "at": "{\"chip\":\"sre-cyr\"}",
+    "hash": "#/constitution/title-4/art-110/sre-cyr",
+    "checked": [
+     "СРЕ"
+    ],
+    "chips": "EN ZAP SRE СРЕ ИСТ IST FR",
+    "ruby": 0,
+    "dblBtn": false,
+    "text": "3Народни Сабор на пленарној седници доноси одлук",
+    "loc": "Poglavje IV · Institucije Konfederacije · čl. 110",
+    "dblKey": null,
+    "overflow": false
+   }
+  ],
+  "errs": []
+ }
+]
