@@ -125,8 +125,9 @@
 
   /* ---------------------------------------------------------------- scènes */
   var SC = [];
-  /* chap : numéro du chapitre ; la scène s'ouvre alors sur le carton du drapeau (CARD secondes, lt < 0) */
-  var CARD = 1.5;
+  /* chap : numéro du chapitre ; la scène s'ouvre alors sur la transition du drapeau (CARD secondes de drapeau
+     plein, lt < 0) */
+  var CARD = .35;
   function scene(id, dur, bg, build, chap) { SC.push({ id: id, dur: dur, bg: bg, build: build, chap: chap, lead: chap ? CARD : 0 }); }
 
   /* 0. Ouverture */
@@ -694,46 +695,30 @@
   var bg = el('rect', { width: W, height: H }, svg);
   var stage = el('g', {}, svg);
 
-  /* Carton de chapitre : le drapeau civil (art. 7 bis) se monte sur la fin d'une scène, porte le titre du
-     chapitre sur sa bande blanche, puis s'en va vers la droite et découvre la scène suivante. Couleurs du
-     drapeau lui-même (docs/canon/couleurs-symboles.md : éléments dérivés du drapeau). */
+  /* Transition : le drapeau civil (art. 7 bis) se monte sur la fin d'une scène, reste un instant plein cadre,
+     puis s'en va vers la droite et découvre la scène suivante ; aucun texte. Couleurs du drapeau lui-même
+     (docs/canon/couleurs-symboles.md : éléments dérivés du drapeau). */
   var FL = { red: '#C90505', navy: '#0E347F' }, FI = .75, FO = .9, RW = 240, BH = H / 3;
   var flag = el('g', { style: 'display:none' }, svg);
   var fband = [el('g', {}, flag), el('g', {}, flag), el('g', {}, flag)];
   el('rect', { y: -1, width: W, height: BH + 2, fill: FL.navy }, fband[0]);
   el('rect', { y: BH, width: W, height: BH, fill: '#FFFFFF' }, fband[1]);
   el('rect', { y: 2 * BH - 1, width: W, height: BH + 2, fill: FL.navy }, fband[2]);
-  var cnum = el('g', {}, fband[1]), ctit = el('g', {}, fband[1]);
-  var cnumT = txt(cnum, '', RW + 70, BH + 182, { font: FD, size: 176, weight: 800, fill: FL.red });
-  var ctitT = txt(ctit, '', 0, BH + 158, { font: FD, size: 92, weight: 800, fill: FL.navy });
   var fred = el('rect', { width: RW, height: H, fill: FL.red }, flag);
-  var flagFor = null;
-  function drawFlag(u, sc, n) {
+  function drawFlag(u, sc) {
     flag.style.display = '';
-    if (flagFor !== sc) {
-      flagFor = sc;
-      cnumT.firstChild.textContent = String(n).padStart(2, '0');
-      ctitT.firstChild.textContent = ((X[sc.id] || {}).chapter || '');
-      ctitT.firstChild.setAttribute('x', RW + 70 + cnumT.getComputedTextLength() + 34);
-    }
-    var tx = [0, 0, 0], ry = 0, rx = 0, tn = 0, tt = 0;
+    var tx = [0, 0, 0], ry = 0, rx = 0;
     if (u < 0) {
       var p = (u + FI) / FI;
       tx = tx.map(function (z, k) { return -W * (1 - E.io(P(p, k * .13, .62))); });
       ry = -H * (1 - E.out(P(p, .32, .68)));
-    } else if (u < sc.lead) {
-      tn = E.out(P(u, .05, .45)); tt = E.out(P(u, .18, .5));
-    } else {
+    } else if (u >= sc.lead) {
       var q = (u - sc.lead) / FO;
-      tn = tt = 1;
       tx = tx.map(function (z, k) { return W * E.io(P(q, k * .1, .62)); });
       rx = (W + 20) * E.io(P(q, .22, .78));
     }
     fband.forEach(function (b, k) { b.setAttribute('transform', 'translate(' + tx[k].toFixed(1) + ',0)'); });
     fred.setAttribute('transform', 'translate(' + rx.toFixed(1) + ',' + ry.toFixed(1) + ')');
-    var drift = u > 0 ? -8 * Math.min(u, sc.lead) / sc.lead : 0;
-    set(cnum, { opacity: tn.toFixed(3), transform: 'translate(' + drift.toFixed(1) + ',' + (40 * (1 - tn)).toFixed(1) + ')' });
-    set(ctit, { opacity: tt.toFixed(3), transform: 'translate(' + (drift + 60 * (1 - tt)).toFixed(1) + ',0)' });
   }
 
   var START = [], DUR = 0, NUM = {};
@@ -754,9 +739,9 @@
     var nx = i + 1 < SC.length && SC[i + 1].chap ? i + 1 : -1;
     stage.removeAttribute('transform');
     if (nx > 0 && t >= START[nx] - FI) {
-      drawFlag(t - START[nx], SC[nx], SC[nx].chap);
+      drawFlag(t - START[nx], SC[nx]);
       stage.setAttribute('transform', 'translate(' + (-60 * E.inn(P(t, START[nx] - FI, FI))).toFixed(1) + ',0)');
-    } else if (SC[i].chap && t < START[i] + SC[i].lead + FO) drawFlag(t - START[i], SC[i], SC[i].chap);
+    } else if (SC[i].chap && t < START[i] + SC[i].lead + FO) drawFlag(t - START[i], SC[i]);
     else flag.style.display = 'none';
   }
 

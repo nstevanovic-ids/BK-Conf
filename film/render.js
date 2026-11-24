@@ -8,6 +8,8 @@
      --fps 30             images par seconde
      --crf 20             qualité x264
      --out <fichier.mp4>  défaut : portail/videos/explainer-<lang>.mp4
+     --data               au lieu du film : chapitres et texte pour la page du portail (portail/data/film.json)
+                          et image d'attente (portail/videos/explainer-<lang>.jpg, --poster 3.5 secondes)
      --stills 3,law:20    au lieu du film, des images PNG à ces instants (secondes, ou scène:secondes après
                           son carton), dans --dir (défaut film/stills/)
    Le dépôt est servi par un petit serveur local ; rien ne sort de la machine. */
@@ -37,6 +39,29 @@ function serve() {
   return new Promise(r => srv.listen(0, '127.0.0.1', () => r(srv)));
 }
 
+/* Texte du film, chapitre par chapitre, tel qu'il passe à l'écran (accessibilité, recherche) ;
+   *mise en valeur* retirée. Une phrase en titre et son détail font un paragraphe. */
+function transcript(T, id, peuples) {
+  const J = a => (Array.isArray(a) ? a : [a]).join(' '), S = x => x.replace(/\*/g, '');
+  const para = p => { let h = S(J(p[0])); if (!/[.!?:,]$/.test(h)) h += '.'; return p[1] ? h + ' ' + S(J(p[1])) : h; };
+  const end = x => /[.!?]$/.test(x) ? x : x + '.';
+  const t = T[id];
+  switch (id) {
+    case 'intro': return [end(T.title), `${t.motto}: ${end(t.mottoEn)}`];
+    case 'states': return [S(J(t.l1)) + ', ' + S(J(t.l2)) + '.', para([t.l3]), para(t.terr), para(t.city) + ' ' +
+      Object.values(t.caps).map(c => c.join(', ')).join('; ') + '.', para(t.mun), para(t.sov) + ' ' + t.frozen];
+    case 'peoples': return [t.head + ': ' + Object.values(peuples).map(p => `${p.name} (${p.en})`).join(', ') + '.',
+      para(t.choice), para(t.free), para(t.commune), para(t.comm), t.mottoCap + ': ' + t.mottos.join(', ') + '.'];
+    case 'institutions': return t.say.map(para);
+    case 'law': return [para(t.k), para(t.id), para(t.five), para(t.six), para(t.alarm) + ' ' + t.flow.join(' → ') + '.', t.note];
+    case 'democracy': return [para(t.ref), para(t.ini), para(t.dbl), para(t.sun)];
+    case 'language': return [para(t.three) + ' ' + t.std.map((x, i) => `${x[0]} (${x[1]}): ${t.sabor[i]}`).join('; ') + '.', para(t.abc), para(t.cyr)];
+    case 'together': return t.items.map(i => end(J(i))).concat([end(S(J(t.end)))]);
+    case 'symbols': return [para(t.civil), para(t.state), para(t.lion), `${t.motto}: ${end(t.mottoEn)}`];
+  }
+  return [];
+}
+
 (async () => {
   const srv = await serve(), port = srv.address().port;
   const b = await chromium.launch({args: ['--no-sandbox', '--font-render-hinting=none']});
@@ -50,7 +75,21 @@ function serve() {
   const svg = await page.$('#film');
   const shot = async t => { await page.evaluate(t => FILM.seek(t), t); return svg.screenshot({type: 'png'}); };
 
-  if (A.stills) {
+  if ('data' in A) {
+    /* page du portail : chapitres, texte du film et image d'attente (portail/data/film.json, videos/explainer-<lang>.jpg) */
+    const T = await page.evaluate(l => TXT[l], LANG), sc = await page.evaluate(() => FILM.scenes());
+    const peuples = JSON.parse(fs.readFileSync(path.join(ROOT, 'portail', 'data', 'peuples.json'), 'utf8'));
+    const poster = path.join(ROOT, 'portail', 'videos', `explainer-${LANG}.jpg`);
+    await page.evaluate(t => FILM.seek(t), +(A.poster || 3.5));
+    fs.writeFileSync(poster, await svg.screenshot({type: 'jpeg', quality: 86}));
+    const df = path.join(ROOT, 'portail', 'data', 'film.json');
+    const all = fs.existsSync(df) ? JSON.parse(fs.readFileSync(df, 'utf8')) : {};
+    all[LANG] = {src: `videos/explainer-${LANG}.mp4`, poster: `videos/explainer-${LANG}.jpg`, dur: Math.round(dur * 10) / 10,
+      chapters: sc.map(o => ({id: o.id, n: o.chap, title: o.chap ? T[o.id].chapter : T.title, t: Math.round(o.start * 10) / 10,
+        text: transcript(T, o.id, peuples)}))};
+    fs.writeFileSync(df, JSON.stringify(all, null, 1) + '\n');
+    console.log(df + '\n' + poster);
+  } else if (A.stills) {
     const dir = path.resolve(A.dir || path.join(__dirname, 'stills'));
     fs.mkdirSync(dir, {recursive: true});
     /* un instant = secondes du film, ou scène:secondes dans la scène (après son carton) */
