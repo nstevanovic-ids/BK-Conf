@@ -8,7 +8,11 @@ priment, `docs/lot1/MOTEUR.md`, `docs/lot1/MESURES.md`, `docs/lot1/CHAINES.md`, 
 `docs/lot2/MESURES.md`, les quatre ADR du 2026-11-23 ; sur `claude/proto-tour-2` (dc71255) : `proto/sabor/`
 (code, `build.py`, `NOTES.md`, `strings-new.json`) et `proto/critique-sabor.md`.
 
-**Rien n'est codé pour le lot 3.** Ce plan attend la validation de l'auteur.
+**Validé par l'auteur le 24 novembre 2026 (« go »)** : toutes les recommandations du plan sont retenues, y
+compris le point 9 (lien dans la marge des articles qui fondent une règle) ; les chaînes proposées sont
+livrées telles quelles. Cause trouvée en écrivant : les noms d'organes du point 4 sont remis au nom
+središñi par `scripts/textes.py merge` lui-même (liste `NAMES`), d'où la correction de l'outil avec les
+chaînes.
 
 ## Règles de la session
 
