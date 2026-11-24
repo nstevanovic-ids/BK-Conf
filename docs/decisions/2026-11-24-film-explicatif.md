@@ -44,7 +44,7 @@ transition au drapeau sans numéro ni titre de chapitre.
 7. **Données** : `portail/data/film.json` (chapitres, instants, texte, chemins de la vidéo et de l'image
    d'attente), généré par `node film/render.js --data`, **ne pas éditer** ; chargé par la route
    (`DATA_ROUTE`), publié (`DATA_FILES`), injecté dans le fichier unique (`EXPLAINER`), chemins préfixés comme
-   ceux des films d'États. La vidéo (`portail/videos/explainer-en.mp4`, environ 16 Mo) et son image d'attente
+   ceux des films d'États. La vidéo (`portail/videos/explainer-en.mp4`, 7,5 Mo) et son image d'attente
    (`explainer-en.jpg`) sont versées et copiées par le déploiement Pages ; le fichier unique les lie.
 
 ## Conséquences
