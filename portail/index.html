@@ -4314,6 +4314,18 @@ function renderRoute(){
   const done=()=>{if(named)named.style.viewTransitionName='';if(_shown===h)delete root.dataset.vt;};
   vt.finished.then(done,done);
 }
+/* Titre de l'onglet, à chaque page : son titre (h1) et la marque ; l'accueil, la marque et « Official
+   portal ». Lu après l'observateur de #app (titre traduit, cyrillique appliqué). Le lecteur, la carte et
+   la page des votes posent le leur en se montant (adresse plus fine : article, État, commune, cas). */
+const OWN_TITLE=/^#\/(constitution|map|votes)(\/|$)/;
+function tabTitle(){
+  const h=location.hash||'#/home';
+  if(OWN_TITLE.test(h))return;
+  const h1=document.querySelector('#app h1'), home=h==='#/home'||h==='#/';
+  const page=!home&&h1?h1.innerText.replace(/\s+/g,' ').trim():'';
+  const t=page?page+' · '+T('brand'):T('brand')+' · '+T('h_official_portal');
+  document.title=cyrOn()?cyrText(t,LANG):t;
+}
 function renderNow(){
   const h=location.hash||'#/home';
   const app=document.getElementById('app');
@@ -4358,6 +4370,7 @@ function renderNow(){
   if(h.startsWith('#/constitution')&&window.CX)CX.mounted();
   if(h.startsWith('#/map')&&window.MAPX)MAPX.mounted();
   if(h.startsWith('#/votes')&&window.VOTES)VOTES.mounted();
+  setTimeout(tabTitle,0);   // après l'observateur : titre traduit et converti
   setupReveal();
   requestAnimationFrame(()=>{
     setupParallax();

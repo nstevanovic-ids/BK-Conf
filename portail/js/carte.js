@@ -27,7 +27,6 @@ var MAPX = (function () {
   const sc = s => cyrOn() ? cyrText(String(s), LANG) : String(s);
   /* fichier unique : ni communes ni MapLibre (son worker exige http(s)) */
   const EXPORT = () => typeof CA_EXPORT !== 'undefined';
-  const TITLE0 = document.title;
 
   const TYPE = { T: N('Territorial state'), F: N('Confederal territory'), M: N('Confederal autonomous municipality') };
   const MODES = ['pop', 'dens', 'gdp'];
@@ -678,7 +677,6 @@ var MAPX = (function () {
     GLP = null; S.level = 0;
     S.cur = null; S.hov = null;
     const tip = $('caTip'); if (tip) tip.hidden = true;
-    if (document.title !== TITLE0 && !$('ca')) document.title = TITLE0;
   }
 
   /* ---------------------------------------------------------------- couches institutionnelles

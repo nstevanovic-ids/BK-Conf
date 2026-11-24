@@ -21,7 +21,6 @@ var VOTES = (function () {
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const MOB = matchMedia('(max-width:760px)');
   const D3F = ['vendor/d3-dispatch.min.js', 'vendor/d3-quadtree.min.js', 'vendor/d3-timer.min.js', 'vendor/d3-force.min.js'];
-  const TITLE0 = document.title;
   const O3 = ['f', 'x', 'a'];                          // colonnes : pour, abstention, contre
   const NEXT = { f: 'a', a: 'x', x: 'f' };
   const MARK = { pass: '✓', fail: '✕', hold: '‖', wait: '…' };
@@ -265,7 +264,6 @@ var VOTES = (function () {
     if (rz) rz.disconnect(); rz = null;
     if (ac) ac.abort(); ac = null;
     root = null; measured = false; sel = null; pinned = false;
-    if (document.title !== TITLE0 && !$('vo')) document.title = TITLE0;
   }
   /* langue ou écriture : les citations de la langue chargées, la page est redessinée à l'identique (la
      composition est dans l'adresse), à la même hauteur */
